@@ -1,0 +1,83 @@
+@import "globalPartials/variables.scss";
+@import "globalPartials/generalClasses.scss";
+
+body {
+  font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol {
+  margin-bottom: 1em;
+}
+
+p:last-child,
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+h1.title {
+  font-size: 2.25rem;
+}
+h2.title {
+  font-size: 1.5rem;
+}
+
+.Content {
+  overflow: hidden;
+}
+
+.content {
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+.logo-project .firstSymbol {
+  font-family: 'AnticSlab', sans-serif;
+  font-size: 1.5rem;
+}
+.logo-project .text {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.25rem;
+}
+
+.Article,
+.FirstPage .Article {
+  padding-top: 2.875rem;
+  padding-bottom: 2.875rem;
+}
+
+
+@media screen and (max-width: $br-point-tabletUpper) {
+  .Article .section {
+    margin-bottom: 1rem;
+  }
+  .Article .section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .content {
+    width: 65.625rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .Article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Article > * {
+    width: 43.81%;
+  }
+}
