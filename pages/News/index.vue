@@ -3,7 +3,14 @@
 <template>
   <div>
     <main-menu/>
-    <main></main>
+    <main class="Content">
+      <h1 class="title Title">
+        <span class="content">News</span>
+      </h1>
+      <div class="content">
+        News content
+      </div>
+    </main>
     <main-footer/>
   </div>
 </template>
