@@ -17,10 +17,16 @@
   padding-right: 1rem;
   padding-bottom: 0.5rem;
   padding-left:  1rem;
-  color: $white;
+  color: $black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $black;
   border-radius: 0.375rem;
   cursor: pointer;
   text-decoration: none;
+}
+.button.bg_red {
+  border-color: $red;
 }
 
 .alert {
@@ -50,7 +56,6 @@
 }
 .alert.info::before {
   background-image: url(../../media/img/info.svg);
-  // background-color: $lime;
 }
 
 .i,
@@ -67,13 +72,16 @@
 
 .bg_black {
   background-color: $black;
-  color: $white;
 }
 .bg_red {
   background-color: $red;
 }
 .bg_grey {
   background-color: $grey;
+}
+.bg_black,
+.bg_red {
+  color: $white;
 }
 .red {
   color: $red;
