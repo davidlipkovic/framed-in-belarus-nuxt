@@ -1,6 +1,12 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
-.Partners,.form.end {
+.form.content {
+  margin-top: 1rem;
+}
+.form.content:first-child {
+  margin-top: 0;
+}
+.form.end {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
