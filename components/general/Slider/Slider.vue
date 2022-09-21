@@ -11,6 +11,13 @@
     >
       <img
         :src="`../assets/media/img/swiper/${i+1}.jpg`"
+        alt="Slider item"
+      >
+      <source 
+        :srcset="`../assets/media/img/swiper/${i+1}.jpg, @/assets/media/img/swiper/${i+1}@2x.jpg 2x, @/assets/media/img/swiper/${i+1}@3x.jpg 3x`"
+      >
+      <source 
+        :srcset="`../assets/media/img/swiper/${i+1}.webp, @/assets/media/img/swiper/${i+1}@2x.webp 2x, @/assets/media/img/swiper/${i+1}@3x.webp 3x`"
       >
     </picture>
     <div class="Slider-switcher">
