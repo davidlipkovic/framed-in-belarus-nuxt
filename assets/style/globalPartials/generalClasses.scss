@@ -28,6 +28,7 @@
   padding-right: 1.313rem;
   padding-bottom: 1.125rem;
   padding-left: 2.625rem;
+  margin-bottom: 1.125rem;
   position: relative;
   border: 1px solid $grey;
   border-radius: 0.75rem;  
@@ -48,8 +49,8 @@
   border-color: $lime;
 }
 .alert.info::before {
-  // background-image: url(../../media/img/info.svg);
-  background-color: $lime;
+  background-image: url(../../media/img/info.svg);
+  // background-color: $lime;
 }
 
 .i,
