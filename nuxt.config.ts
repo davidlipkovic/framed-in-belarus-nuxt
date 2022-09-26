@@ -29,5 +29,5 @@ export default defineNuxtConfig({
         '@/assets/style/general.scss',
     ],
 
-    modules: ['@nuxtjs/tailwindcss']
+    // modules: ['@nuxtjs/tailwindcss']
 })
