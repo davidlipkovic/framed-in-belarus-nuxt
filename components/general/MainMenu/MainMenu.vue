@@ -21,13 +21,13 @@
 <!--            Gallery-->
 <!--          </nuxt-link>-->
           <nuxt-link
-              to="News"
+              to="/News"
               class="Burger-menu-item"
           >
             News
           </nuxt-link>
           <nuxt-link
-            to="Contacts"
+            to="/Contacts"
             class="Burger-menu-item"
           >
             Contacts
