@@ -29,35 +29,6 @@
   border-color: $red;
 }
 
-.alert {
-  padding-top: 1.125rem;
-  padding-right: 1.313rem;
-  padding-bottom: 1.125rem;
-  padding-left: 2.625rem;
-  margin-bottom: 1.125rem;
-  position: relative;
-  border: 1px solid $grey;
-  border-radius: 0.75rem;  
-}
-.alert::before {
-  content: '';
-  width: 1.125rem;
-  height: 1.125rem;
-  display: block;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0%;
-  position: absolute;
-  left: 1.313rem;
-  top: 1.375rem;
-}
-.alert.info {
-  border-color: $lime;
-}
-.alert.info::before {
-  background-image: url(../../media/img/info.svg);
-}
-
 .i,
 .em {
   font-style: italic;
