@@ -8,6 +8,7 @@
     </h1>
     <article class="content">
       <div class="alert info">
+        <img alt="Info" src="../../../assets/media/img/info.svg" class="alert_icon">
         <p>On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.</p>
         <p>By taking part in the project you become an "ambassador" of a prisoner and will receive a "portrait" of a political prisoner in Belarus. All fates are equally important in this project, and we would like to record all stories, so each political prisoner is embroidered only once. If we don't have your character's pattern ready yet, or he/she is already being embroidered, we will offer you another person. Rufina is the sole creator of all the pattern work, so the process of creating a new scheme can take 2-3 months.
         </p>
