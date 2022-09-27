@@ -1,29 +1,6 @@
 @import "globalPartials/variables.scss";
 @import "globalPartials/generalClasses.scss";
 
-body {
-  font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
-  color: $black;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul,
-ol {
-  margin-bottom: 1em;
-}
-
-p:last-child,
-ul:last-child,
-ol:last-child {
-  margin-bottom: 0;
-}
-
 h1.title {
   font-size: 2.25rem;
 }
@@ -35,19 +12,53 @@ h2.title {
   overflow: hidden;
 }
 
+.Content a {
+  text-decoration: underline;
+}
+
+.Title {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  margin-top: 0;
+  font-size: 3rem;
+  text-align: center;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: $grey;
+  background-image: url(../media/img/bg_title.jpg);
+  background-size: cover;
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+}
+.Title::before {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100vw;
+  height: 100%;
+  content: '';
+  background-color: rgba(255,255,255,85%);
+}
+
 .content {
+  display: block;
   margin-right: 0.625rem;
   margin-left: 0.625rem;
 }
 
-.logo-project .firstSymbol {
-  font-family: 'AnticSlab', sans-serif;
-  font-size: 1.5rem;
-}
-.logo-project .text {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.25rem;
-}
+.logo-project {
+  .firstSymbol {
+    font-family: 'AnticSlab', sans-serif;
+    font-size: 1.5rem;
+  }
+  .text {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.25rem;
+  }
+} 
 
 .Article,
 .FirstPage .Article {
@@ -57,11 +68,13 @@ h2.title {
 
 
 @media screen and (max-width: $br-point-tabletUpper) {
-  .Article .section {
-    margin-bottom: 1rem;
-  }
-  .Article .section:last-child {
-    margin-bottom: 0;
+  .Article {
+    .section {
+      margin-bottom: 1rem;
+    }
+    .section:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

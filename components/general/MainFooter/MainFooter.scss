@@ -92,13 +92,18 @@
 
 /* Desktop */
 @media screen and (min-width: $br-point-desktop) {
-  /* .Info-menu {
+  .Info-menu {
     width: 70%;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
-  .Info-menu-group .Info-menu-group:first-child {
-    width: 70%;
-  } */
+  .Info-menu-group {
+    .Info-menu-group:first-child {
+      width: 70%;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
 }

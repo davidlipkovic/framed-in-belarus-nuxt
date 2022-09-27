@@ -92,30 +92,29 @@
   top: 0;
 }
 
-// This should be uncommented when we add items to the menu !!!
-// @media screen and (min-width: $br-point-tablet) {
-.Burger-button {
-  display: none;
+ @media screen and (min-width: $br-point-tablet) {
+  .Burger-button {
+    display: none;
+  }
+  .Burger-menu,
+  .Burger-menu-group {
+    display: inline-block;
+  }
+  .Burger-menu > *,
+  .Burger-menu-item {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 1rem;
+  }
+  .Burger-menu-item {
+    color: $white;
+  }
+  .Burger-menu-group:last-child,
+  .Burger-menu-item:last-child {
+    margin-bottom: auto;
+    margin-right: 0;
+  }
 }
-.Burger-menu,
-.Burger-menu-group {
-  display: inline-block;
-}
-.Burger-menu > *,
-.Burger-menu-item {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 1rem;
-}
-.Burger-menu-item {
-  color: $white;
-}
-.Burger-menu-group:last-child,
-.Burger-menu-item:last-child {
-  margin-bottom: auto;
-  margin-right: 0;
-}
-// }
 
 @media screen and (min-width: $br-point-desktop) {
   .Burger-menu {

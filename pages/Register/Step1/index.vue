@@ -19,7 +19,8 @@
         <option value="1950">1950</option>
         <option value="2015">2015</option>
       </select>
-      <textarea>Why did you decide to join the project?</textarea>
+      <textarea name="reason" id="reason">Why did you decide to join the project?</textarea>
+      <textarea name="howFind" id="howFind">How did you find out about the project?</textarea>
       <form-end/>
     </form>
   </div>
