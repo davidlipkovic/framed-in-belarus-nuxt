@@ -44,10 +44,20 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
-              <!-- <a href="#" class="Info-menu-item">Gallery</a>
-              <a href="#" class="Info-menu-item">News</a>
-              <a href="#" class="Info-menu-item">Contacts</a>
-              <a href="#" class="Info-menu-item">FAQ</a> -->
+              <!-- <a href="#" class="Info-menu-item">Gallery</a>-->
+              <nuxt-link
+              to="/news"
+              class="Info-menu-item"
+              >
+                News
+              </nuxt-link>
+              <nuxt-link
+                to="/about_us"
+                class="Info-menu-item"
+              >
+                About us
+              </nuxt-link>
+              <!--<a href="#" class="Info-menu-item">FAQ</a> -->
             </div>
             <div class="Info-menu-group">
               <!-- <a href="#" class="Info-menu-item Login">Log in</a> -->
