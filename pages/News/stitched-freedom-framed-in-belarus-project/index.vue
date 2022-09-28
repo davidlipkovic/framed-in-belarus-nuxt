@@ -19,7 +19,6 @@
           <p>All materials will be provided.</p>
           <p>Please, register in advance through the <a href="https://forms.gle/pGwSyS8EjhHgtrk59">APPLICATION FORM</a>.</p>
           <p>More information about the Survival Kit program <a href="https://lcca.lv/en/survival-kit-13/programme/1-october--stitched-freedom---framed-in-belarus--project/">here</a>.</p>
-          <Slider/>
         </div>
       </article>
     </main>
@@ -30,13 +29,11 @@
 <script>
   import MainFooter from '@/components/general/MainFooter'
   import MainMenu from '@/components/general/MainMenu'
-  import Slider from '@/components/general/Slider'
   
   export default {
     components: {
       MainFooter,
       MainMenu,
-      Slider
     },
   }
   </script>

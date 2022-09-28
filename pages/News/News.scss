@@ -1,1 +1,14 @@
 @import "../../assets/style/globalPartials/variables.scss";
+
+.news {
+  .img {
+    max-width: 539px;
+    height: auto;
+  }
+  .Slider {
+    width: 100%;
+    .bg_red {
+      display: none;
+    }
+  }
+}

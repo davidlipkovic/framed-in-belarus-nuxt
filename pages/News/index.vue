@@ -9,7 +9,7 @@
       </h1>
       <div class="Article content">
         <div class="section news">
-          <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/news.png"/>
+          <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/the-little-bird-must-be-caught.jpg"/>
           <h2 class="title">THE LITTLE BIRD MUST BE CAUGHT</h2>
           <p>The group exhibition "The little bird must be caught" presents a part of the project #FramedinBelarus on the 13th edition of the international contemporary art festival Survival Kit, which takes place inside an old bank building, in the heart of Dome Square (Pils iela 23, Riga) from 3rd of September to the 16th of October. </p>
           <nuxt-link
