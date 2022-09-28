@@ -16,8 +16,8 @@
           <p>Contemporary Art Festival Survival Kit 13 “The Little Bird must be Caught” curated by iLiana Fokianaki, in Riga, September 2022.</p>
           <p>Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art</p>
           <p>Read more: <a href="https://lcca.lv/en/survival-kit/">lcca.lv</a> / <a href="https://www.facebook.com/survivalkit.lv">Facebook</a> / <a href="https://www.instagram.com/latviancentre4contemporaryart">Instagram</a></p>
-          <!-- <img class="img" alt="Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art" src="../../../assets/media/img/the-little-bird-must-be-caught.jpg"> -->
-          <Slider/>
+          <img class="img" alt="Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art" src="../../../assets/media/img/the-little-bird-must-be-caught.jpg">
+          <!-- <Slider/> -->
         </div>
       </article>
     </main>
