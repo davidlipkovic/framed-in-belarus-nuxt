@@ -37,10 +37,10 @@
             {{ $t('linkNews') }}
           </nuxt-link>
           <nuxt-link
-            to="/Contacts"
+            to="/AboutUs"
             class="Burger-menu-item"
           >
-            {{ $t('linkContacts') }}
+            {{ $t('linkAboutUs') }}
           </nuxt-link>
 <!--          <nuxt-link -->
 <!--            to="FAQ"-->
