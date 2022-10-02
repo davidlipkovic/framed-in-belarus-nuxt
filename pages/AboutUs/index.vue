@@ -1,30 +1,30 @@
-<style src="./Contact.scss" lang="scss"></style>
+<style src="./AboutUs.scss" lang="scss"></style>
 
 <template>
   <main class="Content">
     <h1 class="title Title">
         <span class="content">
-          {{ $t('contactsPageTitle') }}
+          {{ $t('aboutUsPageTitle') }}
         </span>
       </h1>
       <div class="content">
         <h2 class="title">
-          {{ $t('contactsPage1') }}
+          {{ $t('aboutUsPage1') }}
         </h2>
         <p>
           <strong>
-            {{ $t('contactsPage2') }}
+            {{ $t('aboutUsPage2') }}
           </strong>
-          {{ $t('contactsPage3') }}
+          {{ $t('aboutUsPage3') }}
         </p>
         <p>
-          {{ $t('contactsPage4') }}
+          {{ $t('aboutUsPage4') }}
         </p>
         <p>
           <strong>
-            {{ $t('contactsPage5') }}
+            {{ $t('aboutUsPage5') }}
           </strong>
-          {{ $t('contactsPage6') }}
+          {{ $t('aboutUsPage6') }}
         </p>
         <ul>
           <li>
@@ -39,7 +39,7 @@
           </li>
         </ul>
         <p>
-          {{ $t('contactsPage7') }}
+          {{ $t('aboutUsPage7') }}
           <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
         </p>
       </div>
