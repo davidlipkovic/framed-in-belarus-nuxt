@@ -1,11 +1,21 @@
+<script setup>
+  const { locale, locales } = useI18n()
+  const switchLocalePath = useSwitchLocalePath()
+  const availableLocales = computed(() => {
+    return (locales.value).filter(i => i.code !== locale.value)
+  })
+</script>
+
 <style src="./MainMenu.scss" lang="scss"></style>
 
 <template>
   <input type="checkbox" id="Burger" class="Burger-checker visually-hidden">
   <header class="Header">
     <div class="content">
-      <a href="#" class="logo-project">
-        <span class="firstSymbol">#</span><span class="text">Framed in Belarus</span>
+      <a href="/" class="logo-project">
+        <span class="firstSymbol">#</span><span class="text">
+          {{ $t('title') }}
+        </span>
       </a>
       <label for="Burger" class="Burger-button" role="button" aria-role="button">
         <span class="Burger-button-item">—</span>
@@ -18,25 +28,25 @@
 <!--            to="Gallery"-->
 <!--            class="Burger-menu-item"-->
 <!--          >-->
-<!--            Gallery-->
+<!--            {{ $t('linkGallery') }}-->
 <!--          </nuxt-link>-->
           <nuxt-link
-              to="/News"
-              class="Burger-menu-item"
+            to="/News"
+            class="Burger-menu-item"
           >
-            News
+            {{ $t('linkNews') }}
           </nuxt-link>
           <nuxt-link
             to="/Contacts"
             class="Burger-menu-item"
           >
-            Contacts
+            {{ $t('linkContacts') }}
           </nuxt-link>
 <!--          <nuxt-link -->
 <!--            to="FAQ"-->
 <!--            class="Burger-menu-item"-->
 <!--          >-->
-<!--            FAQ-->
+<!--            {{ $t('linkFAQ') }}-->
 <!--          </nuxt-link>-->
         </div>
         <div class="Burger-menu-group">
@@ -44,22 +54,23 @@
 <!--            to="Login" -->
 <!--            class="Burger-menu-item Login"-->
 <!--          >-->
-<!--            Log in-->
+<!--            {{ $t('linkLogin') }}-->
 <!--          </nuxt-link> -->
           <a
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             class="Burger-menu-item button bg_red"
           >
-            Want to&nbsp;participate
+            {{ $t('participateBtnMsg') }}
           </a>
 <!--          <nuxt-link-->
-<!--            to="#"-->
-<!--            id="Lang"-->
+<!--            v-for="locale in availableLocales"-->
+<!--            :key="locale.code"-->
+<!--            :to="switchLocalePath(locale.code)"-->
 <!--            class="Burger-menu-item Lang"-->
 <!--          >-->
-<!--            ENG-->
-<!--            <img class="arrow" src="@/assets/media/img/arrow.svg">-->
+<!--            {{ locale.name }}-->
 <!--          </nuxt-link>-->
+<!--          <img class="arrow" src="@/assets/media/img/arrow.svg">-->
         </div>
       </nav>
     </div>
@@ -68,10 +79,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      showMainMenu: false
-    }
-  }
+  // data() {
+  //   return {
+  //     showMainMenu: false
+  //   }
+  // }
 }
 </script>

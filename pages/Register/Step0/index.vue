@@ -1,7 +1,6 @@
 <style src="./Step0.scss" lang="scss"></style>
 
 <template>
-  <main-menu/>
   <main class="Content">
     <h1 class="title Title">
       <span class="content">Terms of participation in the project</span>
@@ -28,19 +27,14 @@
     </article>
     <form-end/>
   </main>
-  <main-footer/>
 </template>
 
 <script>
 import FormEnd from '@/components/registration/FormEnd'
-import MainFooter from '@/components/general/MainFooter'
-import MainMenu from '@/components/general/MainMenu'
 
 export default {
   components: {
     FormEnd,
-    MainFooter,
-    MainMenu,
   },
 }
 </script>

@@ -33,7 +33,9 @@
       <div class="content Info">
         <div class="Info-project">
           <a href="#" class="logo-project">
-            <span class="firstSymbol">#</span><span class="text">Framed in Belarus</span>
+            <span class="firstSymbol">#</span><span class="text">
+              {{ $t('title') }}
+            </span>
           </a>
           <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
           <div class="Info-Project-social">
@@ -54,7 +56,9 @@
             </div>
           </div>
           <div class="Info-menu-group" style="justify-content: flex-end">
-            <a href="https://forms.gle/SKCcvWGzRkQxx2fH9" class="Info-menu-item button bg_red">Want to&nbsp;participate</a>
+            <a href="https://forms.gle/SKCcvWGzRkQxx2fH9" class="Info-menu-item button bg_red">
+              {{ $t('participateBtnMsg') }}
+            </a>
           </div>
         </nav>
       </div>

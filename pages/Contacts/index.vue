@@ -1,40 +1,52 @@
 <style src="./Contact.scss" lang="scss"></style>
 
 <template>
-  <main-menu/>
   <main class="Content">
     <h1 class="title Title">
-        <span class="content">About us</span>
+        <span class="content">
+          {{ $t('contactsPageTitle') }}
+        </span>
       </h1>
       <div class="content">
         <h2 class="title">
-          Stitchit and Collective
+          {{ $t('contactsPage1') }}
         </h2>
-        <p><strong>Stitchit</strong> is an art group created in 2021 by visual artist Rufina Bazlova and curator Sofia Tocar. </p>
-        <p>The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship.</p>
-        <p><strong>Collective</strong> means all people, who take part in a project and activities organized by Stitchit.</p>
+        <p>
+          <strong>
+            {{ $t('contactsPage2') }}
+          </strong>
+          {{ $t('contactsPage3') }}
+        </p>
+        <p>
+          {{ $t('contactsPage4') }}
+        </p>
+        <p>
+          <strong>
+            {{ $t('contactsPage5') }}
+          </strong>
+          {{ $t('contactsPage6') }}
+        </p>
         <ul>
           <li>
-            <a href="https://www.instagram.com/rufinabazlova/">Facebook</a>
+            <a href="https://www.facebook.com/rufinartist">
+              {{ $t('linkFacebook') }}
+            </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/rufinartist">Instagram</a>
+            <a href="https://www.instagram.com/rufinabazlova/">
+              {{ $t('linkInstagram') }}
+            </a>
           </li>
         </ul>
-        <p>If you are an organization and interested in hosting the project, can help us with promotion, want to organize a workshop or any other form of collaboration please contact us by <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.</p>
+        <p>
+          {{ $t('contactsPage7') }}
+          <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
+        </p>
       </div>
   </main>
-  <main-footer/>
 </template>
 
 <script>
-import MainFooter from '@/components/general/MainFooter'
-import MainMenu from '@/components/general/MainMenu'
-
 export default {
-  components: {
-    MainFooter,
-    MainMenu,
-  },
 }
 </script>

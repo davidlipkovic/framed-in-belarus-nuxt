@@ -1,8 +1,7 @@
 <style src="./Step1.scss" lang="scss"></style>
 
 <template>
-  <main-menu/>
-  <div class="Content">
+  <main class="Content">
     <form class="content">
       <h1 class="title">Sign up</h1>
       <input type="text" name="name" id="name" placeholder="Name">
@@ -23,20 +22,15 @@
       <textarea name="howFind" id="howFind">How did you find out about the project?</textarea>
       <form-end/>
     </form>
-  </div>
-  <main-footer/>
+  </main>
 </template>
 
 <script>
 import FormEnd from '@/components/registration/FormEnd'
-import MainFooter from '@/components/general/MainFooter'
-import MainMenu from '@/components/general/MainMenu'
 
 export default {
   components: {
-    FormEnd,
-    MainFooter,
-    MainMenu,
+    FormEnd
   },
 }
 </script>
