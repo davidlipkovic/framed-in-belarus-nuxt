@@ -29,5 +29,27 @@ export default defineNuxtConfig({
         '@/assets/style/general.scss',
     ],
 
-    // modules: ['@nuxtjs/tailwindcss']
+    modules: [
+        '@nuxtjs/i18n',
+        '@nuxt/image-edge',
+        // '@nuxtjs/tailwindcss'
+    ],
+
+    i18n: {
+        locales: [
+            {
+                code: 'en',
+                file: 'en.json',
+                name: 'ENG'
+            },
+            {
+                code: 'ru',
+                file: 'ru.json',
+                name: 'RU'
+            }
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'en'
+    }
 })
