@@ -3,23 +3,16 @@
 <template>
   <div class="Slider" id="sliderMain">
     <div class="bg_red"></div>
-    <!--      <source srcset="@/assets/media/img/swiper/1.jpg, @/assets/media/img/swiper/1@2x.jpg 2x, @/assets/media/img/swiper/1@3x.jpg 3x">-->
-    <picture
-      v-for="(slide, i) in slides"
-      class="Slider-item"
-      :class="i === index? 'active' : ''"
-    >
-      <source 
-        :srcset="`../assets/media/img/swiper/${i+1}.jpg, @/assets/media/img/swiper/${i+1}@2x.jpg 2x, @/assets/media/img/swiper/${i+1}@3x.jpg 3x`"
-      >
-      <source 
-        :srcset="`../assets/media/img/swiper/${i+1}.webp, @/assets/media/img/swiper/${i+1}@2x.webp 2x, @/assets/media/img/swiper/${i+1}@3x.webp 3x`"
-      >
-      <img
-        :src="`../assets/media/img/swiper/${i+1}.jpg`"
-        alt=""
-      >
-    </picture>
+      <nuxt-picture
+        v-for="(slide, i) in slides"
+        :src="`../../assets/media/img/slider/${i+1}.jpg`"
+        width="1374"
+        height="1374"
+        sizes="xs:458px md:916px lg:1374px"
+        class="Slider-item"
+        :class="i === index? 'active' : ''"
+        :alt="`${slide.alt}`"
+      />
     <div class="Slider-switcher">
       <button
         id="btn-prev"
@@ -36,7 +29,6 @@
           @click="updateIndex(i)"
         >
         </button>
-<!--        <button class="Slider-switcher-item active"></button>-->
       </div>
       <button
         id="btn-next"
