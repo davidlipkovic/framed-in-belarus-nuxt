@@ -33,7 +33,8 @@ a.GoToNews {
   position: absolute;
   top: -0.875rem;
   font-size: 0.875rem;
-  text-decoration: none;
+  color: $black;
+  font-weight: 400;
   background: url(../../assets/media/img/arrow_back.svg) 0% 0% no-repeat;
 }
 
