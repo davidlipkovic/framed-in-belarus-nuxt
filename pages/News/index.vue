@@ -2,14 +2,14 @@
 
 <template>
   <main class="Content">
-    <h1 class="title Title">
+    <h1 class="Title">
       <span class="content">
         {{ $t('newsPageTitle') }}
       </span>
     </h1>
     <div class="Article content">
       <div class="section news">
-        <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/news/the-little-bird-must-be-caught_title.jpg"/>
+        <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/news/the-little-bird-must-be-caught/title.jpg"/>
         <h2 class="title">
           {{ $t('newsPageArticle1Title') }}
         </h2>
