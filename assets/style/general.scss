@@ -11,10 +11,13 @@ h2.title {
 .Content {
   overflow: hidden;
   min-height: calc(100vh - 33.5rem);
-}
-
-.Content a {
-  text-decoration: underline;
+  a {
+    color: $blue;
+    font-weight: 600;
+  }
+  .button {
+    margin-right: 1.125rem;
+  }
 }
 
 .Title {
@@ -22,8 +25,7 @@ h2.title {
   padding-top: 4rem;
   padding-bottom: 5rem;
   margin-top: 0;
-  font-size: 3rem;
-  text-align: center;
+  margin-bottom: 3rem;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-color: $grey;
@@ -32,6 +34,10 @@ h2.title {
   .content {
     position: relative;
     z-index: 2;
+    font-size: 3rem;
+  }
+  h1 {    
+    text-align: center;
   }
 }
 .Title::before {
@@ -61,23 +67,8 @@ h2.title {
   }
 }
 
-.Article,
-.FirstPage .Article {
-  padding-top: 2.875rem;
-  padding-bottom: 2.875rem;
-}
 
 
-@media screen and (max-width: $br-point-tabletUpper) {
-  .Article {
-    .section {
-      margin-bottom: 1rem;
-    }
-    .section:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
 
 /* Desktop */
 @media screen and (min-width: $br-point-desktop) {
@@ -86,16 +77,9 @@ h2.title {
   }
 
   .content {
-    width: 65.625rem;
+    width: 69.375rem;
     margin-left: auto !important;
     margin-right: auto !important;
-  }
-  .Article {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .Article > * {
-    width: 43.81%;
+    font-size: 0.875rem;
   }
 }

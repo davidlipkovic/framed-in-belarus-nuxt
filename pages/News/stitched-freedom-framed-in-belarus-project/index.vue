@@ -3,10 +3,17 @@
 <template>
   <main class="Content">
     <article>
-      <h1 class="Title">
-        <span class="content">STITCHED FREEDOM: “FRAMED IN BELARUS” PROJECT</span>
-      </h1>
-      <div class="content">
+      <div class="Title">
+        <div class="content">
+          <h1 class="content News">STITCHED FREEDOM: “FRAMED IN&nbsp;BELARUS” PROJECT</h1>
+          <nuxt-link
+            to="/News"
+            class="GoToNews">
+            {{ $t('GoToNews') }}
+          </nuxt-link>
+        </div>
+      </div>
+      <div class="News content">
         <p class="b">SURVIVAL KIT 13 / PILS 23, RIGA / 1-2.10.2022</p>
         <p class="b">Stitchit art group is going to lead a workshop in Riga.</p>
         <p><span class="b">On the 1st and 2nd of October at 2 pm EET</span> you are invited to participate in a <strong class="b">stitching workshop "Stitched Freedom: ‘Framed in Belarus’ project"</strong> led by art group "Stitchit" – Rufina Bazlova and Sofia Tocar. The workshop is a part of the Survival Kit festival program.</p>

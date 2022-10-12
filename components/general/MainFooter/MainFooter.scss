@@ -1,7 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
-.Partners,
-.Partners-group,
 .Info,
 .Info-project,
 .Info-menu,
@@ -9,25 +7,11 @@
   display: flex;
   flex-direction: column;
 }
-.Partners-group {
-  align-items: center;
-}
-.Partners {
-  padding-top: 3.438rem;
-  padding-bottom: 3.438rem;
-}
-.Partners-logo {
-  margin-bottom: 2.625rem;
-  .img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-}
-.Partners-logo:last-child,
 .Info-menu-item {
   margin-bottom: 0;
 }
 .Footer {
+  margin-top: 3.688rem;
   .bg_black {
     padding-top: 1.813rem;
     padding-bottom: 1.813rem;
@@ -58,21 +42,9 @@
 
 /* Tablet */
 @media screen and (min-width: $br-point-tablet) {
-  .Partners-group,
   .Info,
   .Info-menu-group {
     flex-direction: row;
-  }
-  .Partners-group {
-    justify-content: space-evenly;
-    margin-bottom: 1.5rem;
-  }
-  .Partners-group:last-child {
-    margin-bottom: 0;
-  }
-  .Partners-logo {
-    margin-top: auto;
-    margin-bottom: auto;
   }
   .Info,
   .Info-menu > .Info-menu-group:first-child,
