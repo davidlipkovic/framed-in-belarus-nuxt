@@ -10,6 +10,10 @@
   img.big {
     max-width: 100%;
   }
+  .images {
+    display: grid;
+    gap: 1.875rem; 
+  }
 }
 .Article {
   display: grid;
@@ -30,6 +34,11 @@
       margin-right: auto;
     }
   }
+  .News.content {
+    .images {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
 @media screen and (min-width: $br-point-desktop) {
   .Article {
@@ -44,6 +53,9 @@
   }
   .News.content {
     width: 57.063rem;
+    .images {
+      grid-template-columns: repeat(2, 440px);
+    }
   }
   .news {
     .title.long {
