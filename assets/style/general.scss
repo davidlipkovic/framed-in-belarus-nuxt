@@ -61,23 +61,8 @@ h2.title {
   }
 }
 
-.Article,
-.FirstPage .Article {
-  padding-top: 2.875rem;
-  padding-bottom: 2.875rem;
-}
 
 
-@media screen and (max-width: $br-point-tabletUpper) {
-  .Article {
-    .section {
-      margin-bottom: 1rem;
-    }
-    .section:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
 
 /* Desktop */
 @media screen and (min-width: $br-point-desktop) {
@@ -86,16 +71,8 @@ h2.title {
   }
 
   .content {
-    width: 65.625rem;
+    width: 69.375rem;
     margin-left: auto !important;
     margin-right: auto !important;
-  }
-  .Article {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .Article > * {
-    width: 43.81%;
   }
 }
