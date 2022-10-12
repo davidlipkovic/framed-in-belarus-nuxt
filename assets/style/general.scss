@@ -23,7 +23,6 @@ h2.title {
   padding-bottom: 5rem;
   margin-top: 0;
   margin-bottom: 3rem;
-  font-size: 3rem;
   text-align: center;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -33,6 +32,7 @@ h2.title {
   .content {
     position: relative;
     z-index: 2;
+    font-size: 3rem;
   }
 }
 .Title::before {
