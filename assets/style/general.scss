@@ -11,10 +11,13 @@ h2.title {
 .Content {
   overflow: hidden;
   min-height: calc(100vh - 33.5rem);
-}
-
-.Content a {
-  text-decoration: underline;
+  a {
+    color: $blue;
+    font-weight: 600;
+  }
+  .button {
+    margin-right: 1.125rem;
+  }
 }
 
 .Title {
