@@ -2,11 +2,11 @@
 
 <template>
   <main class="Content">
-    <h1 class="title Title">
-        <span class="content">
+    <div class="title Title">
+        <h1 class="content">
           {{ $t('aboutUsPageTitle') }}
-        </span>
-      </h1>
+        </h1>
+      </div>
       <div class="content">
         <h2 class="title">
           {{ $t('aboutUsSubTitle') }}
