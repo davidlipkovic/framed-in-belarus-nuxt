@@ -9,7 +9,7 @@
     </h1>
     <div class="Article content">
       <div class="section news">
-        <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/the-little-bird-must-be-caught.jpg"/>
+        <img class="img" alt="THE LITTLE BIRD MUST BE CAUGHT" src="../../assets/media/img/news/the-little-bird-must-be-caught_title.jpg"/>
         <h2 class="title">
           {{ $t('newsPageArticle1Title') }}
         </h2>
@@ -24,7 +24,7 @@
         </nuxt-link>
       </div>
       <div class="section news">
-        <img class="img" alt="STITCHED FREEDOM: “FRAMED IN BELARUS” PROJECT" src="../../assets/media/img/news.png"/>
+        <img class="img" alt="STITCHED FREEDOM: “FRAMED IN BELARUS” PROJECT" src="../../assets/media/img/news/news.png"/>
         <h2 class="title">
           {{ $t('newsPageArticle2Title') }}
         </h2>
