@@ -62,12 +62,10 @@ a.GoToNews {
       }
     }
   }
-  .News {
-    .content {
-      width: 57.063rem;
-      .images {
-        grid-template-columns: repeat(2, 440px);
-      }
+  .News.content {
+    width: 57.063rem;
+    .images {
+      grid-template-columns: repeat(2, 440px);
     }
   }
   .news {
