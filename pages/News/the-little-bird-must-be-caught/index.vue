@@ -6,7 +6,7 @@
       <h1 class="Title">
         <span class="content">THE LITTLE BIRD MUST BE CAUGHT</span>
       </h1>
-      <div class="content">
+      <div class="News content">
         <p class="b">SURVIVAL KIT 13 / PILS 23, RIGA / 2.9.-16.10.2022</p>
         <p>#FramedinBelarus in Riga!</p>
         <p>The group exhibition "<strong class="b">The little bird must be caught</strong>" presents a part of the project #FramedinBelarus on the 13th edition of the international contemporary art festival <strong class="b">Survival Kit</strong>, which takes place inside an old bank building, in the heart of <strong class="b">Dome Square (Pils iela 23, Riga) from 3rd of September to the 16th of October</strong>. </p>
