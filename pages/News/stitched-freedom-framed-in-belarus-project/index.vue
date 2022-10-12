@@ -3,9 +3,16 @@
 <template>
   <main class="Content">
     <article>
-      <h1 class="Title">
-        <span class="News content">STITCHED FREEDOM: “FRAMED IN&nbsp;BELARUS” PROJECT</span>
-      </h1>
+      <div class="Title">
+        <div class="content">
+          <h1 class="content News">STITCHED FREEDOM: “FRAMED IN&nbsp;BELARUS” PROJECT</h1>
+          <nuxt-link
+            to="/News"
+            class="GoToNews">
+            {{ $t('GoToNews') }}
+          </nuxt-link>
+        </div>
+      </div>
       <div class="News content">
         <p class="b">SURVIVAL KIT 13 / PILS 23, RIGA / 1-2.10.2022</p>
         <p class="b">Stitchit art group is going to lead a workshop in Riga.</p>
