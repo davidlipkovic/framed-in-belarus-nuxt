@@ -9,39 +9,21 @@
       </h1>
       <div class="content">
         <h2 class="title">
-          {{ $t('aboutUsPage1') }}
+          {{ $t('aboutUsSubTitle') }}
         </h2>
         <p>
-          <strong>
-            {{ $t('aboutUsPage2') }}
-          </strong>
-          {{ $t('aboutUsPage3') }}
+          {{ $t('aboutUsPage1') }}          
         </p>
         <p>
-          {{ $t('aboutUsPage4') }}
+          {{ $t('aboutUsPage2') }} <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
         </p>
-        <p>
-          <strong>
-            {{ $t('aboutUsPage5') }}
-          </strong>
-          {{ $t('aboutUsPage6') }}
-        </p>
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/rufinartist">
-              {{ $t('linkFacebook') }}
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/rufinabazlova/">
-              {{ $t('linkInstagram') }}
-            </a>
-          </li>
-        </ul>
-        <p>
-          {{ $t('aboutUsPage7') }}
-          <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
-        </p>
+        
+        <a href="https://www.instagram.com/rufinabazlova/" class="button">
+          {{ $t('linkInstagram') }}
+        </a>
+        <a href="https://www.facebook.com/rufinartist" class="button">
+          {{ $t('linkFacebook') }}
+        </a>
       </div>
   </main>
 </template>

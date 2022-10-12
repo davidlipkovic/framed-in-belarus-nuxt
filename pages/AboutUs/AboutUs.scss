@@ -1,1 +1,11 @@
 @import "../../assets/style/globalPartials/variables.scss";
+
+
+@media screen and (min-width: $br-point-desktop) {
+  .Content .content {
+    width: 57.063rem;
+    .images {
+      grid-template-columns: repeat(2, 440px);
+    }
+  }
+}
