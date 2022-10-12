@@ -22,7 +22,7 @@
       <Slider/>
     </section>
     <section class="bg_grey">
-      <article class="content Article">
+      <article class="content">
         <div class="section">
           <p>
             {{ $t('homePage1') }}

@@ -23,7 +23,7 @@
   margin-bottom: 1.5rem;
   }
 }
-.FirstPage .Article {
+.FirstPage .bg_grey .content {
   padding-top: 2.875rem;
   padding-bottom: 2.875rem;
 }
@@ -78,7 +78,7 @@
   }
 }
 @media screen and (max-width: $br-point-tabletUpper) {
-  .Article {
+  .FirstPage .bg_grey .content {
     .section {
       margin-bottom: 1rem;
     }
@@ -92,12 +92,12 @@
   .ProjectDescr .logo-project .text {
     font-size: 3rem;
   }
-  .Article {
+  .FirstPage .bg_grey .content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-  .Article > * {
+  .FirstPage .bg_grey .content > * {
     width: 43.81%;
   }
 }
