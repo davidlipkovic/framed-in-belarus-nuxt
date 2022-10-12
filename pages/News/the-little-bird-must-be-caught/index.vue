@@ -14,14 +14,29 @@
         <p>Contemporary Art Festival Survival Kit 13 “The Little Bird must be Caught” curated by iLiana Fokianaki, in Riga, September 2022.</p>
         <p>Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art</p>
         <p>Read more: <a href="https://lcca.lv/en/survival-kit/">lcca.lv</a> / <a href="https://www.facebook.com/survivalkit.lv">Facebook</a> / <a href="https://www.instagram.com/latviancentre4contemporaryart">Instagram</a></p>
-        <img class="img" alt="Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art" src="../../../assets/media/img/the-little-bird-must-be-caught.jpg">
-        <!-- <Slider/> -->
+        <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/big.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art" src="../../../assets/media/img/news/the-little-bird-must-be-caught/big_preview.jpg"></a>
+        <p>Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art</p>
+        <div class="images">
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/1.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/1_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/2.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/2_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/3.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/3_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/4.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/4_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/5.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/5_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/6.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/6_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/7.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/7_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/8.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/8_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/9.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/9_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/10.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/10_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/11.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/11_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/12.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/12_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/13.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/13_preview.jpg"></a>
+          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/14.jpg" target="_blank" class="preview"><img class="img big" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/14_preview.jpg"></a>
+        </div>
       </div>
     </article>
   </main>
 </template>
 
 <script>
-  export default {
-  }
+  
 </script>
