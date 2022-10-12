@@ -25,7 +25,7 @@
       </div>
       <div class="section news">
         <img class="img" alt="STITCHED FREEDOM: “FRAMED IN BELARUS” PROJECT" src="../../assets/media/img/news/news.png"/>
-        <h2 class="title">
+        <h2 class="title long">
           {{ $t('newsPageArticle2Title') }}
         </h2>
         <p>

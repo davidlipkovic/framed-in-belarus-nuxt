@@ -1,14 +1,61 @@
 @import "../../assets/style/globalPartials/variables.scss";
 
-.news {
-  .img {
-    max-width: 539px;
+
+.News.content {
+  img {
+    max-width: 440px;
     height: auto;
+    border-radius: 16px;
   }
-  .Slider {
-    width: 100%;
-    .bg_red {
-      display: none;
+  img.big {
+    max-width: 100%;
+  }
+}
+.Article {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2.875rem; 
+  > * {    
+    max-width: 100%;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 540px) and (max-width: $br-point-desktop) {
+  .Article {
+    > * {
+      max-width: 539px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+@media screen and (min-width: $br-point-desktop) {
+  .Article {
+    grid-template-columns: repeat(2, 539px);
+    column-gap: 1.875rem;    
+    > * {  
+      width: 100%;
+      img {
+        max-width: 539px;
+      }
+    }
+  }
+  .News.content {
+    width: 57.063rem;
+  }
+  .news {
+    .title.long {
+      max-height: 1.5em;
+      overflow-y: hidden;
+      position: relative;
+    }
+    .title.long::after {
+      position: absolute;
+      content: '...';
+      right: 0;
+      top: 0;
     }
   }
 }
