@@ -67,6 +67,33 @@
         </div>
       </article>
     </section>
+    <section class="content Partners">
+      <div class="Partners-group">
+        <a href="https://spring96.org" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/spring96_en.png" alt="Viasna" class="img"><!--
+      --></a>
+        <a href="https://amnesty.cz" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/amnesty.png" alt="Amnesty International" class="img"><!--
+      --></a>
+        <a href="https://vkletochku.org" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/vkletochku.png" alt="Письма в клеточку" class="img"><!--
+      --></a>
+        <a href="https://en.stranafund.org" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/stranafund_en.png" alt="COUNTRY TO LIVE IN FOUNDATION" class="img"><!--
+      --></a>
+      </div>
+      <div class="Partners-group">
+        <a href="https://tutaka.org" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/tutaka.png" alt="Tutaka" class="img"><!--
+      --></a>
+        <a href="https://politzek.me" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/politzek.png" alt="politzek.me" class="img"><!--
+      --></a>
+        <a href="https://vyzyvanka.com" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/vyzyvanka.png" alt="VYZHYVANKA" class="img"><!--
+      --></a>
+      </div>
+    </section>
   </main>
 </template>
 
