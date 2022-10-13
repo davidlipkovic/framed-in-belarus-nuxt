@@ -17,6 +17,7 @@ h2.title {
   }
   .button {
     margin-right: 1.125rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -38,6 +39,7 @@ h2.title {
   }
   h1 {    
     text-align: center;
+    margin-bottom: 0;
   }
 }
 .Title::before {
@@ -73,7 +75,7 @@ h2.title {
 /* Desktop */
 @media screen and (min-width: $br-point-desktop) {
   .Content {
-    min-height: calc(100vh - 32.25rem);
+    min-height: calc(100vh - 18.876rem);
   }
 
   .content {
