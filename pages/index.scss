@@ -1,12 +1,18 @@
 @import "../assets/style/globalPartials/variables.scss";
 
-.FirstPage > .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  margin-bottom: 4.063rem;
+.FirstPage {
+  > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 4.063rem;
+  }
+  .bg_grey .content {
+    padding-top: 2.875rem;
+    padding-bottom: 2.875rem;
+  }
 }
 .ProjectDescr {
   margin-bottom: 3.125rem;
@@ -22,10 +28,9 @@
   .subtitle {
   margin-bottom: 1.5rem;
   }
-}
-.FirstPage .bg_grey .content {
-  padding-top: 2.875rem;
-  padding-bottom: 2.875rem;
+  .button {
+    margin: 0;
+  }
 }
 .FirstPage > .content.Partners,
 .Partners-group {
@@ -96,8 +101,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-  .FirstPage .bg_grey .content > * {
-    width: 43.81%;
+    > * {
+      width: 43.81%;
+    }
   }
 }
