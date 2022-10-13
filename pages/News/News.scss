@@ -20,6 +20,8 @@
     max-width: 100%;
     img {
       max-width: 100%;
+      height: auto;
+      border-radius: 16px;
     }
   }
 }
@@ -55,13 +57,7 @@ a.GoToNews {
 @media screen and (min-width: $br-point-desktop) {
   .Article {
     grid-template-columns: repeat(2, 539px);
-    column-gap: 1.875rem;    
-    > * {  
-      width: 100%;
-      img {
-        max-width: 539px;
-      }
-    }
+    column-gap: 1.875rem;
   }
   .News.content {
     width: 57.063rem;
