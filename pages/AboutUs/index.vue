@@ -2,12 +2,12 @@
 
 <template>
   <main class="Content">
-    <div class="title Title">
-        <h1 class="content">
+    <div class="Title">
+        <h1 class="content News">
           {{ $t('aboutUsPageTitle') }}
         </h1>
       </div>
-      <div class="content">
+      <div class="content News">
         <h2 class="title">
           {{ $t('aboutUsSubTitle') }}
         </h2>
