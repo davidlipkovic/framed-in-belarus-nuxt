@@ -2,8 +2,12 @@
   "name": "framed-in-belarus",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port=3000",
+    "dev_server": "nuxt dev --port=8080",
+    "build_for_local": "nuxt build --port=3000",
+    "build_for_server": "nuxt build --port=8080",
+    "start_local": "nuxt start --port=3000",
+    "start": "nuxt start --port=8080",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
