@@ -19,7 +19,7 @@
         class="Slider-switcher-arrow Slider-switcher-arrow_left"
         @click="prevSlide()"
       >
-        <arrow-left/>
+        <SvgArrowLeft/>
       </button>
       <div class="Slider-switcher-dots">
         <button
@@ -35,21 +35,14 @@
         class="Slider-switcher-arrow Slider-switcher-arrow_right"
         @click="nextSlide()"
       >
-        <arrow-right/>
+        <SvgArrowRight/>
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import ArrowLeft from '@/components/svg/ArrowLeft'
-import ArrowRight from '@/components/svg/ArrowRight'
-
 export default {
-  components: {
-    ArrowLeft,
-    ArrowRight,
-  },
   data() {
     return {
       index: 0,

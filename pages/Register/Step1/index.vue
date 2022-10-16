@@ -20,17 +20,12 @@
       </select>
       <textarea name="reason" id="reason">Why did you decide to join the project?</textarea>
       <textarea name="howFind" id="howFind">How did you find out about the project?</textarea>
-      <form-end/>
+      <RegistrationFormEnd/>
     </form>
   </main>
 </template>
 
 <script>
-import FormEnd from '@/components/registration/FormEnd'
-
 export default {
-  components: {
-    FormEnd
-  },
 }
 </script>

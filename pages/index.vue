@@ -19,7 +19,7 @@
           {{ $t('participateBtnMsg') }}
         </a>
       </div>
-      <Slider/>
+      <GeneralSlider/>
     </section>
     <section class="bg_grey">
       <article class="content">
@@ -98,11 +98,6 @@
 </template>
 
 <script>
-import Slider from '@/components/general/Slider'
-
 export default {
-  components: {
-    Slider
-  },
 }
 </script>

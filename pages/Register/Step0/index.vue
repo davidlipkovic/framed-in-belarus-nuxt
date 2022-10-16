@@ -25,16 +25,11 @@
       <p>At the end, we will also ask you to write a short comment about your experience embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understand the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.</p>
       <p>By accepting the terms, you are confirming your serious intention to participate in the project!</p>
     </article>
-    <form-end/>
+    <RegistrationFormEnd/>
   </main>
 </template>
 
 <script>
-import FormEnd from '@/components/registration/FormEnd'
-
 export default {
-  components: {
-    FormEnd,
-  },
 }
 </script>
