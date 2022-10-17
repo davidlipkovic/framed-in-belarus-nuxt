@@ -5,7 +5,7 @@
     <div class="bg_black">
       <div class="content Info">
         <div class="Info-project">
-          <a href="#" class="logo-project">
+          <a href="/" class="logo-project">
             <span class="firstSymbol">#</span><span class="text">
               {{ $t('title') }}
             </span>
@@ -19,10 +19,26 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
-              <!-- <a href="#" class="Info-menu-item">Gallery</a>
-              <a href="#" class="Info-menu-item">News</a>
-              <a href="#" class="Info-menu-item">Contacts</a>
-              <a href="#" class="Info-menu-item">FAQ</a> -->
+            <!-- <nuxt-link
+              to="Gallery"
+              class="Info-menu-item">
+              Gallery
+              </nuxt-link>-->
+              <nuxt-link
+              to="News"
+              class="Info-menu-item">
+                {{ $t('linkNews') }}
+              </nuxt-link>
+              <nuxt-link
+              to="AboutUs"
+              class="Info-menu-item">
+                {{ $t('linkAboutUs') }}
+              </nuxt-link>
+              <!-- <nuxt-link
+              to="FAQ"
+              class="Info-menu-item">
+                {{ $t('linkFAQ') }}
+              </nuxt-link> -->
             </div>
             <div class="Info-menu-group">
               <!-- <a href="#" class="Info-menu-item Login">Log in</a> -->
