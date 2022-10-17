@@ -5,7 +5,7 @@
     <article>
       <div class="Title">
         <div class="content">
-          <h1 class="content News">THE LITTLE BIRD MUST BE CAUGHT</h1>
+          <h1 class="content News">The little bird must be caught</h1>
           <nuxt-link
             to="/News"
             class="GoToNews">

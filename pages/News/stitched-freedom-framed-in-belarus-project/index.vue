@@ -5,7 +5,7 @@
     <article>
       <div class="Title">
         <div class="content">
-          <h1 class="content News">STITCHED FREEDOM: “FRAMED IN&nbsp;BELARUS” PROJECT</h1>
+          <h1 class="content News">Stitched freedom: “Framed in&nbsp;Belarus” project</h1>
           <nuxt-link
             to="/News"
             class="GoToNews">
