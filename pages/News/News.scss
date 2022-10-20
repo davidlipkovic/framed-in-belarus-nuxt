@@ -23,6 +23,9 @@
       height: auto;
       border-radius: 16px;
     }
+    .newslead {
+      margin-bottom: 1em;
+    }
   }
 }
 a.GoToNews {
@@ -40,7 +43,7 @@ a.GoToNews {
   background: url(../../assets/media/img/arrow_back.svg) 0% 0% no-repeat;
 }
 
-@media screen and (min-width: 540px) and (max-width: $br-point-desktop) {
+@media screen and (min-width: 540px) and (max-width: $br-point-tabletUpper) {
   .Article {
     > * {
       max-width: 539px;
@@ -79,7 +82,7 @@ a.GoToNews {
       background-color: $white;
     }
     .newslead {
-      height: 7.063rem;
+      height: 5.3rem;
       overflow-y: hidden;
     }
   }
