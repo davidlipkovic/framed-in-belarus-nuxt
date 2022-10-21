@@ -26,6 +26,14 @@
   cursor: pointer;
   font-weight: 400;
 }
+
+.button:hover,
+.Content .button:hover {
+  background-color: $grey2;
+  border-color: $grey2;
+  color: $white;
+}
+
 .i,
 .em {
   font-style: italic;
@@ -46,17 +54,21 @@
   border-color: $black;
 }
 .bg_red {
-  background-color: $red;
-  border-color: $red !important;
+  background-color: $red1;
+  border-color: $red1 !important;
+}
+.button.bg_red:hover {
+  background-color: $red2;
+  border-color: $red2 !important;
 }
 .bg_grey {
-  background-color: $grey;
-  border-color: $grey !important;
+  background-color: $grey1;
+  border-color: $grey1 !important;
 }
 .bg_black,
 .bg_red {
   color: $white !important;
 }
 .red {
-  color: $red;
+  color: $red1;
 }
