@@ -1,4 +1,4 @@
-<style src="./AboutUs.scss" lang="scss"></style>
+<style src="./AboutUs.scss" lang="scss" scoped></style>
 
 <template>
   <main class="Content">
