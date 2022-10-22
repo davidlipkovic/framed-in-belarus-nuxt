@@ -9,14 +9,14 @@
   }
   .images {
     display: grid;
-    gap: 1.875rem; 
+    gap: 1.875rem;
   }
 }
 .Article {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 2.875rem; 
-  > * {    
+  row-gap: 2.875rem;
+  > * {
     max-width: 100%;
     img {
       max-width: 100%;
@@ -84,6 +84,22 @@ a.GoToNews {
     .newslead {
       height: 5.3rem;
       overflow-y: hidden;
+    }
+  }
+}
+
+.vfm {
+  .modal1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red !important;
+
+    .vfm__content {
+      background-color: $white;
+      border: solid 1px $black;
+      width: 500px;
+      height: 500px;
     }
   }
 }
