@@ -1,3 +1,4 @@
+<style src="../Article.scss" lang="scss"></style>
 <style src="../News.scss" lang="scss" scoped></style>
 
 <template>
@@ -23,20 +24,37 @@
         <p>Photo credit: Kristīne Madjare / Latvian Centre for Contemporary Art</p>
         <p>Read more: <a href="https://lcca.lv/en/survival-kit/">lcca.lv</a> / <a href="https://www.facebook.com/survivalkit.lv">Facebook</a> / <a href="https://www.instagram.com/latviancentre4contemporaryart">Instagram</a></p>
         <div class="images">
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/1.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/1_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/2.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/2_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/3.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/3_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/4.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/4_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/5.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/5_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/6.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/6_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/7.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/7_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/8.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/8_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/9.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/9_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/10.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/10_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/11.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/11_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/12.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/12_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/13.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/13_preview.jpg"></a>
-          <a href="../../../assets/media/img/news/the-little-bird-must-be-caught/14.jpg" target="_blank" class="popUp"><img class="img" alt="Photo credit: Sergei Shabohin" src="../../../assets/media/img/news/the-little-bird-must-be-caught/14_preview.jpg"></a>
+          <div
+            v-for="(imageModal, index) in imageModals"
+            class="modalWrapper"
+          >
+            <button
+              @click="imageModal.show = true"
+              class="popUp"
+            >
+              <img
+                class="img"
+                :alt="`${imageModal.alt}`"
+                :src="`../../../assets/media/img/news/the-little-bird-must-be-caught/${index + 1}_preview.jpg`"
+              >
+            </button>
+            <vue-final-modal
+              v-model="imageModal.show"
+              @click-outside="imageModal.show = false"
+              :classes="`modal1`"
+            >
+              <button
+                @click="imageModal.show = false"
+              >
+                close
+              </button>
+              <img
+                class="img"
+                :alt="`${imageModal.alt}`"
+                :src="`../../../assets/media/img/news/the-little-bird-must-be-caught/${index + 1}.jpg`"
+              >
+            </vue-final-modal>
+          </div>
         </div>
       </div>
     </article>
@@ -44,5 +62,72 @@
 </template>
 
 <script>
+import { $vfm, VueFinalModal, ModalsContainer } from 'vue-final-modal'
 
+export default {
+  components: {
+    VueFinalModal,
+    ModalsContainer
+  },
+  data() {
+    return {
+      showModal: false,
+      activeModalIndex: null,
+      imageModals: [
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        },
+        {
+          alt: "Photo credit: Sergei Shabohin",
+          show: false
+        }
+      ]
+    }
+  }
+}
 </script>
