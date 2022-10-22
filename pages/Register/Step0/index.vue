@@ -1,4 +1,4 @@
-<style src="./Step0.scss" lang="scss"></style>
+<style src="./Step0.scss" lang="scss" scoped></style>
 
 <template>
   <header class="Header_sign">
