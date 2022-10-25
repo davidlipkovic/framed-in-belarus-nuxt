@@ -1,4 +1,4 @@
-<style src="./News.scss" lang="scss"></style>
+<style src="./News.scss" lang="scss" scoped></style>
 
 <template>
   <main class="Content">

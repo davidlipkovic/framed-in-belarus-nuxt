@@ -62,14 +62,14 @@
           >
             {{ $t('participateBtnMsg') }}
           </a>
-<!--          <nuxt-link-->
-<!--            v-for="locale in availableLocales"-->
-<!--            :key="locale.code"-->
-<!--            :to="switchLocalePath(locale.code)"-->
-<!--            class="Burger-menu-item Lang"-->
-<!--          >-->
-<!--            {{ locale.name }}-->
-<!--          </nuxt-link>-->
+          <nuxt-link
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            :to="switchLocalePath(locale.code)"
+            class="Burger-menu-item Lang"
+          >
+            {{ locale.name }}
+          </nuxt-link>
 <!--          <img class="arrow" src="@/assets/media/img/arrow.svg">-->
         </div>
       </nav>

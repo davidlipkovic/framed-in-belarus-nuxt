@@ -1,4 +1,4 @@
-<style src="./Step1.scss" lang="scss"></style>
+<style src="./Step1.scss" lang="scss" scoped></style>
 
 <template>
   <main class="Content">
