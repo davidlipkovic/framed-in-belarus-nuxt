@@ -2,7 +2,8 @@
 @import "globalPartials/generalClasses.scss";
 
 h1.title {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.813rem;
 }
 h2.title {
   font-size: 1.5rem;
@@ -18,6 +19,9 @@ h2.title {
   .button {
     margin-right: 1.125rem;
     margin-bottom: 1rem;
+  }
+  .button:last-child {
+    margin-right: 0;
   }
 }
 
