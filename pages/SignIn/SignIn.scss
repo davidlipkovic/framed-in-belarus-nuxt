@@ -1,0 +1,26 @@
+@import "../../assets/style/globalPartials/variables.scss";
+input[type="password"] {
+  margin-bottom: 0.375rem;
+}
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1.125rem;
+}
+
+.button {
+  margin-right: 0;
+  font-size: 1em;
+}
+.button:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.alignRight {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  a {
+    color: inherit;
+    font-weight: normal;
+  }
+}
