@@ -31,13 +31,13 @@
 <!--            {{ $t('linkGallery') }}-->
 <!--          </nuxt-link>-->
           <nuxt-link
-            to="/News"
+            to="News"
             class="Burger-menu-item"
           >
             {{ $t('linkNews') }}
           </nuxt-link>
           <nuxt-link
-            to="/AboutUs"
+            to="AboutUs"
             class="Burger-menu-item"
           >
             {{ $t('linkAboutUs') }}
