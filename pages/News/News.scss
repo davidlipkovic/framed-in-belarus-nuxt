@@ -43,21 +43,7 @@ a.GoToNews {
   background: url(../../assets/media/img/arrow_back.svg) 0% 0% no-repeat;
 }
 
-.modal.active {
-  display: block;
-}
-.modal {
-  position: fixed;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,50%);
-  .content {
-    background-color: $white;
-    border-radius: 16px;
-  }
-  
-}
+
 
 @media screen and (min-width: 540px) and (max-width: $br-point-tabletUpper) {
   .Article {
