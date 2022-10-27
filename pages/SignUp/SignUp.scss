@@ -9,6 +9,7 @@ form {
   align-items: stretch;
 }
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 select,
@@ -36,9 +37,6 @@ button::placeholder {
 .button {
   margin-right: 0;
   font-size: 1em;
-}
-.button:first-of-type {
-  margin-top: 1.5rem;
 }
 
 @media screen and (min-width: $br-point-tablet) {
