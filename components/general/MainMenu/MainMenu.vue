@@ -6,8 +6,6 @@
   })
 </script>
 
-<style src="./MainMenu.scss" lang="scss"></style>
-
 <template>
   <input type="checkbox" id="Burger" class="Burger-checker visually-hidden">
   <header class="Header">
@@ -77,12 +75,4 @@
   </header>
 </template>
 
-<script>
-export default {
-  // data() {
-  //   return {
-  //     showMainMenu: false
-  //   }
-  // }
-}
-</script>
+<style src="./MainMenu.scss" lang="scss"></style>

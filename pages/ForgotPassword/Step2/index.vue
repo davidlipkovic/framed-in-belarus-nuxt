@@ -1,5 +1,5 @@
-<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="../../SignUp/SignUp.scss" lang="scss" scoped></style>
+<script setup>
+</script>
 
 <template>
   <header class="Header_sign">
@@ -38,7 +38,5 @@
   </main>
 </template>
 
-<script>
-export default {
-}
-</script>
+<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="../../SignUp/SignUp.scss" lang="scss" scoped></style>

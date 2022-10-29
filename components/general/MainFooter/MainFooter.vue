@@ -1,7 +1,5 @@
-<style src="./MainFooter.scss" lang="scss"></style>
-
 <template>
-  <footer class="Footer">    
+  <footer class="Footer">
     <div class="bg_black">
       <div class="content Info">
         <div class="Info-project">
@@ -54,3 +52,5 @@
     </div>
   </footer>
 </template>
+
+<style src="./MainFooter.scss" lang="scss"></style>

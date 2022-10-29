@@ -1,4 +1,5 @@
-<style src="../News.scss" lang="scss" scoped></style>
+<script setup>
+</script>
 
 <template>
   <main class="Content">
@@ -29,7 +30,4 @@
   </main>
 </template>
 
-<script>
-  export default {
-  }
-</script>
+<style src="../News.scss" lang="scss" scoped></style>

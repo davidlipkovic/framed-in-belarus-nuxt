@@ -1,5 +1,5 @@
-<style src="../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="./SignUp.scss" lang="scss" scoped></style>
+<script setup>
+</script>
 
 <template>
   <header class="Header_sign">
@@ -49,7 +49,7 @@
           </select>
         </div>
         <textarea name="reason" id="reason">Why did you decide to join the project?</textarea>
-        
+
         <button class="button bg_black large">Create profile and start work</button>
         <button class="button large">Sign in with Google</button>
       </form>
@@ -57,7 +57,5 @@
   </main>
 </template>
 
-<script>
-export default {
-}
-</script>
+<style src="../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="./SignUp.scss" lang="scss" scoped></style>
