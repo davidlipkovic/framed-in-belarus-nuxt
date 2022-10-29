@@ -33,6 +33,13 @@
 .Burger-menu-item:last-child {
   margin-bottom: 0;
 }
+
+.Burger-menu-group-lang {
+  .Lang {
+    width: 30px;
+  }
+}
+
 .Burger-menu-item.button {
   color: $white !important;
 }
@@ -99,6 +106,10 @@
   .Burger-menu,
   .Burger-menu-group {
     display: inline-block;
+  }
+  .Burger-menu-group-lang {
+    display: inline-flex;
+    flex-direction: row;
   }
   .Burger-menu > *,
   .Burger-menu-item {

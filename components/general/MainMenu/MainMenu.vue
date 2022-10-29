@@ -47,7 +47,7 @@
 <!--            {{ $t('linkFAQ') }}-->
 <!--          </nuxt-link>-->
         </div>
-        <div class="Burger-menu-group">
+        <div class="Burger-menu-group Burger-menu-group-lang">
 <!--          <nuxt-link -->
 <!--            to="Login" -->
 <!--            class="Burger-menu-item Login"-->
