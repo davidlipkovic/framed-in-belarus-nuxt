@@ -27,7 +27,18 @@
       margin-bottom: 1em;
     }
   }
+
+  >div {
+    display: flex;
+    flex-direction: column;
+
+    .button {
+      max-width: 75px;
+      margin-top: auto;
+    }
+  }
 }
+
 a.GoToNews {
   display: block;
   height: 2.875rem;
@@ -88,8 +99,11 @@ a.GoToNews {
       top: 0;
       background-color: $white;
     }
+
     .newslead {
-      height: 5.3rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 5.3rem;
       overflow-y: hidden;
     }
   }
