@@ -16,7 +16,10 @@ export default defineNuxtConfig({
                 { name: 'robots', content: 'noindex' }
             ],
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: './assets/media/fav.svg' }
+                { rel: 'icon', type: 'image/x-icon', href: './assets/media/fav.svg' },
+                { rel: 'preconnect', href: "https://fonts.googleapis.com" },
+                { rel: 'preconnect', href: "https://fonts.gstatic.com", crossorigin: true },
+                { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" }
             ]
         }
     },
@@ -24,7 +27,6 @@ export default defineNuxtConfig({
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '@/assets/style/reset.scss',
-        '@/assets/style/fonts.scss',
         '@/assets/style/general.scss',
     ],
 
