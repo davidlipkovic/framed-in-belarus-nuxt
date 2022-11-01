@@ -1,7 +1,5 @@
 <script setup>
-import {
-  onMounted,
-} from 'vue'
+import { onMounted, ref } from 'vue'
 
 const index = ref(0)
 
