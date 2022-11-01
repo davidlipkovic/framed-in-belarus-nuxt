@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
   <div>
     <GeneralMainMenu/>
@@ -5,8 +8,3 @@
     <GeneralMainFooter/>
   </div>
 </template>
-
-<script>
-export default {
-}
-</script>

@@ -1,4 +1,5 @@
-<style src="../News.scss" lang="scss"></style>
+<script setup>
+</script>
 
 <template>
  <main class="Content">
@@ -43,6 +44,4 @@
  </main>
 </template>
 
-<script>
- 
-</script>
+<style src="../News.scss" lang="scss" scoped></style>

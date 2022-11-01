@@ -1,4 +1,47 @@
-<style src="./Slider.scss" lang="scss"></style>
+<script setup>
+import {
+  onMounted,
+} from 'vue'
+
+const index = ref(0)
+
+const slides = [
+  {alt: "Ala Lapatka"},
+  {alt: "Siarhey Hatskevich"},
+  {alt: "Tatsiana Kaneuskaya"},
+  {alt: "Pyatro Marchanka"},
+  {alt: "Vladzmir Zmurauka"},
+  {alt: "Marina Kirilchyk"},
+  {alt: "Dmitry Kubarau"},
+  {alt: "Dmitriy Dubkou"},
+  {alt: "Viacheslav Rahanchuk"},
+  {alt: "Ales Pushkin"}
+]
+
+const updateIndex = (i) => {
+  index.value = i
+}
+
+const prevSlide = () => {
+  if (index.value === 0) {
+    index.value = slides.length - 1
+  } else {
+    index.value--
+  }
+}
+
+const nextSlide = () => {
+  if (index.value === slides.length - 1) {
+    index.value = 0
+  } else {
+    index.value++
+  }
+}
+
+onMounted(() => {
+  setInterval(nextSlide, 2500)
+})
+</script>
 
 <template>
   <div class="Slider" id="sliderMain">
@@ -41,46 +84,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      index: 0,
-      slides: [
-        {alt: "Ala Lapatka"},
-        {alt: "Siarhey Hatskevich"},
-        {alt: "Tatsiana Kaneuskaya"},
-        {alt: "Pyatro Marchanka"},
-        {alt: "Vladzmir Zmurauka"},
-        {alt: "Marina Kirilchyk"},
-        {alt: "Dmitry Kubarau"},
-        {alt: "Dmitriy Dubkou"},
-        {alt: "Viacheslav Rahanchuk"},
-        {alt: "Ales Pushkin"}
-      ]
-    }
-  },
-  methods: {
-    updateIndex(i) {
-      this.index = i
-    },
-    prevSlide() {
-      if (this.index === 0) {
-        this.index = this.slides.length - 1
-      } else {
-        this.index--
-      }
-    },
-    nextSlide() {
-      if (this.index === this.slides.length - 1) {
-        this.index = 0
-      } else {
-        this.index++
-      }
-    }
-  },
-  mounted() {
-    setInterval(this.nextSlide, 2500)
-  }
-}
-</script>
+<style src="./Slider.scss" lang="scss"></style>

@@ -1,12 +1,10 @@
-<!--<script setup>-->
-<!--  const { locale, locales } = useI18n()-->
-<!--  const switchLocalePath = useSwitchLocalePath()-->
-<!--  const availableLocales = computed(() => {-->
-<!--    return (locales.value).filter(i => i.code !== locale.value)-->
-<!--  })-->
-<!--</script>-->
-
-<style src="./MainMenu.scss" lang="scss"></style>
+<script setup>
+  const { locale, locales } = useI18n()
+  const switchLocalePath = useSwitchLocalePath()
+  const availableLocales = computed(() => {
+    return (locales.value).filter(i => i.code !== locale.value)
+  })
+</script>
 
 <template>
   <input type="checkbox" id="Burger" class="Burger-checker visually-hidden">
@@ -31,13 +29,13 @@
 <!--            {{ $t('linkGallery') }}-->
 <!--          </nuxt-link>-->
           <nuxt-link
-            to="/News"
+            to="News"
             class="Burger-menu-item"
           >
             {{ $t('linkNews') }}
           </nuxt-link>
           <nuxt-link
-            to="/AboutUs"
+            to="AboutUs"
             class="Burger-menu-item"
           >
             {{ $t('linkAboutUs') }}
@@ -49,7 +47,7 @@
 <!--            {{ $t('linkFAQ') }}-->
 <!--          </nuxt-link>-->
         </div>
-        <div class="Burger-menu-group">
+        <div class="Burger-menu-group Burger-menu-group-lang">
 <!--          <nuxt-link -->
 <!--            to="Login" -->
 <!--            class="Burger-menu-item Login"-->
@@ -62,14 +60,14 @@
           >
             {{ $t('participateBtnMsg') }}
           </a>
-<!--          <nuxt-link-->
-<!--            v-for="locale in availableLocales"-->
-<!--            :key="locale.code"-->
-<!--            :to="switchLocalePath(locale.code)"-->
-<!--            class="Burger-menu-item Lang"-->
-<!--          >-->
-<!--            {{ locale.name }}-->
-<!--          </nuxt-link>-->
+          <nuxt-link
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            :to="switchLocalePath(locale.code)"
+            class="Burger-menu-item Lang"
+          >
+            {{ locale.name }}
+          </nuxt-link>
 <!--          <img class="arrow" src="@/assets/media/img/arrow.svg">-->
         </div>
       </nav>
@@ -77,12 +75,4 @@
   </header>
 </template>
 
-<script>
-export default {
-  // data() {
-  //   return {
-  //     showMainMenu: false
-  //   }
-  // }
-}
-</script>
+<style src="./MainMenu.scss" lang="scss"></style>

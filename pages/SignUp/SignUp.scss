@@ -1,0 +1,52 @@
+@import "../../assets/style/globalPartials/variables.scss";
+
+h1.title {
+  margin-bottom: 1rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea,
+button {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border-color: $grey3;
+  border-width: 1px;
+  width: 100%;
+}
+select {
+  appearance: none;
+  background-image: url(../../assets/media/img/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+}
+input::placeholder,
+select::placeholder,
+textarea::placeholder,
+button::placeholder {
+  color: $grey3;
+}
+.button {
+  margin-right: 0;
+  font-size: 1em;
+}
+
+@media screen and (min-width: $br-point-tablet) {
+.group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  input, select {
+    width: 48%;
+  }
+}
+
+}

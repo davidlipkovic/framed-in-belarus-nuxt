@@ -20,6 +20,7 @@
     "sass-loader": "^13.0.2"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge"
+    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
+    "vue-final-modal": "^3.4.4"
   }
 }

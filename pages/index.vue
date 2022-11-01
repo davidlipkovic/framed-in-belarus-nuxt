@@ -1,4 +1,5 @@
-<style src="./index.scss" lang="scss"></style>
+<script setup>
+</script>
 
 <template>
   <main class="Content FirstPage">
@@ -97,7 +98,4 @@
   </main>
 </template>
 
-<script>
-export default {
-}
-</script>
+<style src="./index.scss" lang="scss" scoped></style>
