@@ -1,5 +1,3 @@
-<style src="./TopHeader.scss" lang="scss" scoped></style>
-
 <template>
   <header class="Header_sign">
     <div class="content">
@@ -27,3 +25,4 @@
   </header>
 </template>
 
+<style src="./TopHeader.scss" lang="scss" scoped></style>

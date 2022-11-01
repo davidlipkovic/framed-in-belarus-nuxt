@@ -1,45 +1,6 @@
 @import "./globalPartials/variables.scss";
 @import "./globalPartials/generalClasses.scss";
 
-.Lang {
-  position: relative;
-  .Lang-button {
-    .arrow {
-      transition-property: transform;
-      transition-duration: 0.15s;
-    }
-  }
-}
-.Lang-select {
-  display: none;
-}
-.Lang-checker:checked + .Lang {
-  .Lang-button {
-    .arrow {
-      transform: rotate(180deg);
-    }
-  }
-  .Lang-select {
-    display: block;
-    position: absolute;
-    right: 0;
-    // border: 1px solid $black;
-    border: none;
-    // border-bottom-left-radius: 16px;
-    // border-bottom-right-radius: 16px;
-    transition-property: display;
-    transition-duration: 0.15s;
-    .Lang-link {
-      padding: 0.5rem;
-      display: block;
-    }
-  }
-}
-
-.Embroiderer {
-  display: none;
-}
-
 .b {
   margin-bottom: 1.5rem;
   * {
@@ -59,19 +20,5 @@
 @media screen and (min-width: $br-point-desktop) {
   .content {
     padding-left: 545px;
-  }
-  .Embroiderer {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #FFF3F1;
-    width: 42.5%;
-    height: 100vh;
-    .Img {
-      position: absolute;
-      top: 252px;
-      right: 190px;
-    }
   }
 }
