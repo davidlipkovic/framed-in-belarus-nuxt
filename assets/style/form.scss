@@ -1,18 +1,6 @@
 @import "./globalPartials/variables.scss";
 @import "./globalPartials/generalClasses.scss";
 
-
-.Header_sign {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1.625rem;
-  .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
 .Lang {
   position: relative;
   .Lang-button {

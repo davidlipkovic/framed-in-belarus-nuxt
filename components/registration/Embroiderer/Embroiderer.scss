@@ -1,0 +1,22 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.Embroiderer {
+  display: none;
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .Embroiderer {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FFF3F1;
+    width: 42.5%;
+    height: 100vh;
+    .Img {
+      position: absolute;
+      top: 252px;
+      right: 190px;
+    }
+  }
+}
