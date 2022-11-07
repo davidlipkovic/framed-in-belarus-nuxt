@@ -16,7 +16,7 @@
       <div class="News content">
         <p class="b">SURVIVAL KIT 13 / PILS 23, RIGA / 1-2.10.2022</p>
         <p class="b">{{ $t('newsStitchedFreedom0') }}</p>
-        <p>{{ $t('newsStitchedFreedom1') }}<span class="b">{{ $t('newsStitchedFreedom2') }}</span>{{ $t('newsStitchedFreedom3') }}<strong class="b">{{ $t('newsStitchedFreedom4') }}</strong></p>
+        <p><span class="b">{{ $t('newsStitchedFreedom1') }}</span>{{ $t('newsStitchedFreedom2') }}<strong class="b">{{ $t('newsStitchedFreedom3') }}</strong>{{ $t('newsStitchedFreedom4') }}</p>
         <p class="b">{{ $t('newsStitchedFreedom5') }}</p>
         <p>{{ $t('newsStitchedFreedom6') }}</p>
         <p>{{ $t('newsStitchedFreedom7') }}</p>
