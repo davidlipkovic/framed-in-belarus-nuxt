@@ -35,10 +35,13 @@
             <span class="b">@facebook</span>
             namesuranma
           </p>
+          <p class="userCard-body-item_longText">
+            <span class="b">Why did you decide to participate?</span>
+            Из Беларуси, была репрессирована, в  данный момент в эмиграции. Семья... 
+          </p>
         </div>
         <div class="userCard-buttons">
-          <button class="button">Edit information</button>
-          <button class="button">Settings</button>
+          <button class="button">Edit profile</button>
         </div>
       </section>
       <div class="embroideryCards">
@@ -68,6 +71,8 @@
         </button>
       </div>
     </div>
+
+    <div></div>
   </main>
 </template>
 

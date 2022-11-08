@@ -38,7 +38,8 @@
 .userCard-body {  
   padding: 0 1.5rem;
 }
-.userCard-body-item {
+.userCard-body-item,
+.userCard-body-item_longText {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -50,6 +51,14 @@
     font-weight: 600;
   }
 }
+.userCard-body-item_longText {
+  flex-direction: column;
+  .b {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.375rem;
+  }
+}
 .userCard-buttons {
   width: fit-content;
   padding-top: 0;  
@@ -58,6 +67,7 @@
   margin-right: auto;
   .button {
     margin-bottom: 0;
+    font-weight: 600;
   }
 }
 

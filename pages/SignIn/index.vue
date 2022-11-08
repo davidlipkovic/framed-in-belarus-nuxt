@@ -2,26 +2,7 @@
 </script>
 
 <template>
-  <header class="Header_sign">
-    <div class="content">
-      <a href="/" class="logo-project">
-        <span class="firstSymbol">#</span><span class="text">
-          {{ $t('title') }}
-        </span>
-      </a>
-      <input type="checkbox" id="Lang" class="Lang-checker visually-hidden">
-      <div class="Lang">
-        <label for="Lang" role="button" aria-role="button"
-          class="Lang-button"
-          >
-          EN<img class="arrow" src="@/assets/media/img/arrow.svg">
-        </label>
-        <div class="Lang-select">
-          <a href="/ru" class="Lang-link">Russian</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  <header/>
   <main class="Content">
     <div class="Embroiderer">
       <img src="../../../assets/media/img/embroiderer.svg" alt="Embroiderer" class="Img">
@@ -46,6 +27,11 @@
   </main>
 </template>
 
-<style src="../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="../SignUp/SignUp.scss" lang="scss" scoped></style>
-<style src="./SignIn.scss" lang="scss" scoped></style>
+<script>
+import Header from '@/components/register/Header'
+export default {
+  components: {
+    Header,
+  },
+}
+</script>
