@@ -12,13 +12,14 @@
 .userCard {
   margin-right: -0.625rem;
   margin-left: -0.625rem;
-  padding: 1.875rem 1.5rem 1rem 1.5rem;
+  padding-bottom: 1rem;
   background-color: $white;
   border-radius: 6px;
   box-shadow: 0 8px 10px rgba(0,0,0,0.2);
   margin-bottom: 2.5rem;
 }
-.userCard-header {
+.userCard-header {  
+  padding: 1.875rem 1.5rem 0 1.5rem;
   border-bottom: 1px solid rgba(33,33,33,0.08);
 }
 .userCard-avatar {
@@ -34,11 +35,16 @@
   font-size: 1.5rem;
   margin-bottom: 1.188rem;    
 }
+.userCard-body {  
+  padding: 0 1.5rem;
+}
 .userCard-body-item {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   .b {
-    display: inline-block;
     min-width: 7rem;
     margin-right: 0.75rem;
     font-weight: 600;
@@ -46,9 +52,9 @@
 }
 .userCard-buttons {
   width: fit-content;
-  margin-top: 0.75rem;  
+  padding-top: 0;  
   margin-left: auto;
-  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
   margin-right: auto;
   .button {
     margin-bottom: 0;
