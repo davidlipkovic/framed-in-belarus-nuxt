@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import Header from '@/components/register/Header'
-export default {
-  components: {
-    Header,
-  },
-}
+// import Header from '@/components/register/Header'
+// export default {
+//   components: {
+//     Header,
+//   },
+// }
 </script>
