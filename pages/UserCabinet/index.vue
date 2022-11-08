@@ -1,4 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+
+import { VueFinalModal } from 'vue-final-modal'
+
+const editModal = ref({
+  show: false
+})
 </script>
 
 <template>
@@ -37,19 +44,19 @@
           </p>
           <p class="userCard-body-item_longText">
             <span class="b">Why did you decide to participate?</span>
-            Из Беларуси, была репрессирована, в  данный момент в эмиграции. Семья... 
+            Из Беларуси, была репрессирована, в  данный момент в эмиграции. Семья...
           </p>
         </div>
         <div class="userCard-buttons">
-          <button class="button">Edit profile</button>
+          <button class="button" @click="editModal.show = true">Edit profile</button>
         </div>
       </section>
       <div class="embroideryCards">
         <button class="embroideryCard New">
-            <div class="embroideryCard-content">
-              <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
-              Create new embroidery
-            </div>
+          <div class="embroideryCard-content">
+            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
+            Create new embroidery
+          </div>
         </button>
         <button class="embroideryCard">
           <div class="embroideryCard-content">
@@ -72,7 +79,39 @@
       </div>
     </div>
 
-    <div></div>
+    <div name="Settings">
+      <vue-final-modal
+        v-model="editModal.show"
+        @click-outside="editModal.show = false"
+      >
+      <div class="Modal-header">
+        <h2>
+          Edit profile
+        </h2>
+        <button
+          @click="editModal.show = false"
+          class="Modal-close"
+        >
+          <img src="../../assets/media/img/close.svg" alt="X">
+        </button>
+      </div>
+        <div class="Modal-body">
+        <div class="Settings-item">
+          <label for="name" class="Settings-item-title">
+            Name and Surname
+          </label>
+          <input type="text" placeholder="Ivan Fedorov" class="Settings-item-input" id="name" name="name">
+          <p class="Settings-item-publish">
+            <label for="namePublish">
+              Publish
+            </label>
+            <input type="radio" name="namePublish" id="namePublish" value="false">
+            <input type="radio" name="namePublish" id="namePublishTrue" value="true">
+          </p>
+        </div>
+      </div>
+      </vue-final-modal>
+    </div>
   </main>
 </template>
 
