@@ -9,6 +9,25 @@
   }
 }
 
+.upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.upload:before {
+  content: '';
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.313rem;
+  appearance: none;
+  background-image: url('../../assets/media/img/upload.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
 .userCard {
   margin-right: -0.625rem;
   margin-left: -0.625rem;
@@ -29,11 +48,13 @@
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.375rem;
 }
 .userCard-title {
   font-size: 1.5rem;
-  margin-bottom: 1.188rem;    
+  margin-top: 1.125rem;
+  margin-bottom: 1.188rem;
+  text-align: center;
 }
 .userCard-body {  
   padding: 0 1.5rem;
