@@ -30,9 +30,14 @@ select {
 }
 input::placeholder,
 select::placeholder,
-textarea::placeholder,
-button::placeholder {
+textarea::placeholder {
   color: $grey3;
+}
+
+input:focus::placeholder,
+select:focus::placeholder,
+textarea:focus::placeholder {
+  display: none;
 }
 .button {
   margin-right: 0;
