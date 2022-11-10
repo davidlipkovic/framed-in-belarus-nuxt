@@ -35,3 +35,7 @@
 //   },
 // }
 </script>
+
+<style src="../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="./SignIn.scss" lang="scss" scoped></style>
+<style src="../SignUp/SignUp.scss" lang="scss" scoped></style>
