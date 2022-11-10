@@ -28,7 +28,7 @@ const editModal = ref({
         </div>
         <div class="userCard-body">
           <p class="userCard-body-item">
-            <span class="b">Pseudonym::</span>
+            <span class="b">Pseudonym:</span>
             Doctor Haus
           </p>
           <p class="userCard-body-item">
@@ -121,7 +121,7 @@ const editModal = ref({
             <label for="nickname" class="Settings-item-title">
               Pseudonym / Nickname 
             </label>
-            <input type="text" value="Ivan Fedorov" class="Settings-item-input" id="nickname" name="nickname">
+            <input type="text" value="" placeholder="Your pseudonym / nickname" class="Settings-item-input" id="nickname" name="nickname">
           </div>
           <p class="Settings-item-publish">
             <label for="nicknamePublish">
@@ -136,7 +136,7 @@ const editModal = ref({
             <label for="birth" class="Settings-item-title">
               Year of birth
             </label>
-            <input type="text" value="1989" class="Settings-item-input" id="birth" name="birth">
+            <input type="number" value="1989" class="Settings-item-input" id="birth" name="birth">
           </div>
           <p class="Settings-item-publish">
             <label for="birthPublish">
@@ -166,7 +166,7 @@ const editModal = ref({
             <label for="instagramNick" class="Settings-item-title">
               @instagram
             </label>
-            <input type="text" value="@Ivan_Fedorov" class="Settings-item-input" id="instagramNick" name="instagramNick">
+            <input type="text" value="" placeholder="Your @instagram nickname" class="Settings-item-input" id="instagramNick" name="instagramNick">
           </div>
           <p class="Settings-item-publish">
             <label for="instagramNickPublish">
@@ -181,7 +181,7 @@ const editModal = ref({
             <label for="facebookNick" class="Settings-item-title">
               @facebook
             </label>
-            <input type="text" value="@IvanFedorov" class="Settings-item-input" id="facebookNick" name="facebookNick">
+            <input type="text" value="" placeholder="Your @facebook nickname" class="Settings-item-input" id="facebookNick" name="facebookNick">
           </div>
           <p class="Settings-item-publish">
             <label for="facebookNickPublish">
