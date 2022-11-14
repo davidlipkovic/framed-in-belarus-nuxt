@@ -1,0 +1,61 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.Lang {
+  position: relative;
+  display: inline-block;
+  .Lang-button {
+    .arrow {
+      transform: rotate(270deg);
+      transition-property: transform;
+      transition-duration: 0.15s;
+    }
+  }
+}
+.Lang-select {
+  display: none;
+}
+.Lang-checker:checked + .Lang {
+  .Lang-button {
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+  .Lang-select {
+    display: block;
+    position: absolute;
+    top: -0.5rem;
+    left: 2rem;
+    border: none;
+    transition-property: display;
+    transition-duration: 0.15s;
+    background-color: $white;;
+    .Lang-link {
+      padding: 0.5rem;
+      display: block;
+      color: $black;
+    }
+  }
+}
+
+
+@media screen and (min-width: $br-point-tablet) {
+.Lang {
+  .Lang-button {
+    .arrow {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.Lang-checker:checked + .Lang {
+  .Lang-button {
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+  .Lang-select {
+    top: 1.5rem;
+    left: 0;
+  }
+}
+}

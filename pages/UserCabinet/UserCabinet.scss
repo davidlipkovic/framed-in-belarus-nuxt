@@ -1,0 +1,202 @@
+@import "../../assets/style/globalPartials/variables";
+
+.Title {
+  padding: 3.125rem 0;
+  margin-bottom: 0;
+  .subtitle {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+
+.upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.upload:before {
+  content: '';
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.313rem;
+  appearance: none;
+  background-image: url('../../assets/media/img/upload.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+.userCard {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+  padding-bottom: 1rem;
+  background-color: $white;
+  border-radius: 6px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  margin-bottom: 2.5rem;
+}
+.userCard-header {  
+  padding: 1.875rem 1.5rem 0 1.5rem;
+  border-bottom: 1px solid $borderLight;
+}
+.userCard-avatar {
+  display: block;
+  height: 81px;
+  width: 81px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.375rem;
+}
+.userCard-title {
+  font-size: 1.5rem;
+  margin-top: 1.125rem;
+  margin-bottom: 1.188rem;
+  text-align: center;
+}
+.userCard-body {  
+  padding: 0 1.5rem;
+}
+.userCard-body-item,
+.userCard-body-item_longText {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  .b {
+    min-width: 7rem;
+    margin-right: 0.75rem;
+    font-weight: 600;
+  }
+}
+.userCard-body-item_longText {
+  flex-direction: column;
+  .b {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.375rem;
+  }
+}
+.userCard-buttons {
+  width: fit-content;
+  padding-top: 0;  
+  margin-left: auto;
+  padding-bottom: 0.75rem;
+  margin-right: auto;
+  .button {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
+
+.embroideryCards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3.75rem;
+}
+.embroideryCard {
+  width: 11.688rem;
+  min-height: 13.938rem;
+  padding-top: 1.063rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  appearance: none;
+  border: 0;
+}
+.embroideryCard:last-child {
+  margin-bottom: 0;
+}
+.embroideryCard.New {
+  padding-top: 0;
+  padding-left: 1.625rem;
+  padding-right: 1.625rem;
+  background-image: repeating-linear-gradient(120deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(210deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(-60deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(30deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px);
+  background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+}
+.embroideryCard.New:disabled {
+  display: none;
+}
+.embroideryCard:hover,
+.embroideryCard:focus,
+.embroideryCard:active {
+  box-shadow: 4px 4px 7px rgba(0,0,0,0.62);
+}
+.embroideryCard.New:hover,
+.embroideryCard.New:focus,
+.embroideryCard.New:active {
+  box-shadow: none
+}
+.embroideryCard-content {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.embroideryCard-img {
+  display: block;
+  margin-bottom: 0.375rem;
+}
+.embroideryCard-img.Create {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0.688rem;
+}
+.embroideryCard-status {
+  display: inline-block;
+  margin-top: 0.375rem;
+  padding: 0.25rem 1rem; 
+  border-radius: 2rem;
+  color: $white;
+}
+.embroideryCard-status_progress {
+  background-color: $orange;
+}
+.embroideryCard-status_finish {
+  background-color: $green;
+}
+
+@media screen and (min-width: $br-point-tablet){
+  .Content > .content {
+    display: flex;
+    align-items: flex-start;
+  }
+  .userCard {
+    margin-left: 0;
+    margin-right: 2.063rem;
+    width: 60%;
+  }
+  .embroideryCard {
+    margin-left: 0;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+  .embroideryCard:last-child {
+    margin-right: 0;
+  }
+  .embroideryCards {
+    margin-top: 2.25rem;
+  }
+
+}
+@media screen and (min-width: $br-point-desktop){
+  .userCard {
+    width: 21.75rem;
+    margin-top: -8.313rem;
+    position: relative;
+  }
+  .embroideryCards {
+    margin-bottom: 9rem;
+  }
+
+}
