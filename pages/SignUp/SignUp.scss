@@ -28,6 +28,9 @@ select {
   background-repeat: no-repeat;
   background-position: 95% center;
 }
+textarea {
+  min-height: 5rem;
+}
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
