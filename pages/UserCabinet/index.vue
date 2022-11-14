@@ -112,7 +112,7 @@ const editModal = ref({
             <label for="namePublish">
               Publish
             </label>
-            <input type="checkbox" name="namePublish" id="namePublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="namePublish" id="namePublish" class="switcher">
           </p>
         </div>
 
@@ -127,7 +127,7 @@ const editModal = ref({
             <label for="nicknamePublish">
               Publish
             </label>
-            <input type="checkbox" name="nicknamePublish" id="nicknamePublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="nicknamePublish" id="nicknamePublish" class="switcher">
           </p>
         </div>
 
@@ -142,7 +142,7 @@ const editModal = ref({
             <label for="birthPublish">
               Publish
             </label>
-            <input type="checkbox" name="birthPublish" id="birthPublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="birthPublish" id="birthPublish" class="switcher">
           </p>
         </div>
 
@@ -157,7 +157,7 @@ const editModal = ref({
             <label for="placePublish">
               Publish
             </label>
-            <input type="checkbox" name="placePublish" id="placePublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="placePublish" id="placePublish" class="switcher">
           </p>
         </div>
 
@@ -172,7 +172,7 @@ const editModal = ref({
             <label for="instagramNickPublish">
               Publish
             </label>
-            <input type="checkbox" name="instagramNickPublish" id="instagramNickPublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="instagramNickPublish" id="instagramNickPublish" class="switcher">
           </p>
         </div>
 
@@ -187,7 +187,7 @@ const editModal = ref({
             <label for="facebookNickPublish">
               Publish
             </label>
-            <input type="checkbox" name="facebookNickPublish" id="facebookNickPublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="facebookNickPublish" id="facebookNickPublish" class="switcher">
           </p>
         </div>
 
@@ -202,7 +202,7 @@ const editModal = ref({
             <label for="reasonPublish">
               Publish
             </label>
-            <input type="checkbox" name="reasonPublish" id="reasonPublish" class="Settings-item-publish-switcher">
+            <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
           </p>
         </div>
 
@@ -220,4 +220,5 @@ const editModal = ref({
 </template>
 
 <style src="./UserCabinet.scss" lang="scss" scoped></style>
+<style src="../SignUp/SignUp.scss" lang="scss" scoped></style>
 <style src="./Settings.scss" lang="scss" scoped></style>
