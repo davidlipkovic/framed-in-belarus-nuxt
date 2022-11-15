@@ -41,8 +41,7 @@ textarea::placeholder {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: $inputsBorderFocus;
-  border-width: 1px;
+  outline: $inputsBorderFocus solid 1px;
 }
 input:focus::placeholder,
 select:focus::placeholder,
