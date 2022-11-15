@@ -27,6 +27,13 @@
   background-repeat: no-repeat;
   background-position: 0% 0%;
 }
+.upload:disabled {
+  color: $greyDisabledColor;
+}
+.upload:hover,
+.upload:active {
+  color: $red1;
+}
 
 .userCard {
   margin-right: -0.625rem;
@@ -110,6 +117,7 @@
   font-size: 0.875rem;
   appearance: none;
   border: 0;
+  box-shadow: 4px 4px 7px rgba(0,0,0,0.62);
 }
 .embroideryCard:last-child {
   margin-bottom: 0;
@@ -122,20 +130,13 @@
   background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
   background-position: 0 0, 0 0, 100% 0, 0 100%;
   background-repeat: no-repeat;
-}
-.embroideryCard.New:disabled {
-  display: none;
-}
-.embroideryCard:hover,
-.embroideryCard:focus,
-.embroideryCard:active {
-  box-shadow: 4px 4px 7px rgba(0,0,0,0.62);
-}
-.embroideryCard.New:hover,
-.embroideryCard.New:focus,
-.embroideryCard.New:active {
   box-shadow: none
 }
+.embroideryCard.New:disabled {
+  background-image: repeating-linear-gradient(120deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(210deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(-60deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(30deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px);
+  color: $greyDisabledColor;
+}
+
 .embroideryCard-content {  
   display: flex;
   flex-direction: column;
