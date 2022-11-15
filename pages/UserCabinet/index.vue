@@ -40,8 +40,8 @@ const editModal = ref({
             1989
           </p>
           <p class="userCard-body-item">
-            <span class="b">@instagram</span>
-            Instagram
+            <span class="b">Instagram</span>
+            @instagram
           </p>
           <p class="userCard-body-item">
             <span class="b">Facebook</span>
