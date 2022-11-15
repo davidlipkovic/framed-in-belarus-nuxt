@@ -30,6 +30,7 @@ select {
 }
 textarea {
   min-height: 5rem;
+  overflow-y: auto;
 }
 input::placeholder,
 select::placeholder,
