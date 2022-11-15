@@ -161,10 +161,10 @@
   color: $white;
 }
 .embroideryCard-status_progress {
-  background-color: $orange;
+  background-color: $embroideryCardStasusProgress;
 }
 .embroideryCard-status_finish {
-  background-color: $green;
+  background-color: $embroideryCardStasusFinish;
 }
 
 @media screen and (min-width: $br-point-tablet){
