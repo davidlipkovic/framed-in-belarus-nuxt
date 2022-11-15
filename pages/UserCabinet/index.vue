@@ -23,7 +23,22 @@ const editModal = ref({
       <section class="userCard">
         <div class="userCard-header">
           <img src="../../assets/media/img/Avatar.svg" class="userCard-avatar" alt="Avatar">
-          <label for="uploadAvatar" class="upload"><input type="file" name="uploadAvatar" id="uploadAvatar" class="visually-hidden">Upload foto</label>
+          <label for="uploadAvatar" class="upload">
+            <input type="file" name="uploadAvatar" id="uploadAvatar" class="visually-hidden">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Upload icon" class="upload_icon">
+              <g clip-path="url(#clip0_1248_17569)">
+              <path d="M10.0016 11.4962H12.3771C14.0962 11.4962 15.5028 10.5832 15.5028 8.88314C15.5028 7.18308 13.8462 6.33665 12.5021 6.27007C12.2243 3.61137 10.2829 1.99414 8.00115 1.99414C5.84443 1.99414 4.45537 3.42539 4.00027 4.84476C2.12487 5.02293 0.499512 6.21631 0.499512 8.17049C0.499512 10.1247 2.18738 11.4962 4.25033 11.4962H6.00071" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.0024 7.99486L8.0017 5.99414L6.00098 7.99486" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.00195 14.0089V6.49414" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_1248_17569">
+              <rect width="16.0035" height="16.0035" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg><!--
+            --><span clacc="upload_text">Upload foto</span>
+          </label>
           <h2 class="userCard-title">Alexander Ivanow</h2>
         </div>
         <div class="userCard-body">
