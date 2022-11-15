@@ -22,7 +22,7 @@ button {
 }
 select {
   appearance: none;
-  background-image: url(../../assets/media/img/arrow.svg);
+  background-image: url("../media/img/arrow.svg");
   background-repeat: no-repeat;
   background-position: 95% center;
 }
@@ -51,9 +51,4 @@ textarea:focus::placeholder {
   textarea:focus {
   height: 50vh;
   }
-}
-
-/* Desktop */
-@media screen and (min-width: $br-point-desktop) {
-  
 }
