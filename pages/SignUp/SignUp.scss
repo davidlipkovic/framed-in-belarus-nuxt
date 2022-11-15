@@ -18,7 +18,7 @@ button {
   margin-bottom: 1.5rem;
   padding: 1rem;
   border-radius: 0.25rem;
-  border-color: $grey3;
+  border-color: $inputsBorder;
   border-width: 1px;
   width: 100%;
 }
@@ -35,9 +35,14 @@ textarea {
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
-  color: $grey3;
+  color: $greyDisabledColor;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: $inputsBorderFocus;
+}
 input:focus::placeholder,
 select:focus::placeholder,
 textarea:focus::placeholder {
