@@ -41,10 +41,10 @@ const editModal = ref({
           </p>
           <p class="userCard-body-item">
             <span class="b">@instagram</span>
-            @instagram
+            Instagram
           </p>
           <p class="userCard-body-item">
-            <span class="b">@facebook</span>
+            <span class="b">Facebook</span>
             namesuranma
           </p>
           <p class="userCard-body-item_longText">
@@ -164,7 +164,7 @@ const editModal = ref({
         <div class="Settings-item">
           <div class="Settings-item-main">
             <label for="instagramNick" class="Settings-item-title">
-              @instagram
+              Instagram
             </label>
             <input type="text" value="" placeholder="Your @instagram nickname" class="Settings-item-input" id="instagramNick" name="instagramNick">
           </div>
@@ -179,7 +179,7 @@ const editModal = ref({
         <div class="Settings-item">
           <div class="Settings-item-main">
             <label for="facebookNick" class="Settings-item-title">
-              @facebook
+              Facebook
             </label>
             <input type="text" value="" placeholder="Your @facebook nickname" class="Settings-item-input" id="facebookNick" name="facebookNick">
           </div>
