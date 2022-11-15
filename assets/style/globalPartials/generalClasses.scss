@@ -54,12 +54,12 @@
   border-color: $black;
 }
 .bg_red {
-  background-color: $red1;
-  border-color: $red1 !important;
+  background-color: $red;
+  border-color: $red !important;
 }
 .button.bg_red:hover {
-  background-color: $red2;
-  border-color: $red2 !important;
+  background-color: $redHover;
+  border-color: $redHover !important;
 }
 .bg_grey {
   background-color: $grey1;
@@ -70,5 +70,5 @@
   color: $white !important;
 }
 .red {
-  color: $red1;
+  color: $red;
 }

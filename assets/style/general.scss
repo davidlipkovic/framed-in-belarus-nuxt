@@ -22,8 +22,14 @@ h2.title {
   overflow: hidden;
   min-height: calc(100vh - 33.5rem);
   a {
-    color: $blue;
+    color: $red;
     font-weight: 600;
+  }
+  a:hover {
+    color: $redHover;
+    text-decoration: underline;
+    text-decoration-color: $redHover;
+    text-decoration-thickness: 1px;
   }
   .button {
     margin-right: 1.125rem;
