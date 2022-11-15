@@ -1,16 +1,16 @@
 $black: #020202;
 $white: #fff;
-$red1: #D10000;
-$red2: #EC4646;
-$red3: #FF565D;
-$grey1: #f2f2f2;
-$grey2: #535353;
-$grey3: #79747E;
-$lime: #27AE60;
-$blue: #5767F6;
-$orange: #F2994A;
-$green: #219653;
+$red: #D10000; /* .Content a */
+$redHover: #FF565D; /* a:hover, a:focus, button.bg_red:hover */
+$inputsBorder: #DADADA;
+$inputsBorderFocus: #6200EE;
+$greyButtonHover: #535353;
+$greyDisabledColor: #828282;
+$greyDisabledBg: #E6E6E6;
 $borderLight: #E0E0E0;
+$lime: #27AE60; /*alert Info */
+$embroideryCardStasusProgress: #F2994A;
+$embroideryCardStasusFinish: #219653;
 
 $br-point-desktop: 1110px;
 $br-point-tabletUpper: 1109px;

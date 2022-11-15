@@ -1,51 +1,28 @@
 @import "../../assets/style/globalPartials/variables.scss";
 
-h1.title {
-  margin-bottom: 1rem;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-select,
-textarea,
-button {
+.b {
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  border-color: $grey3;
-  border-width: 1px;
-  width: 100%;
-}
-select {
-  appearance: none;
-  background-image: url(../../assets/media/img/arrow.svg);
-  background-repeat: no-repeat;
-  background-position: 95% center;
-}
-textarea {
-  min-height: 5rem;
-}
-input::placeholder,
-select::placeholder,
-textarea::placeholder {
-  color: $grey3;
+  * {
+    margin-bottom: 0;
+  }
 }
 
-input:focus::placeholder,
-select:focus::placeholder,
-textarea:focus::placeholder {
-  display: none;
+.form.end {
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1.title {
+  margin-bottom: 1rem;
 }
 .button {
   margin-right: 0;
   font-size: 1em;
 }
+
 
 @media screen and (min-width: $br-point-tablet) {
 .group {

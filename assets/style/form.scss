@@ -1,24 +1,54 @@
 @import "./globalPartials/variables.scss";
 @import "./globalPartials/generalClasses.scss";
 
-.b {
-  margin-bottom: 1.5rem;
-  * {
-    margin-bottom: 0;
-  }
-}
-
-.form.end {
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
+form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select,
+textarea,
+button {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  border-color: $inputsBorder;
+  border-width: 1px;
+  width: 100%;
+}
+select {
+  appearance: none;
+  background-image: url("../media/img/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 95% center;
+}
+textarea {
+  min-height: 5rem;
+  overflow-y: auto;
+}
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: $greyDisabledColor;
 }
 
-/* Desktop */
-@media screen and (min-width: $br-point-desktop) {
-  .content {
-    padding-left: 545px;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: $inputsBorderFocus solid 1px;
+}
+input:focus::placeholder,
+select:focus::placeholder,
+textarea:focus::placeholder {
+  display: none;
+}
+
+@media screen and (max-width: $br-point-tabletUpper) {  
+  textarea:focus {
+  height: 50vh;
   }
 }

@@ -5,6 +5,9 @@
 }
 
 @media screen and (min-width: $br-point-desktop) {
+  .content {
+    padding-left: 545px;
+  }
   .Embroiderer {
     display: block;
     position: fixed;

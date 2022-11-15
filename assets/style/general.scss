@@ -22,8 +22,14 @@ h2.title {
   overflow: hidden;
   min-height: calc(100vh - 33.5rem);
   a {
-    color: $blue;
+    color: $red;
     font-weight: 600;
+  }
+  a:hover {
+    color: $redHover;
+    text-decoration: underline;
+    text-decoration-color: $redHover;
+    text-decoration-thickness: 1px;
   }
   .button {
     margin-right: 1.125rem;
@@ -42,7 +48,7 @@ h2.title {
   margin-bottom: 3rem;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-color: $grey1;
+  background-color: $greyDisabledBg;
   background-image: url(../media/img/bg_title.jpg);
   background-size: cover;
   .content {
@@ -81,7 +87,9 @@ h2.title {
     font-size: 1.25rem;
   }
 }
-
+.vfm__content {
+  border-radius: 0.75rem;
+}
 
 
 

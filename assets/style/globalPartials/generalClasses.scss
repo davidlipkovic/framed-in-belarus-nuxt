@@ -29,8 +29,8 @@
 
 .button:hover,
 .Content .button:hover {
-  background-color: $grey2;
-  border-color: $grey2;
+  background-color: $greyButtonHover;
+  border-color: $greyButtonHover;
   color: $white;
 }
 
@@ -54,21 +54,21 @@
   border-color: $black;
 }
 .bg_red {
-  background-color: $red1;
-  border-color: $red1 !important;
+  background-color: $red;
+  border-color: $red !important;
 }
 .button.bg_red:hover {
-  background-color: $red2;
-  border-color: $red2 !important;
+  background-color: $redHover;
+  border-color: $redHover !important;
 }
 .bg_grey {
-  background-color: $grey1;
-  border-color: $grey1 !important;
+  background-color: $greyDisabledBg;
+  border-color: $greyDisabledBg !important;
 }
 .bg_black,
 .bg_red {
   color: $white !important;
 }
 .red {
-  color: $red1;
+  color: $red;
 }

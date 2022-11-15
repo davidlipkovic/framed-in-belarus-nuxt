@@ -6,6 +6,7 @@
   top: 1.5rem;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
+  border-radius: 0.75rem;
 }
 .Settings-header {
   padding-top: 1.625rem;
@@ -56,7 +57,7 @@
     font-size: 0.875rem;
   }
   .switcher {
-    background: #E0E0E0;
+    background: $borderLight;
     border-radius: 7px;
     width: 2.125rem;
     height: 0.875rem;
@@ -81,7 +82,7 @@
     background: rgba(187, 134, 252, 0.38);
   }
   .switcher:checked:after {
-    background: #6200EE;
+    background: $inputsBorderFocus;
     left: 41.18%;
   }
 }
