@@ -208,7 +208,7 @@ const editModal = ref({
 
         <div class="Settings-item Settings-item_buttons">
           <div class="Settings-item-main">
-            <button class="button">Cancel</button>
+            <button class="button" @click="editModal.show = false">Cancel</button>
             <button class="button bg_black">Save</button>
           </div>
         </div>
