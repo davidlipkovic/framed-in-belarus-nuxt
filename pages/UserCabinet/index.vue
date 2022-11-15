@@ -235,5 +235,5 @@ const editModal = ref({
 </template>
 
 <style src="./UserCabinet.scss" lang="scss" scoped></style>
-<style src="../SignUp/SignUp.scss" lang="scss" scoped></style>
+<style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./Settings.scss" lang="scss" scoped></style>
