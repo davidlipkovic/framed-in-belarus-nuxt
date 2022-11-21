@@ -11,14 +11,25 @@ input[type="number"],
 input[type="email"],
 input[type="password"],
 select,
-textarea,
-button {
+textarea {
   margin-bottom: 1.5rem;
   padding: 1rem;
   border-radius: 0.25rem;
   border-color: $inputsBorder;
   border-width: 1px;
   width: 100%;
+}
+input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: 1.313rem;
+  border-color: $inputsBorder;
+  border-width: 1px;
+  vertical-align: middle;
+}
+input[type="checkbox"]:checked {
+  accent-color: $black;
+  color: $white;
 }
 select {
   appearance: none;
@@ -51,4 +62,12 @@ textarea:focus::placeholder {
   textarea:focus {
   height: 50vh;
   }
+}
+
+.form.end {
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
