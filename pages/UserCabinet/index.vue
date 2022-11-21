@@ -71,7 +71,7 @@ const editModal = ref({
           <button class="button" @click="editModal.show = true">Edit profile</button>
         </div>
       </section>
-      <div class="embroideryCards">
+      <section class="embroideryCards">
         <button class="embroideryCard New">
           <div class="embroideryCard-content">
             <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
@@ -96,7 +96,7 @@ const editModal = ref({
             </span>
           </div>
         </button>
-      </div>
+      </section>
     </div>
 
     <vue-final-modal
