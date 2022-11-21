@@ -1,0 +1,137 @@
+<template>
+  <main class="Content">
+    <Head>
+      <Title>Step 1 — Choose your Hero</Title>
+      <Meta name="description" content="First step"/>
+    </Head>
+    <div class="Title">
+      <div class="content">
+        <h1>
+          <span class="subtitle">Step 1 <span class="visually-hidden">— </span></span>Choose your Hero
+        </h1>
+        <nuxt-link
+          to="/UserCabinet"
+          class="GoToCabinet">
+          Go back to my Profile
+        </nuxt-link>
+      </div>
+    </div>
+    <div class="content">
+      <section class="NavSteps">
+        <div class="navStep navStep_current">
+          <span class="navStep-number">1</span>
+          <span class="navStep-title">Your Hero</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">2</span>
+          <span class="navStep-title">Preparation</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">3</span>
+          <span class="navStep-title">Support</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">4</span>
+          <span class="navStep-title">Photo</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">5</span>
+          <span class="navStep-title">Comment</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">6</span>
+          <span class="navStep-title">Shipping</span>
+        </div>
+        <div class="navStep_arrow"></div>
+        <div class="navStep">
+          <span class="navStep-number">7</span>
+          <span class="navStep-title">Publication</span>
+        </div>
+      </section>
+
+      <section class="FindHero">
+        <div class="FindHero-form">
+          <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
+          <button class="FindHero-input-btn_reset"><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn_reset-img"></button>
+          <div class="FindHero-select">
+            <p class="FindHero-select-item">Smirnov</p>
+            <p class="FindHero-select-item">Smirnova</p>
+          </div>
+        </div>
+        <div id="default">
+          <p class="alignCenter">
+            <span class="block">OR</span>
+            You can let us choose a hero for you automatically
+          </p>
+          <div class="buttons">
+            <button class="button">Choose a hero automatically</button>
+          </div>
+        </div>
+
+        <div class="mistake" id="heroHasBeenChosen">
+          <h2>Sorry, this hero has already been chosen</h2>
+          <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
+          <p>Please choose another hero.</p>          
+          <div class="buttons">
+            <button class="button">Choose a hero automatically</button>
+          </div>
+        </div>
+
+        <div class="mistake" id="heroDontHavePattern">
+          <h2>Sorry, we don't have a pattern for this hero yet</h2>
+          <p>If you really want this hero, please <strong>leave a request for a pattern</strong> in this section.</p>
+          <p>To create a pattern  please help us by telling the hero's story. </p>
+          <p>What he/she is into, what their work was, whether he/she has children or pets, etc.</p>
+          <p>Often one-sided information can be found from Belarusian government sources, describing only the side of the prosecution. If you know the details and reasons for your hero's detention, please provide them. This may also help in creating a pattern.</p>
+          <p>Rufina creates all the patterns by herself, so the process of creating a new pattern can take 2-3 months.</p>
+          <p>Thank you for your understanding!</p>
+          <div class="buttons">       
+            <button class="button">Leave a request</button>
+            <button class="button">Choose a hero automatically</button>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+  </main>
+</template>
+
+<style src="../Steps.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+
+<script>
+  // const input = document.querySelector('.FindHero-input');
+  // const button = document.querySelector('.FindHero-input-btn_reset');
+  // const select = document.duerySelector('.FindHero-select');
+
+  // function searchHero() {
+  //   send input.value to database;
+  //   get database answer;
+  //   add answer to select with class="FindHero-select-item"
+  //   select.classList.add('active');
+  // } 
+  // input.oninput = function(e){
+  //   button.classList.add('active');
+  //   searchHero();
+  //   button.onclick = function(e){
+  //     input.value = '';
+  //     button.classList.remove('active');
+  //   }
+  // };
+
+  // if( hero == null ) {
+  //   div#default remove;
+  //   div#heroDontHavePattern classList.add('active');
+  // } else if ( hero == exist && hero.pattern == busy) {
+  //   div#default remove;
+  //   div#heroHasBeenChosen classList.add('active');
+  // }
+
+</script>
