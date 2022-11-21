@@ -44,7 +44,7 @@ textarea:focus {
 input:focus::placeholder,
 select:focus::placeholder,
 textarea:focus::placeholder {
-  display: none;
+  color: transparent;
 }
 
 @media screen and (max-width: $br-point-tabletUpper) {  
