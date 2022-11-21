@@ -16,7 +16,7 @@
   padding-bottom: 1rem;
   background-color: $white;
   border-radius: 6px;
-  box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  box-shadow: $defaultShadow;
   margin-bottom: 2.5rem;
 }
 .userCard-header {  
@@ -120,7 +120,7 @@
   font-size: 0.875rem;
   appearance: none;
   border: 0;
-  box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  box-shadow: $defaultShadow;
 }
 .embroideryCard:last-child {
   margin-bottom: 0;
