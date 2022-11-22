@@ -11,8 +11,9 @@
         </h1>
         <nuxt-link
           to="/UserCabinet"
-          class="GoToCabinet">
-          Go back to my Profile
+          class="GoBack">
+          <img src="../../../assets/media/img/arrow_back.svg" alt="Go back to my Profile" class="GoBack-img">
+          <span class="GoBack-text">Go back to my Profile</span>
         </nuxt-link>
       </div>
     </div>
