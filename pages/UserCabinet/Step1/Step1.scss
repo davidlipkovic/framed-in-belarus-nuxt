@@ -27,6 +27,7 @@
 .FindHero-input {
   padding-left: 3.375rem !important;
   height: 3.375rem;
+  background-color: #F2F2F2;
   background-image: url("../../assets/media/img/search.svg");
   background-repeat: no-repeat;
   background-position: 1.125rem 50%;
@@ -71,6 +72,15 @@
 .Hero-Photo {
   margin-bottom: 1.25rem;
 }
+.Hero-Photo-img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.1rem;
+  width: 21.75rem;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: $defaultShadow;
+}
 .Hero-Photo-text {
   text-align: center;
 }
@@ -80,8 +90,9 @@
   font-weight: 600;
 }
 .Hero-Description-title {
+  margin-bottom: 0.75rem;
   font-size: 2.25rem;
-  margin-bottom: 0;
+  font-weight: 600;
 }
 .Hero-Description-data {
   margin-bottom: 1rem;
@@ -90,9 +101,7 @@
     font-weight: 600;
   }
 }
-.Hero-Description-data:last-child {
-  margin-bottom: 0;
-}
+
 @media screen and (min-width: $br-point-tablet) {
   .FoundHero {
     display: grid;
