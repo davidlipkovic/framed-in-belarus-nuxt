@@ -91,7 +91,41 @@ h2.title {
   border-radius: 0.75rem;
 }
 
+.GoBack {
+  display: block;
+  height: 2.875rem;  
+  padding-top: 0.188rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  position: absolute;
+  top: -1.875rem;  
+}
+.GoBack-img {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.GoBack-text {
+  display: none;
+}
 
+@media screen and (min-width: $br-point-tablet) {
+  .GoBack {
+    top: -1.875rem;
+    padding-left: 2.25rem;
+    background: url(../media/img/arrow_back.svg) 0% 0% no-repeat;
+    background-size: 1.875rem 1.875rem;
+  }
+  .GoBack-img {
+    display: none;
+  }  
+  .GoBack-text {
+    display: block;
+    font-size: 0.875rem;
+    color: $black;
+    font-weight: 400;
+  }
+}
 
 /* Desktop */
 @media screen and (min-width: $br-point-desktop) {

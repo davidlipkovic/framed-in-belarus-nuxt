@@ -11,8 +11,9 @@
         </h1>
         <nuxt-link
           to="/UserCabinet"
-          class="GoToCabinet">
-          Go back to my Profile
+          class="GoBack">
+          <img src="../../../assets/media/img/arrow_back.svg" alt="Go back to my Profile" class="GoBack-img">
+          <span class="GoBack-text">Go back to my Profile</span>
         </nuxt-link>
       </div>
     </div>
@@ -97,6 +98,48 @@
         </div>
       </section>
 
+      <section class="FoundHero">
+        <div class="Hero-Photo">
+          <img src="../../../assets/media/img/randomHero.jpg" alt="Hero's name" class="Hero-Photo-img">
+          <p class="Hero-Photo-text">This hero has been chosen automatically</p>
+        </div>
+        <div class="Hero-Description">
+          <p class="Hero-Description-case">
+            Case: Rabochy Ruh
+          </p>
+          <h2 class="Hero-Description-title">
+            Viktar Anisimau
+          </h2>
+          <div class="Hero-Description-data">
+            <h3 class="title">Date of birth:</h3>
+            <p>3 September 2022</p>
+          </div>
+          <div class="Hero-Description-data">
+            <h3 class="title">Date of detention:</h3>
+            <p>3 September 2022</p>
+          </div>
+          <div class="Hero-Description-data">
+            <h3 class="title">Sentence:</h3>
+            <p>3 years</p>
+          </div>
+          <div class="Hero-Description-data">
+            <h3 class="title">Description of the Political prisoner:</h3>
+            <p>Salihorsk resident Aliaksandr Adziarykha was convicted under part 1 of Art. 368 of the Criminal Code for insulting Aliaksandr Lukashenka, Art. 369 for insulting KGB Chairperson Ivan Tsertsel, CEC Chairperson Liudmila Yarmoshyna, deputies, ministers for foreign affairs and emergencies, and the prosecutor to three years of imprisonment and a fine of 6,400 Belarusian roubles ($2,535)</p>
+          </div>
+          <div class="Hero-Description-data">
+            <h3 class="title">Description of the case:</h3>
+            <p>The case description is the same as the political prisoner’s description because this is an individual case, not a collective one.</p>
+          </div>
+          <div class="Hero-Description-data">
+            <h3 class="title">Address of the prison:</h3>
+            <p>Prison No. 4</p>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="button bg_black">Choose this hero</button>
+        </div>
+      </section>
+
 
     </div>
 
@@ -104,6 +147,7 @@
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
+<style src="./Step1.scss" lang="scss" scoped></style>
 <style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 
 <script>
