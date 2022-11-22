@@ -9,8 +9,9 @@
           <h1 class="content News">The little bird must be caught</h1>
           <nuxt-link
             to="/News"
-            class="GoToNews">
-            {{ $t('GoToNews') }}
+            class="GoBack">
+            <img src="../../../assets/media/img/arrow_back.svg" alt="{{ $t('GoToNews') }}" class="GoBack-img">
+            <span class="GoBack-text">{{ $t('GoToNews') }}</span>            
           </nuxt-link>
         </div>
       </div>
