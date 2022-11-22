@@ -80,7 +80,7 @@ const editModal = ref({
         </button>
         <button class="embroideryCard">
           <div class="embroideryCard-content">
-            <img src="../../assets/media/img/photoDefault.jpg" alt="Name Surname" class="embroideryCard-img">
+            <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
             Name Surname
             <span class="embroideryCard-status embroideryCard-status_progress">
               In progress
@@ -89,7 +89,7 @@ const editModal = ref({
         </button>
         <button class="embroideryCard">
           <div class="embroideryCard-content">
-            <img src="../../assets/media/img/photoDefault.jpg" alt="Name Surname" class="embroideryCard-img">
+            <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
             Name Surname
             <span class="embroideryCard-status embroideryCard-status_finish">
               Completed
