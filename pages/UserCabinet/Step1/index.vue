@@ -107,7 +107,7 @@
           <p class="Hero-Description-case">
             Case: Rabochy Ruh
           </p>
-          <h2 class="Hero-Description-title">
+          <h2 class="Hero-Description-name">
             Viktar Anisimau
           </h2>
           <div class="Hero-Description-data">
