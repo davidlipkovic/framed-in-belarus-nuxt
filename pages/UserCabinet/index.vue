@@ -112,7 +112,7 @@ const editModal = ref({
           @click="editModal.show = false"
           class="Settings-close"
         >
-          <img src="../../assets/media/img/close.svg" alt="X">
+          <img src="../../assets/media/img/close.svg" alt="Close">
         </button>
       </div>
       <div class="Settings-body">

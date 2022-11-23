@@ -87,8 +87,48 @@ h2.title {
     font-size: 1.25rem;
   }
 }
+.vfm__container {
+  display: flex;
+}
 .vfm__content {
   border-radius: 0.75rem;
+  margin: auto;
+  img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+}
+.modal-header {
+  padding-top: 1.625rem;
+  padding-right: 2.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 2.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $borderLight;
+  background-color: $white;
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+.modal-close {
+  width: 1.563rem;
+  height: 1.563rem;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  border: none;
+  img {    
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .GoBack {

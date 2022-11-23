@@ -1,0 +1,96 @@
+@import "../../assets/style/globalPartials/variables";
+
+.Hero {
+  margin-bottom: 1.563rem;
+  padding: 1.125rem;
+  display: grid;
+  grid-template-columns: 1fr 1rem;
+  align-items: start;
+  background-color: #F8F8F8;
+  border-radius: 0.75rem;
+}
+#HeroHidden:checked + .Hero {
+  display: none;
+}
+.Hero-header {
+  display: grid;
+  grid-template-columns: 3.75rem 1fr;
+  gap: 1.125rem;
+  align-items: center;
+}
+.Hero-header-photo {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+}
+.Hero-header-case {
+  margin: 0;
+}
+.Hero-header-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.Hero-more-button,
+.Hero-less-button {
+  display: flex;
+  justify-content: flex-start;
+  grid-column: span 2;
+  text-align: left;
+  cursor: pointer;
+}
+.Hero-more-button-text,
+.Hero-less-button-text {
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $red;
+}
+.Hero-more-button-img,
+.Hero-less-button-img {
+  width: 0.688rem;
+  height: 1.25rem;
+  stroke: $red;
+}
+.Hero-less-button-img {
+  transform: rotate(180deg);
+}
+.Hero-more-button:hover,
+.Hero-less-button:hover  {
+  color: $redHover;
+  .Hero-more-button-img {
+    stroke: $redHover;
+  }
+}
+.Hero-close {
+  width: 1rem;
+  height: 1rem;
+}
+.Hero-close-img {
+  width: 100%;
+  height: 100%;
+}
+.Hero-content {
+  display: none;
+  grid-column: span 2;
+}
+.Hero-Description-data {
+  margin-bottom: 1rem;
+  .title {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
+.Hero-Description-data:last-child {
+  margin-bottom: 0;
+}
+
+#heroMore:checked ~ .Hero-content {
+  display: block;
+}
+#heroMore:checked ~ .Hero-header {
+  margin-bottom: 1.25rem;
+  .Hero-more-button {
+    display: none;
+  }
+}

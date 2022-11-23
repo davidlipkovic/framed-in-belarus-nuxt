@@ -61,12 +61,7 @@
 
 .FoundHero {
   .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    .button:last-child {
-      margin-bottom: 0;
-    }
+    margin-top: 0;
   }
 }
 .Hero-Photo {
@@ -89,17 +84,10 @@
   font-size: 1.25rem;
   font-weight: 600;
 }
-.Hero-Description-title {
+.Hero-Description-name {
   margin-bottom: 0.75rem;
   font-size: 2.25rem;
   font-weight: 600;
-}
-.Hero-Description-data {
-  margin-bottom: 1rem;
-  .title {
-    margin-bottom: 0;
-    font-weight: 600;
-  }
 }
 
 @media screen and (min-width: $br-point-tablet) {

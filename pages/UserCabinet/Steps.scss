@@ -1,5 +1,6 @@
 @import "../../assets/style/globalPartials/variables";
 @import "./NavSteps";
+@import "./Hero";
 
 .Title {
   padding: 3.125rem 0;
@@ -7,4 +8,25 @@
     display: block;
     font-size: 1.5rem;
   }
+}
+
+.buttons {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  .button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: $br-point-tablet) {
+
+  .buttons {
+    .button {
+      margin: 0;
+    }
+  }
+
 }
