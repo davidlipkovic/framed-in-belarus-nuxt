@@ -61,12 +61,7 @@
 
 .FoundHero {
   .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    .button:last-child {
-      margin-bottom: 0;
-    }
+    margin-top: 0;
   }
 }
 .Hero-Photo {
