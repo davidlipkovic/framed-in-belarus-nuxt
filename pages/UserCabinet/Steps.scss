@@ -14,19 +14,19 @@
   margin-top: 1.25rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
+  .button {
+    margin-right: 4.5rem;
+  }
   .button:last-child {
+    margin-right: 0;
     margin-bottom: 0;
   }
 }
 
 @media screen and (min-width: $br-point-tablet) {
-
-  .buttons {
-    .button {
-      margin: 0;
-    }
+  .textWidth {
+    width: 57.063rem;
   }
-
 }
