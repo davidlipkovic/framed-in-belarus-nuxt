@@ -77,9 +77,9 @@ const MainPattern = ref({
             <button class="pattern-button pattern-button_look" @click="MainPattern.show = true"><!--
             --><span class="pattern-button-text">See full image</span><!--
             --></button>
-            <button class="pattern-button pattern-button_download" id="btnDownloadMainPattern"><!--
+            <a download href="../../../assets/media/img/defaultPattern.png" class="pattern-button pattern-button_download" id="btnDownloadMainPattern"><!--
             --><span class="pattern-button-text">Download pattern</span><!--
-            --></button>
+            --></a>
           </div>
         </div>
 
@@ -228,9 +228,9 @@ const MainPattern = ref({
                 <button class="pattern-button pattern-button_look" @click="AlphabetPattern.show = true"><!--
                 --><span class="pattern-button-text">See full image</span><!--
                 --></button>
-                <button class="pattern-button pattern-button_download" id="btnDownloadAlphabetPattern"><!--
+                <a download href="../../../assets/media/img/AlphabetPattern_en.jpg" class="pattern-button pattern-button_download" id="btnDownloadAlphabetPattern"><!--
                 --><span class="pattern-button-text">Download pattern</span><!--
-                --></button>
+                --></a>
               </div>
             </div>
           </div>
