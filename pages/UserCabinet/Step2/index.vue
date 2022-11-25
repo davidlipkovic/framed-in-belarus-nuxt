@@ -32,10 +32,12 @@ const MainPattern = ref({
     </div>
     <div class="content">
       <section class="NavSteps">
-        <div class="navStep navStep_done">
+        <nuxt-link
+          to="/UserCabinet/Step1"
+          class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Your Hero</span>
-        </div>
+        </nuxt-link>
         <div class="navStep_arrow"></div>
         <div class="navStep navStep_current">
           <span class="navStep-number">2</span>
