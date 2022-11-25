@@ -1,7 +1,12 @@
 <script setup>
 </script>
 
-<template>
+<template>  
+  <Head>
+    <Title>#Framed in Belarus</Title>
+    <Meta name="description" content="{{ $t('description') }}"/>
+  </Head>
+    
   <main class="Content FirstPage">
     <section class="content">
       <div class="ProjectDescr">

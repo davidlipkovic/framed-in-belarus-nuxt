@@ -4,8 +4,8 @@
 <template>
   <main class="Content">
     <Head>
-      <Title>About us</Title>
-      <Meta name="description" content="About us description"/>
+      <Title>#Framed in Belarus — About us</Title>
+      <Meta name="description" content="{{ $t('aboutUsPage1') }}"/>
     </Head>
     <div class="Title">
       <h1 class="content News">

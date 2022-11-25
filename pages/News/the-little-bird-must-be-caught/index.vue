@@ -2,6 +2,10 @@
 <style src="../News.scss" lang="scss" scoped></style>
 
 <template>
+  <Head>
+    <Title>#Framed in Belarus — The little bird must be caught</Title>
+    <Meta name="description" content="{{ $t('newsTheLittleBirdP7') }}"/>
+  </Head>
   <main class="Content">
     <article>
       <div class="Title">

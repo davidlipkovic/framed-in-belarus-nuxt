@@ -2,6 +2,10 @@
 </script>
 
 <template>
+  <Head>
+      <Title>#Framed in Belarus — {{ $t('newsPageArticle2Title') }}</Title>
+      <Meta name="description" content="{{ $t('newsStitchedFreedom0') }}"/>
+  </Head>
   <main class="Content">
     <article>
       <div class="Title">

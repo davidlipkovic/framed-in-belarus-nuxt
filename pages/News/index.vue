@@ -1,7 +1,11 @@
 <script setup>
 </script>
 
-<template>
+<template> 
+  <Head>
+    <Title>#Framed in Belarus — {{ $t('newsPageTitle') }}</Title>
+    <Meta name="description" content="{{ $t('description') }}"/>
+  </Head>
   <main class="Content">
     <div class="Title">
       <h1 class="content">
