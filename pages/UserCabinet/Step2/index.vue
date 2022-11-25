@@ -156,55 +156,55 @@ const MainPattern = ref({
             <p>The fabric for the embroidery is called Aida. It comes in a different raster - the number behind the word Aida determines how many crosses fit in one centimetre. </p>
             <p>The smaller the number - the larger the cross. Usually it is sold in metres of 140 cm width.</p>
             <p>We've calculated in advance how much Aida fabric you might need in different widths - see the size chart:</p>
-            <table class="sizeChart">
-              <thead>
-                <tr>
-                  <td>Number Aida</td>
-                  <td>Size of the embroidery</td>
-                  <td>Seam allowances</td>
-                  <td>Final fabric size</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Aida 3</td>
-                  <td>48,3 х 48,3 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>57 x 57 cm</td>
-                </tr>
-                <tr>
-                  <td>Aida 4</td>
-                  <td>36,25 x 36,25 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>45 x 45 cm</td>
-                </tr>
-                <tr>
-                  <td>Aida 5</td>
-                  <td>29 х 29 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>37 x 37 cm</td>
-                </tr>
-                <tr>
-                  <td>Aida 6 </td>
-                  <td>24,2 х 24,2 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>35 x 35 cm</td>
-                </tr>
-                <tr>
-                  <td>Aida 7</td>
-                  <td>20,7 х 20,7 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>30 x 30 cm</td>
-                </tr>
-                <tr>
-                  <td>Aida 8</td>
-                  <td>18,1 х 18,1 cm</td>
-                  <td>+/- 5 cm on each side</td>
-                  <td>27 x 27 cm</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
+          <table class="sizeChart">
+            <thead>
+              <tr>
+                <td>Number Aida</td>
+                <td>Size of the embroidery</td>
+                <td>Seam allowances</td>
+                <td>Final fabric size</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aida 3</td>
+                <td>48,3 х 48,3 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>57 x 57 cm</td>
+              </tr>
+              <tr>
+                <td>Aida 4</td>
+                <td>36,25 x 36,25 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>45 x 45 cm</td>
+              </tr>
+              <tr>
+                <td>Aida 5</td>
+                <td>29 х 29 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>37 x 37 cm</td>
+              </tr>
+              <tr>
+                <td>Aida 6 </td>
+                <td>24,2 х 24,2 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>35 x 35 cm</td>
+              </tr>
+              <tr>
+                <td>Aida 7</td>
+                <td>20,7 х 20,7 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>30 x 30 cm</td>
+              </tr>
+              <tr>
+                <td>Aida 8</td>
+                <td>18,1 х 18,1 cm</td>
+                <td>+/- 5 cm on each side</td>
+                <td>27 x 27 cm</td>
+              </tr>
+            </tbody>
+          </table>
           <div class="manual-part">
             <h2 class="title">And a hoop?</h2>
             <p>You don't need a hoop for this type of embroidery, but if it makes you feel more comfortable, use one!</p>
@@ -214,8 +214,8 @@ const MainPattern = ref({
             <p>We suggest that you start in the middle of your embroidery. Fold the fabric in half twice - this is how you will find the centre of the fabric. The centre is also marked on the diagram. This is your starting point. Count off the number of empty cells from the centre to the beginning of the motif - this is usually the foot  of the schematic man. Do the same on the fabric.</p>
             <p>Continue the work, counting the empty and filled cells. Follow the scheme. There is already a counted number of crosses in the most complicated places.</p>
             <p>Watch the informative <b class="b">video lesson</b>. </p>
-            <iframe width="100%" height="456" src="https://www.youtube.com/embed/O7FEv4ZVdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+          </div>          
+          <iframe width="100%" height="456" src="https://www.youtube.com/embed/O7FEv4ZVdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <div class="subscription">
             <div class="subscription-content">
               <h2 class="title">Work subscription</h2>

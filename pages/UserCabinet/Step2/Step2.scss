@@ -2,6 +2,8 @@
 
 .pattern,
 .subscription-pattern {
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 2.125rem;
   width: fit-content;
   position: relative;
@@ -100,6 +102,7 @@
 @media screen and (min-width: $br-point-tablet) {
   .pattern {
     margin-left: 2.125rem;
+    margin-right: 0;
     float: right;
   }
   .sizeChart {
@@ -110,16 +113,13 @@
 }
 
 @media screen and (min-width: $br-point-desktop) {
-  .pattern {
-    margin-left: 2.125rem;
-    float: right;
-  }
   .subscription {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
+  .manual-part,
   .subscription-content {
     width: 45.375rem;
   }
@@ -127,6 +127,7 @@
     width: 21.75rem;
   }
   .sizeChart {
+    width: 57.5rem;
     td {
       padding: 0.75rem 0.875rem;
     }
