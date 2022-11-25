@@ -105,6 +105,9 @@
     margin-right: 0;
     float: right;
   }
+  .manual-part {
+    width: 45.375rem;
+  }
   .sizeChart {
     td {
       padding: 0.75rem 0.875rem;
@@ -119,7 +122,6 @@
     align-items: center;
     justify-content: space-between;
   }
-  .manual-part,
   .subscription-content {
     width: 45.375rem;
   }
