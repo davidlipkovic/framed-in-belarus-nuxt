@@ -182,4 +182,7 @@ ol:last-child {
   margin-bottom: 0;
 }
 
-ul li {list-style: disc inside;}
+li {
+  margin-left: 1.15rem;
+  list-style: disc outside;
+}
