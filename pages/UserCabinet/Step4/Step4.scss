@@ -1,0 +1,69 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.uploadFiles {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-image: repeating-linear-gradient(120deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(210deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(-60deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(30deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px);
+  background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+.uploadFiles-descript {
+  text-align: center;
+  .line {
+    display: block;
+  }
+  .line:last-child {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+}
+.uploadFiles-descript-icon {
+  margin-right: 0.5rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  transform: rotate(45deg);
+  stroke: $black;
+  path {
+    fill: $black;
+  }
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.875rem;
+  justify-items: center;
+}
+.photo {
+  width: fit-content;
+  position: relative;
+}
+.photo-btnDelete {
+  width: 1.625rem;
+  height: 1.625rem;
+  display: flex;
+  top: 0.75rem;
+  right: 0.75rem;
+  position: absolute;
+  background-color: $black;
+  border-radius: 50%;
+}
+.photo-btnDelete-img {
+  margin: auto;
+  width: 40%;
+  height: 40%;
+  path {
+    fill: $white;
+  }
+}
+
+@media screen and (min-width: $br-point-tablet) {    
+  .photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
