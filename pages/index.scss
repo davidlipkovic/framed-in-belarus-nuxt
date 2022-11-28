@@ -57,11 +57,13 @@
 }
 /* Tablet */
 @media screen and (min-width: $br-point-tablet) {
-  .FirstPage > .content {
+  .FirstPage {
+    > .content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    }
   }
   .ProjectDescr {
     width: 50%;
@@ -99,11 +101,9 @@
     font-size: 3rem;
   }
   .FirstPage .bg_grey .content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    > * {
-      width: 43.81%;
-    }
+    width: 45.625rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.875rem;
   }
 }
