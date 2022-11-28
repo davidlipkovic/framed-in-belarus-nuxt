@@ -11,7 +11,7 @@ const editModal = ref({
 <template>
   <main class="Content">
     <Head>
-      <Title>User cabinet — My embroideries</Title>
+      <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
       <Meta name="description" content="About us description"/>
     </Head>
     <div class="Title">

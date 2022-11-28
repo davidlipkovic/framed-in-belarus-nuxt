@@ -1,7 +1,7 @@
 <template>
   <main class="Content">
     <Head>
-      <Title>Step 3 — Support the political prisoner</Title>
+      <Title>#Framed in Belarus / Step 3 — Support the political prisoner</Title>
       <Meta name="description" content="First step"/>
     </Head>
     <div class="Title">
@@ -28,7 +28,7 @@
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step1"
+          to="/UserCabinet/Step2"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Preparation</span>
