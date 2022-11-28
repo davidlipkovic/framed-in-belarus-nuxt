@@ -26,5 +26,9 @@
       }
     }
   }
-
+}
+@media screen and (min-width: $br-point-desktop) {
+  .News.content {
+    width: 57.063rem;
+  }
 }

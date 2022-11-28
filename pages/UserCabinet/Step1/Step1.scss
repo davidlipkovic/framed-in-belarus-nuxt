@@ -64,7 +64,8 @@
     margin-top: 0;
   }
 }
-.Hero-Photo {
+.Hero-Photo,
+.Hero-Description {
   margin-bottom: 1.25rem;
 }
 .Hero-Photo-img {
@@ -107,6 +108,7 @@
     grid-area: photo;
   }
   .Hero-Description {
+    margin-bottom: 0;
     grid-area: description;
   }
 
