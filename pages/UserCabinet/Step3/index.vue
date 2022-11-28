@@ -1,7 +1,7 @@
 <template>
   <main class="Content">
     <Head>
-      <Title>Step 3 — Support the political prisoner</Title>
+      <Title>#Framed in Belarus / Step 3 — Support the political prisoner</Title>
       <Meta name="description" content="First step"/>
     </Head>
     <div class="Title">

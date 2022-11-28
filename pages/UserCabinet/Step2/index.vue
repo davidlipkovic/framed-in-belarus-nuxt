@@ -14,7 +14,7 @@ const MainPattern = ref({
 <template>
   <main class="Content">
     <Head>
-      <Title>Step 2 — Preparation</Title>
+      <Title>#Framed in Belarus / Step 2 — Preparation</Title>
       <Meta name="description" content="First step"/>
     </Head>
     <div class="Title">

@@ -1,7 +1,7 @@
 <template>
   <main class="Content">
     <Head>
-      <Title>Step 1 — Choose your Hero</Title>
+      <Title>#Framed in Belarus / Step 1 — Choose your Hero</Title>
       <Meta name="description" content="First step"/>
     </Head>
     <div class="Title">
