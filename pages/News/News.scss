@@ -60,16 +60,20 @@
     }
   }
 }
+@media screen and (min-width: $br-point-tablet) {
+  .News.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45.625rem;
+    .images {
+      grid-template-columns: repeat(2, 48.25%);
+    }
+  }
+}
 @media screen and (min-width: $br-point-desktop) {
   .Article {
     grid-template-columns: repeat(2, 539px);
     column-gap: 1.875rem;
-  }
-  .News.content {
-    width: 57.063rem;
-    .images {
-      grid-template-columns: repeat(2, 440px);
-    }
   }
   .news {
     .title {
