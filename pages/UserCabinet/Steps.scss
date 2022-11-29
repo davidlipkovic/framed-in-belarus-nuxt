@@ -24,7 +24,14 @@
     margin-bottom: 0;
   }
 }
-
+@media screen and (max-width: $br-point-mobile) {
+  .buttons {
+    flex-direction: column;
+    .button {
+      width: 100%;
+    }
+  }
+}
 @media screen and (min-width: $br-point-tablet) {
   .textWidth {
     margin-left: auto;

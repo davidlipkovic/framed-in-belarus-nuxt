@@ -142,24 +142,20 @@
           <div class="photo">
             <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Photo of your embroidery" class="photo-img">
             <button class="photo-btnDelete">
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Delete" class="photo-btnDelete-img">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.578969 0.762563C1.26239 0.0791456 2.37043 0.0791456 3.05384 0.762563L12.3164 10.0251L21.579 0.762563C22.2624 0.0791456 23.3704 0.0791456 24.0538 0.762563C24.7373 1.44598 24.7373 2.55402 24.0538 3.23744L14.7913 12.5L24.0538 21.7626C24.7373 22.446 24.7373 23.554 24.0538 24.2374C23.3704 24.9209 22.2624 24.9209 21.579 24.2374L12.3164 14.9749L3.05384 24.2374C2.37043 24.9209 1.26239 24.9209 0.578969 24.2374C-0.104448 23.554 -0.104448 22.446 0.578969 21.7626L9.84153 12.5L0.578969 3.23744C-0.104448 2.55402 -0.104448 1.44598 0.578969 0.762563Z" fill="#4F4F4F"/>
-              </svg>
+              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
             </button>
           </div>
           <div class="photo">
             <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Photo of your embroidery" class="photo-img">
             <button class="photo-btnDelete">
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Delete" class="photo-btnDelete-img">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.578969 0.762563C1.26239 0.0791456 2.37043 0.0791456 3.05384 0.762563L12.3164 10.0251L21.579 0.762563C22.2624 0.0791456 23.3704 0.0791456 24.0538 0.762563C24.7373 1.44598 24.7373 2.55402 24.0538 3.23744L14.7913 12.5L24.0538 21.7626C24.7373 22.446 24.7373 23.554 24.0538 24.2374C23.3704 24.9209 22.2624 24.9209 21.579 24.2374L12.3164 14.9749L3.05384 24.2374C2.37043 24.9209 1.26239 24.9209 0.578969 24.2374C-0.104448 23.554 -0.104448 22.446 0.578969 21.7626L9.84153 12.5L0.578969 3.23744C-0.104448 2.55402 -0.104448 1.44598 0.578969 0.762563Z" fill="#4F4F4F"/>
-              </svg>
+              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
             </button>
           </div>
         </div>
 
         <div class="buttons">
           <nuxt-link to="/UserCabinet/Step3" class="button">Previous step</nuxt-link>
-          <button class="button bg_black">Save and go to Next step</button>
+          <button class="button bg_black" id="save">Save and go to Next step</button>
         </div>
       </section>
     </div>
@@ -180,15 +176,14 @@
 //  images upload to server automatically;
 //  server will send answer;
 //  const divPhotos = document.querySelector('.divPhotos');
-//  for( IMG in answer) {
+//  for( IMG.src in answer) {
+  // IMG MUST BE OPTIMIZED! 
 //    let div = document.createElement("div");
 //    div.classList.add('photo');
 //    div.innerHTML(`
 //      <img src="$IMG.src" alt="Photo of your embroidery" class="photo-img">
 //      <button class="photo-btnDelete">
-//              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Delete" class="photo-btnDelete-img">
-//                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.578969 0.762563C1.26239 0.0791456 2.37043 0.0791456 3.05384 0.762563L12.3164 10.0251L21.579 0.762563C22.2624 0.0791456 23.3704 0.0791456 24.0538 0.762563C24.7373 1.44598 24.7373 2.55402 24.0538 3.23744L14.7913 12.5L24.0538 21.7626C24.7373 22.446 24.7373 23.554 24.0538 24.2374C23.3704 24.9209 22.2624 24.9209 21.579 24.2374L12.3164 14.9749L3.05384 24.2374C2.37043 24.9209 1.26239 24.9209 0.578969 24.2374C-0.104448 23.554 -0.104448 22.446 0.578969 21.7626L9.84153 12.5L0.578969 3.23744C-0.104448 2.55402 -0.104448 1.44598 0.578969 0.762563Z" fill="#4F4F4F"/>
-//              </svg>
+//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
 //            </button>
 //    `);
 //    divPhotos.appendChild(div);
@@ -198,6 +193,10 @@
 
 // (.photo-btnDelete).click(){
 //   send request by server 'Delete this picture'
+// }
+
+// (#save).click(){
+//  send request by server 'Save and go to Next step'
 // }
 
 </script>
