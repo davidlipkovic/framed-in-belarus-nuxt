@@ -43,7 +43,10 @@ textarea {
 }
 input:required,
 select:required,
-textarea:required {
+textarea:required,
+input.mistake,
+select.mistake,
+textarea.mistake {
   border-color: $red;
 }
 input::placeholder,
