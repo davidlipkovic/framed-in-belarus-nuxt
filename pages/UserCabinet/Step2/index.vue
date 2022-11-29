@@ -238,7 +238,7 @@ const MainPattern = ref({
         </article>
         <div class="buttons">
           <nuxt-link to="/UserCabinet/Step1" class="button">Previous step</nuxt-link>
-          <button class="button bg_black">Next step</button>
+          <button class="button bg_black" id="save">Next step</button>
         </div>
       </section>
     </div>
@@ -281,6 +281,8 @@ const MainPattern = ref({
 <style src="./Step2.scss" lang="scss" scoped></style>
 
 <script>
-
+// (#save).click(){
+//  send request by server 'Save and go to Next step'
+// }
 
 </script>

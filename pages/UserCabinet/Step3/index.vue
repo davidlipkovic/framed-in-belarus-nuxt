@@ -164,7 +164,7 @@
 
         <div class="buttons">
           <nuxt-link to="/UserCabinet/Step2" class="button">Previous step</nuxt-link>
-          <button class="button bg_black">Next step</button>
+          <button class="button bg_black" id="save">Next step</button>
         </div>
       </section>
     </div>
@@ -179,6 +179,8 @@
 <style src="./Step3.scss" lang="scss" scoped></style>
 
 <script>
-
+// (#save).click(){
+//  send request by server 'Save and go to Next step'
+// }
 
 </script>

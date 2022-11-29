@@ -155,7 +155,7 @@
 
         <div class="buttons">
           <nuxt-link to="/UserCabinet/Step3" class="button">Previous step</nuxt-link>
-          <button class="button bg_black">Save and go to Next step</button>
+          <button class="button bg_black" id="save">Save and go to Next step</button>
         </div>
       </section>
     </div>
@@ -193,6 +193,10 @@
 
 // (.photo-btnDelete).click(){
 //   send request by server 'Delete this picture'
+// }
+
+// (#save).click(){
+//  send request by server 'Save and go to Next step'
 // }
 
 </script>
