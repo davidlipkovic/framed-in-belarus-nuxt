@@ -1,0 +1,33 @@
+@import "../../../assets/style/globalPartials/variables";
+.part {
+  margin-bottom: 1.125rem;
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+.Comment-header {
+  margin-bottom: 0.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+textarea {
+  margin-bottom: 0;
+}
+.note {
+  color: $greyDisabledColor;
+}
+.mistake {
+  font-size: 0.75rem;
+  color: $red;
+}
+.publishComment-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.publishComment-item-input {
+  margin-right: 1.125rem;
+}
