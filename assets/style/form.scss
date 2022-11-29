@@ -41,6 +41,11 @@ textarea {
   min-height: 5rem;
   overflow-y: auto;
 }
+input:required,
+select:required,
+textarea:required {
+  border-color: $red;
+}
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
