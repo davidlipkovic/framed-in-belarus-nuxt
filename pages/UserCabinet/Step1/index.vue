@@ -70,7 +70,7 @@
             You can let us choose a hero for you automatically
           </p>
           <div class="buttons">
-            <button class="button" id="randomHero">Choose a hero automatically</button>
+            <button class="button randomHero">Choose a hero automatically</button>
           </div>
         </div>
 
@@ -79,7 +79,7 @@
           <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
           <p>Please choose another hero.</p>          
           <div class="buttons">
-            <button class="button" id="randomHero">Choose a hero automatically</button>
+            <button class="button randomHero">Choose a hero automatically</button>
           </div>
         </div>
 
@@ -93,7 +93,7 @@
           <p>Thank you for your understanding!</p>
           <div class="buttons">       
             <button class="button">Leave a request</button>
-            <button class="button" id="randomHero">Choose a hero automatically</button>
+            <button class="button randomHero">Choose a hero automatically</button>
           </div>
         </div>
       </section>
@@ -179,7 +179,7 @@
   // }
 
   
-  // (#randomHero).click(){
+  // (.randomHero).click(){
   //  send request by server 'Choose a hero automatically'
   // }
 
