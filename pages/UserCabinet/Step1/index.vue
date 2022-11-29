@@ -70,7 +70,7 @@
             You can let us choose a hero for you automatically
           </p>
           <div class="buttons">
-            <button class="button">Choose a hero automatically</button>
+            <button class="button" id="randomHero">Choose a hero automatically</button>
           </div>
         </div>
 
@@ -79,7 +79,7 @@
           <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
           <p>Please choose another hero.</p>          
           <div class="buttons">
-            <button class="button">Choose a hero automatically</button>
+            <button class="button" id="randomHero">Choose a hero automatically</button>
           </div>
         </div>
 
@@ -93,7 +93,7 @@
           <p>Thank you for your understanding!</p>
           <div class="buttons">       
             <button class="button">Leave a request</button>
-            <button class="button">Choose a hero automatically</button>
+            <button class="button" id="randomHero">Choose a hero automatically</button>
           </div>
         </div>
       </section>
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="buttons">
-          <button class="button bg_black">Choose this hero</button>
+          <button class="button bg_black" id="save">Choose this hero</button>
         </div>
       </section>
 
@@ -176,6 +176,15 @@
   // } else if ( hero == exist && hero.pattern == busy) {
   //   div#default remove;
   //   div#heroHasBeenChosen classList.add('active');
+  // }
+
+  
+  // (#randomHero).click(){
+  //  send request by server 'Choose a hero automatically'
+  // }
+
+  // (#save).click(){
+  //  send request by server 'Save and go to Next step'
   // }
 
 </script>
