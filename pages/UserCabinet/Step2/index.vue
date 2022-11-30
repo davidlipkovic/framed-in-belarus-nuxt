@@ -281,7 +281,8 @@ const MainPattern = ref({
 <style src="./Step2.scss" lang="scss" scoped></style>
 
 <script>
-// (#save).click(){
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
 //  send request by server 'Save and go to Next step'
 // }
 

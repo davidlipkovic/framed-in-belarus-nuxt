@@ -171,18 +171,18 @@
 
         <div class="part publishComment">
           <p class="b">This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations</p>
-          <p class="publishComment-item">
+          <label for="publishAgree" class="publishComment-item">
             <input type="radio" name="publish" id="publishAgree" value="agree" class="publishComment-item-input" required>
-            <label for="publishAgree" class="publishComment-item-label">I agree, I want my voice to be heard</label>
-          </p>
-          <p class="publishComment-item">
+            <span class="publishComment-item-label">I agree, I want my voice to be heard</span>
+          </label>
+          <label for="publishDisagree" class="publishComment-item">
             <input type="radio" name="publish" id="publishDisagree" value="disagree" class="publishComment-item-input" required>
-            <label for="publishDisagree" class="publishComment-item-label">I disagree, please keep my comment for internal project needs only</label>
-          </p>
-          <p class="publishComment-item">
+            <span class="publishComment-item-label">I disagree, please keep my comment for internal project needs only</span>
+          </label>
+          <label for="publishCant" class="publishComment-item">
             <input type="radio" name="publish" id="publishCant" value="cant" class="publishComment-item-input" required>
-            <label for="publishCant" class="publishComment-item-label">I can not write a comment</label>
-          </p>
+            <span class="publishComment-item-label">I can not write a comment</span>
+          </label>
           <p class="mistake defaultNone">Please choose one option</p>
         </div>
 
@@ -210,32 +210,35 @@
 //  images upload to server automatically;
 //  server will send answer;
 //  const divPhotos = document.querySelector('.divPhotos');
-//  for( IMG in answer) {
+//  for( IMG_SRC in answer) {
 //    let div = document.createElement("div");
 //    div.classList.add('photo');
 //    div.innerHTML(`
-//      <img src="$IMG.src" alt="Photo of your embroidery" class="photo-img">
+//      <img src="$IMG_SRC" alt="Photo of your embroidery" class="photo-img">
 //      <button class="photo-btnDelete">
-//              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Delete" class="photo-btnDelete-img">
-//                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.578969 0.762563C1.26239 0.0791456 2.37043 0.0791456 3.05384 0.762563L12.3164 10.0251L21.579 0.762563C22.2624 0.0791456 23.3704 0.0791456 24.0538 0.762563C24.7373 1.44598 24.7373 2.55402 24.0538 3.23744L14.7913 12.5L24.0538 21.7626C24.7373 22.446 24.7373 23.554 24.0538 24.2374C23.3704 24.9209 22.2624 24.9209 21.579 24.2374L12.3164 14.9749L3.05384 24.2374C2.37043 24.9209 1.26239 24.9209 0.578969 24.2374C-0.104448 23.554 -0.104448 22.446 0.578969 21.7626L9.84153 12.5L0.578969 3.23744C-0.104448 2.55402 -0.104448 1.44598 0.578969 0.762563Z" fill="#4F4F4F"/>
-//              </svg>
+//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
 //            </button>
 //    `);
 //    divPhotos.appendChild(div);
 //    }
 //  }
 
-// (.photo-btnDelete).click(){
-//   send request by server 'Delete this picture'
-// }
+//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
+//  for (btn in btnsDelete) {
+//    btn.onclick = function(){
+//      send request by server 'Delete this picture'
+//    }
+//  }
 
-//  (#comment).oninput() {
+//  const comment = document.querySelector('#comment');
+//  comment.oninput = function(){
 //    let count = count the number of entered characters;
 //    count = 2300 - count;
 //    (#lettersLeft).innerText = count;
 //  }
 
-// (#save).click(){
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
 //    if ( #comment.value == null || .photos.child == null) {
   //    (.Comment .note).classList.add('defaultNone');
   //    (.Comment .mistake).classList.remove('defaultNone');

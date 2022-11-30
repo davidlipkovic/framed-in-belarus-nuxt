@@ -10,6 +10,17 @@
   }
 }
 
+.mistake,
+.note {
+  font-size: 0.75rem;
+}
+.mistake {
+  color: $red;
+}
+.note {
+  color: $greyDisabledColor;
+}
+
 .buttons {
   margin-top: 1.25rem;
   display: flex;
