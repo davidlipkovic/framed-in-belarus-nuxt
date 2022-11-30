@@ -178,13 +178,16 @@
   //   div#heroHasBeenChosen classList.add('active');
   // }
 
-  
-  // (.randomHero).click(){
-  //  send request by server 'Choose a hero automatically'
-  // }
+  //  const btnsRandomHero = document.querySelectorAll('.randomHero');
+  //  for (btn in btnsRandomHero) {
+  //    btn.onclick = function(){
+  //      send request by server 'Choose a hero automatically'
+  //    }
+  //  }
 
-  // (#save).click(){
-  //  send request by server 'Save and go to Next step'
-  // }
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//  send request by server 'Save and go to Next step'
+// }
 
 </script>

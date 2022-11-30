@@ -191,11 +191,16 @@
 //  }
 
 
-// (.photo-btnDelete).click(){
-//   send request by server 'Delete this picture'
-// }
 
-// (#save).click(){
+//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
+//  for (btn in btnsDelete) {
+//    btn.onclick = function(){
+//      send request by server 'Delete this picture'
+//    }
+//  }
+
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
 //  send request by server 'Save and go to Next step'
 // }
 
