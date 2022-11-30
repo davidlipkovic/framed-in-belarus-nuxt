@@ -49,6 +49,40 @@ select.mistake,
 textarea.mistake {
   border-color: $red;
 }
+input[type=radio] {
+  display: flex;
+  appearance: none;
+  background-color: $white;
+  font: inherit;
+  color: $red;
+  width: 0.813rem;
+  height: 0.813rem;
+  border: 0.15rem solid $greyButtonHover;
+  border-radius: 50%;
+}
+input[type=radio]:checked { 
+  outline: none;
+}
+input[type="radio"]:checked::before {
+  margin: auto;
+  content: "";
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 50%;
+  background-color: $greyButtonHover;
+}
+input[type=radio].mistake {  
+  appearance: none;
+  background-color: $white;
+  font: inherit;
+  color: $red;
+  width: 0.813rem;
+  height: 0.813rem;
+  border: 0.15rem solid $red;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+}
+
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
