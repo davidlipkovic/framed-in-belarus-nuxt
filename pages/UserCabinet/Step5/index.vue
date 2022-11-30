@@ -171,18 +171,18 @@
 
         <div class="part publishComment">
           <p class="b">This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations</p>
-          <p class="publishComment-item">
+          <label for="publishAgree" class="publishComment-item">
             <input type="radio" name="publish" id="publishAgree" value="agree" class="publishComment-item-input" required>
-            <label for="publishAgree" class="publishComment-item-label">I agree, I want my voice to be heard</label>
-          </p>
-          <p class="publishComment-item">
+            <span class="publishComment-item-label">I agree, I want my voice to be heard</span>
+          </label>
+          <label for="publishDisagree" class="publishComment-item">
             <input type="radio" name="publish" id="publishDisagree" value="disagree" class="publishComment-item-input" required>
-            <label for="publishDisagree" class="publishComment-item-label">I disagree, please keep my comment for internal project needs only</label>
-          </p>
-          <p class="publishComment-item">
+            <span class="publishComment-item-label">I disagree, please keep my comment for internal project needs only</span>
+          </label>
+          <label for="publishCant" class="publishComment-item">
             <input type="radio" name="publish" id="publishCant" value="cant" class="publishComment-item-input" required>
-            <label for="publishCant" class="publishComment-item-label">I can not write a comment</label>
-          </p>
+            <span class="publishComment-item-label">I can not write a comment</span>
+          </label>
           <p class="mistake defaultNone">Please choose one option</p>
         </div>
 
