@@ -12,7 +12,7 @@ const editModal = ref({
   <main class="Content">
     <Head>
       <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
-      <Meta name="description" content="About us description"/>
+      <Meta name="description" content="User cabinet — My embroideries description"/>
     </Head>
     <div class="Title">
       <h1 class="content">
