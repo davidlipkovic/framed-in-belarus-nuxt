@@ -11,107 +11,106 @@ const editModal = ref({
 <template>
   <main class="Content">
     <Head>
-      <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
+      <Title>#Framed in Belarus / Step 7 — Publication</Title>
+      <Meta name="description" content="First step"/>
     </Head>
     <div class="Title">
-      <h1 class="content">
-        <span class="subtitle">User cabinet <span class="visually-hidden">— </span></span>My embroideries
-      </h1>
+      <div class="content">
+        <h1>
+          <span class="subtitle">Step 7 <span class="visually-hidden">— </span></span>Publication
+        </h1>
+        <nuxt-link
+          to="/UserCabinet"
+          class="GoBack">
+          <img src="../../../assets/media/img/arrow_back.svg" alt="Go back to my Profile" class="GoBack-img">
+          <span class="GoBack-text">Go back to my Profile</span>
+        </nuxt-link>
+      </div>
     </div>
     <div class="content">
-      <section class="userCard">
-        <div class="userCard-header">
-          <img src="../../assets/media/img/Avatar.svg" class="userCard-avatar" alt="Avatar">
-          <label for="uploadAvatar" class="upload">
-            <input type="file" name="uploadAvatar" id="uploadAvatar" class="visually-hidden">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Upload icon" class="upload_icon">
-              <g clip-path="url(#clip0_1248_17569)">
-              <path d="M10.0016 11.4962H12.3771C14.0962 11.4962 15.5028 10.5832 15.5028 8.88314C15.5028 7.18308 13.8462 6.33665 12.5021 6.27007C12.2243 3.61137 10.2829 1.99414 8.00115 1.99414C5.84443 1.99414 4.45537 3.42539 4.00027 4.84476C2.12487 5.02293 0.499512 6.21631 0.499512 8.17049C0.499512 10.1247 2.18738 11.4962 4.25033 11.4962H6.00071" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.0024 7.99486L8.0017 5.99414L6.00098 7.99486" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8.00195 14.0089V6.49414" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <defs>
-              <clipPath id="clip0_1248_17569">
-              <rect width="16.0035" height="16.0035" fill="white"/>
-              </clipPath>
-              </defs>
-            </svg><!--
-            --><span clacc="upload_text">Upload foto</span>
-          </label>
-          <h2 class="userCard-title">Alexander Ivanow</h2>
-        </div>
-        <div class="userCard-body">
-          <p class="userCard-body-item">
-            <span class="b">Pseudonym:</span>
-            Doctor Haus
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Country, city:</span>
-            Belarus, Minsk
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Year of Birth:</span>
-            1989
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Instagram</span>
-            @instagram
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Facebook</span>
-            namesuranma
-          </p>
-          <p class="userCard-body-item_longText">
-            <span class="b">Why did you decide to participate?</span>
-            Из Беларуси, была репрессирована, в  данный момент в эмиграции. Семья...
-          </p>
-        </div>
-        <div class="userCard-buttons">
-          <button class="button" @click="editModal.show = true">Edit profile</button>
-        </div>
-      </section>
-      <section class="embroideryCards">
+      <section class="NavSteps">
         <nuxt-link
           to="/Embroidery/Step1"
-          class="embroideryCard New">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
-            Create new embroidery
-          </div>
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Your Hero</span>
         </nuxt-link>
-        <button disabled
-          to="/Embroidery/Step1"
-          class="embroideryCard New">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
-            Create new embroidery
-          </div>
-        </button>
-        <nuxt-link 
-          to="/Embroidery/CurrentStep"
-          class="embroideryCard">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
-            Name Surname
-            <span class="embroideryCard-status embroideryCard-status_progress">
-              In progress
-            </span>
-          </div>
+        <div class="navStep_arrow"></div>
+        <nuxt-link
+          to="/Embroidery/Step2"
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Preparation</span>
         </nuxt-link>
-        <div class="embroideryCard">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
-            Name Surname
-            <span class="embroideryCard-status embroideryCard-status_finish">
-              Completed
-            </span>
-          </div>
+        <div class="navStep_arrow"></div>
+        <nuxt-link
+          to="/Embroidery/Step3"
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Support</span>
+        </nuxt-link>
+        <div class="navStep_arrow"></div>
+        <nuxt-link
+          to="/Embroidery/Step4"
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Photo</span>
+        </nuxt-link>
+        <div class="navStep_arrow"></div>
+        <nuxt-link
+          to="/Embroidery/Step5"
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Support</span>
+        </nuxt-link>
+        <div class="navStep_arrow"></div>
+        <nuxt-link
+          to="/Embroidery/Step6"
+          class="navStep navStep_done">
+          <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
+          <span class="navStep-title">Shipping</span>
+        </nuxt-link>
+        <div class="navStep_arrow"></div>
+        <div class="navStep navStep_current">
+          <span class="navStep-number">7</span>
+          <span class="navStep-title">Publication</span>
+        </div>
+      </section>
+
+      <section class="Publication Waiting textWidth">
+        <div class="Publication-content">
+          <h2 class="title">Thank you! We'll be sure to get back to you as soon as we receive your embroidery</h2>
+          <p>In meanwhile you can add or correct information about yourself in your personal profile.</p>
+          <p>A short text about you will be published in our gallery with your embroidery. If you want to hide or add something, such as social networks, please do it in advance.</p>
+        </div>
+        <div class="buttons">
+          <button class="button" @click="editModal.show = true">Edit my profile</button>
+        </div>
+      </section>
+
+      <section class="Publication Done textWidth">
+        <div class="Publication-content">
+          <h2 class="title">Good news!! We received your work</h2>
+          <p>Everything arrived without damage. Such a beautiful embroidery - thank you so much! We always look forward to and enjoy opening the package. And each work is always very original.</p>
+          <p>The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks. Thanks for your understanding! </p>
+          <p>When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark. You will be able to check your hero’s page in the gallery by clicking that icon. </p>
+          <p>Thank you again for your solidarity and participation.</p>
+          <p>We wish you all the best!!</p>
+          <p>If you still have time and energy, you can embroider a new political prisoner.</p>
+        </div>
+        <div class="buttons">
+          <nuxt-link
+            to="/Embroidery/Step1"
+            class="button bg_black">
+            Choose a new hero
+          </nuxt-link>
         </div>
       </section>
     </div>
+  </main>
 
-    <vue-final-modal
+  
+  <vue-final-modal
       v-model="editModal.show"
       @click-outside="editModal.show = false"
     >
@@ -124,7 +123,7 @@ const editModal = ref({
           @click="editModal.show = false"
           class="Settings-close"
         >
-          <img src="../../assets/media/img/close.svg" alt="Close">
+          <img src="../../../assets/media/img/close.svg" alt="Close">
         </button>
       </div>
       <div class="Settings-body">
@@ -243,9 +242,9 @@ const editModal = ref({
     </div>
     </vue-final-modal>
 
-  </main>
 </template>
+<style src="../Steps.scss" lang="scss" scoped></style>
+<style src="./Step7.scss" lang="scss" scoped></style>
 
-<style src="./UserCabinet.scss" lang="scss" scoped></style>
-<style src="../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="./Settings.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="../../UserCabinet/Settings.scss" lang="scss" scoped></style>

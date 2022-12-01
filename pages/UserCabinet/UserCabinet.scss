@@ -107,6 +107,7 @@
   margin-bottom: 3.75rem;
 }
 .embroideryCard {
+  display: flex;
   width: 11.688rem;
   min-height: 13.938rem;
   padding-top: 1.063rem;
@@ -118,6 +119,7 @@
   margin-bottom: 1.5rem;
   cursor: pointer;
   font-size: 0.875rem;
+  text-decoration: none !important;
   appearance: none;
   border: 0;
   box-shadow: $defaultShadow;
@@ -133,11 +135,12 @@
   background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
   background-position: 0 0, 0 0, 100% 0, 0 100%;
   background-repeat: no-repeat;
-  box-shadow: none
+  box-shadow: none;
 }
 .embroideryCard.New:disabled {
   background-image: repeating-linear-gradient(120deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(210deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(-60deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(30deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px);
   color: $greyDisabledColor;
+  cursor: default;
 }
 
 .embroideryCard-content {  
@@ -146,6 +149,8 @@
   align-items: center;
   margin-top: auto;
   margin-bottom: auto;
+  text-align: center;
+  color: $black;
 }
 .embroideryCard-img {
   width: 8.688rem;
@@ -153,8 +158,8 @@
   margin-bottom: 0.375rem;
 }
 .embroideryCard-img.Create {
-  width: 56px;
-  height: 56px;
+  width: 3.5rem;
+  height: 3.5rem;
   margin-bottom: 0.688rem;
 }
 .embroideryCard-status {
@@ -201,8 +206,5 @@
   }
   .embroideryCards {
     margin-bottom: 9rem;
-  }
-  .embroideryCard {
-    margin-bottom: 0;
   }
 }
