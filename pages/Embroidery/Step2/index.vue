@@ -33,7 +33,7 @@ const MainPattern = ref({
     <div class="content">
       <section class="NavSteps">
         <nuxt-link
-          to="/UserCabinet/Step1"
+          to="/Embroidery/Step1"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Your Hero</span>
@@ -237,7 +237,7 @@ const MainPattern = ref({
           
         </article>
         <div class="buttons">
-          <nuxt-link to="/UserCabinet/Step1" class="button">Previous step</nuxt-link>
+          <nuxt-link to="/Embroidery/Step1" class="button">Previous step</nuxt-link>
           <button class="button bg_black" id="save">Next step</button>
         </div>
       </section>

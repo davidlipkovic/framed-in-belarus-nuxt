@@ -21,14 +21,14 @@
     <div class="content">
       <section class="NavSteps">
         <nuxt-link
-          to="/UserCabinet/Step1"
+          to="/Embroidery/Step1"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Your Hero</span>
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step2"
+          to="/Embroidery/Step2"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Preparation</span>
@@ -163,7 +163,7 @@
         </article>
 
         <div class="buttons">
-          <nuxt-link to="/UserCabinet/Step2" class="button">Previous step</nuxt-link>
+          <nuxt-link to="/Embroidery/Step2" class="button">Previous step</nuxt-link>
           <button class="button bg_black" id="save">Next step</button>
         </div>
       </section>

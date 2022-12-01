@@ -20,35 +20,35 @@
     <div class="content">
       <section class="NavSteps">
         <nuxt-link
-          to="/UserCabinet/Step1"
+          to="/Embroidery/Step1"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Your Hero</span>
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step2"
+          to="/Embroidery/Step2"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Preparation</span>
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step3"
+          to="/Embroidery/Step3"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Support</span>
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step4"
+          to="/Embroidery/Step4"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Photo</span>
         </nuxt-link>
         <div class="navStep_arrow"></div>
         <nuxt-link
-          to="/UserCabinet/Step5"
+          to="/Embroidery/Step5"
           class="navStep navStep_done">
           <span class="navStep-number"><img src="../../../assets/media/img/checkmark.svg" alt="Performed" class="navStep_done-img"></span>
           <span class="navStep-title">Support</span>
@@ -163,7 +163,7 @@
         </div>
 
         <div class="buttons">
-          <nuxt-link to="/UserCabinet/Step6" class="button">Previous step</nuxt-link>
+          <nuxt-link to="/Embroidery/Step6" class="button">Previous step</nuxt-link>
           <button class="button bg_black" id="save">Send and go to Next step</button>
         </div>
       </section>
