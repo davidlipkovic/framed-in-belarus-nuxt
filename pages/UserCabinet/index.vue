@@ -72,13 +72,25 @@ const editModal = ref({
         </div>
       </section>
       <section class="embroideryCards">
-        <button class="embroideryCard New">
+        <nuxt-link
+          to="/Embroidery/Step1"
+          class="embroideryCard New">
+          <div class="embroideryCard-content">
+            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
+            Create new embroidery
+          </div>
+        </nuxt-link>
+        <button disabled
+          to="/Embroidery/Step1"
+          class="embroideryCard New">
           <div class="embroideryCard-content">
             <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
             Create new embroidery
           </div>
         </button>
-        <button class="embroideryCard">
+        <nuxt-link 
+          to="/Embroidery/CurrentStep"
+          class="embroideryCard">
           <div class="embroideryCard-content">
             <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
             Name Surname
@@ -86,8 +98,8 @@ const editModal = ref({
               In progress
             </span>
           </div>
-        </button>
-        <button class="embroideryCard">
+        </nuxt-link>
+        <div class="embroideryCard">
           <div class="embroideryCard-content">
             <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
             Name Surname
@@ -95,7 +107,7 @@ const editModal = ref({
               Completed
             </span>
           </div>
-        </button>
+        </div>
       </section>
     </div>
 
