@@ -163,7 +163,7 @@
         </div>
 
         <div class="buttons">
-          <nuxt-link to="/UserCabinet/Step4" class="button">Previous step</nuxt-link>
+          <nuxt-link to="/UserCabinet/Step5" class="button">Previous step</nuxt-link>
           <button class="button bg_black" id="save">Send and go to Next step</button>
         </div>
       </section>
