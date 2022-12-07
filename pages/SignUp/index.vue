@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div class="content">
       <h1 class="title">Sign up</h1>
-      <p>Already a member? <a href="SignIn" class="red">Sign in</a></p>
+      <p>Already a member? <nuxt-link to="/SignIn" class="red">Sign in</nuxt-link></p>
       <form>
         <div class="group">
           <input type="text" name="name" id="name" placeholder="Name">
@@ -28,7 +28,29 @@ definePageMeta({
           </select>
         </div>
         <textarea name="reason" id="reason">Why did you decide to join the project?</textarea>
-
+        <details class="Terms">
+          <summary class="Terms-summary">{{ $t('TermsTitle') }}</summary>
+          <div class="b">
+          <p>{{ $t('TermsB0') }}</p>
+          <p>{{ $t('TermsB1') }}</p>
+          </div>
+          <h2 class="title">{{ $t('TermsTitle0') }}</h2>
+          <p>{{ $t('TermsStr0') }}<strong>{{ $t('TermsStr1') }}</strong>{{ $t('TermsStr2') }}</p>
+          <p>{{ $t('TermsStr3') }}</p>
+          <p>{{ $t('TermsStr4') }}<strong>{{ $t('TermsStr5') }}</strong>{{ $t('TermsStr6') }}<strong>{{ $t('TermsStr7') }}</strong>{{ $t('TermsStr8') }}<strong>{{ $t('TermsStr9') }}</strong>{{ $t('TermsStr10') }}</p>
+          <h2 class="title">{{ $t('TermsTitle1') }}</h2>
+          <p>{{ $t('TermsStr11') }}</p>
+          <p>{{ $t('TermsStr12') }}</p>
+          <h2 class="title">{{ $t('TermsTitle2') }}</h2>
+          <p><strong>{{ $t('TermsStr13') }}</strong>{{ $t('TermsStr14') }}</p>
+          <h2 class="title">{{ $t('TermsTitle3') }}</h2>
+          <p>{{ $t('TermsStr15') }}<strong>{{ $t('TermsStr16') }}</strong>{{ $t('TermsStr17') }}</p>
+          <p>{{ $t('TermsStr18') }}</p>
+        </details>
+        <label for="agreeTerms" class="Agree">
+          <input type="checkbox" name="agreeTerms" id="agreeTerms">
+          <span>I agree with the terms of participation in the project</span>
+        </label>
         <button class="button bg_black large">Create profile and start work</button>
         <button class="button large">Sign in with Google</button>
       </form>
@@ -37,4 +59,3 @@ definePageMeta({
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./SignUp.scss" lang="scss" scoped></style>
-<style src="../../components/registration/Embroiderer/Embroiderer.scss" lang="scss" scoped></style>
