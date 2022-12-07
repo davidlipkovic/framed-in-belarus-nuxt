@@ -14,7 +14,8 @@
 .Lang-select {
   display: none;
 }
-.Lang-checker:checked + .Lang {
+
+.Lang[open] {
   .Lang-button {
     .arrow {
       transform: rotate(90deg);
@@ -47,7 +48,7 @@
   }
 }
 
-.Lang-checker:checked + .Lang {
+.Lang[open] {
   .Lang-button {
     .arrow {
       transform: rotate(180deg);
