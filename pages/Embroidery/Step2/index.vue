@@ -270,7 +270,7 @@ const MainPattern = ref({
         @click="AlphabetPattern.show = false"
         class="modal-close"
         >
-        <img src="../../assets/media/img/close.svg" alt="Close">
+        <img src="../../../assets/media/img/close.svg" alt="Close">
       </button>
     </div>
     <img src="../../../assets/media/img/AlphabetPattern_en.jpg" alt="Alphabet embroidery pattern">
