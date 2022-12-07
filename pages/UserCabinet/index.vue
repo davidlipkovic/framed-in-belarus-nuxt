@@ -75,8 +75,12 @@ const editModal = ref({
         <nuxt-link
           to="/Embroidery/Step1"
           class="embroideryCard New">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
+          <div class="embroideryCard-content">            
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" alt="+" class="embroideryCard-img Create">
+              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="#333333"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M35 29H29V35H27V29H21V27H27V21H29V27H35V29Z" fill="white" fill-opacity="0.87"/>
+              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" stroke="#333333"/>
+            </svg>
             Create new embroidery
           </div>
         </nuxt-link>
@@ -84,7 +88,11 @@ const editModal = ref({
           to="/Embroidery/Step1"
           class="embroideryCard New">
           <div class="embroideryCard-content">
-            <img src="../../assets/media/img/btnPlus.svg" alt="+" class="embroideryCard-img Create">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" alt="+" class="embroideryCard-img Create">
+              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="#333333"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M35 29H29V35H27V29H21V27H27V21H29V27H35V29Z" fill="white" fill-opacity="0.87"/>
+              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" stroke="#333333"/>
+            </svg>
             Create new embroidery
           </div>
         </button>
