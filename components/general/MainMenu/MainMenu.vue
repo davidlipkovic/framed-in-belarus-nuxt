@@ -60,26 +60,21 @@
           >
             {{ $t('participateBtnMsg') }}
           </a>
-          <input type="checkbox" id="Lang" class="Lang-checker visually-hidden">
-          <div class="Lang">
-            <label for="Lang" role="button" aria-role="button"
-              class="Lang-button Burger-menu-item"
-              >
-              EN<img class="arrow" src="@/assets/media/img/arrow.svg">
-            </label>
+          <details class="Lang">
+            <summary class="Lang-button Burger-menu-item">
+              EN<img class="arrow" src="@/assets/media/img/arrow.svg" alt="Arrow">
+            </summary>
             <div class="Lang-select">
               <nuxt-link
-                v-for="locale in availableLocales"
-                :key="locale.code"
-                :to="switchLocalePath(locale.code)"
-                class="Lang-link"
-              >
+                  v-for="locale in availableLocales"
+                  :key="locale.code"
+                  :to="switchLocalePath(locale.code)"
+                  class="Lang-link"
+                >
                 {{ locale.name }}
               </nuxt-link>
             </div>
-          </div>
-          
-<!--          <img class="arrow" src="@/assets/media/img/arrow.svg">-->
+          </details>
         </div>
       </nav>
     </div>

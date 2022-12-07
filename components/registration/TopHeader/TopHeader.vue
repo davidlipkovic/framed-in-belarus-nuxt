@@ -6,21 +6,28 @@
           {{ $t('title') }}
         </span>
       </a>
-      <input type="checkbox" id="Lang" class="Lang-checker visually-hidden">
-      <div class="Lang">
-        <label
+      <details class="Lang">
+        <summary
           for="Lang"
           role="button"
           aria-role="button"
           class="Lang-button"
         >
           EN
-          <img class="arrow" src="@/assets/media/img/arrow.svg">
-        </label>
+          <img class="arrow" src="@/assets/media/img/arrow.svg" alt="Arrow">
+        </summary>
         <div class="Lang-select">
+          <nuxt-link
+            v-for="locale in availableLocales"
+            :key="locale.code"
+            :to="switchLocalePath(locale.code)"
+            class="Lang-link"
+          >
+            {{ locale.name }}
+          </nuxt-link>
           <a href="/ru" class="Lang-link">Russian</a>
         </div>
-      </div>
+      </details>
     </div>
   </header>
 </template>
