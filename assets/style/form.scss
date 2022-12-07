@@ -33,6 +33,7 @@ input[type="checkbox"]:checked {
 }
 select {
   appearance: none;
+  background-color: transparent;
   background-image: url("../media/img/arrow.svg");
   background-repeat: no-repeat;
   background-position: 95% center;

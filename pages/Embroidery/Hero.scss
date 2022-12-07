@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 1rem;
   align-items: start;
-  background-color: #F8F8F8;
+  background-color: $bgSpoiler;
   border-radius: 0.75rem;
 }
 #HeroHidden:checked + .Hero {

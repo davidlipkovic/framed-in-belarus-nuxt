@@ -42,7 +42,7 @@
               <!-- <a href="#" class="Info-menu-item Login">Log in</a> -->
             </div>
           </div>
-          <div class="Info-menu-group" style="justify-content: flex-end">
+          <div class="Info-menu-group">
             <a href="https://forms.gle/SKCcvWGzRkQxx2fH9" class="Info-menu-item button bg_red">
               {{ $t('participateBtnMsg') }}
             </a>

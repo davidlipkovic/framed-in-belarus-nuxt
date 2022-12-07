@@ -104,6 +104,7 @@
 .embroideryCards {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   margin-bottom: 3.75rem;
 }
 .embroideryCard {
@@ -138,9 +139,17 @@
   box-shadow: none;
 }
 .embroideryCard.New:disabled {
-  background-image: repeating-linear-gradient(120deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(210deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(-60deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px), repeating-linear-gradient(30deg, $greyDisabledBg, $greyDisabledBg 6px, transparent 6px, transparent 12px, $greyDisabledBg 12px);
+  background-image: repeating-linear-gradient(120deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(210deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(-60deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(30deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px);
   color: $greyDisabledColor;
   cursor: default;
+  .embroideryCard-img {
+    rect:first-child {
+      fill: $greyDisabledBg;
+    }
+    rect:last-child {
+      stroke: $greyDisabledBg;
+    }
+  }
 }
 
 .embroideryCard-content {  
