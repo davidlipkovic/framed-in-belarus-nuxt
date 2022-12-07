@@ -49,7 +49,7 @@ definePageMeta({
         </details>
         <label for="agreeTerms" class="Agree">
           <input type="checkbox" name="agreeTerms" id="agreeTerms">
-          <span>I agree with the terms of participation in the project</span>
+          <span>I agree with the terms of participation in the project</span>
         </label>
         <button class="button bg_black large">Create profile and start work</button>
         <button class="button large">Sign in with Google</button>
