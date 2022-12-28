@@ -32,62 +32,62 @@
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/ThisCase"
           class="Gallery--item Gallery-case">
-          <img src="../../assets/media/img/defaultEmbroidery.jpg" alt="Case name" class="Gallery-case--img">
+          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="Gallery-case--img">
         </nuxt-link>
       </section>
     </div>
