@@ -204,6 +204,14 @@
 <style src="./Step5.scss" lang="scss" scoped></style>
 
 <script>
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
+
 // #uploadFilesArea support drag&drop files to input[type=file]#uploadFiles
 
 // if ( user_upload_images ) {
