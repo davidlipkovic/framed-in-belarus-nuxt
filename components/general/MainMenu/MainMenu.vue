@@ -22,12 +22,12 @@
       </label>
       <nav class="Burger-menu">
         <div class="Burger-menu-group">
-<!--          <nuxt-link -->
-<!--            to="Gallery"-->
-<!--            class="Burger-menu-item"-->
-<!--          >-->
-<!--            {{ $t('linkGallery') }}-->
-<!--          </nuxt-link>-->
+         <nuxt-link
+           to="Gallery"
+           class="Burger-menu-item"
+          >
+           {{ $t('linkGallery') }}
+          </nuxt-link>
           <nuxt-link
             to="News"
             class="Burger-menu-item"
