@@ -15,7 +15,7 @@ $embroideryCardStasusProgress: #F2994A;
 $embroideryCardStasusFinish: #219653;
 $defaultShadow: 0 8px 10px rgba(0,0,0,0.2);
 
-$br-point-desktop: 1110px;
+$br-point-desktop: 1110px + 17px; /* scroll */
 $br-point-tabletUpper: 1109px;
 $br-point-tablet: 800px;
 $br-point-mobile: 799px;
