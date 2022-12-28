@@ -108,7 +108,7 @@ const editModal = ref({
           </div>
         </nuxt-link>
         <nuxt-link
-        to="/Gallery/ThisCase"
+        to="/Gallery/Case"
           class="embroideryCard">
           <div class="embroideryCard-content">
             <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
