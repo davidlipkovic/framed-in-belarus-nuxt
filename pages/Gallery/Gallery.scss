@@ -42,7 +42,7 @@
   right: 1.125rem;
   top: 1.2rem;
 }
-.FindHero-input-btn--img {
+.FindHero-input-btn-img {
   width: 1rem;
   height: 1rem;
 }
@@ -59,13 +59,13 @@
 .Sorting {
   position: relative;
 }
-.Sorting-label {
+.SortingLabel {
   position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 1;
 }
-.Sorting-select {
+.SortingSelect {
   padding-left: 5.125rem;
   &::after {
     content: '';
@@ -79,7 +79,7 @@
     transform: rotate(-180deg);
   }
 }
-.Sorting-select--option {
+.SortingSelect-option {
   padding: 1rem;
   margin-left: -5.125rem;
 }
@@ -99,7 +99,7 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.Gallery-case--img {
+.GalleryCase-img {
   border-radius: 1rem;
   width: 21.875rem;
   height: 21.75rem;
