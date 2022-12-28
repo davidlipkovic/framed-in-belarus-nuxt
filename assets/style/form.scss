@@ -14,10 +14,12 @@ select,
 textarea {
   margin-bottom: 1.5rem;
   padding: 1rem;
+  width: 100%;
   border-radius: 0.25rem;
   border-color: $inputsBorder;
   border-width: 1px;
-  width: 100%;
+  background-color: $white;
+  cursor: pointer;
 }
 input[type="checkbox"] {
   width: 1.125rem;
@@ -33,10 +35,10 @@ input[type="checkbox"]:checked {
 }
 select {
   appearance: none;
-  background-color: transparent;
   background-image: url("../media/img/arrow.svg");
   background-repeat: no-repeat;
   background-position: 95% center;
+  position: relative;  
 }
 textarea {
   min-height: 5rem;
