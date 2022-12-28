@@ -32,12 +32,12 @@
   background-repeat: no-repeat;
   background-position: 1.125rem 50%;
 }
-.FindHero-input-btn_reset {
+.FindHero-input-btn {
   position: absolute;
   right: 1.125rem;
   top: 1.2rem;
 }
-.FindHero-input-btn_reset-img {
+.FindHero-input-btn--img {
   width: 1rem;
   height: 1rem;
 }
@@ -50,18 +50,33 @@
   position: absolute;
   top: 3.375rem
 }
-.FindHero-input-btn_reset,
-.FindHero-select,
-.mistake {
-  display: none;
-}
-.active {
-  display: block;
-}
 
 .FoundHero {
+  @media screen and (min-width: $br-point-tablet) {
+    display: grid;
+    grid-template-columns: 21.75rem 1fr;
+    grid-template-areas: "photo description"
+                          "buttons buttons";
+    gap: 1.875rem;
+  }
   .buttons {
     margin-top: 0;
+    @media screen and (min-width: $br-point-tablet) {
+      grid-area: buttons;
+      grid-column: span 2;
+    }
+  }
+}
+.Hero-Photo {
+  @media screen and (min-width: $br-point-tablet) {    
+    margin-bottom: 0;
+    grid-area: photo;
+  }
+}
+.Hero-Description {
+  @media screen and (min-width: $br-point-tablet) {    
+    margin-bottom: 0;
+    grid-area: description;
   }
 }
 .Hero-Photo,
@@ -89,27 +104,4 @@
   margin-bottom: 0.75rem;
   font-size: 2.25rem;
   font-weight: 600;
-}
-
-@media screen and (min-width: $br-point-tablet) {
-  .FoundHero {
-    display: grid;
-    grid-template-columns: 21.75rem 1fr;
-    grid-template-areas: "photo description"
-                            "buttons buttons";
-    gap: 1.875rem;
-    .buttons {
-      grid-area: buttons;
-      grid-column: span 2;
-    }
-  }
-  .Hero-Photo {
-    margin-bottom: 0;
-    grid-area: photo;
-  }
-  .Hero-Description {
-    margin-bottom: 0;
-    grid-area: description;
-  }
-
 }
