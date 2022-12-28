@@ -13,11 +13,17 @@
   margin-top: 0;
 }
 
-.Search {  
+.Search {
   @media screen and (min-width: $br-point-tablet) {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     display: grid;
     gap: 1.875rem;
-    grid-template-columns: 65.8% 21.875rem;
+    grid-template-columns: 29.187rem 14.563rem;
+  } 
+  @media screen and (min-width: $br-point-desktop) {
+    grid-template-columns: 45.5rem 21.875rem;
   }
 }
 .FindHero-form {

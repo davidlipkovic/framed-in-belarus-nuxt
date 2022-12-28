@@ -11,7 +11,7 @@
     </div>
     <div class="content">
       <div class="Search">        
-        <div class="FindHero-form">
+        <div class="Search--item FindHero-form">
           <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
           <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn--img"></button>
           <div class="FindHero-select" hidden>
@@ -19,7 +19,7 @@
             <p class="FindHero-select-item">Smirnova</p>
           </div>
         </div>
-        <div class="Sorting">
+        <div class="Search--item Sorting">
           <label for="sorting" class="Sorting-label">Sort by: </label>
           <select name="sorting" id="sorting" class="Sorting-select">
             <option class="Sorting-select--option">What’s new</option>
