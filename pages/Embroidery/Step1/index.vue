@@ -58,8 +58,8 @@
       <section class="FindHero">
         <div class="FindHero-form">
           <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
-          <button class="FindHero-input-btn_reset"><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn_reset-img"></button>
-          <div class="FindHero-select">
+          <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn--img"></button>
+          <div class="FindHero-select" hidden>
             <p class="FindHero-select-item">Smirnov</p>
             <p class="FindHero-select-item">Smirnova</p>
           </div>
@@ -74,7 +74,7 @@
           </div>
         </div>
 
-        <div class="mistake" id="heroHasBeenChosen">
+        <div class="mistake" id="heroHasBeenChosen" hidden>
           <h2>Sorry, this hero has already been chosen</h2>
           <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
           <p>Please choose another hero.</p>          
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <div class="mistake" id="heroDontHavePattern">
+        <div class="mistake" id="heroDontHavePattern" hidden>
           <h2>Sorry, we don't have a pattern for this hero yet</h2>
           <p>If you really want this hero, please <strong>leave a request for a pattern</strong> in this section.</p>
           <p>To create a pattern  please help us by telling the hero's story. </p>
@@ -98,7 +98,7 @@
         </div>
       </section>
 
-      <section class="FoundHero">
+      <section class="FoundHero" hidden>
         <div class="Hero-Photo">
           <img src="../../../assets/media/img/randomHero.jpg" alt="Hero's name" class="Hero-Photo-img">
           <p class="Hero-Photo-text">This hero has been chosen automatically</p>
@@ -159,23 +159,23 @@
   //   send input.value to database;
   //   get database answer;
   //   add answer to select with class="FindHero-select-item"
-  //   select.classList.add('active');
+  //   select.hidden = false;
   // } 
   // input.oninput = function(e){
-  //   button.classList.add('active');
+  //   button.hidden = false;
   //   searchHero();
   //   button.onclick = function(e){
   //     input.value = '';
-  //     button.classList.remove('active');
+  //     button.hidden = true;
   //   }
   // };
 
   // if( hero == null ) {
   //   div#default remove;
-  //   div#heroDontHavePattern classList.add('active');
+  //   div#heroDontHavePattern.hidden = false;
   // } else if ( hero == exist && hero.pattern == busy) {
   //   div#default remove;
-  //   div#heroHasBeenChosen classList.add('active');
+  //   div#heroHasBeenChosen.hidden = false;
   // }
 
   //  const btnsRandomHero = document.querySelectorAll('.randomHero');

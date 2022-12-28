@@ -2,6 +2,7 @@ $black: #020202;
 $white: #fff;
 $red: #D10000; /* .Content a */
 $redHover: #FF565D; /* a:hover, a:focus, button.bg_red:hover */
+$redBlood: #860C22; /* Gallery section background-color */
 $inputsBorder: #DADADA;
 $inputsBorderFocus: #6200EE;
 $greyButtonHover: #535353;
@@ -14,7 +15,7 @@ $embroideryCardStasusProgress: #F2994A;
 $embroideryCardStasusFinish: #219653;
 $defaultShadow: 0 8px 10px rgba(0,0,0,0.2);
 
-$br-point-desktop: 1110px;
+$br-point-desktop: 1110px + 17px; /* scroll */
 $br-point-tabletUpper: 1109px;
 $br-point-tablet: 800px;
 $br-point-mobile: 799px;

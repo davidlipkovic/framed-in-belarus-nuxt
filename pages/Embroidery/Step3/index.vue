@@ -179,6 +179,13 @@
 <style src="./Step3.scss" lang="scss" scoped></style>
 
 <script>
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
 //  const btnSave = document.querySelector('#save');
 //  btnSave.onclick = function(){
 //  send request by server 'Save and go to Next step'

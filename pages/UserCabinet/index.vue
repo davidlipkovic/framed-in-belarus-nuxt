@@ -74,7 +74,7 @@ const editModal = ref({
       <section class="embroideryCards">
         <nuxt-link
           to="/Embroidery/Step1"
-          class="embroideryCard New">
+          class="embroideryCard embroideryCard_new">
           <div class="embroideryCard-content">            
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" alt="+" class="embroideryCard-img Create">
               <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="#333333"/>
@@ -86,7 +86,7 @@ const editModal = ref({
         </nuxt-link>
         <button disabled
           to="/Embroidery/Step1"
-          class="embroideryCard New">
+          class="embroideryCard embroideryCard_new embroideryCard_disabled">
           <div class="embroideryCard-content">
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" alt="+" class="embroideryCard-img Create">
               <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="#333333"/>

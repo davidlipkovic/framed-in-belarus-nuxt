@@ -17,11 +17,11 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
-            <!-- <nuxt-link
+             <nuxt-link
               to="Gallery"
               class="Info-menu-item">
               Gallery
-              </nuxt-link>-->
+              </nuxt-link>
               <nuxt-link
               to="News"
               class="Info-menu-item">
