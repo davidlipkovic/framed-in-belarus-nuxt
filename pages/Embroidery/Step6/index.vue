@@ -1,3 +1,38 @@
+<script setup lang="ts">
+//  const inputs = document.querySelectorAll('.choosePackageFrom input');
+//  const instructions = document.querySelectorAll('.instruction.defaultNone').Array();
+//  let number = 0;
+//  for ( input in inputs ) {
+//    input.onclick = function() {
+//
+//    }
+//  }
+//  function chooseInstruction(number){
+//    for (instruction in instructions) {
+//      if( !instruction.classList.contains('defaultNone') ) {
+//        instruction.classList.add('defaultNone');
+//      }
+//      find all inputs in instruction and delete them attribute "required" // input.required = false;
+//    }
+//    instructions[number].classList.remove('defaultNone');
+//      find all inputs in instruction[number] and add them attribute "required" // input.required = true;
+//  }
+
+
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//    if ( (.choosePackageFrom input.checked) == false ) {
+//    (.choosePackageFrom input).classList.add('mistake');  for all inputs!
+//    (.choosePackageFrom .mistake).classList.remove('defaultNone');
+//  } else if ( #choosePackageFromEU.checked )
+
+
+//  {
+//    send request by server 'Save and go to Next step'
+//  }
+//  }
+</script>
+
 <template>
   <main class="Content">
     <Head>
@@ -168,44 +203,9 @@
         </div>
       </section>
     </div>
-  </main>  
+  </main>
 </template>
+
 <style src="../../../assets/style/form.scss"></style>
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step6.scss" lang="scss" scoped></style>
-
-<script>
-//  const inputs = document.querySelectorAll('.choosePackageFrom input');
-//  const instructions = document.querySelectorAll('.instruction.defaultNone').Array();
-//  let number = 0;
-//  for ( input in inputs ) {
-//    input.onclick = function() {
-//      
-//    }
-//  }
-//  function chooseInstruction(number){
-//    for (instruction in instructions) {
-//      if( !instruction.classList.contains('defaultNone') ) {
-//        instruction.classList.add('defaultNone');
-//      }
-//      find all inputs in instruction and delete them attribute "required" // input.required = false;
-//    }
-//    instructions[number].classList.remove('defaultNone');
-//      find all inputs in instruction[number] and add them attribute "required" // input.required = true;
-//  }
-
-
-//  const btnSave = document.querySelector('#save');
-//  btnSave.onclick = function(){
-//    if ( (.choosePackageFrom input.checked) == false ) {
-  //    (.choosePackageFrom input).classList.add('mistake');  for all inputs!
-  //    (.choosePackageFrom .mistake).classList.remove('defaultNone');
-  //  } else if ( #choosePackageFromEU.checked )
-  
-  
-  //  {
-  //    send request by server 'Save and go to Next step'
-  //  }
-//  }
-
-</script>

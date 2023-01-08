@@ -1,4 +1,11 @@
-<script setup>
+<script setup lang="ts">
+// import Header from '@/components/register/Header'
+// export default {
+//   components: {
+//     Header,
+//   },
+// }
+
 definePageMeta({
   layout: "registration",
 })
@@ -29,15 +36,6 @@ definePageMeta({
     </div>
   </main>
 </template>
-
-<script>
-// import Header from '@/components/register/Header'
-// export default {
-//   components: {
-//     Header,
-//   },
-// }
-</script>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./SignIn.scss" lang="scss" scoped></style>

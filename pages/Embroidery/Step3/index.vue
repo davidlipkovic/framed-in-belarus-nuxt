@@ -1,3 +1,17 @@
+<script setup lang="ts">
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//  send request by server 'Save and go to Next step'
+// }
+</script>
+
 <template>
   <main class="Content">
     <Head>
@@ -8,7 +22,6 @@
       <div class="content">
         <h1>
           <span class="subtitle">Step 3 <span class="visually-hidden">— </span></span>Support the political prisoner
-
         </h1>
         <nuxt-link
           to="/UserCabinet"
@@ -60,7 +73,7 @@
         </div>
       </section>
 
-      <section>    
+      <section>
 
         <input type="checkbox" class="visually-hidden" id="HeroHidden">
         <article class="Hero textWidth">
@@ -82,7 +95,7 @@
           </div>
           <label for="HeroHidden" class="Hero-close">
             <img src="../../../assets/media/img/close.svg" alt="Close" class="Hero-close-img">
-          </label>          
+          </label>
           <div class="Hero-content">
             <div class="Hero-Description-data">
             <h3 class="title">Date of birth:</h3>
@@ -120,7 +133,7 @@
         <article>
           <div class="textWidth">
             <blockquote class="blockquote">
-              <p class="blockquote-content">                
+              <p class="blockquote-content">
                 <span class="blockquote-quote_opened">“</span>
                 The more we talk about them, the safer they are
               <span class="blockquote-quote_closed">”</span>
@@ -148,7 +161,7 @@
             </dd>
             <dt class="SupportMethod-title">Get involved in the initiative <a href="https://politzek.me/">politzek.me</a></dt>
             <dd class="SupportMethod-content">
-              The platform allows you to befriend a political prisoner and complete different tasks. 
+              The platform allows you to befriend a political prisoner and complete different tasks.
             </dd>
             <dt class="SupportMethod-title">Support political prisoners and their families financially</dt>
             <dd class="SupportMethod-content">
@@ -169,26 +182,7 @@
       </section>
     </div>
   </main>
-
-  
-
-  
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step3.scss" lang="scss" scoped></style>
-
-<script>
-//  const HeroHidden = document.querySelector('#HeroHidden');
-//  const Hero = document.querySelector('.Hero');
-//  HeroHidden.onchange = function() {
-//   if(HeroHidden.checked) {
-//     Hero.hidden = true;
-//    }
-//  }
-//  const btnSave = document.querySelector('#save');
-//  btnSave.onclick = function(){
-//  send request by server 'Save and go to Next step'
-// }
-
-</script>

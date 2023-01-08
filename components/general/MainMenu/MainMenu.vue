@@ -1,8 +1,14 @@
-<script setup>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
   const { locale, locales } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
   const availableLocales = computed(() => {
     return (locales.value).filter(i => i.code !== locale.value)
+  })
+
+  onMounted(() => {
+    console.log(availableLocales)
   })
 </script>
 
