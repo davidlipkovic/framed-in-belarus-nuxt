@@ -2,6 +2,10 @@
 @import "./NavSteps";
 @import "./Hero";
 
+%fontSize14 {
+  font-size: 0.75rem;
+}
+
 .Title {
   padding: 3.125rem 0;
   .subtitle {
@@ -10,12 +14,14 @@
   }
 }
 
-.mistake,
 .note {
-  font-size: 0.75rem;
+  @extend %fontSize14;
 }
 .mistake {
-  color: $red;
+  @extend %fontSize14;
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 .note {
   color: $greyDisabledColor;
