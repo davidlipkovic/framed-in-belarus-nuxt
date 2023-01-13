@@ -33,66 +33,77 @@
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
+          <span class="GalleryCase-title">Case name</span>
         </nuxt-link>
       </section>
       <div class="buttons">
         <button class="button button_white">Show more</button>
-        <!-- margin-top 30px white-->
       </div>
     </div>
   </main>
