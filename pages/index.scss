@@ -1,6 +1,6 @@
 @import "../assets/style/globalPartials/variables.scss";
 
-.flexColumn {
+%flexColumn {
   display: flex;
   flex-direction: column;
 }
@@ -42,7 +42,7 @@
     }
   }
   .Partners {
-    @extend .flexColumn;
+    @extend %flexColumn;
     margin-bottom: 0;
     padding-top: 3.438rem;
     padding-bottom: 0;
@@ -75,7 +75,7 @@
 }
 
 .Partners-group {
-  @extend .flexColumn;
+  @extend %flexColumn;
   align-items: center;
   @media screen and (min-width: $br-point-tablet) {
     flex-direction: row;
