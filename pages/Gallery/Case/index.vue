@@ -5,7 +5,6 @@
 
 // USER'S PHOTOS
 // .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
-// This photo's size must be like Slider's photo
 </script>
 
 
@@ -86,8 +85,12 @@
           <h3 class="title">Comment</h3>
           <p>В настоящее время в Беларуси число официально признанных политическихзаключенных достигает более 930 человек. Framed in Belarus - это социальный арт-проект, посвященный политическим заключенным в Беларуси. </p>
         </div>
-        <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery" class="Description-item Description-item_img">
-        <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery" class="Description-item Description-item_img">
+        <div class="Description-item Description-item_img">
+          <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery">
+        </div>
+        <div class="Description-item Description-item_img">
+          <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery">
+        </div>
         <div class="Description-item">
           <h3 class="ExhibitionTitle">List of exhibitions</h3>
           <ul class="ExhibitionList">
