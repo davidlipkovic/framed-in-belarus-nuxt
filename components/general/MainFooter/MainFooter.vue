@@ -17,6 +17,10 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
+             <a href="/"
+              class="Info-menu-item">
+              Home
+             </a>
              <nuxt-link
               to="Gallery"
               class="Info-menu-item">
