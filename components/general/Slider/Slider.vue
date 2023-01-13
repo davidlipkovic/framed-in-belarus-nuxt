@@ -44,40 +44,42 @@ onMounted(() => {
 <template>
   <div class="Slider" id="sliderMain">
     <div class="bg_red"></div>
-    <nuxt-picture
-      v-for="(slide, i) in slides"
-      :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
-      width="1374"
-      height="1374"
-      sizes="xs:458px md:916px lg:1374px"
-      class="Slider-item"
-      :class="i === index? 'active' : ''"
-      :alt="`${slide.alt}`"
-    />
-    <div class="Slider-switcher">
-      <button
-        id="btn-prev"
-        class="Slider-switcher-arrow Slider-switcher-arrow_left"
-        @click="prevSlide()"
-      >
-        <SvgArrowLeft/>
-      </button>
-      <div class="Slider-switcher-dots">
+    <div class="Slider-content">
+      <nuxt-picture
+        v-for="(slide, i) in slides"
+        :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
+        width="1374"
+        height="1374"
+        sizes="xs:458px md:916px lg:1374px"
+        class="Slider-item"
+        :class="i === index? 'active' : ''"
+        :alt="`${slide.alt}`"
+      />
+      <div class="Slider-switcher">
         <button
-          v-for="(slide, i) in slides"
-          class="Slider-switcher-item"
-          :class="i === index? 'active' : ''"
-          @click="updateIndex(i)"
+          id="btn-prev"
+          class="Slider-switcher-arrow Slider-switcher-arrow_left"
+          @click="prevSlide()"
         >
+          <SvgArrowLeft/>
+        </button>
+        <div class="Slider-switcher-dots">
+          <button
+            v-for="(slide, i) in slides"
+            class="Slider-switcher-item"
+            :class="i === index? 'active' : ''"
+            @click="updateIndex(i)"
+          >
+          </button>
+        </div>
+        <button
+          id="btn-next"
+          class="Slider-switcher-arrow Slider-switcher-arrow_right"
+          @click="nextSlide()"
+        >
+          <SvgArrowRight/>
         </button>
       </div>
-      <button
-        id="btn-next"
-        class="Slider-switcher-arrow Slider-switcher-arrow_right"
-        @click="nextSlide()"
-      >
-        <SvgArrowRight/>
-      </button>
     </div>
   </div>
 </template>
