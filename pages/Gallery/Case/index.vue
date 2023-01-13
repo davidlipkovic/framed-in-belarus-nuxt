@@ -1,9 +1,11 @@
 <script>
 // SLIDER 
 // Two pictures should be displayed in the slider: the face and the back of the embroidery. Rufina will make these pictures herself after receiving the work by mail and then add them to the database as an admin herself.
+// Pictures should switch on click.
 
 // USER'S PHOTOS
 // .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
+// This photo's size must be like Slider's photo
 </script>
 
 
