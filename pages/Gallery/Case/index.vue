@@ -5,6 +5,7 @@
 
 // USER'S PHOTOS
 // .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
+// .Description-item_img width must be 540px regardless of orientation
 </script>
 
 
