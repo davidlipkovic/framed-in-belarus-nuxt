@@ -2,10 +2,6 @@
 @import "./NavSteps";
 @import "./Hero";
 
-%fontSize14 {
-  font-size: 0.75rem;
-}
-
 .Title {
   padding: 3.125rem 0;
   .subtitle {
@@ -15,10 +11,10 @@
 }
 
 .note {
-  @extend %fontSize14;
+  font-size: 0.75rem;
 }
 .mistake {
-  @extend %fontSize14;
+  font-size: 0.875rem;
   h2 {
     font-size: 1.5rem;
   }
