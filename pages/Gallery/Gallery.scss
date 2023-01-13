@@ -9,9 +9,6 @@
     background-color: rgba(134,12,34,0.71);
   }
 }
-.Footer {
-  margin-top: 0;
-}
 
 .Search {
   @media screen and (min-width: $br-point-tablet) {
@@ -103,4 +100,11 @@
   border-radius: 1rem;
   width: 21.875rem;
   height: 21.75rem;
+}
+
+.buttons {
+  margin-top: 1.875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
