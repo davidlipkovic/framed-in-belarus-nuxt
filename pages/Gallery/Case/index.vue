@@ -1,3 +1,12 @@
+<script>
+// SLIDER 
+// Two pictures should be displayed in the slider: the face and the back of the embroidery. Rufina will make these pictures herself after receiving the work by mail and then add them to the database as an admin herself.
+
+// USER'S PHOTOS
+// .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
+</script>
+
+
 <template>
   <main class="Content">
     <Head>
