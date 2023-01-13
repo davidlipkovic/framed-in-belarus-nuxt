@@ -7,8 +7,8 @@
     <Meta name="description" content="{{ $t('description') }}"/>
   </Head>
     
-  <main class="Content FirstPage">
-    <section class="content">
+  <main class="Content">
+    <section class="content FirstPage">
       <div class="ProjectDescr">
         <h1 class="title logo-project">
           <span class="firstSymbol">#</span><span class="text">
