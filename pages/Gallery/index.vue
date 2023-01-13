@@ -30,66 +30,70 @@
       </div>
       <section class="Gallery">
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
-          to="/Gallery/ThisCase"
+          to="/Gallery/Case"
           class="GalleryCase">
           <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
       </section>
+      <div class="buttons">
+        <button class="button button_white">Show more</button>
+        <!-- margin-top 30px white-->
+      </div>
     </div>
   </main>
 </template>
@@ -117,4 +121,7 @@
   //     button.hidden = true;
   //   }
   // };
+
+//в слайдере должны отображаться две картинки: лицо и изнанка вышивки. Эти картинки Руфина будет делать сама после получения работы по почте. И потом самостоятельно добавлять их в датабазу как админ.
+//Заглавную картинку, которая отображается на этой странице, делает Руфина (см.выше)
 </script>
