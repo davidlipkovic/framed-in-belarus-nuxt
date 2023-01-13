@@ -7,16 +7,17 @@
 
 .FirstPage {
   > .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin-bottom: 4.063rem;
-    @media screen and (min-width: $br-point-tablet) {
+    @media screen and (max-width: $br-point-mobile) {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+    }
+    @media screen and (min-width: $br-point-tablet) {
+      display: grid;
+      gap: 1.875;
+      grid-template-columns: 39.82% 57.21%;
       align-items: center;
     }
   }
@@ -48,9 +49,10 @@
   }
 }
 .ProjectDescr {
-  margin-bottom: 3.125rem;
+  @media screen and (max-width: $br-point-mobile) {
+    margin-bottom: 3.125rem;
+  }
   @media screen and (min-width: $br-point-tablet) {
-    width: 50%;
     padding-right: 2.5rem;
   }
   .logo-project {
@@ -67,6 +69,8 @@
   }
   .subtitle {
   margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
   }
   .button {
     margin: 0;
