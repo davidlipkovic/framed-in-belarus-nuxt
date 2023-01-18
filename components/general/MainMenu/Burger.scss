@@ -1,5 +1,11 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
+%hidden {
+  display: none;
+  height: 0;
+  overflow: hidden;
+}
+
 .Burger-button {
   display: block;
   width: 1.5rem;
@@ -118,6 +124,7 @@
     .Burger-menu {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       width: 100vw;
       padding-top: 0.313rem;
       padding-right: 0.625rem;
@@ -135,15 +142,10 @@
       z-index: 4;
     }
   }
-  & ~ .Content::after {
-    content: '';
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: $greyDisabledBg;
-    position: absolute;
-    opacity: 0.5;
-    z-index: 1;
-    top: 0;
+  & ~ .Content {
+    @extend %hidden;
+  }
+  & ~ .Footer {
+    @extend %hidden;
   }
 }
