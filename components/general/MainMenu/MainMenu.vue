@@ -53,13 +53,7 @@
 <!--            {{ $t('linkFAQ') }}-->
 <!--          </nuxt-link>-->
         </div>
-        <div class="Burger-menu-group Burger-menu-group-lang">
-<!--          <nuxt-link -->
-<!--            to="Login" -->
-<!--            class="Burger-menu-item Login"-->
-<!--          >-->
-<!--            {{ $t('linkLogin') }}-->
-<!--          </nuxt-link> -->
+        <div class="Burger-menu-group">
           <nuxt-link
             to="SignIn"
             class="Burger-menu-item button bg_red"
@@ -67,7 +61,7 @@
             {{ $t('participateBtnMsg') }}
           </nuxt-link>
           <details class="User Burger-menu-item">
-            <summary class="summary">
+            <summary class="User-button">
               <img src="/assets/media/img/login.svg" alt="Profile icon" class="UserButton-icon">
               <span class="iconMessage">
                 <span class="iconMessage-text">You have unfinished work</span>
@@ -83,8 +77,7 @@
                 My embroideries
                 <span class="iconMessage">!
                   <span class="iconMessage-text">You have unfinished work</span>
-                </span>
-                
+                </span>                
               </nuxt-link>
               <nuxt-link
                 to="UserCabinet"
