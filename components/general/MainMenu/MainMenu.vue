@@ -60,12 +60,39 @@
 <!--          >-->
 <!--            {{ $t('linkLogin') }}-->
 <!--          </nuxt-link> -->
-          <a
-            href="https://forms.gle/SKCcvWGzRkQxx2fH9"
+          <nuxt-link
+            to="SignIn"
             class="Burger-menu-item button bg_red"
           >
             {{ $t('participateBtnMsg') }}
-          </a>
+          </nuxt-link>
+          <details class="User Burger-menu-item">
+            <summary class="summary">
+              <img src="/assets/media/img/login.svg" alt="Profile icon" class="UserButton-icon">
+              <span class="iconMessage">
+                <span class="iconMessage-text">You have unfinished work</span>
+              </span>
+              <span class="UserButton-text">Profile</span>
+            </summary>
+            <div class="UserSelect">
+              <img src="../../assets/media/img/Avatar.svg" class="UserSelect-item" alt="Avatar">
+              <h2 class="UserSelect-item UserSelect-item_title">Alexander Ivanow</h2>
+              <nuxt-link
+                to="UserCabinet"
+                class="UserSelect-item UserSelect-item_link">
+                My embroideries
+                <span class="iconMessage">!
+                  <span class="iconMessage-text">You have unfinished work</span>
+                </span>
+                
+              </nuxt-link>
+              <nuxt-link
+                to="UserCabinet"
+                class="UserSelect-item UserSelect-item_link">
+                Sign Out
+              </nuxt-link>
+            </div>
+          </details>
           <details class="Lang Burger-menu-item">
             <summary class="Lang-button">
               EN<svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow" alt="Arrow">
@@ -77,10 +104,15 @@
                   v-for="locale in availableLocales"
                   :key="locale.code"
                   :to="switchLocalePath(locale.code)"
-                  class="Lang-link"
+                  class="select-item"
                 >
                 {{ locale.name }}
               </nuxt-link>
+              <span
+                  class="select-item"
+                >
+                English
+              </span>
             </div>
           </details>
         </div>
