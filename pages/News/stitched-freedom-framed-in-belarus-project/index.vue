@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 </script>
 
 <template>
@@ -15,7 +15,7 @@
             to="/News"
             class="GoBack">
             <img src="../../../assets/media/img/arrow_back.svg" alt="{{ $t('GoToNews') }}" class="GoBack-img">
-            <span class="GoBack-text">{{ $t('GoToNews') }}</span>            
+            <span class="GoBack-text">{{ $t('GoToNews') }}</span>
           </nuxt-link>
         </div>
       </div>

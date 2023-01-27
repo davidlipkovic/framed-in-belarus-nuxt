@@ -1,4 +1,16 @@
-<script setup>
+<script setup lang="ts">
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//  send request by server 'Save and go to Next step'
+// }
+
 import { ref } from 'vue'
 
 import { VueFinalModal } from 'vue-final-modal'
@@ -103,7 +115,7 @@ const MainPattern = ref({
           </div>
           <label for="HeroHidden" class="Hero-close">
             <img src="../../../assets/media/img/close.svg" alt="Close" class="Hero-close-img">
-          </label>          
+          </label>
           <div class="Hero-content">
             <div class="Hero-Description-data">
             <h3 class="title">Date of birth:</h3>
@@ -214,7 +226,7 @@ const MainPattern = ref({
             <p>We suggest that you start in the middle of your embroidery. Fold the fabric in half twice - this is how you will find the centre of the fabric. The centre is also marked on the diagram. This is your starting point. Count off the number of empty cells from the centre to the beginning of the motif - this is usually the foot  of the schematic man. Do the same on the fabric.</p>
             <p>Continue the work, counting the empty and filled cells. Follow the scheme. There is already a counted number of crosses in the most complicated places.</p>
             <p>Watch the informative <b class="b">video lesson</b>. </p>
-          </div>          
+          </div>
           <iframe width="100%" height="456" src="https://www.youtube.com/embed/O7FEv4ZVdm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <div class="subscription">
             <div class="subscription-content">
@@ -234,7 +246,7 @@ const MainPattern = ref({
               </div>
             </div>
           </div>
-          
+
         </article>
         <div class="buttons">
           <nuxt-link to="/Embroidery/Step1" class="button">Previous step</nuxt-link>
@@ -249,7 +261,7 @@ const MainPattern = ref({
       @click-outside="MainPattern.show = false"
       :classes="`modal1`"
     >
-    <div class="modal-header">     
+    <div class="modal-header">
       <button
         @click="MainPattern.show = false"
         class="modal-close"
@@ -265,7 +277,7 @@ const MainPattern = ref({
       @click-outside="AlphabetPattern.show = false"
       :classes="`modal1`"
     >
-    <div class="modal-header">      
+    <div class="modal-header">
       <button
         @click="AlphabetPattern.show = false"
         class="modal-close"
@@ -279,18 +291,3 @@ const MainPattern = ref({
 
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step2.scss" lang="scss" scoped></style>
-
-<script>
-//  const HeroHidden = document.querySelector('#HeroHidden');
-//  const Hero = document.querySelector('.Hero');
-//  HeroHidden.onchange = function() {
-//   if(HeroHidden.checked) {
-//     Hero.hidden = true;
-//    }
-//  }
-//  const btnSave = document.querySelector('#save');
-//  btnSave.onclick = function(){
-//  send request by server 'Save and go to Next step'
-// }
-
-</script>

@@ -1,5 +1,63 @@
-<style src="../Article.scss" lang="scss"></style>
-<style src="../News.scss" lang="scss" scoped></style>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+import { VueFinalModal } from 'vue-final-modal'
+
+const imageModals = ref([
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  },
+  {
+    alt: "Photo credit: Sergei Shabohin",
+    show: false
+  }
+])
+</script>
 
 <template>
   <Head>
@@ -15,7 +73,7 @@
             to="/News"
             class="GoBack">
             <img src="../../../assets/media/img/arrow_back.svg" alt="{{ $t('GoToNews') }}" class="GoBack-img">
-            <span class="GoBack-text">{{ $t('GoToNews') }}</span>            
+            <span class="GoBack-text">{{ $t('GoToNews') }}</span>
           </nuxt-link>
         </div>
       </div>
@@ -67,73 +125,5 @@
   </main>
 </template>
 
-<script>
-import { $vfm, VueFinalModal, ModalsContainer } from 'vue-final-modal'
-
-export default {
-  components: {
-    VueFinalModal,
-    ModalsContainer
-  },
-  data() {
-    return {
-      showModal: false,
-      activeModalIndex: null,
-      imageModals: [
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        }
-      ]
-    }
-  }
-}
-</script>
+<style src="../Article.scss" lang="scss"></style>
+<style src="../News.scss" lang="scss" scoped></style>

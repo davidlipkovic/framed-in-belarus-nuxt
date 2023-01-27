@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { VueFinalModal } from 'vue-final-modal'
@@ -109,7 +109,7 @@ const editModal = ref({
     </div>
   </main>
 
-  
+
   <vue-final-modal
       v-model="editModal.show"
       @click-outside="editModal.show = false"
@@ -145,7 +145,7 @@ const editModal = ref({
         <div class="Settings-item">
           <div class="Settings-item-main">
             <label for="nickname" class="Settings-item-title">
-              Pseudonym / Nickname 
+              Pseudonym / Nickname
             </label>
             <input type="text" value="" placeholder="Your pseudonym / nickname" class="Settings-item-input" id="nickname" name="nickname">
           </div>
@@ -238,7 +238,7 @@ const editModal = ref({
             <button class="button bg_black">Save</button>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
     </vue-final-modal>
 
