@@ -1,3 +1,59 @@
+<script setup lang="ts">
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
+
+// #uploadFilesArea support drag&drop files to input[type=file]#uploadFiles
+
+// if ( user_upload_images ) {
+//  images upload to server automatically;
+//  server will send answer;
+//  const divPhotos = document.querySelector('.divPhotos');
+//  for( IMG_SRC in answer) {
+//    let div = document.createElement("div");
+//    div.classList.add('photo');
+//    div.innerHTML(`
+//      <img src="$IMG_SRC" alt="Photo of your embroidery" class="photo-img">
+//      <button class="photo-btnDelete">
+//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
+//            </button>
+//    `);
+//    divPhotos.appendChild(div);
+//    }
+//  }
+
+//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
+//  for (btn in btnsDelete) {
+//    btn.onclick = function(){
+//      send request by server 'Delete this picture'
+//    }
+//  }
+
+//  const comment = document.querySelector('#comment');
+//  comment.oninput = function(){
+//    let count = count the number of entered characters;
+//    count = 2300 - count;
+//    (#lettersLeft).innerText = count;
+//  }
+
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//    if ( #comment.value == null || .photos.child == null) {
+//    (.Comment .note).classList.add('defaultNone');
+//    (.Comment .mistake).classList.remove('defaultNone');
+//    } else if ( (.publishComment input.checked) == false ) {
+//    (.publishComment input).classList.add('mistake');  for all inputs!
+//    (.publishComment .mistake).classList.remove('defaultNone');
+//  } else {
+//    send request by server 'Save and go to Next step'
+//  }
+//  }
+</script>
+
 <template>
   <main class="Content">
     <Head>
@@ -63,7 +119,7 @@
         </div>
       </section>
 
-      <section class="textWidth">    
+      <section class="textWidth">
 
         <input type="checkbox" class="visually-hidden" id="HeroHidden">
         <article class="Hero">
@@ -85,7 +141,7 @@
           </div>
           <label for="HeroHidden" class="Hero-close">
             <img src="../../../assets/media/img/close.svg" alt="Close" class="Hero-close-img">
-          </label>          
+          </label>
           <div class="Hero-content">
             <div class="Hero-Description-data">
             <h3 class="title">Date of birth:</h3>
@@ -193,69 +249,9 @@
       </section>
     </div>
   </main>
-
-  
-
-  
 </template>
+
 <style src="../../../assets/style/form.scss"></style>
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="../Step4/Step4.scss" lang="scss" scoped></style>
 <style src="./Step5.scss" lang="scss" scoped></style>
-
-<script>
-//  const HeroHidden = document.querySelector('#HeroHidden');
-//  const Hero = document.querySelector('.Hero');
-//  HeroHidden.onchange = function() {
-//   if(HeroHidden.checked) {
-//     Hero.hidden = true;
-//    }
-//  }
-
-// #uploadFilesArea support drag&drop files to input[type=file]#uploadFiles
-
-// if ( user_upload_images ) {
-//  images upload to server automatically;
-//  server will send answer;
-//  const divPhotos = document.querySelector('.divPhotos');
-//  for( IMG_SRC in answer) {
-//    let div = document.createElement("div");
-//    div.classList.add('photo');
-//    div.innerHTML(`
-//      <img src="$IMG_SRC" alt="Photo of your embroidery" class="photo-img">
-//      <button class="photo-btnDelete">
-//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
-//            </button>
-//    `);
-//    divPhotos.appendChild(div);
-//    }
-//  }
-
-//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
-//  for (btn in btnsDelete) {
-//    btn.onclick = function(){
-//      send request by server 'Delete this picture'
-//    }
-//  }
-
-//  const comment = document.querySelector('#comment');
-//  comment.oninput = function(){
-//    let count = count the number of entered characters;
-//    count = 2300 - count;
-//    (#lettersLeft).innerText = count;
-//  }
-
-//  const btnSave = document.querySelector('#save');
-//  btnSave.onclick = function(){
-//    if ( #comment.value == null || .photos.child == null) {
-  //    (.Comment .note).classList.add('defaultNone');
-  //    (.Comment .mistake).classList.remove('defaultNone');
-  //    } else if ( (.publishComment input.checked) == false ) {
-  //    (.publishComment input).classList.add('mistake');  for all inputs!
-  //    (.publishComment .mistake).classList.remove('defaultNone');
-  //  } else {
-  //    send request by server 'Save and go to Next step'
-  //  }
-//  }
-
-</script>

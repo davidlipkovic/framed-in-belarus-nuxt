@@ -1,3 +1,45 @@
+<script setup lang="ts">
+//  const HeroHidden = document.querySelector('#HeroHidden');
+//  const Hero = document.querySelector('.Hero');
+//  HeroHidden.onchange = function() {
+//   if(HeroHidden.checked) {
+//     Hero.hidden = true;
+//    }
+//  }
+
+// #uploadFilesArea support drag&drop files to input[type=file]#uploadFiles
+
+// if ( user_upload_images ) {
+//  images upload to server automatically;
+//  server will send answer;
+//  const divPhotos = document.querySelector('.divPhotos');
+//  for( IMG.src in answer) {
+// IMG MUST BE OPTIMIZED!
+//    let div = document.createElement("div");
+//    div.classList.add('photo');
+//    div.innerHTML(`
+//      <img src="$IMG.src" alt="Photo of your embroidery" class="photo-img">
+//      <button class="photo-btnDelete">
+//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
+//            </button>
+//    `);
+//    divPhotos.appendChild(div);
+//    }
+//  }
+
+//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
+//  for (btn in btnsDelete) {
+//    btn.onclick = function(){
+//      send request by server 'Delete this picture'
+//    }
+//  }
+
+//  const btnSave = document.querySelector('#save');
+//  btnSave.onclick = function(){
+//  send request by server 'Save and go to Next step'
+// }
+</script>
+
 <template>
   <main class="Content">
     <Head>
@@ -61,7 +103,7 @@
         </div>
       </section>
 
-      <section class="textWidth">    
+      <section class="textWidth">
 
         <input type="checkbox" class="visually-hidden" id="HeroHidden">
         <article class="Hero">
@@ -83,7 +125,7 @@
           </div>
           <label for="HeroHidden" class="Hero-close">
             <img src="../../../assets/media/img/close.svg" alt="Close" class="Hero-close-img">
-          </label>          
+          </label>
           <div class="Hero-content">
             <div class="Hero-Description-data">
             <h3 class="title">Date of birth:</h3>
@@ -160,56 +202,7 @@
       </section>
     </div>
   </main>
-
-  
-
-  
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step4.scss" lang="scss" scoped></style>
-
-<script>
-//  const HeroHidden = document.querySelector('#HeroHidden');
-//  const Hero = document.querySelector('.Hero');
-//  HeroHidden.onchange = function() {
-//   if(HeroHidden.checked) {
-//     Hero.hidden = true;
-//    }
-//  }
-
-// #uploadFilesArea support drag&drop files to input[type=file]#uploadFiles
-
-// if ( user_upload_images ) {
-//  images upload to server automatically;
-//  server will send answer;
-//  const divPhotos = document.querySelector('.divPhotos');
-//  for( IMG.src in answer) {
-  // IMG MUST BE OPTIMIZED! 
-//    let div = document.createElement("div");
-//    div.classList.add('photo');
-//    div.innerHTML(`
-//      <img src="$IMG.src" alt="Photo of your embroidery" class="photo-img">
-//      <button class="photo-btnDelete">
-//              <img src="../../../assets/media/img/close-circle.svg" alt="Delete" class="photo-btnDelete-img">
-//            </button>
-//    `);
-//    divPhotos.appendChild(div);
-//    }
-//  }
-
-
-
-//  const btnsDelete = document.querySelectorAll('.photo-btnDelete');
-//  for (btn in btnsDelete) {
-//    btn.onclick = function(){
-//      send request by server 'Delete this picture'
-//    }
-//  }
-
-//  const btnSave = document.querySelector('#save');
-//  btnSave.onclick = function(){
-//  send request by server 'Save and go to Next step'
-// }
-
-</script>

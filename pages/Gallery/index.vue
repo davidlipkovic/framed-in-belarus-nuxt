@@ -1,3 +1,29 @@
+<script setup lang="ts">
+
+// Rufina will make two pictures of work herself after receiving the work by mail and then add them to the database as an admin herself. 
+// Photo of the front side of the embroidery is a file photoEmbroidery-example.jpg
+
+
+// const input = document.querySelector('.FindHero-input');
+// const button = document.querySelector('.FindHero-input-btn_reset');
+// const select = document.duerySelector('.FindHero-select');
+
+// function searchHero() {
+//   send input.value to database;
+//   get database answer;
+//   add answer to select with class="FindHero-select-item"
+//   select.hidden = false;
+// }
+// input.oninput = function(e){
+//   button.hidden = false;
+//   searchHero();
+//   button.onclick = function(e){
+//     input.value = '';
+//     button.hidden = true;
+//   }
+// };
+</script>
+
 <template>
   <main class="Content">
     <Head>
@@ -10,7 +36,7 @@
       </h1>
     </div>
     <div class="content">
-      <div class="Search">        
+      <div class="Search">
         <div class="FindHero-form">
           <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
           <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn-img"></button>
@@ -111,28 +137,3 @@
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./Gallery.scss" lang="scss" scoped></style>
-
-
-<script>
-// Rufina will make two pictures of work herself after receiving the work by mail and then add them to the database as an admin herself. 
-// Photo of the front side of the embroidery is a file photoEmbroidery-example.jpg
-
-  // const input = document.querySelector('.FindHero-input');
-  // const button = document.querySelector('.FindHero-input-btn_reset');
-  // const select = document.duerySelector('.FindHero-select');
-
-  // function searchHero() {
-  //   send input.value to database;
-  //   get database answer;
-  //   add answer to select with class="FindHero-select-item"
-  //   select.hidden = false;
-  // } 
-  // input.oninput = function(e){
-  //   button.hidden = false;
-  //   searchHero();
-  //   button.onclick = function(e){
-  //     input.value = '';
-  //     button.hidden = true;
-  //   }
-  // };
-</script>

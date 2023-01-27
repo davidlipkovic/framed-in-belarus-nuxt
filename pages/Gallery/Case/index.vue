@@ -1,4 +1,5 @@
-<script>
+
+<script setup lang="ts">
 // SLIDER 
 // Two pictures should be displayed in the slider: the face and the back of the embroidery. Rufina will make these pictures herself after receiving the work by mail and then add them to the database as an admin herself.
 // Pictures should switch on click.
@@ -7,6 +8,7 @@
 // .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
 // .Description-item_img width must be 540px regardless of orientation
 </script>
+
 
 
 <template>
@@ -78,7 +80,7 @@
           <p>Prison No. 4</p>
         </div>
         <h2 class="Description-item Description-item_title">Author about the work process</h2>
-        <div class="Description-item">            
+        <div class="Description-item">
           <h3 class="title">Why did you decide to participate in a ptoject?</h3>
           <p>Дело в закрытом режиме рассматривали почти четыре месяца. Государственное обвинение по делу поддерживала прокурорка Юлия Ланевская. Дело в закрытом режиме рассматривали почти четыре месяца. Государственное обвинение по делу поддерживала прокурорка Юлия Ланевская.</p>
         </div>
@@ -120,7 +122,7 @@
                 <img src="../../../assets/media/img/calendar.svg" alt="Dates" class="ExhibitionListItem-descript-icon descriptIcon">
                 18.11.2022 - 23.04.2023
               </p>
-              <p class="ExhibitionListItem-descript">                
+              <p class="ExhibitionListItem-descript">
                 <img src="../../../assets/media/img/location.svg" alt="Location" class="ExhibitionListItem-descript-icon descriptIcon">
                 <span class="museumName">Weserburg Museum für Moderne Kunst long long long long name.</span>
                 <span class="museumCountry">Bremen, <b class="b">Germany</b></span>
