@@ -5,74 +5,166 @@
   display: inline-block;
 }
 %select {
+  position: absolute;
+  @media screen and (min-width: $br-point-tablet) {        
+    padding: 0.375rem 1rem;
+    right: 0;
+    z-index: 5;
+    background-color: $white;
+    border-radius: 0.375rem;
+    border: 1px solid $greyButtonHover;
+  }
+}
+%selectItem {
+  color: $black;
+  line-height: 1.5rem;
+  white-space: nowrap;
+  @media screen and (max-width: $br-point-mobile) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  @media screen and (min-width: $br-point-tablet) {
+    margin-bottom: 12px;
+    display: block;
+    font-size: 0.875rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
 
+%LangSelect {
+  @media screen and (min-width: $br-point-tablet) {
+    top: 2.875rem;
+  }
+}
+%UserSelect {
+  @media screen and (min-width: $br-point-tablet) {
+    top: 3.063rem;
+  }
 }
 
 
 .Lang {
   @extend %details;
-  .LangSummary {
-    .arrow {
-      position: relative;
-      top: -0.1rem;
-      margin-left: 0.2rem;
-      transition-property: transform;
-      transition-duration: 0.15s;
-      @media screen and (max-width: $br-point-mobile) {
-        transform: rotate(270deg);
-      }
-      @media screen and (min-width: $br-point-tablet) {
-        transform: rotate(0deg);
-      }
+}
+.LangButton {
+  color: inherit;
+  .arrow {
+    position: relative;
+    top: -0.1rem;
+    margin-left: 0.2rem;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    @media screen and (max-width: $br-point-mobile) {
+      transform: rotate(270deg);
+    }
+    @media screen and (min-width: $br-point-tablet) {
+      transform: rotate(0deg);
     }
   }
-  &[open] {
-    .summary {
-      .arrow {
-        @media screen and (max-width: $br-point-mobile) {
-          transform: rotate(90deg);
-        }
-        @media screen and (min-width: $br-point-tablet) {          
-          transform: rotate(180deg);
-        }
-      }
+}
+.LangButton_open {
+  .arrow {
+    @media screen and (max-width: $br-point-mobile) {
+      transform: rotate(90deg);
     }
-    .Lang-select {
-      position: absolute;
-      top: -0.5rem;
-      left: 2rem;
-      border: none;
-      transition-property: display;
-      transition-duration: 0.15s;
-      background-color: $white;
-      @media screen and (min-width: $br-point-tablet) {        
-        padding: 0.375rem 1rem;
-        top: 1.5rem;
-        left: 0;
-        z-index: 5;
-      }
-      .select-item {
-        display: block;
-        color: $black;
-        @media screen and (max-width: $br-point-mobile) {
-          padding: 0.5rem 0.5rem 0 0.5rem;
-        }
-        @media screen and (min-width: $br-point-tablet) {
-          margin-bottom: 12px;
-          font-size: 0.875rem;
-          line-height: 1.7;
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
+    @media screen and (min-width: $br-point-tablet) {          
+      transform: rotate(180deg);
+    }
+  }
+}
+.LangSelect {
+  @extend %select;
+  @extend %LangSelect;
+  @media screen and (max-width: $br-point-mobile) {  
+    top: -0.5rem;
+    left: 2rem;
+  }
+  .select-item {
+    @extend %selectItem;
+    @media screen and (max-width: $br-point-mobile) {
+      padding-left: 0.5rem;
+      display: inline-block;
     }
   }
 }
 
 .User {
   @extend %details;  
-  &[open] {
-
+  @media screen and (min-width: $br-point-tablet) {
+    align-self: center;
+    width: 1.875rem;
+    height: 1.875rem;
   }
+}
+.User-button {
+  position: relative;
+  font-size: inherit;
+  @media screen and (min-width: $br-point-tablet) {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  .iconMessage {
+    position: relative;
+  }
+}
+.UserButton-icon {
+  @media screen and (max-width: $br-point-mobile) {
+    display: none;
+  }
+}
+.UserButton-text {
+  @media screen and (min-width: $br-point-tablet) {
+    display: none;
+  }
+}
+.iconMessage {
+  background-color: $orange;
+}
+.iconMessage-text {
+  @media screen and (max-width: $br-point-mobile) {
+    padding-left: 1rem;
+    color: $orange;
+  }
+  @media screen and (min-width: $br-point-tablet) {
+    display: none;
+  }
+}
+.iconMessage-icon {
+  @media screen and (max-width: $br-point-mobile) {
+    display: none;
+  }
+}
+
+.UserSelect {
+  @extend %select;
+  @extend %UserSelect;
+  @media screen and (max-width: $br-point-mobile) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.UserSelect-item {
+  @extend %selectItem;
+  @media screen and (max-width: $br-point-mobile) {
+    // margin-bottom: 0.8rem;
+    // &:last-child {
+    //   margin-bottom: 0;
+    // }
+  }
+}
+.UserSelect-item_avatar {
+  @media screen and (max-width: $br-point-mobile) {
+    display: none;
+  }
+  @media screen and (min-width: $br-point-tablet) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+.UserSelect-item_title {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
