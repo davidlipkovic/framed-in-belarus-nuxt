@@ -1,5 +1,15 @@
+
 <script setup lang="ts">
+// SLIDER 
+// Two pictures should be displayed in the slider: the face and the back of the embroidery. Rufina will make these pictures herself after receiving the work by mail and then add them to the database as an admin herself.
+// Pictures should switch on click.
+
+// USER'S PHOTOS
+// .Description-item_img is photo(s) which user added on 4 step "http://localhost:8080/Embroidery/Step4"
+// .Description-item_img width must be 540px regardless of orientation
 </script>
+
+
 
 <template>
   <main class="Content">
@@ -78,8 +88,12 @@
           <h3 class="title">Comment</h3>
           <p>В настоящее время в Беларуси число официально признанных политическихзаключенных достигает более 930 человек. Framed in Belarus - это социальный арт-проект, посвященный политическим заключенным в Беларуси. </p>
         </div>
-        <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery" class="Description-item Description-item_img">
-        <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery" class="Description-item Description-item_img">
+        <div class="Description-item Description-item_img">
+          <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery">
+        </div>
+        <div class="Description-item Description-item_img">
+          <img src="../../../assets/media/img/photoEmbroidery-example.jpg" alt="Case: Rabochy Ruh Vasya Petrov embroidery">
+        </div>
         <div class="Description-item">
           <h3 class="ExhibitionTitle">List of exhibitions</h3>
           <ul class="ExhibitionList">

@@ -116,7 +116,7 @@
           </div>
         </div>
 
-        <div class="mistake" id="heroHasBeenChosen" hidden>
+        <div class="mistake textWidth" id="heroHasBeenChosen" hidden>
           <h2>Sorry, this hero has already been chosen</h2>
           <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
           <p>Please choose another hero.</p>
@@ -125,7 +125,7 @@
           </div>
         </div>
 
-        <div class="mistake" id="heroDontHavePattern" hidden>
+        <div class="mistake textWidth" id="heroDontHavePattern" hidden>
           <h2>Sorry, we don't have a pattern for this hero yet</h2>
           <p>If you really want this hero, please <strong>leave a request for a pattern</strong> in this section.</p>
           <p>To create a pattern  please help us by telling the hero's story. </p>

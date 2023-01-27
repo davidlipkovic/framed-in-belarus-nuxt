@@ -17,10 +17,14 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
+             <a href="/"
+              class="Info-menu-item">
+              {{ $t('linkHome') }}
+             </a>
              <nuxt-link
               to="Gallery"
               class="Info-menu-item">
-              Gallery
+              {{ $t('linkGallery') }}
               </nuxt-link>
               <nuxt-link
               to="News"

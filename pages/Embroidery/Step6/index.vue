@@ -9,12 +9,12 @@
 //  }
 //  function chooseInstruction(number){
 //    for (instruction in instructions) {
-//      if( !instruction.classList.contains('defaultNone') ) {
-//        instruction.classList.add('defaultNone');
+//      if( !instruction.hidden ) {
+//        instruction.hidden = false;
 //      }
 //      find all inputs in instruction and delete them attribute "required" // input.required = false;
 //    }
-//    instructions[number].classList.remove('defaultNone');
+//    instructions[number].hidden = false;
 //      find all inputs in instruction[number] and add them attribute "required" // input.required = true;
 //  }
 
@@ -123,14 +123,14 @@
             <input type="radio" name="choosePackageFrom" value="russia" id="choosePackageFromRussia" class="choosePackageFrom-option-input" required>
             <span class="choosePackageFrom-option-label">Russia</span>
           </label>
-          <p class="mistake defaultNone">Please choose one option</p>
+          <p class="mistake" hidden>Please choose one option</p>
         </div>
         <div class="instruction default">
           <div class="instruction_default-content">
             <p>The instructions will appear here once you will have chosen a region of origin.</p>
           </div>
         </div>
-        <div class="instruction defaultNone" id="instructionEU">
+        <div class="instruction" hidden id="instructionEU">
           <p class="title important">Please read this section carefully!</p>
           <p>Send your work only by <strong class="b">CUSTOMER POSTAGE</strong>! </p>
           <p>This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number.</p>
@@ -146,7 +146,7 @@
           <p>When filling in the postal declaration, mark the package as <strong class="b">GIFT</strong>, worth <strong class="b">€20 or less</strong>. On the contents of the package, please write <strong class="b">Embroidery or Tissue</strong></p>
         </div>
 
-        <div class="instruction defaultNone" id="instructionNonEU">
+        <div class="instruction" hidden id="instructionNonEU">
           <p class="title important">Please read this section carefully!</p>
           <p>Send your work only by <strong class="b">CUSTOMER POSTAGE</strong>! </p>
           <p>This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number.</p>
@@ -176,7 +176,7 @@
           <p class="note">Please fill in Latin letters.</p>
         </div>
 
-        <div class="instruction defaultNone" id="instructionBelarus">
+        <div class="instruction" hidden id="instructionBelarus">
           <p class="title important">Please read this section carefully!</p>
           <p>Sending work from Belarus is always a bit of a challenge.</p>
           <p>For safety reasons, <strong class="b">we don't recommend sending embroidery through the post office</strong>. Especially now, because of the war, the Czech Republic does not work with BelPochta.</p>
@@ -187,7 +187,7 @@
           <input type="text" id="usernameBelarus" placeholder="Username" name="usernameBelarus" class="instruction-input">
         </div>
 
-        <div class="instruction defaultNone" id="instructionRussia">
+        <div class="instruction" hidden id="instructionRussia">
           <p class="title important">Please read this section carefully!</p>
           <p>At the moment, parcels can be difficult to send because of the war. The rules change frequently. Please <strong class="b">check with the post office</strong> to see if you can <strong class="b">send a parcel to the Czech Republic</strong>.</p>
           <p><strong class="b">We will try to find out if anyone we know is going to Europe soon</strong>. If you also happen to know someone who will go and be able to take the embroidery, let us know.</p>

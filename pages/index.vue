@@ -7,8 +7,10 @@
     <Meta name="description" content="{{ $t('description') }}"/>
   </Head>
 
-  <main class="Content FirstPage">
-    <section class="content">
+    
+  <main class="Content">
+    <section class="content FirstPage">
+
       <div class="ProjectDescr">
         <h1 class="title logo-project">
           <span class="firstSymbol">#</span><span class="text">
@@ -81,15 +83,13 @@
         <a href="https://amnesty.cz" target="_blank" class="Partners-logo"><!--
         --><img src="../assets/media/img/amnesty.png" alt="Amnesty International" class="img"><!--
       --></a>
-        <a href="https://vkletochku.org" target="_blank" class="Partners-logo"><!--
-        --><img src="../assets/media/img/vkletochku.png" alt="Письма в клеточку" class="img"><!--
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhsgpGwDc9sskZ82LN_eKwwZBAX9U5kLARAFo2eR1UGw8Usg/viewform" target="_blank" class="Partners-logo"><!--
+        --><img src="../assets/media/img/majsternia-pashtovak.jpg" alt="Solidarity Postcards Atelier" class="img"><!--
       --></a>
         <a href="https://en.stranafund.org" target="_blank" class="Partners-logo"><!--
         --><img src="../assets/media/img/stranafund_en.png" alt="COUNTRY TO LIVE IN FOUNDATION" class="img"><!--
-      --></a>
-      </div>
-      <div class="Partners-group">
-        <a href="https://tutaka.org" target="_blank" class="Partners-logo"><!--
+      --></a><!--
+      --><a href="https://tutaka.org" target="_blank" class="Partners-logo"><!--
         --><img src="../assets/media/img/tutaka.png" alt="Tutaka" class="img"><!--
       --></a>
         <a href="https://politzek.me" target="_blank" class="Partners-logo"><!--
