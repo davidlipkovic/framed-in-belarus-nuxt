@@ -1,4 +1,17 @@
-%button {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.button {  
   display: inline-block;
   padding-top: 0.5rem;
   padding-right: 1rem;
@@ -19,29 +32,11 @@
     color: $white;
     text-decoration: none !important;
   }
+  &.bg_red:hover {
+    background-color: $redHover;
+    border-color: $redHover !important;
+  }
 }
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.button {
-  @extend %button;
-}
-// .Content {
-//   .button {
-//     @extend %button;
-//   }
-// }
 
 .button_white {
   color: $white;
@@ -76,10 +71,11 @@
   background-color: $red;
   border-color: $red !important;
 }
-.button.bg_red:hover {
-  background-color: $redHover;
-  border-color: $redHover !important;
+.bg_white {  
+  background-color: $white;
+  border-color: $white !important;
 }
+
 .bg_grey {
   background-color: $greyDisabledBg;
   border-color: $greyDisabledBg !important;

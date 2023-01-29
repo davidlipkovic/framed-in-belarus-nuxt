@@ -1,16 +1,33 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
-.Info,
-.Info-project,
-.Info-menu,
-.Info-menu-group {
+%flexColumn {  
   display: flex;
   flex-direction: column;
 }
-.Info-menu-item {
-  margin-bottom: 0;
+%flexRowTablet {
+  @media screen and (min-width: $br-point-tablet) {
+    flex-direction: row;
+  }
 }
-.Footer {  
+%justifyContentBetweenTablet {
+  @media screen and (min-width: $br-point-tablet) {
+    justify-content: space-between;
+  }
+}
+%linkItem {
+  width: fit-content;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+%marginXAutoMobile {
+  @media screen and (max-width: $br-point-mobile) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.Footer {
+  position: relative;
   .bg_black {
     padding-top: 1.813rem;
     padding-bottom: 1.813rem;
@@ -22,17 +39,67 @@
     }
   }
 }
-.Info-project {
-  align-items: center;
+.Cookies {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background-color: $bgCookies;
+  color: $white;
+  .content {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem; 
+    display: flex;
+    @media screen and (max-width: $br-point-mobile) {     
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media screen and (min-width: $br-point-tablet) {
+      flex-direction: row;
+      align-items: flex-start;
+      font-size: 1rem;
+    }
+  }
+  .buttons {
+    display: grid;
+    gap: 0.75rem;
+    @media screen and (min-width: $br-point-tablet) {
+      margin-left: 2.5rem;
+      grid-template-columns: 7.5rem 7.5rem 7.5rem;
+    }
+  }
+  .button {
+    color: $white;
+    border-color: $white;
+    &.bg_white {
+      color: $black;
+    }
+  }
 }
-.Info-project > a,
-.Info-menu-item {
-  width: fit-content;
-  margin-bottom: 1rem;
-  white-space: nowrap;
+
+.Info {
+  @extend %flexColumn;
+  @extend %flexRowTablet;
+  @extend %justifyContentBetweenTablet;
+  @media screen and (min-width: $br-point-tablet) {
+    align-items: baseline;
+  }
+}
+
+.Info-project {
+  @extend %flexColumn;
+  align-items: center;
+  & > a {
+    @extend %linkItem;
+    @extend %marginXAutoMobile;
+  }
+  @media screen and (max-width: $br-point-mobile) {
+    margin-bottom: 1.625rem;
+  }
 }
 
 .Info-Project-social {
+  @extend %marginXAutoMobile;
   display: flex;
   flex-direction: row;
   align-content: flex-start;
@@ -46,42 +113,37 @@
     margin-right: 0;
   }
 }
-
-/* Mobile */
-@media screen and (max-width: $br-point-mobile) {
-  .Info-project {
-    margin-bottom: 1.625rem;
-  }
-  .Info-project > a,
-  .Info-Project-social,
-  .Info-menu-item {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-/* Tablet */
-@media screen and (min-width: $br-point-tablet) {
-  .Info,
-  .Info-menu-group {
-    flex-direction: row;
-  }
-  .Info,
-  .Info-menu > .Info-menu-group:first-child,
-  .Info-menu > .Info-menu-group > .Info-menu-group:first-child {
-    justify-content: space-between;
-  }
-  .Info-menu {
+.Info-menu {
+  @extend %flexColumn;
+  @media screen and (min-width: $br-point-tablet) {
     width: calc(100% - 16.563rem);
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
-  .Info-menu-item {
-    margin-right: 2.25rem;
+}
+.Info-menu-group {
+  @extend %flexColumn;
+  @extend %flexRowTablet;
+  .Info-menu > &:first-child {    
+    @extend %justifyContentBetweenTablet;
   }
-  .Info-menu-item:last-child
-  {
-    margin-right: 0;
+  .Info-menu > & > &:first-child {    
+    @extend %justifyContentBetweenTablet;
+  }
+}
+
+.Info-menu-item {
+  @extend %linkItem;
+  @extend %marginXAutoMobile;
+  @media screen and (min-width: $br-point-tablet) {
+    margin-bottom: 0;
+    margin-right: 2.25rem;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.button {
+      margin-top: -0.5rem;
+    }
   }
 }
