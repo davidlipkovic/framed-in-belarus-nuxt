@@ -1,4 +1,16 @@
 <template>
+  
+  <div class="Cookies">
+    <div class="content">
+      <p>{{ $t('cookies') }}</p>
+      <div class="buttons">
+        <button class="button bg_white">{{ $t('accept') }}</button>
+        <button class="button">{{ $t('decline') }}</button>
+        <button class="button">{{ $t('manage') }}</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="Footer">
     <div class="bg_black">
       <div class="content Info">
