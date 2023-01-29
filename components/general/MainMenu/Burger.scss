@@ -140,5 +140,9 @@
   .showOnlyHeader {
     height: 100vh;
     overflow: hidden;
+    .Content,
+    .Footer {
+      display: none;
+    }
   }
 }
