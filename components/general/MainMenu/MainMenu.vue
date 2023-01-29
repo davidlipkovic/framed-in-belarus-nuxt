@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import func from '~~/vue-temp/vue-editor-bridge'
 
   const { locale, locales } = useI18n()
   const switchLocalePath = useSwitchLocalePath()
@@ -40,14 +41,66 @@ import { onMounted, ref } from 'vue'
   //     };
   // }
 
+  // function positionXCalculate(windowWidth, objectHTML) {    
+  //   let positionX = any;
+  //   const objectCoordinates = objectHTML.getBoundingClientRec();
+  //   const objectWidth = objectCoordinates.right - objectCoordinates.left;
+  //   if ( objectWidth < 91 ) {
+  //     positionX = Math.round(objectWidth / 2);
+  //     positionX += 'px';
+  //   } else if (windowWidth < 1130) {
+  //     positionX = "-45px";
+  //   } else if (windowWidth < 1260) {
+  //     positionX = 1260 - 45 - windowWidth + 'px';
+  //   } else {
+  //     positionX = Math.round(objectWidth / 2) + 'px';
+  //   };
+  //   return positionX;
+  // }
+
+  // function userButtonIsHovered(windowWidth){
+  //   const userButton = document.querySelector('.User-button');
+  //   const UserButtonText = document.querySelector('.UserButton-text');
+  //   const iconMessageText = document.querySelector('.User-button .iconMessage-text');
+  //   userButton.onhover = function(){
+  //     if(iconMessageText){
+  //       iconMessageText.classList.toggle('iconMessage-text_showed');
+  //       iconMessageText.style.right = positionXCalculate(windowWidth, iconMessageText);
+  //     } else {
+  //       UserButtonText.classList.toggle('UserButton-text_showed');
+  //       UserButtonText.style.right = positionXCalculate(windowWidth, UserButtonText);
+  //     }
+  //   }
+  // }
+
+  // function userSelectIconMessageHover() {      
+  //   const userSelect = document.querySelector('.UserSelect');
+  //   const iconMessage = document.querySelector('.UserSelect .iconMessage');
+  //   const iconMessageText = document.querySelector('.UserSelect .iconMessage-text');
+  //   iconMessage.onhover = function(){
+  //     iconMessageText.classList.toggle('iconMessage-text_showed');
+  //     const userSelectCoordinates = userSelect.getBoundingClientRec();
+  //     const iconMessageCoordinates = iconMessage.getBoundingClientRec();
+  //     iconMessageText.style.right = userSelectCoordinates.right - iconMessageCoordinates.right + 'px'; // maybe -56px
+  //     iconMessageText.style.top = "-39px";
+  //   }
+  // }
+
   // function checkWindowSize() {
+  //   let deviceIsMobile;
   //   if( window.innerWidth > 799 ) {
   //     burgerButton.hidden = true;
+  //     userButtonIsHovered(window.innerWidth);
+  //     userSelectIconMessageHover();
+  //     deviceIsMobile = true;
   //   } else {      
   //     burgerButton.hidden = false;
   //     burgerButtonIsClikable();
+  //     deviceIsMobile = false;
   //   }
+  //   return deviceIsMobile;
   // }
+
   // checkWindowSize();
 
   // window.onresize = () => {
@@ -59,13 +112,19 @@ import { onMounted, ref } from 'vue'
   // const UserSelect = document.querySelector('.UserSelect');
   // const LangSelect = document.querySelector('.LangSelect');
   // UserButton.onclick = function(){
-  //   UserSelect.hidden = false:true;
+  //   UserSelect.hidden ? false:true;
+  //     let deviceIsMobile = checkWindowSize();
+  //     if (!deviceIsMobile) {
+  //       UserSelect.style.right = positionXCalculate(window.innerWidth, UserSelect);
+  //     } else {
+
+  //     };
   //   if( !LangSelect.hidden ) {
   //     LangSelect.hidden = false;
   //   }
   // };
   // LangButton.onclick = function(){
-  //   LangSelect.hidden = false:true;
+  //   LangSelect.hidden ? false:true;
   //   if( !UserSelect.hidden ) {
   //     UserSelect.hidden = false;
   //   }
@@ -128,10 +187,10 @@ import { onMounted, ref } from 'vue'
           </nuxt-link>
           <div class="User Burger-menu__item">
             <button class="User-button">
-              <span class="UserButton-text">Profile</span>
               <img src="/assets/media/img/login.svg" alt="Profile icon" class="UserButton-icon">
+              <span class="UserButton-text">Profile</span>
               <span class="iconMessage">
-                <span class="iconMessage-text">You have unfinished work</span>
+                <span class="iconMessage-text">You have some unfinished work</span>
               </span>
             </button>
             <div class="UserSelect" hidden>
@@ -142,8 +201,8 @@ import { onMounted, ref } from 'vue'
                 class="UserSelect-item UserSelect-item_link">
                 My embroideries
                 <span class="iconMessage">
-                  <span class="iconMessage-icon">!</span>
-                  <span class="iconMessage-text">You have unfinished work</span>
+                  <img src="../../../assets/media/img/!.svg" alt="!"  class="iconMessage-icon">
+                  <span class="iconMessage-text">You have some unfinished work</span>
                 </span>                
               </nuxt-link>
               <nuxt-link
