@@ -118,11 +118,16 @@
 }
 
 .embroideryCards {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
   margin-bottom: 3.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,11.688rem);
+  gap: 1.5rem;
+  @media screen and (max-width: $br-point-mobile){
+    width: 100%;
+    justify-content: center;
+  }
   @media screen and (min-width: $br-point-tablet){
+    width: calc(100% - 23.813rem);
     margin-top: 2.25rem;
     align-items: stretch;
   }
@@ -138,18 +143,20 @@
   padding-left: 1.5rem;
   padding-bottom: 1.063rem;
   padding-right: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
   cursor: pointer;
   font-size: 0.875rem;
   text-decoration: none !important;
   appearance: none;
   border: 0;
   box-shadow: $defaultShadow;
+  @media screen and (max-width: $br-point-mobile){    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+  }
   @media screen and (min-width: $br-point-tablet){
-    margin-left: 0;
-    margin-right: 1.5rem;
+    // margin-left: 0;
+    // margin-right: 1.5rem;
   }
   &:active {
     box-shadow: none;
