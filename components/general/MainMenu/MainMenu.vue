@@ -12,127 +12,127 @@ import func from '~~/vue-temp/vue-editor-bridge'
     console.log(availableLocales)
   })
 
-  function DOMContentLoaded() {
-    const burgerButton = document.querySelector('.Burger-button');
+  // function DOMContentLoaded() {
+  //   const burgerButton = document.querySelector('.Burger-button');
 
-    function burgerButtonIsClikable() {   
-      const burgerButtonItems = Array.from(document.querySelectorAll('.Burger-button__item'));
-      const burgerMenu = document.querySelector('.Burger-menu');
-      const burgerMenuItems = Array.from(document.querySelectorAll('.Burger-menu__item'));
-      const body = document.querySelector('body');
-      const Content = document.querySelector('.Content');
-      const Footer = document.querySelector('.Footer');
-      burgerButton.onclick = function(){
-        burgerButton.classList.toggle('Burger-button_close');
-        burgerButtonItems.forEach(element => {
-          element.classList.toggle('Burger-button_close__item');
-        });
-        burgerMenu.classList.toggle('Burger-menu_open');
-        burgerMenuItems.forEach(element => {
-          element.classList.toggle('Burger-menu_open__item');
-        });
-        body.classList.toggle('showOnlyHeader');
-        if( burgerMenu.classList.contains('Burger-menu_open') ) {
-        Content.hidden = true;
-        Footer.hidden = true;
-        } else {    
-        Content.hidden = false;
-        Footer.hidden = false;
-        };
-        };
-    }
+  //   function burgerButtonIsClikable() {   
+  //     const burgerButtonItems = Array.from(document.querySelectorAll('.Burger-button__item'));
+  //     const burgerMenu = document.querySelector('.Burger-menu');
+  //     const burgerMenuItems = Array.from(document.querySelectorAll('.Burger-menu__item'));
+  //     const body = document.querySelector('body');
+  //     const Content = document.querySelector('.Content');
+  //     const Footer = document.querySelector('.Footer');
+  //     burgerButton.onclick = function(){
+  //       burgerButton.classList.toggle('Burger-button_close');
+  //       burgerButtonItems.forEach(element => {
+  //         element.classList.toggle('Burger-button_close__item');
+  //       });
+  //       burgerMenu.classList.toggle('Burger-menu_open');
+  //       burgerMenuItems.forEach(element => {
+  //         element.classList.toggle('Burger-menu_open__item');
+  //       });
+  //       body.classList.toggle('showOnlyHeader');
+  //       if( burgerMenu.classList.contains('Burger-menu_open') ) {
+  //       Content.hidden = true;
+  //       Footer.hidden = true;
+  //       } else {    
+  //       Content.hidden = false;
+  //       Footer.hidden = false;
+  //       };
+  //       };
+  //   }
 
-    function positionXCalculate(windowWidth, objectHTML) {    
-      let positionX = any;
-      const objectCoordinates = objectHTML.getBoundingClientRec();
-      const objectWidth = objectCoordinates.right - objectCoordinates.left;
-      if ( objectWidth < 91 ) {
-        positionX = Math.round(objectWidth / 2);
-        positionX += 'px';
-      } else if (windowWidth < 1130) {
-        positionX = "-45px";
-      } else if (windowWidth < 1260) {
-        positionX = 1260 - 45 - windowWidth + 'px';
-      } else {
-        positionX = Math.round(objectWidth / 2) + 'px';
-      };
-      return positionX;
-    }
+  //   function positionXCalculate(windowWidth, objectHTML) {    
+  //     let positionX = any;
+  //     const objectCoordinates = objectHTML.getBoundingClientRec();
+  //     const objectWidth = objectCoordinates.right - objectCoordinates.left;
+  //     if ( objectWidth < 91 ) {
+  //       positionX = Math.round(objectWidth / 2);
+  //       positionX += 'px';
+  //     } else if (windowWidth < 1130) {
+  //       positionX = "-45px";
+  //     } else if (windowWidth < 1260) {
+  //       positionX = 1260 - 45 - windowWidth + 'px';
+  //     } else {
+  //       positionX = Math.round(objectWidth / 2) + 'px';
+  //     };
+  //     return positionX;
+  //   }
 
-    function userButtonIsHovered(windowWidth){
-      const userButton = document.querySelector('.User-button');
-      const UserButtonText = document.querySelector('.UserButton-text');
-      const iconMessageText = document.querySelector('.User-button .iconMessage-text');
-      userButton.onhover = function(){
-        if(iconMessageText){
-          iconMessageText.classList.toggle('iconMessage-text_showed');
-          iconMessageText.style.right = positionXCalculate(windowWidth, iconMessageText);
-        } else {
-          UserButtonText.classList.toggle('UserButton-text_showed');
-          UserButtonText.style.right = positionXCalculate(windowWidth, UserButtonText);
-        }
-      }
-    }
+  //   function userButtonIsHovered(windowWidth){
+  //     const userButton = document.querySelector('.User-button');
+  //     const UserButtonText = document.querySelector('.UserButton-text');
+  //     const iconMessageText = document.querySelector('.User-button .iconMessage-text');
+  //     userButton.onhover = function(){
+  //       if(iconMessageText){
+  //         iconMessageText.classList.toggle('iconMessage-text_showed');
+  //         iconMessageText.style.right = positionXCalculate(windowWidth, iconMessageText);
+  //       } else {
+  //         UserButtonText.classList.toggle('UserButton-text_showed');
+  //         UserButtonText.style.right = positionXCalculate(windowWidth, UserButtonText);
+  //       }
+  //     }
+  //   }
 
-    function userSelectIconMessageHover() {      
-      const userSelect = document.querySelector('.UserSelect');
-      const iconMessage = document.querySelector('.UserSelect .iconMessage');
-      const iconMessageText = document.querySelector('.UserSelect .iconMessage-text');
-      iconMessage.onhover = function(){
-        iconMessageText.classList.toggle('iconMessage-text_showed');
-        const userSelectCoordinates = userSelect.getBoundingClientRec();
-        const iconMessageCoordinates = iconMessage.getBoundingClientRec();
-        iconMessageText.style.right = userSelectCoordinates.right - iconMessageCoordinates.right + 'px'; // maybe -56px
-        iconMessageText.style.top = "-39px";
-      }
-    }
+  //   function userSelectIconMessageHover() {      
+  //     const userSelect = document.querySelector('.UserSelect');
+  //     const iconMessage = document.querySelector('.UserSelect .iconMessage');
+  //     const iconMessageText = document.querySelector('.UserSelect .iconMessage-text');
+  //     iconMessage.onhover = function(){
+  //       iconMessageText.classList.toggle('iconMessage-text_showed');
+  //       const userSelectCoordinates = userSelect.getBoundingClientRec();
+  //       const iconMessageCoordinates = iconMessage.getBoundingClientRec();
+  //       iconMessageText.style.right = userSelectCoordinates.right - iconMessageCoordinates.right + 'px'; // maybe -56px
+  //       iconMessageText.style.top = "-39px";
+  //     }
+  //   }
 
-    function checkWindowSize() {
-      let deviceIsMobile;
-      if( window.innerWidth > 799 ) {
-        burgerButton.hidden = true;
-        userButtonIsHovered(window.innerWidth);
-        userSelectIconMessageHover();
-        deviceIsMobile = true;
-      } else {      
-        burgerButton.hidden = false;
-        burgerButtonIsClikable();
-        deviceIsMobile = false;
-      }
-      return deviceIsMobile;
-    }
+  //   function checkWindowSize() {
+  //     let deviceIsMobile;
+  //     if( window.innerWidth > 799 ) {
+  //       burgerButton.hidden = true;
+  //       userButtonIsHovered(window.innerWidth);
+  //       userSelectIconMessageHover();
+  //       deviceIsMobile = true;
+  //     } else {      
+  //       burgerButton.hidden = false;
+  //       burgerButtonIsClikable();
+  //       deviceIsMobile = false;
+  //     }
+  //     return deviceIsMobile;
+  //   }
 
-    checkWindowSize();
+  //   checkWindowSize();
 
-    window.onresize = () => {
-      checkWindowSize();
-    };
+  //   window.onresize = () => {
+  //     checkWindowSize();
+  //   };
 
-    const UserButton = document.querySelector('.User-button');
-    const LangButton = document.querySelector('.LangButton');
-    const UserSelect = document.querySelector('.UserSelect');
-    const LangSelect = document.querySelector('.LangSelect');
-    UserButton.onclick = function(){
-      UserSelect.hidden ? false:true;
-        let deviceIsMobile = checkWindowSize();
-        if (!deviceIsMobile) {
-          UserSelect.style.right = positionXCalculate(window.innerWidth, UserSelect);
-        } else {
+  //   const UserButton = document.querySelector('.User-button');
+  //   const LangButton = document.querySelector('.LangButton');
+  //   const UserSelect = document.querySelector('.UserSelect');
+  //   const LangSelect = document.querySelector('.LangSelect');
+  //   UserButton.onclick = function(){
+  //     UserSelect.hidden ? false:true;
+  //       let deviceIsMobile = checkWindowSize();
+  //       if (!deviceIsMobile) {
+  //         UserSelect.style.right = positionXCalculate(window.innerWidth, UserSelect);
+  //       } else {
 
-        };
-      if( !LangSelect.hidden ) {
-        LangSelect.hidden = false;
-      }
-    };
-    LangButton.onclick = function(){
-      LangSelect.hidden ? false:true;
-      if( !UserSelect.hidden ) {
-        UserSelect.hidden = false;
-      }
-    };
-  }
+  //       };
+  //     if( !LangSelect.hidden ) {
+  //       LangSelect.hidden = false;
+  //     }
+  //   };
+  //   LangButton.onclick = function(){
+  //     LangSelect.hidden ? false:true;
+  //     if( !UserSelect.hidden ) {
+  //       UserSelect.hidden = false;
+  //     }
+  //   };
+  // }
 
-  document.addEventListener("DOMContentLoaded", DOMContentLoaded);
+  // document.addEventListener("DOMContentLoaded", DOMContentLoaded);
 
 </script>
 
