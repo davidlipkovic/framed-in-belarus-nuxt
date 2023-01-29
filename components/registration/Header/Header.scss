@@ -37,10 +37,11 @@
     border: none;
     transition-property: display;
     transition-duration: 0.15s;
-    .Lang-link {
-      padding: 0.5rem;
-      display: block;
-    }
+  
+  }
+  .Lang-link {
+    padding: 0.5rem 0;
+    display: block;
   }
 }
 

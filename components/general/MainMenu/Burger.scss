@@ -1,5 +1,11 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
+%hidden {
+  display: none;
+  height: 0;
+  overflow: hidden;
+}
+
 .Burger-button {
   display: block;
   width: 1.5rem;
@@ -9,7 +15,7 @@
     display: none;
   }
 }
-.Burger-button-item {
+.Burger-button__item {
   display: inherit;
   width: 1.5rem;
   height: 4px;
@@ -23,7 +29,8 @@
 .Burger-menu {
   display: none;
   @media screen and (min-width: $br-point-tablet) {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     & > * {
       margin-top: auto;
       margin-bottom: auto;
@@ -34,8 +41,6 @@
     }
   }
   @media screen and (min-width: $br-point-desktop) {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width: calc(100% - 14rem);
   }
@@ -49,7 +54,8 @@
     margin-bottom: 0;
   }
   @media screen and (min-width: $br-point-tablet) {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 1rem;
@@ -59,13 +65,11 @@
     }
   }
   @media screen and (min-width: $br-point-desktop) {
-    display: flex;
-    flex-direction: row;
     align-items: baseline;
   }
 }
 
-.Burger-menu-item {
+.Burger-menu__item {
   width: fit-content;
   margin-bottom: 0.8rem;
   font-size: 1rem;
@@ -90,60 +94,55 @@
   }
 }
 
-.Burger-checker:checked {
-  & + .Header {
-    .Burger-button {
-      position: absolute;
-      z-index: 5;
-      top: 0.625rem;
-      right: 0.625rem;
-    }
-    .Burger-button-item {
-      color: $black;
-      background-color: $black;
-      transition-property: transform;
-      transition-duration: 0.15s;
-      position: relative;
-      &:nth-child(1) {
-        transform: rotate(45deg);
-        top: 0.563rem;
-      }
-      &:nth-child(2) {
-        display: none;
-      }
-      &:nth-child(3) {
-        transform: rotate(-45deg);
-      }
-    }
-    .Burger-menu {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      padding-top: 0.313rem;
-      padding-right: 0.625rem;
-      padding-bottom: 0.313rem;
-      padding-left: 0.625rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 4;
-      background: $white;
-    }
-    .Burger-menu-item {
-      color: $black;
-      position: relative;
-      z-index: 4;
-    }
+.Burger-button_close {
+  position: absolute;
+  z-index: 5;
+  top: 0.625rem;
+  right: 0.625rem;
+}
+.Burger-button_close__item {
+  color: $black;
+  background-color: $black;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  position: relative;
+  &:nth-child(1) {
+    transform: rotate(45deg);
+    top: 0.563rem;
   }
-  & ~ .Content::after {
-    content: '';
-    display: block;
-    width: 100vw;
+  &:nth-child(2) {
+    display: none;
+  }
+  &:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}
+.Burger-menu_open {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding-top: 0.313rem;
+  padding-right: 0.625rem;
+  padding-bottom: 0.313rem;
+  padding-left: 0.625rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: $white;
+}
+.Burger-menu_open__item {
+  color: $black;
+  position: relative;
+  z-index: 4;
+}
+@media screen and (max-width: $br-point-mobile) {
+  .showOnlyHeader {
     height: 100vh;
-    background-color: $greyDisabledBg;
-    position: absolute;
-    opacity: 0.5;
-    z-index: 1;
-    top: 0;
+    overflow: hidden;
+    .Content,
+    .Footer {
+      display: none;
+    }
   }
 }
