@@ -148,6 +148,7 @@
   text-decoration: none !important;
   appearance: none;
   border: 0;
+  border-radius: 0.375rem;
   box-shadow: $defaultShadow;
   @media screen and (max-width: $br-point-mobile){    
     margin-left: auto;
@@ -179,6 +180,7 @@
   background-position: 0 0, 0 0, 100% 0, 0 100%;
   background-repeat: no-repeat;
   box-shadow: none;
+  border-radius: none;
 }
 .embroideryCard_new:disabled,
 .embroideryCard_disabled {
