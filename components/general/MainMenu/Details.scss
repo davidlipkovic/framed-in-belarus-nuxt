@@ -183,10 +183,23 @@
     width: 19rem;
     top: 3.063rem;
     right: -2.813rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 .UserSelect-item {
   @extend %selectItem;
+  @media screen and (min-width: $br-point-tablet) {
+    margin-bottom: 0;
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-bottom: 1px solid $divider;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 .UserSelect-item_avatar {
   @media screen and (max-width: $br-point-mobile) {
@@ -196,6 +209,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1.5rem;
+    border-bottom: none;
   }
 }
 .UserSelect-item_title {
