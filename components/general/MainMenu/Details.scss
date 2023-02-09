@@ -180,6 +180,7 @@
   @extend %select;
 
   @media screen and (min-width: $br-point-tablet) {
+    width: 19rem;
     top: 3.063rem;
     right: -2.813rem;
   }
