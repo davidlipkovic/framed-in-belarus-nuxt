@@ -17,7 +17,7 @@
   padding-right: 1rem;
   padding-bottom: 0.5rem;
   padding-left:  1rem;
-  color: $black;
+  color: $black !important;
   border-width: 1px;
   border-style: solid;
   border-color: $black;
@@ -29,7 +29,7 @@
   &:hover {    
     background-color: $greyButtonHover;
     border-color: $greyButtonHover;
-    color: $white;
+    color: $white !important;
     text-decoration: none !important;
   }
   &.bg_red:hover {
