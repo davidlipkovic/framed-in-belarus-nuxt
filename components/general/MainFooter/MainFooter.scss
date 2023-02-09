@@ -69,10 +69,10 @@
     }
   }
   .button {
-    color: $white;
+    color: $white !important;
     border-color: $white;
     &.bg_white {
-      color: $black;
+      color: $black !important;
     }
   }
 }
