@@ -13,12 +13,12 @@ input[type="password"],
 select,
 textarea {
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: 18px;
   width: 100%;
   border-radius: 0.25rem;
-  border-color: $inputsBorder;
+  border-color: $grey1;
   border-width: 1px;
-  background-color: $white;
+  background-color: $greyBg;
   cursor: pointer;
 }
 input[type="checkbox"] {
@@ -38,7 +38,7 @@ select {
   background-image: url("../media/img/arrow.svg");
   background-repeat: no-repeat;
   background-position: 95% center;
-  position: relative;  
+  position: relative;
 }
 textarea {
   min-height: 5rem;
@@ -63,7 +63,7 @@ input[type=radio] {
   border: 0.15rem solid $greyButtonHover;
   border-radius: 50%;
 }
-input[type=radio]:checked { 
+input[type=radio]:checked {
   outline: none;
 }
 input[type="radio"]:checked::before {
@@ -74,7 +74,7 @@ input[type="radio"]:checked::before {
   border-radius: 50%;
   background-color: $greyButtonHover;
 }
-input[type=radio].mistake {  
+input[type=radio].mistake {
   appearance: none;
   background-color: $white;
   font: inherit;
@@ -103,7 +103,7 @@ textarea:focus::placeholder {
   color: transparent;
 }
 
-@media screen and (max-width: $br-point-tabletUpper) {  
+@media screen and (max-width: $br-point-tabletUpper) {
   textarea:focus {
   height: 50vh;
   }

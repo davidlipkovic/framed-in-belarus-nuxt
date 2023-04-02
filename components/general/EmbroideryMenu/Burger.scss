@@ -1,0 +1,149 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.Burger-button {
+  display: block;
+  width: 1.5rem;
+  height: 1.375rem;
+  cursor: pointer;
+}
+.Burger-button-item {
+  display: inherit;
+  width: 1.5rem;
+  height: 4px;
+  margin-bottom: 5px;
+  background-color: $white;
+  overflow: hidden;
+}
+.Burger-button-item:last-child {
+  margin-bottom: 0;
+}
+.Burger-menu {
+  display: none;
+}
+.Burger-menu-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+.Burger-menu-item {
+  //width: fit-content;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.Burger-menu-group:last-child,
+.Burger-menu-item:last-child {
+  margin-bottom: 0;
+}
+.Burger-menu-item.button {
+  color: $white !important;
+}
+.Burger-checker:checked + .Header {
+  .Burger-button {
+    position: absolute;
+    z-index: 5;
+    top: 0.625rem;
+    right: 0.625rem;
+  }
+  .Burger-button-item {
+    color: $black;
+    background-color: $black;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    position: relative;
+  }
+  .Burger-button-item:nth-child(1) {
+    transform: rotate(45deg);
+    top: 0.563rem;
+  }
+  .Burger-button-item:nth-child(2) {
+    display: none;
+  }
+  .Burger-button-item:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  .Burger-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding-top: 0.313rem;
+    padding-right: 0.625rem;
+    padding-bottom: 0.313rem;
+    padding-left: 0.625rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    background: $white;
+  }
+  .Burger-menu-item {
+    color: $black;
+    position: relative;
+    z-index: 4;
+  }
+}
+.Burger-checker:checked ~ .Content::after {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: $greyDisabledBg;
+  position: absolute;
+  opacity: 0.5;
+  z-index: 1;
+  top: 0;
+}
+
+ @media screen and (min-width: $br-point-tablet) {
+  .Burger-button {
+    display: none;
+  }
+  .Burger-menu,
+  .Burger-menu-group {
+    display: inline-block;
+  }
+  .Burger-menu > *,
+  .Burger-menu-item {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 24px;
+  }
+
+   .Burger-menu-group {
+     margin-left: 12px;
+   }
+  .Burger-menu > *:last-child,
+  .Burger-menu-item:last-child {
+    margin-right: 0;
+  }
+  .Burger-menu-item {
+    color: $white;
+    font-size: 16px;
+  }
+  .Burger-menu-item:hover {
+    color: $redHover;
+  }
+  .Burger-menu-group:last-child,
+  .Burger-menu-item:last-child {
+    margin-bottom: auto;
+    margin-right: 0;
+  }
+}
+
+.Burger-menu-group-lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .Burger-menu {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 11rem);
+  }
+
+  .Burger-menu-group-lang {
+    margin-left: auto;
+  }
+}

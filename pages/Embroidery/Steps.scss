@@ -1,24 +1,23 @@
 @import "../../assets/style/globalPartials/variables";
-@import "./NavSteps";
-@import "./Hero";
 
-%fontSize12 {
-  font-size: 0.75rem;
-}
 .Title {
-  padding: 3.125rem 0;
+  padding: 40px 0 30px;
+
   .subtitle {
     display: block;
     font-size: 1.5rem;
+    margin-bottom: -10px;
   }
 }
 
+.mistake,
+.note {
+  font-size: 0.75rem;
+}
 .mistake {
-  @extend %fontSize12;
   color: $red;
 }
 .note {
-  @extend %fontSize12;
   color: $greyDisabledColor;
 }
 

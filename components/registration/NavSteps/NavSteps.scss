@@ -1,0 +1,81 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.NavSteps {
+  display: none;
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .NavSteps {
+    margin: 1px auto 1.625rem;
+    padding-top: 1px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+
+    * {
+      font-weight: 600;
+    }
+  }
+
+  .navStepWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navStep {
+    margin-bottom: 1rem;
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navStep_arrow {
+    margin-top: 0.75rem;
+    display: block;
+    width: 5.625rem;
+    height: 0.125rem;
+    background-color: #BDBDBD;
+  }
+
+  .navStep-number {
+    margin-bottom: 5px;
+    width: 1.5rem;    
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: $white;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+  }
+
+  .navStep-title {
+    white-space: nowrap;
+    color: $greyDisabledColor;
+  }
+
+  .navStep_current,
+  .navStep_done{
+    .navStep-number {
+      background-color: #3F3F3F;
+    }
+
+    .navStep-title {
+      color: #333333;
+    }
+  }
+
+  .navStep_done {    
+    .navStep-number {
+      display: flex;
+    }
+  }
+
+  .navStep_done-img {
+    width: 0.75rem;
+    height: 0.625rem;
+    display: block;
+    margin: auto;
+  }
+}

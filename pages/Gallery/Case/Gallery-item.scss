@@ -7,7 +7,7 @@
     font-size: 1.5rem;
   }
 }
-.Content > .content {  
+.Content > .content {
   .bg_red {
     display: none !important;
   }
@@ -17,8 +17,11 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-.Slider {  
-  @extend %item-margin_bottom;
+.bg_red {
+  display: none !important;
+}
+.Slider {
+  @extend .item-margin_bottom;
   .bg_red {
     display: none !important;
   }
@@ -32,19 +35,13 @@
     }
   }
 }
-%item-margin_bottom {
+.item-margin_bottom {
   margin-bottom: 1.125rem;
   &:last-child {
     margin-bottom: 0;
   }
 }
-%item-margin_bottom_midi {
-  margin-bottom: 0.375rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-%item-margin_bottom_mini {
+.item-margin_bottom_mini {
   margin-bottom: 0.125rem;
   &:last-child {
     margin-bottom: 0;
@@ -52,12 +49,11 @@
 }
 
 .WorkDescript {
-  @extend %item-margin_bottom_midi;
+  @extend .item-margin_bottom;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  font-size: 1rem;
   font-weight: 600;
   @media screen and (max-width: $br-point-mobile) {
     &:last-child {
@@ -78,17 +74,21 @@
   &:last-child {
     margin-right: 0;
   }
+  @media screen and (max-width: $br-point-tabletUpper) {
+    margin-bottom: 1.875rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 .WorkDescript-socnetwork-logo {
   margin-right: 0.375rem;
 }
 
-.Description-item {  
-  @extend %item-margin_bottom;
-  font-size: 0.875em;
+.Description-item {
+  @extend .item-margin_bottom;
   .title {
     margin-bottom: 0;
-    font-size: 1rem;
     font-weight: 600;
   }
 }
@@ -96,37 +96,31 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
-.Description-item_img {
-  @media screen and (max-width: $br-point-mobile) {
-    text-align: center;
-  }
-  img, picture {
-    max-width: 100%;
-  }
-}
+
 .Hero-photo {
   width: 10rem;
   height: 10rem;
   border-radius: 0.75rem;
+  object-fit: cover;
 }
 .ExhibitionTitle {
-  @extend %item-margin_bottom;
+  @extend .item-margin_bottom;
 }
 .ExhibitionList {
-  @extend %item-margin_bottom;
+  @extend .item-margin_bottom;
 }
 .ExhibitionList-item {
-  @extend %item-margin_bottom;
+  @extend .item-margin_bottom;
   margin-left: 0;
   list-style: none;
 }
 .ExhibitionListItem-title {
-  @extend %item-margin_bottom_mini;
+  @extend .item-margin_bottom_mini;
   font-size: 1rem;
   font-weight: 600;
 }
 .ExhibitionListItem-descript {
-  @extend %item-margin_bottom_mini;
+  @extend .item-margin_bottom_mini;
   padding-left: 1.313rem;
   display: flex;
   flex-wrap: wrap;

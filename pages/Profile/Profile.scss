@@ -1,0 +1,227 @@
+@import "../../assets/style/globalPartials/variables";
+
+@media screen and (min-width: $br-point-tablet){
+  .Content > .content {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.Title {
+  padding: 3.125rem 0;
+  margin-bottom: 0;
+  .subtitle {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+
+.userCard {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+  padding-bottom: 1rem;
+  background-color: $white;
+  border-radius: 6px;
+  box-shadow: $defaultShadow;
+  margin-bottom: 2.5rem;
+  @media screen and (min-width: $br-point-tablet){
+    margin-left: 0;
+    margin-right: 2.063rem;
+    width: 60%;
+  }
+  @media screen and (min-width: $br-point-desktop){
+    width: 21.75rem;
+    margin-top: -8.313rem;
+    position: relative;
+  }
+}
+.userCard-header {  
+  padding: 1.875rem 1.5rem 0 1.5rem;
+  border-bottom: 1px solid $borderLight;
+}
+.userCard-avatar {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.375rem;
+}
+
+.upload {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.upload_icon {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.313rem;
+  stroke: $black;
+}
+.upload:disabled {
+  color: $greyDisabledColor;
+}
+.upload:hover,
+.upload:active {
+  color: $red;
+  .upload_icon {
+    stroke: $red;
+  }
+}
+.userCard-title {
+  font-size: 1.5rem;
+  margin-top: 1.125rem;
+  margin-bottom: 1.188rem;
+  text-align: center;
+}
+.userCard-body {  
+  padding: 0 1.5rem;
+}
+.userCard-body-item,
+.userCard-body-item_longText {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  .b {
+    min-width: 7rem;
+    margin-right: 0.75rem;
+    font-weight: 600;
+  }
+}
+.userCard-body-item_longText {
+  flex-direction: column;
+  .b {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.375rem;
+  }
+}
+.userCard-buttons {
+  width: fit-content;
+  padding-top: 0;  
+  margin-left: auto;
+  padding-bottom: 0.75rem;
+  margin-right: auto;
+  .button {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+}
+
+.embroideryCards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 3.75rem;
+  @media screen and (min-width: $br-point-tablet){
+    margin-top: 2.25rem;
+    align-items: stretch;
+  }
+  @media screen and (min-width: $br-point-desktop){
+    margin-bottom: 9rem;
+  }
+}
+.embroideryCard {
+  display: flex;
+  width: 11.688rem;
+  min-height: 13.938rem;
+  padding-top: 1.063rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1.063rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-decoration: none !important;
+  appearance: none;
+  border: 0;
+  box-shadow: $defaultShadow;
+  @media screen and (min-width: $br-point-tablet){
+    margin-left: 0;
+    margin-right: 1.5rem;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}
+.embroideryCard:last-child {
+  margin-bottom: 0;
+  @media screen and (min-width: $br-point-tablet){    
+    margin-right: 0;
+  }
+}
+.embroideryCard_new,
+.embroideryCard_disabled,
+.embroideryCard_new:disabled {
+  padding-top: 0;
+  padding-left: 1.625rem;
+  padding-right: 1.625rem;
+  // background-image: repeating-linear-gradient(120deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(210deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(-60deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px), repeating-linear-gradient(30deg, #333333, #333333 6px, transparent 6px, transparent 12px, #333333 12px);
+  // background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
+  // background-position: 0 0, 0 0, 100% 0, 0 100%;
+  // background-repeat: no-repeat;
+  border: 1px dashed $greyDisabledColor;
+  box-shadow: none;
+}
+.embroideryCard_new:disabled,
+.embroideryCard_disabled {
+  background-image: repeating-linear-gradient(120deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(210deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(-60deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px), repeating-linear-gradient(30deg, $greyDisabledColor, $greyDisabledColor 6px, transparent 6px, transparent 12px, $greyDisabledColor 12px);
+  color: $greyDisabledColor;
+  cursor: default;
+  .embroideryCard-img {
+    rect:first-child {
+      fill: $greyDisabledBg;
+    }
+    rect:last-child {
+      stroke: $greyDisabledBg;
+    }
+  }
+}
+
+.embroideryCard-content {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  color: $grey1;
+
+  svg {
+    fill: #bdbdbd;
+  }
+}
+.embroideryCard-img {
+  width: 8.688rem;
+  display: block;
+  margin-bottom: 0.375rem;
+}
+.embroideryCard-img.Create {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 0.688rem;
+}
+.embroideryCard-status {
+  display: inline-block;
+  margin-top: 0.375rem;
+  padding: 0.25rem 1rem; 
+  border-radius: 2rem;
+  color: $white;
+}
+.embroideryCard-status_progress {
+  background-color: $embroideryCardStasusProgress;
+}
+.embroideryCard-status_finish {
+  background-color: $embroideryCardStasusFinish;
+}

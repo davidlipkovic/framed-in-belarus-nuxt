@@ -1,25 +1,19 @@
-<template>
-  
-  <div class="Cookies">
-    <div class="content">
-      <p>{{ $t('cookies') }}</p>
-      <div class="buttons">
-        <button class="button bg_white">{{ $t('accept') }}</button>
-        <button class="button">{{ $t('decline') }}</button>
-        <button class="button">{{ $t('manage') }}</button>
-      </div>
-    </div>
-  </div>
+<script>
+import MainLogo from '@/components/general/MainLogo'
 
+export default {
+  components: {
+    MainLogo
+  },
+}
+</script>
+
+<template>
   <footer class="Footer">
     <div class="bg_black">
       <div class="content Info">
         <div class="Info-project">
-          <a href="/" class="logo-project">
-            <span class="firstSymbol">#</span><span class="text">
-              {{ $t('title') }}
-            </span>
-          </a>
+          <MainLogo/>
           <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
           <div class="Info-Project-social">
             <a href="https://www.facebook.com/hashtag/framedinbelarus" target="_blank" class="Facebook"><img src="@/assets/media/img/facebook.svg" alt="Facebook"></a>
@@ -29,22 +23,23 @@
         <nav class="Info-menu">
           <div class="Info-menu-group">
             <div class="Info-menu-group">
-             <a href="/"
-              class="Info-menu-item">
-              {{ $t('linkHome') }}
-             </a>
-             <nuxt-link
-              to="Gallery"
-              class="Info-menu-item">
-              {{ $t('linkGallery') }}
+              <nuxt-link
+                to="/"
+                class="Info-menu-item">
+                Home
               </nuxt-link>
               <nuxt-link
-              to="News"
-              class="Info-menu-item">
+                to="/Gallery"
+                class="Info-menu-item">
+                {{ $t('linkGallery') }}
+              </nuxt-link>
+              <nuxt-link
+                to="/News"
+                class="Info-menu-item">
                 {{ $t('linkNews') }}
               </nuxt-link>
               <nuxt-link
-              to="AboutUs"
+              to="/AboutUs"
               class="Info-menu-item">
                 {{ $t('linkAboutUs') }}
               </nuxt-link>
@@ -55,13 +50,21 @@
               </nuxt-link> -->
             </div>
             <div class="Info-menu-group">
-              <!-- <a href="#" class="Info-menu-item Login">Log in</a> -->
+<!--              <nuxt-link-->
+<!--                to="/SignIn"-->
+<!--                class="Info-menu-item Login"-->
+<!--              >-->
+<!--                {{ $t('linkLogin') }}-->
+<!--              </nuxt-link>-->
             </div>
           </div>
           <div class="Info-menu-group">
-            <a href="https://forms.gle/SKCcvWGzRkQxx2fH9" class="Info-menu-item button bg_red">
+            <nuxt-link
+              to="/SignIn"
+              class="Info-menu-item button bg_red"
+            >
               {{ $t('participateBtnMsg') }}
-            </a>
+            </nuxt-link>
           </div>
         </nav>
       </div>

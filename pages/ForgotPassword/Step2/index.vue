@@ -1,20 +1,20 @@
-<script setup lang="ts">
+<script setup>
 definePageMeta({
-  layout: "registration",
+  layout: "registration"
 })
 </script>
 
 <template>
-  <div class="content">
+  <div class="content contentForgotPasswordStep1">
     <h1 class="title">Forgot password?</h1>
     <form>
-      <p><label for="newPassword">Enter a new password for your account</label></p>
-      <input type="password" name="newPassword" id="newPassword" placeholder="New password">
-      <input type="password" name="newPasswordRepeat" id="newPasswordRepeat" placeholder="Repeat the new password">
-      <button class="button bg_black large">Send</button>
+      <p><label for="code">Enter the code that came to your e-mail</label></p>
+      <input type="number" name="code" id="code" placeholder="Code">
+      <nuxt-link to="/ForgotPassword/Step3" class="button bg_black large">Send</nuxt-link>
     </form>
   </div>
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="../../SignUp/SignUp.scss" lang="scss" scoped></style>
+<style src="./Step2.scss" lang="scss" scoped></style>

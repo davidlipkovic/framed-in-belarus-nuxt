@@ -1,6 +1,6 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "./Burger.scss";
-@import "./Details.scss";
+@import "./Lang.scss";
 
 .Header {
   padding-top: 0.313rem;
@@ -8,25 +8,44 @@
   background-color: $black;
   color: $white;
   font-size: 1rem;
-  @media screen and (min-width: $br-point-tablet) {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  @media screen and (min-width: $br-point-desktop) {
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-  }
-  .content {
+}
+.Header .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-    & > * {
-    margin-top: auto;
-    margin-bottom: auto;
-    }
+}
+.Header .content > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.Header .logo-project {
+  color: $white;
+  line-height: 160%;
+}
+
+.Lang .arrow {
+  position: relative;
+  top: -0.1rem;
+  margin-left: 2px;
+}
+.Lang.open .arrow {
+  transform: rotate(180deg);
+  transition-property: transform;
+  transition-duration: 0.15s;
+}
+
+/* Tablet */
+@media screen and (min-width: $br-point-tablet) {
+  .Header {
+    padding-bottom: 0;
+    padding-top: 0;
   }
-  .logo-project {
-    color: $white;
-    line-height: 160%;
+}
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .Header {
+    padding-top: 1rem;
+    padding-bottom: 14px;
   }
 }

@@ -1,0 +1,69 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "./Burger.scss";
+@import "./Lang.scss";
+
+.Header {
+  padding-top: 0.313rem;
+  padding-bottom: 0.313rem;
+  background-color: $black;
+  color: $white;
+  font-size: 1rem;
+}
+.Header .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Header .content > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.Header .logo-project {
+  color: $white;
+  line-height: 160%;
+}
+
+.Lang .arrow {
+  position: relative;
+  top: -0.1rem;
+}
+
+.Lang.open .arrow {
+  transform: rotate(180deg);
+  transition-property: transform;
+  transition-duration: 0.15s;
+}
+
+.userCard-avatar {
+  width: 30px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Tablet */
+@media screen and (min-width: $br-point-tablet) {
+  .Header {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .Burger-menu-item.profileLink {
+    margin-right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin: auto;
+    }
+  }
+}
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .Header {
+    padding-top: 1rem;
+    padding-bottom: 14px;
+  }
+}

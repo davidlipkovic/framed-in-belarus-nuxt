@@ -11,13 +11,11 @@
   overflow: hidden;
 }
 
-.button {  
+.button,
+.Content .button {
   display: inline-block;
-  padding-top: 0.5rem;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left:  1rem;
-  color: $black !important;
+  padding: 8px 16px;
+  color: $black;
   border-width: 1px;
   border-style: solid;
   border-color: $black;
@@ -26,41 +24,41 @@
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  &:hover {    
-    background-color: $greyButtonHover;
-    border-color: $greyButtonHover;
-    color: $white !important;
-    text-decoration: none !important;
-  }
-  &.bg_red:hover {
-    background-color: $redHover;
-    border-color: $redHover !important;
-  }
 }
 
-.button_white {
+.button:hover,
+.Content .button:hover {
+  background-color: $greyButtonHover;
+  border-color: $greyButtonHover;
   color: $white;
-  border-color: $white;
-  &:hover {
-    background-color: $white;
-    color: $black;
-    border-color: $white;
-  }
+  text-decoration: none;
 }
 
 .i,
 .em {
   font-style: italic;
 }
-.b, .b * {
-  font-weight: bold;
+
+.b1,
+.b1 * {
+  font-weight: 600;
 }
+
+.b2,
+.b2 * {
+  font-weight: 700;
+}
+
 .alignCenter {
   text-align: center;
 }
 
 .bigger {
   font-size: 1.286em;
+}
+
+.bigger1 {
+  font-size: 20px;
 }
 
 .bg_black {
@@ -71,14 +69,17 @@
   background-color: $red;
   border-color: $red !important;
 }
-.bg_white {  
-  background-color: $white;
-  border-color: $white !important;
+.button.bg_red:hover {
+  background-color: $redHover;
+  border-color: $redHover !important;
 }
-
 .bg_grey {
   background-color: $greyDisabledBg;
   border-color: $greyDisabledBg !important;
+}
+.bg_grey2 {
+  background-color: $greyBg;
+  border-color: $greyBg !important;
 }
 .bg_black,
 .bg_red {
@@ -88,10 +89,48 @@
   color: $red;
 }
 
+.redLighter {
+  color: $redLighter;
+}
+
 .block {
   display: block;
 }
 
 .defaultNone {
   display: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexColumnCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flexRowStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flexColumnStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
 }

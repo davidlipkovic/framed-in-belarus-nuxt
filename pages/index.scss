@@ -1,104 +1,168 @@
 @import "../assets/style/globalPartials/variables.scss";
 
-%flexColumn {
-  display: flex;
-  flex-direction: column;
+.FirstPage {
+  padding-bottom: 2.688rem;
+
+  > .content {
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 42px;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .bg_grey2 .content {
+    padding-top: 30px;
+    padding-bottom: 72px;
+
+    p {
+      margin-bottom: 24px;
+    }
+  }
 }
 
-.Content {
-  .FirstPage {
-    padding-top: 2.625rem;
-    padding-bottom: 2.625rem;
-    margin-bottom: 0;
-    @media screen and (max-width: $br-point-mobile) {
-      display: flex;
-      flex-direction: column;
-    }
-    @media screen and (min-width: $br-point-tablet) {
-      display: grid;
-      gap: 1.875rem;
-      grid-template-columns: 39.82% 57.21%;
-      align-items: center;
-    }
-  }
-  .bg_grey {
-    .content {
-      padding-top: 2.875rem;
-      padding-bottom: 2.875rem;
-      @media screen and (min-width: $br-point-desktop) {
-        width: 57.438rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.875rem;
-      }
-      .section {
-        @media screen and (max-width: $br-point-tabletUpper) {
-          margin-bottom: 1rem;
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-  .Partners {
-    @extend %flexColumn;
-    margin-bottom: 0;
-    padding-top: 3.438rem;
-    padding-bottom: 0;
-  }
-}
 .ProjectDescr {
-  @media screen and (max-width: $br-point-mobile) {
-    margin-bottom: 3.125rem;
-  }
+  margin-bottom: 65px;
+
   .logo-project {
-  margin-bottom: 1.75rem;
+    margin-bottom: 0.5rem;
+
     .firstSymbol {
-      font-size: 3.75rem;
+      fill: $black;
     }
+
     .text {
       font-size: 2.375rem;
-      @media screen and (min-width: $br-point-desktop) {
-        font-size: 3rem;
-      }
     }
   }
+
   .subtitle {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    max-width: 78%;
   }
+
   .button {
     margin: 0;
   }
 }
 
+.sliderWrapper {
+  position: relative;
+
+  .bg_red {
+    position: absolute;
+    top: 78px;
+    left: -92px;
+    z-index: -1;
+    width: 100vw;
+    height: 11.688rem;
+  }
+}
+
+.FirstPage > .content.Partners,
 .Partners-group {
-  @extend %flexColumn;
+  display: flex;
+  flex-direction: column;
+}
+
+.Partners-group {
   align-items: center;
-  @media screen and (min-width: $br-point-tablet) {
+}
+
+.FirstPage > .content.Partners {
+  margin-bottom: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+}
+
+.Partners-logo {
+  //margin-bottom: 2.625rem;
+
+  .img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    width: 120px;
+    height: auto;
+  }
+}
+
+.Partners-logo:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablet */
+@media screen and (min-width: $br-point-tablet) {
+  .FirstPage {
+    > .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .ProjectDescr {
+    width: 50%;
+    padding-right: 2.5rem;
+  }
+
+  .sliderWrapper {
+    width: 50%;
+    margin-right: auto;
+    margin-left: 24px;
+  }
+
+  .Partners-group {
     flex-direction: row;
+  }
+
+  .Partners-group {
     justify-content: space-evenly;
     margin-bottom: 1.5rem;
-    width: 100%;
-    &:last-child {
+    width: 92%;
+  }
+
+  .Partners-group:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: $br-point-tabletUpper) {
+  .FirstPage .bg_grey2 .content {
+    .section {
+      margin-bottom: 1rem;
+    }
+
+    .section:last-child {
       margin-bottom: 0;
     }
   }
 }
 
-.Partners-logo {
-  margin-bottom: 2.625rem;
-  &:last-child {
-    margin-bottom: 0;
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .ProjectDescr {
+    .logo-project {
+      margin-top: 10px;
+
+      .text {
+        font-size: 3rem;
+      }
+    }
   }
-  @media screen and (min-width: $br-point-tablet) {
-    margin-top: auto;
-    margin-bottom: auto;
+
+  .sliderWrapper {
+    .bg_red {
+      height: 19rem;
+    }
   }
-  .img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+
+  .FirstPage .bg_grey2 .content {
+    width: 922px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.875rem;
   }
 }

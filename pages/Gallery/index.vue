@@ -1,9 +1,4 @@
-<script setup lang="ts">
-
-// Rufina will make two pictures of work herself after receiving the work by mail and then add them to the database as an admin herself. 
-// Photo of the front side of the embroidery is a file photoEmbroidery-example.jpg
-
-
+<script>
 // const input = document.querySelector('.FindHero-input');
 // const button = document.querySelector('.FindHero-input-btn_reset');
 // const select = document.duerySelector('.FindHero-select');
@@ -22,14 +17,25 @@
 //     button.hidden = true;
 //   }
 // };
+
+export default {
+  head() {
+    return {
+      title: `#Framed in Belarus / Gallery`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Gallery of embroidery by #Framed in Belarus project'
+        }
+      ]
+    }
+  },
+}
 </script>
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / Gallery</Title>
-      <Meta name="description" content="Gallery of embroidery by #Framed in Belarus project"/>
-    </Head>
     <div class="Title">
       <h1 class="content">
         Gallery
@@ -39,7 +45,7 @@
       <div class="Search">
         <div class="FindHero-form">
           <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
-          <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn-img"></button>
+          <button class="FindHero-input-btn" hidden><img src="../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn-img"></button>
           <div class="FindHero-select" hidden>
             <p class="FindHero-select-item">Smirnov</p>
             <p class="FindHero-select-item">Smirnova</p>
@@ -58,82 +64,72 @@
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/1.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/2.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/3.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/4.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/5.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/6.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/7.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/8.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/9.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/1.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/2.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
         <nuxt-link
           to="/Gallery/Case"
           class="GalleryCase">
-          <img src="../../assets/media/img/photoEmbroidery-example.jpg" alt="Case name" class="GalleryCase-img">
-          <span class="GalleryCase-title">Case name</span>
+          <img src="../../assets/media/img/slider/3.jpg" alt="Case name" class="GalleryCase-img">
         </nuxt-link>
       </section>
-      <div class="buttons">
-        <button class="button button_white">Show more</button>
-      </div>
     </div>
   </main>
 </template>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./Gallery.scss" lang="scss" scoped></style>
+
+
+<script>
+
+</script>

@@ -3,7 +3,7 @@
 .Header_sign {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  margin-bottom: 1.625rem;
+  margin-bottom: 7px;
 
   .content {
     display: flex;
@@ -11,10 +11,25 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  svg {
+    fill: $greyDark;
+  }
+
+  * {
+    color: $greyDark;
+  }
 }
 
 .Lang {
   position: relative;
+  margin-right: 26px;
+
+  * {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
   .Lang-button {
     .arrow {
       transition-property: transform;

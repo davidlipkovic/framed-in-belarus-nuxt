@@ -34,6 +34,7 @@
   margin-right: 1.125rem;
 }
 .instruction {
+  max-width: 634px;
   font-size: 0.875rem;
   > * {
     margin-bottom: 0.75rem;
@@ -98,13 +99,17 @@
 
 @media screen and (min-width: $br-point-tablet) {
   .Shipping {
-    display: grid;
-    grid-template-areas: "congratulation congratulation"
-                         "select instruction"
-                         "buttons buttons";
-    row-gap: 1.5rem;
-    column-gap: 2.625rem;
-    grid-template-columns: 40% 1fr;
+    // display: grid;
+    // grid-template-areas: "congratulation congratulation"
+    //                      "select instruction"
+    //                      "buttons buttons";
+    // row-gap: 1.5rem;
+    // column-gap: 2.625rem;
+    // grid-template-columns: 40% 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
   .congratulation {
     grid-column: span 2;

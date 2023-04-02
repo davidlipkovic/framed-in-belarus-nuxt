@@ -47,6 +47,7 @@ onMounted(() => {
     <div class="Slider-content">
       <nuxt-picture
         v-for="(slide, i) in slides"
+        :key="slide.alt"
         :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
         width="1374"
         height="1374"
@@ -66,6 +67,7 @@ onMounted(() => {
         <div class="Slider-switcher-dots">
           <button
             v-for="(slide, i) in slides"
+            :key="slide.alt"
             class="Slider-switcher-item"
             :class="i === index? 'active' : ''"
             @click="updateIndex(i)"

@@ -1,20 +1,14 @@
 @import "../../../assets/style/globalPartials/variables";
 
-%patterns {  
+.pattern,
+.subscription-pattern {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.125rem;
   width: fit-content;
   position: relative;
 }
-.pattern {
-  @extend %patterns;
-}
-.subscription-pattern {
-  @extend %patterns;
-}
-.pattern-buttons {
-  display: flex;
+.pattern-buttons {  
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
@@ -23,28 +17,12 @@
   margin-right: 0.75rem;
   width: 2.25rem;
   height: 2.25rem;
-  display: block;
   background-position: 0%;
   background-repeat: no-repeat;
   background-size: cover;
-  &:last-child {
-    margin-right: 0;
-  }
-  &:hover {
-    position: relative;
-    .pattern-button-text {
-      padding: 0.25rem 0.75rem;
-      width: auto;
-      height: 1.75rem;
-      border-radius: 0.25rem;
-      background-color: $greyDisabledColor;
-      color: $white;
-      top: 3rem;
-      left: -100%;
-      clip: auto;
-      clip-path: none;
-    }
-  }
+}
+.pattern-button:last-child {
+  margin-right: 0;
 }
 .pattern-button-text {
   position: absolute;
@@ -60,7 +38,21 @@
   transition-property: clip-path, clip, width, height;
   transition-duration: 0.15s;
 }
-
+.pattern-button:hover {
+  position: relative;
+  .pattern-button-text {
+    padding: 0.25rem 0.75rem;
+    width: auto;
+    height: 1.75rem;
+    border-radius: 0.25rem;
+    background-color: $greyDisabledColor;
+    color: $white;
+    top: 3rem;
+    left: -100%;
+    clip: auto;
+    clip-path: none;
+  }
+}
 .pattern-button_look {
   background-image: url(../../../assets/media/img/look.svg);
 }

@@ -1,0 +1,131 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.Slider {
+  width: 100%;
+  height: calc(100vw/3*2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+  position: relative;
+}
+
+.Slider-items-wrapper {
+  display: flex;
+  width: 100%;
+  height: 620px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Slider-item {
+  display: none;
+  width: 100%;
+  height: calc(100vw/3*2);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  * {
+    display: inherit;
+    width: inherit;
+    height: inherit;
+  }
+
+  img {
+    border-radius: 1rem;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .credits {
+    bottom: 0;
+    height: 38px;
+  }
+}
+
+.Slider-item.active {
+  display: flex;
+}
+
+.Slider-switcher {
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 18px);
+}
+
+.Slider-switcher,
+.Slider-switcher-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Slider-switcher-arrow,
+.Slider-switcher-item {
+  border: none;
+  background-color: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.Slider-switcher-arrow {
+  width: 36px;
+  height: 36px;
+
+  svg {
+    width: 100%;
+    fill: none;
+    stroke: $black;
+  }
+}
+
+.Slider-switcher-arrow_left {
+  margin-left: 10px;
+}
+
+.Slider-switcher-arrow_right {
+  margin-right: 10px;
+}
+
+.Slider-switcher-item {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid $black;
+  margin-right: 1rem;
+  transform: rotate(45deg);
+}
+
+.Slider-switcher-item.active {
+  background-color: $red;
+  border-color: $red;
+}
+
+.Slider-switcher-item:last-child {
+  margin-right: 0;
+}
+
+/* Tablet */
+@media screen and (min-width: $br-point-tablet) {
+  .Slider {
+    margin: 2rem auto;
+    height: 620px;
+
+    .Slider-item {
+      height: 620px !important;
+    }
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .Slider {
+  }
+}

@@ -1,6 +1,7 @@
 $black: #020202;
 $white: #fff;
 $red: #D10000; /* .Content a */
+$redLighter: #EB5757; /* .Content a */
 $redHover: #FF565D; /* a:hover, a:focus, button.bg_red:hover */
 $redBlood: #860C22; /* Gallery section background-color */
 $inputsBorder: #DADADA;
@@ -8,15 +9,17 @@ $inputsBorderFocus: #6200EE;
 $greyButtonHover: #535353;
 $greyDisabledColor: #828282;
 $greyDisabledBg: #E6E6E6;
+$greyBg: #f2f2f2;
+$greyDark: #4F4F4F;
+$grey1: #bdbdbd;
+$grey2: #bdbdbd;
+$greyTransparentBG: rgba(24, 24, 24, 0.75);
 $borderLight: #E0E0E0;
 $bgSpoiler: #F8F8F8;
 $lime: #27AE60; /*alert Info */
-$orange: #F2994A; /* .embroideryCard-status_progress, .iconMessage */
+$embroideryCardStasusProgress: #F2994A;
 $embroideryCardStasusFinish: #219653;
 $defaultShadow: 0 8px 10px rgba(0,0,0,0.2);
-$bgHint: rgba(0,0,0,0.6); /* Header */
-$bgCookies: #181818; /* MainFooter.scss */
-$divider: rgba(33,33,33,0.08);
 
 $br-point-desktop: 1110px + 17px; /* scroll */
 $br-point-tabletUpper: 1109px;

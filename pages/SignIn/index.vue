@@ -1,40 +1,27 @@
-<script setup lang="ts">
-// import Header from '@/components/register/Header'
-// export default {
-//   components: {
-//     Header,
-//   },
-// }
-
+<script setup>
 definePageMeta({
-  layout: "registration",
+  layout: "registration"
 })
 </script>
 
 <template>
-  <header/>
-  <main class="Content">
-    <div class="Embroiderer">
-      <img src="../../../assets/media/img/embroiderer.svg" alt="Embroiderer" class="Img">
-    </div>
-    <div class="content">
-      <h1 class="title">Sign in</h1>
-      <p>Not a member? <a href="SignUp" class="red">Sign up</a></p>
-      <form>
-        <input type="email" name="email" id="email" placeholder="E-mail">
-        <input type="password" name="password" id="password" placeholder="Password">
-        <p class="alignRight">
-          <a href="LostPassword">Forgot the password?</a>
-        </p>
-        <p>
-          <input type="checkbox" id="remember" name="remember">
-          <label for="remember">Remember me</label>
-        </p>
-        <button class="button bg_black large">Sign in</button>
-        <button class="button large">Sign in with Google</button>
-      </form>
-    </div>
-  </main>
+  <div class="content">
+    <h1 class="title">Sign in</h1>
+    <p class="signUpDescription">Not a member? <nuxt-link to="/SignUp" class="redLighter">Sign up</nuxt-link></p>
+    <form class="formWrapper">
+      <input type="email" name="email" id="email" placeholder="E-mail">
+      <input type="password" name="password" id="password" placeholder="Password" class="passwordInput">
+      <p class="alignRight lostPasswordWrapper">
+        <nuxt-link to="/LostPassword">Forgot the password?</nuxt-link>
+      </p>
+      <p>
+        <input type="checkbox" id="remember" name="remember">
+        <label for="remember">Remember me</label>
+      </p>
+      <nuxt-link to="/Profile" class="button bg_black large signInBtn">Sign in</nuxt-link>
+      <button class="button large signInGoogleBtn">Sign in with Google</button>
+    </form>
+  </div>
 </template>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
