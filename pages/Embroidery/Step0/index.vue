@@ -44,8 +44,9 @@ const heroes = [
 
       <section class="FindHero">
         <div class="FindHero-form">
-          <div class="">
+          <div class="searchWrapper">
             <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
+            <!-- <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name"> -->
             <button class="sortButton">
               <img src="../../../assets/media/img/swap.svg" alt="">
               Sort By
@@ -61,11 +62,20 @@ const heroes = [
         
         <div class="heroIconsWrapper">
           <div 
+            class="heroIconWrapper"
+          >
+            <img src="../../../assets/media/img/defaultHero.svg" alt="">
+          </div>
+          <div
             v-for="hero in heroes" 
             :key="hero"
             class="heroIconWrapper"
           >
-            <img src="../../../assets/media/img/case1/prisoner_full.jpg" alt="">
+            <nuxt-link
+              to="/Embroidery/Step1" 
+            >
+              <img src="../../../assets/media/img/case1/prisoner_full_square.jpg" alt="">
+            <nuxt-link/>
             <h2>
               {{ hero }}
             </h2>

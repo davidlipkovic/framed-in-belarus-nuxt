@@ -45,7 +45,15 @@ onMounted(() => {
   <div class="Slider" id="sliderMain">
     <div class="bg_red"></div>
     <div class="Slider-content">
-      <nuxt-picture
+      <img
+        v-for="(slide, i) in slides"
+        :key="slide.alt"
+        :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
+        class="Slider-item"
+        :class="i === index? 'active' : ''"
+        :alt="`${slide.alt}`"
+      >
+      <!-- <nuxt-picture
         v-for="(slide, i) in slides"
         :key="slide.alt"
         :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
@@ -55,7 +63,7 @@ onMounted(() => {
         class="Slider-item"
         :class="i === index? 'active' : ''"
         :alt="`${slide.alt}`"
-      />
+      /> -->
       <div class="Slider-switcher">
         <button
           id="btn-prev"
