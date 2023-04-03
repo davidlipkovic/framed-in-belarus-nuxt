@@ -75,7 +75,7 @@ const heroes = [
               to="/Embroidery/Step1" 
             >
               <img src="../../../assets/media/img/case1/prisoner_full_square.jpg" alt="">
-            <nuxt-link/>
+            </nuxt-link>
             <h2>
               {{ hero }}
             </h2>
