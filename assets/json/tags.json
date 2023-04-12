@@ -1,0 +1,55 @@
+{
+    "cases": {
+        "type": "cases",
+        "tags": [
+            {
+                "tagName": "all"
+            },
+            {
+                "tagName": "individual"
+            },
+            {
+                "tagName": "group",
+                "tags": [
+                    "Students",
+                    "Forensic examination committee chairman's car arson",
+                    "Brest circle dances",
+                    "Brest Riots",
+                    "Cop-Cup",
+                    "Desire to fight for Ukraine"
+                ]
+            }
+        ]
+    },
+    "statuses": {
+        "type": "status of prisoner",
+        "tags": [
+            {
+                "tagName": "all"
+            },
+            {
+                "tagName": "in custody"
+            },
+            {
+                "tagName": "free"
+            }
+        ]
+    },
+    "genders": {
+        "type": "gender",
+        "tags": [
+            {
+                "tagName": "all"
+            },
+            {
+                "tagName": "female"
+            },
+            {
+                "tagName": "male"
+            },
+            {
+                "tagName": "nonbinary"
+            }
+        ]
+    }
+}
