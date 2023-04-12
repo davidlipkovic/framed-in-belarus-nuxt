@@ -5,6 +5,7 @@
   <div>
     <GeneralEmbroideryMenu/>
     <slot/>
+    <GeneralPointerUp/>
     <GeneralEmbroideryFooter/>
   </div>
 </template>
