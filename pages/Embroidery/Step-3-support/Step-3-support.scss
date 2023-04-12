@@ -1,5 +1,12 @@
 @import "../../../assets/style/globalPartials/variables";
 
+.content {
+  >section:nth-child(2) {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}
+
 .blockquote {
   margin-bottom: 1rem;
   text-align: center;
@@ -40,17 +47,19 @@
 }
 .SupportMethod-content {
   margin-bottom: 1.5rem;
+
   .title {
+    font-size: 14px;
     margin-bottom: 0;
-    font-size: 1rem;
-    font-weight: 600;
   }
+
   dt {
     clear: left;
     float: left;
     margin-right: 0.5em;
     font-weight: 600;
   }
+
   dt::after {
     content: ":";
   }
@@ -60,4 +69,12 @@
   .SupportMethod-title {
     margin-left: 0;
   }
+}
+
+.likeA {
+  color: $red;
+}
+
+.title, b, .likeA {
+  font-weight: 600;
 }

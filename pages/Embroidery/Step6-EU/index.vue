@@ -63,10 +63,10 @@ definePageMeta({
         </div>
 
         <div class="buttons">
-          <!-- <nuxt-link to="/Embroidery/Step5" class="button"
+          <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
           >Previous step</nuxt-link
           > -->
-          <nuxt-link to="/Embroidery/Step7" class="button bg_black" id="save">
+          <nuxt-link to="/Embroidery/Step-6-shipping" class="button bg_black" id="save">
             I have sent a package
           </nuxt-link>
         </div>

@@ -60,7 +60,7 @@ export default {
           </div>
           <div class="Info-menu-group">
             <nuxt-link
-              to="/SignIn"
+              to="/SignUp"
               class="Info-menu-item button bg_red"
             >
               {{ $t('participateBtnMsg') }}

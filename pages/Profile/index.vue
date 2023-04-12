@@ -77,7 +77,7 @@ definePageMeta({
       </section>
       <section class="embroideryCards">
         <nuxt-link
-          to="/Embroidery/Step0"
+          to="/Embroidery/Step-1-choose-hero"
           class="embroideryCard embroideryCard_new">
           <div class="embroideryCard-content">
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">

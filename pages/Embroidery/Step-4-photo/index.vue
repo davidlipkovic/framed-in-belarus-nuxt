@@ -32,27 +32,22 @@ definePageMeta({
         <RegistrationHeroBio />
 
         <h2 class="title">Provide photos of your work</h2>
+        <br>
         <p>
-          This can be phases of the embroidery, you at work, travel or events
-          where you "were" with the embroidered character, etc.
+          This can be phases of the embroidery, you at work, travel or events where you "were" with the embroidered character, etc. 
         </p>
+        <br>
         <p>
-          These photos will be published in the general gallery, so we ask you
-          to try to make high-quality and interesting photos of your work and
-          the process of its creation.
+          These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. 
+          It will be very helpful if you can also make photos of the front- and backside of your finished work.
         </p>
-        <p>
-          It will be very helpful if you can also make photos of the front- and
-          backside of your finished work.
-        </p>
+        <br>
         <p class="b2">
-          Please be aware that these photos may be used in print and online
-          publications, exhibitions, etc. in the context of project
-          presentation.
+          Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.
         </p>
 
         <div class="uploadFiles" id="uploadFilesArea">
-          <label class="uploadFiles-descript" for="uploadFiles">
+          <label class="uploadFiles-descript flexColumnCenter" for="uploadFiles">
             <span class="line">Drag and Drop files here</span>
             <span class="line">or</span>
             <span class="line b">
@@ -84,7 +79,7 @@ definePageMeta({
         </div>
 
         <div class="photos">
-          <div class="photo">
+          <div class="photo flexRowCenter">
             <img
               src="../../../assets/media/img/case1/proces1.jpg"
               alt="Photo of your embroidery"
@@ -101,7 +96,7 @@ definePageMeta({
               />
             </button>
           </div>
-          <div class="photo">
+          <div class="photo flexRowCenter">
             <img
               src="../../../assets/media/img/case1/proces2.jpg"
               alt="Photo of your embroidery"
@@ -118,10 +113,10 @@ definePageMeta({
         </div>
 
         <div class="buttons">
-          <nuxt-link to="/Embroidery/Step3" class="button"
+          <nuxt-link to="/Embroidery/Step-3-support" class="button"
           >Previous step</nuxt-link
           >
-          <nuxt-link to="/Embroidery/Step5" class="button bg_black" id="save">
+          <nuxt-link to="/Embroidery/Step-5-comment" class="button bg_black" id="save">
             Save and go to Next step
           </nuxt-link>
         </div>
@@ -131,4 +126,4 @@ definePageMeta({
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
-<style src="./Step4.scss" lang="scss" scoped></style>
+<style src="./Step-4-photo.scss" lang="scss" scoped></style>

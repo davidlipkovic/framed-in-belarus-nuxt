@@ -90,7 +90,7 @@ export default {
         <p>{{ $t('newsTheLittleBirdP7') }}</p>
         <p>{{ $t('newsTheLittleBirdP8') }}</p>
         <GeneralCarousel/>
-        <p>{{ $t('stringReadMore') }}:  <a href="https://lcca.lv/en/survival-kit/">lcca.lv</a> / <a href="https://www.facebook.com/survivalkit.lv">Facebook</a> / <a href="https://www.instagram.com/latviancentre4contemporaryart">Instagram</a></p>
+        <p>{{ $t('stringReadMore') }}:  <a href="https://lcca.lv/en/survival-kit/" target="_blank">lcca.lv</a> / <a href="https://www.facebook.com/survivalkit.lv" target="_blank">Facebook</a> / <a href="https://www.instagram.com/latviancentre4contemporaryart" target="_blank">Instagram</a></p>
         <!-- <p>Photo credit: Sergei Shabohin</p> -->
       </div>
     </article>

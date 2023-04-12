@@ -10,11 +10,11 @@ definePageMeta({
     <form>
       <p><label for="code">Enter the code that came to your e-mail</label></p>
       <input type="number" name="code" id="code" placeholder="Code">
-      <nuxt-link to="/ForgotPassword/Step3" class="button bg_black large">Send</nuxt-link>
+      <nuxt-link to="/ForgotPassword/Step-3-support" class="button bg_black large">Send</nuxt-link>
     </form>
   </div>
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="../../SignUp/SignUp.scss" lang="scss" scoped></style>
-<style src="./Step2.scss" lang="scss" scoped></style>
+<style src="./Step-2-preparation.scss" lang="scss" scoped></style>

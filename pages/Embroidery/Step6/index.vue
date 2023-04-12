@@ -99,7 +99,7 @@ const route = ref("EU")
         </div>
 
         <div class="buttons">
-          <!-- <nuxt-link to="/Embroidery/Step5" class="button"
+          <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
           >Previous step</nuxt-link
           > -->
           <nuxt-link :to="`/Embroidery/Step6-${route}`" class="button bg_black" id="save">

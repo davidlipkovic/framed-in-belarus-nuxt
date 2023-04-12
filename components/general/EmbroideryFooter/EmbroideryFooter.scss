@@ -97,3 +97,18 @@
     margin-right: 0;
   }
 }
+
+.Info-menu-item.profileLink {
+  margin-right: 14px;
+  background-color: $greyBg;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  svg {
+    margin: auto;
+    width: 18px;
+    height: auto;
+    fill: $black;
+  }
+}

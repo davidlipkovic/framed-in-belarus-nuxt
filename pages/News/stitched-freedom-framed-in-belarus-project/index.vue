@@ -32,8 +32,8 @@ export default {
           <p>{{ $t('newsStitchedFreedom7') }}</p>
           <p>{{ $t('newsStitchedFreedom8') }}</p>
           <p>{{ $t('newsStitchedFreedom9') }}</p>
-          <p>{{ $t('newsStitchedFreedom10') }} <a href="https://forms.gle/pGwSyS8EjhHgtrk59">{{ $t('newsStitchedFreedom11') }}</a>.</p>
-          <p>{{ $t('newsStitchedFreedom12') }} <a href="https://lcca.lv/en/survival-kit-13/programme/1-october--stitched-freedom---framed-in-belarus--project/">{{ $t('newsStitchedFreedom13') }}</a>.</p>
+          <p>{{ $t('newsStitchedFreedom10') }} <a href="https://forms.gle/pGwSyS8EjhHgtrk59" target="_blank">{{ $t('newsStitchedFreedom11') }}</a>.</p>
+          <p>{{ $t('newsStitchedFreedom12') }} <a href="https://lcca.lv/en/survival-kit-13/programme/1-october--stitched-freedom---framed-in-belarus--project/" target="_blank">{{ $t('newsStitchedFreedom13') }}</a>.</p>
         </div>
       </article>
     </main>

@@ -1,4 +1,12 @@
 @import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/form";
+
+.content {
+  >section:nth-child(2) {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}
 
 .Publication-content {
   background-position: 50% 0%;

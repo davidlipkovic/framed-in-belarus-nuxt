@@ -1,26 +1,20 @@
 <script setup>
+import { computed, onMounted, reactive } from "vue"
+
+import { usePrisonersStore } from "@/stores/prisoners"
+
+const prisonersStore = usePrisonersStore();
+
 definePageMeta({
   layout: "embroidery"
 })
 
-const heroes = [
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-  "Maryia Kalesnikava",
-]
+const localPrisoners = computed(() => prisonersStore.originalPrisoners.value.slice(0, 16))
+const localTags = computed(() => prisonersStore.tags.value)
+
+onMounted(() => {
+  console.log(prisonersStore.chosenHero())
+})
 </script>
 
 <template>
@@ -44,42 +38,32 @@ const heroes = [
 
       <section class="FindHero">
         <div class="FindHero-form">
-          <div class="searchWrapper">
+          <div class="searchMenusWrapper">
             <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
-            <!-- <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name"> -->
-            <button class="sortButton">
-              <img src="../../../assets/media/img/swap.svg" alt="">
-              Sort By
-              <SvgArrowDown/>
-            </button>
+            <GeneralSortMenu />
           </div>
-          <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn--img"></button>
-          <div class="FindHero-select" hidden>
-            <p class="FindHero-select-item">Smirnov</p>
-            <p class="FindHero-select-item">Smirnova</p>
+          <div class="filterMenusWrapper flexRowStart">
+            <GeneralTagsMenu
+              :type="localTags.cases.type"
+              :tags="localTags.cases.tags"
+            />
+            <GeneralTagsMenu
+              :type="localTags.statuses.type"
+              :tags="localTags.statuses.tags"
+            />
+            <GeneralTagsMenu
+              :type="localTags.genders.type"
+              :tags="localTags.genders.tags"
+            />
           </div>
         </div>
         
         <div class="heroIconsWrapper">
-          <div 
-            class="heroIconWrapper"
-          >
-            <img src="../../../assets/media/img/defaultHero.svg" alt="">
-          </div>
-          <div
-            v-for="hero in heroes" 
-            :key="hero"
-            class="heroIconWrapper"
-          >
-            <nuxt-link
-              to="/Embroidery/Step1" 
-            >
-              <img src="../../../assets/media/img/case1/prisoner_full_square.jpg" alt="">
-            </nuxt-link>
-            <h2>
-              {{ hero }}
-            </h2>
-          </div>
+          <RegistrationHeroBox
+            v-for="hero in localPrisoners" 
+            :key="hero.id"
+            :hero="hero"
+          />
         </div>
 
         <!-- <div id="default">
@@ -89,7 +73,7 @@ const heroes = [
           </p>
           <div class="buttons">
             <nuxt-link
-              to="/Embroidery/Step1"
+              to="/Embroidery/Step-1-your-hero"
               class="button randomHero"
             >
               Choose a hero automatically
@@ -125,5 +109,4 @@ const heroes = [
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
-<style src="./Step1.scss" lang="scss" scoped></style>
-<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="./Step-1-choose-hero.scss" lang="scss" scoped></style>

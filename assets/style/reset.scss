@@ -159,31 +159,8 @@ video {
   -webkit-backface-visibility: hidden;
 }
 
-body {
-  line-height: 1.5;
-  color: $black;
-  margin: 0;
-  text-align: justify;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-ul,
-ol {
-  margin-bottom: 1em;
-}
-
 p:last-child,
 ul:last-child,
 ol:last-child {
   margin-bottom: 0;
-}
-
-li {
-  margin-left: 1.15rem;
-  list-style: disc outside;
 }

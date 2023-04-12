@@ -6,7 +6,7 @@ export default {
     Slider
   },
   mounted() {
-    console.log(this.i18n)
+    // console.log(this.i18n)
   }
 }
 </script>
@@ -35,7 +35,7 @@ export default {
           {{ $t('description') }}
         </p>
         <nuxt-link
-          to="/SignIn"
+          to="/SignUp"
           class="button bg_red"
         >
           {{ $t('participateBtnMsg') }}
@@ -128,8 +128,6 @@ export default {
             class="img"
           />
         </a>
-      </div>
-      <div class="Partners-group">
         <a
           href="https://politzek.me/"
           target="_blank"

@@ -1,0 +1,100 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.Content {
+  padding-bottom: 0;
+}
+
+.FoundHero {
+  @media screen and (min-width: $br-point-tablet) {
+    display: grid;
+    grid-template-columns: 21.75rem 1fr;
+    grid-template-areas: "photo description"
+                          "buttons buttons";
+    gap: 0 1.875rem;
+  }
+
+  .buttons {
+    margin: 30px 0 0 -5px;
+
+    @media screen and (min-width: $br-point-tablet) {
+      grid-area: buttons;
+      grid-column: span 2;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-tablet) {
+  .Hero-Photo {
+    margin-bottom: 0;
+    grid-area: photo;
+  }
+}
+
+@media screen and (min-width: $br-point-tablet) {
+  .Hero-Description {
+    margin-bottom: 0;
+    grid-area: description;
+  }
+}
+
+.Hero-Photo,
+.Hero-Description {
+  margin-bottom: 1.25rem;
+}
+
+.Hero-Photo-img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.1rem;
+  width: 21.75rem;
+  height: 21.75rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: $defaultShadow;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.Hero-Photo-text {
+  text-align: center;
+}
+
+.Hero-Description-case {
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.Hero-Description-name {
+  margin-bottom: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+.Hero-content-titleWrapper {
+  display: grid;
+  grid-template-columns: 31% 35% 25%;
+  margin-bottom: 23px;
+}
+
+.Hero-Bio-info,
+.Hero-Description-data {
+  .title {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+}
+
+.Hero-Description-data {
+  margin-bottom: 20px;
+}
+
+.Hero-Description-prison-address {
+  margin-bottom: 14px;
+}
+
+.buttons {
+  justify-content: flex-start;
+}

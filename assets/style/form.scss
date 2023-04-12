@@ -12,13 +12,11 @@ input[type="email"],
 input[type="password"],
 select,
 textarea {
-  margin-bottom: 1.5rem;
   padding: 18px;
   width: 100%;
   border-radius: 0.25rem;
   border-color: $grey1;
   border-width: 1px;
-  background-color: $greyBg;
   cursor: pointer;
 }
 input[type="checkbox"] {
@@ -58,8 +56,8 @@ input[type=radio] {
   background-color: $white;
   font: inherit;
   color: $red;
-  width: 0.813rem;
-  height: 0.813rem;
+  width: 20px;
+  height: 20px;
   border: 0.15rem solid $greyButtonHover;
   border-radius: 50%;
 }

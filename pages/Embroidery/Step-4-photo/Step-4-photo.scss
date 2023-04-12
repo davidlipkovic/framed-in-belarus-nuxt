@@ -1,25 +1,36 @@
 @import "../../../assets/style/globalPartials/variables";
 
-.uploadFiles {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-image: repeating-linear-gradient(120deg, #828282, #828282 6px, transparent 6px, transparent 12px, #828282 12px), repeating-linear-gradient(210deg, #828282, #828282 6px, transparent 6px, transparent 12px, #828282 12px), repeating-linear-gradient(-60deg, #828282, #828282 6px, transparent 6px, transparent 12px, #828282 12px), repeating-linear-gradient(30deg, #828282, #828282 6px, transparent 6px, transparent 12px, #828282 12px);
-  background-size: 1px 100%, 100% 1px, 1px 100% , 100% 1px;
-  background-position: 0 0, 0 0, 100% 0, 0 100%;
-  background-repeat: no-repeat;
-  box-shadow: none;
+.content {
+  >section:nth-child(2) {
+    max-width: 730px;
+    margin: 0 auto;
+  }
 }
+
+.uploadFiles {
+  margin: 16px 0 30px;
+  padding: 1rem 1rem 24px;
+  border: 1px dashed $greyDisabledColor;
+  box-shadow: none;
+  background-color: $greyBg;
+
+  * {
+    font-size: 1rem;
+  }
+}
+
 .uploadFiles-descript {
   text-align: center;
+
   .line {
     display: block;
   }
+
   .line:last-child {
-    margin-left: auto;
-    margin-right: auto;
     width: fit-content;
     display: flex;
     align-items: center;
+    margin-top: 10px;
   }
 }
 .uploadFiles-descript-icon {
@@ -28,6 +39,7 @@
   height: 0.7rem;
   transform: rotate(45deg);
   stroke: $black;
+
   path {
     fill: $black;
   }
@@ -39,10 +51,21 @@
   gap: 1.875rem;
   justify-items: center;
 }
+
 .photo {
   width: fit-content;
+  background-color: $bgSpoiler;
   position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
 }
+
 .photo-btnDelete {
   width: 1.625rem;
   height: 1.625rem;

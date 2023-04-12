@@ -38,10 +38,10 @@ export default {
           <p>
             {{ $t('aboutUsPage2') }} <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
           </p>
-          <a href="https://www.instagram.com/rufinabazlova/" class="button">
+          <a href="https://www.instagram.com/rufinabazlova/" target="_blank" class="button">
             {{ $t('linkInstagram') }}
           </a>
-          <a href="https://www.facebook.com/rufinartist" class="button">
+          <a href="https://www.facebook.com/rufinartist" target="_blank" class="button">
             {{ $t('linkFacebook') }}
           </a>
         </div>

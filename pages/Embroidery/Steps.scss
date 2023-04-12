@@ -14,11 +14,31 @@
 .note {
   font-size: 0.75rem;
 }
+
 .mistake {
   color: $red;
 }
+
 .note {
   color: $greyDisabledColor;
+}
+
+.warning {
+  color: $orange;
+  font-weight: 600;
+  font-size: 14px;
+  align-items: center;
+
+  * {
+    color: $orange;
+    font-weight: 600;
+    font-size: 14px;
+    align-items: center;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
 }
 
 .buttons {
@@ -27,26 +47,31 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+
   .button {
     margin-right: 4.5rem;
   }
+
   .button:last-child {
     margin-right: 0;
     margin-bottom: 0;
   }
 }
-@media screen and (max-width: $br-point-mobile) {
-  .buttons {
-    flex-direction: column;
-    .button {
-      width: 100%;
-    }
-  }
-}
-@media screen and (min-width: $br-point-tablet) {
-  .textWidth {
-    margin-left: auto;
-    margin-right: auto;
-    width: 45.625rem;
-  }
-}
+
+// @media screen and (max-width: $br-point-mobile) {
+//   .buttons {
+//     flex-direction: column;
+
+//     .button {
+//       width: 100%;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: $br-point-tablet) {
+//   .textWidth {
+//     margin-left: auto;
+//     margin-right: auto;
+//     width: 45.625rem;
+//   }
+// }

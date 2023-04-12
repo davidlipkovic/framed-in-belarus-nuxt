@@ -1,22 +1,15 @@
-<script>
-// import { onMounted, ref } from 'vue'
-//
-//   const { locale, locales } = useI18n()
-//   const switchLocalePath = useSwitchLocalePath()
-//   const availableLocales = computed(() => {
-//     return (locales.value).filter(i => i.code !== locale.value)
-//   })
-//
+<script setup>
+import { onMounted, ref } from 'vue'
+
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+const availableLocales = computed(() => {
+  return (locales.value).filter(i => i.code !== locale.value)
+})
+
 //   onMounted(() => {
 //     console.log(availableLocales)
 //   })
-import MainLogo from '@/components/general/MainLogo'
-
-export default {
-  components: {
-    MainLogo
-  },
-}
 </script>
 
 <template>
@@ -24,7 +17,7 @@ export default {
     <input type="checkbox" id="Burger" class="Burger-checker visually-hidden">
     <header class="Header">
       <div class="content">
-        <MainLogo/>
+        <GeneralMainLogo/>
         <label for="Burger" class="Burger-button" role="button" aria-role="button">
           <span class="Burger-button-item">—</span>
           <span class="Burger-button-item">—</span>
@@ -71,7 +64,7 @@ export default {
               {{ $t('linkLogin') }}
             </nuxt-link>
             <nuxt-link
-              to="/SignIn"
+              to="/SignUp"
               class="Burger-menu-item button bg_red"
             >
               {{ $t('participateBtnMsg') }}
@@ -81,14 +74,14 @@ export default {
                ENG<img class="arrow" src="@/assets/media/img/arrow.svg" alt="Arrow">
              </summary>
              <div class="Lang-select">
-  <!--              <nuxt-link-->
-  <!--                v-for="locale in availableLocales"-->
-  <!--                :key="locale.code"-->
-  <!--                :to="switchLocalePath(locale.code)"-->
-  <!--                class="Lang-link"-->
-  <!--              >-->
-  <!--                {{ locale.name }}-->
-  <!--              </nuxt-link>-->
+               <nuxt-link
+                 v-for="locale in availableLocales"
+                 :key="locale.code"
+                 :to="switchLocalePath(locale.code)"
+                 class="Lang-link"
+               >
+                 {{ locale.name }}
+               </nuxt-link>
              </div>
             </details>
           </div>

@@ -1,0 +1,72 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.manual {
+  .title {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.title {
+  font-weight: 600;
+font-size: 24px;
+line-height: 33px;
+}
+
+.manual-part,
+.subscription {
+  margin-bottom: 1.5rem;
+}
+
+.manual-part {
+
+  ul {
+    margin-left: 22px;
+  }
+}
+
+.sizeChart {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 725px;
+  border: 1px solid $greyBg;
+
+  thead {
+    background-color: $greyBg;
+  }
+
+  td {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.subscription {
+  margin: 45px 0 1.25rem;
+}
+
+.subscription-content {
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: $br-point-tablet) {
+  .manual-part {
+    width: 45.375rem;
+  }
+
+  .sizeChart {
+    td {
+      padding: 0.75rem 0.875rem;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .subscription {
+    justify-content: space-between;
+  }
+
+  .sizeChart {
+    td {
+      padding: 0.75rem 0.875rem;
+    }
+  }
+}

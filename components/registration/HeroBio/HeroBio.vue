@@ -1,42 +1,39 @@
-<script>
-export default {
-  props: {
-  },
-  data () {
-    return {
-    }
-  },
-}
+<script setup>
+import { ref } from 'vue'
+
+import { usePrisonersStore } from "@/stores/prisoners"
+
+const prisonersStore = usePrisonersStore();
+
+// const hero = {
+//   case: "Seizure of power",
+//   name: "Maryia Kalesnikava",
+//   dateOfBirth: "24 April 1982",
+//   dateOfDetention: "7 September 2020",
+//   sentence: "11 years",
+//   prisonAddress: "Penal colony No. 4. 246035, Homieĺ, vulica Antoshkina 3"
+// }
+
+const hero = prisonersStore.chosenHero()
 </script>
 
 <template>
   <article class="Hero HeroWrapper">
     <input type="checkbox" class="visually-hidden" id="heroMore" />
     <div class="Hero-header">
-      <img
-        src="../../../assets/media/img/case1/prisoner.jpg"
-        alt="Hero Name Surname"
-        class="Hero-header-photo"
-      />
-      <div class="Hero-header-title">
-        <p class="Hero-header-case">Case: Seizure of power</p>
-        <h2 class="Hero-header-name">Maryia Kalesnikava</h2>
+      <div class="Hero-header-photo">
+        <img
+          :src="hero.photo"
+          :alt="'Photo of ' + hero.name"
+        />
       </div>
-      <label class="Hero-more-button" for="heroMore">
+      <div class="Hero-header-title">
+        <p class="Hero-header-case">Case: {{ hero.case }}</p>
+        <h2 class="Hero-header-name">{{ hero.name }}</h2>
+      </div>
+      <label class="Hero-more-button flexRowStart" for="heroMore">
         <span class="Hero-more-button-text">More information</span>
-        <svg
-          class="Hero-more-button-img"
-          width="9"
-          height="6"
-          viewBox="0 0 9 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.85522 0.878982L8.14812 0.171875L4.36684 3.95315L0.707107 0.293424L0 1.00053L3.65973 4.66026L3.65381 4.66617L4.36092 5.37328L8.85522 0.878982Z"
-            fill="#4F4F4F"
-          />
-        </svg>
+        <SvgArrowDown class="Hero-more-button-img"/>
       </label>
     </div>
     <label for="HeroHidden" class="Hero-close">
@@ -48,17 +45,17 @@ export default {
     </label>
     <div class="Hero-content">
       <div class="Hero-content-titleWrapper">
-        <div class="Hero-Description-data">
+        <div class="Hero-Bio-info">
           <h3 class="title">Date of birth:</h3>
-          <p>24 April 1982</p>
+          <p>{{ hero.birthday }}</p>
         </div>
-        <div class="Hero-Description-data">
+        <div class="Hero-Bio-info">
           <h3 class="title">Date of detention:</h3>
-          <p>7 September 2020</p>
+          <p>{{ hero.arrested }}</p>
         </div>
-        <div class="Hero-Description-data">
+        <div class="Hero-Bio-info">
           <h3 class="title">Sentence:</h3>
-          <p>11 years</p>
+          <p>{{ hero.decision }}</p>
         </div>
       </div>
       <div class="Hero-Description-data">
@@ -101,23 +98,11 @@ export default {
       </div>
       <div class="Hero-Description-data">
         <h3 class="title">Address of the prison:</h3>
-        <p>Penal colony No. 4. 246035, Homieĺ, vulica Antoshkina 3</p>
+        <p>{{ hero.prisonAddress }}</p>
       </div>
-      <label class="Hero-less-button" for="heroMore">
+      <label class="Hero-less-button flexRowStart" for="heroMore">
         <span class="Hero-less-button-text">Less information</span>
-        <svg
-          class="Hero-less-button-img"
-          width="9"
-          height="6"
-          viewBox="0 0 9 6"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M8.85522 0.878982L8.14812 0.171875L4.36684 3.95315L0.707107 0.293424L0 1.00053L3.65973 4.66026L3.65381 4.66617L4.36092 5.37328L8.85522 0.878982Z"
-            fill="#4F4F4F"
-          />
-        </svg>
+        <SvgArrowDown class="Hero-less-button-img"/>
       </label>
     </div>
   </article>

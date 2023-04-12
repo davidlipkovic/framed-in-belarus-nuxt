@@ -62,27 +62,27 @@
         Profile
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step1"
+        to="/Embroidery/Step-1-your-hero"
       >
         Embroidery Step1
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step2"
+        to="/Embroidery/Step-2-preparation"
       >
         Embroidery Step2
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step3"
+        to="/Embroidery/Step-3-support"
       >
         Embroidery Step3
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step4"
+        to="/Embroidery/Step-4-photo"
       >
         Embroidery Step4
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step5"
+        to="/Embroidery/Step-5-comment"
       >
         Embroidery Step5
       </nuxt-link>
@@ -92,22 +92,22 @@
         Embroidery Step6
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step7"
+        to="/Embroidery/Step-6-shipping"
       >
         Embroidery Step7
       </nuxt-link>
       <nuxt-link
-        to="/ForgotPassword/Step1"
+        to="/ForgotPassword/Step-1-your-hero"
       >
         Forgotten password Step1
       </nuxt-link>
       <nuxt-link
-        to="/ForgotPassword/Step2"
+        to="/ForgotPassword/Step-2-preparation"
       >
         Forgotten password Step2
       </nuxt-link>
       <nuxt-link
-        to="/ForgotPassword/Step3"
+        to="/ForgotPassword/Step-3-support"
       >
         Forgotten password Step3
       </nuxt-link>

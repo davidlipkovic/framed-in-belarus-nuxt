@@ -1,7 +1,15 @@
 <script setup>
+import { ref } from 'vue'
+
+import { usePrisonersStore } from "@/stores/prisoners"
+
+const prisonersStore = usePrisonersStore()
+
 definePageMeta({
   layout: "embroidery"
 })
+
+const hero = prisonersStore.chosenHero()
 </script>
 
 <template>
@@ -25,46 +33,40 @@ definePageMeta({
         :currentStep="1"
       />
 
-      <section class="FindHero">
-        <div class="FindHero-form">
-          <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
-          <button class="FindHero-input-btn" hidden><img src="../../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn--img"></button>
-          <div class="FindHero-select" hidden>
-            <p class="FindHero-select-item">Smirnov</p>
-            <p class="FindHero-select-item">Smirnova</p>
-          </div>
-        </div>
-      </section>
-
       <section class="FoundHero" hidden>
         <div class="Hero-Photo">
-          <img src="../../../assets/media/img/case1/prisoner_full.jpg" alt="Hero's name" class="Hero-Photo-img">
-          <!-- <p class="Hero-Photo-text">This hero has been chosen automatically</p> -->
+          <img 
+            :src="hero.photo"
+            :alt="'Photo of ' + hero.name"
+            class="Hero-Photo-img"
+          >
         </div>
         <div class="Hero-Description">
           <p class="Hero-Description-case">
-            Case: Seizure of power
+            Case: {{ hero.case }}
           </p>
           <h2 class="Hero-Description-name">
-            Maryia Kalesnikava
+            {{ hero.name }}
           </h2>
-          <div class="Hero-Description-data">
-            <h3 class="title">Date of birth:</h3>
-            <p>24 April 1982</p>
-          </div>
-          <div class="Hero-Description-data">
-            <h3 class="title">Date of detention:</h3>
-            <p>7 September 2020</p>
-          </div>
-          <div class="Hero-Description-data">
-            <h3 class="title">Sentence:</h3>
-            <p>11 years</p>
+          <div class="Hero-content-titleWrapper flexRowStart">
+            <div class="Hero-Bio-info">
+              <h3 class="title">Date of birth:</h3>
+              <p>{{ hero.birthday }}</p>
+            </div>
+            <div class="Hero-Bio-info">
+              <h3 class="title">Date of detention:</h3>
+              <p>{{ hero.arrested }}</p>
+            </div>
+            <div class="Hero-Bio-info">
+              <h3 class="title">Sentence:</h3>
+              <p>{{ hero.decision }}</p>
+            </div>
           </div>
           <div class="Hero-Description-data">
             <h3 class="title">Description of the Political prisoner:</h3>
             <p>
               Maryia Kalesnikava is a member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka.
-            </p>
+            </p><br>
             <p>
               She was abducted on September 7, 2020 in Minsk and, along with two other members of the Coordination Council, Anton Radniankou and Ivan Krautsou, forcibly brought to the Ukrainian border to be expelled from the country. However, by tearing her passport and jumping out of the car, Kalesnikava foiled the special operation of deportation organized by the security forces.
             </p>
@@ -94,19 +96,32 @@ definePageMeta({
             <h3 class="title">Description of the case:</h3>
             <p>The case description is the same as the political prisoner’s description because this is an individual case, not a collective one.</p>
           </div>
-          <div class="Hero-Description-data">
+          <div class="Hero-Description-data Hero-Description-prison-address">
             <h3 class="title">Address of the prison:</h3>
-            <p>Penal colony No. 4. 246035, Homieĺ, vulica Antoshkina 3</p>
+            <p>{{ hero.prisonAddress }}</p>
           </div>
-        </div>
-        <div class="buttons">
-          <nuxt-link
-            to="/Embroidery/Step2"
-            id="save"
-            class="button bg_black"
-          >
-            Choose this hero
-          </nuxt-link>
+          <div class="warning flexRowStart">
+            <SvgWarning />
+            <p>
+              Once you choose a hero you can't change it
+            </p>
+          </div>
+          <div class="buttons">
+            <nuxt-link
+              to="/Embroidery/Step-1-choose-hero"
+              id="save"
+              class="button"
+            >
+              Go back to all prisoners
+            </nuxt-link>
+            <nuxt-link
+              to="/Embroidery/Step-2-preparation"
+              id="save"
+              class="button bg_black"
+            >
+              Choose this hero
+            </nuxt-link>
+          </div>
         </div>
       </section>
     </div>
@@ -114,5 +129,4 @@ definePageMeta({
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
-<style src="./Step1.scss" lang="scss" scoped></style>
-<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="./Step-1-your-hero.scss" lang="scss" scoped></style>

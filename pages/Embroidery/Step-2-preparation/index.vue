@@ -8,7 +8,6 @@ definePageMeta({
 const AlphabetPattern1 = ref({ show: false })
 const AlphabetPattern2 = ref({ show: false })
 const AlphabetPattern3 = ref({ show: false })
-const MainPattern = ref({ show: false })
 </script>
 
 <template>
@@ -36,36 +35,11 @@ const MainPattern = ref({ show: false })
         />
 
         <section class="Step2">
-          <div class="pattern">
-            <img
-              src="../../../assets/media/img/case1/schema.jpg"
-              alt="Your pattern"
-              class="pattern-image"
-            />
-            <div class="pattern-buttons">
-              <button
-                class="pattern-button pattern-button_look"
-                @click="MainPattern.show = true"
-              >
-                <span class="pattern-button-text">See full image</span>
-              </button>
-            </div>
-            <vue-final-modal
-              v-model="MainPattern.show"
-              @click-outside="MainPattern.show = false"
-            >
-              <button
-                @click="MainPattern.show = false"
-              >
-                close
-              </button>
-              <img
-                src="../../../assets/media/img/case1/schema_full.jpg"
-                alt="Your pattern"
-                class="pattern-image"
-              />
-            </vue-final-modal>
-          </div>
+          <GeneralImageModal
+            alt=""
+            fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema_full.jpg"
+            iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema.jpg"
+          />
 
           <input type="checkbox" class="visually-hidden" id="HeroHidden" />
           <RegistrationHeroBio />
@@ -199,7 +173,7 @@ const MainPattern = ref({ show: false })
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <div class="subscription">
+            <div class="subscription flexRowStart">
               <div class="subscription-content">
                 <h2 class="title">Work subscription</h2>
                 <p>
@@ -218,111 +192,30 @@ const MainPattern = ref({ show: false })
                 </p>
               </div>
               <div class="subscription-patterns-wrapper">
-                <div class="subscription-pattern">
-                  <img
-                    src="../../../assets/media/img/ABCD1.jpg"
-                    alt="Alphabet embroidery pattern"
-                    class="pattern-image"
-                  />
-                  <div class="pattern-buttons">
-                    <button
-                      class="pattern-button pattern-button_look"
-                      @click="AlphabetPattern1.show = true"
-                    >
-                      <span class="pattern-button-text">
-                        See full image
-                      </span>
-                    </button>
-                  </div>
-                  <vue-final-modal
-                    v-model="AlphabetPattern1.show"
-                    @click-outside="AlphabetPattern1.show = false"
-                  >
-                    <button
-                      @click="AlphabetPattern1.show = false"
-                    >
-                      close
-                    </button>
-                    <img
-                      src="../../../assets/media/img/ABCD1_full.jpg"
-                      class="pattern-image"
-                    />
-                  </vue-final-modal>
-                </div>
-                <div class="subscription-pattern">
-                  <img
-                    src="../../../assets/media/img/ABCD2.jpg"
-                    alt="Alphabet embroidery pattern"
-                    class="pattern-image"
-                  />
-                  <div class="pattern-buttons">
-                    <button
-                      class="pattern-button pattern-button_look"
-                      @click="AlphabetPattern2.show = true"
-                    >
-                      <span class="pattern-button-text">
-                        See full image
-                      </span>
-                    </button>
-                  </div>
-                  <vue-final-modal
-                    v-model="AlphabetPattern2.show"
-                    @click-outside="AlphabetPattern2.show = false"
-                  >
-                    <button
-                      @click="AlphabetPattern2.show = false"
-                    >
-                      close
-                    </button>
-                    <img
-                      src="../../../assets/media/img/ABCD2_full.jpg"
-                      class="pattern-image"
-                    />
-                  </vue-final-modal>
-                </div>
-                <div class="subscription-pattern">
-                  <img
-                    src="../../../assets/media/img/ABCD3.jpg"
-                    alt="Alphabet embroidery pattern"
-                    class="pattern-image"
-                  />
-                  <div class="pattern-buttons">
-                    <button
-                      class="pattern-button pattern-button_look"
-                      @click="AlphabetPattern3.show = true"
-                    >
-                      <span class="pattern-button-text">
-                        See full image
-                      </span>
-                    </button>
-                  </div>
-                  <vue-final-modal
-                    v-model="AlphabetPattern3.show"
-                    @click-outside="AlphabetPattern3.show = false"
-                  >
-                    <button
-                      @click="AlphabetPattern3.show = false"
-                    >
-                      close
-                    </button>
-                    <img
-                      src="../../../assets/media/img/ABCD3_full.jpg"
-                      class="pattern-image"
-                    />
-                  </vue-final-modal>
-                </div>
+                <GeneralImageModal
+                  alt=""
+                  fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1_full.jpg"
+                  iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1.jpg"
+                  class="subscription-pattern"
+                />
+                <GeneralImageModal
+                  alt=""
+                  fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2_full.jpg"
+                  iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2.jpg"
+                  class="subscription-pattern"
+                />
+                <GeneralImageModal
+                  alt=""
+                  fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3_full.jpg"
+                  iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3.jpg"
+                  class="subscription-pattern"
+                />
               </div>
             </div>
           </article>
           <div class="buttons">
             <nuxt-link
-              to="/Embroidery/Step1"
-              class="button"
-            >
-              Previous step
-            </nuxt-link>
-            <nuxt-link
-              to="/Embroidery/Step3"
+              to="/Embroidery/Step-3-support"
               id="save"
               class="button bg_black"
             >
@@ -336,4 +229,4 @@ const MainPattern = ref({ show: false })
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
-<style src="./Step2.scss" lang="scss" scoped></style>
+<style src="./Step-2-preparation.scss" lang="scss" scoped></style>

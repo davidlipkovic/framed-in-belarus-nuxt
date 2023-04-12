@@ -27,17 +27,27 @@ definePageMeta({
 
         <section class="Publication Done textWidth">
           <div class="Publication-content">
-            <h2 class="title">Good news!! We received your work</h2>
-            <p>Everything arrived without damage. Such a beautiful embroidery - thank you so much! We always look forward to and enjoy opening the package. And each work is always very original.</p>
-            <p>The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks. Thanks for your understanding! </p>
-            <p>When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark. You will be able to check your hero’s page in the gallery by clicking that icon. </p>
-            <p>Thank you again for your solidarity and participation.</p>
-            <p>We wish you all the best!!</p>
-            <p>If you still have time and energy, you can embroider a new political prisoner.</p>
+            <h2 class="title">
+              Good news! We received your work
+            </h2>
+            <br>
+            <p>
+              <strong class="b2">The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks.</strong> Thanks for your understanding! 
+            </p>
+            <p>
+              When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark. <strong class="b2">You will be able to check your hero’s page in the gallery</strong> by clicking that icon. 
+            </p>
+            <br>
+            <p>
+              Thank you for your solidarity and participation.
+            </p>
+            <p>
+              If you still have time and energy, you can embroider a new political prisoner.
+            </p>
           </div>
           <div class="buttons">
             <nuxt-link
-              to="/Embroidery/Step1"
+              to="/Embroidery/Step-1-your-hero"
               class="button bg_black">
               Choose a new hero
             </nuxt-link>
@@ -48,7 +58,5 @@ definePageMeta({
 </template>
 
 <style src="../Steps.scss" lang="scss" scoped></style>
-<style src="./Step7-success.scss" lang="scss" scoped></style>
-
-<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="./Step-7-success.scss" lang="scss" scoped></style>
 <style src="../../Profile/Settings.scss" lang="scss" scoped></style>
