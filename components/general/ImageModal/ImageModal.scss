@@ -1,0 +1,111 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.pattern{
+  margin: 0 auto 18px;
+  width: fit-content;
+  position: relative;
+}
+
+.pattern-buttons {  
+  position: absolute;
+  top: 24px;
+  right: 30px;
+}
+
+.pattern-button {
+  margin-right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: $greyDark;
+  border-radius: 50%;
+
+  svg {
+    width: 18px;
+    fill: none;
+    stroke: $white;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.pattern-button:last-child {
+  margin-right: 0;
+}
+
+.pattern-button-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  transition-property: clip-path, clip, width, height;
+  transition-duration: 0.15s;
+}
+
+.pattern-button:hover {
+  position: relative;
+
+  * {
+    color: $redHover;
+    stroke: $redHover;
+  }
+
+  .pattern-button-text {
+    padding: 0.25rem 0.75rem;
+    width: auto;
+    height: 1.75rem;
+    border-radius: 0.25rem;
+    background-color: $greyDisabledColor;
+    color: $white;
+    top: 3rem;
+    left: -100%;
+    clip: auto;
+    clip-path: none;
+  }
+}
+
+.subscription-pattern {
+  width: 100%;
+
+  .pattern-image {
+    width: 100%;
+  }
+
+  .pattern-buttons {
+    top: 15px;
+    right: 12px;
+
+    .pattern-button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.fullModalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (min-width: $br-point-tablet) {
+  .pattern {
+    margin-left: 2.125rem;
+    margin-right: 0;
+    float: right;
+  }
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .subscription-pattern {
+    width: 21.75rem;
+  }
+}
