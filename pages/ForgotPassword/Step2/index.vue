@@ -17,4 +17,4 @@ definePageMeta({
 
 <style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="../../SignUp/SignUp.scss" lang="scss" scoped></style>
-<style src="./Step-2-preparation.scss" lang="scss" scoped></style>
+<style src="./Step2.scss" lang="scss" scoped></style>
