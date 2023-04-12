@@ -1,0 +1,24 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.pointerUpWrapper {
+  position: fixed;
+  width: 72px;
+  height: 72px;
+  bottom: 62px;
+  right: 62px;
+  z-index: 10000;
+  background-color: $greyDark2;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  svg {
+	  fill: none;
+    stroke: $white;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    width: 28px;
+    height: auto;
+  }
+}
