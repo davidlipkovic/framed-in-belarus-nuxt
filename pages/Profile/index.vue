@@ -1,15 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 
-import { VueFinalModal } from 'vue-final-modal'
-
-const editModal = ref({
-  show: false
-})
-
 definePageMeta({
   layout: "embroidery"
 })
+
+const editModal = ref(false)
 </script>
 
 <template>
@@ -24,111 +20,55 @@ definePageMeta({
       </h1>
     </div>
     <div class="content">
-      <section class="userCard">
-        <div class="userCard-header">
-          <img src="../../assets/media/img/embroiderer1/profile.jpg" class="userCard-avatar" alt="Avatar">
-          <label for="uploadAvatar" class="upload">
-            <input type="file" name="uploadAvatar" id="uploadAvatar" class="visually-hidden">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Upload icon" class="upload_icon">
-              <g clip-path="url(#clip0_1248_17569)">
-              <path d="M10.0016 11.4962H12.3771C14.0962 11.4962 15.5028 10.5832 15.5028 8.88314C15.5028 7.18308 13.8462 6.33665 12.5021 6.27007C12.2243 3.61137 10.2829 1.99414 8.00115 1.99414C5.84443 1.99414 4.45537 3.42539 4.00027 4.84476C2.12487 5.02293 0.499512 6.21631 0.499512 8.17049C0.499512 10.1247 2.18738 11.4962 4.25033 11.4962H6.00071" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.0024 7.99486L8.0017 5.99414L6.00098 7.99486" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8.00195 14.0089V6.49414" stroke-width="1.00189" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <defs>
-              <clipPath id="clip0_1248_17569">
-              <rect width="16.0035" height="16.0035" fill="white"/>
-              </clipPath>
-              </defs>
-            </svg><!--
-            --><span clacc="upload_text">Upload foto</span>
-          </label>
-          <h2 class="userCard-title">Tiffany Chin</h2>
+      <section class="userProfile flexColumnCenter">
+        <div class="userProfile-header flexColumnCenter">
+          <img 
+            src="../../assets/media/img/profileSymbolFramed.svg" 
+            class="userProfile-avatar" 
+            alt="Avatar"
+          >
+          <h2 class="userProfile-title">Tiffany Chin</h2>
         </div>
-        <div class="userCard-body">
-          <p class="userCard-body-item">
-            <span class="b">Pseudonym:</span>
-            -
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Country, city:</span>
-            USA
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Year of Birth:</span>
-            -
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Instagram</span>
-            @tuffytiffchin
-          </p>
-          <p class="userCard-body-item">
-            <span class="b">Facebook</span>
-            -
-          </p>
-          <p class="userCard-body-item_longText">
-            <span class="b">Why did you decide to participate?</span>
+        <div class="userProfile-body flexColumnStart">
+          <h3 class="b">
+            Why did you decide to participate?
+          </h3>
+          <p>
             To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus...
           </p>
         </div>
-        <div class="userCard-buttons">
-          <button class="button" @click="editModal.show = true">Edit profile</button>
+        <div class="userProfile-buttons">
+          <button 
+            class="button" 
+            @click="editModal = true"
+          >
+            Edit profile
+          </button>
         </div>
       </section>
       <section class="embroideryCards">
-        <nuxt-link
-          to="/Embroidery/Step-1-choose-hero"
-          class="embroideryCard embroideryCard_new">
-          <div class="embroideryCard-content">
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="#BDBDBD"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M35 29H29V35H27V29H21V27H27V21H29V27H35V29Z" fill="white" fill-opacity="0.87"/>
-              <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" stroke="#BDBDBD"/>
-            </svg>
-            Create new embroidery
-          </div>
-        </nuxt-link>
-        <button
-          disabled
-          to="/Embroidery/CurrentStep"
-          class="embroideryCard">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/defaultHero.svg" alt="Name Surname" class="embroideryCard-img">
-            Mikalai Karsiuk
-            <span class="embroideryCard-status embroideryCard-status_progress">
-              In progress
-            </span>
-          </div>
-        </button>
-        <nuxt-link
-        to="/Gallery/Case"
-          class="embroideryCard">
-          <div class="embroideryCard-content">
-            <img src="../../assets/media/img/case1/prisoner.jpg" alt="Name Surname" class="embroideryCard-img">
-            Maryia Kalesnikava
-            <span class="embroideryCard-status embroideryCard-status_finish">
-              Completed
-            </span>
-          </div>
-        </nuxt-link>
+        <RegistrationEmbroideryCard
+          :newEmbroidery="true"
+        />
+        <RegistrationEmbroideryCard
+          :newEmbroidery="false"
+          :status="{type: 'inProgress', message: 'In Progress  Step 3'}"
+        />
+        <RegistrationEmbroideryCard
+          :newEmbroidery="false"
+          :status="{type: 'published', message: 'Published'}"
+        />
       </section>
     </div>
 
-    <vue-final-modal
-      v-model="editModal.show"
-      @click-outside="editModal.show = false"
+    <GeneralModal
+      :displayModal="editModal"
     >
     <div class="Settings content">
       <div class="Settings-header">
         <h2>
           Edit profile
         </h2>
-        <button
-          @click="editModal.show = false"
-          class="Settings-close"
-        >
-          <img src="../../assets/media/img/close.svg" alt="Close">
-        </button>
       </div>
       <div class="Settings-body">
         <div class="Settings-item Settings-item-name">
@@ -255,13 +195,13 @@ definePageMeta({
 
         <div class="Settings-item Settings-item_buttons">
           <div class="Settings-item-main">
-            <button class="button" @click="editModal.show = false">Cancel</button>
+            <button class="button" @click="editModal = false">Cancel</button>
             <button class="button bg_black">Save</button>
           </div>
         </div>
       </div>
     </div>
-    </vue-final-modal>
+    </GeneralModal>
   </main>
 </template>
 
