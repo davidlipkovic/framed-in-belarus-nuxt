@@ -3,12 +3,15 @@
 .Content {
   background-color: $redBlood;
 }
+
 .Title {
   color: $white;
+
   &::before {
     background-color: rgba(134,12,34,0.71);
   }
 }
+
 .Footer {
   margin-top: 0;
 }
