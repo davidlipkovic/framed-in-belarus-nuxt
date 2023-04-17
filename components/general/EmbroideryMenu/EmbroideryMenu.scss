@@ -35,7 +35,7 @@
   transition-duration: 0.15s;
 }
 
-.userCard-avatar {
+.userProfile-avatar {
   width: 30px;
   height: auto;
   object-fit: cover;
@@ -56,11 +56,9 @@
     width: 30px;
     height: 30px;
 
-    svg {
-      margin: auto;
-      width: 18px;
+    img {
+      width: 26px;
       height: auto;
-      fill: $black;
     }
   }
 }
