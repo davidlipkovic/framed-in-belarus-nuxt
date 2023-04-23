@@ -1,0 +1,36 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.modalWrapper {
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20000;
+}
+
+.modalBackgroundWrapper {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20001;
+  background-color: $greyTransparentBG;
+}
+
+.modalContentWrapper {
+  z-index: 20002;
+  position: relative;
+
+  .closeButton {
+    position: absolute;
+    right: 42px;
+    top: 22px;
+    z-index: 20003;
+
+    svg {
+      width: 22px;
+    }
+  }
+}
