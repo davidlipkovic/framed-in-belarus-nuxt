@@ -3,9 +3,13 @@
 
 <template>
   <div>
-    <GeneralEmbroideryMenu/>
+    <GeneralMainMenu
+      :showUser="true"
+    />
     <slot/>
     <GeneralPointerUp/>
-    <GeneralEmbroideryFooter/>
+    <GeneralMainFooter
+      :showUser="true"
+    />
   </div>
 </template>
