@@ -4,7 +4,7 @@
 <template>
   <div>
     <RegistrationTopHeader/>
-    <main class="Content">
+    <main class="Content flexRowCenter">
       <RegistrationEmbroiderer/>
       <slot/>
     </main>

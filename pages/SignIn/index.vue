@@ -9,12 +9,12 @@ definePageMeta({
     <h1 class="title">Sign in</h1>
     <p class="signUpDescription">Not a member? <nuxt-link to="/SignUp" class="redLighter">Sign up</nuxt-link></p>
     <form class="formWrapper">
-      <input type="email" name="email" id="email" placeholder="E-mail">
+      <input type="email" name="username" id="username" placeholder="Username" class="usernameInput">
       <input type="password" name="password" id="password" placeholder="Password" class="passwordInput">
       <p class="alignRight lostPasswordWrapper">
         <nuxt-link to="/LostPassword">Forgot the password?</nuxt-link>
       </p>
-      <p>
+      <p class="checkBoxWrapper">
         <input type="checkbox" id="remember" name="remember">
         <label for="remember">Remember me</label>
       </p>
