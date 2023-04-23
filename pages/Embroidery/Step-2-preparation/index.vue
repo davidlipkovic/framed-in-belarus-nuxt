@@ -1,6 +1,4 @@
 <script setup>
-import { VueFinalModal } from 'vue-final-modal'
-  
 definePageMeta({
   layout: "embroidery"
 })

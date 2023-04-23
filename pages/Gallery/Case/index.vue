@@ -1,10 +1,4 @@
 <script setup>
-import { VueFinalModal } from 'vue-final-modal'
-
-const Image1 = ref( false )
-const Image2 = ref( false )
-const Image3 = ref( false )
-const Image4 = ref( false )
 </script>
 
 <template>
@@ -126,114 +120,30 @@ const Image4 = ref( false )
         <!--            заключенным в Беларуси.-->
         <!--          </p>-->
         <!--        </div>-->
-        <div class="Description-item_img">
-          <img
-            src="../../../assets/media/img/case1/komentar1.jpg"
-            alt="Alphabet embroidery pattern"
-            class="pattern-image"
-            @click="Image1 = true"
-          />
-          <div class="pattern-buttons">
-            <button
-              class="pattern-button pattern-button_look"
-              @click="Image1 = true"
-            >
-            <span class="pattern-button-text">
-              See full image
-            </span>
-            </button>
-          </div>
-          <vue-final-modal
-            v-model="Image1"
-            @click-outside="Image1 = false"
-          >
-            <img
-              src="../../../assets/media/img/case1/komentar1_full.jpg"
-              class="pattern-image"
-            />
-          </vue-final-modal>
-        </div>
-        <div class="Description-item_img">
-          <img
-            src="../../../assets/media/img/case1/komentar2.jpg"
-            alt="Alphabet embroidery pattern"
-            class="pattern-image"
-            @click="Image2 = true"
-          />
-          <div class="pattern-buttons">
-            <button
-              class="pattern-button pattern-button_look"
-              @click="Image2 = true"
-            >
-            <span class="pattern-button-text">
-              See full image
-            </span>
-            </button>
-          </div>
-          <vue-final-modal
-            v-model="Image2"
-            @click-outside="Image2 = false"
-          >
-            <img
-              src="../../../assets/media/img/case1/komentar2_full.jpg"
-              class="pattern-image"
-            />
-          </vue-final-modal>
-        </div>
-        <div class="Description-item_img">
-          <img
-            src="../../../assets/media/img/case1/proces1.jpg"
-            alt="Alphabet embroidery pattern"
-            class="pattern-image"
-            @click="Image3 = true"
-          />
-          <div class="pattern-buttons">
-            <button
-              class="pattern-button pattern-button_look"
-              @click="Image3 = true"
-            >
-            <span class="pattern-button-text">
-              See full image
-            </span>
-            </button>
-          </div>
-          <vue-final-modal
-            v-model="Image3"
-            @click-outside="Image3 = false"
-          >
-            <img
-              src="../../../assets/media/img/case1/proces1_full.jpg"
-              class="pattern-image"
-            />
-          </vue-final-modal>
-        </div>
-        <div class="Description-item_img">
-          <img
-            src="../../../assets/media/img/case1/proces2.jpg"
-            alt="Alphabet embroidery pattern"
-            class="pattern-image"
-            @click="Image4 = true"
-          />
-          <div class="pattern-buttons">
-            <button
-              class="pattern-button pattern-button_look"
-              @click="Image4 = true"
-            >
-            <span class="pattern-button-text">
-              See full image
-            </span>
-            </button>
-          </div>
-          <vue-final-modal
-            v-model="Image4"
-            @click-outside="Image4 = false"
-          >
-            <img
-              src="../../../assets/media/img/case1/proces2_full.jpg"
-              class="pattern-image"
-            />
-          </vue-final-modal>
-        </div>
+        <GeneralImageModal
+          class="Description-item_img"
+          alt=""
+          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar1_full.jpg"
+          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar1.jpg"
+        />
+        <GeneralImageModal
+          class="Description-item_img"
+          alt=""
+          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar2_full.jpg"
+          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar2.jpg"
+        />
+        <GeneralImageModal
+          class="Description-item_img"
+          alt=""
+          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces1_full.jpg"
+          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces1.jpg"
+        />
+        <GeneralImageModal
+          class="Description-item_img"
+          alt=""
+          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces2_full.jpg"
+          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces2.jpg"
+        />
         <div class="Description-item">
           <h3 class="ExhibitionTitle">List of exhibitions</h3>
           <ul class="ExhibitionList">

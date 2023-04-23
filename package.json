@@ -20,8 +20,5 @@
     "pinia": "^2.0.34",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2"
-  },
-  "dependencies": {
-    "vue-final-modal": "^4.2.0"
   }
 }
