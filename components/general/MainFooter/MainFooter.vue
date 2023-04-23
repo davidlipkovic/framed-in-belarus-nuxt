@@ -1,11 +1,10 @@
-<script>
-import MainLogo from '@/components/general/MainLogo'
-
-export default {
-  components: {
-    MainLogo
-  },
-}
+<script setup>
+const props = defineProps({
+  showUser: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <template>
@@ -58,12 +57,27 @@ export default {
 <!--              </nuxt-link>-->
             </div>
           </div>
-          <div class="Info-menu-group">
+          <div class="Info-menu-group flexRowCenter">
             <nuxt-link
+              v-if="!showUser"
               to="/SignUp"
               class="Info-menu-item button bg_red"
             >
               {{ $t('participateBtnMsg') }}
+            </nuxt-link>
+            <img
+              v-if="showUser"
+              src="../../../assets/media/img/help-circle.svg"
+              class="Info-menu-item"
+            >
+            <nuxt-link
+              v-if="showUser"
+              to="/Profile"
+              class="Info-menu-item profileLink flexRowCenter"
+            >
+              <img
+                src="../../../assets/media/img/profileSymbolFramed.svg"
+              >
             </nuxt-link>
           </div>
         </nav>
