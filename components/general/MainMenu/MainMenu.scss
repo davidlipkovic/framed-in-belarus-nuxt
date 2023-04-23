@@ -49,3 +49,105 @@
     padding-bottom: 14px;
   }
 }
+
+
+.Header {
+  padding-top: 0.313rem;
+  padding-bottom: 0.313rem;
+  background-color: $black;
+  color: $white;
+  font-size: 1rem;
+}
+.Header .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Header .content > * {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.Header .logo-project {
+  color: $white;
+  line-height: 160%;
+}
+
+.Lang .arrow {
+  position: relative;
+  top: -0.1rem;
+}
+
+.Lang.open .arrow {
+  transform: rotate(180deg);
+  transition-property: transform;
+  transition-duration: 0.15s;
+}
+
+.userProfile-avatar {
+  width: 30px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Tablet */
+@media screen and (min-width: $br-point-tablet) {
+  .Header {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .Burger-menu-item.profileLink {
+    margin-right: 14px;
+    background-color: $greyBg;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+
+    img {
+      width: 26px;
+      height: auto;
+    }
+  }
+}
+/* Desktop */
+@media screen and (min-width: $br-point-desktop) {
+  .Header {
+    padding-top: 1rem;
+    padding-bottom: 14px;
+  }
+}
+
+.pattern-button-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  transition-property: clip-path, clip, width, height;
+  transition-duration: 0.15s;
+}
+
+.Burger-menu-item:hover {
+  position: relative;
+
+  .pattern-button-text {
+    padding: 0.25rem 0.75rem;
+    width: auto;
+    height: 1.75rem;
+    border-radius: 0.25rem;
+    background-color: $greyDisabledColor;
+    color: $white;
+    top: 3rem;
+    left: -100%;
+    clip: auto;
+    clip-path: none;
+    z-index: 1000;
+  }
+}
