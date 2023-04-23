@@ -1,7 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-
-import { VueFinalModal } from 'vue-final-modal'
+import { watch } from 'vue'
 
 const props = defineProps({
   alt: String,
@@ -9,9 +7,13 @@ const props = defineProps({
   iconImageUrl: String,
 })
 
-const showModal = ref( false )
+const displayImageModal = ref( false )
 
 const getImageUrl = (url) => new URL(url, import.meta.url).href
+
+watch(displayImageModal, n => {
+  n ? document.documentElement.classList.add('overflowHidden') : document.documentElement.classList.remove('overflowHidden')
+})
 </script>
 
 <template>
@@ -24,7 +26,7 @@ const getImageUrl = (url) => new URL(url, import.meta.url).href
     <div class="pattern-buttons flexRowCenter">
       <button
         class="pattern-button pattern-button_look flexRowCenter"
-        @click="showModal = true"
+        @click="displayImageModal = true"
       >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 20 13.6">
           <path d="M10,1.3c-3,0-6.2,1.8-8.6,5.3C1.3,6.6,1.3,6.8,1.3,6.9c0,0.1,0,0.2,0.1,0.3c1.9,3,5,5.3,8.6,5.3
@@ -49,26 +51,30 @@ const getImageUrl = (url) => new URL(url, import.meta.url).href
         <span class="pattern-button-text">Download full image</span>
       </a>
     </div>
-    <!-- <div 
-      v-if="showModal"
-      class="fullModalWrapper"
+    <div
+      class="modalWrapper imageModalWrapper flexRowCenter"
+      v-if="displayImageModal"
     >
-      <vue-final-modal
-        v-model="showModal"
-        @click-outside="showModal = false"
+      <div
+        class="modalBackgroundWrapper"
+        @click="displayImageModal = false"
+      />
+      <div
+        class="modalContentWrapper imageModalContentWrapper flexRowCenter"
       >
-        <button
-          @click="showModal = false"
+        <!-- <button
+          @click="displayImageModal = false"
+          class="closeButton"
         >
-          close
-        </button>
+          <SvgClose />
+        </button> -->
         <img
           :src="fullImageUrl"
           :alt="alt"
-          class="pattern-image"
+          class="imageModalFullImage"
         />
-      </vue-final-modal>
-    </div> -->
+      </div>
+    </div>
   </div>
 </template>
 

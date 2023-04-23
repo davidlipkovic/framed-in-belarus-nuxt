@@ -88,12 +88,13 @@
   }
 }
 
-.fullModalWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+.imageModalContentWrapper {
+  img {
+    max-width: 70vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: $br-point-tablet) {
