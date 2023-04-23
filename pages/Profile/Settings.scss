@@ -2,60 +2,51 @@
 
 .Settings {
   background-color: $white;
-  position: relative;
-  top: 1.5rem;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
   border-radius: 0.75rem;
 }
+
 .Settings-header {
-  padding-top: 1.625rem;
-  padding-right: 2.25rem;
-  padding-bottom: 1.25rem;
-  padding-left: 2.25rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  padding: 22px 2.25rem 18px;
   border-bottom: 1px solid $borderLight;
+  align-items: center;
+
   h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
   }
 }
-.Settings-close {
-  width: 1.563rem;
-  height: 1.563rem;
-  padding: 0;
-  margin: 0;
-  border: none;
-  img {    
-    width: 100%;
-    height: 100%;
-  }
+
+.Settings-item {
+  padding: 24px 2.25rem 1.125rem;
 }
-.Settings-item {  
-  padding-top: 1.125rem;
-  padding-right: 2.25rem;
-  padding-bottom: 1.125rem;
-  padding-left: 2.25rem;
+
+.Settings-item_reason {
+  padding: 12px 2.25rem 1.125rem;
   border-bottom: 1px solid $borderLight;
 }
+
 .Settings-item-main {
   display: flex;
   flex-direction: column;
 }
+
 .Settings-item-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
+
 .Settings-item-publish {
+  margin-top: 10px;
+
   label {
     margin-right: 1.125rem;
     font-size: 0.875rem;
   }
+
   .switcher {
     background: $borderLight;
     border-radius: 7px;
@@ -64,6 +55,7 @@
     position: relative;
     appearance: none;
   }
+
   .switcher:after {
     content: '';
     display: block;
@@ -78,9 +70,11 @@
     transition-property: left;
     transition-duration: 0.15s;
   }
+
   .switcher:checked {    
     background: rgba(187, 134, 252, 0.38);
   }
+  
   .switcher:checked:after {
     background: $inputsBorderFocus;
     left: 41.18%;
@@ -92,27 +86,24 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
   }
-  .Settings-item:nth-child(even) {
-    padding-left: 0;
-  }
-  .Settings-item:nth-child(even).Settings-item_reason,
-  .Settings-item:nth-child(even).Settings-item_buttons {    
-    padding-left: 2.25rem;
-  }
+
   .Settings-item_reason,
   .Settings-item_buttons {
     grid-column: span 2;
   }
+
   .Settings-item_buttons {
     .Settings-item-main {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+
       .button {
         width: 5.625rem;
         width: fit-content;
         margin-bottom: 0;
       }
+
       .button:first-child {
         margin-right: 1.5rem;
       }
