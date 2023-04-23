@@ -92,10 +92,28 @@ export default {
     </section>
     <section class="content Partners">
       <div class="Partners-group">
+        <div class="Partners-logo">
+          <img
+            src="../assets/media/img/logos/Tutaka_logo.svg"
+            alt="Viasna"
+            class="img"
+          />
+        </div>
         <a href="https://spring96.org" target="_blank" class="Partners-logo">
           <img
             src="../assets/media/img/logos/logo_viasna96_en.png"
             alt="Viasna"
+            class="img"
+          />
+        </a>
+        <a
+          href="https://politzek.me/"
+          target="_blank"
+          class="Partners-logo"
+        >
+          <img
+            src="../assets/media/img/logos/Logo_polizek_rastr.png"
+            alt="Logo_polizek_rastr"
             class="img"
           />
         </a>
@@ -106,6 +124,15 @@ export default {
             class="img"
           />
         </a>
+        <div
+          class="Partners-logo pashtovakLogo"
+        >
+          <img
+            src="../assets/media/img/logos/majsternia_pashtovak_4b.png"
+            alt="VYZHYVANKA"
+            class="img"
+          />
+        </div>
         <a
           href="https://en.stranafund.org"
           target="_blank"
@@ -125,35 +152,6 @@ export default {
           <img
             src="../assets/media/img/logos/vyzyvanka.png"
             alt="VYZHYVANKA"
-            class="img"
-          />
-        </a>
-        <a
-          href="https://politzek.me/"
-          target="_blank"
-          class="Partners-logo"
-        >
-          <img
-            src="../assets/media/img/logos/Logo_polizek_rastr.png"
-            alt="Logo_polizek_rastr"
-            class="img"
-          />
-        </a>
-        <a
-          href=""
-          target="_blank"
-          class="Partners-logo"
-        >
-          <img
-            src="../assets/media/img/logos/majsternia_pashtovak_4b.png"
-            alt="VYZHYVANKA"
-            class="img"
-          />
-        </a>
-        <a href="" target="_blank" class="Partners-logo">
-          <img
-            src="../assets/media/img/logos/Tutaka_logo.svg"
-            alt="Viasna"
             class="img"
           />
         </a>
