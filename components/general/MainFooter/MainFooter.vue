@@ -12,7 +12,7 @@ const props = defineProps({
     <div class="bg_black">
       <div class="content Info">
         <div class="Info-project">
-          <MainLogo/>
+          <GeneralMainLogo/>
           <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
           <div class="Info-Project-social">
             <a href="https://www.facebook.com/hashtag/framedinbelarus" target="_blank" class="Facebook"><img src="@/assets/media/img/facebook.svg" alt="Facebook"></a>

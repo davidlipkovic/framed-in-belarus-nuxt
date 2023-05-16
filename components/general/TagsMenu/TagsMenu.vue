@@ -13,6 +13,14 @@ const showMenu = ref(false)
 const showSubTags = ref(false)
 const currentTagIndex = ref(0)
 
+const closeTagsMenu = () => {
+  $emit('closeTagsMenu')
+}
+
+const updateTagsMenuStatus = () => {
+  $emit('checkForStatus')
+}
+
 watch(showMenu, (n) => {
   if (!n) {
     showSubTags.value = false

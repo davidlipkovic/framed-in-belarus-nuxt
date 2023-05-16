@@ -1,7 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const showMenu = ref(false)
+
+const current = ref(null)
+
+const alphabetically = 'A-Z'
+const alphabeticallyReversed = 'Z-A'
+const chronologically = 'Date (newest first)'
+const chronologicallyReversed = 'Date (oldest first)'
+
+onMounted(() => {
+  current.value = alphabetically
+})
 </script>
 
 <template>
@@ -13,9 +24,9 @@ const showMenu = ref(false)
       class="sortMenuTitleWrapper flexRowStart"
       @click="showMenu = !showMenu"
     >
-        <SvgSwap/>
-        Sort by
-        <SvgArrowDown/>
+      <SvgSwap/>
+      Sort by: {{ current }}
+      <SvgArrowDown/>
     </button>
     <ul
       v-if="showMenu"
@@ -25,28 +36,28 @@ const showMenu = ref(false)
         <button
           class="capitalize flexRowStart"
         >
-          A-Z
+          {{ alphabetically }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
         >
-          Z-A
+          {{ alphabeticallyReversed }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
         >
-          Date (newest first)
+          {{ chronologically }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
         >
-          Date (oldest first)
+          {{ chronologicallyReversed }}
         </button>
       </li>
     </ul>

@@ -22,7 +22,7 @@ export default {
 <template>
   <header class="Header_sign">
     <div class="content">
-      <MainLogo/>
+      <GeneralMainLogo/>
       <details class="Lang">
         <summary
           for="Lang"

@@ -1,7 +1,10 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const { locale, locales } = useI18n()
+
+const route = useRoute()
 
 const props = defineProps({
   showUser: {
@@ -10,12 +13,17 @@ const props = defineProps({
   }
 })
 
+const displayProfileModal = ref(false)
+const displayQuestionModal = ref(false)
+
 const switchLocalePath = useSwitchLocalePath()
 const availableLocales = computed(() => {
   return (locales.value).filter(i => i.code !== locale.value)
 })
 
-onMounted(() => {
+watch(route, n => {
+  displayProfileModal.value = false
+  displayQuestionModal.value = false
 })
 </script>
 
@@ -81,7 +89,7 @@ onMounted(() => {
             <button
               v-if="showUser"
               class="Burger-menu-item askButton flexRowCenter"
-              @click="showQuestionModal = !showQuestionModal"
+              @click="displayQuestionModal = !displayQuestionModal"
             >
               <img
                 src="../../../assets/media/img/help-circle.svg"
@@ -90,10 +98,10 @@ onMounted(() => {
                 Ask a question
               </span>
             </button>
-            <nuxt-link
+            <button
               v-if="showUser"
-              to="/Profile"
               class="Burger-menu-item profileLink flexRowCenter"
+              @click="displayProfileModal = !displayProfileModal"
             >
               <img
                 src="../../../assets/media/img/profileSymbolFramed.svg"
@@ -101,7 +109,36 @@ onMounted(() => {
               <span class="pattern-button-text">
                 Profile
               </span>
-            </nuxt-link>
+            </button>
+            <div
+              v-if="displayProfileModal"
+              class="profileMenuWrapper flexColumnStart"
+            >
+              <img
+                src="../../../assets/media/img/profileSymbolFramed.svg"
+              >
+              <span
+                class="profileMenuWrapper__name"
+              >
+                Tiffany Chin
+              </span>
+              <nuxt-link
+                to="/Profile"
+                class="profileMenuWrapper__profileLink flexRowStart"
+              >
+                <span>
+                  My embroideries
+                </span>
+              </nuxt-link>
+              <nuxt-link
+                to="/"
+                class="profileMenuWrapper__signOut flexRowStart"
+              >
+                <span>
+                  Sign Out
+                </span>
+              </nuxt-link>
+            </div>
             <div class="Lang">
               <div class="Lang-button Burger-menu-item">
                 ENG
@@ -127,6 +164,49 @@ onMounted(() => {
       </div>
     </header>
   </div>
+  <GeneralModal
+    @closeModal="displayQuestionModal = false"
+    :displayModal="displayQuestionModal"
+    class="questionModal"
+  >
+    <div class="Settings content">
+      <div class="Settings-header">
+        <h2>
+          Ask a question
+        </h2>
+      </div>
+      <div class="Settings-body">
+        <div class="Settings-item Settings-item_reason">
+          <div class="Settings-item-main">
+            <label for="reason" class="Settings-item-title">
+              Ask a question
+            </label>
+            <textarea class="Settings-item-input" id="reason" name="reason" />
+            <p class="textAreaDescription">
+              If you have an urgent question, please ask us and we will send you an email.
+            </p>
+          </div>
+        </div>
+        <div class="Settings-item Settings-item_buttons">
+          <div class="Settings-item-main">
+            <button 
+              class="button" 
+              @click="displayQuestionModal = false"
+            >
+              Cancel
+            </button>
+            <button 
+              class="button bg_black"
+              @click="displayQuestionModal = false"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </GeneralModal>
 </template>
 
 <style src="./MainMenu.scss" lang="scss"></style>
+<style src="../../../pages/Profile/Settings.scss" lang="scss" scoped></style>

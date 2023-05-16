@@ -19,6 +19,10 @@
   * {
     color: $black;
   }
+
+  .embroideryCard-status_inProgress {
+    color: $white;
+  }
 }
 
 .embroideryCard_new {
@@ -36,6 +40,32 @@
 
     svg {
       width: 15px;
+      color: $white !important;
+      stroke: $white !important;
+
+      * {
+        color: $white !important;
+        stroke: $white !important;
+      }
+    }
+  }
+}
+
+.embroideryCard_new:hover {
+  border: 1px dashed $black;
+
+  .plusButtonWrapper {
+    border: 1px solid $black;
+    background-color: $black;
+
+    svg {
+      color: $white !important;
+      stroke: $white !important;
+
+      * {
+        color: $white !important;
+        stroke: $white !important;
+      }
     }
   }
 }

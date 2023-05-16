@@ -9,11 +9,36 @@ definePageMeta({
   layout: "embroidery"
 })
 
-const localPrisoners = computed(() => prisonersStore.originalPrisoners.value.slice(0, 16))
+const activeMenuIndex = ref(null)
+const rangeIndex = ref(0)
+const rangePerPage = ref(16)
+const localPrisoners = computed(() => prisonersStore.originalPrisoners.value.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value))
 const localTags = computed(() => prisonersStore.tags.value)
 
+const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+// const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+// const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+
+const changePageIndex = (index) => {
+   if (index === 'first') { 
+    rangeIndex.value = 0
+  } else if (index === -1) {
+    rangeIndex.value = rangeIndex.value - rangePerPage.value
+  } else if (index === 1) { 
+    rangeIndex.value = rangeIndex.value + rangePerPage.value
+  } else if (index === 'last') { 
+    rangeIndex.value = prisonersStore.originalPrisoners.value.length - rangePerPage.value
+  }
+}
+
+const closeTagsMenu = (index) => {
+  if (activeMenuIndex.value === index) {
+    activeMenuIndex.value = null
+  }
+}
+
 onMounted(() => {
-  console.log(prisonersStore.chosenHero())
 })
 </script>
 
@@ -52,8 +77,11 @@ onMounted(() => {
               :tags="localTags.statuses.tags"
             />
             <GeneralTagsMenu
+              :menuStatus="activeMenuIndex === 4"
               :type="localTags.genders.type"
               :tags="localTags.genders.tags"
+              @checkForStatus="toggleActiveMenuIndex(4)"
+              @closeTagsMenu="closeTagsMenu(4)"
             />
           </div>
         </div>
@@ -65,6 +93,10 @@ onMounted(() => {
             :hero="hero"
           />
         </div>
+
+        <GeneralPagination
+          @change-page-index-to="changePageIndex"
+        />
 
         <!-- <div id="default">
           <p class="alignCenter">

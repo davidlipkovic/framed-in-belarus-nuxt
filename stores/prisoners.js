@@ -13,25 +13,13 @@ export const usePrisonersStore = defineStore("prisoners", () => {
   // }
 
   const changeDateFormat = (originalDate) => {
-
     let msec = Date.parse(originalDate)
-    const d = new Date(msec)
+    let d = new Date(msec)
 
-
-    // const parts = originalDate.split('-')
-    // const d = new Date(parts[0], parts[1] - 1, parts[2])
-
-    // let day = d.getDate();
-    // console.log(day); // 23
-
-    // let month = defineStore.getMonth();
-    // console.log(month + 1); // 8
-
-    // let year = d.getFullYear();
-    // console.log(year); // 2022
-
-    return d
+    return d.getDay() + ' ' + d.toLocaleString('en-us', { month: 'long' }) + ' ' + d.getFullYear()
   }
+
+  console.log(changeDateFormat('1982-04-24'))
 
   const chosenHero = () => {
     const hero = {
