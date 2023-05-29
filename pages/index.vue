@@ -1,14 +1,5 @@
-<script>
-import Slider from '@/components/general/Slider'
-
-export default {
-  components: {
-    Slider
-  },
-  mounted() {
-    // console.log(this.i18n)
-  }
-}
+<script setup>
+const numberOfPrisoners = 1432
 </script>
 
 <template>
@@ -49,44 +40,35 @@ export default {
     <section class="bg_grey2">
       <article class="content">
         <div class="section">
-          <p>
-            {{ $t("homePage1") }}
-            <span class="bigger1"> 1432 </span>
-            {{ $t("homePage2") }}
-          </p>
-          <p>
-            {{ $t("homePage3") }}
-          </p>
-          <p>
+          <i18n-t keypath="homePage.paragraph1" tag="p">
+            <span class='bigger1'>
+              {{ numberOfPrisoners }}
+            </span>
+          </i18n-t>
+          <i18n-t keypath="homePage.paragraph2.content" tag="p">
             <strong class="b2">
-              {{ $t("homePage4") }}
+              {{ $t("homePage.paragraph2.highlight") }}
             </strong>
-            {{ $t("homePage5") }}
-          </p>
-          <p>
-            {{ $t("homePage6") }}
-          </p>
+          </i18n-t>
+          <i18n-t keypath="homePage.paragraph3.content" tag="p">
+            <strong class="b2">
+              {{ $t("homePage.paragraph3.highlight") }}
+            </strong>
+          </i18n-t>
+          <i18n-t keypath="homePage.paragraph4" tag="p"/>
         </div>
         <div class="section">
-          <p>
-            <strong class="b2">
-              {{ $t("homePage7") }}
-            </strong>
-            {{ $t("homePage8") }}
-          </p>
-          <p>
-            <strong class="b2">
-              {{ $t("homePage9") }}
-            </strong>
-            {{ $t("homePage10") }}
-          </p>
-          <p>
-            {{ $t("homePage11") }}
-            <strong class="b1 red">
-              {{ $t("homePage12") }}
-            </strong>
-            {{ $t("homePage13") }}
-          </p>
+          <i18n-t keypath="homePage.paragraph5" tag="p"/>
+          <i18n-t keypath="homePage.paragraph6.content" tag="p">
+            <a 
+              href="https://www.vyzyvanka.com/" 
+              target="_blank"
+            >
+              <strong class="b1 red">
+                {{ $t("homePage.paragraph6.highlight") }}
+              </strong>
+            </a>
+          </i18n-t>
         </div>
       </article>
     </section>

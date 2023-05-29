@@ -57,18 +57,55 @@ watch(text, (n) => {
           </p>
           <br>
           <p>
-            If possible, please write the text in English. If not, please write it in your own language. 
+            It would be wonderful if you can also write a handwritten comment and send it to us together with the finished embroidery. Because the handwritten text looks better when installed on the exhibitions. 
           </p>
           <br>
-          <p>
-            It would be wonderful if you could write the text both by hand and in a digital version. Handwritten texts look better when installed with embroidery, but digital text is much easier to translate into other languages.
-          </p>
+          <label for="publishDisagree" class="publishComment-item">
+            <input
+              type="radio"
+              name="publish"
+              id="publishDisagree"
+              value="disagree"
+              class="publishComment-item-input"
+              required
+            />
+            <span class="publishComment-item-label">
+              I wrote a handwritten comment and will send it along with the embroidery.
+            </span>
+          </label>
+          <label for="publishDisagree" class="publishComment-item">
+            <input
+              type="radio"
+              name="publish"
+              id="publishDisagree"
+              value="disagree"
+              class="publishComment-item-input"
+              required
+            />
+            <span class="publishComment-item-label">
+              I will type a comment here
+            </span>
+          </label>
         </div>
         <div class="part Comment">
           <div class="Comment-header">
             <label for="comment" class="title">Comment</label>
-            <output id="lettersLeft">2300</output>
+            <!-- <output id="lettersLeft">2300</output> -->
           </div>
+          <div class="Comment-content">
+            <p class="note">
+              If possible, please write the text in English.
+            </p>
+            <textarea
+              name="comment"
+              id="comment"
+              placeholder="Type a comment"
+              class=""
+              v-model="text"
+            ></textarea>
+            <p class="mistake defaultNone">Please add a comment or a picture</p>
+          </div>
+          <br>
           <div class="Comment-content">
             <textarea
               name="comment"
@@ -77,10 +114,6 @@ watch(text, (n) => {
               class=""
               v-model="text"
             ></textarea>
-            <p class="note">
-              If possible, please write the text in English. If not, please
-              write it in your own language.
-            </p>
             <p class="mistake defaultNone">Please add a comment or a picture</p>
           </div>
         </div>
@@ -99,9 +132,9 @@ watch(text, (n) => {
               class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label"
-            >I agree, I want my voice to be heard</span
-            >
+            <span class="publishComment-item-label">
+              I agree, I want my voice to be heard
+            </span>
           </label>
           <label for="publishDisagree" class="publishComment-item">
             <input
@@ -112,27 +145,12 @@ watch(text, (n) => {
               class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label"
-            >I disagree, please keep my comment for internal project needs
-              only</span
-            >
-          </label>
-          <label for="publishCant" class="publishComment-item">
-            <input
-              type="radio"
-              name="publish"
-              id="publishCant"
-              value="cant"
-              class="publishComment-item-input"
-              required
-            />
-            <span class="publishComment-item-label"
-            >I can not write a comment</span
-            >
+            <span class="publishComment-item-label">
+              I disagree, please keep my comment for internal project needsonly
+            </span>
           </label>
           <p class="mistake defaultNone">Please choose one option</p>
         </div>
-
         <div class="buttons">
           <nuxt-link to="/Embroidery/Step-4-photo" class="button"
           >Previous step</nuxt-link

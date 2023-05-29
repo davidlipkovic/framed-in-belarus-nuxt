@@ -175,18 +175,14 @@ const AlphabetPattern3 = ref({ show: false })
               <div class="subscription-content">
                 <h2 class="title">Work subscription</h2>
                 <p>
-                  Instead of the "YOUR NAME, CITY, YEAR" line, sign the final
-                  embroidery with your name or pseudonym. If you worked on the
-                  embroidery collectively, have everyone embroider their
-                  name/pseudonym. We enclose a Latin alphabet from which you will
-                  make up your signature. You can come up with your own font. It
-                  would be great if you could also embroider the place you are
-                  from, the date, or any other text. If you think your work should
-                  be accentuated by decorations, add them.
+                  Instead of the "YOUR NAME, CITY, YEAR" line, sign the final embroidery with your name or pseudonym. 
+                  If you worked on the embroidery collectively, have everyone embroider their name/pseudonym. 
+                  We enclose a Latin and Belarusian alphabet from which you will make up your signature. 
+                  You can come up with your own font. It would be great if you could also embroider the place you are from, 
+                  the date, or any other text. If you think your work should be accentuated by decorations, add them.
                 </p>
                 <p class="b2">
-                  Please don't be afraid to make mistakes — the embroidery does
-                  not have to be perfect, let it be ORIGINAL, be YOURSELF!
+                  Please don't be afraid to make mistakes - the embroidery does not have to be perfect, let it be ORIGINAL, be YOURSELF!
                 </p>
               </div>
               <div class="subscription-patterns-wrapper">

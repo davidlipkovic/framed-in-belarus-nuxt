@@ -33,11 +33,17 @@ export default {
         </picture>
         <div class="text">
           <p>
-            {{ $t('aboutUsPage1') }}
+            Stitchit is an art group created in 2021 by visual artist Rufina Bazlova (Belarus) and curator Sofia Tocar (Moldova). The group works on burning socio-political issues using the traditional technique of embroidery as a  tool of resistance and dialogue. Stitchit involves different communities and individuals into the  creation process and blurs the lines of authorship. 
           </p>
+          <br>
+          <p>
+            Collective means all people, who take part in a project and activities organized by Stitchit.
+          </p>
+          <br>
           <p>
             {{ $t('aboutUsPage2') }} <a href="mailto:framedinbelarus@gmail.com">framedinbelarus@gmail.com</a>.
           </p>
+          <br>
           <a href="https://www.instagram.com/rufinabazlova/" target="_blank" class="button">
             {{ $t('linkInstagram') }}
           </a>

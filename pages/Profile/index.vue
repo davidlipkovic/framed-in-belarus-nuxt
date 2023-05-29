@@ -6,6 +6,11 @@ definePageMeta({
 })
 
 const displayEditModal = ref(false)
+
+const user = {
+  name: "Tiffany Chin",
+  comment: "To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus..."
+}
 </script>
 
 <template>
@@ -16,7 +21,10 @@ const displayEditModal = ref(false)
     </Head>
     <div class="Title">
       <h1 class="content">
-        <span class="subtitle">Profile <span class="visually-hidden">— </span></span>My embroideries
+        <span class="subtitle">
+          {{ $t('profilePage.subTitle') }}
+        </span>
+        {{ $t('profilePage.title') }}
       </h1>
     </div>
     <div class="content">
@@ -27,14 +35,16 @@ const displayEditModal = ref(false)
             class="userProfile-avatar" 
             alt="Avatar"
           >
-          <h2 class="userProfile-title">Tiffany Chin</h2>
+          <h2 class="userProfile-title">
+            {{ user.name }}
+          </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
           <h3 class="b">
-            Why did you decide to participate?
+            {{ $t('profilePage.question') }}
           </h3>
           <p>
-            To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus...
+            {{ user.comment }}
           </p>
         </div>
         <div class="userProfile-buttons">
@@ -60,7 +70,6 @@ const displayEditModal = ref(false)
         />
       </section>
     </div>
-
     <GeneralModal
       @closeModal="displayEditModal = false"
       :displayModal="displayEditModal"
@@ -77,10 +86,22 @@ const displayEditModal = ref(false)
               <label for="nickname" class="Settings-item-title">
                 Pseudonym / Nickname
               </label>
-              <input type="text" value="" placeholder="Your pseudonym / nickname" class="Settings-item-input" id="nickname" name="nickname">
+              <input 
+                type="text" 
+                value="" 
+                placeholder="Your pseudonym / nickname" 
+                class="Settings-item-input" 
+                id="nickname" 
+                name="nickname"
+              >
+              <p class="Settings-item-publish">
+                <label for="reasonPublish">
+                  Publish
+                </label>
+                <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
+              </p>
             </div>
           </div>
-
           <div class="Settings-item Settings-item_reason">
             <div class="Settings-item-main">
               <label for="reason" class="Settings-item-title">
@@ -96,7 +117,6 @@ const displayEditModal = ref(false)
               <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
             </p>
           </div>
-
           <div class="Settings-item Settings-item_buttons">
             <div class="Settings-item-main">
               <button 

@@ -53,7 +53,7 @@ const props = defineProps({
 <!--                to="/SignIn"-->
 <!--                class="Info-menu-item Login"-->
 <!--              >-->
-<!--                {{ $t('linkLogin') }}-->
+<!--                {{ $t('linkSignin') }}-->
 <!--              </nuxt-link>-->
             </div>
           </div>

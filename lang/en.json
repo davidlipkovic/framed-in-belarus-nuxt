@@ -1,12 +1,13 @@
 {
     "title": "Framed in Belarus",
-    "description": "A social art project dedicated to political prisoners in Belarus",
+    "description": "A social art project dedicated to political prisoners in Belarus",
     "linkHome": "Home",
     "linkGallery": "Gallery",
     "linkNews": "News",
     "linkAboutUs": "About us",
     "linkFAQ": "FAQ",
-    "linkLogin": "Log in",
+    "linkSignup": "Sign up",
+    "linkSignin": "Sign in",
     "linkFacebook": "Find us on Facebook",
     "linkInstagram": "Find us on Instagram",
     "participateBtnMsg": "Start stitching",
@@ -15,19 +16,186 @@
     "decline": "Decline",
     "manage": "Manage",
     "moreBtnMsg": "More",
-    "homePage1": "The number of officially recognized political prisoners in Belarus currently reaches more than",
-    "homePage2": "people.",
-    "homePage3": "Each and every one of us has the opportunity to speak out against injustice through solidarity and collective creative process. ",
-    "homePage4": "The aim of the #FramedinBelarus project",
-    "homePage5": "project is to tell about each illegally convicted citizen of Belarus and create their portraits using the traditional Belarussian technique of embroidery with red thread on a white background, and as a result - to record an important era of Belarusian history with a folk code ornament.",
-    "homePage6": "The process of embroidery is a long and meditative experience, allowing participants to concentrate on their thoughts and feelings for a particular arrestee. Time is what is taken away from a person in prison and time is the little we can sacrifice when creating a portrait of a political prisoner.",
-    "homePage7": "Participation in the project",
-    "homePage8": "is a gesture of creative solidarity, allowing us to symbolically support people affected by the state regime and share a story about their experience using a non-traditional tool of political protest - cross-stitching.",
-    "homePage9": "The final form",
-    "homePage10": "of the project will be a collective canvas of all the embroidered portraits and will be a material symbol of the intertwining of political events and human destinies.",
-    "homePage11": "The project is a continuation of the series",
-    "homePage12": "\"History of Belarusian Vyzhivanka\"",
-    "homePage13": ", created by Rufina Bazlova in 2020-2021.",
+    "buttons": {
+        "cancel": "Cancel",
+        "publish": "Publish",
+        "save": "Save"
+    },
+    "placeholders": {
+        "username": "Username",
+        "password": "Password",
+        "passwordAgain": "Password again",
+        "chooseCommunicationLanguage": "Choose communication language",
+        "pseudonym": "Your pseudonym / nickname",
+        "searchHero": "Search for a hero by name"
+    },
+    "homePage": {
+        "paragraph1": "The number of officially recognized political prisoners in Belarus currently reaches more than {0} people.",
+        "paragraph2": {
+            "content": "{0} to create portraits of each illegally convicted citizen using the traditional Belarusian embroidery technique of red thread on a white background, thereby recording an important era of Belarusian history with a folk code - ornament.",
+            "highlight": "The project aims"
+        },
+        "paragraph3": {
+            "content": "{0} is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the state regime and share their stories through the non-traditional tool of political protest - cross-stitching.",
+            "highlight": "Participation in the project"
+        },
+        "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular arrestee. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
+        "paragraph5": "Already, more than 400 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups. The final form of the project will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies.",
+        "paragraph6": {
+            "content": "The project is a continuation of the series {0}, created by Rufina Bazlova in 2020-2021, and is run by the Stitchit Collective. Through the #FramedinBelarus project, the collective creative process allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus.",
+            "highlight": "\"History of Belarusian Vyzhivanka\""
+        }
+    },
+    "signUpPage": {
+        "title": "Sign up",
+        "signInQuestion": "Already a member?",
+        "textarea": "Why did you decide to join the project?",
+        "terms": {
+            "section1": {
+                "title": "How to participate",
+                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
+                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All fates are equally important in this project, and we would like to immortalise all stories, so each political prisoner is embroidered only once."
+            },
+            "section2": {
+                "title": "Timeline",
+                "paragraph1": {
+                    "content": "The work process is divided into several steps that you can go through at your own pace. However, {0}. This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
+                    "highlight": "we have set a time limit of 2 months"
+                },
+                "paragraph2": "If you do not finish your work in 2 months and tell us you need more time, we may drop you from the project and pass your hero to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
+                "paragraph3": {
+                    "content": "If you decide to withdraw from the project for any reason, or {0} your embroidery work {1}, please {2} as soon as possible.",
+                    "highlight1": "if you will not be able to finish",
+                    "highlight2": "on time",
+                    "highlight3": "let us know"
+                }
+            },
+            "section3": {
+                "title": "Publicity",
+                "paragraph1": {
+                    "content": "After your registration, {0}. You can also choose whether to use your real name or pseudonym and administer your own profile.",
+                    "highlight": "your data will not be available to other users on the website"
+                },
+                "paragraph2": {
+                    "content": "An important element of the project is photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
+                    "highlight": "photos will be later used on the site and in other publications on the project"
+                }
+            },
+            "section4": {
+                "title": "Price",
+                "paragraph1": {
+                    "content": "{0} and open to all those who are willing to give their time and effort to create an embroidery. The cost of creating the work is at your own expense and will cost you the equivalent of two cups of coffee. The final idea of the project is to create a large-scale canvas with embroideries of all political prisoners, therefore, by participating in the project you are committing to send us your embroidery and become part of a large mosaic of portraits, which will later be publicly exhibited in galleries and cultural institutions.",
+                    "highlight": "Participation in the project is free"
+                }
+            },
+            "section5": {
+                "title": "Personal Comment",
+                "paragraph1": {
+                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understand the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
+                    "highlight": "ask you to write a short comment about your experience"
+                }
+            }
+        }
+    },
+    "profilePage": {
+        "title": "My embroideries",
+        "subTitle": "Profile",
+        "question": "Why did you decide to participate?",
+        "editProfile": "Edit profile",
+        "cardStatus": {
+            "status1": "In Progress",
+            "status2": "Pattern is ready",
+            "status3": "Stitched",
+            "status4": "Sent",
+            "status5": "Published",
+            "status6": "Delivered",
+            "status7": "Requested"
+        }
+    },
+    "embroidery": {
+        "steps": {
+            "steps": [
+                "Your Hero",
+                "Preparation",
+                "Support",
+                "Photo",
+                "Comment",
+                "Shipping",
+                "Publication"
+            ],
+            "goBack": "Go back to my Profile",
+            "step": "step",
+            "description": {
+                "case": "Case",
+                "birth": "Date of birth",
+                "sentence": "Sentence",
+                "descriptionPrisoner" : "Description of the Political prisoner",
+                "descriptionCase" : "Description of the case",
+                "address" : "Address of the prison",
+                "moreButton" : "More information",
+                "lessButton" : "More information"
+            }
+        },
+        "step1Page": {
+            "title": "Choose your Hero",
+            "rows": "Rows per page",
+            "of": "of",
+            "warning": "Once you choose a hero you can't change it",
+            "backButton" : "Go back to all prisoners",
+            "forwardButton" : "Choose this hero"
+        },
+        "step2Page": {
+            "title": "Preparation",
+            "section1": {
+                "title": "What to buy?",
+                "paragraph1": {
+                    "content": "{0} white/natural (canvas or fabric with #weave)",
+                    "highlight": "Fabric color:"
+                },
+                "paragraph2": {
+                    "content": "{0} any shades of red / color combinations are possible at your discretion.",
+                    "highlight": "Thread color:"
+                }
+            },
+            "section2": {
+                "title": "How big does my embroidery have to be?",
+                "paragraph1": "Choose any canvases that you feel most comfortable working with. The size of the embroidery will depend on that image. Each job will be a little different in format - that's ok, we take this into account."
+            },
+            "section3": {
+                "title": "How much fabric do i buy?",
+                "paragraph1": "You can use any fabric with a cross weave, or buy a special fabric for embroidery - Aida. To accurately determine the size of the fabric, you need to count 145 cells on the canvas. However, counting so many cells is too long and complicated, so we suggest counting 10 cells, measuring the distance with a ruler and multiplying by 14,5. To the result add about 5 cm on each side - this will be your final size.",
+                "paragraph2": "The fabric for the embroidery is called Aida. It comes in a different raster - the number behind the word Aida determines how many crosses fit in one centimetre. The smaller the number - the larger the cross. Usually it is sold in metres of 140 cm width. We've calculated in advance how much Aida fabric you might need in different widths - see the size chart:"
+            },
+            "section4": {
+                "headerRow": {
+                    "cell1": "Number Aida",
+                    "cell2": "Size of the embroidery",
+                    "cell3": "Seam allowances",
+                    "cell4": "Final fabric size"
+                },
+                "aida": "Aida"
+            },
+            "section5": {
+                "title": "How to embroider?",
+                "paragraph1": "We suggest that you start in the middle of your embroidery. Fold the fabric in half twice - this is how you will find the centre of the fabric. The centre is also marked on the diagram. This is your starting point. Count off the number of empty cells from the centre to the beginning of the motif - this is usually the foot of the schematic man. Do the same on the fabric.",
+                "paragraph2": "Continue the work, counting the empty and filled cells. Follow the scheme. There is already a counted number of crosses in the most complicated places.",
+                "paragraph3": "Watch the informative video lesson. (inserted video)."
+            },
+            "section6": {
+                "title": "Work subscription",
+                "paragraph1": "Instead of the \"YOUR NAME, CITY, YEAR\" line, sign the final embroidery with your name or pseudonym. If you worked on the embroidery collectively, have everyone embroider their name/pseudonym. We enclose a Latin and Belarusian alphabet from which you will make up your signature. You can come up with your own font. It would be great if you could also embroider the place you are from, the date, or any other text. If you think your work should be accentuated by decorations, add them.",
+                "paragraph2": "Please don't be afraid to make mistakes - the embroidery does not have to be perfect, let it be ORIGINAL, be YOURSELF!"
+            },
+            "forwardButton" : "Next step"
+        },
+        "step3Page": {
+            "title": "Choose your Hero",
+            "of": "of",
+            "warning": "Once you choose a hero you can't change it",
+            "backButton" : "Go back to all prisoners",
+            "forwardButton" : "Choose this hero"
+        },
+    },
     "aboutUsPageTitle": "About us",
     "aboutUsSubTitle": "Stitchit and Collective",
     "aboutUsPage1": "Stitchit is an art group created in 2021 by visual artist Rufina Bazlova and curator Sofia Tocar. The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship. Collective means all people, who take part in a project and activities organized by Stitchit. ",

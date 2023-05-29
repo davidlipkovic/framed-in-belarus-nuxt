@@ -1,7 +1,21 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
 .paginationWrapper {
-  .pageControlsWrapper {
+  margin-top: 26px;
+
+  .paginationWrapper__name {
+    margin-left: auto;
+  }
+
+  .paginationWrapper__index {
+    margin-right: 38px;
+    margin-top: -3px;
+  }
+  
+  .paginationWrapper__controls {
+    width: 256px;
+    margin-right: 40px;
+    justify-content: space-between;
 
     button {
       height: 1rem;

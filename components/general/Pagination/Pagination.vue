@@ -12,8 +12,8 @@ const currentPage = computed(() => {
 
 <template>
   <div class="paginationWrapper flexRowCenter">
-    <p>
-      rows per page
+    <p class="paginationWrapper__name">
+      Rows per page
     </p>
     <div
       class="rowOptionsMenuWrapper"
@@ -46,10 +46,10 @@ const currentPage = computed(() => {
         </li>
       </ul>
     </div>
-    <p class="pageIndex">
+    <p class="paginationWrapper__index">
       {{ currentPage }}
     </p>
-    <div class="pageControlsWrapper flexRowCenter">
+    <div class="paginationWrapper__controls flexRowCenter">
       <button
         @click="$emit('changePageIndexTo', 'first')"
       >

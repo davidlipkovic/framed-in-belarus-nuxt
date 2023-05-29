@@ -44,7 +44,6 @@ onMounted(() => {
 
 <template>
   <main class="Content">
-
     <div class="Title">
       <div class="content">
         <h1>
@@ -55,13 +54,11 @@ onMounted(() => {
         />
       </div>
     </div>
-
     <div class="content">
       <RegistrationNavSteps
         :currentStep="1"
       />
-
-      <section class="FindHero">
+      <section class="FindHero flexColumnnStart">
         <div class="FindHero-form">
           <div class="searchMenusWrapper">
             <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
@@ -85,7 +82,6 @@ onMounted(() => {
             />
           </div>
         </div>
-        
         <div class="heroIconsWrapper">
           <RegistrationHeroBox
             v-for="hero in localPrisoners" 
@@ -93,11 +89,9 @@ onMounted(() => {
             :hero="hero"
           />
         </div>
-
         <GeneralPagination
           @change-page-index-to="changePageIndex"
         />
-
         <!-- <div id="default">
           <p class="alignCenter">
             <span class="block">OR</span>

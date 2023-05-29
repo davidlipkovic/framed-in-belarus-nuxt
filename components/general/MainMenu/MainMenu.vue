@@ -77,7 +77,7 @@ watch(route, n => {
               to="/SignIn"
               class="Burger-menu-item Login"
             >
-              {{ $t('linkLogin') }}
+              {{ $t('linkSignin') }}
             </nuxt-link>
             <nuxt-link
               v-if="!showUser"

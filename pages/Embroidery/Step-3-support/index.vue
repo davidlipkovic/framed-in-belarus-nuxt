@@ -50,20 +50,32 @@ definePageMeta({
             <dd class="SupportMethod-content">
               Talk about your hero and about the project and put <span class="likeA">#framedinbelarus</span> and mark the account <span class="likeA">@rufinabazlova</span>.
             </dd>
-            <dt class="SupportMethod-title">Write a letter to your political prisoner</dt>
+            <dt class="SupportMethod-title">
+              Write a letter to your political prisoner
+            </dt>
             <dd class="SupportMethod-content">
-              <p>You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on <a href="https://prisoners.spring96.org/en" target="_blank">prisoners.spring96.org/en</a>.</p>
+              <p>
+                You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on <a href="https://prisoners.spring96.org/en" target="_blank">prisoners.spring96.org/en</a>.</p>
               <br>
-              <p>The <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhsgpGwDc9sskZ82LN_eKwwZBAX9U5kLARAFo2eR1UGw8Usg/viewform?usp=send_form" target="_blank">Solidarity Postcards Atelier</a> can help you send a postcard or a letter "online". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.</p>
+              <p>
+                The 
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfhsgpGwDc9sskZ82LN_eKwwZBAX9U5kLARAFo2eR1UGw8Usg/viewform?usp=send_form" 
+                  target="_blank"
+                >
+                  Solidarity Postcards Atelier
+                </a>
+                  can help you send a postcard or a letter "online". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.
+                </p>
               <br>
               <h2 class="title">What do you need to know about writing letters to prisoners?</h2>
               <dl>
                 <dt><b>Censorship</b></dt>
                 <dd>All letters go through censorship. Don‘t write anything that may cause harm to you, your addressee or other people. Remember, that some of the information might not pass through censorship, so describe news and events carefully.</dd>
                 <dt><b>Dates</b></dt>
-                <dd>Write the date on the letter. You can also give it a number — it helps to figure out which letters get lost and how much time is needed for delivery.</dd>
+                <dd>Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.</dd>
                 <dt><b>Language</b></dt>
-                <dd>Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters — they have a low chance of passing censorship.</dd>
+                <dd>Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.</dd>
               </dl>
             </dd>
             <dt class="SupportMethod-title">
