@@ -46,6 +46,20 @@
             "highlight": "\"History of Belarusian Vyzhivanka\""
         }
     },
+    "aboutUsPage": {
+        "title": "About us",
+        "section": {
+            "title": "Stitchit and Collective",
+            "paragraph1": "Stitchit is an art group created in 2021 by visual artist Rufina Bazlova (Belarus) and curator Sofia Tocar (Moldova). The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship.",
+            "paragraph2": "Collective means all people, who take part in a project and activities organized by Stitchit.",
+            "paragraph3": {
+                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by {0}.",
+                "highlight": "framedinbelarus{'@'}gmail.com"
+            }
+        },
+        "igButton": "Find us on Instagram",
+        "fbButton": "Find us on Facebook"
+    },
     "signUpPage": {
         "title": "Sign up",
         "signInQuestion": "Already a member?",
@@ -95,7 +109,21 @@
                     "highlight": "ask you to write a short comment about your experience"
                 }
             }
-        }
+        },
+        "consent" : "I agree with the terms of participation in the project",
+        "createButton" : "Create profile and start work",
+        "signInGoogleButton" : "Sign up with Google"
+    },
+    "signInPage": {
+        "title": "Sign in",
+        "signUpQuestion": {
+            "content": "Not a member? {0}",
+            "highlight": "Sign up"
+        },
+        "forgot": "Forgot the password?",
+        "remember": "Remember me",
+        "signInButton" : "Sign in",
+        "signInGoogleButton" : "Sign in with Google"
     },
     "profilePage": {
         "title": "My embroideries",
@@ -189,12 +217,227 @@
             "forwardButton" : "Next step"
         },
         "step3Page": {
-            "title": "Choose your Hero",
-            "of": "of",
-            "warning": "Once you choose a hero you can't change it",
-            "backButton" : "Go back to all prisoners",
-            "forwardButton" : "Choose this hero"
+            "title": "Support the political prisoner",
+            "quote": {
+                "content": "The more we talk about them, the safer they are",
+                "author": "Darya Losik, wife of unjustly convicted blogger Ihar Losik"
+            },
+            "section1": {
+                "paragraph1": "By taking part in the project you become a kind of \"ambassador\" of the prisoner, telling his/her story to the world."
+            },
+            "section2": {
+                "title": "Make posts and stories on social media",
+                "paragraph1": {
+                    "content": "Talk about your hero and about the project and put {0} and mark the account {1}.",
+                    "highlight1": "#framedinbelarus",
+                    "highlight2": "{'@'}rufinabazlova"
+                }
+            },
+            "section3": {
+                "title": "Write a letter to your political prisoner",
+                "paragraph1": {
+                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on {0}",
+                    "highlight": "https://prisoners.spring96.org/en"
+                },
+                "paragraph2": {
+                    "content": "{0} can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.",
+                    "highlight": "The Solidarity Postcards Atelier"
+                },
+                "paragraph3": "What do you need to know about writing letters to prisoners?",
+                "paragraph4": {
+                    "content": "{0} All letters go through censorship. Don‘t write anything that may cause harm to you, your addressee or other people. Remember, that some of the information might not pass through censorship, so describe news and events carefully.",
+                    "highlight": "Censorship:"
+                },
+                "paragraph5": {
+                    "content": "{0} Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
+                    "highlight": "Dates:"
+                },
+                "paragraph6": {
+                    "content": "{0} Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
+                    "highlight": "Language:"
+                }
+            },
+            "section4": {
+                "title": {
+                    "content": "Get involved in the initiative {0}",
+                    "highlight": "politzek.me"
+                },
+                "paragraph1": "The platform allows you to befriend a political prisoner and complete different tasks."
+            },
+            "section5": {
+                "title": "Support political prisoners and their families financially",
+                "paragraph1": "dissidentby.com/en/help",
+                "paragraph2": "bysol.org/en/",
+                "paragraph3": "Ineedhelpby.org",
+                "paragraph4": "en.stranafund.org"
+            },
+            "backButton" : "Previous step",
+            "forwardButton" : "Got it! Next step"
         },
+        "step4Page": {
+            "title": "Photo",
+            "section1": {
+                "title": "Provide photos of your work",
+                "paragraph1": "This can be phases of the embroidery, you at work, travel or events where you \"were\" with the embroidered character, etc.",
+                "paragraph2": "These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
+                "paragraph3": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation."
+            },
+            "dropZone": {
+                "content": "Drag and Drop files here or",
+                "highlight": "Browse files"
+            },
+            "warning": "Please add pictures",
+            "backButton" : "Previous step",
+            "forwardButton" : "Save and go to Next step"
+        },
+        "step5Page": {
+            "title": "Comment",
+            "section1": {
+                "title": "Write a short comment about your experience of embroidering a political prisoner",
+                "paragraph1": "It could be interesting stories that happened to you in the context of the project or facts that you learned during this time about your hero, about Belarus, etc. It could be quotes from your correspondence with the political prisoner or your thoughts that arise during the work. Here you can also write wishes for your hero, his/her family, to all Belarusians or our project. This can take the form of an open letter.",
+                "paragraph2": "We would like to know if the project has left any resonance in you? Did participating in the project bring you any new experiences? Your answer will help us improve the project.",
+                "paragraph3": "It would be wonderful if you can also write a handwritten comment and send it to us together with the finished embroidery. Because the handwritten text looks better when installed on the exhibitions."
+            },
+            "section2": {
+                "content1": "I wrote a handwritten comment and will send it along with the embroidery.",
+                "content2": "I will type a comment here"
+            },
+            "section3": {
+                "title": "Comment",
+                "textarea1": {
+                    "label": "If possible, please write the text in English",
+                    "placeholder": "Type a comment in English",
+                    "warning": "Please add a comment"
+                },
+                "textarea2": {
+                    "label": "Choose the language",
+                    "placeholder": "Type a comment in your own language",
+                    "warning": "Please add a comment"
+                }
+            },
+            "section4": {
+                "title": "This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations",
+                "content1": "I agree, I want my voice to be heard",
+                "content2": "I disagree, please keep my comment for internal project needs only",
+                "warning": "Please choose one option"
+            },
+            "backButton" : "Previous step",
+            "forwardButton" : "Save and go to Next step"
+        },
+        "step6Page": {
+            "title": "Shipping",
+            "sectionOptions": {
+                "title": "Please choose where you are sending the package from:",
+                "content1": "EU countries",
+                "content2": "Non-EU countries",
+                "content3": "Belarus",
+                "content4": "Handing over personally in Prague",
+                "backButton" : "Previous step",
+                "forwardButton" : "Get instruction"
+            },
+            "sectionEU": {
+                "title": "Please read this section carefully!",
+                "section1": {
+                    "title": "IMPORTANT",
+                    "content1": "On the content line please write Embroidery or Tissue.",
+                    "content2": "We will need the following information from you in order to issue the customs declaration.",
+                    "content3": {
+                        "content": "Send your work only by {0}",
+                        "highlight": "CUSTOMER POSTAGE!"
+                    },
+                    "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                },
+                "section2": {
+                    "title": "Address for shipping:",
+                    "content1": "Rufina Bazlova",
+                    "content2": "Schnirchova 1447/15",
+                    "content3": "17000 Prague",
+                    "content4": "Czech Republic"
+                },
+                "input": {
+                    "label": "Tracking number",
+                    "placeholder": "Enter Tracking number"
+                },
+                "backButton" : "Previous step",
+                "forwardButton" : "I have sent a package"
+            },
+            "sectionNonEU": {
+                "title": "Please read this section carefully!",
+                "section1": {
+                    "title": "IMPORTANT",
+                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following:",
+                    "content2": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
+                    "content3": "On the content line please write Embroidery or Tissue.",
+                    "content4": "We will need the following information from you in order to issue the customs declaration.",
+                    "content5": {
+                        "content": "Send your work only by {0}",
+                        "highlight": "CUSTOMER POSTAGE!"
+                    },
+                    "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                },
+                "section2": {
+                    "title": "Address for shipping:",
+                    "content1": "Rufina Bazlova",
+                    "content2": "Schnirchova 1447/15",
+                    "content3": "17000 Prague",
+                    "content4": "Czech Republic",
+                    "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel:"
+                },
+                "input1": {
+                    "label": "Name and Surname on the package",
+                    "placeholder": "Enter Name Surname",
+                    "warning": "Please fill in Latin letters."
+                },
+                "input2": {
+                    "label": "Adress with zip code and country",
+                    "placeholder": "Enter Address",
+                    "warning": "Please fill in Latin letters."
+                },
+                "input3": {
+                    "label": "Tracking number",
+                    "placeholder": "Enter Tracking number"
+                },
+                "backButton" : "Previous step",
+                "forwardButton" : "I have sent a package"
+            },
+            "sectionBelarus": {
+                "content": "Sending work from Belarus is always a bit of a challenge, so we'll get back to you by email within 10 days. Thank you for your understanding!",
+                "forwardButton" : "Got it"
+            },
+            "sectionPrague": {
+                "content": "We will send you our offer for the place and time of the meeting within 10 days. If you have your own offer or your stay in Prague is limited, please let us know.",
+                "textarea": {
+                    "label": "Comment",
+                    "placeholder": "Type a comment",
+                    "warning": "Please add a comment"
+                },
+                "forwardButton" : "Got it"
+            },
+            "sectionSent": {
+                "title": " Thank you! We'll be sure to get back to you as soon as we receive your embroidery",
+                "content1": "In meanwhile you can add or correct information about yourself in your personal profile",
+                "content2": "A short text about your motivation will be published in our gallery with your embroidery. If you want to hide or add something, please do it in advance.",
+                "content3": "You can also take on another embroidery.",
+                "forwardButton" : "Go to my profile"
+            }
+        },
+        "step7Page": {
+            "title": "Publication",
+            "section1": {
+                "title": "Good news! We received your work",
+                "paragraph1": {
+                    "content": "{0} Thanks for your understanding!",
+                    "highlight": "The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks."
+                },
+                "paragraph2": {
+                    "content": "{0} When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark. {0} by clicking that icon.",
+                    "highlight": "You will be able to check your hero’s page in the gallery"
+                },
+                "paragraph3": "Thank you for your solidarity and participation.",
+                "paragraph4": "If you still have time and energy, you can embroider a new political prisoner."
+            },
+            "forwardButton" : "Choose a new hero"
+        }
     },
     "aboutUsPageTitle": "About us",
     "aboutUsSubTitle": "Stitchit and Collective",
@@ -258,5 +501,4 @@
     "TermsStr18" : "By accepting the terms, you are confirming your serious intention to participate in the project!",
     "RegisterButtonDecline" : "Decline",
     "RegisterButtonAgreeConditions" : "I agree with conditions"
-
 }
