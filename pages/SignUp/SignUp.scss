@@ -28,6 +28,10 @@ h1.title {
 }
 
 .formWrapper {
+  >input {
+    margin-bottom: 24px;
+  }
+
   .lostPasswordWrapper {
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -90,10 +94,6 @@ textarea,
 
   .formWrapper {
     margin-top: 23px;
-
-    >input {
-      margin-bottom: 24px;
-    }
 
     .passwordInput {
       margin-bottom: 0;

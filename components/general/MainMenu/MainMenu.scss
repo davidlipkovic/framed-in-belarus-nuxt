@@ -3,17 +3,21 @@
 @import "./Lang.scss";
 
 .Header {
+  position: fixed;
+  width: 100vw;
+  z-index: 100;
   padding-top: 0.313rem;
   padding-bottom: 0.313rem;
   background-color: $black;
   color: $white;
   font-size: 1rem;
 }
+
 .Header .content {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .Header .content > * {
   margin-top: auto;
   margin-bottom: auto;
@@ -29,6 +33,7 @@
   top: -0.1rem;
   margin-left: 2px;
 }
+
 .Lang.open .arrow {
   transform: rotate(180deg);
   transition-property: transform;
@@ -47,41 +52,8 @@
   .Header {
     padding-top: 1rem;
     padding-bottom: 14px;
+    position: static;
   }
-}
-
-
-.Header {
-  padding-top: 0.313rem;
-  padding-bottom: 0.313rem;
-  background-color: $black;
-  color: $white;
-  font-size: 1rem;
-}
-.Header .content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.Header .content > * {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.Header .logo-project {
-  color: $white;
-  line-height: 160%;
-}
-
-.Lang .arrow {
-  position: relative;
-  top: -0.1rem;
-}
-
-.Lang.open .arrow {
-  transform: rotate(180deg);
-  transition-property: transform;
-  transition-duration: 0.15s;
 }
 
 .userProfile-avatar {

@@ -4,6 +4,28 @@
   .Content > .content {
     display: flex;
     align-items: flex-start;
+    flex-direction: row;
+
+    .userProfile {
+      order: 1;
+    }
+  
+    .embroideryCards {
+      order: 2;
+    }
+  }
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: column;
+  
+  .userProfile {
+    order: 2;
+  }
+
+  .embroideryCards {
+    order: 1;
   }
 }
 

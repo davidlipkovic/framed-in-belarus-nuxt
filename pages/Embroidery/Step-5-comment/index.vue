@@ -99,7 +99,7 @@ watch(text, (n) => {
             <textarea
               name="comment"
               id="comment"
-              placeholder="Type a comment"
+              placeholder="Type a comment in English"
               class=""
               v-model="text"
             ></textarea>
@@ -107,10 +107,13 @@ watch(text, (n) => {
           </div>
           <br>
           <div class="Comment-content">
+            <p class="note">
+              Choose the language
+            </p>
             <textarea
               name="comment"
               id="comment"
-              placeholder="Type a comment"
+              placeholder="Type a comment in your own language"
               class=""
               v-model="text"
             ></textarea>

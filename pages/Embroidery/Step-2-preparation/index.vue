@@ -163,8 +163,6 @@ const AlphabetPattern3 = ref({ show: false })
               <p>Watch the informative <b class="b2">video lesson</b>.</p>
             </div>
             <iframe
-              width="100%"
-              height="456"
               src="https://www.youtube.com/embed/O7FEv4ZVdm8"
               title="YouTube video player"
               frameborder="0"

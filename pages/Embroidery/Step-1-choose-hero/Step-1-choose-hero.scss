@@ -61,25 +61,61 @@
 .searchMenusWrapper,
 .filterMenusWrapper {
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
-  margin-bottom: 1.5rem;
+
+  >* {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  >*:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.searchMenusWrapper {
+  margin-bottom: 10px;
 }
 
 .filterMenusWrapper {
-  .tagsMenuWrapper {
-    margin-left: 24px;
-  }
-
-  .tagsMenuWrapper:nth-child(1) {
-    margin-left: 0;
-  }
+  margin-bottom: 1.5rem;
 }
 
 .heroIconsWrapper {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 28px 32px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 6px 10px;
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .searchMenusWrapper,
+  .filterMenusWrapper {
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+
+    >* {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .filterMenusWrapper {
+    .tagsMenuWrapper {
+      margin-left: 24px;
+    }
+  
+    .tagsMenuWrapper:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+
+  .heroIconsWrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 28px 32px;
+  }
 }

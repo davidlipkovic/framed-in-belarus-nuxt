@@ -7,35 +7,34 @@ definePageMeta({
 <template>
   <div class="content">
     <h1 class="title">
-      Sign in
+      {{ $t("signInPage.title") }}
     </h1>
-    <p class="signUpDescription">
-      Not a member? 
+    <i18n-t keypath="signInPage.signUpQuestion.content" tag="p">
       <nuxt-link 
         to="/SignUp" 
         class="redLighter"
       >
-        Sign up
+        {{ $t("signInPage.signUpQuestion.highlight") }}
       </nuxt-link>
-    </p>
+    </i18n-t>
     <form class="formWrapper">
       <input 
         type="email" 
         name="username" 
         id="username" 
-        placeholder="Username" 
+        :placeholder="$t('placeholders.username')" 
         class="usernameInput"
       >
       <input 
         type="password" 
         name="password" 
         id="password" 
-        placeholder="Password" 
+        :placeholder="$t('placeholders.password')" 
         class="passwordInput"
       >
       <p class="alignRight lostPasswordWrapper">
         <nuxt-link to="/LostPassword">
-          Forgot the password?
+          {{ $t("signInPage.forgot") }}
         </nuxt-link>
       </p>
       <p class="checkBoxWrapper">
@@ -45,17 +44,17 @@ definePageMeta({
           name="remember"
         >
         <label for="remember">
-          Remember me
+          {{ $t("signInPage.remember") }}
         </label>
       </p>
       <nuxt-link 
         to="/Profile" 
         class="button bg_black large signInBtn"
       >
-        Sign in
+        {{ $t("signInPage.signInButton") }}
       </nuxt-link>
       <button class="button large signInGoogleBtn">
-        Sign in with Google
+        {{ $t("signInPage.signInGoogleButton") }}
       </button>
     </form>
   </div>

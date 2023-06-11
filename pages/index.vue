@@ -73,15 +73,19 @@ const numberOfPrisoners = 1432
       </article>
     </section>
     <section class="content Partners">
-      <div class="Partners-group">
-        <div class="Partners-logo">
+      <div class="Partners-group flexRowCenter">
+        <div class="Partners-logo flexRowCenter">
           <img
             src="../assets/media/img/logos/Tutaka_logo.svg"
             alt="Viasna"
             class="img"
           />
         </div>
-        <a href="https://spring96.org" target="_blank" class="Partners-logo">
+        <a 
+          href="https://spring96.org" 
+          target="_blank" 
+          class="Partners-logo flexRowCenter"
+        >
           <img
             src="../assets/media/img/logos/logo_viasna96_en.png"
             alt="Viasna"
@@ -91,7 +95,7 @@ const numberOfPrisoners = 1432
         <a
           href="https://politzek.me/"
           target="_blank"
-          class="Partners-logo"
+          class="Partners-logo flexRowCenter"
         >
           <img
             src="../assets/media/img/logos/Logo_polizek_rastr.png"
@@ -99,7 +103,11 @@ const numberOfPrisoners = 1432
             class="img"
           />
         </a>
-        <a href="https://amnesty.cz" target="_blank" class="Partners-logo">
+        <a 
+          href="https://amnesty.cz" 
+          target="_blank" 
+          class="Partners-logo flexRowCenter"
+        >
           <img
             src="../assets/media/img/logos/LogoAmnesty.svg"
             alt="Amnesty International"
@@ -107,7 +115,7 @@ const numberOfPrisoners = 1432
           />
         </a>
         <div
-          class="Partners-logo pashtovakLogo"
+          class="Partners-logo pashtovakLogo flexRowCenter"
         >
           <img
             src="../assets/media/img/logos/majsternia_pashtovak_4b.png"
@@ -118,7 +126,7 @@ const numberOfPrisoners = 1432
         <a
           href="https://en.stranafund.org"
           target="_blank"
-          class="Partners-logo"
+          class="Partners-logo flexRowCenter"
         >
           <img
             src="../assets/media/img/logos/stranafund-logo.png"
@@ -129,7 +137,7 @@ const numberOfPrisoners = 1432
         <a
           href="https://vyzyvanka.com"
           target="_blank"
-          class="Partners-logo"
+          class="Partners-logo flexRowCenter"
         >
           <img
             src="../assets/media/img/logos/vyzyvanka.png"

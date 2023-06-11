@@ -18,7 +18,7 @@
   .Publication-content {
     padding-top: 13.125rem;
     background-image: url(../../../assets/media/img/bg_waiting.svg);
-    background-size: 16.188rem 11.625rem;
+    background-size: 11.188rem 8.625rem;
   }
 }
 
@@ -26,6 +26,22 @@
   .Publication-content {
     padding-top: 14.313rem;
     background-image: url(../../../assets/media/img/bg_done.svg);
-    background-size: 22.188rem 12.813rem;
+    background-size: 17.188rem 10.813rem;
+  }
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .Waiting {
+    .Publication-content {
+      padding-top: 13.125rem;
+      background-size: 16.188rem 11.625rem;
+    }
+  }
+  
+  .Done {
+    .Publication-content {
+      padding-top: 14.313rem;
+      background-size: 22.188rem 12.813rem;
+    }
   }
 }

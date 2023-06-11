@@ -11,7 +11,7 @@ export default {
 <template>
   <div 
     v-if="showBar"
-    class="cookieBarWrapper flexRowCenter"
+    class="cookieBarWrapper flexRowStart"
   >
     <div class="content flexRowStart">
       <p>

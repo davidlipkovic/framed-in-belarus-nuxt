@@ -34,17 +34,33 @@ line-height: 33px;
     background-color: $greyBg;
   }
 
+  tr {
+    border-bottom: 1px solid $greyBg;
+  }
+
   td {
     padding: 0.25rem 0.5rem;
   }
 }
 
-.subscription {
-  margin: 45px 0 1.25rem;
+iframe {
+  width: 100%;
+  height: calc((100vw - 1.25rem)/16*9);
 }
 
-.subscription-content {
-  margin-bottom: 1.25rem;
+.subscription {
+  margin: 45px 0 1.25rem;
+  flex-direction: column;
+
+  .subscription-content {
+    margin-bottom: 1.25rem;
+    order: 2;
+  }
+  
+  .subscription-patterns-wrapper {
+    margin-bottom: 1.25rem;
+    order: 1;
+  }
 }
 
 @media screen and (min-width: $br-point-tablet) {
@@ -62,11 +78,26 @@ line-height: 33px;
 @media screen and (min-width: $br-point-desktop) {
   .subscription {
     justify-content: space-between;
+    flex-direction: row;
+
+    .subscription-content {
+      margin-bottom: 1.25rem;
+      order: 1;
+    }
+    
+    .subscription-patterns-wrapper {
+      margin-bottom: 0;
+      order: 2;
+    }
   }
 
   .sizeChart {
     td {
       padding: 0.75rem 0.875rem;
     }
+  }
+
+  iframe {
+    height: calc(1100px/16*9);
   }
 }

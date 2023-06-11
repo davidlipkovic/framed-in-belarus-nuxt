@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div class="content contentSignUp">
     <h1 class="title">
-      {{ $t("linkSignup") }}
+      {{ $t("signUpPage.title") }}
     </h1>
     <p class="signUpDescription">
       {{ $t("signUpPage.signInQuestion") }}
@@ -113,17 +113,27 @@ definePageMeta({
         </i18n-t>
         <br><br><br>
       </div>
-      <label for="agreeTerms" class="Agree checkBoxWrapper">
-        <input type="checkbox" name="agreeTerms" id="agreeTerms" />
+      <label 
+        for="agreeTerms" 
+        class="Agree checkBoxWrapper"
+      >
+        <input 
+          type="checkbox" 
+          name="agreeTerms" 
+          id="agreeTerms"
+        />
         <span>
-          I agree with the terms of participation in the project
+          {{ $t('signUpPage.consent') }}
         </span>
       </label>
-      <nuxt-link to="/Profile" class="button bg_black large signInBtn">
-        Create profile and start work
+      <nuxt-link 
+        to="/Profile" 
+        class="button bg_black large signInBtn"
+      >
+        {{ $t('signUpPage.createButton') }}
       </nuxt-link>
       <button class="button large signInGoogleBtn">
-        Sign up with Google
+        {{ $t('signUpPage.signInGoogleButton') }}
       </button>
     </form>
   </div>

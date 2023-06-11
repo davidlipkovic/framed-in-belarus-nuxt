@@ -27,7 +27,7 @@ const user = {
         {{ $t('profilePage.title') }}
       </h1>
     </div>
-    <div class="content">
+    <div class="content profileContent">
       <section class="userProfile flexColumnCenter">
         <div class="userProfile-header flexColumnCenter">
           <img 

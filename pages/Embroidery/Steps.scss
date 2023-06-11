@@ -34,17 +34,31 @@
 .buttons {
   margin-top: 1.25rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   .button {
-    margin-right: 4.5rem;
-  }
-
-  .button:last-child {
+    width: 100%;
     margin-right: 0;
-    margin-bottom: 0;
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .buttons {
+    flex-direction: row;
+    align-items: flex-start;
+
+    .button {
+      width: auto;
+      margin-right: 4.5rem;
+    }
+
+    .button:last-child {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
   }
 }
 

@@ -28,142 +28,144 @@ watch(route, n => {
 </script>
 
 <template>
-  <div>
-    <input type="checkbox" id="Burger" class="Burger-checker visually-hidden">
-    <header class="Header">
-      <div class="content">
-        <GeneralMainLogo/>
-        <label for="Burger" class="Burger-button" role="button" aria-role="button">
-          <span class="Burger-button-item">—</span>
-          <span class="Burger-button-item">—</span>
-          <span class="Burger-button-item">—</span>
-        </label>
-        <nav class="Burger-menu">
-          <div class="Burger-menu-group">
+  <input 
+    type="checkbox" 
+    id="Burger" 
+    class="Burger-checker visually-hidden"
+  >
+  <header class="Header">
+    <div class="content flexRowStart">
+      <GeneralMainLogo/>
+      <label for="Burger" class="Burger-button" role="button" aria-role="button">
+        <span class="Burger-button-item">—</span>
+        <span class="Burger-button-item">—</span>
+        <span class="Burger-button-item">—</span>
+      </label>
+      <nav class="Burger-menu">
+        <div class="Burger-menu-group">
+          <nuxt-link
+            to="/"
+            class="Burger-menu-item"
+          >
+            Home
+          </nuxt-link>
+          <nuxt-link
+            to="/Gallery"
+            class="Burger-menu-item"
+          >
+            {{ $t('linkGallery') }}
+          </nuxt-link>
+          <nuxt-link
+            to="/News"
+            class="Burger-menu-item"
+          >
+            {{ $t('linkNews') }}
+          </nuxt-link>
+          <nuxt-link
+            to="/AboutUs"
+            class="Burger-menu-item"
+          >
+            {{ $t('linkAboutUs') }}
+          </nuxt-link>
+<!--          <nuxt-link -->
+<!--            to="FAQ"-->
+<!--            class="Burger-menu-item"-->
+<!--          >-->
+<!--            {{ $t('linkFAQ') }}-->
+<!--          </nuxt-link>-->
+        </div>
+        <div class="Burger-menu-group Burger-menu-group-lang flexRowCenter">
+          <nuxt-link
+            v-if="!showUser"
+            to="/SignIn"
+            class="Burger-menu-item Login"
+          >
+            {{ $t('linkSignin') }}
+          </nuxt-link>
+          <nuxt-link
+            v-if="!showUser"
+            to="/SignUp"
+            class="Burger-menu-item button bg_red"
+          >
+            {{ $t('participateBtnMsg') }}
+          </nuxt-link>
+          <button
+            v-if="showUser"
+            class="Burger-menu-item askButton flexRowCenter"
+            @click="displayQuestionModal = !displayQuestionModal"
+          >
+            <img
+              src="../../../assets/media/img/help-circle.svg"
+            >
+            <span class="pattern-button-text">
+              Ask a question
+            </span>
+          </button>
+          <button
+            v-if="showUser"
+            class="Burger-menu-item profileLink flexRowCenter"
+            @click="displayProfileModal = !displayProfileModal"
+          >
+            <img
+              src="../../../assets/media/img/profileSymbolFramed.svg"
+            >
+            <span class="pattern-button-text">
+              Profile
+            </span>
+          </button>
+          <div
+            v-if="displayProfileModal"
+            class="profileMenuWrapper flexColumnStart"
+          >
+            <img
+              src="../../../assets/media/img/profileSymbolFramed.svg"
+            >
+            <span
+              class="profileMenuWrapper__name"
+            >
+              Tiffany Chin
+            </span>
+            <nuxt-link
+              to="/Profile"
+              class="profileMenuWrapper__profileLink flexRowStart"
+            >
+              <span>
+                My embroideries
+              </span>
+            </nuxt-link>
             <nuxt-link
               to="/"
-              class="Burger-menu-item"
+              class="profileMenuWrapper__signOut flexRowStart"
             >
-              Home
+              <span>
+                Sign Out
+              </span>
             </nuxt-link>
-            <nuxt-link
-              to="/Gallery"
-              class="Burger-menu-item"
-            >
-              {{ $t('linkGallery') }}
-            </nuxt-link>
-            <nuxt-link
-              to="/News"
-              class="Burger-menu-item"
-            >
-              {{ $t('linkNews') }}
-            </nuxt-link>
-            <nuxt-link
-              to="/AboutUs"
-              class="Burger-menu-item"
-            >
-              {{ $t('linkAboutUs') }}
-            </nuxt-link>
-  <!--          <nuxt-link -->
-  <!--            to="FAQ"-->
-  <!--            class="Burger-menu-item"-->
-  <!--          >-->
-  <!--            {{ $t('linkFAQ') }}-->
-  <!--          </nuxt-link>-->
           </div>
-          <div class="Burger-menu-group Burger-menu-group-lang flexRowCenter">
-            <nuxt-link
-              v-if="!showUser"
-              to="/SignIn"
-              class="Burger-menu-item Login"
-            >
-              {{ $t('linkSignin') }}
-            </nuxt-link>
-            <nuxt-link
-              v-if="!showUser"
-              to="/SignUp"
-              class="Burger-menu-item button bg_red"
-            >
-              {{ $t('participateBtnMsg') }}
-            </nuxt-link>
-            <button
-              v-if="showUser"
-              class="Burger-menu-item askButton flexRowCenter"
-              @click="displayQuestionModal = !displayQuestionModal"
-            >
-              <img
-                src="../../../assets/media/img/help-circle.svg"
+          <div class="Lang">
+            <div class="Lang-button Burger-menu-item">
+              ENG
+              <img 
+                class="arrow" 
+                src="@/assets/media/img/arrow.svg" 
+                alt="Arrow"
               >
-              <span class="pattern-button-text">
-                Ask a question
-              </span>
-            </button>
-            <button
-              v-if="showUser"
-              class="Burger-menu-item profileLink flexRowCenter"
-              @click="displayProfileModal = !displayProfileModal"
-            >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
-              <span class="pattern-button-text">
-                Profile
-              </span>
-            </button>
-            <div
-              v-if="displayProfileModal"
-              class="profileMenuWrapper flexColumnStart"
-            >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
-              <span
-                class="profileMenuWrapper__name"
-              >
-                Tiffany Chin
-              </span>
+            </div>
+            <div class="Lang-select">
               <nuxt-link
-                to="/Profile"
-                class="profileMenuWrapper__profileLink flexRowStart"
+                v-for="locale in availableLocales"
+                :key="locale.code"
+                :to="switchLocalePath(locale.code)"
+                class="Lang-link"
               >
-                <span>
-                  My embroideries
-                </span>
-              </nuxt-link>
-              <nuxt-link
-                to="/"
-                class="profileMenuWrapper__signOut flexRowStart"
-              >
-                <span>
-                  Sign Out
-                </span>
+                {{ locale.name }}
               </nuxt-link>
             </div>
-            <div class="Lang">
-              <div class="Lang-button Burger-menu-item">
-                ENG
-                <img 
-                  class="arrow" 
-                  src="@/assets/media/img/arrow.svg" 
-                  alt="Arrow"
-                >
-              </div>
-              <div class="Lang-select">
-                <nuxt-link
-                  v-for="locale in availableLocales"
-                  :key="locale.code"
-                  :to="switchLocalePath(locale.code)"
-                  class="Lang-link"
-                >
-                  {{ locale.name }}
-                </nuxt-link>
-              </div>
-            </div>
           </div>
-        </nav>
-      </div>
-    </header>
-  </div>
+        </div>
+      </nav>
+    </div>
+  </header>
   <GeneralModal
     @closeModal="displayQuestionModal = false"
     :displayModal="displayQuestionModal"

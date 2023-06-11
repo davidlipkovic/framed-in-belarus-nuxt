@@ -59,7 +59,7 @@ p {
 
 .Title {
   position: relative;
-  padding: 40px 0 32px;
+  padding: 70px 0 32px;
   margin-top: 0;
   margin-bottom: 30px;
   background-position: 50% 50%;
@@ -71,14 +71,14 @@ p {
   .content {
     position: relative;
     z-index: 2;
-    font-size: 3rem;
+    font-size: 1.8rem;
   }
 
   .subtitle {
     font-weight: 600;
     color: $greyDark;
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: -3px;
   }
 
@@ -100,7 +100,6 @@ p {
 }
 
 .content {
-  display: block;
   margin-right: 0.625rem;
   margin-left: 0.625rem;
 }
@@ -165,5 +164,17 @@ svg {
     margin-left: auto !important;
     margin-right: auto !important;
     font-size: 0.875rem;
+  }
+
+  .Title {
+    padding: 40px 0 32px;
+
+    .content {
+      font-size: 3rem;
+    }
+  
+    .subtitle {
+      font-size: 1.5rem;
+    }
   }
 }
