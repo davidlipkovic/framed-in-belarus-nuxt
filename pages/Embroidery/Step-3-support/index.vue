@@ -48,7 +48,7 @@ definePageMeta({
           </div>
           <dl class="SupportMethods textWidth">
             <dt class="SupportMethod-title">
-              {{ $t('embroidery.step3Page.section1.title') }}
+              {{ $t('embroidery.step3Page.section2.title') }}
             </dt>
             <dd class="SupportMethod-content">
               {{ $t('embroidery.step3Page.section2.paragraph1.content1') }} <span class="likeA">{{ $t('embroidery.step3Page.section2.paragraph1.highlight1') }}</span> {{ $t('embroidery.step3Page.section2.paragraph1.content2') }} <span class="likeA">{{ $t('embroidery.step3Page.section2.paragraph1.highlight2') }}</span>.

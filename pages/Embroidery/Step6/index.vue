@@ -117,7 +117,7 @@ const route = ref("EU")
           </nuxt-link>
           -->
           <nuxt-link 
-            :to="`/Embroidery/Step6-${route}`" 
+            :to="localePath(`/Embroidery/Step6-${route}`)" 
             class="button bg_black" 
             id="save"
           >

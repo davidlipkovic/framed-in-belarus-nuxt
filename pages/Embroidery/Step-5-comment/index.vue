@@ -161,13 +161,13 @@ watch(text, (n) => {
         </div>
         <div class="buttons">
           <nuxt-link 
-            to="/Embroidery/Step-4-photo" 
+            :to="localePath('/Embroidery/Step-4-photo')"
             class="button"
           >
             {{ $t('embroidery.step5Page.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            to="/Embroidery/Step6" 
+            :to="localePath('/Embroidery/Step-6')"
             class="button bg_black" 
             :class="fine? '' : 'button_disabled'" 
             id="save"

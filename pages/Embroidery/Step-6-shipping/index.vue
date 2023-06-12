@@ -45,7 +45,7 @@ definePageMeta({
         </div>
         <div class="buttons">
           <nuxt-link 
-            to="/Profile" 
+            :to="localePath('/Profile')"
             class="button"
           >
             {{ $t('embroidery.step6Page.sectionSent.forwardButton') }}
