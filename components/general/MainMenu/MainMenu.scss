@@ -1,8 +1,7 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "./Burger.scss";
 @import "./Lang.scss";
 
-.Header {
+.mainMenuWrapper {
   position: fixed;
   width: 100vw;
   z-index: 100;
@@ -13,139 +12,76 @@
   font-size: 1rem;
 }
 
-.Header .content {
-  flex-wrap: wrap;
-  justify-content: space-between;
+.content {
+  >* {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }
 
-.Header .content > * {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.Header .logo-project {
+.logo-project {
   color: $white;
   line-height: 160%;
-}
-
-.Lang .arrow {
-  position: relative;
-  top: -0.1rem;
-  margin-left: 2px;
-}
-
-.Lang.open .arrow {
-  transform: rotate(180deg);
-  transition-property: transform;
-  transition-duration: 0.15s;
-}
-
-/* Tablet */
-@media screen and (min-width: $br-point-tablet) {
-  .Header {
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-}
-/* Desktop */
-@media screen and (min-width: $br-point-desktop) {
-  .Header {
-    padding-top: 1rem;
-    padding-bottom: 14px;
-    position: static;
-  }
-}
-
-.userProfile-avatar {
-  width: 30px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* Tablet */
-@media screen and (min-width: $br-point-tablet) {
-  .Header {
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-
-  .Burger-menu-item.profileLink {
-    margin-right: 14px;
-    background-color: $greyBg;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-
-    img {
-      width: 26px;
-      height: auto;
-    }
-  }
-}
-/* Desktop */
-@media screen and (min-width: $br-point-desktop) {
-  .Header {
-    padding-top: 1rem;
-    padding-bottom: 14px;
-  }
-}
-
-.pattern-button-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
   white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  transition-property: clip-path, clip, width, height;
-  transition-duration: 0.15s;
 }
 
-.Burger-menu-item:hover {
-  position: relative;
+// .langWrapper {
+//   display: none;
+// }
 
-  .pattern-button-text {
-    padding: 0.25rem 0.75rem;
-    width: auto;
-    height: 1.75rem;
-    border-radius: 0.25rem;
-    background-color: $greyDisabledColor;
+.menuContentWrapper {
+  * {
     color: $white;
-    top: 3rem;
-    left: -100%;
-    clip: auto;
-    clip-path: none;
-    z-index: 1000;
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
 
-.profileMenuWrapper {
+.menuLinksWrapper,
+.menuUserLinksWrapper {
+  >*:hover {
+    color: $red;
+  }
+}
+
+.profileButton {
+  border-radius: 50%;
+  background-color: $white;
+  width: 30px;
+  height: 30px;
+
+  img {
+    width: 26px;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.dropdownMenuWrapper {
   position: fixed;
   background-color: $white;
-  top: 50px;
-  min-width: 304px;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   z-index: 10;
   overflow: hidden;
 
+  * {
+    color: $black;
+  }
+}
+
+.profileMenuWrapper {
+  min-width: 304px;
+  top: 50px;
+
+  >span, >a {
+    width: auto;
+  }
+
   img {
     width: 81px;
     height: auto;
     margin: 40px auto 0;
-  }
-
-  * {
-    color: $black;
-  }
-
-  >span, >a {
-    width: auto;
   }
 
   .profileMenuWrapper__name {
@@ -190,3 +126,170 @@
     min-height: 42px;
   }
 }
+
+.langMenu {
+  top: 40px;
+
+  >* {
+    width: 100%;
+    border-bottom: 1px solid $greyBg;
+    padding: 2px 4px;
+  }
+
+  >*:hover {
+    background-color: $greyBg;
+  }
+
+  >*:last-child {
+    border-bottom: none;
+  }
+}
+
+@media screen and (min-width: $br-point-desktop) {
+  .mainMenuWrapper {
+    position: static;
+    padding: 12px 0 10px;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .menuContentWrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: -2px;
+    margin-left: 26px;
+  }
+  
+  .menuLinksWrapper {
+    flex-direction: row;
+    align-items: center;
+
+    a {
+      margin-right: 26px;
+    }
+
+    a:last-child {
+      margin-right: 26px;
+    }
+  }
+
+  .menuUserLinksWrapper {
+    >* {
+      margin-right: 23px;
+    }
+
+    >*:last-child {
+      margin-right: 5px;
+    }
+  }
+
+  .helpButton {
+    svg {
+      fill: none;
+    }
+  }
+
+  .profileButton {
+    
+  }
+
+  .langButton {
+    svg {
+      width: 9px;
+      fill: none;
+      stroke: $white;
+      stroke-width: 2px;
+      margin-top: 4px;
+      margin-left: 3px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .Lang .arrow {
+//   position: relative;
+//   top: -0.1rem;
+//   margin-left: 2px;
+// }
+
+// .Lang.open .arrow {
+//   transform: rotate(180deg);
+//   transition-property: transform;
+//   transition-duration: 0.15s;
+// }
+
+// .pattern-button-text {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
+//   white-space: nowrap;
+//   clip-path: inset(100%);
+//   clip: rect(0 0 0 0);
+//   overflow: hidden;
+//   transition-property: clip-path, clip, width, height;
+//   transition-duration: 0.15s;
+// }
+
+// .Burger-menu-item:hover {
+//   position: relative;
+
+//   .pattern-button-text {
+//     padding: 0.25rem 0.75rem;
+//     width: auto;
+//     height: 1.75rem;
+//     border-radius: 0.25rem;
+//     background-color: $greyDisabledColor;
+//     color: $white;
+//     top: 3rem;
+//     left: -100%;
+//     clip: auto;
+//     clip-path: none;
+//     z-index: 1000;
+//   }
+// }
+
+// @media screen and (min-width: $br-point-tablet) {
+//   .mainMenuWrapper {
+//     padding-bottom: 0;
+//     padding-top: 0;
+//   }
+
+//   .Burger-menu-item.profileLink {
+//     margin-right: 14px;
+//     background-color: $greyBg;
+//     border-radius: 50%;
+//     width: 30px;
+//     height: 30px;
+
+//     img {
+//       width: 26px;
+//       height: auto;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: $br-point-desktop) {
+//   .mainMenuWrapper {
+//     padding-top: 1rem;
+//     padding-bottom: 14px;
+//     position: static;
+//   }
+// }

@@ -2,7 +2,7 @@
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-const { locale, locales } = useI18n()
+const { locale, locales, localeProperties } = useI18n()
 
 const route = useRoute()
 
@@ -13,10 +13,14 @@ const props = defineProps({
   }
 })
 
+const currentLocale = ref(null)
+
 const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
 
 const switchLocalePath = useSwitchLocalePath()
+const toggleLangMenu = ref(false)
+
 const availableLocales = computed(() => {
   return (locales.value).filter(i => i.code !== locale.value)
 })
@@ -24,98 +28,99 @@ const availableLocales = computed(() => {
 watch(route, n => {
   displayProfileModal.value = false
   displayQuestionModal.value = false
+  toggleLangMenu.value = false
+})
+
+onMounted(() => {
+  currentLocale.value = localeProperties.value.name
 })
 </script>
 
 <template>
-  <input 
-    type="checkbox" 
-    id="Burger" 
-    class="Burger-checker visually-hidden"
-  >
-  <header class="Header">
+  <header class="mainMenuWrapper">
     <div class="content flexRowStart">
       <GeneralMainLogo/>
-      <label for="Burger" class="Burger-button" role="button" aria-role="button">
-        <span class="Burger-button-item">—</span>
-        <span class="Burger-button-item">—</span>
-        <span class="Burger-button-item">—</span>
-      </label>
-      <nav class="Burger-menu">
-        <div class="Burger-menu-group">
+      <button 
+        class="menuButton" 
+      >
+        <div class="openMenuButton">
+          <span>—</span>
+          <span>—</span>
+          <span>—</span>
+        </div>
+        <div class="closeMenuButton">
+          <span>—</span>
+          <span>—</span>
+        </div>
+      </button>
+      <nav class="menuContentWrapper flexColumnStart">
+        <div class="menuLinksWrapper flexColumnStart">
           <nuxt-link
-            to="/"
-            class="Burger-menu-item"
+            :to="localePath('/')"
           >
-            Home
+            {{ $t('links.home') }}
           </nuxt-link>
           <nuxt-link
-            to="/Gallery"
-            class="Burger-menu-item"
+            :to="localePath('/Gallery')"
           >
-            {{ $t('linkGallery') }}
+            {{ $t('links.gallery') }}
           </nuxt-link>
           <nuxt-link
-            to="/News"
-            class="Burger-menu-item"
+            :to="localePath('/News')"
           >
-            {{ $t('linkNews') }}
+            {{ $t('links.news') }}
           </nuxt-link>
           <nuxt-link
-            to="/AboutUs"
-            class="Burger-menu-item"
+            :to="localePath('/AboutUs')"
           >
-            {{ $t('linkAboutUs') }}
+            {{ $t('links.aboutUs') }}
           </nuxt-link>
 <!--          <nuxt-link -->
-<!--            to="FAQ"-->
-<!--            class="Burger-menu-item"-->
+<!--            :to="localePath('/FAQ')" -->
 <!--          >-->
-<!--            {{ $t('linkFAQ') }}-->
+<!--            {{ $t('links.FAQ') }}-->
 <!--          </nuxt-link>-->
         </div>
-        <div class="Burger-menu-group Burger-menu-group-lang flexRowCenter">
+        <div class="menuUserLinksWrapper flexRowCenter">
           <nuxt-link
             v-if="!showUser"
-            to="/SignIn"
-            class="Burger-menu-item Login"
+            :to="localePath('/SignIn')"
+            class="Login"
           >
-            {{ $t('linkSignin') }}
+            {{ $t('links.signIn') }}
           </nuxt-link>
           <nuxt-link
             v-if="!showUser"
-            to="/SignUp"
-            class="Burger-menu-item button bg_red"
+            :to="localePath('/SignUp')"
+            class="button bg_red"
           >
-            {{ $t('participateBtnMsg') }}
+            {{ $t('links.participate') }}
           </nuxt-link>
           <button
             v-if="showUser"
-            class="Burger-menu-item askButton flexRowCenter"
+            class="helpButton flexRowCenter"
             @click="displayQuestionModal = !displayQuestionModal"
           >
-            <img
-              src="../../../assets/media/img/help-circle.svg"
-            >
+            <SvgHelpCircle/>
             <span class="pattern-button-text">
-              Ask a question
+              {{ $t('mainMenu.question.label') }}
             </span>
           </button>
           <button
             v-if="showUser"
-            class="Burger-menu-item profileLink flexRowCenter"
+            class="profileButton flexRowCenter"
             @click="displayProfileModal = !displayProfileModal"
           >
             <img
               src="../../../assets/media/img/profileSymbolFramed.svg"
             >
             <span class="pattern-button-text">
-              Profile
+              {{ $t('links.profile') }}
             </span>
           </button>
           <div
             v-if="displayProfileModal"
-            class="profileMenuWrapper flexColumnStart"
+            class="profileMenuWrapper dropdownMenuWrapper flexColumnStart"
           >
             <img
               src="../../../assets/media/img/profileSymbolFramed.svg"
@@ -126,32 +131,35 @@ watch(route, n => {
               Tiffany Chin
             </span>
             <nuxt-link
-              to="/Profile"
+              :to="localePath('/Profile')"
               class="profileMenuWrapper__profileLink flexRowStart"
             >
               <span>
-                My embroideries
+                {{ $t('links.myEmbroideries') }}
               </span>
             </nuxt-link>
             <nuxt-link
-              to="/"
+              :to="localePath('/')"
               class="profileMenuWrapper__signOut flexRowStart"
             >
               <span>
-                Sign Out
+                {{ $t('links.signOut') }}
               </span>
             </nuxt-link>
           </div>
-          <div class="Lang">
-            <div class="Lang-button Burger-menu-item">
-              ENG
-              <img 
-                class="arrow" 
-                src="@/assets/media/img/arrow.svg" 
-                alt="Arrow"
-              >
-            </div>
-            <div class="Lang-select">
+          <div class="langWrapper">
+            <button 
+              class="langButton flexRowCenter"
+              @click="toggleLangMenu = !toggleLangMenu"
+            >
+              {{ currentLocale }}
+              <SvgArrowDown v-if="!toggleLangMenu"/>
+              <SvgArrowTop v-if="toggleLangMenu"/>
+            </button>
+            <div 
+              v-if="toggleLangMenu"
+              class="langMenu dropdownMenuWrapper flexColumnStart"
+            >
               <nuxt-link
                 v-for="locale in availableLocales"
                 :key="locale.code"
@@ -174,18 +182,18 @@ watch(route, n => {
     <div class="Settings content">
       <div class="Settings-header">
         <h2>
-          Ask a question
+          {{ $t('mainMenu.question.label') }}
         </h2>
       </div>
       <div class="Settings-body">
         <div class="Settings-item Settings-item_reason">
           <div class="Settings-item-main">
             <label for="reason" class="Settings-item-title">
-              Ask a question
+              {{ $t('mainMenu.question.label') }}
             </label>
             <textarea class="Settings-item-input" id="reason" name="reason" />
             <p class="textAreaDescription">
-              If you have an urgent question, please ask us and we will send you an email.
+              {{ $t('mainMenu.question.content') }}
             </p>
           </div>
         </div>
@@ -195,13 +203,13 @@ watch(route, n => {
               class="button" 
               @click="displayQuestionModal = false"
             >
-              Cancel
+              {{ $t('buttons.cancel') }}
             </button>
             <button 
               class="button bg_black"
               @click="displayQuestionModal = false"
             >
-              Send
+              {{ $t('buttons.send') }}
             </button>
           </div>
         </div>
@@ -210,5 +218,5 @@ watch(route, n => {
   </GeneralModal>
 </template>
 
-<style src="./MainMenu.scss" lang="scss"></style>
+<style src="./MainMenu.scss" lang="scss" scoped></style>
 <style src="../../../pages/Profile/Settings.scss" lang="scss" scoped></style>
