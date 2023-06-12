@@ -15,26 +15,26 @@ export default {
   >
     <div class="content flexRowStart">
       <p>
-        For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.
+        {{ $t('cookies') }}
       </p>
       <div>
         <button 
           class="button"
           @click="showBar = false"
         >
-          Accept
+          {{ $t('buttons.accept') }}
         </button>
         <button 
           class="button"
           @click="showBar = false"
         >
-          Decline
+          {{ $t('buttons.decline') }}
         </button>
         <button 
           class="button"
           @click="showBar = false"
         >
-          Manage
+          {{ $t('buttons.manage') }}
         </button>
       </div>
     </div>

@@ -11,7 +11,7 @@ definePageMeta({
     </h1>
     <i18n-t keypath="signInPage.signUpQuestion.content" tag="p">
       <nuxt-link 
-        to="/SignUp" 
+        :to="localePath('/SignUp')"
         class="redLighter"
       >
         {{ $t("signInPage.signUpQuestion.highlight") }}
@@ -33,7 +33,9 @@ definePageMeta({
         class="passwordInput"
       >
       <p class="alignRight lostPasswordWrapper">
-        <nuxt-link to="/LostPassword">
+        <nuxt-link 
+          :to="localePath('/LostPassword')"
+        >
           {{ $t("signInPage.forgot") }}
         </nuxt-link>
       </p>
@@ -48,7 +50,7 @@ definePageMeta({
         </label>
       </p>
       <nuxt-link 
-        to="/Profile" 
+        :to="localePath('/Profile')"
         class="button bg_black large signInBtn"
       >
         {{ $t("signInPage.signInButton") }}

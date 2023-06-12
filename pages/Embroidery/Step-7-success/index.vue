@@ -13,7 +13,10 @@ definePageMeta({
       <div class="Title">
         <div class="content">
           <h1>
-            <span class="subtitle">Step 7 <span class="visually-hidden">— </span></span>Publication
+            <span class="subtitle">
+              {{ $t('embroidery.steps.step') }} 7
+            <span class="visually-hidden">— </span></span>
+            {{ $t('embroidery.step7Page.title') }}
           </h1>
         <GeneralGoBack
           page="Profile"
@@ -24,32 +27,32 @@ definePageMeta({
         <RegistrationNavSteps
           :currentStep="7"
         />
-
         <section class="Publication Done textWidth">
           <div class="Publication-content">
             <h2 class="title">
-              Good news! We received your work
+              {{ $t('embroidery.step7Page.section1.title') }}
             </h2>
             <br>
             <p>
-              <strong class="b2">The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks.</strong> Thanks for your understanding! 
+              <strong class="b2">{{ $t('embroidery.step7Page.section1.paragraph1.highlight') }}</strong> {{ $t('embroidery.step7Page.section1.paragraph1.content') }}
             </p>
             <p>
-              When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark. <strong class="b2">You will be able to check your hero’s page in the gallery</strong> by clicking that icon. 
+              {{ $t('embroidery.step7Page.section1.paragraph1.content1') }} <strong class="b2">{{ $t('embroidery.step7Page.section1.paragraph1.highlight') }}</strong> {{ $t('embroidery.step7Page.section1.paragraph1.content2') }}
             </p>
             <br>
             <p>
-              Thank you for your solidarity and participation.
+              {{ $t('embroidery.step7Page.section1.paragraph3') }}
             </p>
             <p>
-              If you still have time and energy, you can embroider a new political prisoner.
+              {{ $t('embroidery.step7Page.section1.paragraph4') }}
             </p>
           </div>
           <div class="buttons">
             <nuxt-link
               to="/Embroidery/Step-1-your-hero"
-              class="button bg_black">
-              Choose a new hero
+              class="button bg_black"
+            >
+              {{ $t('embroidery.step7Page.forwardButton') }}
             </nuxt-link>
           </div>
         </section>

@@ -68,7 +68,11 @@ definePageMeta({
           <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
           >Previous step</nuxt-link
           > -->
-          <nuxt-link to="/Embroidery/Step-6-shipping" class="button bg_black" id="save">
+          <nuxt-link 
+            :to="localePath('/Embroidery/Step-6-shipping')"
+            class="button bg_black" 
+            id="save"
+          >
             I have sent a package
           </nuxt-link>
         </div>

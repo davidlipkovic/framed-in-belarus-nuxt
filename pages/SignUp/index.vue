@@ -12,10 +12,10 @@ definePageMeta({
     <p class="signUpDescription">
       {{ $t("signUpPage.signInQuestion") }}
       <nuxt-link 
-        to="/SignIn" 
+        :to="localePath('/SignIn')"
         class="red"
       >
-        {{ $t("linkSignin") }}
+        {{ $t("links.signIn") }}
       </nuxt-link>
     </p>
     <form class="formWrapper">
@@ -127,7 +127,7 @@ definePageMeta({
         </span>
       </label>
       <nuxt-link 
-        to="/Profile" 
+        :to="localePath('/Profile')"
         class="button bg_black large signInBtn"
       >
         {{ $t('signUpPage.createButton') }}

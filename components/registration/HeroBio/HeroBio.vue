@@ -28,11 +28,17 @@ const hero = prisonersStore.chosenHero()
         />
       </div>
       <div class="Hero-header-title">
-        <p class="Hero-header-case">Case: {{ hero.case }}</p>
-        <h2 class="Hero-header-name">{{ hero.name }}</h2>
+        <p class="Hero-header-case">
+          {{ $t('embroidery.steps.description.case') }}: {{ hero.case }}
+        </p>
+        <h2 class="Hero-header-name">
+          {{ hero.name }}
+        </h2>
       </div>
       <label class="Hero-more-button flexRowStart" for="heroMore">
-        <span class="Hero-more-button-text">More information</span>
+        <span class="Hero-more-button-text">
+          {{ $t('embroidery.steps.description.moreButton') }}
+        </span>
         <SvgArrowDown class="Hero-more-button-img"/>
       </label>
     </div>
@@ -46,20 +52,32 @@ const hero = prisonersStore.chosenHero()
     <div class="Hero-content">
       <div class="Hero-content-titleWrapper">
         <div class="Hero-Bio-info">
-          <h3 class="title">Date of birth:</h3>
+          <h3 class="title">
+            {{ $t('embroidery.steps.description.birth') }}:
+          </h3>
           <p>{{ hero.birthday }}</p>
         </div>
         <div class="Hero-Bio-info">
-          <h3 class="title">Date of detention:</h3>
-          <p>{{ hero.arrested }}</p>
+          <h3 class="title">
+            {{ $t('embroidery.steps.description.detention') }}:
+          </h3>
+          <p>
+            {{ hero.arrested }}
+          </p>
         </div>
         <div class="Hero-Bio-info">
-          <h3 class="title">Sentence:</h3>
-          <p>{{ hero.decision }}</p>
+          <h3 class="title">
+            {{ $t('embroidery.steps.description.sentence') }}:
+          </h3>
+          <p>
+            {{ hero.decision }}
+          </p>
         </div>
       </div>
       <div class="Hero-Description-data">
-        <h3 class="title">Description of the Political prisoner:</h3>
+        <h3 class="title">
+          {{ $t('embroidery.steps.description.descriptionPrisoner') }}:
+        </h3>
         <p>
           Maryia Kalesnikava is a member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka.
         </p>
@@ -89,7 +107,9 @@ const hero = prisonersStore.chosenHero()
         </p>
       </div>
       <div class="Hero-Description-data">
-        <h3 class="title">Description of the case:</h3>
+        <h3 class="title">
+          {{ $t('embroidery.steps.description.descriptionCase') }}:
+        </h3>
         <p>
           The case description is the same as the political prisoner’s
           description because this is an individual case, not a collective
@@ -97,11 +117,17 @@ const hero = prisonersStore.chosenHero()
         </p>
       </div>
       <div class="Hero-Description-data">
-        <h3 class="title">Address of the prison:</h3>
-        <p>{{ hero.prisonAddress }}</p>
+        <h3 class="title">
+          {{ $t('embroidery.steps.description.address') }}:
+        </h3>
+        <p>
+          {{ hero.prisonAddress }}
+        </p>
       </div>
       <label class="Hero-less-button flexRowStart" for="heroMore">
-        <span class="Hero-less-button-text">Less information</span>
+        <span class="Hero-less-button-text">
+          {{ $t('embroidery.steps.description.lessButton') }}
+        </span>
         <SvgArrowDown class="Hero-less-button-img"/>
       </label>
     </div>

@@ -1,10 +1,10 @@
 {
     "title": "Framed in Belarus",
-    "description": "A social art project dedicated to political prisoners in Belarus",
+    "description": "Сацыяльны арт-праект, прысвечаны палітычным вязням у Беларусі",
     "buttons": {
-        "accept": "Accept",
-        "decline": "Decline",
-        "manage": "Manage",
+        "accept": "Прыняць",
+        "decline": "не прымаць",
+        "manage": "змяніць наладкі",
         "cancel": "Cancel",
         "publish": "Publish",
         "save": "Save",
@@ -29,17 +29,17 @@
         "chronologicallyReversed": "Date (oldest first)"
     },
     "links": {
-        "home": "Home",
-        "gallery": "Gallery",
-        "news": "News",
-        "aboutUs": "About us",
+        "home": "Галоўная",
+        "gallery": "Галерэя",
+        "news": "Навіны",
+        "aboutUs": "Пра нас",
         "faq": "FAQ",
-        "signIn": "Sign in",
+        "signIn": "Уваход",
         "signUp": "Sign up",
         "signOut": "Sign Out",
         "profile": "Profile",
         "myEmbroideries": "My embroideries",
-        "participate": "Start stitching"
+        "participate": "Удзельнічаць"
     },
     "mainMenu": {
         "question": {
@@ -47,22 +47,22 @@
             "content": "If you have an urgent question, please ask us and we will send you an email."
         }
     },
-    "cookies": "For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.",
+    "cookies": "Для вымярэння і паляпшэння нашых сервісаў на сайце FramedinBelarus мы ўжываем інструменты, якія выкарыстоўваюць файлы cookies.",
     "homePage": {
-        "paragraph1": "The number of officially recognized political prisoners in Belarus currently reaches more than {0} people.",
+        "paragraph1": "Лічба афіцыйна прызнаных палітзняволеных у Беларусі складае на сённяшні дзень больш як {0} чалавек. ",
         "paragraph2": {
-            "content": "{0} to create portraits of each illegally convicted citizen using the traditional Belarusian embroidery technique of red thread on a white background, thereby recording an important era of Belarusian history with a folk code - ornament.",
-            "highlight": "The project aims"
+            "content": "{0} - стварыць партрэты кожнага незаконна асуджанага чалавека з выкарыстаннем традыцыйнай беларускай тэхнікі вышывання чырвонай ніткай па белым фоне, захаваўшы тым самым у памяці важную эпоху беларускай гісторыі з дапамогай народнага коду - арнамента.",
+            "highlight": "Мэта праекта"
         },
         "paragraph3": {
-            "content": "{0} is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the dictatorship and share their stories through the non-traditional tool of political protest - cross-stitching.",
-            "highlight": "Participation in the project"
+            "content": "{0} гэта жэст творчай салідарнасці, які дазваляе сімвалічна падтрымаць тых, хто пацярпеў ад дзяржаўнага рэжыму, і падзяліцца іх гісторыямі з дапамогай нетрадыцыйнага інструмента палітычнага пратэсту - вышыўкі крыжыкам.",
+            "highlight": "Удзел у праекце"
         },
-        "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular prisoner. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
-        "paragraph5": "Already, more than 400 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups. The final form of the project will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies.",
+        "paragraph4": "Працэс вышывання - гэта доўгатэрміновы і медытатыўны досвед, які дазваляе ўдзельнікам засяродзіцца на сваіх думках і пачуццях да канкрэтнага*ай зняволенага*ай. Ствараючы партрэт палітычнага*й зняволенага*ай, удзельнікі і ўдзельніцы ахвяруюць невялікую колькасць часу на знак салідарнасці.",
+        "paragraph5": "Ужо больш за 400 чалавек па ўсім свеце зрабіліся \"амбасадарамі\" праекта, вышываючы партрэты палітычных вязняў індывідуальна або ў групах. Канчатковай формай праекта стане калектыўнае палатно з усіх вышытых партрэтаў, якое сімвалізуе повязь палітычных падзей і людскіх лёсаў.",
         "paragraph6": {
-            "content": "The project is a continuation of the series {0}, created by Rufina Bazlova in 2020-2021, and is run by the Stitchit Collective. Through the #FramedinBelarus project, the collective creative process allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus.",
-            "highlight": "\"History of Belarusian Vyzhivanka\""
+            "content": "Праект ствараецца ў працяг серыі {0}, створанай Руфінай Базловай у 2020-2021 гадах, і ажыццяўляецца асацыяцыяй “Stitchit”. Праз калектыўны творчы працэс праект #FramedinBelarus дазваляе людзям выступіць супраць несправядлівасці і праявіць салідарнасць з палітычнымі вязнямі ў Беларусі.",
+            "highlight": "\"Гісторыя Беларускай Выжыванкі\""
         }
     },
     "aboutUsPage": {

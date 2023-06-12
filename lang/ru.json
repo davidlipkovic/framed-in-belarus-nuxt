@@ -1,93 +1,487 @@
 {
-    "title": "Framed in Belarus",
-    "description": "Социальный арт-проект, посвященный политическим заключенным в Беларуси",
-    "linkHome": "Главная",
-    "linkGallery": "Галерея",
-    "linkNews": "Новости",
-    "linkAboutUs": "О нас",
-    "linkFAQ": "FAQ",
-    "linkSignin": "Войти",
-    "linkFacebook": "Hайдите нас на Фейсбуке",
-    "linkInstagram": "Найдите нас в Инстаграмм",
-    "participateBtnMsg": "Хотите участвовать",
-    "cookies": "For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "manage": "Manage",
-    "moreBtnMsg": "более",
-    "homePage1": "В настоящее время в Беларуси число официально признанных политических заключенных достигает более",
-    "homePage2": "человек.",
-    "homePage3": "У каждого и каждой из нас есть возможность выступить против несправедливости через солидарность и коллективный творческий процесс.",
-    "homePage4": "Цель проекта #FramedinBelarus - рассказать",
-    "homePage5": "о каждом незаконно осужденном гражданине Беларуси и создать их портреты используя традиционную беларускую технику вышивки красной нитью на белом фоне, и как итог — зафиксировать важную эпоху беларуской истории с помощью народного кода-орнамента.",
-    "homePage6": "Процесс вышивания — это длительный и медитативный опыт дающий возможность участникам проекта концентрироваться на своих мыслях и чувствах к определенному арестанту. Время — это то, что отнято у человека в тюрьме, и время — это то малое, чем мы можем пожертвовать при создании портрета политического заключенного.",
-    "homePage7": "Участие в проекте",
-    "homePage8": "это жест творческой солидарности, позволяющий символически поддержать людей пострадавших от государственного режима и рассказать о каждом из них, используя нетрадиционный инструмент политического протеста — вышивку крестиком.",
-    "homePage9": "Финальная форма",
-    "homePage10": "проекта будет представлять собой коллективное полотно из всех вышитых портретов и станет материальным символом переплетения политических событий и человеческих судеб.",
-    "homePage11": "Проект является продолжением серии",
-    "homePage12": "\"История беларуской Выживанки\"",
-    "homePage13": ", созданной Руфиной Базловой в 2020-2021 годах.",
-    "aboutUsPageTitle": "О нас",
-    "aboutUsSubTitle": "Stitchit и коллектив",
-    "aboutUsPage1": "Stitchit — это арт-группа, созданная в 2021 году художницей Руфиной Базловой и куратором Софией Токар. Группа работает над актуальными общественно-политическими проблемами, используя традиционную технику вышивки как инструмент сопротивления и диалога. вовлекает различные сообщества и отдельных лиц в процесс создания и стирает границы авторства. Коллектив означает всех людей, которые принимают участие в проекте и мероприятиях, организованных Stitchit.",
-    "aboutUsPage2" : "Если вы представляете организацию и заинтересованы в размещении проекта, можете помочь нам с продвижением, хотите организовать семинар или любую другую форму сотрудничества, пожалуйста, свяжитесь с нами по е-мейлу",
-    "newsPageTitle": "Новости",
-    "newsPageArticle1Title": "The little bird must be caught",
-    "newsPageArticle1Perex": "Групповая выставка \"The little bird must be caught\" представляет часть проекта #FramedinBelarus на 13-м международном фестивале современного искусства Survival Kit, который проходит в здании старого банка, в самом сердце Домской площади (Pils iela 23, Рига) с 3 сентября по 16 октября.",
-    "newsTheLittleBirdP1": "#FramedinBelarus в Риге!",
-    "newsTheLittleBirdP2": "Групповая выставка \"",
-    "newsTheLittleBirdP3": "\" представляет часть проекта #FramedinBelarus на 13-м международном фестивале современного искусства",
-    "newsTheLittleBirdP4": "Survival Kit",
-    "newsTheLittleBirdP5": ", который проходит в здании старого банка, в самом сердце ",
-    "newsTheLittleBirdP6": "Домской площади (Pils iela 23, Рига) с 3 сентября по 16 октября",
-    "newsTheLittleBirdP7": "Международный фестиваль современного искусства Survival Kit - одно из крупнейших событий современного искусства в странах Балтии, ежегодно проходящее в Риге. Он был основан в 2009 году как реакция на глобальный экономический кризис, призывая рассмотреть различные стратегии выживания в изменчивом современном мире. Каждый год фестиваль посвящается новой и значимой социальной теме. Для проведения фестивальных мероприятий часто используются заброшенные здания Риги, чтобы привлечь внимание к их будущему потенциалу развития",
-    "newsTheLittleBirdP8": "",
-    "stringReadMore": "Подробнее",
-    "newsPageArticle2Title": "Stitched Freedom: ‘Framed in Belarus’ project",
-    "newsPageArticle2Perex": "Арт-группа Stitchit проведет мастер-класс в Риге.",
-    "newsPage1": "1 и 2 октября в 14 часов по среднеевропейскому времени приглашаем вас принять участие в мастер-классе \"Stitched Freedom: ‘Framed in Belarus’ project\", который проведет арт-группа \"Stitchit\" - Руфина Базлова и София Токар. Мастер-класс является частью программы фестиваля Survival Kit.",
-    "newsStitchedFreedom0" : "Арт-группа Stitchit проведет мастер-класс в Риге",
-    "newsStitchedFreedom1" : "1 и 2 октября в 14 часов по среднеевропейскому времени",
-    "newsStitchedFreedom2" : " приглашаем вас принять участие в мастер-классе \"",
-    "newsStitchedFreedom3" : "Stitched Freedom: ‘Framed in Belarus’ project",
-    "newsStitchedFreedom5" : "Адрес: “Hearing Voices Café”, Pils iela 23, Riga",
-    "newsStitchedFreedom6" : "Цель проекта #FramedinBelarus — рассказать о каждом несправедливо осужденном гражданине Беларуси и изобразить их истории, используя традиционную беларускую технику вышивки красной нитью на белом фоне, и как результат зафиксировать важную эпоху беларуской истории в (между)народном коллективном художественном произведении. ",
-    "newsStitchedFreedom7" : "Участники мастер-класса научатся первым шагам работы со схемой и вышивкой. Не беспокойтесь, если у вас нету опыта вышивки крестиком.",
-    "newsStitchedFreedom8" : "Семинар бесплатный (при наличии действительного входного билета на выставку) и будет проводиться на английском языке.",
-    "newsStitchedFreedom9" : "Все материалы будут предоставлены.",
-    "newsStitchedFreedom10" : "Пожалуйста, зарегистрируйтесь заранее через",
-    "newsStitchedFreedom11" : "ФОРМУ ЗАЯВКИ",
-    "newsStitchedFreedom12" : "Более подробная информация о программе фестиваля Survival Kit",
-    "newsStitchedFreedom13" : "здесь",
-    "newsStitchedFreedom4" : "\", который проведет арт-группа \"Stitchit\" — Руфина Базлова и София Токар. Мастер-класс является частью программы фестиваля Survival Kit.",
-    "GoToNews" : "Перейти к новостям",
-    "RegisterStep0Title" : "Terms of participation in the project",
-    "RegisterStep0B0" : "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
-    "RegisterStep0B1" : "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All fates are equally important in this project, and we would like to record all stories, so each political prisoner is embroidered only once. If we don't have your character's pattern ready yet, or he/she is already being embroidered, we will offer you another person. Rufina is the sole creator of all the pattern work, so the process of creating a new scheme can take 2-3 months.",
-    "RegisterStep0Title0" : "Timeline",
-    "RegisterStep0Str0" : "The work process is divided into several steps that you can go through at your own pace. However, ",
-    "RegisterStep0Str1" : "we have set a time limit of 2 months",
-    "RegisterStep0Str2" : ". This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
-    "RegisterStep0Str3" : "If you don't finish your work in 2 months and tell us you need more time, we may drop you from the project and pass your hero to someone else. We regret these strict rules, but we need to create some boundaries so the project doesn't turn into chaos.",
-    "RegisterStep0Str4" : "If you decide to withdraw from the project for any reason, or ",
-    "RegisterStep0Str5" : "if you won’t be able to finish",
-    "RegisterStep0Str6" : " your embroidery work ",
-    "RegisterStep0Str7" : "on time",
-    "RegisterStep0Str8" : ", please ",
-    "RegisterStep0Str9" : "let us know",
-    "RegisterStep0Str10" : " as soon as possible.",
-    "RegisterStep0Title1" : "Publisity",
-    "RegisterStep0Str11" : "After your registration,  your data will not be available to other users of the website. You can also choose to use your real name or pseudonym and administer your own profile.",
-    "RegisterStep0Str12" : "An important element of the project is photo documentation of your embroidery process and final work. These photos will be later used on the site and in other publications on the project. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously. ",
-    "RegisterStep0Title2" : "Price",
-    "RegisterStep0Str13" : "Participation in the project is free",
-    "RegisterStep0Str14" : " and open to all who are willing to give their time and effort to create an embroidery. The cost of creating the work is at your own expense and will cost you the like price of two cups of coffee. The final idea of the project is to create a large-scale canvas with embroideries of all political prisoners, therefore, by participating in the project you are obliged to send us your embroidery and become part of a large mosaic of portraits, which will later be publicly exhibited in galleries and cultural institutions.",
-    "RegisterStep0Title3" : "Reference",
-    "RegisterStep0Str15" : "At the end, we will also ",
-    "RegisterStep0Str16" : "ask you to write a short comment about your experience",
-    "RegisterStep0Str17" : " embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understand the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
-    "RegisterStep0Str18" : "By accepting the terms, you are confirming your serious intention to participate in the project!",
-    "RegisterButtonDecline" : "Decline",
-    "RegisterButtonAgreeConditions" : "I agree with conditions"
+    "title": "Framed in Belarus",
+    "description": "Социальный арт-проект, посвященный политическим заключенным в Беларуси. ",
+    "buttons": {
+        "accept": "Принять",
+        "decline": "не принимать",
+        "manage": "настроить",
+        "cancel": "Cancel",
+        "publish": "Publish",
+        "save": "Save",
+        "send": "Send",
+        "more": "More",
+        "less": "Less",
+        "readMore": "Read more",
+        "readLess": "Read less"
+    },
+    "placeholders": {
+        "username": "Имя пользователя",
+        "password": "Пароль",
+        "passwordAgain": "Пароль еще раз",
+        "chooseCommunicationLanguage": "Выбрать язык коммуникации",
+        "pseudonym": "Your pseudonym / nickname",
+        "searchHero": "Search for a Hero*ine by name"
+    },
+    "inputs": {
+        "alphabetically": "A-Z",
+        "alphabeticallyReversed": "Z-A",
+        "chronologically": "Date (newest first)",
+        "chronologicallyReversed": "Date (oldest first)"
+    },
+    "links": {
+        "home": "Главная",
+        "gallery": "Галерея",
+        "news": "Новости",
+        "aboutUs": "О нас",
+        "faq": "FAQ",
+        "signIn": "Вход",
+        "signUp": "Sign up",
+        "signOut": "Sign Out",
+        "profile": "Profile",
+        "myEmbroideries": "My embroideries",
+        "participate": "Участвовать"
+    },
+    "mainMenu": {
+        "question": {
+            "label": "Ask a question",
+            "content": "If you have an urgent question, please ask us and we will send you an email."
+        }
+    },
+    "cookies": "Для измерения и улучшения наших сервисов на сайте FramedinBelarus мы используем инструменты, которые используют файлы cookies.",
+    "homePage": {
+        "paragraph1": "Число официально признанных политзаключенных в Беларуси на сегодняшний день достигает более {0} человек. ",
+        "paragraph2": {
+            "content": "{0} - создать портреты каждого и каждой незаконно осужденных с использованием традиционной беларуской техники вышивания красной нитью по белому фону, тем самым запечатлев важную эпоху беларуской истории с помощью народного кода - орнамента.",
+            "highlight": "Цель проекта"
+        },
+        "paragraph3": {
+            "content": "{0} - это жест творческой солидарности, позволяющий людям символически поддержать тех, кто пострадал от государственного режима, и поделиться их историями с помощью нетрадиционного инструмента политического протеста - вышивки крестиком.",
+            "highlight": "Участие в проекте"
+        },
+        "paragraph4": "Процесс вышивания - это длительный и медитативный опыт, который позволяет участникам сосредоточиться на своих мыслях и чувствах к конкретному арестованному. Создавая портрет политического*й заключенного*й, участницы и участники жертвуют небольшим количеством времени в знак солидарности.",
+        "paragraph5": "Уже более 400 человек по всему миру стали \"послами\" проекта, вышивая портреты политических заключенных индивидуально или в группах. Окончательной формой проекта станет коллективное полотно из всех вышитых портретов, символизирующее переплетение политических событий и человеческих судеб.",
+        "paragraph6": {
+            "content": "Проект является продолжением серии {0}, созданной Руфиной Базловой в 2020-2021 годах, и осуществляется Stitchit. Через коллективный творческий процесс проект #FramedinBelarus позволяет людям выступить против несправедливости и проявить солидарность с политическими заключенными в Беларуси.",
+            "highlight": "\"История Беларуской Выживанки\""
+        }
+    },
+    "aboutUsPage": {
+        "title": "О нас",
+        "section": {
+            "title": "Stitchit",
+            "paragraph1": "Stitchit - это арт-группа, созданная в 2021 году визуальной художницей Руфиной Базловой (Беларусь) и кураторкой Софией Токар (Молдова). Группа работает над актуальными социально-политическими темами, используя традиционную технику вышивки как инструмент сопротивления и диалога. Stitchit вовлекает различные сообщества и отдельных людей в процесс создания художественных произведений и стирает границы авторства.",
+            "paragraph2": "Коллектив подразумевает всех людей, которые принимают участие в проекте и мероприятиях, организованных Stitchit.",
+            "paragraph3": {
+                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: {0}.",
+                "highlight": "framedinbelarus{'@'}gmail.com"
+            }
+        },
+        "igButton": "Мы в Instagram",
+        "fbButton": "Мы в Facebook"
+    },
+    "signUpPage": {
+        "title": "Регистрация",
+        "signInQuestion": "Уже участвуете?",
+        "textarea": "Почему вы решили принять участие в проекте?",
+        "terms": {
+            "section1": {
+                "title": "Условия участия в проекте",
+                "paragraph1": "На этом сайте, после подтверждения условий, вы получите подробные инструкции, которые проведут вас от этапа подготовки до отправки нам вашей готовой работы.",
+                "paragraph2": "Принимая участие в проекте вы становитесь \"послом\" заключенного*й и получаете схему портрета одного*й из политических заключённых Беларуси. Все судьбы одинаково важны в данном проекте, и мы хотели бы зафиксировать все истории, поэтому каждый*ая политический*ая заключенный*ая вышивается только один раз."
+            },
+            "section2": {
+                "title": "Сроки",
+                "paragraph1": {
+                    "content": "Процесс работы разбит на несколько шагов, которые вы можете пройти в удобном для вас ритме. Однако {0} Этого должно быть достаточно, если вы будете заниматься вышивкой время от времени в свободные вечера (даже если вы ранее не вышивали). ",
+                    "highlight": "мы определили временные границы в 2 месяца."
+                },
+                "paragraph2": "Если вы не закончите работу за 2 месяца и не сообщите нам, что вам нужно больше времени, мы можем исключить вас из проекта и передать вашего*у героя*иню кому-то другому. Мы сожалеем о таких строгих правилах, но нам необходимо создать некоторые границы, чтобы проект не превратился в хаос.",
+                "paragraph3": {
+                    "content": "Если вы по каким либо причинам решаете выйти из проекта или {0}, пожалуйста, {2} как можно скорее.",
+                    "highlight1": "не успеваете вовремя вышить работу",
+                    "highlight2": "",
+                    "highlight3": "сообщите нам об этом"
+                }
+            },
+            "section3": {
+                "title": "Безопасность",
+                "paragraph1": "Мы не собираем ваши личные данные. Вы можете использовать псевдоним и администрировать свой профиль перед публикацией."
+            },
+            "section4": {
+                "title": "Цена вопроса",
+                "paragraph1": "Ваша работа становится пожертвованием ассоциации \"Stitchit\", которая занимается организацией проекта, и переходит в ее собственность. Ассоциация может выставлять работу, использовать публично или иным образом по своему усмотрению для целей данного проекта."
+            },
+            "section5": {
+                "title": "Фото",
+                "paragraph1": {
+                    "content": "Важным элементом проекта является фотодокументация процесса вашей вышивки. Данные {0}.  Потому хотим вас об этом заранее предупредить а также попросить отнестись серьёзно к качеству будущих фотографий.",
+                    "highlight": "фотографии будут впоследствии использованы на сайте и в других изданиях и публикациях посвященных проекту."
+                }
+            },
+            "section6": {
+                "title": "Обратная связь",
+                "paragraph1": {
+                    "content": "В конце мы также попросим {0} политического заключенного и участия в проекте. Вышивание - это процесс, который дает возможность остановится и лучше прочувствовать и понять происходящее. Нам будет очень приятно услышать ваши мысли, которые смогут стать дополнением к вашей работе.",
+                    "highlight": "вас написать короткий комментарий о вашем опыте вышивания"
+                }
+            }
+        },
+        "consent" : "Принимаю условия участия в проекте",
+        "createButton" : "Создать личный кабинет",
+        "signInGoogleButton" : "Войти с помощью Google"
+    },
+    "signInPage": {
+        "title": "Sign in",
+        "signUpQuestion": {
+            "content": "Not a member? {0}",
+            "highlight": "Sign up"
+        },
+        "forgot": "Forgot the password?",
+        "remember": "Remember me",
+        "signInButton" : "Sign in",
+        "signInGoogleButton" : "Sign in with Google"
+    },
+    "profilePage": {
+        "title": "Личный кабинет",
+        "subTitle": "Личный кабинет",
+        "question": "Почему вы решили принять участие в проекте?",
+        "editProfile": "Редактировать Личный кабинет",
+        "cardStatus": {
+            "status1": "В процессе",
+            "status2": "Схема готова",
+            "status3": "Вышито",
+            "status4": "Отправлено",
+            "status5": "Опубликовано",
+            "status6": "Доставлено",
+            "status7": "Запрошено"
+        }
+    },
+    "embroidery": {
+        "steps": {
+            "steps": {
+                "step1": "Ваш герой*иня",
+                "step2": "Подготовка",
+                "step3": "Как помочь?",
+                "step4": "Фото",
+                "step5": "Комментарий",
+                "step6": "Отправка",
+                "step7": "Публикация"
+            },
+            "goBack": "Назад в Мой профайл",
+            "step": "Шаг",
+            "description": {
+                "case": "Case",
+                "birth": "Date of birth",
+                "detention": "Date of detention",
+                "sentence": "Sentence",
+                "descriptionPrisoner" : "Описание политзаключенного*ой",
+                "descriptionCase" : "Описание дела",
+                "address" : "Адрес тюрьмы",
+                "moreButton" : "Показать больше",
+                "lessButton" : "Less information"
+            }
+        },
+        "step1Page": {
+            "title": "Выбор героя*ини",
+            "rows": "Rows per page",
+            "of": "of",
+            "warning": "Выбрав героя*иню, вы не сможете его*ее изменить",
+            "backButton" : "Назад ко всем политзаключенным",
+            "forwardButton" : "Выбрать этого*у героя*иню"
+        },
+        "step2Page": {
+            "title": "Подготовка",
+            "section1": {
+                "title": "Что купить?",
+                "paragraph1": {
+                    "content": " белый / натуральный (канва или ткань с # плетением)",
+                    "highlight": "Цвет ткани:"
+                },
+                "paragraph2": {
+                    "content": " любые оттенки красного / возможно сочетание цветов на ваше усмотрение.",
+                    "highlight": "Цвет ниток:"
+                }
+            },
+            "section2": {
+                "title": "Какого размера должна быть вышивка?",
+                "paragraph1": "Выберите любой растр канвы, с которым вам удобнее всего работать. Размер вышивки будет зависеть именно от этого растра. Каждая работа будет немного отличаться по формату - ничего страшного, мы это учитываем."
+            },
+            "section3": {
+                "title": "Сколько ткани покупать?",
+                "paragraph1": "Вы можете использовать любую ткань с крестовым плетением, или купить специальную ткань для вышивки. Чтобы точно определить размер ткани, нужно отсчитать 145 клеточек на канве. Однако считать столько клеточек слишком долго и сложно, поэтому советуем отсчитать 10 клеточек, измерить это расстояние линейкой и умножить на 14,5. К полученному результату добавьте примерно по 5 см с каждой стороны - это и будет ваш финальный размер.",
+                "paragraph2": "Ткань для вышивки называется канва. Она бывает разного растра - число определяет сколько крестиков помещается в один сантиметр.",
+                "paragraph3": "Чем меньше число - тем крупнее крестик. Обычно она продается в метраже шириной 140 см.",
+                "paragraph4": "Мы заранее просчитали, сколько вам может понадобиться канвы различного растра - см. таблицу размеров:"
+            },
+            "section4": {
+                "headerRow": {
+                    "cell1": "Номер Канвы",
+                    "cell2": "Размер вышивки",
+                    "cell3": "Припуски на шов",
+                    "cell4": "Финальный размер ткани"
+                },
+                "aida": "Канвы",
+                "cm": "cm",
+                "side": "см с каждой стороны"
+            },
+            "section5": {
+                "title": "А пяльца?",
+                "paragraph1": "Для этого типа вышивки пяльца не обязательны, но если вам так удобнее, то конечно используйте!"
+            },
+            "section6": {
+                "title": "Как вышивать?",
+                "paragraph1": "Советуем начать вышивать с середины. Сложите ткань пополам дважды - так вы найдете центр ткани. На схеме также отмечен центр. Это ваша исходная точка. Отсчитайте количество пустых клеточек от центра до начала мотива - обычно это нога схематичного человечка. Тоже самое сделайте на ткани.",
+                "paragraph2": "Продолжайте работу, считая пустые и заполненные клеточки. Следите за схемой. На ней указано количество крестиков в самых проблематичных местах.",
+                "paragraph3": {
+                    "content1": "Посмотрите информативный",
+                    "content2": ".",
+                    "highlight": "видеоурок"
+                }
+            },
+            "section7": {
+                "title": "Подпись работы",
+                "paragraph1": "Вместо строки \"YOUR NAME, CITY, YEAR\" подписывайте конечную вышивку своим именем или псевдонимом. Если вы работали над вышивкой коллективно, пусть каждый*ая вышьет свое имя / псевдоним. Мы прилагаем латинский и беларуский алфавит, из которого вы составите свою подпись. Вы можете придумать свой шрифт. Будет здорово, если вы также вышьете место, откуда вы родом, где сейчас проживаете, дату или любой другой текст. Если вы думаете, что вашу работу должен подчеркнуть декор, добавьте его.",
+                "paragraph2": "Пожалуйста, не бойтесь делать ошибки - вышивка не обязательно должна быть идеальной, пусть она будет ОРИГИНАЛЬНОЙ, ВАШЕЙ!"
+            },
+            "forwardButton" : "Следующий шаг"
+        },
+        "step3Page": {
+            "title": "Support the political prisoner",
+            "quote": {
+                "content": "Чем больше мы о них говорим, в тем большей они безопасности",
+                "author": "политзаключенная Дарья Лосик, жена несправедливо осужденного блогера Игоря Лосика."
+            },
+            "section1": {
+                "paragraph1": "Участвуя в проекте, вы становитесь своего рода \"послом\" заключенного*й, рассказывая его*ее историю всему миру."
+            },
+            "section2": {
+                "title": "Делайте посты и сториз в соц.сетях.",
+                "paragraph1": {
+                    "content1": "Рассказывайте о своем*ей герое*ини и о проекте и ставьте",
+                    "content2": "и отмечайте аккаунт",
+                    "highlight1": "#framedinbelarus",
+                    "highlight2": "{'@'}rufinabazlova"
+                }
+            },
+            "section3": {
+                "title": "Напишите письмо своему*ей политическому*ой заключенному*ой.",
+                "paragraph1": {
+                    "content": "Вы можете отправить письмо из своей страны. Полный список политических заключенных с обновленными адресами представлен на сайте {0}",
+                    "highlight": "https://prisoners.spring96.org/en"
+                },
+                "paragraph2": {
+                    "content": "может помочь вам отправить открытку или письмо \"онлайн\". Волонтеры распечатают ваш текст и отправят его по почте в Беларуси. Более подробную информацию о том, как поддержать инициативу, вы можете найти на их странице.",
+                    "highlight": "Платформа \"Открытки солидарности\""
+                },
+                "paragraph3": "Что нужно знать о написании писем заключенным?",
+                "paragraph4": {
+                    "content": "Все письма проходят цензуру. Не пишите ничего, что может причинить вред вам, вашему адресату или другим людям. Помните, что часть информации может не пройти через цензуру, поэтому описывайте новости и события осторожно.",
+                    "highlight": "Цензура"
+                },
+                "paragraph5": {
+                    "content": "{0} Указывайте дату письма, можно их и пронумеровать - это поможет выяснить, какие письма потерялись и сколько времени занимает доставка.",
+                    "highlight": "Даты"
+                },
+                "paragraph6": {
+                    "content": "{0} Письма с неизвестными сокращениями, уменьшениями слов могут не пройти цензуру. Также не отправляйте в письмах стихи или литературные произведения - шанс пройти цензуру невелик.",
+                    "highlight": "Язык"
+                }
+            },
+            "section4": {
+                "title": {
+                    "content": "Поучаствуйте в инициативе",
+                    "highlight": "politzek.me"
+                },
+                "paragraph1": "Платформа предлагает подружиться с заключенными и выполнять различные задания."
+            },
+            "section5": {
+                "title": "Поддержите политзаключенных и их семьи материально.",
+                "paragraph1": "dissidentby.com/en/help",
+                "paragraph2": "bysol.org/en/",
+                "paragraph3": "Ineedhelpby.org",
+                "paragraph4": "en.stranafund.org"
+            },
+            "backButton" : "Предыдущий шаг",
+            "forwardButton" : "Понятно! Следующий шаг"
+        },
+        "step4Page": {
+            "title": "Фото",
+            "section1": {
+                "title": "Фотографируйте процесс работы",
+                "paragraph1": "Это могут быть фазы вышивки, вы во время работы, путешествия или мероприятия на которых вы “были” вместе с вышиваемым*ой героем*иней и т.д.",
+                "paragraph2": "Эти фотографии будут опубликованы в общей онлайн галерее, поэтому мы просим вас постараться сделать качественные и интересные фотографии вашей работы и процесса ее создания. Нам это очень поможет, если вы также сможете сделать фотографии лицевой и обратной стороны вашей готовой работы.",
+                "paragraph3": "Пожалуйста, имейте в виду, что эти фотографии могут быть использованы в печатных и онлайн-публикациях, выставках и т.д. в контексте презентации проекта."
+            },
+            "dropZone": {
+                "content": "Перетащите файлы сюда",
+                "highlight": "Выберите файлы"
+            },
+            "warning": "Пожалуйста добавьте изображения",
+            "backButton" : "Предыдущий шаг",
+            "forwardButton" : "Готово! Следующий шаг"
+        },
+        "step5Page": {
+            "title": "Комментарий",
+            "section1": {
+                "title": "Напишите короткий комментарий о своем опыте вышивки политзаключенного*ой",
+                "paragraph1": "Это могут быть интересные истории, которые произошли с вами в контексте проекта, или факты, которые вы узнали за это время о своем*ей герое*ине, о Беларуси и т.д. Это могут быть цитаты из вашей переписки с политзаключенным*ой или ваши мысли, возникшие во время работы. Здесь же вы можете написать пожелания вашему*й герою*ине, его*ее семье, всем беларусам или нашему проекту. Это может быть в форме открытого письма.",
+                "paragraph2": "Мы хотели бы узнать, оставил ли проект в вас какой-то отклик? Принесло ли вам участие в проекте какие-то новые впечатления? Ваш ответ поможет нам улучшить проект.",
+                "paragraph3": "Будет замечательно, если вы также сможете написать рукописный комментарий и отправить его нам вместе с готовой вышивкой. Потому что рукописный текст лучше смотрится на выставках."
+            },
+            "section2": {
+                "content1": "Я написал*а комментарий от руки и пошлю его вместе с вышивкой.",
+                "content2": "Я напечатаю комментарий тут"
+            },
+            "section3": {
+                "title": "Комментарий",
+                "textarea1": {
+                    "label": "Если возможно, пожалуйста, напишите текст на английском языке.",
+                    "placeholder": "Напечатать комментарий на английском",
+                    "warning": "Please add a comment"
+                },
+                "textarea2": {
+                    "label": "Выберите язык",
+                    "placeholder": "Напечатать комментарий на своем родном языке",
+                    "warning": "Please add a comment"
+                }
+            },
+            "section4": {
+                "title": "Этот комментарий будет опубликован в веб-галерее и может быть использован в печатных и онлайн-изданиях, выставках и т.д. в контексте презентаций проекта.",
+                "content1": "Согласен*а, я хочу, чтобы мой голос был услышан",
+                "content2": "Не согласен*а, пожалуйста, оставьте мой комментарий только для внутренних нужд проекта",
+                "warning": "Пожалуйста, выберите один вариант"
+            },
+            "backButton" : "Предыдущий шаг",
+            "forwardButton" : "Готово! Следующий шаг"
+        },
+        "step6Page": {
+            "title": "Отправка",
+            "sectionOptions": {
+                "title": "Пожалуйста, выберите, откуда вы отправляете посылку",
+                "content1": "Страна ЕС",
+                "content2": "Страна мимо ЕС",
+                "content3": "Беларусь",
+                "content4": "Передача лично в Праге",
+                "warning": "Пожалуйста, выберите один вариант",
+                "backButton" : "Предыдущий шаг",
+                "forwardButton" : "Получить инструкцию"
+            },
+            "sectionEU": {
+                "title": "Пожалуйста, прочитайте этот раздел внимательно!",
+                "section1": {
+                    "title": "IMPORTANT",
+                    "content1": "On the content line please write Embroidery or Tissue.",
+                    "content2": "We will need the following information from you in order to issue the customs declaration.",
+                    "content3": {
+                        "content": "Send your work only by {0}",
+                        "highlight": "CUSTOMER POSTAGE!"
+                    },
+                    "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                },
+                "section2": {
+                    "title": "Адрес:",
+                    "content1": "Rufina Bazlova",
+                    "content2": "Schnirchova 1447/15",
+                    "content3": "17000 Prague",
+                    "content4": "Czech Republic"
+                },
+                "input": {
+                    "label": "Идентификационный номер посылки:",
+                    "placeholder": "Enter Tracking number"
+                },
+                "backButton" : "Предыдущий шаг",
+                "forwardButton" : "Я отправил*а посылку"
+            },
+            "sectionNonEU": {
+                "title": "Пожалуйста, прочитайте этот раздел внимательно!",
+                "section1": {
+                    "title": "ВАЖНО",
+                    "content1": "При отправке посылки из страны не входящей в таможенный союз Евросоюза, пожалуйста сделайте следующее:",
+                    "content2": "При заполнении почтовой декларации обозначьте посылку как ПОДАРОК, СТОИМОСТЬЮ ДО 20 ЕВРО.",
+                    "content3": "В строке содержимое напишите ВЫШИВКА / EMBROIDERY или САЛФЕТКА / NAPKIN",
+                    "content4": "We will need the following information from you in order to issue the customs declaration.",
+                    "content5": {
+                        "content": "Send your work only by {0}",
+                        "highlight": "CUSTOMER POSTAGE!"
+                    },
+                    "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                },
+                "section2": {
+                    "title": "Адрес:",
+                    "content1": "Rufina Bazlova",
+                    "content2": "Schnirchova 1447/15",
+                    "content3": "17000 Prague",
+                    "content4": "Czech Republic",
+                    "content5": "Для оформления обязательной таможенной декларации нам понадобятся данные отправителя, указанные на посылке:"
+                },
+                "input1": {
+                    "label": "Имя и фамилия отправителя, как на посылке",
+                    "placeholder": "Enter Name Surname",
+                    "warning": "Пожалуйста заполните латинскими буквами."
+                },
+                "input2": {
+                    "label": "Полный адрес, включая индекс и страну",
+                    "placeholder": "Enter Address",
+                    "warning": "Пожалуйста заполните латинскими буквами."
+                },
+                "input3": {
+                    "label": "Идентификационный номер посылки",
+                    "placeholder": "Enter Tracking number"
+                },
+                "backButton" : "Предыдущий шаг",
+                "forwardButton" : "Я отправил*а посылку"
+            },
+            "sectionBelarus": {
+                "content": "Отправка работ из Беларуси всегда немного сложная задача, поэтому мы свяжемся с вами по электронной почте в течении 10 дней. Спасибо за понимание!",
+                "forwardButton" : "Понятно!"
+            },
+            "sectionPrague": {
+                "content": "Мы пошлем вам наше предложение о месте и времени встречи в течении 10 дней. Если у вас есть свое предложение или ваше пребывание в Праге ограничено, пожалуйста, дайте нам об этом знать.",
+                "textarea": {
+                    "label": "Comment",
+                    "placeholder": "Напишите свое предложение",
+                    "warning": "Please add a comment"
+                },
+                "forwardButton" : "Понятно!"
+            },
+            "sectionSent": {
+                "title": " Спасибо! Мы обязательно свяжемся с вами, как только получим вашу вышивку.",
+                "content1": "Тем временем вы можете скорректировать информацию о себе в своем личном профиле.",
+                "content2": "Короткий текст о вашей мотивации будет опубликован в нашей галерее вместе с вашей вышивкой. Если вы хотите что-то скрыть или добавить, пожалуйста, сделайте это заранее.",
+                "content3": "Вы также можете взяться за еще одну вышивку.",
+                "forwardButton" : "Перейти в Личный кабинет"
+            }
+        },
+        "step7Page": {
+            "title": "Публикация",
+            "section1": {
+                "title": "Хорошие новости! Мы получили вашу работу.",
+                "paragraph1": {
+                    "content": "Спасибо за понимание!",
+                    "highlight": "Процесс проверки и публикации вашей работы в нашей онлайн-галерее может занять от нескольких дней до нескольких недель. "
+                },
+                "paragraph2": {
+                    "content1": "Когда публикация будет готова, иконка с вышитым героем в вашем личном профиле приобретет зеленый цвет.",
+                    "content2": ", нажав на эту иконку.",
+                    "highlight": "Вы сможете проверить страницу своего*й героя*ини в галерее"
+                },
+                "paragraph3": "Спасибо за вашу солидарность и участие.",
+                "paragraph4": "Если у вас еще есть время и силы, вы можете вышить нового*ую политического*ую заключенного*ую."
+            },
+            "forwardButton" : "Выбрать нового*ую героя*иню"
+        }
+    },
+    "galleryPage": {
+        "title": "Галерея"
+    },
+    "newsPage": {
+        "title": "Новости",
+        "allItems": "Все",
+        "workshops": "Воркшопы",
+        "exhibitions": "Выставки",
+        "other": "Другое"
+    },
+    "newsDetailPage": {
+        "title": "Новости"
+    }
 }

@@ -13,7 +13,10 @@ definePageMeta({
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle">Step 6 <span class="visually-hidden">— </span></span>Shipping
+          <span class="subtitle">
+            {{ $t('embroidery.steps.step') }} 6
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step6Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -24,25 +27,31 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="6"
       />
-
       <section class="Publication Waiting textWidth">
         <div class="Publication-content">
           <h2 class="title">
-            Thank you! We'll be sure to get back to you as soon as we receive your embroidery
+            {{ $t('embroidery.step6Page.sectionSent.title') }}
           </h2>
           <br>
           <p>
-            In meanwhile you can add or correct information about yourself in your personal profile
+            {{ $t('embroidery.step6Page.sectionSent.content1') }}
           </p>
           <p>
-            A short text about you will be published in our gallery with your embroidery. If you want to hide or add something, such as social networks, please do it in advance.
+            {{ $t('embroidery.step6Page.sectionSent.content2') }}
+          </p>
+          <p>
+            {{ $t('embroidery.step6Page.sectionSent.content3') }}
           </p>
         </div>
         <div class="buttons">
-          <nuxt-link to="/Profile" class="button">Edit my profile</nuxt-link>
+          <nuxt-link 
+            to="/Profile" 
+            class="button"
+          >
+            {{ $t('embroidery.step6Page.sectionSent.forwardButton') }}
+          </nuxt-link>
         </div>
       </section>
-
       <!--      <section class="Publication Done textWidth">-->
       <!--        <div class="Publication-content">-->
       <!--          <h2 class="title">Good news!! We received your work</h2>-->

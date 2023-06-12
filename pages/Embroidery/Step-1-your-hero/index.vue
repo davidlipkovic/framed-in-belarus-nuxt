@@ -21,7 +21,10 @@ const hero = prisonersStore.chosenHero()
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle">Step 1 <span class="visually-hidden">— </span></span>Choose your Hero
+          <span class="subtitle">
+          {{ $t('embroidery.steps.step') }} 1 
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step1Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -32,7 +35,6 @@ const hero = prisonersStore.chosenHero()
       <RegistrationNavSteps
         :currentStep="1"
       />
-
       <section class="FoundHero" hidden>
         <div class="Hero-Photo">
           <img 
@@ -43,27 +45,41 @@ const hero = prisonersStore.chosenHero()
         </div>
         <div class="Hero-Description">
           <p class="Hero-Description-case">
-            Case: {{ hero.case }}
+            {{ $t('embroidery.steps.description.case') }}: {{ hero.case }}
           </p>
           <h2 class="Hero-Description-name">
             {{ hero.name }}
           </h2>
           <div class="Hero-content-titleWrapper flexRowStart">
             <div class="Hero-Bio-info">
-              <h3 class="title">Date of birth:</h3>
-              <p>{{ hero.birthday }}</p>
+              <h3 class="title">
+                {{ $t('embroidery.steps.description.birth') }}:
+              </h3>
+              <p>
+                {{ hero.birthday }}
+              </p>
             </div>
             <div class="Hero-Bio-info">
-              <h3 class="title">Date of detention:</h3>
-              <p>{{ hero.arrested }}</p>
+              <h3 class="title">
+                {{ $t('embroidery.steps.description.detention') }}:
+              </h3>
+              <p>
+                {{ hero.arrested }}
+              </p>
             </div>
             <div class="Hero-Bio-info">
-              <h3 class="title">Sentence:</h3>
-              <p>{{ hero.decision }}</p>
+              <h3 class="title">
+                {{ $t('embroidery.steps.description.sentence') }}:
+              </h3>
+              <p>
+                {{ hero.decision }}
+              </p>
             </div>
           </div>
           <div class="Hero-Description-data">
-            <h3 class="title">Description of the Political prisoner:</h3>
+            <h3 class="title">
+              {{ $t('embroidery.steps.description.descriptionPrisoner') }}:
+            </h3>
             <p>
               Maryia Kalesnikava is a member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka.
             </p><br>
@@ -93,33 +109,41 @@ const hero = prisonersStore.chosenHero()
             </p>
           </div>
           <div class="Hero-Description-data">
-            <h3 class="title">Description of the case:</h3>
-            <p>The case description is the same as the political prisoner’s description because this is an individual case, not a collective one.</p>
+            <h3 class="title">
+              {{ $t('embroidery.steps.description.descriptionCase') }}:
+            </h3>
+            <p>
+              The case description is the same as the political prisoner’s description because this is an individual case, not a collective one.
+            </p>
           </div>
           <div class="Hero-Description-data Hero-Description-prison-address">
-            <h3 class="title">Address of the prison:</h3>
-            <p>{{ hero.prisonAddress }}</p>
+            <h3 class="title">
+              {{ $t('embroidery.steps.description.address') }}:
+            </h3>
+            <p>
+              {{ hero.prisonAddress }}
+            </p>
           </div>
           <div class="warning flexRowStart">
             <SvgWarning />
             <p>
-              Once you choose a hero you can't change it
+              {{ $t("embroidery.step1Page.warning") }}
             </p>
           </div>
           <div class="buttons">
             <nuxt-link
-              to="/Embroidery/Step-1-choose-hero"
+              :to="localePath('/Embroidery/Step-1-choose-hero')"
               id="save"
               class="button"
             >
-              Go back to all prisoners
+              {{ $t("embroidery.step1Page.backButton") }}
             </nuxt-link>
             <nuxt-link
-              to="/Embroidery/Step-2-preparation"
+              :to="localePath('/Embroidery/Step-2-preparation')"
               id="save"
               class="button bg_black"
             >
-              Choose this hero
+              {{ $t("embroidery.step1Page.forwardButton") }}
             </nuxt-link>
           </div>
         </div>

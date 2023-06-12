@@ -1,14 +1,16 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const showMenu = ref(false)
 
 const current = ref(null)
 
-const alphabetically = 'A-Z'
-const alphabeticallyReversed = 'Z-A'
-const chronologically = 'Date (newest first)'
-const chronologicallyReversed = 'Date (oldest first)'
+const alphabetically = t("inputs.alphabetically")
+const alphabeticallyReversed = t("inputs.alphabeticallyReversed")
+const chronologically = t("inputs.chronologically")
+const chronologicallyReversed = t("inputs.chronologicallyReversed")
 
 onMounted(() => {
   current.value = alphabetically

@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
   <nuxt-link
     v-if="newEmbroidery"
-    to="/Embroidery/Step-1-choose-hero"
+    :to="localePath('/Embroidery/Step-1-choose-hero')"
     class="embroideryCard embroideryCard_new flexColumnCenter"
     :class="''"
   >
@@ -32,7 +32,7 @@ const props = defineProps({
   </nuxt-link>
   <nuxt-link
     v-if="!newEmbroidery"
-    to="/Gallery/Case"
+    :to="localePath('/Gallery/Case')"
     class="embroideryCard flexColumnCenter"
   >
     <img 

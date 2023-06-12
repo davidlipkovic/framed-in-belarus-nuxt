@@ -10,7 +10,12 @@ definePageMeta({
     <form>
       <p><label for="code">Enter the code that came to your e-mail</label></p>
       <input type="number" name="code" id="code" placeholder="Code">
-      <nuxt-link to="/ForgotPassword/Step-3-support" class="button bg_black large">Send</nuxt-link>
+      <nuxt-link 
+        :to="localePath('/ForgotPassword/Step-3-support')"
+        class="button bg_black large"
+      >
+        Send
+      </nuxt-link>
     </form>
   </div>
 </template>

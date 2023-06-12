@@ -47,7 +47,10 @@ onMounted(() => {
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle">Step 1 <span class="visually-hidden">— </span></span>Choose your Hero
+          <span class="subtitle">
+          {{ $t('embroidery.steps.step') }} 1 
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step1Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -61,7 +64,12 @@ onMounted(() => {
       <section class="FindHero flexColumnnStart">
         <div class="FindHero-form">
           <div class="searchMenusWrapper">
-            <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
+            <input 
+              type="text" 
+              class="FindHero-input" 
+              :placeholder="$t('placeholders.searchHero')"
+              :aria-placeholder="$t('placeholders.searchHero')"
+            >
             <GeneralSortMenu />
           </div>
           <div class="filterMenusWrapper flexRowStart">

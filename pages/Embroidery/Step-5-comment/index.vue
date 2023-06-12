@@ -24,9 +24,10 @@ watch(text, (n) => {
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle"
-          >Step 5 <span class="visually-hidden">— </span></span
-          >Comment
+          <span class="subtitle">
+            {{ $t('embroidery.steps.step') }} 5
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step5Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -37,27 +38,24 @@ watch(text, (n) => {
       <RegistrationNavSteps
         :currentStep="5"
       />
-
       <section class="textWidth">
         <input type="checkbox" class="visually-hidden" id="HeroHidden" />
         <RegistrationHeroBio />
-        
         <div class="part">
           <h2 class="title">
-            Write a short comment about your experience of embroidering
-            a political prisoner
+            {{ $t('embroidery.step5Page.section1.title') }}
           </h2>
           <br>
           <p>
-            It could be interesting stories that happened to you in the context of the project or facts that you learned during this time about your hero, about Belarus, etc. It could be quotes from your correspondence with the political prisoner or your thoughts that arise during the work. Here you can also write wishes for your hero, his/her family, to all Belarusians or our project. This can take the form of an open letter.
+            {{ $t('embroidery.step5Page.section1.paragraph1') }}
           </p>
           <br>
           <p>
-            We would like to know if the project has left any resonance in you? Did participating in the project bring you any new experiences? Your answer will help us improve the project.
+            {{ $t('embroidery.step5Page.section1.paragraph2') }}
           </p>
           <br>
           <p>
-            It would be wonderful if you can also write a handwritten comment and send it to us together with the finished embroidery. Because the handwritten text looks better when installed on the exhibitions. 
+            {{ $t('embroidery.step5Page.section1.paragraph3') }}
           </p>
           <br>
           <label for="publishDisagree" class="publishComment-item">
@@ -70,7 +68,7 @@ watch(text, (n) => {
               required
             />
             <span class="publishComment-item-label">
-              I wrote a handwritten comment and will send it along with the embroidery.
+              {{ $t('embroidery.step5Page.section2.content1') }}
             </span>
           </label>
           <label for="publishDisagree" class="publishComment-item">
@@ -83,47 +81,52 @@ watch(text, (n) => {
               required
             />
             <span class="publishComment-item-label">
-              I will type a comment here
+              {{ $t('embroidery.step5Page.section2.content2') }}
             </span>
           </label>
         </div>
         <div class="part Comment">
           <div class="Comment-header">
-            <label for="comment" class="title">Comment</label>
+            <label for="comment" class="title">
+              {{ $t('embroidery.step5Page.section3.title') }}
+            </label>
             <!-- <output id="lettersLeft">2300</output> -->
           </div>
           <div class="Comment-content">
             <p class="note">
-              If possible, please write the text in English.
+              {{ $t('embroidery.step5Page.section3.textarea1.label') }}
             </p>
             <textarea
               name="comment"
               id="comment"
-              placeholder="Type a comment in English"
+              :placeholder="$t('embroidery.step5Page.section3.textarea1.placeholder')"
               class=""
               v-model="text"
-            ></textarea>
-            <p class="mistake defaultNone">Please add a comment or a picture</p>
+            />
+            <p class="mistake defaultNone">
+              {{ $t('embroidery.step5Page.section3.textarea1.warning') }}
+            </p>
           </div>
           <br>
           <div class="Comment-content">
             <p class="note">
-              Choose the language
+              {{ $t('embroidery.step5Page.section3.textarea2.label') }}
             </p>
             <textarea
               name="comment"
               id="comment"
-              placeholder="Type a comment in your own language"
+              :placeholder="$t('embroidery.step5Page.section3.textarea2.placeholder')"
               class=""
               v-model="text"
-            ></textarea>
-            <p class="mistake defaultNone">Please add a comment or a picture</p>
+            />
+            <p class="mistake defaultNone">
+              {{ $t('embroidery.step5Page.section3.textarea2.warning') }}
+            </p>
           </div>
         </div>
-
         <div class="part publishComment">
           <p class="b2">
-            This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations
+            {{ $t('embroidery.step5Page.section4.title') }}
           </p>
           <br>
           <label for="publishAgree" class="publishComment-item">
@@ -136,7 +139,7 @@ watch(text, (n) => {
               required
             />
             <span class="publishComment-item-label">
-              I agree, I want my voice to be heard
+              {{ $t('embroidery.step5Page.section4.content1') }}
             </span>
           </label>
           <label for="publishDisagree" class="publishComment-item">
@@ -149,22 +152,27 @@ watch(text, (n) => {
               required
             />
             <span class="publishComment-item-label">
-              I disagree, please keep my comment for internal project needsonly
+              {{ $t('embroidery.step5Page.section4.content2') }}
             </span>
           </label>
-          <p class="mistake defaultNone">Please choose one option</p>
+          <p class="mistake defaultNone">
+            {{ $t('embroidery.step5Page.section4.warning') }}
+          </p>
         </div>
         <div class="buttons">
-          <nuxt-link to="/Embroidery/Step-4-photo" class="button"
-          >Previous step</nuxt-link
+          <nuxt-link 
+            to="/Embroidery/Step-4-photo" 
+            class="button"
           >
+            {{ $t('embroidery.step5Page.backButton') }}
+          </nuxt-link>
           <nuxt-link 
             to="/Embroidery/Step6" 
             class="button bg_black" 
             :class="fine? '' : 'button_disabled'" 
             id="save"
           >
-            Save and go to Next step
+            {{ $t('embroidery.step5Page.forwardButton') }}
           </nuxt-link>
         </div>
       </section>

@@ -18,7 +18,7 @@ const isHovered = ref(false)
     <nuxt-link
       @mouseover="isHovered = true"
       @mouseleave="isHovered = false"
-      to="/Embroidery/Step-1-your-hero"
+      :to="localePath('/Embroidery/Step-1-your-hero')"
       class="heroImageWrapper"
       :class="isHovered ? 'heroBoxWrapperHovered' : ''"
     >
@@ -34,7 +34,7 @@ const isHovered = ref(false)
       <nuxt-link
         @mouseover="isHovered = true"
         @mouseleave="isHovered = false"
-        to="/Embroidery/Step-1-your-hero"
+        :to="localePath('/Embroidery/Step-1-your-hero')"
       >
         <h2>
           {{ hero.name }}

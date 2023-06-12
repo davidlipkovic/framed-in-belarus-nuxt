@@ -6,13 +6,13 @@ export default {
   data () {
     return {
       steps: [
-        "Your Hero",
-        "Preparation",
-        "Support",
-        "Photo",
-        "Comment",
-        "Shipping",
-        "Publication"
+        this.$t("embroidery.steps.steps.step1"),
+        this.$t("embroidery.steps.steps.step2"),
+        this.$t("embroidery.steps.steps.step3"),
+        this.$t("embroidery.steps.steps.step4"),
+        this.$t("embroidery.steps.steps.step5"),
+        this.$t("embroidery.steps.steps.step6"),
+        this.$t("embroidery.steps.steps.step7")
       ]
     }
   },
@@ -28,7 +28,7 @@ export default {
     >
       <nuxt-link 
         v-if="i + 1 < currentStep"
-        :to="'/Embroidery/Step' + i + 1" 
+        :to="localePath('/Embroidery/Step' + i + 1)"
         class="navStep navStep_done"
       >
         <span class="navStep-number"

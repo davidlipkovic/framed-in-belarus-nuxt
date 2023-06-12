@@ -26,10 +26,10 @@ const numberOfPrisoners = 1432
           {{ $t('description') }}
         </p>
         <nuxt-link
-          to="/SignUp"
+          :to="localePath('/SignUp')"
           class="button bg_red"
         >
-          {{ $t('participateBtnMsg') }}
+          {{ $t('links.participate') }}
         </nuxt-link>
       </div>
       <div class="sliderWrapper">

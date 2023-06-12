@@ -45,7 +45,12 @@ export default defineNuxtConfig({
             {
                 code: 'ru',
                 file: 'ru.json',
-                name: 'RU'
+                name: 'RUS'
+            },
+            {
+                code: 'bl',
+                file: 'bl.json',
+                name: 'BEL'
             }
         ],
         lazy: true,

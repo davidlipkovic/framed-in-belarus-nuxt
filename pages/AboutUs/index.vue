@@ -34,7 +34,7 @@ export default {
           >
           <img 
             src="../../assets/media/img/logo_stitchit.png" 
-            :alt="`Logotype ${$t('aboutUsSubTitle')}`"
+            :alt="`Logotype ${$t('aboutUsPage.section.title')}`"
           >
         </picture>
         <div class="text">

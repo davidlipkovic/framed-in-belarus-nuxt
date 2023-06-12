@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
   <nuxt-link
-    :to="'/' + page"
+    :to="localePath('/' + page)"
     class="GoBack"
   >
     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="GoBack-img">
@@ -16,7 +16,7 @@ const props = defineProps({
     <span 
       class="GoBack-text"
     >
-      Go back to my Profile
+      {{ $t("embroidery.steps.goBack") }}
     </span>
   </nuxt-link>
 </template>

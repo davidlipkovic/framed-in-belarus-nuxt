@@ -13,9 +13,10 @@ definePageMeta({
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle"
-          >Step 4 <span class="visually-hidden">— </span></span
-          >Photo
+          <span class="subtitle">
+            {{ $t('embroidery.steps.step') }} 4
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step4Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -26,30 +27,29 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="4"
       />
-
       <section class="textWidth">
         <input type="checkbox" class="visually-hidden" id="HeroHidden" />
         <RegistrationHeroBio />
-
-        <h2 class="title">Provide photos of your work</h2>
+        <h2 class="title">
+          {{ $t('embroidery.step4Page.section1.title') }}
+        </h2>
         <br>
         <p>
-          This can be phases of the embroidery, you at work, travel or events where you "were" with the embroidered character, etc. 
+          {{ $t('embroidery.step4Page.section1.paragraph1') }}
         </p>
         <br>
         <p>
-          These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. 
-          It will be very helpful if you can also make photos of the front- and backside of your finished work.
+          {{ $t('embroidery.step4Page.section1.paragraph2') }}
         </p>
         <br>
         <p class="b2">
-          Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.
+          {{ $t('embroidery.step4Page.section1.paragraph3') }}
         </p>
-
         <div class="uploadFiles" id="uploadFilesArea">
           <label class="uploadFiles-descript flexColumnCenter" for="uploadFiles">
-            <span class="line">Drag and Drop files here</span>
-            <span class="line">or</span>
+            <span class="line">
+              {{ $t('embroidery.step4Page.dropZone.content') }}
+            </span>
             <span class="line b">
               <svg
                 width="25"
@@ -67,7 +67,7 @@ definePageMeta({
                   fill="#4F4F4F"
                 />
               </svg>
-              Browse files
+              {{ $t('embroidery.step4Page.dropZone.highlight') }}
             </span>
           </label>
           <input
@@ -77,7 +77,6 @@ definePageMeta({
             class="visually-hidden"
           />
         </div>
-
         <div class="photos">
           <div class="photo flexRowCenter">
             <img
@@ -111,13 +110,19 @@ definePageMeta({
             </button>
           </div>
         </div>
-
         <div class="buttons">
-          <nuxt-link to="/Embroidery/Step-3-support" class="button"
-          >Previous step</nuxt-link
+          <nuxt-link 
+            to="/Embroidery/Step-3-support" 
+            class="button"
           >
-          <nuxt-link to="/Embroidery/Step-5-comment" class="button bg_black" id="save">
-            Save and go to Next step
+            {{ $t('embroidery.step4Page.backButton') }}
+          </nuxt-link>
+          <nuxt-link 
+            to="/Embroidery/Step-5-comment" 
+            class="button bg_black" 
+            id="save"
+          >
+            {{ $t('embroidery.step4Page.forwardButton') }}
           </nuxt-link>
         </div>
       </section>

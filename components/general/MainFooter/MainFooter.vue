@@ -23,47 +23,52 @@ const props = defineProps({
           <div class="Info-menu-group">
             <div class="Info-menu-group">
               <nuxt-link
-                to="/"
-                class="Info-menu-item">
-                Home
+                :to="localePath('/')"
+                class="Info-menu-item"
+              >
+                {{ $t('links.home') }}
               </nuxt-link>
               <nuxt-link
-                to="/Gallery"
-                class="Info-menu-item">
-                {{ $t('linkGallery') }}
+                :to="localePath('/Gallery')"
+                class="Info-menu-item"
+              >
+                {{ $t('links.gallery') }}
               </nuxt-link>
               <nuxt-link
-                to="/News"
-                class="Info-menu-item">
-                {{ $t('linkNews') }}
+                :to="localePath('/News')"
+                class="Info-menu-item"
+              >
+                {{ $t('links.news') }}
               </nuxt-link>
               <nuxt-link
-              to="/AboutUs"
-              class="Info-menu-item">
-                {{ $t('linkAboutUs') }}
+                :to="localePath('/AboutUs')"
+                class="Info-menu-item"
+              >
+                {{ $t('links.aboutUs') }}
               </nuxt-link>
               <!-- <nuxt-link
-              to="FAQ"
-              class="Info-menu-item">
-                {{ $t('linkFAQ') }}
+                :to="localePath('/FAQ')"
+                class="Info-menu-item"
+              >
+                {{ $t('links.FAQ') }}
               </nuxt-link> -->
             </div>
             <div class="Info-menu-group">
 <!--              <nuxt-link-->
-<!--                to="/SignIn"-->
+<!--                :to="localePath('/SignIn')" -->
 <!--                class="Info-menu-item Login"-->
 <!--              >-->
-<!--                {{ $t('linkSignin') }}-->
+<!--                {{ $t('links.signIn') }} -->
 <!--              </nuxt-link>-->
             </div>
           </div>
           <div class="Info-menu-group flexRowCenter">
             <nuxt-link
               v-if="!showUser"
-              to="/SignUp"
+              :to="localePath('/SignUp')"
               class="Info-menu-item button bg_red"
             >
-              {{ $t('participateBtnMsg') }}
+              {{ $t('links.participate') }}
             </nuxt-link>
             <img
               v-if="showUser"
@@ -72,7 +77,7 @@ const props = defineProps({
             >
             <nuxt-link
               v-if="showUser"
-              to="/Profile"
+              :to="localePath('/Profile')"
               class="Info-menu-item profileLink flexRowCenter"
             >
               <img

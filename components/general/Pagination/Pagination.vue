@@ -1,19 +1,21 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const showMenu = ref(null)
 const numberOfRows = ref(null)
 const rowsPerPage = 10
 
 const currentPage = computed(() => {
-  return "1-5 of 5"
+  return `1-5 ${t('embroidery.step1Page.of')} 5`
 })
 </script>
 
 <template>
   <div class="paginationWrapper flexRowCenter">
     <p class="paginationWrapper__name">
-      Rows per page
+      {{ $t("embroidery.step1Page.rows") }}
     </p>
     <div
       class="rowOptionsMenuWrapper"
