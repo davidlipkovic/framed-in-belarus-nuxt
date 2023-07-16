@@ -236,5 +236,5 @@ onMounted(() => {
   </GeneralModal>
 </template>
 
+<style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
 <style src="./MainMenu.scss" lang="scss" scoped></style>
-<style src="../../../pages/Profile/Settings.scss" lang="scss" scoped></style>
