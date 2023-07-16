@@ -1,33 +1,10 @@
 @import "../../assets/style/globalPartials/variables";
 
-.mistake,
-.note {
-  font-size: 0.75rem;
-}
-
-.mistake {
-  color: $red;
-}
-
-.note {
-  color: $greyDisabledColor;
-}
-
 .warning {
   color: $orange;
-  font-weight: 600;
-  font-size: 14px;
-  align-items: center;
 
   * {
     color: $orange;
-    font-weight: 600;
-    font-size: 14px;
-    align-items: center;
-  }
-
-  svg {
-    margin-right: 8px;
   }
 }
 

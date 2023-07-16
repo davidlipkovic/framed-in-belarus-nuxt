@@ -27,9 +27,8 @@
 }
 
 .button_disabled {
-  background-color: $greyDisabledBg;
   color: $greyDisabledColor !important;
-  border: unset !important;
+  pointer-events: none;
 }
 
 .button:hover,
@@ -45,6 +44,10 @@
   background-color: $greyDisabledBg;
   color: $greyDisabledColor !important;
   border: unset !important;
+}
+
+.button.bg_black {
+  color: $white;
 }
 
 .i,
@@ -109,6 +112,37 @@
 
 .redLighter {
   color: $redLighter;
+}
+
+.mistake,
+.note {
+  font-size: 0.75rem;
+}
+
+.mistake {
+  color: $red;
+}
+
+.note {
+  color: $greyDisabledColor;
+}
+
+.warning {
+  color: $redLighter;
+  font-weight: 600;
+  font-size: 12px;
+  align-items: center;
+
+  * {
+    color: $redLighter;
+    font-weight: 600;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
 }
 
 .block {
