@@ -33,3 +33,18 @@ store:
 - user
 - hero
 - choose hero
+
+google api
+- registration
+- cookies
+
+head
+- meta tags
+- favicons
+
+
+
+to discuss:
+- incorrect login info
+- cookies
+- proper names and passwords
