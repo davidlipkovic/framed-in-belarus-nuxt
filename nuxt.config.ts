@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         '@nuxtjs/i18n',
         '@nuxt/image-edge',
         '@pinia/nuxt',
-        // '@nuxtjs/tailwindcss'
+        '@vueuse/nuxt',
     ],
 
     i18n: {

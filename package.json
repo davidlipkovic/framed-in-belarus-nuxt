@@ -20,5 +20,8 @@
     "pinia": "^2.0.34",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2"
+  },
+  "dependencies": {
+    "@vueuse/nuxt": "^10.2.1"
   }
 }
