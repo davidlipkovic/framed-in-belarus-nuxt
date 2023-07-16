@@ -131,15 +131,15 @@
         "signInGoogleButton" : "Войти с помощью Google"
     },
     "signInPage": {
-        "title": "Sign in",
+        "title": "Войти",
         "signUpQuestion": {
-            "content": "Not a member? {0}",
-            "highlight": "Sign up"
+            "content": "В первый раз у нас? {0}",
+            "highlight": "Регистрация"
         },
-        "forgot": "Forgot the password?",
-        "remember": "Remember me",
-        "signInButton" : "Sign in",
-        "signInGoogleButton" : "Sign in with Google"
+        "forgot": "Забыли пароль?",
+        "remember": "Запомнить меня",
+        "signInButton" : "Войти",
+        "signInGoogleButton" : "Войти с помощью Google"
     },
     "profilePage": {
         "title": "Личный кабинет",
