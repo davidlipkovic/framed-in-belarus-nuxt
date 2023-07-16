@@ -4,7 +4,8 @@
 .mainMenuWrapper {
   position: fixed;
   width: 100vw;
-  z-index: 100;
+  min-height: 3.75rem;
+  z-index: 200;
   padding-top: 0.313rem;
   padding-bottom: 0.313rem;
   background-color: $black;
@@ -16,6 +17,90 @@
   >* {
     margin-top: auto;
     margin-bottom: auto;
+  }
+}
+
+.menuButton {
+  display: flex;
+  margin-right: 8px;
+
+  >div {
+    width: 1rem;
+
+    div {
+      background-color: $white;
+      height: 2px;
+    }
+  }
+}
+
+.mainMenuWrapperOpened {
+  z-index: 200;
+
+  .menuButton {
+    >div {
+      position: relative;
+
+      div {
+        position: absolute;
+        top: 0;
+        width: 1.2rem;
+      }
+
+      div:nth-child(1) {
+        transform: rotate(45deg);
+        transform-origin: center;
+      }
+
+      div:nth-child(2) {
+        transform: rotate(-45deg);
+        transform-origin: center;
+      }
+    }
+  }
+
+  .menuContentWrapper {
+    display: flex;    
+    position: fixed;
+    left: 0;
+    top: 37px;
+    height: calc(100vh - 37px);
+
+    .menuContentBackground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 201;
+      display: flex;    
+      background-color: $greyTransparentBG;
+      width: 100vw;
+      height: calc(100vh - 37px);
+    }
+
+    .menuAllLinksWrapper {
+      position: relative;
+      z-index: 202;
+      background-color: $black;
+      min-width: 50vw;
+      width: auto;
+      height: 100%;
+      padding-left: 50px;
+    }
+  }
+}
+
+.mainMenuWrapperClosed {
+  .menuButton {
+    >div {
+      div {
+        margin: 2px auto;
+        width: 1rem;
+      }
+    }
+  }
+
+  .menuContentWrapper {
+    display: none;
   }
 }
 
@@ -145,7 +230,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-md) {
   .mainMenuWrapper {
     position: static;
     padding: 12px 0 10px;
@@ -155,6 +240,12 @@
     display: none;
   }
 
+  .mainMenuWrapperClosed {
+    .menuContentWrapper {
+      display: block;
+    }
+  }
+
   .menuContentWrapper {
     flex-direction: row;
     align-items: center;
@@ -162,6 +253,16 @@
     width: 100%;
     margin-top: -2px;
     margin-left: 26px;
+  }
+
+  .menuContentBackground {
+    display: none;
+  }
+
+  .menuAllLinksWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .menuLinksWrapper {
@@ -209,7 +310,9 @@
   }
 }
 
+@media screen and (min-width: $br-point-lg) {
 
+}
 
 
 
@@ -233,20 +336,20 @@
 //   transition-duration: 0.15s;
 // }
 
-// .pattern-button-text {
-//   position: absolute;
-//   width: 1px;
-//   height: 1px;
-//   margin: -1px;
-//   border: 0;
-//   padding: 0;
-//   white-space: nowrap;
-//   clip-path: inset(100%);
-//   clip: rect(0 0 0 0);
-//   overflow: hidden;
-//   transition-property: clip-path, clip, width, height;
-//   transition-duration: 0.15s;
-// }
+.pattern-button-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  transition-property: clip-path, clip, width, height;
+  transition-duration: 0.15s;
+}
 
 // .Burger-menu-item:hover {
 //   position: relative;
@@ -266,7 +369,7 @@
 //   }
 // }
 
-// @media screen and (min-width: $br-point-tablet) {
+// @media screen and (min-width: $br-point-md) {
 //   .mainMenuWrapper {
 //     padding-bottom: 0;
 //     padding-top: 0;
@@ -286,7 +389,7 @@
 //   }
 // }
 
-// @media screen and (min-width: $br-point-desktop) {
+// @media screen and (min-width: $br-point-lg) {
 //   .mainMenuWrapper {
 //     padding-top: 1rem;
 //     padding-bottom: 14px;

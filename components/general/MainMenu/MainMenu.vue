@@ -19,6 +19,7 @@ const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
 
 const switchLocalePath = useSwitchLocalePath()
+const toggleMenu = ref(false)
 const toggleLangMenu = ref(false)
 
 const availableLocales = computed(() => {
@@ -28,6 +29,7 @@ const availableLocales = computed(() => {
 watch(route, n => {
   displayProfileModal.value = false
   displayQuestionModal.value = false
+  toggleMenu.value = false
   toggleLangMenu.value = false
 })
 
@@ -37,141 +39,157 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="mainMenuWrapper">
+  <header 
+    class="mainMenuWrapper flexRowCenter"
+    :class="toggleMenu ? 'mainMenuWrapperOpened' : 'mainMenuWrapperClosed'"
+  >
     <div class="content flexRowStart">
-      <GeneralMainLogo/>
       <button 
-        class="menuButton" 
+        class="menuButton"
+        @click="toggleMenu = !toggleMenu"
       >
-        <div class="openMenuButton">
-          <span>—</span>
-          <span>—</span>
-          <span>—</span>
+        <div 
+          v-if="!toggleMenu"
+          class="menuButtonOpen flexColumnCenter"
+        >
+          <div/>
+          <div/>
+          <div/>
         </div>
-        <div class="closeMenuButton">
-          <span>—</span>
-          <span>—</span>
+        <div 
+          v-if="toggleMenu"
+          class="menuButtonClose flexColumnCenter"
+        >
+          <div/>
+          <div/>
         </div>
       </button>
-      <nav class="menuContentWrapper flexColumnStart">
-        <div class="menuLinksWrapper flexColumnStart">
-          <nuxt-link
-            :to="localePath('/')"
-          >
-            {{ $t('links.home') }}
-          </nuxt-link>
-          <nuxt-link
-            :to="localePath('/Gallery')"
-          >
-            {{ $t('links.gallery') }}
-          </nuxt-link>
-          <nuxt-link
-            :to="localePath('/News')"
-          >
-            {{ $t('links.news') }}
-          </nuxt-link>
-          <nuxt-link
-            :to="localePath('/AboutUs')"
-          >
-            {{ $t('links.aboutUs') }}
-          </nuxt-link>
-<!--          <nuxt-link -->
-<!--            :to="localePath('/FAQ')" -->
-<!--          >-->
-<!--            {{ $t('links.FAQ') }}-->
-<!--          </nuxt-link>-->
-        </div>
-        <div class="menuUserLinksWrapper flexRowCenter">
-          <nuxt-link
-            v-if="!showUser"
-            :to="localePath('/SignIn')"
-            class="Login"
-          >
-            {{ $t('links.signIn') }}
-          </nuxt-link>
-          <nuxt-link
-            v-if="!showUser"
-            :to="localePath('/SignUp')"
-            class="button bg_red"
-          >
-            {{ $t('links.participate') }}
-          </nuxt-link>
-          <button
-            v-if="showUser"
-            class="helpButton flexRowCenter"
-            @click="displayQuestionModal = !displayQuestionModal"
-          >
-            <SvgHelpCircle/>
-            <span class="pattern-button-text">
-              {{ $t('mainMenu.question.label') }}
-            </span>
-          </button>
-          <button
-            v-if="showUser"
-            class="profileButton flexRowCenter"
-            @click="displayProfileModal = !displayProfileModal"
-          >
-            <img
-              src="../../../assets/media/img/profileSymbolFramed.svg"
-            >
-            <span class="pattern-button-text">
-              {{ $t('links.profile') }}
-            </span>
-          </button>
-          <div
-            v-if="displayProfileModal"
-            class="profileMenuWrapper dropdownMenuWrapper flexColumnStart"
-          >
-            <img
-              src="../../../assets/media/img/profileSymbolFramed.svg"
-            >
-            <span
-              class="profileMenuWrapper__name"
-            >
-              Tiffany Chin
-            </span>
-            <nuxt-link
-              :to="localePath('/Profile')"
-              class="profileMenuWrapper__profileLink flexRowStart"
-            >
-              <span>
-                {{ $t('links.myEmbroideries') }}
-              </span>
-            </nuxt-link>
+      <GeneralMainLogo/>
+      <div class="menuContentWrapper flexColumnStart">
+        <div 
+          class="menuContentBackground"
+          @click="toggleMenu = !toggleMenu"
+        />
+        <nav class="menuAllLinksWrapper flexColumnStart">
+          <div class="menuLinksWrapper flexColumnStart">
             <nuxt-link
               :to="localePath('/')"
-              class="profileMenuWrapper__signOut flexRowStart"
             >
-              <span>
-                {{ $t('links.signOut') }}
-              </span>
+              {{ $t('links.home') }}
             </nuxt-link>
+            <nuxt-link
+              :to="localePath('/Gallery')"
+            >
+              {{ $t('links.gallery') }}
+            </nuxt-link>
+            <nuxt-link
+              :to="localePath('/News')"
+            >
+              {{ $t('links.news') }}
+            </nuxt-link>
+            <nuxt-link
+              :to="localePath('/AboutUs')"
+            >
+              {{ $t('links.aboutUs') }}
+            </nuxt-link>
+  <!--          <nuxt-link -->
+  <!--            :to="localePath('/FAQ')" -->
+  <!--          >-->
+  <!--            {{ $t('links.FAQ') }}-->
+  <!--          </nuxt-link>-->
           </div>
-          <div class="langWrapper">
-            <button 
-              class="langButton flexRowCenter"
-              @click="toggleLangMenu = !toggleLangMenu"
+          <div class="menuUserLinksWrapper flexRowCenter">
+            <nuxt-link
+              v-if="!showUser"
+              :to="localePath('/SignIn')"
+              class="Login"
             >
-              {{ currentLocale }}
-              <SvgArrowDown v-if="!toggleLangMenu"/>
-              <SvgArrowTop v-if="toggleLangMenu"/>
+              {{ $t('links.signIn') }}
+            </nuxt-link>
+            <nuxt-link
+              v-if="!showUser"
+              :to="localePath('/SignUp')"
+              class="button bg_red"
+            >
+              {{ $t('links.participate') }}
+            </nuxt-link>
+            <button
+              v-if="showUser"
+              class="helpButton flexRowCenter"
+              @click="displayQuestionModal = !displayQuestionModal"
+            >
+              <SvgHelpCircle/>
+              <!-- <span class="pattern-button-text">
+                {{ $t('mainMenu.question.label') }}
+              </span> -->
             </button>
-            <div 
-              v-if="toggleLangMenu"
-              class="langMenu dropdownMenuWrapper flexColumnStart"
+            <button
+              v-if="showUser"
+              class="profileButton flexRowCenter"
+              @click="displayProfileModal = !displayProfileModal"
             >
-              <nuxt-link
-                v-for="locale in availableLocales"
-                :key="locale.code"
-                :to="switchLocalePath(locale.code)"
-                class="Lang-link"
+              <img
+                src="../../../assets/media/img/profileSymbolFramed.svg"
               >
-                {{ locale.name }}
+              <!-- <span class="pattern-button-text">
+                {{ $t('links.profile') }}
+              </span> -->
+            </button>
+            <div
+              v-if="displayProfileModal"
+              class="profileMenuWrapper dropdownMenuWrapper flexColumnStart"
+            >
+              <img
+                src="../../../assets/media/img/profileSymbolFramed.svg"
+              >
+              <span
+                class="profileMenuWrapper__name"
+              >
+                Tiffany Chin
+              </span>
+              <nuxt-link
+                :to="localePath('/Profile')"
+                class="profileMenuWrapper__profileLink flexRowStart"
+              >
+                <span>
+                  {{ $t('links.myEmbroideries') }}
+                </span>
+              </nuxt-link>
+              <nuxt-link
+                :to="localePath('/')"
+                class="profileMenuWrapper__signOut flexRowStart"
+              >
+                <span>
+                  {{ $t('links.signOut') }}
+                </span>
               </nuxt-link>
             </div>
+            <div class="langWrapper">
+              <button 
+                class="langButton flexRowCenter"
+                @click="toggleLangMenu = !toggleLangMenu"
+              >
+                {{ currentLocale }}
+                <SvgArrowDown v-if="!toggleLangMenu"/>
+                <SvgArrowTop v-if="toggleLangMenu"/>
+              </button>
+              <div 
+                v-if="toggleLangMenu"
+                class="langMenu dropdownMenuWrapper flexColumnStart"
+              >
+                <nuxt-link
+                  v-for="locale in availableLocales"
+                  :key="locale.code"
+                  :to="switchLocalePath(locale.code)"
+                  class="Lang-link"
+                >
+                  {{ locale.name }}
+                </nuxt-link>
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
   </header>
   <GeneralModal
