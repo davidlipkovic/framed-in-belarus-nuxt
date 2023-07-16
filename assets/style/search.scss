@@ -1,0 +1,124 @@
+@import "./globalPartials/variables.scss";
+
+.searchWrapper {
+  > .alignCenter {
+    margin-top: 0.375rem;
+    margin-bottom: 1.875rem;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .mistake {
+    margin-bottom: 1.125rem;
+    padding-top: 8.563rem;
+    background-image: url("../../../assets/media/img/mistake.svg");
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-size: 8.875rem 7.438rem;
+    text-align: center;
+  }
+}
+
+.searchMenuWrapper {
+  position: relative;
+}
+
+.search {
+  padding-left: 3.375rem !important;
+  height: 3.375rem;
+  background-color: #F2F2F2;
+  background-image: url("../../../assets/media/img/search.svg");
+  background-repeat: no-repeat;
+  background-position: 1.125rem 50%;
+}
+
+.search-btn {
+  position: absolute;
+  right: 1.125rem;
+  top: 1.2rem;
+}
+
+.search-btn--img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.searchInputWrapper,
+.tagsMenusWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  >* {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  >*:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.searchInputWrapper {
+  margin-bottom: 10px;
+}
+
+.tagsMenusWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.searchResultsWrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 1rem 1.25rem;
+}
+
+@media screen and (min-width: $br-point-xs) {
+  .searchResultsWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .searchInputWrapper,
+  .tagsMenusWrapper {
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+
+    >* {
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .tagsMenusWrapper {
+    .tagsMenuWrapper {
+      margin-left: 24px;
+    }
+  
+    .tagsMenuWrapper:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+
+  .searchResultsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 28px 2rem;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .searchResultsWrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}

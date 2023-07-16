@@ -1,7 +1,18 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
+const clickOutside = onClickOutside()
+import { useTagsMenu } from "@/composables/TagsMenu";
+const { currentTagIndex, root } = useTagsMenu();
 
 const props = defineProps({
+  isGallery: {
+    type: Boolean,
+    default: false
+  },
+  menuStatus: {
+    type: Boolean,
+    default: false
+  },
   type: String,
   tags: {
     type: Array,
@@ -9,33 +20,31 @@ const props = defineProps({
   },
 })
 
-const showMenu = ref(false)
-const showSubTags = ref(false)
-const currentTagIndex = ref(0)
+const emit = defineEmits([
+  'checkForStatus',
+  'closeTagsMenu',
+])
 
-const closeTagsMenu = () => {
-  $emit('closeTagsMenu')
-}
+const showSubTags = ref(false)
 
 const updateTagsMenuStatus = () => {
-  $emit('checkForStatus')
+  emit('checkForStatus')
 }
 
-watch(showMenu, (n) => {
-  if (!n) {
-    showSubTags.value = false
-  }
+onClickOutside(root, () => {
+  emit('closeTagsMenu')
 })
 </script>
 
 <template>
   <div
     class="tagsMenuWrapper"
-    :class="showMenu ? 'tagsMenuWrapperOpened' : 'tagsMenuWrapperClosed'"
+    :class="{'tagsMenuWrapperOpened': menuStatus, 'tagsMenuWrapperClosed': !menuStatus, 'tagsMenusGalleryWrapper': isGallery}"
+    ref="root"
   >
     <button
       class="tagsMenuTitleWrapper capitalize flexRowStart"
-      @click="showMenu = !showMenu"
+      @click="updateTagsMenuStatus()"
     >
       <span>
         {{ type }}:
@@ -46,7 +55,7 @@ watch(showMenu, (n) => {
       <SvgArrowDown />
     </button>
     <ul
-      v-if="showMenu"
+      v-if="menuStatus"
       class="tagsWrapper flexColumnStart"
     >
       <li
@@ -57,14 +66,14 @@ watch(showMenu, (n) => {
         <button
           v-if="!tag.tags"
           class="capitalize flexRowStart"
-          @click="currentTagIndex = i"
+          @click="currentTagIndex = i, updateTagsMenuStatus()"
         >
           {{ tag.tagName }}
         </button>
         <button
           v-if="tag.tags"
           class="capitalize flexRowStart"
-          @click="currentTagIndex = i, showSubTags = !showSubTags"
+          @click="currentTagIndex = i, showSubTags = !showSubTags, updateTagsMenuStatus()"
         >
           {{ tag.tagName }}
           <SvgArrowRightRounded />

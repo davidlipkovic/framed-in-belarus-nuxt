@@ -3,72 +3,49 @@ import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
-const showMenu = ref(null)
-const numberOfRows = ref(null)
-const rowsPerPage = 10
+const props = defineProps({
+  currentPage: {
+    type: Number
+  },
+  numberOfPages: {
+    type: Number
+  }
+})
 
-const currentPage = computed(() => {
-  return `1-5 ${t('embroidery.step1Page.of')} 5`
+const showMenu = ref(null)
+
+const currentPageMsg = computed(() => {
+  return `${props.currentPage} ${t('embroidery.step1Page.of')} ${props.numberOfPages}`
 })
 </script>
 
 <template>
   <div class="paginationWrapper flexRowCenter">
-    <p class="paginationWrapper__name">
-      {{ $t("embroidery.step1Page.rows") }}
+    <p class="paginationIndex">
+      {{ currentPageMsg }}
     </p>
-    <div
-      class="rowOptionsMenuWrapper"
-      :class="showMenu ? 'rowOptionsMenuWrapperOpened' : 'rowOptionsMenuWrapperClosed'"
-    >
-      <button
-        class="rowOptionsMenuTitleWrapper capitalize flexRowStart"
-        @click="showMenu = !showMenu"
-      >
-        <span>
-          1
-        </span>
-        <SvgArrowDown />
-      </button>
-      <ul
-        v-if="showMenu"
-        class="tagsWrapper flexColumnStart"
-      >
-        <li
-          v-for="(row, i) in rowsPerPage" 
-          :key="i"
-          class="flexRowStart"
-        >
-          <button
-            class="capitalize flexRowStart"
-            @click="numberOfRows = i"
-          >
-            {{ row }}
-          </button>
-        </li>
-      </ul>
-    </div>
-    <p class="paginationWrapper__index">
-      {{ currentPage }}
-    </p>
-    <div class="paginationWrapper__controls flexRowCenter">
+    <div class="paginationControlsWrapper flexRowCenter">
       <button
         @click="$emit('changePageIndexTo', 'first')"
+        :class="{'button_disabled': currentPage === 1}"
       >
         <SvgStrongDoubleArrowLeft/>
       </button>
       <button
         @click="$emit('changePageIndexTo', -1)"
+        :class="{'button_disabled': currentPage === 1}"
       >
         <SvgStrongArrowLeft/>
       </button>
       <button
         @click="$emit('changePageIndexTo', 1)"
+        :class="{'button_disabled': currentPage === numberOfPages}"
       >
         <SvgStrongArrowRight/>
       </button>
       <button
         @click="$emit('changePageIndexTo', 'last')"
+        :class="{'button_disabled': currentPage === numberOfPages}"
       >
         <SvgStrongDoubleArrowRight/>
       </button>
@@ -76,4 +53,4 @@ const currentPage = computed(() => {
   </div>
 </template>
 
-<style src="./Pagination.scss" lang="scss"></style>
+<style src="./Pagination.scss" lang="scss" scoped></style>

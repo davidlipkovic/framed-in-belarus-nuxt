@@ -1,15 +1,16 @@
 <script setup>
-import { computed, onMounted, reactive } from "vue"
+import { computed, onMounted, reactive, ref } from "vue"
 
 import { usePrisonersStore } from "@/stores/prisoners"
+import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
 
 const prisonersStore = usePrisonersStore();
+const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
 
 definePageMeta({
   layout: "embroidery"
 })
 
-const activeMenuIndex = ref(null)
 const rangeIndex = ref(0)
 const rangePerPage = ref(16)
 const localPrisoners = computed(() => prisonersStore.originalPrisoners.value.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value))
@@ -19,6 +20,9 @@ const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => 
 const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
 // const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
 // const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+
+const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
+const numberOfPages = computed(() => Number((prisonersStore.originalPrisoners.value.length / rangePerPage.value + 0.5).toFixed()))
 
 const changePageIndex = (index) => {
    if (index === 'first') { 
@@ -31,15 +35,6 @@ const changePageIndex = (index) => {
     rangeIndex.value = prisonersStore.originalPrisoners.value.length - rangePerPage.value
   }
 }
-
-const closeTagsMenu = (index) => {
-  if (activeMenuIndex.value === index) {
-    activeMenuIndex.value = null
-  }
-}
-
-onMounted(() => {
-})
 </script>
 
 <template>
@@ -61,25 +56,35 @@ onMounted(() => {
       <RegistrationNavSteps
         :currentStep="1"
       />
-      <section class="FindHero flexColumnnStart">
-        <div class="FindHero-form">
-          <div class="searchMenusWrapper">
+      <section class="searchWrapper flexColumnnStart">
+        <div class="searchMenuWrapper">
+          <div class="searchInputWrapper">
             <input 
               type="text" 
-              class="FindHero-input" 
+              class="search" 
               :placeholder="$t('placeholders.searchHero')"
               :aria-placeholder="$t('placeholders.searchHero')"
             >
-            <GeneralSortMenu />
+            <GeneralSortMenu 
+              :menuStatus="activeMenuIndex === 1"
+              @checkForStatus="toggleActiveMenuIndex(1)"
+              @closeSortMenu="closeTagsMenu(1)"
+            />
           </div>
-          <div class="filterMenusWrapper flexRowStart">
+          <div class="tagsMenusWrapper flexRowStart">
             <GeneralTagsMenu
+              :menuStatus="activeMenuIndex === 2"
               :type="localTags.cases.type"
               :tags="localTags.cases.tags"
+              @checkForStatus="toggleActiveMenuIndex(2)"
+              @closeTagsMenu="closeTagsMenu(2)"
             />
             <GeneralTagsMenu
+              :menuStatus="activeMenuIndex === 3"
               :type="localTags.statuses.type"
               :tags="localTags.statuses.tags"
+              @checkForStatus="toggleActiveMenuIndex(3)"
+              @closeTagsMenu="closeTagsMenu(3)"
             />
             <GeneralTagsMenu
               :menuStatus="activeMenuIndex === 4"
@@ -90,7 +95,7 @@ onMounted(() => {
             />
           </div>
         </div>
-        <div class="heroIconsWrapper">
+        <div class="searchResultsWrapper">
           <RegistrationHeroBox
             v-for="hero in localPrisoners" 
             :key="hero.id"
@@ -98,6 +103,8 @@ onMounted(() => {
           />
         </div>
         <GeneralPagination
+          :currentPage="currentPage"
+          :numberOfPages="numberOfPages"
           @change-page-index-to="changePageIndex"
         />
         <!-- <div id="default">
@@ -142,5 +149,7 @@ onMounted(() => {
   </main>
 </template>
 
+<style src="../../../assets/style/search.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step-1-choose-hero.scss" lang="scss" scoped></style>

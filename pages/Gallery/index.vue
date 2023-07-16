@@ -1,135 +1,111 @@
-<script>
-// const input = document.querySelector('.FindHero-input');
-// const button = document.querySelector('.FindHero-input-btn_reset');
-// const select = document.duerySelector('.FindHero-select');
+<script setup>
+import { computed, onMounted, reactive, ref } from "vue"
 
-// function searchHero() {
-//   send input.value to database;
-//   get database answer;
-//   add answer to select with class="FindHero-select-item"
-//   select.hidden = false;
-// }
-// input.oninput = function(e){
-//   button.hidden = false;
-//   searchHero();
-//   button.onclick = function(e){
-//     input.value = '';
-//     button.hidden = true;
-//   }
-// };
+import { usePrisonersStore } from "@/stores/prisoners"
+import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
 
-export default {
-  head() {
-    return {
-      title: `#Framed in Belarus / Gallery`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Gallery of embroidery by #Framed in Belarus project'
-        }
-      ]
-    }
-  },
+const prisonersStore = usePrisonersStore();
+const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
+
+useHead({
+  title: '#Framed in Belarus / Gallery',
+  meta: [
+    { name: 'description', content: 'User cabinet — My embroideries description' }
+  ]
+})
+
+const rangeIndex = ref(0)
+const rangePerPage = ref(15)
+const localTags = computed(() => prisonersStore.tags.value)
+
+const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
+const numberOfPages = ref(50)
+
+const changePageIndex = (index) => {
+   if (index === 'first') { 
+    rangeIndex.value = 0
+  } else if (index === -1) {
+    rangeIndex.value = rangeIndex.value - rangePerPage.value
+  } else if (index === 1) { 
+    rangeIndex.value = rangeIndex.value + rangePerPage.value
+  } else if (index === 'last') { 
+    rangeIndex.value = prisonersStore.originalPrisoners.value.length - rangePerPage.value
+  }
 }
 </script>
 
 <template>
-  <main class="Content">
+  <main class="Content galleryContent">
     <div class="Title">
       <h1 class="content">
         Gallery
       </h1>
     </div>
     <div class="content">
-      <div class="Search">
-        <div class="FindHero-form">
-          <input type="text" class="FindHero-input" placeholder="Search for a hero by name" aria-placeholder="Search for a hero by name">
-          <button class="FindHero-input-btn" hidden><img src="../../assets/media/img/close.svg" alt="Reset" class="FindHero-input-btn-img"></button>
-          <div class="FindHero-select" hidden>
-            <p class="FindHero-select-item">Smirnov</p>
-            <p class="FindHero-select-item">Smirnova</p>
-          </div>
+      <div class="searchMenuWrapper">
+        <div class="searchInputWrapper">
+          <input 
+            type="text" 
+            class="search" 
+            :placeholder="$t('placeholders.searchHero')"
+            :aria-placeholder="$t('placeholders.searchHero')"
+          >
+          <GeneralSortMenu 
+            :menuStatus="activeMenuIndex === 1"
+            @checkForStatus="toggleActiveMenuIndex(1)"
+            @closeSortMenu="closeTagsMenu(1)"
+          />
         </div>
-        <div class="Sorting">
-          <label for="sorting" class="SortingLabel">Sort by: </label>
-          <select name="sorting" id="sorting" class="SortingSelect">
-            <option class="SortingSelect-option">What’s new</option>
-            <option value="alphabet" class="SortingSelect-optionn">A → Z</option>
-            <option value="alphabetRevert" class="SortingSelect-optionn">Z → A</option>
-          </select>
+        <div class="tagsMenusWrapper flexRowStart">
+          <GeneralTagsMenu
+            :menuStatus="activeMenuIndex === 2"
+            :type="localTags.cases.type"
+            :tags="localTags.cases.tags"
+            class="tagsMenusGalleryWrapper"
+            @checkForStatus="toggleActiveMenuIndex(2)"
+            @closeTagsMenu="closeTagsMenu(2)"
+          />
+          <GeneralTagsMenu
+            :menuStatus="activeMenuIndex === 3"
+            :type="localTags.statuses.type"
+            :tags="localTags.statuses.tags"
+            class="tagsMenusGalleryWrapper"
+            @checkForStatus="toggleActiveMenuIndex(3)"
+            @closeTagsMenu="closeTagsMenu(3)"
+          />
+          <GeneralTagsMenu
+            :menuStatus="activeMenuIndex === 4"
+            :type="localTags.genders.type"
+            :tags="localTags.genders.tags"
+            class="tagsMenusGalleryWrapper"
+            @checkForStatus="toggleActiveMenuIndex(4)"
+            @closeTagsMenu="closeTagsMenu(4)"
+          />
         </div>
       </div>
-      <section class="Gallery">
+      <section class="searchResultsWrapper">
         <nuxt-link
+          v-for="item in rangePerPage"
+          :key="item"
           to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/1.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/2.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/3.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/4.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/5.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/6.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/7.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/8.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/9.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/1.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/2.jpg" alt="Case name" class="GalleryCase-img">
-        </nuxt-link>
-        <nuxt-link
-          to="/Gallery/Case"
-          class="GalleryCase">
-          <img src="../../assets/media/img/slider/3.jpg" alt="Case name" class="GalleryCase-img">
+          class="galleryBox"
+        >
+          <img 
+            src="../../assets/media/img/slider/1.jpg" 
+            alt="Case name" 
+          >
         </nuxt-link>
       </section>
+      <GeneralPagination
+        :currentPage="currentPage"
+        :numberOfPages="numberOfPages"
+        class="paginationGalleryWrapper"
+        @change-page-index-to="changePageIndex"
+      />
     </div>
   </main>
 </template>
 
+<style src="../../assets/style/search.scss" lang="scss" scoped></style>
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./Gallery.scss" lang="scss" scoped></style>
-
-
-<script>
-
-</script>

@@ -2,31 +2,63 @@
 
 .paginationWrapper {
   margin-top: 26px;
+  justify-content: flex-end;
+  flex-direction: column;
+}
 
-  .paginationWrapper__name {
-    margin-left: auto;
+.paginationGalleryWrapper {
+  .paginationIndex {
+    color: $white;
   }
+}
 
-  .paginationWrapper__index {
-    margin-right: 38px;
-    margin-top: -3px;
+.paginationIndex {
+  margin-right: 0;
+  margin-top: 1rem;
+  font-size: 1rem;
+  order: 2;
+}
+
+.paginationControlsWrapper {
+  width: 100%;
+  margin-right: 0;
+  justify-content: space-between;
+  order: 1;
+}
+
+button {
+  height: 1rem;
+  width: auto;
+
+  svg {
+    fill: $grey1;
+    stroke: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+button:hover {
+  svg {
+    fill: $redHover;
+  }
+}
+
+@media screen and (min-width: $br-point-sm){
+  .paginationWrapper {
+    justify-content: flex-end;
+    flex-direction: row;
   }
   
-  .paginationWrapper__controls {
+  .paginationIndex {
+    margin-right: 37px;
+    margin-top: -1px;
+    order: 1;
+  }
+
+  .paginationControlsWrapper {
     width: 256px;
     margin-right: 40px;
-    justify-content: space-between;
-
-    button {
-      height: 1rem;
-      width: auto;
-    }
-
-    svg {
-      fill: $grey1;
-      stroke: none;
-      width: 100%;
-      height: 100%;
-    }
+    order: 2;
   }
 }

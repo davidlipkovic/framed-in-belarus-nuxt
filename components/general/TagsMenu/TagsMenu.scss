@@ -1,49 +1,45 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
 .tagsMenuWrapper {
-  position: relative;
-  border-radius: 6px;
-  margin: 0 0 0;
-  min-width: 262px;
-
-  .tagsMenuTitleWrapper {
     position: relative;
-    z-index: 102;
-    width: 100%;
-    padding: 13px 17px;
-    border: 1px solid $grey1;
     border-radius: 6px;
-    align-items: center;
+    margin: 0 0 0;
+    min-width: 262px;
 
-    span {
-        font-size: 14px;
+    .tagsMenuTitleWrapper {
+        position: relative;
+        z-index: 102;
+        width: 100%;
+        padding: 13px 17px;
+        border: 1px solid $grey1;
+        border-radius: 6px;
+        align-items: center;
+
+        span {
+            font-size: 14px;
+        }
+
+        span:nth-child(1) {
+            font-weight: 600;
+        }
+
+        span:nth-child(2) {
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        svg {
+            fill: none;
+            stroke: $grey1;
+            width: 1rem;
+            height: auto;
+            margin-left: auto;
+            transform-origin: center;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+            stroke-width:2px;
+        }
     }
-
-    span:nth-child(1) {
-        font-weight: 600;
-    }
-
-    span:nth-child(2) {
-        font-weight: 700;
-        margin-left: 4px;
-    }
-
-    svg {
-        fill: none;
-        stroke: $grey1;
-        width: 1rem;
-        height: auto;
-        margin-left: auto;
-        transform-origin: center;
-        stroke-linecap:round;
-        stroke-linejoin:round;
-        stroke-width:2px;
-    }
-  }
-
-  .tagsMenuTitleWrapper:hover {
-    // background-color: $greenLight
-  }
 
     .tagsWrapper {
         position: absolute;
@@ -144,7 +140,7 @@
         svg {
             transform: rotate(0);
         }
-      }
+    }
 }
 
 .tagsMenuWrapperOpened {
@@ -152,5 +148,13 @@
         svg {
             transform: rotate(-180deg);
         }
-      }
+    }
+}
+
+.tagsMenusGalleryWrapper {
+    .tagsMenuTitleWrapper {
+        * {
+            color: $white;
+        }
+    }
 }
