@@ -15,10 +15,10 @@
         "readLess": "Read less"
     },
     "placeholders": {
-        "username": "Username",
-        "password": "Password",
+        "username": "Імя карыстальніка",
+        "password": "Пароль",
         "passwordAgain": "Password again",
-        "chooseCommunicationLanguage": "Choose communication language",
+        "chooseCommunicationLanguage": "Выбраць мову камунікацыі",
         "pseudonym": "Your pseudonym / nickname",
         "searchHero": "Search for a Hero*ine by name"
     },
@@ -66,308 +66,308 @@
         }
     },
     "aboutUsPage": {
-        "title": "About us",
+        "title": "Пра нас",
         "section": {
             "title": "Stitchit and Collective",
-            "paragraph1": "Stitchit is an art group created in 2021 by visual artist Rufina Bazlova (Belarus) and curator Sofia Tocar (Moldova). The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship.",
-            "paragraph2": "Collective means all people, who take part in a project and activities organized by Stitchit.",
+            "paragraph1": "Stitchit - гэта арт-група, створаная ў 2021 годзе візуальнай мастачкай Руфінай Базловай (Беларусь) і куратаркай Сафіяй Токар (Малдова). Група працуе над актуальнымі сацыяльна-палітычнымі тэмамі, ужываючы традыцыйную тэхніку вышывання як прыладу супраціву і дыялогу. “Stitchit” прыцягвае разнастайныя суполкі і паасобных людзей да працэсу стварэння мастацкіх твораў і сцірае межы аўтарства.",
+            "paragraph2": "Пад калектывам маюцца на ўвазе ўсе людзі, якія бяруць удзел у праекце і імпрэзах, арганізаваных “Stitchit”.",
             "paragraph3": {
                 "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: {0}.",
                 "highlight": "framedinbelarus{'@'}gmail.com"
             }
         },
-        "igButton": "Find us on Instagram",
-        "fbButton": "Find us on Facebook"
+        "igButton": "Мы ў Instagram",
+        "fbButton": "Мы ў Facebook"
     },
     "signUpPage": {
-        "title": "Sign up",
-        "signInQuestion": "Already a member?",
-        "textarea": "Why did you decide to join the project?",
+        "title": "Рэгістрацыя",
+        "signInQuestion": "Ужо ўдзельнічаеце?",
+        "textarea": "Чаму вы вырашылі ўзяць удзел у праекце?",
         "terms": {
             "section1": {
-                "title": "Terms of participation in the project",
-                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
-                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All stories are equally important in this project, and we would like to immortalize all of them, so each political prisoner is embroidered only once."
+                "title": "Умовы ўдзелу ў праекце",
+                "paragraph1": "На гэтым сайце, пасля пацвярджэння ўмоваў, вы атрымаеце падрабязныя інструкцыі, якія правядуць вас ад этапу падрыхтоўкі да адпраўкі нам вашага гатовага твору.",
+                "paragraph2": "Беручы ўдзел у праекце, вы робіцеся \"амбасадарам\" зняволенага*ай і атрымліваеце схему партрэта аднаго*ой з палітычных зняволеных Беларусі. У гэтым праекце ўсе лёсы аднолькава важныя, і мы хацелі б зафіксаваць усе гісторыі, таму кожны*ая палітычны*ая зняволены*ая вышываецца толькі адзін раз."
             },
             "section2": {
-                "title": "Timeline",
+                "title": "Тэрміны",
                 "paragraph1": {
-                    "content": "The work process is divided into several steps that you can go through at your own pace. However, {0}. This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
-                    "highlight": "we have set a time limit of 2 months"
+                    "content": "Працэс працы разбіты на некалькі крокаў, якія вы можаце прайсці ў зручным для вас рытме. Аднак {0}. Гэтага мусіць хапіць, калі вы будзеце займацца вышываннем час ад часу ў вольныя вечары (нават калі раней не вышывалі).",
+                    "highlight": "мы вызначылі часавыя межы ў 2 месяцы"
                 },
-                "paragraph2": "If you do not finish your work in 2 months and do not tell us you need more time, we may drop you from the project and pass your Hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
+                "paragraph2": "Калі вы не скончыце працу за 2 месяцы і не паведаміце нам, што вам патрэбна больш часу, мы можам выключыць вас з праекта і перадаць вашага*у героя*гераіню некаму іншаму. Нам шкада, што правілы настолькі строгія, аднак нам трэба стварыць пэўныя межы, каб праект не ператварыўся ў хаос.",
                 "paragraph3": {
-                    "content": "If you decide to withdraw from the project for any reason, or {0} your embroidery work {1}, please {2} as soon as possible.",
-                    "highlight1": "if you will not be able to finish",
-                    "highlight2": "on time",
-                    "highlight3": "let us know"
+                    "content": "Калі вы з нейкіх прычын вырашыце пакінуць праект або бачыце, што {0} вышыць працу, {1}{2} пра гэта як мага хутчэй.",
+                    "highlight1": "не паспяваеце своечасова",
+                    "highlight2": "",
+                    "highlight3": "калі ласка, паведамце нам"
                 }
             },
             "section3": {
-                "title": "Security",
-                "paragraph1": "We don't collect your personal data. You may choose to use a pseudonym and administer your profile before publication."
+                "title": "Бяспека",
+                "paragraph1": "Мы не збіраем вашу асабістую інфармацыю. Вы можаце карыстацца псеўданімам і адміністраваць свой профіль перад публікацыяй."
             },
             "section4": {
-                "title": "Price",
-                "paragraph1": "Your work becomes a donation to the “Stitchit” association that is running this project and it becomes its property. The association can exhibit it, use it publicly or otherwise as it sees fit for the purpose of this project."
+                "title": "Кошт пытання",
+                "paragraph1": "Ваша праца робіцца ахвяраваннем асацыяцыі \"Stitchit\", якая займаецца арганізацыяй праекта, і пераходзіць у яе ўласнасць. Асацыяцыя можа выстаўляць працу, выкарыстоўваць публічна або іншым чынам паводле ўласнага меркавання у адпаведнасці з мэтамі дадзенага праекта."
             },
             "section5": {
-                "title": "Photo",
+                "title": "Фота",
                 "paragraph1": {
-                    "content": "An important element of the project is the photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
-                    "highlight": "photos will be later used on the site and in other publications on the project"
+                    "content": "Важным элементам праекта з’яўляецца фотадакументацыя працэсу вашага вышывання. Гэтыя {0}. Таму хочам вас пра гэта загадзя папярэдзіць, а таксама папрасіць паставіцца сур’ёзна да якасці будучых фатаздымкаў.",
+                    "highlight": "здымкі будуць далей выкарыстаны на сайце і ў іншых выданнях і анлайн публікацыях, прысвечаных праекту"
                 }
             },
             "section6": {
-                "title": "Personal Comment",
+                "title": "Зваротная сувязь",
                 "paragraph1": {
-                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understandingn understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
-                    "highlight": "ask you to write a short comment about your experience"
+                    "content": "У канцы мы таксама хочам {0} вышывання палітычнага*ай зняволенага*ай і ўдзелу ў праекце. Вышыванне - гэта працэс, які дае магчымасць прыпыніцца і лепш адчуць і зразумець тое, што адбываецца. Нам будзе вельмі прыемна пачуць вашы думкі, якія змогуць стаць дадаткам да вашай працы.",
+                    "highlight": "папрасіць вас напісаць кароткі каментар пра ваш досвед"
                 }
             }
         },
-        "consent" : "I agree with the project’s terms of participation",
-        "createButton" : "Create profile and start work",
-        "signInGoogleButton" : "Sign up with Google"
+        "consent" : "Прымаю ўмовы ўдзелу ў праекце",
+        "createButton" : "Стварыць прыватны кабінет",
+        "signInGoogleButton" : "Увайсці з дапамогай Google"
     },
     "signInPage": {
-        "title": "Sign in",
+        "title": "Увайсці",
         "signUpQuestion": {
-            "content": "Not a member? {0}",
-            "highlight": "Sign up"
+            "content": "Упершыню ў нас? {0}",
+            "highlight": "Рэгістрацыя"
         },
-        "forgot": "Forgot the password?",
-        "remember": "Remember me",
-        "signInButton" : "Sign in",
-        "signInGoogleButton" : "Sign in with Google"
+        "forgot": "Забылі пароль?",
+        "remember": "Запомніць мяне",
+        "signInButton" : "Увайсці",
+        "signInGoogleButton" : "Увайсці з дапамогай Google"
     },
     "profilePage": {
-        "title": "My embroideries",
+        "title": "Мае працы",
         "subTitle": "Profile",
         "question": "Why did you decide to participate?",
         "editProfile": "Edit profile",
         "cardStatus": {
-            "status1": "In Progress",
-            "status2": "Pattern is ready",
-            "status3": "Stitched",
-            "status4": "Sent",
-            "status5": "Published",
-            "status6": "Delivered",
-            "status7": "Requested"
+            "status1": "У працэсе - Крок",
+            "status2": "Схема гатовая",
+            "status3": "Вышыта",
+            "status4": "Адпраўлена",
+            "status5": "Апублікавана",
+            "status6": "Дастаўлена",
+            "status7": "Дасланы запыт"
         }
     },
     "embroidery": {
         "steps": {
             "steps": {
-                "step1": "Your Hero*ine",
-                "step2": "Preparation",
-                "step3": "Support",
-                "step4": "Photo",
-                "step5": "Comment",
-                "step6": "Shipping",
-                "step7": "Publication"
+                "step1": "Ваш герой*гераіня",
+                "step2": "Падрыхтоўка",
+                "step3": "Як дапамагчы?",
+                "step4": "Фота",
+                "step5": "Каментар",
+                "step6": "Адпраўка",
+                "step7": "Публікацыя"
             },
-            "goBack": "Go back to my Profile",
-            "step": "step",
+            "goBack": "Назад у Прыватны кабінет",
+            "step": "kрок",
             "description": {
                 "case": "Case",
                 "birth": "Date of birth",
                 "detention": "Date of detention",
                 "sentence": "Sentence",
-                "descriptionPrisoner" : "Description of the Political prisoner",
-                "descriptionCase" : "Description of the case",
-                "address" : "Address of the prison",
-                "moreButton" : "More information",
+                "descriptionPrisoner" : "Апісанне палітзняволенага*ай",
+                "descriptionCase" : "Апісанне справы",
+                "address" : "Адрас турмы",
+                "moreButton" : "Паказаць больш",
                 "lessButton" : "Less information"
             }
         },
         "step1Page": {
-            "title": "Choose your Hero*ine",
+            "title": "Выбар героя*гераіні",
             "rows": "Rows per page",
             "of": "of",
-            "warning": "Once you choose a Hero*ine you can not change it",
-            "backButton" : "Go back to all prisoners",
-            "forwardButton" : "Choose this Hero*ine"
+            "warning": "Выбраўшы героя*гераіню, вы не зможаце яго*яе змяніць",
+            "backButton" : "Назад да ўсіх палітзняволеных",
+            "forwardButton" : "Выбраць гэтага*ую героя*гераіню"
         },
         "step2Page": {
-            "title": "Preparation",
+            "title": "Падрыхтоўка",
             "section1": {
-                "title": "What to buy?",
+                "title": "Што купіць?",
                 "paragraph1": {
-                    "content": " white/natural (canvas or fabric with #weave)",
-                    "highlight": "Fabric color:"
+                    "content": " белы / натуральны (канва або тканіна з # пляценнем)",
+                    "highlight": "Колер тканіны:"
                 },
                 "paragraph2": {
-                    "content": " any shades of red / color combinations are possible at your discretion.",
-                    "highlight": "Thread color:"
+                    "content": " усе адценні чырвонага / магчыма спалучэнне колераў на вашае меркаванне.",
+                    "highlight": "Колер нітак:"
                 }
             },
             "section2": {
-                "title": "How big does my embroidery have to be?",
-                "paragraph1": "Choose any canvases that you feel most comfortable working with. The size of the embroidery will depend on that image. Each job will be a little different in format - that's ok, we take this into account."
+                "title": "Якога памеру мусіць быць вышыўка?",
+                "paragraph1": "Выберыце любы растр канвы, з якім вам зручней за ўсё працаваць. Памер вышыўкі будзе залежаць менавіта ад гэтага растра. Кожная праца будзе трохі адрознівацца паводле фармату - нічога страшнага, мы гэта ўлічваем."
             },
             "section3": {
-                "title": "How much fabric do i buy?",
-                "paragraph1": "You can use any fabric with a cross weave, or buy a special fabric for embroidery - Aida. To accurately determine the size of the fabric, you need to count 145 cells on the canvas. However, counting so many cells is too long and complicated, so we suggest counting 10 cells, measuring the distance with a ruler and multiplying by 14,5. To the result add about 5 cm on each side - this will be your final size.",
-                "paragraph2": "The fabric for the embroidery is called Aida. It comes in a different raster - the number behind the word Aida determines how many crosses fit in one centimetre.",
-                "paragraph3": "The smaller the number - the larger the cross. Usually it is sold in metres of 140 cm width.",
-                "paragraph4": "We have calculated in advance how much Aida fabric you might need in different widths - see the size chart:"
+                "title": "Колькі тканіны купляць?",
+                "paragraph1": "Вы можаце выкарыстоўваць любую тканіну з крыжовым пляценнем або купіць спецыяльную тканіну для вышывання. Каб дакладна вызначыць памер тканіны, трэба адлічыць 145 клетачак на канве. Аднак лічыць столькі клетачак занадта доўга і складана, таму раім адлічыць 10 клетачак, памераць гэтую адлегласць лінаркай і памножыць на 14,5. Да атрыманага выніку дадайце прыблізна па 5 см з кожнага боку - гэта і будзе ваш фінальны памер.",
+                "paragraph2": "Тканіна для вышывання называецца канва. Яна бывае рознага растра - лічба вызначае колькі крыжыкаў змяшчаецца ў адным сантыметры.",
+                "paragraph3": "Чым меншая лічба - тым буйнейшы крыжык. Звычайна тканіна прадаецца ў метражы шырынёй 140 см.",
+                "paragraph4": "Мы загадзя падлічылі, колькі вам можа спатрэбіцца канвы рознага растра - гл. табліцу памераў:"
             },
             "section4": {
                 "headerRow": {
-                    "cell1": "Number Aida",
-                    "cell2": "Size of the embroidery",
-                    "cell3": "Seam allowances",
-                    "cell4": "Final fabric size"
+                    "cell1": "Нумар канвы",
+                    "cell2": "Памер вышыўкі",
+                    "cell3": "Прыпускі на шво",
+                    "cell4": "Фінальны памер тканіны"
                 },
-                "aida": "Aida",
+                "aida": "канвы",
                 "cm": "cm",
-                "side": "cm on each side"
+                "side": "cm з кожнага боку"
             },
             "section5": {
-                "title": "And a hoop?",
-                "paragraph1": "You don't need a hoop for this type of embroidery, but if it makes you feel more comfortable, use one!"
+                "title": "А пяльцы?",
+                "paragraph1": "Для гэтага тыпу вышыўкі пяльцы не абавязковыя, але калі вам так зручней, то вядома ж карыстайцеся імі!"
             },
             "section6": {
-                "title": "How to embroider?",
-                "paragraph1": "We suggest that you start in the middle of your embroidery. Fold the fabric in half twice - this is how you will find the centre of the fabric. The centre is also marked on the diagram. This is your starting point. Count off the number of empty cells from the centre to the beginning of the motif - this is usually the foot of the schematic character. Do the same on the fabric.",
-                "paragraph2": "Continue the work, counting the empty and filled cells. Follow the scheme. The number of crosses is already counted in the most complicated places.",
+                "title": "Як вышываць?",
+                "paragraph1": "Раім пачаць вышываць з сярэдзіны. Складзіце тканіну напалам двойчы - так вы знойдзеце цэнтр палатна. На схеме таксама пазначаны цэнтр. Гэта ваша пачатковая кропка. Адлічыце колькасць пустых клетачак ад цэнтра да пачатку матыву - звычайна гэта нага схематычнага чалавечка. Тое самае зрабіце на палатне.",
+                "paragraph2": "Працягвайце працу, пры гэтым лічыце пустыя і запоўненыя клетачкі. Сачыце за схемай. На ёй паказана колькасць крыжыкаў у самых праблематычных месцах.",
                 "paragraph3": {
-                    "content1": "Watch the informative",
-                    "content2": "(inserted video).",
-                    "highlight": "video lesson"
+                    "content1": "Паглядзіце інфарматыўнае",
+                    "content2": ".",
+                    "highlight": "відэа"
                 }
             },
             "section7": {
-                "title": "Work signature",
-                "paragraph1": "Instead of the \"YOUR NAME, CITY, YEAR\" line, sign the final embroidery with your name or pseudonym. If you worked on the embroidery collectively, have everyone embroider their name/pseudonym. We enclose a Latin and Belarusian alphabet from which you will make up your signature. You can come up with your own font. It would be great if you could also embroider the place you are from, the date, or any other text. If you think your work should be accentuated by decorations, add them.",
-                "paragraph2": "Please don't be afraid to make mistakes - the embroidery does not have to be perfect, let it be ORIGINAL, be YOURSELF!"
+                "title": "Подпіс працы",
+                "paragraph1": "Замест радка \"YOUR NAME, CITY, YEAR\" падпісвайце канчатковую вышыўку сваім імем ці псеўданімам. Калі вы працавалі над вышыўкай калектыўна, хай кожны*ая вышые сваё імя / псеўданім. Мы прыкладаем лацінскі і беларускі алфавіты, з якіх вы складзяце свой подпіс. Вы можаце прыдумаць свой шрыфт. Будзе выдатна, калі вы таксама вышыеце месца, адкуль вы родам, дзе цяпер пражываеце, дату або любы іншы тэкст. Калі вы думаеце, што вашую працу мусіць падкрэсліць дэкор, дадайце яго.",
+                "paragraph2": "Калі ласка, не бойцеся рабіць памылкі - вышыўка не мусіць быць ідэальнай, хай яна будзе АРЫГІНАЛЬНАЙ, ВАШАЙ!"
             },
-            "forwardButton" : "Next step"
+            "forwardButton" : "Наступны крок"
         },
         "step3Page": {
-            "title": "Support the political prisoner",
+            "title": "Як дапамагчы?",
             "quote": {
-                "content": "The more we talk about them, the safer they are",
-                "author": "Darya Losik, wife of unjustly convicted blogger Ihar Losik"
+                "content": "Чым больш мы пра іх гаворым, у тым большай яны бяспецы",
+                "author": "палітзняволеная Дар’я Лосік, жонка несправядліва асуджанага блогера Ігара Лосіка."
             },
             "section1": {
-                "paragraph1": "By taking part in the project you become a kind of \"ambassador\" of the prisoner, telling his/her story to the world."
+                "paragraph1": "Беручы ўдзел у праекце, вы робіцеся пэўным чынам “амбасадарам” зняволенаг*ай, бо апавядаеце яго*яе гісторыю ўсяму свету."
             },
             "section2": {
-                "title": "Make posts and stories on social media",
+                "title": "Рабіце пасты і сторыз у сацыяльных сетках.",
                 "paragraph1": {
-                    "content1": "Talk about your hero and about the project and put",
-                    "content2": "and mark the account",
+                    "content1": "Расказвайце пра свайго*ю героя*гераіню и пра праект, стаўце",
+                    "content2": "і адзначайце акаўнт",
                     "highlight1": "#framedinbelarus",
                     "highlight2": "{'@'}rufinabazlova"
                 }
             },
             "section3": {
-                "title": "Write a letter to your political prisoner",
+                "title": "Напішыце ліст свайму*ёй палітзняволенаму*ай.",
                 "paragraph1": {
-                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on {0}",
+                    "content": "Вы можаце даслаць ліст са сваёй краіны. Поўны спіс палітычных вязняў з абноўленымі адрасамі пададзены на сайце {0}.",
                     "highlight": "https://prisoners.spring96.org/en"
                 },
                 "paragraph2": {
-                    "content": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.",
-                    "highlight": "The Solidarity Postcards Atelier"
+                    "content": "можа дапамагчы вам даслаць паштоўку або ліст \"анлайн\". Валанцёры раздрукуюць ваш тэкст і дашлюць яго поштай у Беларусі. Больш падрабязную інфармацыю пра тое, як падтрымаць ініцыятыву, вы можаце знайсці на іх старонцы.",
+                    "highlight": "Платформа \"Паштоўкі салідарнасці\""
                 },
-                "paragraph3": "What do you need to know about writing letters to prisoners?",
+                "paragraph3": "Што трэба ведаць пра напісанне лістоў зняволеным?",
                 "paragraph4": {
-                    "content": "All letters go through censorship. Don‘t write anything that may cause harm to you, your addressee or other people. Remember, that some of the information might not pass through censorship, so describe news and events carefully.",
-                    "highlight": "Censorship"
+                    "content": "Усе лісты праходзяць цэнзуру. Не пішыце нічога, што можа нанесці шкоду вам, вашаму адрасату або іншым людзям. Памятайце, што частка інфармацыі можа не прайсці цэнзуру, таму апісвайце навіны і падзеі асцярожна.",
+                    "highlight": "Цэнзура"
                 },
                 "paragraph5": {
-                    "content": "{0} Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
-                    "highlight": "Dates"
+                    "content": "{0} Пазначайце дату ліста, іх можна і пранумараваць - гэта дапаможа высветліць, якія лісты згубіліся і колькі часу займае дастаўка.",
+                    "highlight": "Даты"
                 },
                 "paragraph6": {
-                    "content": "{0} Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
-                    "highlight": "Language"
+                    "content": "{0} Лісты з невядомымі скарачэннямі, памяншэннямі слоў могуць не прайсці цэнзуру. Таксама не дасылайце ў лістах вершы або літаратурныя творы - шанец прайсці цэнзуру невысокі.",
+                    "highlight": "Мова"
                 }
             },
             "section4": {
                 "title": {
-                    "content": "Get involved in the initiative",
+                    "content": "Паўдзельнічайце ў ініцыятыве",
                     "highlight": "politzek.me"
                 },
-                "paragraph1": "The platform allows you to befriend a political prisoner and complete different tasks."
+                "paragraph1": "Платформа прапануе сябраваць з вязнямі і выконваць розныя заданні."
             },
             "section5": {
-                "title": "Support political prisoners and their families financially",
+                "title": "Падтрымайце палітзняволеных і іх сем’і матэрыяльна.",
                 "paragraph1": "dissidentby.com/en/help",
                 "paragraph2": "bysol.org/en/",
                 "paragraph3": "Ineedhelpby.org",
                 "paragraph4": "en.stranafund.org"
             },
-            "backButton" : "Previous step",
-            "forwardButton" : "Got it! Next step"
+            "backButton" : "Папярэдні крок",
+            "forwardButton" : "Зразумела! Наступны крок"
         },
         "step4Page": {
-            "title": "Photo",
+            "title": "Фота",
             "section1": {
-                "title": "Provide photos of your work",
-                "paragraph1": "This can be phases of the embroidery, you at work, travel or events where you \"were\" with the embroidered Hero*ine, etc.",
-                "paragraph2": "These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
-                "paragraph3": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation."
+                "title": "Фатаграфуйце працэс вышывання",
+                "paragraph1": "Гэта могуць быць фазы вышыўкі, вы падчас працы, падарожжы або мерапрыемствы, на якіх вы “былі” разам з вышываным*ай героем*гераіняй і г.д.",
+                "paragraph2": "Гэтыя фатаздымкі будуць апублікаваныя ў агульнай анлайн-галерэі, таму мы просім вас пастарацца зрабіць якасныя і цікавыя фатаграфіі вашай працы і працэсу яе стварэння. Нам вельмі дапаможа, калі вы таксама зможаце зрабіць фатаграфіі вонкавага і адваротнага бакоў вашай гатовай працы.",
+                "paragraph3": "Калі ласка, майце на ўвазе, што гэтыя фатаздымкі могуць быць выкарыстаны ў друкаваных і анлайн-публікацыях, на выставах і г.д. у кантэксце прэзентацыі праекта."
             },
             "dropZone": {
-                "content": "Drag and Drop files here or",
-                "highlight": "Browse files"
+                "content": "Перацягніце файлы сюды",
+                "highlight": "Выберыце файлы"
             },
-            "warning": "Please add pictures",
-            "backButton" : "Previous step",
-            "forwardButton" : "Save and go to Next step"
+            "warning": "Калі ласка, дадайце выявы",
+            "backButton" : "Папярэдні крок",
+            "forwardButton" : "Гатова! Наступны крок"
         },
         "step5Page": {
-            "title": "Comment",
+            "title": "Каментар",
             "section1": {
-                "title": "Write a short comment about your experience of embroidering a political prisoner",
-                "paragraph1": "It could be interesting stories that happened to you in the context of the project or facts that you learned during this time about your Hero*ine, about Belarus, etc. It could be quotes from your correspondence with the political prisoner or your thoughts that arise during the work. Here you can also write wishes for your hero, his/her family, to all Belarusians or our project. This can take the form of an open letter.",
-                "paragraph2": "We would like to know if the project has left any resonance in you. Did participating in the project bring you any new experiences? Your answer will help us improve the project.",
-                "paragraph3": "It would be wonderful if you can also write a handwritten comment and send it to us together with the finished embroidery. Because the handwritten text looks better when installed on the exhibitions."
+                "title": "Напішыце кароткі каментар пра свой досвед вышыўкі палітзняволенага*ай",
+                "paragraph1": "Гэта могуць быць цікавыя гісторыі, якія здарыліся з вамі ў кантэксце праекта, або факты, якія вы даведаліся за гэты час пра свайго*ю героя*гераіню, пра Беларусь і г.д. Гэта могуць быць цытаты з вашага ліставання з палітзняволеннага*ай або вашыя думкі, што ўзніклі падчас працы. Тут жа вы можаце напісаць пажаданні вашаму*й герою*гераіні, ягонай*ейнай сям’і, усім беларусам або нашаму праекту. Пісаць можна і ў форме адкрытага ліста.",
+                "paragraph2": "Мы хацелі б даведацца, ці пакінуў у вас праект нейкі водгук? Ці прынёс вам удзел у праекце нейкія новыя ўражанні? Ваш адказ дапаможа нам палепшыць праект.",
+                "paragraph3": "Будзе выдатна, калі вы таксама зможаце напісаць каментар ад рукі і даслаць яго нам разам з гатовай вышыўкай. Бо на выставах лепш выглядае рукапісны тэкст."
             },
             "section2": {
-                "content1": "I wrote a handwritten comment and will send it along with the embroidery.",
-                "content2": "I will type a comment here"
+                "content1": "Я напісаў*ла каментар ад рукі і дашлю яго разам з вышыўкай.",
+                "content2": "Я набяру каментар тут"
             },
             "section3": {
-                "title": "Comment",
+                "title": "Каментар",
                 "textarea1": {
-                    "label": "If possible, please write the text in English",
-                    "placeholder": "Type a comment in English",
+                    "label": "Калі магчыма, напішыце, калі ласка, тэкст на англійскай мове.",
+                    "placeholder": "Набраць каментар па-англійску",
                     "warning": "Please add a comment"
                 },
                 "textarea2": {
-                    "label": "Choose the language",
-                    "placeholder": "Type a comment in your own language",
+                    "label": "Выберыце мову",
+                    "placeholder": "Набраць каментар на сваёй роднай мове",
                     "warning": "Please add a comment"
                 }
             },
             "section4": {
-                "title": "This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations",
-                "content1": "I agree, I want my voice to be heard",
-                "content2": "I disagree, please keep my comment for internal project needs only",
-                "warning": "Please choose one option"
+                "title": "Гэты каментар будзе апублікаваны ў вэб-галерэі і можа быць выкарыстаны ў друкаваных і анлайн-выданнях, на выставах і г.д. у кантэксце прэзентацый праекта.",
+                "content1": "Згодны*ая, я хачу, каб мой голас быў пачуты",
+                "content2": "Не згодны*ая, калі ласка, пакіньце мой каментар толькі для ўнутраных патрэбаў праекта",
+                "warning": "Калі ласка, выберыце адзін варыянт"
             },
-            "backButton" : "Previous step",
-            "forwardButton" : "Save and go to Next step"
+            "backButton" : "Папярэдні крок",
+            "forwardButton" : "Гатова! Наступны крок"
         },
         "step6Page": {
-            "title": "Shipping",
+            "title": "Адпраўка",
             "sectionOptions": {
-                "title": "Please choose where you are sending the package from",
-                "content1": "EU countries",
-                "content2": "Non-EU countries",
-                "content3": "Belarus",
-                "content4": "Handing over personally in Prague",
-                "warning": "Please choose one option",
-                "backButton" : "Previous step",
-                "forwardButton" : "Get instruction"
+                "title": "Калі ласка, выберыце, адкуль вы адпраўляеце пакунак",
+                "content1": "Краіна ЕЗ",
+                "content2": "Краіна па-за ЕЗ",
+                "content3": "Беларусь",
+                "content4": "Перадача асабіста ў Празе",
+                "warning": "Атрымаць інструкцыю",
+                "backButton" : "Папярэдні крок",
+                "forwardButton" : "Калі ласка, выберыце адзін варыянт"
             },
             "sectionEU": {
-                "title": "Please read this section carefully!",
+                "title": "Калі ласка, прачытайце гэты раздзел уважліва!",
                 "section1": {
                     "title": "IMPORTANT",
                     "content1": "On the content line please write Embroidery or Tissue.",
@@ -379,27 +379,27 @@
                     "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
+                    "title": "Адрас:",
                     "content1": "Rufina Bazlova",
                     "content2": "Schnirchova 1447/15",
                     "content3": "17000 Prague",
                     "content4": "Czech Republic"
                 },
                 "input": {
-                    "label": "Tracking number",
+                    "label": "Ідэнтыфікацыйны нумар пакунку",
                     "placeholder": "Enter Tracking number"
                 },
-                "backButton" : "Previous step",
-                "forwardButton" : "I have sent a package"
+                "backButton" : "Папярэдні крок",
+                "forwardButton" : "Я адправіў*ла пакунак"
             },
             "sectionNonEU": {
-                "title": "Please read this section carefully!",
+                "title": "Калі ласка, прачытайце гэты раздзел уважліва!",
                 "section1": {
-                    "title": "IMPORTANT",
-                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following:",
-                    "content2": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
-                    "content3": "On the content line please write Embroidery or Tissue.",
-                    "content4": "We will need the following information from you in order to issue the customs declaration.",
+                    "title": "ВАЖНА",
+                    "content1": "Пры адпраўцы пакунку з краіны, якая не ўваходзіць у мытны саюз Еўразвязу, калі ласка, зрабіце наступнае:",
+                    "content2": "Пры запаўненні паштовай дэкларацыі пазначце пакунак як ПАДАРУНАК, КОШТАМ ДА 20 ЕЎРА.",
+                    "content3": "У радку “змест” напішыце ВЫШЫЎКА / EMBROIDERY або СУРВЭТКА / NAPKIN",
+                    "content4": "Для афармленння абавязковай мытнай дэкларацыі нам спатрэбяцца дадзеныя адпраўніка, пазначаныя на пасылцы:",
                     "content5": {
                         "content": "Send your work only by {0}",
                         "highlight": "CUSTOMER POSTAGE!"
@@ -407,7 +407,7 @@
                     "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
+                    "title": "Адрас:",
                     "content1": "Rufina Bazlova",
                     "content2": "Schnirchova 1447/15",
                     "content3": "17000 Prague",
@@ -415,60 +415,60 @@
                     "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel:"
                 },
                 "input1": {
-                    "label": "Name and Surname on the package",
-                    "placeholder": "Enter Name Surname",
-                    "warning": "Please fill in Latin letters."
+                    "label": "Імя і прозвішча адпраўніка, як на пасылцы",
+                    "placeholder": "Імя і прозвішча адпраўніка, як на пасылцы",
+                    "warning": "Калі ласка, запоўніце лацінскімі літарамі."
                 },
                 "input2": {
-                    "label": "Adress with zip code and country",
+                    "label": "Поўны адрас, у т.л. індэкс і краіна",
                     "placeholder": "Enter Address",
-                    "warning": "Please fill in Latin letters."
+                    "warning": "Калі ласка, запоўніце лацінскімі літарамі."
                 },
                 "input3": {
                     "label": "Tracking number",
                     "placeholder": "Enter Tracking number"
                 },
-                "backButton" : "Previous step",
-                "forwardButton" : "I have sent a package"
+                "backButton" : "Папярэдні крок",
+                "forwardButton" : "Я адправіў*ла пакунак"
             },
             "sectionBelarus": {
-                "content": "Sending work from Belarus is always a bit of a challenge, so we'll get back to you by email within 10 days. Thank you for your understanding!",
-                "forwardButton" : "Got it"
+                "content": "Адпраўка працаў з Беларусі заўжды мае пэўныя складанасці, таму мы звяжамся з вамі праз электронную пошту на працягу 10 дзён. Дзякуй за разуменне!",
+                "forwardButton" : "Зразумела!"
             },
             "sectionPrague": {
-                "content": "We will send you our offer for the place and time of the meeting within 10 days. If you have your own offer or your stay in Prague is limited, please let us know.",
+                "content": "Мы дашлем вам нашу прапанову пра месца сустрэчы на працягу 10 дзён. Калі вы маеце сваю прапанову або ваша знаходжанне ў Празе абмежаванае, калі ласка, паведамце нам пра гэта.",
                 "textarea": {
-                    "label": "Comment",
-                    "placeholder": "Type a comment",
+                    "label": "Каментар",
+                    "placeholder": "Напішыце сваю прапанову",
                     "warning": "Please add a comment"
                 },
-                "forwardButton" : "Got it"
+                "forwardButton" : "Зразумела!"
             },
             "sectionSent": {
-                "title": " Thank you! We'll be sure to get back to you as soon as we receive your embroidery",
-                "content1": "In meanwhile you can add or correct information about yourself in your personal profile",
-                "content2": "A short text about your motivation will be published in our gallery with your embroidery. If you want to hide or add something, please do it in advance.",
-                "content3": "You can also take on another embroidery.",
-                "forwardButton" : "Go to my profile"
+                "title": "Дзякуй! Мы абавязкова звяжамся з вамі, як толькі атрымаем вашую вышыўку.",
+                "content1": "Між тым вы можаце скарэктаваць інфармацыю пра сябе ў сваім асабістым профілі.",
+                "content2": "Кароткі тэкст пра вашую матывацыю будзе апублікаваны ў нашай галерэі разам з вашай вышыўкай. Калі вы хочаце нешта схаваць ці дадаць, калі ласка, зрабіце гэта загадзя.",
+                "content3": "Вы таксама можаце ўзяцца за яшчэ адну вышыўку.",
+                "forwardButton" : "Перайсці ў прыватны кабінет"
             }
         },
         "step7Page": {
-            "title": "Publication",
+            "title": "Публікацыя",
             "section1": {
-                "title": "Good news! We received your work",
+                "title": "Добрыя навіны! Мы атрымалі вашую працу.",
                 "paragraph1": {
-                    "content": "Thank you for your understanding!",
-                    "highlight": "The process of verifying and publishing your work in our online gallery can take anywhere from a few days to a few weeks."
+                    "content": "Дзякуй за разуменне! ",
+                    "highlight": "Працэс праверкі і публікацыі вашай працы ў нашай анлайн-галерэі можа заняць ад некалькіх дзён да некалькіх тыдняў."
                 },
                 "paragraph2": {
-                    "content1": "When the publication is ready the icon with the embroidered Hero*ine in your personal profile will get a green mark.",
-                    "content2": "by clicking that icon.",
-                    "highlight": "You will be able to check your Hero*ine's page in the gallery"
+                    "content1": "Калі публікацыя будзе гатовая, іконка з вышытым*ай героем*гераіней у вашым асабістым профілі набудзе зялёны колер.",
+                    "content2": "націснуўшы на гэтую іконку.",
+                    "highlight": "Вы зможаце праверыць старонку свайго*ёй героя*гераіні ў галерэі,"
                 },
-                "paragraph3": "Thank you for your solidarity and participation.",
-                "paragraph4": "If you still have time and energy, you can embroider a new political prisoner."
+                "paragraph3": "Дзякуй за вашую салідарнасць і ўдзел.",
+                "paragraph4": "Калі вы яшчэ маеце час і сілы, то можаце вышыць новага*ую палітычнага*ую зняволенага*ай."
             },
-            "forwardButton" : "Choose a new hero"
+            "forwardButton" : "Выбраць новага*ую героя*гераіню"
         }
     },
     "galleryPage": {
