@@ -74,6 +74,6 @@ definePageMeta({
   </main>
 </template>
 
+<style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step-6-shipping.scss" lang="scss" scoped></style>
-<style src="../../Profile/Settings.scss" lang="scss" scoped></style>

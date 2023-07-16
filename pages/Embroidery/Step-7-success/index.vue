@@ -60,6 +60,6 @@ definePageMeta({
     </main>
 </template>
 
+<style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
 <style src="../Steps.scss" lang="scss" scoped></style>
 <style src="./Step-7-success.scss" lang="scss" scoped></style>
-<style src="../../Profile/Settings.scss" lang="scss" scoped></style>
