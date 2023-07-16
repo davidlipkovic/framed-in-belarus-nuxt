@@ -1,0 +1,68 @@
+@import "./globalPartials/variables.scss";
+
+h1.title {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.button {
+  margin-right: 0;
+  margin-bottom: 0.625rem;
+  width: 100%;
+}
+
+.formWrapper {
+  margin-top: 8px;
+
+  >input {
+    margin-bottom: 1rem;
+  }
+
+  .passwordInput {
+    margin-bottom: 0;
+  }
+
+  .lostPasswordWrapper {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
+
+  .checkBoxWrapper {
+    margin-bottom: 14px;
+    margin-left: 4px;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .warning {
+    margin-top: -11px;
+    margin-bottom: 12px;
+  }
+
+  .googleBtn {
+    border: 2px solid $black;
+    margin-top: 0.5rem;
+  }
+
+  .googleBtn.button_disabled {
+    border-color: $greyDisabledBg !important;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .content {
+    padding-left: 545px;
+  }
+
+  .formWrapper {
+    margin-top: 23px;
+
+    >input {
+      margin-bottom: 24px;
+    }
+  }
+}

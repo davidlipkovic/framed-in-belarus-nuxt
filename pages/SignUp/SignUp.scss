@@ -1,52 +1,10 @@
 @import "../../assets/style/globalPartials/variables.scss";
 
-.b {
-  margin-bottom: 1.5rem;
-  * {
-    margin-bottom: 0;
-  }
-}
-
-.form.end {
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-h1.title {
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
 .signUpDescription {
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.5px;
   margin-left: 1px;
-}
-
-.formWrapper {
-  >input {
-    margin-bottom: 24px;
-  }
-
-  .lostPasswordWrapper {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-top: 0.25rem;
-  }
-
-  .signInGoogleBtn {
-    border: 2px solid $black;
-  }
-}
-
-.button {
-  margin-right: 0;
-  font-size: 1em;
-  width: 100%;
 }
 
 textarea,
@@ -80,45 +38,4 @@ textarea,
 
 .Agree {
   display: block;
-}
-
-@media screen and (min-width: $br-point-tablet) {
-  .group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    input, select {
-      width: 48%;
-    }
-  }
-
-  .formWrapper {
-    margin-top: 23px;
-
-    .passwordInput {
-      margin-bottom: 0;
-    }
-
-    .reasonTextarea {
-      padding: 18px;
-    }
-
-    .lostPasswordWrapper {
-      margin-bottom: 0;
-    }
-
-    .checkBoxWrapper {
-      margin-bottom: 14px;
-    }
-
-    .signInGoogleBtn {
-      margin-top: 0.5rem;
-    }
-  }
-}
-
-@media screen and (min-width: $br-point-desktop) {
-  .content {
-    padding-left: 545px;
-  }
 }

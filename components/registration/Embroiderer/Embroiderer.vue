@@ -1,5 +1,5 @@
 <template>
-  <div class="Embroiderer">
+  <div class="Embroiderer flexColumnCenter">
     <img src="../../../assets/media/img/embroiderer.svg" alt="Embroiderer" class="Img">
   </div>
 </template>

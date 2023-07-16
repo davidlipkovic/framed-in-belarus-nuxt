@@ -1,4 +1,9 @@
 <script setup>
+import { onMounted, ref, watch } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
+import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
+const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
+
 definePageMeta({
   layout: "registration"
 })
@@ -35,13 +40,13 @@ definePageMeta({
       <input
         type="password"
         name="password"
-        id="password"
+        id="passwordAgain"
         :placeholder="$t('placeholders.passwordAgain')" 
       />
       <input
         type="password"
         name="password"
-        id="password"
+        id="language"
         :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
       />
       <textarea 
@@ -118,21 +123,33 @@ definePageMeta({
         class="Agree checkBoxWrapper"
       >
         <input 
+          ref="checkbox"
           type="checkbox" 
           name="agreeTerms" 
           id="agreeTerms"
+          @change="handleWarning()"
         />
         <span>
           {{ $t('signUpPage.consent') }}
         </span>
       </label>
+      <p 
+        v-if="showWarning"
+        class="warning"
+      >
+        {{ $t('signUpPage.warning') }}
+      </p>
       <nuxt-link 
         :to="localePath('/Profile')"
-        class="button bg_black large signInBtn"
+        class="button bg_black signInBtn"
+        :class="{'button_disabled bg_grey': showWarning}"
       >
         {{ $t('signUpPage.createButton') }}
       </nuxt-link>
-      <button class="button large signInGoogleBtn">
+      <button 
+        class="button googleBtn"
+        :class="{'button_disabled': showWarning}"
+      >
         {{ $t('signUpPage.signInGoogleButton') }}
       </button>
     </form>
@@ -140,4 +157,5 @@ definePageMeta({
 </template>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="../../assets/style/registration.scss" lang="scss" scoped></style>
 <style src="./SignUp.scss" lang="scss" scoped></style>

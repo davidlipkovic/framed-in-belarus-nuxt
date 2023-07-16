@@ -55,7 +55,7 @@ definePageMeta({
       >
         {{ $t("signInPage.signInButton") }}
       </nuxt-link>
-      <button class="button large signInGoogleBtn">
+      <button class="button large googleBtn">
         {{ $t("signInPage.signInGoogleButton") }}
       </button>
     </form>
@@ -63,6 +63,5 @@ definePageMeta({
 </template>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
+<style src="../../assets/style/registration.scss" lang="scss" scoped></style>
 <style src="./SignIn.scss" lang="scss" scoped></style>
-<style src="../SignUp/SignUp.scss" lang="scss" scoped></style>
-<style src="../../components/registration/Embroiderer/Embroiderer.scss" lang="scss" scoped></style>
