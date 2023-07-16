@@ -1,7 +1,8 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .embroideryCard {
-  width: 11.688rem;
+  max-width: 11.688rem;
+  width: 100%;
   padding: 24px 24px 20px;
   cursor: pointer;
   box-shadow: $defaultShadow;
@@ -43,7 +44,7 @@
       color: $white !important;
       stroke: $white !important;
 
-      * {
+      path {
         color: $white !important;
         stroke: $white !important;
       }
@@ -62,7 +63,7 @@
       color: $white !important;
       stroke: $white !important;
 
-      * {
+      path {
         color: $white !important;
         stroke: $white !important;
       }
@@ -161,4 +162,10 @@
 
 .embroideryCard-status_requested {
   background-color: $embroideryCardStasusFinish;
+}
+
+@media screen and (min-width: $br-point-md){
+  .embroideryCard {
+    width: 11.688rem;
+  }
 }
