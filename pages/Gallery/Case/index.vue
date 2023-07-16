@@ -207,5 +207,5 @@
   </main>
 </template>
 
-<style src="./Gallery-item.scss" lang="scss" scoped></style>
+<style src="./Case.scss" lang="scss" scoped></style>
 
