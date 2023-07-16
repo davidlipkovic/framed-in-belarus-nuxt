@@ -88,7 +88,7 @@
   margin-left: 1.188rem;
 }
 
-@media screen and (max-width: $br-point-mobile) {
+@media screen and (max-width: $br-point-md) {
   .congratulation,
   .choosePackageFrom,
   .instruction {    
@@ -96,7 +96,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .Shipping {
     display: grid;
     grid-template-areas: "congratulation congratulation"

@@ -4,7 +4,7 @@
   .bg_red {
     display: none !important;
   }
-  @media screen and (min-width: $br-point-tablet) {
+  @media screen and (min-width: $br-point-md) {
     display: grid;
     gap: 1.875rem;
     grid-template-columns: 1fr 1fr;
@@ -18,10 +18,10 @@
   .bg_red {
     display: none !important;
   }
-  @media screen and (min-width: $br-point-tablet) {
+  @media screen and (min-width: $br-point-md) {
     width: 100%;
   }
-  @media screen and (min-width: $br-point-desktop) {
+  @media screen and (min-width: $br-point-lg) {
     .bg_red {
       display: none;
       height: 0;
@@ -48,7 +48,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   font-weight: 600;
-  @media screen and (max-width: $br-point-mobile) {
+  @media screen and (max-width: $br-point-md) {
     &:last-child {
       margin-bottom: 1.875rem;
     }
@@ -67,7 +67,7 @@
   &:last-child {
     margin-right: 0;
   }
-  @media screen and (max-width: $br-point-tabletUpper) {
+  @media screen and (max-width: $br-point-lg) {
     margin-bottom: 1.875rem;
     &:last-child {
       margin-bottom: 0;

@@ -99,7 +99,7 @@
 }
 
 /* Tablet */
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .FirstPage {
     > .content {
       display: flex;
@@ -135,7 +135,7 @@
   }
 }
 
-@media screen and (max-width: $br-point-tabletUpper) {
+@media screen and (max-width: $br-point-lg) {
   .FirstPage .bg_grey2 .content {
     .section {
       margin-bottom: 1rem;
@@ -148,7 +148,7 @@
 }
 
 /* Desktop */
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .ProjectDescr {
     .logo-project {
       margin-top: 10px;

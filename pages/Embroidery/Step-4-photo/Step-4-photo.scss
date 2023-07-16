@@ -79,7 +79,7 @@
   height: 100%;
 }
 
-@media screen and (min-width: $br-point-tablet) {    
+@media screen and (min-width: $br-point-md) {    
   .photos {
     grid-template-columns: repeat(2, 1fr);
   }

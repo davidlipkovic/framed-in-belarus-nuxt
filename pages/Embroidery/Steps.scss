@@ -45,7 +45,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .buttons {
     flex-direction: row;
     align-items: flex-start;
@@ -62,7 +62,7 @@
   }
 }
 
-// @media screen and (max-width: $br-point-mobile) {
+// @media screen and (max-width: $br-point-md) {
 //   .buttons {
 //     flex-direction: column;
 
@@ -72,7 +72,7 @@
 //   }
 // }
 
-// @media screen and (min-width: $br-point-tablet) {
+// @media screen and (min-width: $br-point-md) {
 //   .textWidth {
 //     margin-left: auto;
 //     margin-right: auto;

@@ -15,7 +15,7 @@
     }
   }
 }
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .aboutUs {
     flex-direction: row;
     .logo {
@@ -27,7 +27,7 @@
     }
   }
 }
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .News.content {
     width: 57.063rem;
   }

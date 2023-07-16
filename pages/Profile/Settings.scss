@@ -85,7 +85,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .Settings-body {
     display: grid;
     grid-template-columns: repeat(2, 50%);

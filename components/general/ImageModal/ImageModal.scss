@@ -97,7 +97,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .pattern {
     margin-left: 2.125rem;
     margin-right: 0;
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .subscription-pattern {
     width: 21.75rem;
   }

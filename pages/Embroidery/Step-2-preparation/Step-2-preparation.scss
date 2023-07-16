@@ -63,7 +63,7 @@ iframe {
   }
 }
 
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .manual-part {
     width: 45.375rem;
   }
@@ -75,7 +75,7 @@ iframe {
   }
 }
 
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .subscription {
     justify-content: space-between;
     flex-direction: row;

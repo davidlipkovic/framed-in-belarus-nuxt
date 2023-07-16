@@ -78,26 +78,31 @@
   background-color: $black;
   border-color: $black;
 }
+
 .bg_red {
   background-color: $red;
   border-color: $red !important;
 }
+
 .button.bg_red:hover {
   background-color: $redHover;
   border-color: $redHover !important;
 }
+
 .bg_grey {
   background-color: $greyDisabledBg;
   border-color: $greyDisabledBg !important;
 }
+
 .bg_grey2 {
   background-color: $greyBg;
   border-color: $greyBg !important;
 }
-.bg_black,
+
 .bg_red {
   color: $white !important;
 }
+
 .red {
   color: $red;
 }

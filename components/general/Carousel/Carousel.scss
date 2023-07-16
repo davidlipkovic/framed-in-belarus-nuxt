@@ -113,7 +113,7 @@
 }
 
 /* Tablet */
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .Slider {
     margin: 2rem auto;
     height: 620px;
@@ -125,7 +125,7 @@
 }
 
 /* Desktop */
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .Slider {
   }
 }

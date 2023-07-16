@@ -45,7 +45,7 @@
   }
 }
 
-@media screen and (min-width: 540px) and (max-width: $br-point-tabletUpper) {
+@media screen and (min-width: 540px) and (max-width: $br-point-lg) {
   .Article {
     > * {
       max-width: 539px;
@@ -59,7 +59,7 @@
     }
   }
 }
-@media screen and (min-width: $br-point-tablet) {
+@media screen and (min-width: $br-point-md) {
   .News.content {
     margin-left: auto;
     margin-right: auto;
@@ -74,7 +74,7 @@
     }
   }
 }
-@media screen and (min-width: $br-point-desktop) {
+@media screen and (min-width: $br-point-lg) {
   .Article {
     grid-template-columns: repeat(2, 539px);
     column-gap: 1.875rem;
