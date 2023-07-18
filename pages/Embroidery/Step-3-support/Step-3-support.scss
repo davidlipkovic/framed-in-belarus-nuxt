@@ -12,28 +12,37 @@
   text-align: center;
   font-style: italic;
 }
+
 .blockquote-content {
   margin-bottom: 0;
   font-size: 1.5rem;
+  line-height: 2rem;
 }
+
 .blockquote-author {
   color: $greyDisabledColor;
+  margin: 0.5rem 0 2rem;
 }
+
 .blockquote-quote_opened,
 .blockquote-quote_closed {
   font-family: 'Oranienbaum';
   font-size: 2.25rem;
   font-style: normal;
 }
+
 .blockquote-quote_opened {
   margin-right: 1rem;
 }
+
 .blockquote-quote_closed {
   margin-left: 1rem;
 }
+
 .SupportMethods {
   margin-top: 1.875rem;
 }
+
 .SupportMethod-title {
   margin-left: 1.15rem;
   margin-bottom: 1rem;
@@ -42,6 +51,7 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
+
 .SupportMethod-title::marker {
   font-size: 1rem;
 }

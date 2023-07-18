@@ -30,6 +30,10 @@ line-height: 33px;
   max-width: 725px;
   border: 1px solid $greyBg;
 
+  * {
+    font-size: 12px;
+  }
+
   thead {
     background-color: $greyBg;
   }
@@ -69,6 +73,10 @@ iframe {
   }
 
   .sizeChart {
+    * {
+      font-size: 1rem;
+    }
+
     td {
       padding: 0.75rem 0.875rem;
     }
