@@ -217,5 +217,5 @@ const AlphabetPattern3 = ref({ show: false })
   </div>
 </template>
 
-<style src="../Steps.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-2-preparation.scss" lang="scss" scoped></style>
