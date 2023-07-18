@@ -85,9 +85,9 @@
         "textarea": "Why did you decide to join the project?",
         "terms": {
             "section1": {
-                "title": "How to participate",
+                "title": "Terms of participation in the project",
                 "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
-                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All fates are equally important in this project, and we would like to immortalise all stories, so each political prisoner is embroidered only once."
+                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All stories are equally important in this project, and we would like to immortalize all of them, so each political prisoner is embroidered only once."
             },
             "section2": {
                 "title": "Timeline",
@@ -95,7 +95,7 @@
                     "content": "The work process is divided into several steps that you can go through at your own pace. However, {0}. This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
                     "highlight": "we have set a time limit of 2 months"
                 },
-                "paragraph2": "If you do not finish your work in 2 months and tell us you need more time, we may drop you from the project and pass your hero to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
+                "paragraph2": "If you do not finish your work in 2 months and do not tell us you need more time, we may drop you from the project and pass your Hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
                 "paragraph3": {
                     "content": "If you decide to withdraw from the project for any reason, or {0} your embroidery work {1}, please {2} as soon as possible.",
                     "highlight1": "if you will not be able to finish",
@@ -104,33 +104,29 @@
                 }
             },
             "section3": {
-                "title": "Publicity",
-                "paragraph1": {
-                    "content": "After your registration, {0}. You can also choose whether to use your real name or pseudonym and administer your own profile.",
-                    "highlight": "your data will not be available to other users on the website"
-                },
-                "paragraph2": {
-                    "content": "An important element of the project is photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
-                    "highlight": "photos will be later used on the site and in other publications on the project"
-                }
+                "title": "Security",
+                "paragraph1": "We don't collect your personal data. You may choose to use a pseudonym and administer your profile before publication."
             },
             "section4": {
                 "title": "Price",
-                "paragraph1": {
-                    "content": "{0} and open to all those who are willing to give their time and effort to create an embroidery. The cost of creating the work is at your own expense and will cost you the equivalent of two cups of coffee. The final idea of the project is to create a large-scale canvas with embroideries of all political prisoners, therefore, by participating in the project you are committing to send us your embroidery and become part of a large mosaic of portraits, which will later be publicly exhibited in galleries and cultural institutions.",
-                    "highlight": "Participation in the project is free"
-                }
+                "paragraph1": "Your work becomes a donation to the “Stitchit” association that is running this project and it becomes its property. The association can exhibit it, use it publicly or otherwise as it sees fit for the purpose of this project."
             },
             "section5": {
+                "title": "Photo",
+                "paragraph1": {
+                    "content": "An important element of the project is the photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
+                    "highlight": "photos will be later used on the site and in other publications on the project"
+                }
+            },
+            "section6": {
                 "title": "Personal Comment",
                 "paragraph1": {
-                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understand the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
+                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understandingn understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
                     "highlight": "ask you to write a short comment about your experience"
                 }
             }
         },
         "consent" : "I agree with the project’s terms of participation",
-        "warning": "You must agree to the Terms of participation",
         "createButton" : "Create profile and start work",
         "signInGoogleButton" : "Sign up with Google"
     },
