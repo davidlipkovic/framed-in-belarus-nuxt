@@ -66,9 +66,9 @@ definePageMeta({
                   href="https://docs.google.com/forms/d/e/1FAIpQLSfhsgpGwDc9sskZ82LN_eKwwZBAX9U5kLARAFo2eR1UGw8Usg/viewform?usp=send_form" 
                   target="_blank"
                 >
-                  {{ $t('embroidery.step3Page.section3.paragraph2.content') }}
-                </a>
                   {{ $t('embroidery.step3Page.section3.paragraph2.highlight') }}
+                </a>
+                  {{ $t('embroidery.step3Page.section3.paragraph2.content') }}
                 </p>
               <br>
               <h2 class="title">
@@ -84,7 +84,7 @@ definePageMeta({
               </dl>
             </dd>
             <dt class="SupportMethod-title">
-              {{ $t('embroidery.step3Page.section4.title.content') }}<a href="https://politzek.me/" target="_blank">{{ $t('embroidery.step3Page.section4.title.highlight') }}</a>
+              {{ $t('embroidery.step3Page.section4.title.content') }} <a href="https://politzek.me/" target="_blank">{{ $t('embroidery.step3Page.section4.title.highlight') }}</a>
             </dt>
             <dd class="SupportMethod-content">
               {{ $t('embroidery.step3Page.section4.paragraph1') }}

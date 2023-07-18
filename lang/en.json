@@ -49,20 +49,24 @@
     },
     "cookies": "For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.",
     "homePage": {
-        "paragraph1": "The number of officially recognized political prisoners in Belarus currently reaches more than {0} people.",
+        "paragraph1": {
+            "content1": "The number of officially recognized political prisoners in Belarus currently reaches more than",
+            "content2": "people."
+        },
         "paragraph2": {
-            "content": "{0} to create portraits of each illegally convicted citizen using the traditional Belarusian embroidery technique of red thread on a white background, thereby recording an important era of Belarusian history with a folk code - ornament.",
-            "highlight": "The project aims"
+            "highlight": "The project aims",
+            "content": "to create portraits of each illegally convicted citizen using the traditional Belarusian embroidery technique of red thread on a white background, thereby recording an important era of Belarusian history with a folk code - ornament."
         },
         "paragraph3": {
-            "content": "{0} is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the dictatorship and share their stories through the non-traditional tool of political protest - cross-stitching.",
-            "highlight": "Participation in the project"
+            "highlight": "Participation in the project",
+            "content": "is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the dictatorship and share their stories through the non-traditional tool of political protest - cross-stitching."
         },
         "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular prisoner. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
         "paragraph5": "Already, more than 400 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups. The final form of the project will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies.",
         "paragraph6": {
-            "content": "The project is a continuation of the series {0}, created by Rufina Bazlova in 2020-2021, and is run by the Stitchit Collective. Through the #FramedinBelarus project, the collective creative process allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus.",
-            "highlight": "\"History of Belarusian Vyzhivanka\""
+            "content1": "The project is a continuation of the series",
+            "highlight": "\"History of Belarusian Vyzhivanka\"",
+            "content2": ", created by Rufina Bazlova in 2020-2021, and is run by the Stitchit Collective. Through the #FramedinBelarus project, the collective creative process allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus."
         }
     },
     "aboutUsPage": {
@@ -72,7 +76,7 @@
             "paragraph1": "Stitchit is an art group created in 2021 by visual artist Rufina Bazlova (Belarus) and curator Sofia Tocar (Moldova). The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship.",
             "paragraph2": "Collective means all people, who take part in a project and activities organized by Stitchit.",
             "paragraph3": {
-                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: {0}.",
+                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: ",
                 "highlight": "framedinbelarus{'@'}gmail.com"
             }
         },
@@ -92,15 +96,19 @@
             "section2": {
                 "title": "Timeline",
                 "paragraph1": {
-                    "content": "The work process is divided into several steps that you can go through at your own pace. However, {0}. This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
-                    "highlight": "we have set a time limit of 2 months"
+                    "content1": "The work process is divided into several steps that you can go through at your own pace. However, ",
+                    "highlight": "we have set a time limit of 2 months",
+                    "content2": ". This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner)."
                 },
                 "paragraph2": "If you do not finish your work in 2 months and do not tell us you need more time, we may drop you from the project and pass your Hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
                 "paragraph3": {
-                    "content": "If you decide to withdraw from the project for any reason, or {0} your embroidery work {1}, please {2} as soon as possible.",
+                    "content1": "If you decide to withdraw from the project for any reason, or ",
                     "highlight1": "if you will not be able to finish",
+                    "content2": " your embroidery work ",
                     "highlight2": "on time",
-                    "highlight3": "let us know"
+                    "content3": ", please ",
+                    "highlight3": "let us know",
+                    "content4": " as soon as possible."
                 }
             },
             "section3": {
@@ -114,18 +122,21 @@
             "section5": {
                 "title": "Photo",
                 "paragraph1": {
-                    "content": "An important element of the project is the photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
-                    "highlight": "photos will be later used on the site and in other publications on the project"
+                    "content1": "An important element of the project is the photo documentation of your embroidery process and final work. These ",
+                    "highlight": "photos will be later used on the site and in other publications on the project",
+                    "content2": ". Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously."
                 }
             },
             "section6": {
                 "title": "Personal Comment",
                 "paragraph1": {
-                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understandingn understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
-                    "highlight": "ask you to write a short comment about your experience"
+                    "content1": "At the end, we will also ",
+                    "highlight": "ask you to write a short comment about your experience",
+                    "content2": "embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work."
                 }
             }
         },
+        "warning" : "You must agree to the Terms of participation",
         "consent" : "I agree with the project’s terms of participation",
         "createButton" : "Create profile and start work",
         "signInGoogleButton" : "Sign up with Google"
@@ -133,7 +144,7 @@
     "signInPage": {
         "title": "Sign in",
         "signUpQuestion": {
-            "content": "Not a member? {0}",
+            "content": "Not a member?",
             "highlight": "Sign up"
         },
         "forgot": "Forgot the password?",
@@ -258,8 +269,8 @@
                 "title": "Make posts and stories on social media",
                 "paragraph1": {
                     "content1": "Talk about your hero and about the project and put",
-                    "content2": "and mark the account",
                     "highlight1": "#framedinbelarus",
+                    "content2": "and mark the account",
                     "highlight2": "{'@'}rufinabazlova"
                 }
             },
@@ -270,8 +281,8 @@
                     "highlight": "https://prisoners.spring96.org/en"
                 },
                 "paragraph2": {
-                    "content": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.",
-                    "highlight": "The Solidarity Postcards Atelier"
+                    "highlight": "The Solidarity Postcards Atelier",
+                    "content": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page."
                 },
                 "paragraph3": "What do you need to know about writing letters to prisoners?",
                 "paragraph4": {
@@ -289,7 +300,7 @@
             },
             "section4": {
                 "title": {
-                    "content": "Get involved in the initiative",
+                    "content": "Get involved in the initiative ",
                     "highlight": "politzek.me"
                 },
                 "paragraph1": "The platform allows you to befriend a political prisoner and complete different tasks."

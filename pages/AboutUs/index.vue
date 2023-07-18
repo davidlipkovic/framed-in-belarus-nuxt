@@ -46,11 +46,12 @@ export default {
             {{ $t("aboutUsPage.section.paragraph2") }}
           </p>
           <br>
-          <i18n-t keypath="aboutUsPage.section.paragraph3.content" tag="p">
+          <p>
+            {{ $t("aboutUsPage.section.paragraph3.content") }}
             <a href="mailto:framedinbelarus@gmail.com">
               {{ $t("aboutUsPage.section.paragraph3.highlight") }}
             </a>
-          </i18n-t>
+          </p>
           <br>
           <a 
             href="https://www.instagram.com/rufinabazlova/" 

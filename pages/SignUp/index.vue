@@ -70,52 +70,63 @@ definePageMeta({
         <h2 class="title">
           {{ $t('signUpPage.terms.section2.title') }}
         </h2>
-        <i18n-t keypath="signUpPage.terms.section2.paragraph1.content" tag="p">
+        <p>
+          {{ $t('signUpPage.terms.section2.paragraph1.content1') }}
           <span class='b2'>
             {{ $t('signUpPage.terms.section2.paragraph1.highlight') }}
           </span>
-        </i18n-t>
-        <i18n-t keypath="signUpPage.terms.section2.paragraph2" tag="p" />
-        <i18n-t keypath="signUpPage.terms.section2.paragraph3.content" tag="p">
+          {{ $t('signUpPage.terms.section2.paragraph1.content2') }}
+        </p>
+        <p>
+          {{ $t('signUpPage.terms.section2.paragraph2') }}
+        </p>
+        <p>
+          {{ $t('signUpPage.terms.section2.paragraph3.content1') }}
           <span class='b2'>
             {{ $t('signUpPage.terms.section2.paragraph3.highlight1') }}
           </span>
+          {{ $t('signUpPage.terms.section2.paragraph3.content2') }}
           <span class='b2'>
             {{ $t('signUpPage.terms.section2.paragraph3.highlight2') }}
           </span>
+          {{ $t('signUpPage.terms.section2.paragraph3.content3') }}
           <span class='b2'>
             {{ $t('signUpPage.terms.section2.paragraph3.highlight3') }}
           </span>
-        </i18n-t>
+          {{ $t('signUpPage.terms.section2.paragraph3.content4') }}
+        </p>
         <h2 class="title">
           {{ $t('signUpPage.terms.section3.title') }}
         </h2>
-        <i18n-t keypath="signUpPage.terms.section3.paragraph1.content" tag="p">
-          <span class='b2'>
-            {{ $t('signUpPage.terms.section3.paragraph1.highlight') }}
-          </span>
-        </i18n-t>
-        <i18n-t keypath="signUpPage.terms.section3.paragraph2.content" tag="p">
-          <span class='b2'>
-            {{ $t('signUpPage.terms.section3.paragraph2.highlight') }}
-          </span>
-        </i18n-t>
+        <p>
+          {{ $t('signUpPage.terms.section3.paragraph1') }}
+        </p>
         <h2 class="title">
           {{ $t('signUpPage.terms.section4.title') }}
         </h2>
-        <i18n-t keypath="signUpPage.terms.section4.paragraph1.content" tag="p">
-          <span class='b2'>
-            {{ $t('signUpPage.terms.section4.paragraph1.highlight') }}
-          </span>
-        </i18n-t>
+        <p>
+          {{ $t('signUpPage.terms.section4.paragraph1') }}
+        </p>
         <h2 class="title">
           {{ $t('signUpPage.terms.section5.title') }}
         </h2>
-        <i18n-t keypath="signUpPage.terms.section5.paragraph1.content" tag="p">
+        <p>
+          {{ $t('signUpPage.terms.section5.paragraph1.content1') }}
           <span class='b2'>
             {{ $t('signUpPage.terms.section5.paragraph1.highlight') }}
           </span>
-        </i18n-t>
+          {{ $t('signUpPage.terms.section5.paragraph1.content2') }}
+        </p>
+        <h2 class="title">
+          {{ $t('signUpPage.terms.section6.title') }}
+        </h2>
+        <p>
+          {{ $t('signUpPage.terms.section6.paragraph1.content1') }}
+          <span class='b2'>
+            {{ $t('signUpPage.terms.section6.paragraph1.highlight') }}
+          </span>
+          {{ $t('signUpPage.terms.section6.paragraph1.content2') }}
+        </p>
         <br><br><br>
       </div>
       <label 

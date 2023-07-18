@@ -40,26 +40,35 @@ const numberOfPrisoners = 1432
     <section class="bg_grey2">
       <article class="content">
         <div class="section">
-          <i18n-t keypath="homePage.paragraph1" tag="p">
+          <p class="">
+            {{ $t('homePage.paragraph1.content1') }}
             <span class='bigger1'>
               {{ numberOfPrisoners }}
             </span>
-          </i18n-t>
-          <i18n-t keypath="homePage.paragraph2.content" tag="p">
+            {{ $t('homePage.paragraph1.content2') }}
+          </p>
+          <p class="">
             <strong class="b2">
               {{ $t("homePage.paragraph2.highlight") }}
             </strong>
-          </i18n-t>
-          <i18n-t keypath="homePage.paragraph3.content" tag="p">
+            {{ $t('homePage.paragraph2.content') }}
+          </p>
+          <p class="">
             <strong class="b2">
               {{ $t("homePage.paragraph3.highlight") }}
             </strong>
-          </i18n-t>
-          <i18n-t keypath="homePage.paragraph4" tag="p"/>
+            {{ $t('homePage.paragraph3.content') }}
+          </p>
         </div>
         <div class="section">
-          <i18n-t keypath="homePage.paragraph5" tag="p"/>
-          <i18n-t keypath="homePage.paragraph6.content" tag="p">
+          <p class="">
+            {{ $t('homePage.paragraph4') }}
+          </p>
+          <p class="">
+            {{ $t('homePage.paragraph5') }}
+          </p>
+          <p class="">
+            {{ $t('homePage.paragraph6.content1') }}
             <a 
               href="https://www.vyzyvanka.com/" 
               target="_blank"
@@ -68,7 +77,8 @@ const numberOfPrisoners = 1432
                 {{ $t("homePage.paragraph6.highlight") }}
               </strong>
             </a>
-          </i18n-t>
+            {{ $t('homePage.paragraph6.content2') }}
+          </p>
         </div>
       </article>
     </section>

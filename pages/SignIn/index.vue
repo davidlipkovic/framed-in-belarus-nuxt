@@ -9,14 +9,15 @@ definePageMeta({
     <h1 class="title">
       {{ $t("signInPage.title") }}
     </h1>
-    <i18n-t keypath="signInPage.signUpQuestion.content" tag="p">
+    <p>
+      {{ $t("signInPage.signUpQuestion.content") }}
       <nuxt-link 
         :to="localePath('/SignUp')"
         class="redLighter"
       >
         {{ $t("signInPage.signUpQuestion.highlight") }}
       </nuxt-link>
-    </i18n-t>
+    </p>
     <form class="formWrapper">
       <input 
         type="email" 
