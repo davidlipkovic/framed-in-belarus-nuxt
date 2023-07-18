@@ -87,7 +87,7 @@
         Embroidery Step5
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step6"
+        to="/Embroidery/Step-6"
       >
         Embroidery Step6
       </nuxt-link>

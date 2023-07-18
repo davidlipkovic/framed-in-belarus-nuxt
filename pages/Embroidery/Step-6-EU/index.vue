@@ -28,38 +28,36 @@ definePageMeta({
       />
 
       <section class="Shipping">
-        <div class="instruction" id="instructionBelarus">
+        <div class="instruction" id="instructionEU">
           <p class="title important">Please read this section carefully!</p>
-          <p>Sending work from Belarus is always a bit of a challenge.</p>
           <p>
-            For safety reasons,
-            <strong class="b2"
-            >we don't recommend sending embroidery through the post
-              office</strong
-            >. Especially now, because of the war, the Czech Republic does not
-            work with BelPochta.
+            Send your work only by <strong class="b2">CUSTOMER POSTAGE</strong>!
+            <br>
+            This way we will be able to track it and if it is lost, we will be
+            able to look for it by its tracking number.
           </p>
+          <h2 class="title address">Address:</h2>
           <p>
-            <strong class="b2"
-            >We'll try to find out if anyone we know is going from Belarus to
-              Europe</strong
-            >
-            in the near future. If you also know someone who will go and can
-            take the embroidery, please let us know.
+            Amnesty International <br />
+            Kodaňská 1441/46<br />
+            101 00 Prague<br />
+            Czech Republic
           </p>
+          <p><strong class="b2">Marked</strong> ART PROJECT</p>
           <p>
-            Please write what city you are in and leave us your Telegram or
-            Signal.
+            When filling in the postal declaration, mark the package as
+            <strong class="b2">GIFT</strong>, worth
+            <strong class="b2">€20 or less</strong>. On the contents of the
+            package, please write
+            <strong class="b2">Embroidery or Tissue</strong>
           </p>
-          <p>Thank you!</p>
-          <label for="usernameBelarus" class="title instruction-label"
-          >Username</label
+          <label for="trackingEU" class="instruction-label"
+          >Please write the tracking number of your parcel here:</label
           >
           <input
             type="text"
-            id="usernameBelarus"
-            placeholder="Username"
-            name="usernameBelarus"
+            id="trackingEU"
+            placeholder="Tracking number"
             class="instruction-input"
           />
         </div>
@@ -82,6 +80,5 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../Steps.scss" lang="scss" scoped></style>
-<style src="../Step6/Step6.scss" lang="scss" scoped></style>
-
+<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
+<style src="../Step-6/Step-6.scss" lang="scss" scoped></style>

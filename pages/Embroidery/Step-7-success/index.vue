@@ -37,7 +37,7 @@ definePageMeta({
               <strong class="b2">{{ $t('embroidery.step7Page.section1.paragraph1.highlight') }}</strong> {{ $t('embroidery.step7Page.section1.paragraph1.content') }}
             </p>
             <p>
-              {{ $t('embroidery.step7Page.section1.paragraph1.content1') }} <strong class="b2">{{ $t('embroidery.step7Page.section1.paragraph1.highlight') }}</strong> {{ $t('embroidery.step7Page.section1.paragraph1.content2') }}
+              {{ $t('embroidery.step7Page.section1.paragraph2.content1') }} <strong class="b2">{{ $t('embroidery.step7Page.section1.paragraph2.highlight') }}</strong> {{ $t('embroidery.step7Page.section1.paragraph2.content2') }}
             </p>
             <br>
             <p>
@@ -61,5 +61,5 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
-<style src="../Steps.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-7-success.scss" lang="scss" scoped></style>

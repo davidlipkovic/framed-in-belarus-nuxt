@@ -55,6 +55,6 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../Steps.scss" lang="scss" scoped></style>
-<style src="../Step6/Step6.scss" lang="scss" scoped></style>
+<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
+<style src="../Step-6/Step-6.scss" lang="scss" scoped></style>
 
