@@ -26,7 +26,7 @@ export default {
       <h2 class="title alignCenter">
         {{ $t("aboutUsPage.section.title") }}
       </h2>
-      <div class="aboutUs">
+      <div class="aboutUs flexRowCenter">
         <picture class="logo">
           <source 
             srcset="../../assets/media/img/logo_stitchit.png, ../../assets/media/img/logo_stitchit@2x.png 2x, ../../assets/media/img/logo_stitchit@3x.png 3x" 
