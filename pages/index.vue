@@ -1,5 +1,19 @@
-<script setup>
-const numberOfPrisoners = 1432
+<script>
+import Slider from '@/components/general/Slider'
+
+export default {
+  components: {
+    Slider
+  },
+  data() {
+    return {
+      numberOfPrisoners: 1432
+    }
+  },
+  mounted() {
+    // console.log(this.i18n)
+  }
+}
 </script>
 
 <template>
@@ -25,16 +39,16 @@ const numberOfPrisoners = 1432
         <p class="subtitle">
           {{ $t('description') }}
         </p>
-        <nuxt-link
-          :to="localePath('/SignUp')"
+        <a
+          href="https://forms.gle/SKCcvWGzRkQxx2fH9"
           class="button bg_red"
         >
           {{ $t('links.participate') }}
-        </nuxt-link>
+        </a>
       </div>
       <div class="sliderWrapper">
         <div class="bg_red"></div>
-        <GeneralSlider />
+        <slider />
       </div>
     </section>
     <section class="bg_grey2">

@@ -1,10 +1,11 @@
-<script setup>
-const props = defineProps({
-  showUser: {
-    type: Boolean,
-    default: false
-  }
-})
+<script>
+import MainLogo from '@/components/general/MainLogo'
+
+export default {
+  components: {
+    MainLogo
+  },
+}
 </script>
 
 <template>
@@ -12,7 +13,7 @@ const props = defineProps({
     <div class="bg_black">
       <div class="content Info">
         <div class="Info-project">
-          <GeneralMainLogo/>
+          <main-logo/>
           <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
           <div class="Info-Project-social">
             <a href="https://www.facebook.com/hashtag/framedinbelarus" target="_blank" class="Facebook"><img src="@/assets/media/img/facebook.svg" alt="Facebook"></a>
@@ -28,7 +29,7 @@ const props = defineProps({
               >
                 {{ $t('links.home') }}
               </nuxt-link>
-              <nuxt-link
+              <!-- <nuxt-link
                 :to="localePath('/Gallery')"
                 class="Info-menu-item"
               >
@@ -39,7 +40,7 @@ const props = defineProps({
                 class="Info-menu-item"
               >
                 {{ $t('links.news') }}
-              </nuxt-link>
+              </nuxt-link> -->
               <nuxt-link
                 :to="localePath('/AboutUs')"
                 class="Info-menu-item"
@@ -61,29 +62,6 @@ const props = defineProps({
 <!--                {{ $t('links.signIn') }} -->
 <!--              </nuxt-link>-->
             </div>
-          </div>
-          <div class="Info-menu-group flexRowCenter">
-            <nuxt-link
-              v-if="!showUser"
-              :to="localePath('/SignUp')"
-              class="Info-menu-item button bg_red"
-            >
-              {{ $t('links.participate') }}
-            </nuxt-link>
-            <img
-              v-if="showUser"
-              src="../../../assets/media/img/help-circle.svg"
-              class="Info-menu-item"
-            >
-            <nuxt-link
-              v-if="showUser"
-              :to="localePath('/Profile')"
-              class="Info-menu-item profileLink flexRowCenter"
-            >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
-            </nuxt-link>
           </div>
         </nav>
       </div>

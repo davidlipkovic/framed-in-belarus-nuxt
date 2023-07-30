@@ -1,27 +1,25 @@
 {
-  "name": "framed-in-belarus",
+  "name": "nuxt2",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev --port=3000",
-    "dev_server": "nuxt dev --port=8080",
-    "build_for_local": "nuxt build --port=3000",
-    "build_for_server": "nuxt build --port=8080",
-    "start_local": "nuxt start --port=3000",
-    "start": "nuxt start --port=8080",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-28008586.381b906",
-    "@nuxtjs/i18n": "^8.0.0-beta.10",
-    "@pinia/nuxt": "^0.4.8",
-    "nuxt": "^3.3.2",
-    "pinia": "^2.0.34",
-    "sass": "^1.54.9",
-    "sass-loader": "^13.0.2"
+    "dev": "export NODE_ENV=development && export NUXT_ENV_PORT=3000 && nuxt",
+    "dev_server": "export NODE_ENV=development && export NUXT_ENV_PORT=8080 && nuxt",
+    "build_for_local": "export NODE_ENV=production && export NUXT_ENV_PORT=3000 && nuxt build",
+    "build_for_server": "export NODE_ENV=production && export NUXT_ENV_PORT=8080 && nuxt build",
+    "start_local": "export NODE_ENV=production && export NUXT_ENV_PORT=3000 && nuxt start",
+    "start": "export NODE_ENV=production && export NUXT_ENV_PORT=8080 && nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@vueuse/nuxt": "^10.2.1"
+    "@nuxtjs/i18n": "^7.3.0",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
+    "vue-final-modal": "^2.4.3"
+  },
+  "devDependencies": {
+    "@nuxt/image": "^0.7.1",
+    "sass": "^1.38.0",
+    "sass-loader": "^10.2.0"
   }
 }
