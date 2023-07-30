@@ -1,22 +1,12 @@
-<script>
-export default {
-  head() {
-    return {
-      title: `#Framed in Belarus - Holiday's wish`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Holiday\'s wish'
-        }
-      ]
-    }
-  },
-}
+<script setup>
 </script>
 
 <template>
   <main class="Content">
+    <Head>
+      <Title>#Framed in Belarus - Holiday's wish</Title>
+      <Meta name="description" content="Holiday\'s wish"/>
+    </Head>
     <article>
       <div class="Title">
         <div class="content">
@@ -36,4 +26,4 @@ export default {
   </main>
 </template>
 
-<style src="../News.scss" lang="scss" scoped></style>
+<style src="../newsDetail.scss" lang="scss"></style>
