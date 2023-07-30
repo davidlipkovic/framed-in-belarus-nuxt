@@ -1,10 +1,10 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue"
 
-import { usePrisonersStore } from "@/stores/prisoners"
+import { useHeroesStore } from "@/stores/heroes"
 import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
 
-const prisonersStore = usePrisonersStore();
+const heroesStore = useHeroesStore();
 const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
 
 useHead({
@@ -16,7 +16,7 @@ useHead({
 
 const rangeIndex = ref(0)
 const rangePerPage = ref(15)
-const localTags = computed(() => prisonersStore.tags.value)
+const localTags = computed(() => heroesStore.tags.value)
 
 const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
 const numberOfPages = ref(50)
@@ -29,7 +29,7 @@ const changePageIndex = (index) => {
   } else if (index === 1) { 
     rangeIndex.value = rangeIndex.value + rangePerPage.value
   } else if (index === 'last') { 
-    rangeIndex.value = prisonersStore.originalPrisoners.value.length - rangePerPage.value
+    rangeIndex.value = heroesStore.originalHeroes.value.length - rangePerPage.value
   }
 }
 </script>

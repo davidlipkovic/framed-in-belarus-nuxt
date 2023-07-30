@@ -1,10 +1,10 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue"
 
-import { usePrisonersStore } from "@/stores/prisoners"
+import { useHeroesStore } from "@/stores/heroes"
 import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
 
-const prisonersStore = usePrisonersStore();
+const heroesStore = useHeroesStore();
 const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
 
 definePageMeta({
@@ -13,16 +13,16 @@ definePageMeta({
 
 const rangeIndex = ref(0)
 const rangePerPage = ref(16)
-const localPrisoners = computed(() => prisonersStore.originalPrisoners.value.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value))
-const localTags = computed(() => prisonersStore.tags.value)
+const localHeroes = computed(() => heroesStore.originalHeroes.value.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value))
+const localTags = computed(() => heroesStore.tags.value)
 
-const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
-const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
-// const heroesAlphabetically = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
-// const heroesAlphabeticallyReversed = computed(() => localPrisoners.value.sort((a, b) => a.name - b.name))
+const heroesAlphabetically = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
+const heroesAlphabeticallyReversed = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
+// const heroesAlphabetically = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
+// const heroesAlphabeticallyReversed = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
 
 const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
-const numberOfPages = computed(() => Number((prisonersStore.originalPrisoners.value.length / rangePerPage.value + 0.5).toFixed()))
+const numberOfPages = computed(() => Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed()))
 
 const changePageIndex = (index) => {
    if (index === 'first') { 
@@ -32,7 +32,7 @@ const changePageIndex = (index) => {
   } else if (index === 1) { 
     rangeIndex.value = rangeIndex.value + rangePerPage.value
   } else if (index === 'last') { 
-    rangeIndex.value = prisonersStore.originalPrisoners.value.length - rangePerPage.value
+    rangeIndex.value = heroesStore.originalHeroes.value.length - rangePerPage.value
   }
 }
 </script>
@@ -97,7 +97,7 @@ const changePageIndex = (index) => {
         </div>
         <div class="searchResultsWrapper">
           <RegistrationHeroBox
-            v-for="hero in localPrisoners" 
+            v-for="hero in localHeroes" 
             :key="hero.id"
             :hero="hero"
           />

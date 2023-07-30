@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 
-import { usePrisonersStore } from "@/stores/prisoners"
+import { useHeroesStore } from "@/stores/heroes"
 
-const prisonersStore = usePrisonersStore();
+const heroesStore = useHeroesStore();
 
 // const hero = {
 //   case: "Seizure of power",
@@ -14,7 +14,7 @@ const prisonersStore = usePrisonersStore();
 //   prisonAddress: "Penal colony No. 4. 246035, Homieĺ, vulica Antoshkina 3"
 // }
 
-const hero = prisonersStore.chosenHero()
+const hero = heroesStore.chosenHero()
 </script>
 
 <template>

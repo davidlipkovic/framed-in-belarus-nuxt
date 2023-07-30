@@ -3,7 +3,7 @@ definePageMeta({
   layout: "home"
 })
 
-const numberOfPrisoners = 1432
+const numberOfHeroes = 1432
 const slides = [
   {alt: "Ala Lapatka"},
   {alt: "Siarhey Hatskevich"},
@@ -61,7 +61,7 @@ const slides = [
           <p class="">
             {{ $t('homePage.paragraph1.content1') }}
             <span class='bigger1'>
-              {{ numberOfPrisoners }}
+              {{ numberOfHeroes }}
             </span>
             {{ $t('homePage.paragraph1.content2') }}
           </p>

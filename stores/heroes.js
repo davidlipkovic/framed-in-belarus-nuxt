@@ -2,14 +2,14 @@ import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 
 import tagsJSON from '../assets/json/tags.json'
-import prisonersJSON from '../assets/json/prisoners.json'
+import heroesJSON from '../assets/json/heroes.json'
 
-export const usePrisonersStore = defineStore("prisoners", () => {
-  const originalPrisoners = reactive([])
+export const useHeroesStore = defineStore("heroes", () => {
+  const originalHeroes = reactive([])
   const tags = reactive([])
 
   // const chosenHero = (filterType, filterValue) => {
-  //   return originalPrisoners.value.filter(hero => hero[filterType] === filterValue)
+  //   return originalHeroes.value.filter(hero => hero[filterType] === filterValue)
   // }
 
   const changeDateFormat = (originalDate) => {
@@ -58,12 +58,12 @@ export const usePrisonersStore = defineStore("prisoners", () => {
     return hero
   }
 
-  originalPrisoners.value = prisonersJSON
+  originalHeroes.value = heroesJSON
   tags.value = tagsJSON
 
   return {
     chosenHero,
-    originalPrisoners,
+    originalHeroes,
     tags
   }
 })

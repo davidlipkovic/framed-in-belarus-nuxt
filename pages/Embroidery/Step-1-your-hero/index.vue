@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from 'vue'
 
-import { usePrisonersStore } from "@/stores/prisoners"
+import { useHeroesStore } from "@/stores/heroes"
 
-const prisonersStore = usePrisonersStore()
+const heroesStore = useHeroesStore()
 
 definePageMeta({
   layout: "embroidery"
 })
 
-const hero = prisonersStore.chosenHero()
+const hero = heroesStore.chosenHero()
 </script>
 
 <template>
