@@ -15,6 +15,10 @@ const slides = [
 
 <template>
   <main class="Content">
+    <Head>
+      <Title>#Framed in Belarus - The little bird must be caught</Title>
+      <Meta name="description" content="The international contemporary art festival Survival Kit is one of the largest contemporary art events in the Baltics, taking place in Rīga annually. It was started in 2009 as a reaction towards the global economic crisis, calling for a consideration of various survival strategies within the changeable world of today. Every year, the festival is dedicated to a new and significant social topic. Abandoned Riga buildings are often used to hold festival events in order to draw attention to their future potential for development."/>
+    </Head>
     <article>
       <div class="Title">
         <div class="content">
@@ -23,13 +27,12 @@ const slides = [
           </h1>
         </div>
       </div>
-      <div class="content News">
+      <div class="content newsDetailWrapper">
         <p class="b">
           SURVIVAL KIT 13 / PILS 23, RIGA / 2.9.-16.10.2022
         </p>
         <p>
           #FramedinBelarus in Riga!
-          {{ $t('newsTheLttleBirdP1') }}
         </p>
         <p>
           The group exhibition "
@@ -69,5 +72,4 @@ const slides = [
   </main>
 </template>
 
-<style src="../Article.scss" lang="scss"></style>
-<style src="../News.scss" lang="scss" scoped></style>
+<style src="../newsDetail.scss" lang="scss"></style>
