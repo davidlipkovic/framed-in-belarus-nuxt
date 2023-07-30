@@ -1,31 +1,16 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .Content > .content {
-  .bg_red {
-    display: none !important;
-  }
   @media screen and (min-width: $br-point-md) {
     display: grid;
     gap: 1.875rem;
     grid-template-columns: 1fr 1fr;
   }
 }
-.bg_red {
-  display: none !important;
-}
-.Slider {
+.Swiper {
   @extend .item-margin_bottom;
-  .bg_red {
-    display: none !important;
-  }
   @media screen and (min-width: $br-point-md) {
     width: 100%;
-  }
-  @media screen and (min-width: $br-point-lg) {
-    .bg_red {
-      display: none;
-      height: 0;
-    }
   }
 }
 .item-margin_bottom {

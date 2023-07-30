@@ -1,78 +1,16 @@
-<script>
-export default {
-  head() {
-    return {
-      title: `#Framed in Belarus — The little bird must be caught`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'The international contemporary art festival Survival Kit is one of the largest contemporary art events in the Baltics, taking place in Rīga annually. It was started in 2009 as a reaction towards the global economic crisis, calling for a consideration of various survival strategies within the changeable world of today. Every year, the festival is dedicated to a new and significant social topic. Abandoned Riga buildings are often used to hold festival events in order to draw attention to their future potential for development.'
-        }
-      ]
-    }
-  },
-  data() {
-    return {
-      showModal: false,
-      activeModalIndex: null,
-      imageModals: [
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        },
-        {
-          alt: "Photo credit: Sergei Shabohin",
-          show: false
-        }
-      ]
-    }
-  }
-}
+<script setup>
+const slides = [
+  {alt: "Ala Lapatka"},
+  {alt: "Siarhey Hatskevich"},
+  {alt: "Tatsiana Kaneuskaya"},
+  {alt: "Pyatro Marchanka"},
+  {alt: "Vladzmir Zmurauka"},
+  {alt: "Marina Kirilchyk"},
+  {alt: "Dmitry Kubarau"},
+  {alt: "Dmitriy Dubkou"},
+  {alt: "Viacheslav Rahanchuk"},
+  {alt: "Ales Pushkin"}
+]
 </script>
 
 <template>
@@ -114,12 +52,17 @@ export default {
         <p>
           Contemporary Art Festival Survival Kit 13 “The Little Bird must be Caught” curated by iLiana Fokianaki, in Riga, September 2022.
         </p>
-        <GeneralCarousel/>
+        <GeneralThumbGallerySwiper 
+          class="newsSwiperWrapper"
+          :slides="slides"
+        />
         <p>
-          {{ $t('buttons.readMore') }}:  
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">lcca.lv</a> / 
-          <a href="https://www.facebook.com/survivalkit.lv" target="_blank">Facebook</a> / 
-          <a href="https://www.instagram.com/latviancentre4contemporaryart" target="_blank">Instagram</a>
+          The list of exhibeted embroideries:<br>
+          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
+          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
+          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
+          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
+          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>
         </p>
       </div>
     </article>

@@ -1,4 +1,8 @@
 <script setup>
+const slides = [
+  {alt: "Ala Lapatka"},
+  {alt: "Siarhey Hatskevich"}
+]
 </script>
 
 <template>
@@ -14,7 +18,9 @@
     </div>
     <div class="content">
       <article>
-        <GeneralCaseSlider/>
+        <GeneralSwiper 
+          :slides="slides"
+        />
         <p class="WorkDescript">
           <span class="WorkDescript-title">Author:</span> Tiffany Chin
         </p>

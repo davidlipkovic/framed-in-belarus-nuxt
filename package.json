@@ -15,13 +15,15 @@
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-28008586.381b906",
     "@nuxtjs/i18n": "^8.0.0-beta.10",
-    "@pinia/nuxt": "^0.4.8",
-    "nuxt": "^3.3.2",
-    "pinia": "^2.0.34",
+    "nuxt": "^3.6.5",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2"
   },
   "dependencies": {
-    "@vueuse/nuxt": "^10.2.1"
+    "@pinia/nuxt": "^0.4.11",
+    "@vueuse/nuxt": "^10.2.1",
+    "floating-vue": "^2.0.0-beta.24",
+    "pinia": "^2.1.6",
+    "swiper": "^10.0.4"
   }
 }

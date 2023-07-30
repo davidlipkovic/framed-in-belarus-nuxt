@@ -91,7 +91,7 @@ const changePageIndex = (index) => {
           class="galleryBox"
         >
           <img 
-            src="../../assets/media/img/slider/1.jpg" 
+            src="../../assets/media/img/swiper/1.jpg" 
             alt="Case name" 
           >
         </nuxt-link>

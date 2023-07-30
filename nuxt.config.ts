@@ -33,6 +33,7 @@ export default defineNuxtConfig({
         '@nuxt/image-edge',
         '@pinia/nuxt',
         '@vueuse/nuxt',
+        'floating-vue/nuxt',
     ],
 
     i18n: {

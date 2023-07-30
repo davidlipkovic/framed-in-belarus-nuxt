@@ -1,6 +1,57 @@
 general:
 - fix css
 
+
+
+pages:
+
+home
+- cookies
+    - google api
+    - options
+- responsive menu
+- check responsive
+- swiper
+- tooltips
+- popup
+- profile menu click outside
+
+sign up
+- lang menu
+- google api
+- warnings, log funcionality
+- check responsive
+
+sign in
+- google api
+- warnings, log funcionality
+- check responsive
+
+profile
+- all possible options
+- hero store
+- user store
+- check responsive
+
+Gallery
+- gallery store
+- search funcitonality
+- check responsive
+
+Gallery/Case
+- swiper
+- responsive
+
+News
+- read more btn
+- news store
+- search funcitonality
+- check responsive
+
+News/Detail
+- swiper
+
+
 responsive:
 - fix bugs
 - fix tablet

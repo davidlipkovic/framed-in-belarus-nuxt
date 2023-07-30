@@ -1,5 +1,17 @@
 <script setup>
 const numberOfPrisoners = 1432
+const slides = [
+  {alt: "Ala Lapatka"},
+  {alt: "Siarhey Hatskevich"},
+  {alt: "Tatsiana Kaneuskaya"},
+  {alt: "Pyatro Marchanka"},
+  {alt: "Vladzmir Zmurauka"},
+  {alt: "Marina Kirilchyk"},
+  {alt: "Dmitry Kubarau"},
+  {alt: "Dmitriy Dubkou"},
+  {alt: "Viacheslav Rahanchuk"},
+  {alt: "Ales Pushkin"}
+]
 </script>
 
 <template>
@@ -32,9 +44,11 @@ const numberOfPrisoners = 1432
           {{ $t('links.participate') }}
         </nuxt-link>
       </div>
-      <div class="sliderWrapper">
+      <div class="swiperWrapper">
         <div class="bg_red"></div>
-        <GeneralSlider />
+        <GeneralSwiper 
+          :slides="slides"
+        />
       </div>
     </section>
     <section class="bg_grey2">
