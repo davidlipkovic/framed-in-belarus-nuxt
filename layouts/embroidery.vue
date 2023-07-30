@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="containsPointerUp">
     <GeneralMainMenu
       :showUser="true"
     />

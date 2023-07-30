@@ -1,11 +1,12 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
 .pointerUpWrapper {
-  position: fixed;
+  position: sticky;
   width: 42px;
   height: 42px;
   bottom: 2rem;
-  right: 2rem;
+  left: calc(100vw - (2rem + 42px));
+  margin-bottom: calc(2rem + 42px);
   z-index: 10000;
   background-color: $greyDark2;
   border-radius: 50%;
@@ -23,12 +24,19 @@
   }
 }
 
+.pointerUpWrapper:hover {
+  svg {
+	  stroke: $greyDisabledColor;
+  }
+}
+
 @media screen and (min-width: $br-point-md){
   .pointerUpWrapper {
     width: 72px;
     height: 72px;
     bottom: 62px;
-    right: 62px;
+    left: calc(100vw - 124px);
+    margin-bottom: 62px;
   
     svg {
       width: 28px;

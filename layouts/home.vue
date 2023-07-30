@@ -2,10 +2,9 @@
 </script>
 
 <template>
-  <div class="containsPointerUp">
+  <div>
     <GeneralMainMenu/>
     <slot/>
-    <GeneralPointerUp/>
     <GeneralMainFooter/>
   </div>
 </template>

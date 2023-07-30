@@ -52,6 +52,10 @@ p {
   }
 }
 
+.containsPointerUp .Content {
+  margin-bottom: -116px;
+}
+
 .Title {
   position: relative;
   padding: 70px 0 32px;
@@ -106,6 +110,10 @@ svg {
 @media screen and (min-width: $br-point-md) {
   .Title {
     margin-top: 0;
+  }
+
+  .containsPointerUp .Content {
+    margin-bottom: -134px;
   }
 }
 

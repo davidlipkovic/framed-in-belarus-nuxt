@@ -1,4 +1,8 @@
 <script setup>
+definePageMeta({
+  layout: "home"
+})
+
 const numberOfPrisoners = 1432
 const slides = [
   {alt: "Ala Lapatka"},
