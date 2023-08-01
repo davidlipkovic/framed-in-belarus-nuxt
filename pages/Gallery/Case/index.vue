@@ -21,10 +21,15 @@ const slides = [
         <GeneralSwiper 
           :slides="slides"
         />
-        <p class="WorkDescript">
-          <span class="WorkDescript-title">Author:</span> Tiffany Chin
+        <p>
+          <br>
+          <br>
+          Stitching: 360 x 360 mm   |   Canvas: 450 x 500 mm
         </p>
         <p class="WorkDescript">
+          Author: <span class="b2">Tiffany Chin</span>
+        </p>
+        <!-- <p class="WorkDescript">
           <span class="WorkDescript-title">Year of birth:</span>
         </p>
         <p class="WorkDescript">
@@ -46,7 +51,7 @@ const slides = [
               class="WorkDescript-socnetwork-logo"
             />
           </p>
-        </div>
+        </div> -->
       </article>
       <article>
         <img

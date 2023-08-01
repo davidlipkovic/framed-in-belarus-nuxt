@@ -39,18 +39,17 @@ Gallery
 - check responsive
 
 Gallery/Case
-- swiper
+- clickable high res gallery
 - responsive
 
 News
-- read more btn
+- read more btn style
 - news store
 - search funcitonality
 - check responsive
 
 News/Detail
-- swiper
-
+- responsive
 
 responsive:
 - fix bugs
