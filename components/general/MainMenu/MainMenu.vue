@@ -125,11 +125,9 @@ onClickOutside(langMenu, () => {
               v-if="showUser"
               class="helpButton flexRowCenter"
               @click="displayQuestionModal = !displayQuestionModal"
+              v-tooltip="$t('mainMenu.question.label')"
             >
               <SvgHelpCircle/>
-              <!-- <span class="pattern-button-text">
-                {{ $t('mainMenu.question.label') }}
-              </span> -->
             </button>
             <button
               v-if="showUser && !displayProfileModal"

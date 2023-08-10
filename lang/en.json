@@ -41,6 +41,10 @@
         "myEmbroideries": "My embroideries",
         "participate": "Start stitching"
     },
+    "toolTips": {
+        "seeImage": "See full image",
+        "downloadImage": "Download full image"
+    },
     "mainMenu": {
         "question": {
             "label": "Ask a question",
