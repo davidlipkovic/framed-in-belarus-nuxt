@@ -17,6 +17,7 @@ const currentLocale = ref(null)
 const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
 const langMenu = ref(null)
+const profileModal = ref(null)
 const switchLocalePath = useSwitchLocalePath()
 const toggleMenu = ref(false)
 const toggleLangMenu = ref(false)
@@ -34,6 +35,10 @@ watch(route, n => {
 
 onMounted(() => {
   currentLocale.value = localeProperties.value.name
+})
+
+onClickOutside(profileModal, () => {
+  displayProfileModal.value = false
 })
 
 onClickOutside(langMenu, () => {
@@ -127,19 +132,25 @@ onClickOutside(langMenu, () => {
               </span> -->
             </button>
             <button
-              v-if="showUser"
+              v-if="showUser && !displayProfileModal"
               class="profileButton flexRowCenter"
-              @click="displayProfileModal = !displayProfileModal"
+              @click="displayProfileModal = true"
             >
               <img
                 src="../../../assets/media/img/profileSymbolFramed.svg"
               >
-              <!-- <span class="pattern-button-text">
-                {{ $t('links.profile') }}
-              </span> -->
+            </button>
+            <button
+              v-if="showUser && displayProfileModal"
+              class="profileButton flexRowCenter"
+            >
+              <img
+                src="../../../assets/media/img/profileSymbolFramed.svg"
+              >
             </button>
             <div
               v-if="displayProfileModal"
+              ref="profileModal"
               class="profileMenuWrapper dropdownMenuWrapper flexColumnStart"
             >
               <img
@@ -155,7 +166,7 @@ onClickOutside(langMenu, () => {
                 class="profileMenuWrapper__profileLink flexRowStart"
               >
                 <span>
-                  {{ $t('links.myEmbroideries') }}
+                  {{ $t('links.profile') }}
                 </span>
               </nuxt-link>
               <nuxt-link
