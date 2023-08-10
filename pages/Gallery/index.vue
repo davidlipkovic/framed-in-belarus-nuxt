@@ -15,11 +15,16 @@ useHead({
 })
 
 const rangeIndex = ref(0)
-const rangePerPage = ref(15)
+const rangePerPage = ref(16)
 const localTags = computed(() => heroesStore.tags.value)
 
 const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
 const numberOfPages = ref(50)
+
+const placeholderResult = {
+  name: 'Name Surname',
+  photo: '../../../assets/media/img/swiper/1.jpg'
+}
 
 const changePageIndex = (index) => {
    if (index === 'first') { 
@@ -84,17 +89,11 @@ const changePageIndex = (index) => {
         </div>
       </div>
       <section class="searchResultsWrapper">
-        <nuxt-link
+        <GeneralResultBox
           v-for="item in rangePerPage"
           :key="item"
-          to="/Gallery/Case"
-          class="galleryBox"
-        >
-          <img 
-            src="../../assets/media/img/swiper/1.jpg" 
-            alt="Case name" 
-          >
-        </nuxt-link>
+          :result="placeholderResult"
+        />
       </section>
       <GeneralPagination
         :currentPage="currentPage"

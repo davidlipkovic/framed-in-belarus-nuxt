@@ -96,10 +96,11 @@ const changePageIndex = (index) => {
           </div>
         </div>
         <div class="searchResultsWrapper">
-          <RegistrationHeroBox
+          <GeneralResultBox
             v-for="hero in localHeroes" 
             :key="hero.id"
-            :hero="hero"
+            :result="hero"
+            :isEmbroidery="true"
           />
         </div>
         <GeneralPagination
