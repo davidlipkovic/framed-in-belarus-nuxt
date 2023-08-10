@@ -96,7 +96,7 @@ export default {
         </div>
       </article>
     </section>
-    <section class="content Partners">
+    <!-- <section class="content Partners">
       <div class="Partners-group flexRowCenter">
         <div class="Partners-logo flexRowCenter">
           <img
@@ -170,8 +170,7 @@ export default {
           />
         </a>
       </div>
-    </section>
-    <GeneralCookieBar/>
+    </section> -->
   </main>
 </template>
 
