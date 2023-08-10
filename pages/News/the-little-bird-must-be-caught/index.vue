@@ -55,8 +55,7 @@ const slides = [
         <p>
           Contemporary Art Festival Survival Kit 13 “The Little Bird must be Caught” curated by iLiana Fokianaki, in Riga, September 2022.
         </p>
-        <GeneralThumbGallerySwiper 
-          class="newsSwiperWrapper"
+        <NewsSwiper 
           :slides="slides"
         />
         <p>
