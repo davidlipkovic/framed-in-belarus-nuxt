@@ -133,6 +133,7 @@ onClickOutside(langMenu, () => {
               v-if="showUser && !displayProfileModal"
               class="profileButton flexRowCenter"
               @click="displayProfileModal = true"
+              v-tooltip="$t('toolTips.profile')"
             >
               <img
                 src="../../../assets/media/img/profileSymbolFramed.svg"

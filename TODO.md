@@ -1,6 +1,7 @@
 general:
 - fix css
-
+- clean and unify variables
+- convert to rem
 
 
 pages:

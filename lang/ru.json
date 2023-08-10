@@ -43,7 +43,8 @@
     },
     "toolTips": {
         "seeImage": "See full image",
-        "downloadImage": "Download full image"
+        "downloadImage": "Download full image",
+        "profile": "Profile"
     },
     "mainMenu": {
         "question": {
