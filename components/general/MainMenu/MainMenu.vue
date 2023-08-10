@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-
 const { locale, locales, localeProperties } = useI18n()
 
 const route = useRoute()
@@ -17,7 +16,7 @@ const currentLocale = ref(null)
 
 const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
-
+const langMenu = ref(null)
 const switchLocalePath = useSwitchLocalePath()
 const toggleMenu = ref(false)
 const toggleLangMenu = ref(false)
@@ -35,6 +34,10 @@ watch(route, n => {
 
 onMounted(() => {
   currentLocale.value = localeProperties.value.name
+})
+
+onClickOutside(langMenu, () => {
+  toggleLangMenu.value = false
 })
 </script>
 
@@ -166,16 +169,24 @@ onMounted(() => {
             </div>
             <div class="langWrapper">
               <button 
+                v-if="!toggleLangMenu"
                 class="langButton flexRowCenter"
                 @click="toggleLangMenu = !toggleLangMenu"
               >
                 {{ currentLocale }}
-                <SvgArrowDown v-if="!toggleLangMenu"/>
-                <SvgArrowTop v-if="toggleLangMenu"/>
+                <SvgArrowDown/>
+              </button>
+              <button 
+                v-if="toggleLangMenu"
+                class="langButton flexRowCenter"
+              >
+                {{ currentLocale }}
+                <SvgArrowTop/>
               </button>
               <div 
                 v-if="toggleLangMenu"
                 class="langMenu dropdownMenuWrapper flexColumnStart"
+                ref="langMenu"
               >
                 <nuxt-link
                   v-for="locale in availableLocales"

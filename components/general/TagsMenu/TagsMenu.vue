@@ -1,6 +1,5 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
-const clickOutside = onClickOutside()
 import { useTagsMenu } from "@/composables/TagsMenu";
 const { currentTagIndex, root } = useTagsMenu();
 

@@ -2,7 +2,6 @@
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
-const clickOutside = onClickOutside()
 import { useTagsMenu } from "@/composables/TagsMenu";
 const { currentTagIndex, root } = useTagsMenu();
 
