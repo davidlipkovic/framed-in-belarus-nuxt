@@ -1,40 +1,35 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue"
-
+import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useHeroesStore } from "@/stores/heroes"
-import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
+import { useSearch } from "@/composables/Search";
 
 const heroesStore = useHeroesStore();
-const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
+const {
+  activeMenuIndex,
+  changePageIndex,
+  closeTagsMenu,
+  currentPage,
+  numberOfPages,
+  parseData,
+  rangePerPage,
+  search,
+  sortData,
+  toggleActiveMenuIndex,
+  updateSortOrder,
+  updateTags,
+} = useSearch();
 
 definePageMeta({
   layout: "embroidery"
 })
 
-const rangeIndex = ref(0)
-const rangePerPage = ref(16)
-const localHeroes = computed(() => heroesStore.originalHeroes.value.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value))
 const localTags = computed(() => heroesStore.tags.value)
+const parsedHeroes = computed(() => parseData(sortedHeroes.value))
+const sortedHeroes = computed(() => sortData(heroesStore, 'heroes'))
 
-const heroesAlphabetically = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
-const heroesAlphabeticallyReversed = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
-// const heroesAlphabetically = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
-// const heroesAlphabeticallyReversed = computed(() => localHeroes.value.sort((a, b) => a.name - b.name))
-
-const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
-const numberOfPages = computed(() => Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed()))
-
-const changePageIndex = (index) => {
-   if (index === 'first') { 
-    rangeIndex.value = 0
-  } else if (index === -1) {
-    rangeIndex.value = rangeIndex.value - rangePerPage.value
-  } else if (index === 1) { 
-    rangeIndex.value = rangeIndex.value + rangePerPage.value
-  } else if (index === 'last') { 
-    rangeIndex.value = heroesStore.originalHeroes.value.length - rangePerPage.value
-  }
-}
+onMounted(() => {
+  numberOfPages.value = Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed())
+})
 </script>
 
 <template>
@@ -58,15 +53,20 @@ const changePageIndex = (index) => {
       />
       <section class="searchWrapper flexColumnnStart">
         <div class="searchMenuWrapper">
-          <div class="searchInputWrapper">
-            <input 
-              type="text" 
-              class="search" 
-              :placeholder="$t('placeholders.searchHero')"
-              :aria-placeholder="$t('placeholders.searchHero')"
-            >
+          <div class="searchSortInputWrapper">
+            <div class="searchInputWrapper flexRowCenter">
+              <SvgSearch class="searchIcon"/>
+              <input 
+                type="text" 
+                class="search" 
+                :placeholder="$t('placeholders.searchHero')"
+                :aria-placeholder="$t('placeholders.searchHero')"
+                v-model="search"
+              >
+            </div>
             <GeneralSortMenu 
               :menuStatus="activeMenuIndex === 1"
+              @checkForOrder="updateSortOrder"
               @checkForStatus="toggleActiveMenuIndex(1)"
               @closeSortMenu="closeTagsMenu(1)"
             />
@@ -75,21 +75,27 @@ const changePageIndex = (index) => {
             <GeneralTagsMenu
               :menuStatus="activeMenuIndex === 2"
               :type="localTags.cases.type"
+              :typeProgrammatic="localTags.cases.typeProgrammatic"
               :tags="localTags.cases.tags"
+              @checkForTag="updateTags"
               @checkForStatus="toggleActiveMenuIndex(2)"
               @closeTagsMenu="closeTagsMenu(2)"
             />
             <GeneralTagsMenu
               :menuStatus="activeMenuIndex === 3"
               :type="localTags.statuses.type"
+              :typeProgrammatic="localTags.statuses.typeProgrammatic"
               :tags="localTags.statuses.tags"
+              @checkForTag="updateTags"
               @checkForStatus="toggleActiveMenuIndex(3)"
               @closeTagsMenu="closeTagsMenu(3)"
             />
             <GeneralTagsMenu
               :menuStatus="activeMenuIndex === 4"
               :type="localTags.genders.type"
+              :typeProgrammatic="localTags.genders.typeProgrammatic"
               :tags="localTags.genders.tags"
+              @checkForTag="updateTags"
               @checkForStatus="toggleActiveMenuIndex(4)"
               @closeTagsMenu="closeTagsMenu(4)"
             />
@@ -97,10 +103,11 @@ const changePageIndex = (index) => {
         </div>
         <div class="searchResultsWrapper">
           <GeneralResultBox
-            v-for="hero in localHeroes" 
+            v-for="hero in parsedHeroes" 
             :key="hero.id"
             :result="hero"
             :isEmbroidery="true"
+            @click="heroesStore.setChosenHero(hero.id)"
           />
         </div>
         <GeneralPagination

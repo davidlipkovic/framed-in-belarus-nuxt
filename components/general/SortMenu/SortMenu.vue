@@ -13,6 +13,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
+  'checkForOrder',
   'checkForStatus',
   'closeSortMenu',
 ])
@@ -24,8 +25,14 @@ const chronologicallyReversed = t("inputs.chronologicallyReversed")
 
 const current = ref(null)
 
-const updateTagsMenuStatus = () => {
+const updateSortMenuOrder = (orderValue) => {
+}
+
+const updateTagsMenuStatus = (orderValue) => {
   emit('checkForStatus')
+  if (orderValue) {
+    emit('checkForOrder', orderValue)
+  }
 }
 
 onClickOutside(root, () => {
@@ -58,7 +65,7 @@ onMounted(() => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus()"
+          @click="updateTagsMenuStatus('alphabetically')"
         >
           {{ alphabetically }}
         </button>
@@ -66,7 +73,7 @@ onMounted(() => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus()"
+          @click="updateTagsMenuStatus('alphabeticallyReversed')"
         >
           {{ alphabeticallyReversed }}
         </button>
@@ -74,7 +81,7 @@ onMounted(() => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus()"
+          @click="updateTagsMenuStatus('chronologically')"
         >
           {{ chronologically }}
         </button>
@@ -82,7 +89,7 @@ onMounted(() => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus()"
+          @click="updateTagsMenuStatus('chronologicallyReversed')"
         >
           {{ chronologicallyReversed }}
         </button>

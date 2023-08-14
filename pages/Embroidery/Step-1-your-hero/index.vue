@@ -3,13 +3,17 @@ import { ref } from 'vue'
 
 import { useHeroesStore } from "@/stores/heroes"
 
+const changeDateFormat = (date) => date.getDay() + ' ' + date.toLocaleString('en-us', { month: 'long' }) + ' ' + date.getFullYear()
+
 const heroesStore = useHeroesStore()
 
 definePageMeta({
   layout: "embroidery"
 })
 
-const hero = heroesStore.chosenHero()
+const localHero = computed(() => {
+  return heroesStore.chosenHero
+})
 </script>
 
 <template>
@@ -38,41 +42,60 @@ const hero = heroesStore.chosenHero()
       <section class="FoundHero" hidden>
         <div class="Hero-Photo">
           <img 
-            :src="hero.photo"
-            :alt="'Photo of ' + hero.name"
+            v-if="!localHero.photo || localHero.photo === '' || localHero.photo === 'FALSE'"
+            src="../../../assets/media/img/profileSymbolFramed.svg"
+            :alt="'Photo of' + localHero.name"
+            class="Hero-Photo-img"
+          >
+          <img 
+            v-else
+            :src="localHero.photo" 
+            :alt="'Photo of' + localHero.name"
             class="Hero-Photo-img"
           >
         </div>
         <div class="Hero-Description">
-          <p class="Hero-Description-case">
-            {{ $t('embroidery.steps.description.case') }}: {{ hero.case }}
+          <p 
+            v-if="localHero.case"
+            class="Hero-Description-case"
+          >
+            {{ $t('embroidery.steps.description.case') }}: {{ localHero.case }}
           </p>
           <h2 class="Hero-Description-name">
-            {{ hero.name }}
+            {{ localHero.name }}
           </h2>
           <div class="Hero-content-titleWrapper flexRowStart">
-            <div class="Hero-Bio-info">
+            <div
+              v-if="localHero.birthdayProgrammatic"
+              class="Hero-Bio-info"
+            >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.birth') }}:
               </h3>
               <p>
-                {{ hero.birthday }}
+                {{ changeDateFormat(localHero.birthdayProgrammatic) }}
               </p>
             </div>
-            <div class="Hero-Bio-info">
+            <div 
+              v-if="localHero.arrestedProgrammatic" 
+              class="Hero-Bio-info"
+            >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.detention') }}:
               </h3>
               <p>
-                {{ hero.arrested }}
+                {{ changeDateFormat(localHero.arrestedProgrammatic) }}
               </p>
             </div>
-            <div class="Hero-Bio-info">
+            <div 
+              class="Hero-Bio-info"
+              v-if="localHero.decision"
+            >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.sentence') }}:
               </h3>
               <p>
-                {{ hero.decision }}
+                {{ localHero.decision }}
               </p>
             </div>
           </div>
@@ -116,12 +139,15 @@ const hero = heroesStore.chosenHero()
               The case description is the same as the political prisoner’s description because this is an individual case, not a collective one.
             </p>
           </div>
-          <div class="Hero-Description-data Hero-Description-prison-address">
+          <div 
+            v-if="localHero.prisonAddress"
+            class="Hero-Description-data Hero-Description-prison-address"
+          >
             <h3 class="title">
               {{ $t('embroidery.steps.description.address') }}:
             </h3>
             <p>
-              {{ hero.prisonAddress }}
+              {{ localHero.prisonAddress }}
             </p>
           </div>
           <div class="warning flexRowStart">

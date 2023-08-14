@@ -1,12 +1,15 @@
 {
     "cases": {
         "type": "cases",
+        "typeProgrammatic": "cases",
         "tags": [
             {
-                "tagName": "all"
+                "tagName": "all",
+                "tagProgrammatic": "all"
             },
             {
-                "tagName": "individual"
+                "tagName": "individual",
+                "tagProgrammatic": "individual"
             },
             {
                 "tagName": "group",
@@ -23,32 +26,41 @@
     },
     "statuses": {
         "type": "status of prisoner",
+        "typeProgrammatic": "status",
         "tags": [
             {
-                "tagName": "all"
+                "tagName": "all",
+                "tagProgrammatic": "all"
             },
             {
-                "tagName": "in custody"
+                "tagName": "in custody",
+                "tagProgrammatic": "active"
             },
             {
-                "tagName": "free"
+                "tagName": "free",
+                "tagProgrammatic": "former"
             }
         ]
     },
     "genders": {
         "type": "gender",
+        "typeProgrammatic": "gender",
         "tags": [
             {
-                "tagName": "all"
+                "tagName": "all",
+                "tagProgrammatic": "all"
             },
             {
-                "tagName": "female"
+                "tagName": "female",
+                "tagProgrammatic": "female"
             },
             {
-                "tagName": "male"
+                "tagName": "male",
+                "tagProgrammatic": "male"
             },
             {
-                "tagName": "nonbinary"
+                "tagName": "nonbinary",
+                "tagProgrammatic": "nonbinary"
             }
         ]
     }

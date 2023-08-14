@@ -2,10 +2,23 @@
 import { computed, onMounted, reactive, ref } from "vue"
 
 import { useHeroesStore } from "@/stores/heroes"
-import { useTagsMenuHandler } from "@/composables/TagsMenuHandler";
+import { useSearch } from "@/composables/Search";
 
 const heroesStore = useHeroesStore();
-const { activeMenuIndex, closeTagsMenu, toggleActiveMenuIndex } = useTagsMenuHandler();
+const {
+  activeMenuIndex,
+  changePageIndex,
+  closeTagsMenu,
+  currentPage,
+  numberOfPages,
+  parseData,
+  rangePerPage,
+  search,
+  sortData,
+  toggleActiveMenuIndex,
+  updateSortOrder,
+  updateTags,
+} = useSearch();
 
 useHead({
   title: '#Framed in Belarus / Gallery',
@@ -14,29 +27,16 @@ useHead({
   ]
 })
 
-const rangeIndex = ref(0)
-const rangePerPage = ref(16)
 const localTags = computed(() => heroesStore.tags.value)
-
-const currentPage = computed(() => Number((rangeIndex.value / rangePerPage.value + 1).toFixed()))
-const numberOfPages = ref(50)
 
 const placeholderResult = {
   name: 'Name Surname',
   photo: '../../../assets/media/img/swiper/1.jpg'
 }
 
-const changePageIndex = (index) => {
-   if (index === 'first') { 
-    rangeIndex.value = 0
-  } else if (index === -1) {
-    rangeIndex.value = rangeIndex.value - rangePerPage.value
-  } else if (index === 1) { 
-    rangeIndex.value = rangeIndex.value + rangePerPage.value
-  } else if (index === 'last') { 
-    rangeIndex.value = heroesStore.originalHeroes.value.length - rangePerPage.value
-  }
-}
+onMounted(() => {
+  numberOfPages.value = 1
+})
 </script>
 
 <template>
@@ -48,7 +48,7 @@ const changePageIndex = (index) => {
     </div>
     <div class="content">
       <div class="searchMenuWrapper">
-        <div class="searchInputWrapper">
+        <div class="searchSortInputWrapper">
           <input 
             type="text" 
             class="search" 

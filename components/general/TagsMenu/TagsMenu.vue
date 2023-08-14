@@ -13,6 +13,7 @@ const props = defineProps({
     default: false
   },
   type: String,
+  typeProgrammatic: String,
   tags: {
     type: Array,
     default: ['all']
@@ -20,14 +21,18 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
+  'checkForTag',
   'checkForStatus',
   'closeTagsMenu',
 ])
 
 const showSubTags = ref(false)
 
-const updateTagsMenuStatus = () => {
+const updateTagsMenuStatus = (tagValue) => {
   emit('checkForStatus')
+  if (tagValue) {
+    emit('checkForTag', props.typeProgrammatic, tagValue)
+  }
 }
 
 onClickOutside(root, () => {
@@ -65,7 +70,7 @@ onClickOutside(root, () => {
         <button
           v-if="!tag.tags"
           class="capitalize flexRowStart"
-          @click="currentTagIndex = i, updateTagsMenuStatus()"
+          @click="currentTagIndex = i, updateTagsMenuStatus(tag.tagProgrammatic)"
         >
           {{ tag.tagName }}
         </button>

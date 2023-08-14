@@ -38,6 +38,12 @@ const photo = computed(() => {
       :class="{'resultBoxWrapperHovered' : isHovered}"
     >
       <img 
+        v-if="!photo || photo === '' || photo === 'FALSE'"
+        src="../../../assets/media/img/profileSymbolFramed.svg"
+        :alt="'Photo of' + result.name"
+      >
+      <img 
+        v-else
         :src="photo" 
         :alt="'Photo of' + result.name"
       >
