@@ -1,16 +1,13 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 const { locale, locales, localeProperties } = useI18n()
+import { useUserStore } from "@/stores/user"
+
+const userStore = useUserStore()
 
 const route = useRoute()
-
-const props = defineProps({
-  showUser: {
-    type: Boolean,
-    default: false
-  }
-})
+const router = useRouter()
 
 const currentLocale = ref(null)
 
@@ -25,6 +22,12 @@ const toggleLangMenu = ref(false)
 const availableLocales = computed(() => {
   return (locales.value).filter(i => i.code !== locale.value)
 })
+
+const signOut = () => {
+  router.go(0)
+  userStore.isLogged = false
+  displayProfileModal.value = false
+}
 
 watch(route, n => {
   displayProfileModal.value = false
@@ -108,21 +111,21 @@ onClickOutside(langMenu, () => {
           </div>
           <div class="menuUserLinksWrapper flexRowCenter">
             <nuxt-link
-              v-if="!showUser"
+              v-if="!userStore.isLogged"
               :to="localePath('/SignIn')"
               class="Login"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!showUser"
+              v-if="!userStore.isLogged"
               :to="localePath('/SignUp')"
               class="button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
             <button
-              v-if="showUser"
+              v-if="userStore.isLogged"
               class="helpButton flexRowCenter"
               @click="displayQuestionModal = !displayQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
@@ -130,7 +133,7 @@ onClickOutside(langMenu, () => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="showUser && !displayProfileModal"
+              v-if="userStore.isLogged && !displayProfileModal"
               class="profileButton flexRowCenter"
               @click="displayProfileModal = true"
               v-tooltip="$t('toolTips.profile')"
@@ -140,7 +143,7 @@ onClickOutside(langMenu, () => {
               >
             </button>
             <button
-              v-if="showUser && displayProfileModal"
+              v-if="userStore.isLogged && displayProfileModal"
               class="profileButton flexRowCenter"
             >
               <img
@@ -171,6 +174,7 @@ onClickOutside(langMenu, () => {
               <nuxt-link
                 :to="localePath('/')"
                 class="profileMenuWrapper__signOut flexRowStart"
+                @click.prevent="signOut()"
               >
                 <span>
                   {{ $t('links.signOut') }}

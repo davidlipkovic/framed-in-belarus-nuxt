@@ -1,4 +1,8 @@
 <script setup>
+import { useUserStore } from "@/stores/user"
+
+const userStore = useUserStore()
+
 definePageMeta({
   layout: "registration"
 })
@@ -53,10 +57,14 @@ definePageMeta({
       <nuxt-link 
         :to="localePath('/Profile')"
         class="button bg_black large signInBtn"
+        @click.once="userStore.isLogged = true"
       >
         {{ $t("signInPage.signInButton") }}
       </nuxt-link>
-      <button class="button large googleBtn">
+      <button 
+        class="button large googleBtn"
+        @click="userStore.isLogged = true"
+      >
         {{ $t("signInPage.signInGoogleButton") }}
       </button>
     </form>

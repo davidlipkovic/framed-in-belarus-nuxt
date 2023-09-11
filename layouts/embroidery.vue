@@ -3,13 +3,9 @@
 
 <template>
   <div class="containsPointerUp">
-    <GeneralMainMenu
-      :showUser="true"
-    />
+    <GeneralMainMenu/>
     <slot/>
     <GeneralPointerUp/>
-    <GeneralMainFooter
-      :showUser="true"
-    />
+    <GeneralMainFooter/>
   </div>
 </template>

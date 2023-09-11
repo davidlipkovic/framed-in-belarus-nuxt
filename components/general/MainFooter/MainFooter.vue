@@ -1,10 +1,7 @@
 <script setup>
-const props = defineProps({
-  showUser: {
-    type: Boolean,
-    default: false
-  }
-})
+import { useUserStore } from "@/stores/user"
+
+const userStore = useUserStore()
 </script>
 
 <template>
@@ -16,7 +13,7 @@ const props = defineProps({
           <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
           <div class="Info-Project-social">
             <a href="https://www.facebook.com/hashtag/framedinbelarus" target="_blank" class="Facebook"><img src="@/assets/media/img/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com/explore/tags/framedinbelarus/" target="_blank" class="Instagram"><img src="@/assets/media/img/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.instagram.com/rufinabazlova/?hl=en" target="_blank" class="Instagram"><img src="@/assets/media/img/instagram.svg" alt="Instagram"></a>
           </div>
         </div>
         <nav class="Info-menu">
@@ -64,19 +61,19 @@ const props = defineProps({
           </div>
           <div class="Info-menu-group flexRowCenter">
             <nuxt-link
-              v-if="!showUser"
+              v-if="!userStore.isLogged"
               :to="localePath('/SignUp')"
               class="Info-menu-item button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
             <img
-              v-if="showUser"
+              v-if="userStore.isLogged"
               src="../../../assets/media/img/help-circle.svg"
               class="Info-menu-item"
             >
             <nuxt-link
-              v-if="showUser"
+              v-if="userStore.isLogged"
               :to="localePath('/Profile')"
               class="Info-menu-item profileLink flexRowCenter"
             >

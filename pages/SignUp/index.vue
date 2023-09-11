@@ -3,6 +3,9 @@ import { onMounted, ref, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
+import { useUserStore } from "@/stores/user"
+
+const userStore = useUserStore()
 
 definePageMeta({
   layout: "registration"
@@ -154,12 +157,14 @@ definePageMeta({
         :to="localePath('/Profile')"
         class="button bg_black signInBtn"
         :class="{'button_disabled bg_grey': showWarning}"
+        @click.once="userStore.isLogged = true"
       >
         {{ $t('signUpPage.createButton') }}
       </nuxt-link>
       <button 
         class="button googleBtn"
         :class="{'button_disabled': showWarning}"
+        @click.once="userStore.isLogged = true"
       >
         {{ $t('signUpPage.signInGoogleButton') }}
       </button>

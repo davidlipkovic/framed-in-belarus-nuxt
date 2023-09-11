@@ -2,7 +2,15 @@ general:
 - fix css
 - clean and unify variables
 - convert to rem
+- list of tooltips
+- update hero database test
+- change svgs to inline
 
+to discuss:
+- incorrect login info
+- cookies
+- proper names and passwords
+- all search possibilities
 
 pages:
 
@@ -12,10 +20,7 @@ home
     - options
 - responsive menu
 - check responsive
-- swiper
-- tooltips
 - popup
-- profile menu click outside
 
 sign up
 - lang menu
@@ -33,10 +38,11 @@ profile
 - hero store
 - user store
 - check responsive
+- add inputs
 
 Gallery
 - gallery store
-- search funcitonality
+- test with data
 - check responsive
 
 Gallery/Case
@@ -48,6 +54,7 @@ News
 - news store
 - search funcitonality
 - check responsive
+- tags
 
 News/Detail
 - responsive
@@ -78,12 +85,10 @@ components
 - pagination
 - PointerUp, fix before footer
 
-store:
-- DEFINE PROBLEMS
-- search
-- user
-- hero
-- choose hero
+stores:
+- WIP user
+- WIP hero
+- WIP cookies
 
 google api
 - registration
@@ -92,10 +97,3 @@ google api
 head
 - meta tags
 - favicons
-
-
-
-to discuss:
-- incorrect login info
-- cookies
-- proper names and passwords
