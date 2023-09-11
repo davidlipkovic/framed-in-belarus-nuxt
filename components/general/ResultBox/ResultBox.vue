@@ -39,7 +39,7 @@ const photo = computed(() => {
     >
       <img 
         v-if="!photo || photo === '' || photo === 'FALSE'"
-        src="../../../assets/media/img/profileSymbolFramed.svg"
+        src="../../../assets/media/img/placeholderHero.png"
         :alt="'Photo of' + result.name"
       >
       <img 
