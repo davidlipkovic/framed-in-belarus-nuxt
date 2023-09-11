@@ -18,7 +18,7 @@ export default {
     <div class="Article content">
       <div class="section news">
         <nuxt-link
-          to="news/holidays-wish"
+          to="News/holidays-wish"
         >
           <img class="img" alt="Holiday's wish" src="../../assets/media/img/news/holidays-wish/title.jpg"/>
         </nuxt-link>
@@ -31,7 +31,7 @@ export default {
         </p>
         </div>
         <nuxt-link
-          to="news/holidays-wish"
+          to="News/holidays-wish"
           class="button"
         >
           {{ $t('buttons.readMore') }}
@@ -39,7 +39,7 @@ export default {
       </div>
       <div class="section news">
         <nuxt-link
-          to="news/the-little-bird-must-be-caught"
+          to="News/the-little-bird-must-be-caught"
         >
           <img class="img" alt="The little bird must be caught" src="../../assets/media/img/news/the-little-bird-must-be-caught/title.jpg"/>
         </nuxt-link>
@@ -52,7 +52,7 @@ export default {
           </p>
         </div>
         <nuxt-link
-          to="news/the-little-bird-must-be-caught"
+          to="News/the-little-bird-must-be-caught"
           class="button"
         >
           {{ $t('buttons.readMore') }}
@@ -60,7 +60,7 @@ export default {
       </div>
       <div class="section news">
         <nuxt-link
-          to="news/stitched-freedom-framed-in-belarus-project"
+          to="News/stitched-freedom-framed-in-belarus-project"
         >
           <img class="img" alt="Stitched freedom: “Framed in Belarus” project" src="../../assets/media/img/news/news.png"/>
         </nuxt-link>
@@ -76,7 +76,7 @@ export default {
           </p>
         </div>
         <nuxt-link
-          to="news/stitched-freedom-framed-in-belarus-project"
+          to="News/stitched-freedom-framed-in-belarus-project"
           class="button"
         >
           {{ $t('buttons.readMore') }}
