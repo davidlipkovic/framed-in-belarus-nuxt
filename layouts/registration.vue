@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <RegistrationTopHeader/>
+    <RegistrationMainMenu/>
     <main class="Content flexRowCenter">
       <RegistrationEmbroiderer/>
       <slot/>

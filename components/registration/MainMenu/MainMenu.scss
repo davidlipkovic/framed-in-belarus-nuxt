@@ -1,0 +1,40 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/dropdown.scss";
+
+.mainMenuWrapperRegistration {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 7px;
+
+  * {
+    color: $greyDark;
+  }
+
+  .content {
+    justify-content: space-between;
+  }
+
+  svg {
+    fill: $greyDark;
+  }
+}
+
+.langMenuWrapperRegistration {
+  * {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  svg {
+    stroke: $greyDark;
+    fill: none;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .mainMenuWrapperRegistration {
+    .content {
+      padding-left: 545px;
+    }
+  }
+}
