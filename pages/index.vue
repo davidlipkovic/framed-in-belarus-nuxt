@@ -175,7 +175,6 @@ const slides = [
         </a>
       </div>
     </section>
-    <GeneralCookieBar/>
   </main>
 </template>
 

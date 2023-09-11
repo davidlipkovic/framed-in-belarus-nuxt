@@ -6,5 +6,6 @@
     <GeneralMainMenu/>
     <slot/>
     <GeneralMainFooter/>
+    <GeneralCookieBar/>
   </div>
 </template>

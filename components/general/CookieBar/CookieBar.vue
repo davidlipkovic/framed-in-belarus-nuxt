@@ -1,16 +1,13 @@
-<script>
-export default {
-  data () {
-    return {
-      showBar: true
-    }
-  }
-}
+<script setup>
+import { onMounted, ref, watch } from 'vue'
+import { useCookiesStore } from "@/stores/cookies"
+
+const cookiesStore = useCookiesStore()
 </script>
 
 <template>
   <div 
-    v-if="showBar"
+    v-if="!cookiesStore.isChecked"
     class="cookieBarWrapper flexRowStart"
   >
     <div class="content flexRowStart">
@@ -20,19 +17,19 @@ export default {
       <div>
         <button 
           class="button"
-          @click="showBar = false"
+          @click="cookiesStore.isChecked = true"
         >
           {{ $t('buttons.accept') }}
         </button>
         <button 
           class="button"
-          @click="showBar = false"
+          @click="cookiesStore.isChecked = true"
         >
           {{ $t('buttons.decline') }}
         </button>
         <button 
           class="button"
-          @click="showBar = false"
+          @click="cookiesStore.isChecked = true"
         >
           {{ $t('buttons.manage') }}
         </button>

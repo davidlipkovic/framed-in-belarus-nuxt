@@ -7,5 +7,6 @@
     <slot/>
     <GeneralPointerUp/>
     <GeneralMainFooter/>
+    <GeneralCookieBar/>
   </div>
 </template>

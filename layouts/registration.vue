@@ -8,6 +8,7 @@
       <RegistrationEmbroiderer/>
       <slot/>
     </main>
+    <GeneralCookieBar/>
   </div>
 </template>
 
