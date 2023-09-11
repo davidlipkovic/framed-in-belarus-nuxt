@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-const { locale, locales, localeProperties } = useI18n()
 import { useUserStore } from "@/stores/user"
 
 const userStore = useUserStore()
@@ -9,19 +8,10 @@ const userStore = useUserStore()
 const route = useRoute()
 const router = useRouter()
 
-const currentLocale = ref(null)
-
 const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
-const langMenu = ref(null)
 const profileModal = ref(null)
-const switchLocalePath = useSwitchLocalePath()
 const toggleMenu = ref(false)
-const toggleLangMenu = ref(false)
-
-const availableLocales = computed(() => {
-  return (locales.value).filter(i => i.code !== locale.value)
-})
 
 const signOut = () => {
   router.go(0)
@@ -33,19 +23,10 @@ watch(route, n => {
   displayProfileModal.value = false
   displayQuestionModal.value = false
   toggleMenu.value = false
-  toggleLangMenu.value = false
-})
-
-onMounted(() => {
-  currentLocale.value = localeProperties.value.name
 })
 
 onClickOutside(profileModal, () => {
   displayProfileModal.value = false
-})
-
-onClickOutside(langMenu, () => {
-  toggleLangMenu.value = false
 })
 </script>
 
@@ -181,37 +162,7 @@ onClickOutside(langMenu, () => {
                 </span>
               </nuxt-link>
             </div>
-            <div class="langWrapper">
-              <button 
-                v-if="!toggleLangMenu"
-                class="langButton flexRowCenter"
-                @click="toggleLangMenu = !toggleLangMenu"
-              >
-                {{ currentLocale }}
-                <SvgArrowDown/>
-              </button>
-              <button 
-                v-if="toggleLangMenu"
-                class="langButton flexRowCenter"
-              >
-                {{ currentLocale }}
-                <SvgArrowTop/>
-              </button>
-              <div 
-                v-if="toggleLangMenu"
-                class="langMenu dropdownMenuWrapper flexColumnStart"
-                ref="langMenu"
-              >
-                <nuxt-link
-                  v-for="locale in availableLocales"
-                  :key="locale.code"
-                  :to="switchLocalePath(locale.code)"
-                  class="Lang-link"
-                >
-                  {{ locale.name }}
-                </nuxt-link>
-              </div>
-            </div>
+          <GeneralLangMenu class="langMenuWrapperDefault"/>
           </div>
         </nav>
       </div>
@@ -262,4 +213,4 @@ onClickOutside(langMenu, () => {
 </template>
 
 <style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
-<style src="./MainMenu.scss" lang="scss" scoped></style>
+<style src="./MainMenu.scss" lang="scss"></style>

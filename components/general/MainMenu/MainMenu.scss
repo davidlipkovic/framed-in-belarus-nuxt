@@ -1,5 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "./Lang.scss";
+@import "../../../assets/style/dropdown.scss";
 
 .mainMenuWrapper {
   position: fixed;
@@ -11,25 +11,123 @@
   background-color: $black;
   color: $white;
   font-size: 1rem;
-}
 
-.content {
-  >* {
-    margin-top: auto;
-    margin-bottom: auto;
+  .content {
+    >* {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
   }
-}
 
-.menuButton {
-  display: flex;
-  margin-right: 8px;
+  .menuButton {
+    display: flex;
+    margin-right: 8px;
 
-  >div {
-    width: 1rem;
+    >div {
+      width: 1rem;
 
-    div {
-      background-color: $white;
-      height: 2px;
+      div {
+        background-color: $white;
+        height: 2px;
+      }
+    }
+  }
+
+
+  .logo-project {
+    color: $white;
+    line-height: 160%;
+    white-space: nowrap;
+  }
+
+  .menuContentWrapper, .langMenuWrapperDefault {
+    * {
+      color: $white;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .langMenuWrapperDefault {
+    .langMenu {
+      color: $black;
+    }
+  }
+
+  .menuLinksWrapper,
+  .menuUserLinksWrapper {
+    >*:hover {
+      color: $red;
+    }
+  }
+
+  .profileButton {
+    border-radius: 50%;
+    background-color: $white;
+    width: 30px;
+    height: 30px;
+
+    img {
+      width: 26px;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .profileMenuWrapper {
+    min-width: 304px;
+    top: 50px;
+
+    >span, >a {
+      width: auto;
+    }
+
+    img {
+      width: 81px;
+      height: auto;
+      margin: 40px auto 0;
+    }
+
+    .profileMenuWrapper__name {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      margin: 24px 18px 12px;
+    }
+
+    .profileMenuWrapper__profileLink,
+    .profileMenuWrapper__signOut {
+      width: 100%;
+      align-items: center;
+
+      span {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(0, 0, 0, 0.6);
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+
+    .profileMenuWrapper__profileLink:hover,
+    .profileMenuWrapper__signOut:hover {
+      background-color: $greyDisabledBg;
+    }
+
+    .profileMenuWrapper__profileLink {
+      border-top: 1px solid $greyDisabledBg;
+      border-bottom: 1px solid $greyDisabledBg;
+      min-height: 36px;
+    }
+
+    .profileMenuWrapper__signOut {
+      min-height: 42px;
     }
   }
 }
@@ -104,132 +202,6 @@
   }
 }
 
-.logo-project {
-  color: $white;
-  line-height: 160%;
-  white-space: nowrap;
-}
-
-// .langWrapper {
-//   display: none;
-// }
-
-.menuContentWrapper {
-  * {
-    color: $white;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-}
-
-.menuLinksWrapper,
-.menuUserLinksWrapper {
-  >*:hover {
-    color: $red;
-  }
-}
-
-.profileButton {
-  border-radius: 50%;
-  background-color: $white;
-  width: 30px;
-  height: 30px;
-
-  img {
-    width: 26px;
-    height: auto;
-    object-fit: cover;
-  }
-}
-
-.dropdownMenuWrapper {
-  position: fixed;
-  background-color: $white;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  z-index: 10;
-  overflow: hidden;
-
-  * {
-    color: $black;
-  }
-}
-
-.profileMenuWrapper {
-  min-width: 304px;
-  top: 50px;
-
-  >span, >a {
-    width: auto;
-  }
-
-  img {
-    width: 81px;
-    height: auto;
-    margin: 40px auto 0;
-  }
-
-  .profileMenuWrapper__name {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    margin: 24px 18px 12px;
-  }
-
-  .profileMenuWrapper__profileLink,
-  .profileMenuWrapper__signOut {
-    width: 100%;
-    align-items: center;
-
-    span {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 0.1px;
-      color: rgba(0, 0, 0, 0.6);
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-  }
-
-  .profileMenuWrapper__profileLink:hover,
-  .profileMenuWrapper__signOut:hover {
-    background-color: $greyDisabledBg;
-  }
-
-  .profileMenuWrapper__profileLink {
-    border-top: 1px solid $greyDisabledBg;
-    border-bottom: 1px solid $greyDisabledBg;
-    min-height: 36px;
-  }
-
-  .profileMenuWrapper__signOut {
-    min-height: 42px;
-  }
-}
-
-.langMenu {
-  top: 40px;
-
-  >* {
-    width: 100%;
-    border-bottom: 1px solid $greyBg;
-    padding: 2px 4px;
-  }
-
-  >*:hover {
-    background-color: $greyBg;
-  }
-
-  >*:last-child {
-    border-bottom: none;
-  }
-}
-
 @media screen and (min-width: $br-point-md) {
   .mainMenuWrapper {
     position: static;
@@ -296,16 +268,5 @@
 
   .profileButton {
     
-  }
-
-  .langButton {
-    svg {
-      width: 9px;
-      fill: none;
-      stroke: $white;
-      stroke-width: 2px;
-      margin-top: 4px;
-      margin-left: 3px;
-    }
   }
 }
