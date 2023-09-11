@@ -162,7 +162,7 @@ onClickOutside(profileModal, () => {
                 </span>
               </nuxt-link>
             </div>
-          <GeneralLangMenu class="langMenuWrapperDefault"/>
+            <GeneralLangMenu class="langMenuWrapperDefault"/>
           </div>
         </nav>
       </div>

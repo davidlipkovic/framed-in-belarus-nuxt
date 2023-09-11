@@ -1,21 +1,18 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
 .langMenu {
-  top: 40px;
+  top: 50px;
+  width: 65px;
+  padding: 5px 0;
 
   >* {
     width: 100%;
-    border-bottom: 1px solid $greyBg;
-    padding: 2px 4px;
+    padding: 4px 1rem;
     color: $black !important;
   }
 
   >*:hover {
     background-color: $greyBg;
-  }
-
-  >*:last-child {
-    border-bottom: none;
   }
 }
 
