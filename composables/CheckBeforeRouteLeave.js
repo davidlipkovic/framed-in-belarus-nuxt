@@ -9,8 +9,8 @@ export function useCheckBeforeRouteLeave() {
     showWarning.value = !checkbox.value.checked
   }
 
-  onBeforeRouteLeave(() => {
-    if (!checkbox.value.checked) {
+  onBeforeRouteLeave((to, from) => {
+    if (!checkbox.value.checked && to.path.includes('Profile')) {
       showWarning.value = true
       return false
     }
