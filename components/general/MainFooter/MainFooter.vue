@@ -1,7 +1,9 @@
 <script setup>
 import { useUserStore } from "@/stores/user"
+import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 
 const userStore = useUserStore()
+const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 </script>
 
 <template>
@@ -22,24 +24,28 @@ const userStore = useUserStore()
               <nuxt-link
                 :to="localePath('/')"
                 class="Info-menu-item"
+                :class="{ 'redImportatnt' : checkHomeRoute('/') }"
               >
                 {{ $t('links.home') }}
               </nuxt-link>
               <nuxt-link
                 :to="localePath('/Gallery')"
                 class="Info-menu-item"
+                :class="{ 'redImportatnt' : checkCurrentRoute('Gallery') }"
               >
                 {{ $t('links.gallery') }}
               </nuxt-link>
               <nuxt-link
                 :to="localePath('/News')"
                 class="Info-menu-item"
+                :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
               >
                 {{ $t('links.news') }}
               </nuxt-link>
               <nuxt-link
                 :to="localePath('/AboutUs')"
                 class="Info-menu-item"
+                :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
               >
                 {{ $t('links.aboutUs') }}
               </nuxt-link>

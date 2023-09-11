@@ -2,8 +2,10 @@
 import { onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
+import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 
 const userStore = useUserStore()
+const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 
 const route = useRoute()
 const router = useRouter()
@@ -66,29 +68,28 @@ onClickOutside(profileModal, () => {
           <div class="menuLinksWrapper flexColumnStart">
             <nuxt-link
               :to="localePath('/')"
+              :class="{ 'redImportatnt' : checkHomeRoute('/') }"
             >
               {{ $t('links.home') }}
             </nuxt-link>
             <nuxt-link
               :to="localePath('/Gallery')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('Gallery') }"
             >
               {{ $t('links.gallery') }}
             </nuxt-link>
             <nuxt-link
               :to="localePath('/News')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
             >
               {{ $t('links.news') }}
             </nuxt-link>
             <nuxt-link
               :to="localePath('/AboutUs')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link>
-  <!--          <nuxt-link -->
-  <!--            :to="localePath('/FAQ')" -->
-  <!--          >-->
-  <!--            {{ $t('links.FAQ') }}-->
-  <!--          </nuxt-link>-->
           </div>
           <div class="menuUserLinksWrapper flexRowCenter">
             <nuxt-link
