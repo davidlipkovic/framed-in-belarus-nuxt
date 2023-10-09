@@ -22,7 +22,7 @@ const slides = [
   <main class="Content FirstPage">
     <section class="content">
       <div class="ProjectDescr">
-        <h1 class="title logo-project">
+        <h1 class="title mainLogoWrapper">
           <svg
             width="33"
             height="39"

@@ -4,15 +4,16 @@
 .mainMenuWrapper {
   position: fixed;
   width: 100vw;
-  min-height: 3.75rem;
+  min-height: 46px;
   z-index: 200;
-  padding-top: 0.313rem;
-  padding-bottom: 0.313rem;
   background-color: $black;
   color: $white;
   font-size: 1rem;
 
   .content {
+    width: 100%;
+    height: 46px;
+
     >* {
       margin-top: auto;
       margin-bottom: auto;
@@ -21,26 +22,26 @@
 
   .menuButton {
     display: flex;
-    margin-right: 8px;
 
     >div {
-      width: 1rem;
-
       div {
         background-color: $white;
-        height: 2px;
       }
     }
   }
 
+  .mainMenuTopWrapper {
+    height: 100%;
+  }
 
-  .logo-project {
+  .mainLogoWrapper {
     color: $white;
     line-height: 160%;
     white-space: nowrap;
+    margin-top: 3px;
   }
 
-  .menuContentWrapper, .langMenuWrapperDefault {
+  .menuContentWrapper, .langMenuWrapper {
     * {
       color: $white;
       font-size: 1rem;
@@ -48,7 +49,7 @@
     }
   }
 
-  .langMenuWrapperDefault {
+  .langMenuWrapper {
     .langMenu {
       color: $black;
     }
@@ -61,16 +62,65 @@
     }
   }
 
+  .menuLinksWrapper {
+    order: 2;
+    padding: 0 24px 4px;
+    border-bottom: 0.5px solid $greyDisabledBg;
+    width: 100%;
+
+    >* {
+      margin: 15px 0;
+    }
+  }
+
+  .menuUserLinksWrapper {
+    order: 1;
+    width: 100%;
+    padding: 12px 23px;
+    align-items: center;
+    border-bottom: 0.5px solid $greyDisabledBg;
+  }
+
+  .langMenuWrapper {
+    order: 3;
+    padding: 14px 24px;
+    position: relative;
+
+    .langButton svg{
+      width: 1rem;
+      height: 1rem;
+      margin-left: 15px;
+      stroke-width: 2px;
+      stroke-linecap: round;
+    }
+
+    .dropdownMenuWrapper {
+      position: absolute;
+    }
+  }
+
   .profileButton {
-    border-radius: 50%;
-    background-color: $white;
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    justify-content: start;
+
+    div {
+      border-radius: 50%;
+      background-color: $white;
+      width: 55px;
+      height: 55px;
+    }
 
     img {
-      width: 26px;
+      width: 48px;
       height: auto;
       object-fit: cover;
+    }
+
+    span {
+      margin-left: 18px;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-weight: 500;
     }
   }
 
@@ -88,23 +138,22 @@
       margin: 40px auto 0;
     }
 
-    .profileMenuWrapper__name {
+    .profileMenuWrapperName {
       font-family: 'Roboto';
-      font-style: normal;
       font-weight: 500;
       font-size: 20px;
       line-height: 24px;
       margin: 24px 18px 12px;
+      color: $black;
     }
 
-    .profileMenuWrapper__profileLink,
-    .profileMenuWrapper__signOut {
+    .profileMenuWrapperProfileLink,
+    .profileMenuWrapperSignOut {
       width: 100%;
       align-items: center;
 
       span {
         font-family: 'Roboto';
-        font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
@@ -115,34 +164,60 @@
       }
     }
 
-    .profileMenuWrapper__profileLink:hover,
-    .profileMenuWrapper__signOut:hover {
+    .profileMenuWrapperProfileLink:hover,
+    .profileMenuWrapperSignOut:hover {
       background-color: $greyDisabledBg;
     }
 
-    .profileMenuWrapper__profileLink {
-      border-top: 1px solid $greyDisabledBg;
-      border-bottom: 1px solid $greyDisabledBg;
+    .profileMenuWrapperProfileLink {
+      border-top: 0.5px solid $greyDisabledBg;
+      border-bottom: 0.5px solid $greyDisabledBg;
       min-height: 36px;
     }
 
-    .profileMenuWrapper__signOut {
+    .profileMenuWrapperSignOut {
       min-height: 42px;
     }
+  }
+
+  .langMenuWrapper {
+    svg {
+      fill: none;
+    }
+  }
+
+  .participateButtonMobile {
+    order: 4;
+    margin: 14px auto 0;
+    width: calc(100% - 45px);
   }
 }
 
 .mainMenuWrapperOpened {
   z-index: 200;
 
+  .mainMenuTopWrapper {
+    justify-content: space-between;
+    width: 290px;
+    background-color: $greyDark3;
+    border-bottom: 0.5px solid $greyDisabledBg;
+  }
+
   .menuButton {
+    order: 2;
+    margin-right: 23px;
+
     >div {
       position: relative;
+      width: 1rem;
+      height: 1rem;
 
       div {
         position: absolute;
         top: 0;
         width: 1.2rem;
+        height: 2px;
+        margin-top: 7px;
       }
 
       div:nth-child(1) {
@@ -157,11 +232,16 @@
     }
   }
 
+  .mainLogoWrapper {
+    order: 1;
+    margin-left: 24px;
+  }
+
   .menuContentWrapper {
     display: flex;    
     position: fixed;
     left: 0;
-    top: 37px;
+    top: 46px;
     height: calc(100vh - 37px);
 
     .menuContentBackground {
@@ -178,95 +258,181 @@
     .menuAllLinksWrapper {
       position: relative;
       z-index: 202;
-      background-color: $black;
-      min-width: 50vw;
-      width: auto;
+      background-color: $greyDark3;
+      width: 290px;
       height: 100%;
-      padding-left: 50px;
+    }
+  }
+
+  .langMenuWrapper {
+    svg {
+      stroke: $white;
     }
   }
 }
 
 .mainMenuWrapperClosed {
+  .mainMenuTopWrapper {
+    width: calc(100% - 34px);
+  }
+
   .menuButton {
+    order: 1;
+    margin-left: 10px;
+
     >div {
+      width: 24px;
+
       div {
         margin: 2px auto;
-        width: 1rem;
+        width: 24px;
+        height: 4px;
       }
     }
   }
-
-  .menuContentWrapper {
-    display: none;
+  
+  .mainLogoWrapper {
+    order: 2;
+    margin: 3px auto 0;
   }
+}
+
+.mainMenuWrapper .helpButtonDesktop,
+.mainMenuWrapperClosed .menuContentWrapper,
+.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper {
+  display: none;
 }
 
 @media screen and (min-width: $br-point-md) {
   .mainMenuWrapper {
     position: static;
     padding: 12px 0 10px;
-  }
+    min-height: 3.75rem;
+    padding-top: 0.313rem;
+    padding-bottom: 0.313rem;
 
-  .menuButton {
-    display: none;
-  }
-
-  .mainMenuWrapperClosed {
-    .menuContentWrapper {
-      display: block;
-    }
-  }
-
-  .menuContentWrapper {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: -2px;
-    margin-left: 26px;
-  }
-
-  .menuContentBackground {
-    display: none;
-  }
-
-  .menuAllLinksWrapper {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .menuLinksWrapper {
-    flex-direction: row;
-    align-items: center;
-
-    a {
-      margin-right: 26px;
+    .menuButton, 
+    .menuContentBackground, 
+    .signInMobile, 
+    .helpButtonMobile, 
+    .participateButtonMobile,
+    .profileButton span,
+    .signOutMobile {
+      display: none;
     }
 
-    a:last-child {
-      margin-right: 26px;
+    .content {
+      width: calc(100vw - 2rem);
     }
-  }
-
-  .menuUserLinksWrapper {
-    >* {
-      margin-right: 23px;
-    }
-
-    >*:last-child {
-      margin-right: 5px;
-    }
-  }
-
-  .helpButton {
-    svg {
-      fill: none;
-    }
-  }
-
-  .profileButton {
     
+    .mainMenuTopWrapper {
+      width: auto;
+    }
+
+    .mainLogoWrapper {
+      order: 1;
+    }
+
+    .mainMenuWrapperClosed {
+      .menuContentWrapper {
+        display: block;
+      }
+    }
+
+    .menuContentWrapper {
+      order: 2;
+      top: 60px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 26px;
+
+    }
+
+    .menuAllLinksWrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-right: 7px;
+    }
+    
+    .menuLinksWrapper {
+      order: 1;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      border: unset;
+      margin: -2px 0 0;
+
+      >* {
+        margin: 0;
+        margin-right: 26px;
+        text-wrap: nowrap;
+      }
+    }
+
+    .menuUserLinksWrapper {
+      order: 2;
+      margin-left: auto;
+      padding: 0;
+      border: unset;
+      justify-content: flex-end;
+      width: auto;
+
+      >* {
+        margin-right: 24px;
+        text-wrap: nowrap;
+      }
+
+      .participateButton {
+        padding: 8px 13px;
+      }
+    }
+
+    .langMenuWrapper {
+      padding: 0;
+  
+      .langButton svg{
+        width: 9px;
+        height: 9px;
+        margin-left: 3px;
+      }
+
+      .langMenu {
+        top: 30px;
+      }
+    }
+
+    .helpButtonDesktop {
+      display: inline-flex;
+
+      svg {
+        fill: none;
+      }
+    }
+
+    .profileButton {
+      justify-content: flex-end;
+
+      div {
+        width: 30px;
+        height: 30px;
+      }
+
+      img {
+        width: 26px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .mainMenuWrapper {
+    .content {
+      width: 69.375rem;
+    }
   }
 }

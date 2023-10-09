@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
+import { useWindowSize } from '@vueuse/core'
 
 const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
@@ -14,6 +15,7 @@ const displayProfileModal = ref(false)
 const displayQuestionModal = ref(false)
 const profileModal = ref(null)
 const toggleMenu = ref(false)
+const { width } = useWindowSize()
 
 const signOut = () => {
   router.go(0)
@@ -27,6 +29,12 @@ watch(route, n => {
   toggleMenu.value = false
 })
 
+watch(width, n => {
+  if (n > 800) {
+    toggleMenu.value = false
+  }
+})
+
 onClickOutside(profileModal, () => {
   displayProfileModal.value = false
 })
@@ -35,30 +43,37 @@ onClickOutside(profileModal, () => {
 <template>
   <header 
     class="mainMenuWrapper flexRowCenter"
-    :class="toggleMenu ? 'mainMenuWrapperOpened' : 'mainMenuWrapperClosed'"
+    :class="{
+      'mainMenuWrapperOpened' : toggleMenu,
+      'mainMenuWrapperClosed' : !toggleMenu,
+      'mainMenuWrapperLogged' : userStore.isLogged,
+      'mainMenuWrapperNotLogged' : !userStore.isLogged
+    }"
   >
     <div class="content flexRowStart">
-      <button 
-        class="menuButton"
-        @click="toggleMenu = !toggleMenu"
-      >
-        <div 
-          v-if="!toggleMenu"
-          class="menuButtonOpen flexColumnCenter"
+      <div class="mainMenuTopWrapper flexRowCenter">
+        <button 
+          class="menuButton"
+          @click="toggleMenu = !toggleMenu"
         >
-          <div/>
-          <div/>
-          <div/>
-        </div>
-        <div 
-          v-if="toggleMenu"
-          class="menuButtonClose flexColumnCenter"
-        >
-          <div/>
-          <div/>
-        </div>
-      </button>
-      <GeneralMainLogo/>
+          <div 
+            v-if="!toggleMenu"
+            class="menuButtonOpen flexColumnCenter"
+          >
+            <div/>
+            <div/>
+            <div/>
+          </div>
+          <div 
+            v-if="toggleMenu"
+            class="menuButtonClose flexColumnCenter"
+          >
+            <div/>
+            <div/>
+          </div>
+        </button>
+        <GeneralMainLogo/>
+      </div>
       <div class="menuContentWrapper flexColumnStart">
         <div 
           class="menuContentBackground"
@@ -90,8 +105,30 @@ onClickOutside(profileModal, () => {
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link>
+            <nuxt-link
+              v-if="!userStore.isLogged"
+              :to="localePath('/SignIn')"
+              class="signInMobile"
+            >
+              {{ $t('links.signIn') }}
+            </nuxt-link>
+            <button
+              v-if="userStore.isLogged"
+              class="helpButtonMobile flexRowCenter"
+              @click="displayQuestionModal = !displayQuestionModal"
+            >
+              Ask a question
+            </button>
+            <nuxt-link
+              v-if="userStore.isLogged"
+              :to="localePath('/')"
+              @click.prevent="signOut()"
+              class="signOutMobile"
+            >
+              {{ $t('links.signOut') }}
+            </nuxt-link>
           </div>
-          <div class="menuUserLinksWrapper flexRowCenter">
+          <div class="menuUserLinksWrapper flexRowStart">
             <nuxt-link
               v-if="!userStore.isLogged"
               :to="localePath('/SignIn')"
@@ -102,13 +139,13 @@ onClickOutside(profileModal, () => {
             <nuxt-link
               v-if="!userStore.isLogged"
               :to="localePath('/SignUp')"
-              class="button bg_red"
+              class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
             <button
               v-if="userStore.isLogged"
-              class="helpButton flexRowCenter"
+              class="helpButtonDesktop flexRowCenter"
               @click="displayQuestionModal = !displayQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
@@ -120,17 +157,27 @@ onClickOutside(profileModal, () => {
               @click="displayProfileModal = true"
               v-tooltip="$t('toolTips.profile')"
             >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.currentUser.name }}
+              </span>
             </button>
             <button
               v-if="userStore.isLogged && displayProfileModal"
               class="profileButton flexRowCenter"
             >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.currentUser.name }}
+              </span>
             </button>
             <div
               v-if="displayProfileModal"
@@ -141,13 +188,13 @@ onClickOutside(profileModal, () => {
                 src="../../../assets/media/img/profileSymbolFramed.svg"
               >
               <span
-                class="profileMenuWrapper__name"
+                class="profileMenuWrapperName"
               >
-                Tiffany Chin
+                {{ userStore.currentUser.name }}
               </span>
               <nuxt-link
                 :to="localePath('/Profile')"
-                class="profileMenuWrapper__profileLink flexRowStart"
+                class="profileMenuWrapperProfileLink flexRowStart"
               >
                 <span>
                   {{ $t('links.profile') }}
@@ -155,7 +202,7 @@ onClickOutside(profileModal, () => {
               </nuxt-link>
               <nuxt-link
                 :to="localePath('/')"
-                class="profileMenuWrapper__signOut flexRowStart"
+                class="profileMenuWrapperSignOut flexRowStart"
                 @click.prevent="signOut()"
               >
                 <span>
@@ -163,8 +210,14 @@ onClickOutside(profileModal, () => {
                 </span>
               </nuxt-link>
             </div>
-            <GeneralLangMenu class="langMenuWrapperDefault"/>
           </div>
+          <GeneralLangMenu/>
+          <nuxt-link
+            :to="localePath('/SignUp')"
+            class="participateButton participateButtonMobile button bg_red"
+          >
+            {{ $t('links.participate') }}
+          </nuxt-link>
         </nav>
       </div>
     </div>
