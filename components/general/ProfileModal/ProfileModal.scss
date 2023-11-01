@@ -1,0 +1,57 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.profileModalWrapper {
+  min-width: 304px;
+  top: 50px;
+
+  >span, >a {
+    width: auto;
+  }
+
+  img {
+    width: 81px;
+    height: auto;
+    margin: 40px auto 0;
+  }
+
+  .profileModalWrapperName {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 24px 18px 12px;
+    color: $black;
+  }
+
+  .profileModalWrapperProfileLink,
+  .profileModalWrapperSignOut {
+    width: 100%;
+    align-items: center;
+
+    span {
+      font-family: 'Roboto';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.1px;
+      color: rgba(0, 0, 0, 0.6);
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .profileModalWrapperProfileLink:hover,
+  .profileModalWrapperSignOut:hover {
+    background-color: $greyDisabledBg;
+  }
+
+  .profileModalWrapperProfileLink {
+    border-top: 0.5px solid $greyDisabledBg;
+    border-bottom: 0.5px solid $greyDisabledBg;
+    min-height: 36px;
+  }
+
+  .profileModalWrapperSignOut {
+    min-height: 42px;
+  }
+}
