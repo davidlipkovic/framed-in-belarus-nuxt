@@ -11,21 +11,14 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const route = useRoute()
 const router = useRouter()
 
-const displayProfileModal = ref(false)
-const displayQuestionModal = ref(false)
-const profileModal = ref(null)
+const toggleProfileModal = ref(false)
+const toggleQuestionModal = ref(false)
 const toggleMenu = ref(false)
 const { width } = useWindowSize()
 
-const signOut = () => {
-  router.go(0)
-  userStore.isLogged = false
-  displayProfileModal.value = false
-}
-
 watch(route, n => {
-  displayProfileModal.value = false
-  displayQuestionModal.value = false
+  toggleProfileModal.value = false
+  toggleQuestionModal.value = false
   toggleMenu.value = false
 })
 
@@ -33,10 +26,6 @@ watch(width, n => {
   if (n > 800) {
     toggleMenu.value = false
   }
-})
-
-onClickOutside(profileModal, () => {
-  displayProfileModal.value = false
 })
 </script>
 
@@ -115,7 +104,7 @@ onClickOutside(profileModal, () => {
             <button
               v-if="userStore.isLogged"
               class="helpButtonMobile flexRowCenter"
-              @click="displayQuestionModal = !displayQuestionModal"
+              @click="toggleQuestionModal = !toggleQuestionModal"
             >
               Ask a question
             </button>
@@ -146,15 +135,16 @@ onClickOutside(profileModal, () => {
             <button
               v-if="userStore.isLogged"
               class="helpButtonDesktop flexRowCenter"
-              @click="displayQuestionModal = !displayQuestionModal"
+              @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged && !displayProfileModal"
+              v-if="userStore.isLogged"
               class="profileButton flexRowCenter"
-              @click="displayProfileModal = true"
+              :class="{'pointer-events-none': toggleProfileModal}"
+              @click="toggleProfileModal = !toggleProfileModal"
               v-tooltip="$t('toolTips.profile')"
             >
               <div class="flexRowCenter">
@@ -166,50 +156,11 @@ onClickOutside(profileModal, () => {
                 {{ userStore.currentUser.name }}
               </span>
             </button>
-            <button
-              v-if="userStore.isLogged && displayProfileModal"
-              class="profileButton flexRowCenter"
-            >
-              <div class="flexRowCenter">
-                <img
-                  src="../../../assets/media/img/profileSymbolFramed.svg"
-                >
-              </div>
-              <span>
-                {{ userStore.currentUser.name }}
-              </span>
-            </button>
-            <div
-              v-if="displayProfileModal"
-              ref="profileModal"
-              class="profileMenuWrapper dropdownMenuWrapper flexColumnStart"
-            >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
-              <span
-                class="profileMenuWrapperName"
-              >
-                {{ userStore.currentUser.name }}
-              </span>
-              <nuxt-link
-                :to="localePath('/Profile')"
-                class="profileMenuWrapperProfileLink flexRowStart"
-              >
-                <span>
-                  {{ $t('links.profile') }}
-                </span>
-              </nuxt-link>
-              <nuxt-link
-                :to="localePath('/')"
-                class="profileMenuWrapperSignOut flexRowStart"
-                @click.prevent="signOut()"
-              >
-                <span>
-                  {{ $t('links.signOut') }}
-                </span>
-              </nuxt-link>
-            </div>
+            <GeneralProfileModal
+              v-if="toggleProfileModal"
+              class="profileModalHeader"
+              @closeModal="toggleProfileModal = !toggleProfileModal"
+            />
           </div>
           <GeneralLangMenu/>
           <nuxt-link
@@ -222,48 +173,10 @@ onClickOutside(profileModal, () => {
       </div>
     </div>
   </header>
-  <GeneralModal
-    @closeModal="displayQuestionModal = false"
-    :displayModal="displayQuestionModal"
-    class="questionModal"
-  >
-    <div class="Settings content">
-      <div class="Settings-header">
-        <h2>
-          {{ $t('mainMenu.question.label') }}
-        </h2>
-      </div>
-      <div class="Settings-body">
-        <div class="Settings-item Settings-item_reason">
-          <div class="Settings-item-main">
-            <label for="reason" class="Settings-item-title">
-              {{ $t('mainMenu.question.label') }}
-            </label>
-            <textarea class="Settings-item-input" id="reason" name="reason" />
-            <p class="textAreaDescription">
-              {{ $t('mainMenu.question.content') }}
-            </p>
-          </div>
-        </div>
-        <div class="Settings-item Settings-item_buttons">
-          <div class="Settings-item-main">
-            <button 
-              class="button" 
-              @click="displayQuestionModal = false"
-            >
-              {{ $t('buttons.cancel') }}
-            </button>
-            <button 
-              class="button bg_black"
-              @click="displayQuestionModal = false"
-            >
-              {{ $t('buttons.send') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </GeneralModal>
+  <GeneralQuestionModal
+    :displayModal="toggleQuestionModal"
+    @closeModal="toggleQuestionModal = !toggleQuestionModal"
+  />
 </template>
 
 <style src="../../../assets/style/settings.scss" lang="scss" scoped></style>

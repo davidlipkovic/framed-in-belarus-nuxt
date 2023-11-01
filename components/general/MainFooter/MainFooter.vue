@@ -1,21 +1,51 @@
 <script setup>
+import { onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 
 const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
+
+const route = useRoute()
+const router = useRouter()
+
+const toggleProfileModal = ref(false)
+const toggleQuestionModal = ref(false)
+
+watch(route, n => {
+  toggleProfileModal.value = false
+  toggleQuestionModal.value = false
+})
 </script>
 
 <template>
-  <footer class="Footer">
-    <div class="bg_black">
+  <footer class="Footer mainFooterWrapper">
+    <div class="bg_black flexRowCenter">
       <div class="content Info">
         <div class="Info-project">
           <GeneralMainLogo/>
-          <a href="mailto:framedinbelarus@gmail.com" class="Info-Project-email">framedinbelarus@gmail.com</a>
+          <a 
+            href="mailto:framedinbelarus@gmail.com" 
+            class="Info-Project-email"
+          >
+            framedinbelarus@gmail.com
+          </a>
           <div class="Info-Project-social">
-            <a href="https://www.facebook.com/hashtag/framedinbelarus" target="_blank" class="Facebook"><img src="@/assets/media/img/facebook.svg" alt="Facebook"></a>
-            <a href="https://www.instagram.com/rufinabazlova/?hl=en" target="_blank" class="Instagram"><img src="@/assets/media/img/instagram.svg" alt="Instagram"></a>
+            <a 
+              href="https://www.facebook.com/hashtag/framedinbelarus" 
+              target="_blank" 
+              class="Facebook"
+            >
+              <SvgFacebook/>
+            </a>
+            <a 
+              href="https://www.instagram.com/rufinabazlova/?hl=en" 
+              target="_blank" 
+              class="Instagram"
+            >
+              <SvgInstagram/>
+            </a>
           </div>
         </div>
         <nav class="Info-menu">
@@ -49,20 +79,8 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
               >
                 {{ $t('links.aboutUs') }}
               </nuxt-link>
-              <!-- <nuxt-link
-                :to="localePath('/FAQ')"
-                class="Info-menu-item"
-              >
-                {{ $t('links.FAQ') }}
-              </nuxt-link> -->
             </div>
             <div class="Info-menu-group">
-<!--              <nuxt-link-->
-<!--                :to="localePath('/SignIn')" -->
-<!--                class="Info-menu-item Login"-->
-<!--              >-->
-<!--                {{ $t('links.signIn') }} -->
-<!--              </nuxt-link>-->
             </div>
           </div>
           <div class="Info-menu-group flexRowCenter">
@@ -73,25 +91,44 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
             >
               {{ $t('links.participate') }}
             </nuxt-link>
-            <img
+            <button
               v-if="userStore.isLogged"
-              src="../../../assets/media/img/help-circle.svg"
-              class="Info-menu-item"
+              class="Info-menu-item flexRowCenter"
+              @click="toggleQuestionModal = !toggleQuestionModal"
+              v-tooltip="$t('mainMenu.question.label')"
             >
-            <nuxt-link
+              <SvgHelpCircle/>
+            </button>
+            <button
               v-if="userStore.isLogged"
-              :to="localePath('/Profile')"
-              class="Info-menu-item profileLink flexRowCenter"
+              class="profileButton flexRowCenter"
+              :class="{'pointer-events-none': toggleProfileModal}"
+              @click="toggleProfileModal = !toggleProfileModal"
+              v-tooltip="$t('toolTips.profile')"
             >
-              <img
-                src="../../../assets/media/img/profileSymbolFramed.svg"
-              >
-            </nuxt-link>
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.currentUser.name }}
+              </span>
+            </button>
+            <GeneralProfileModal
+              v-if="toggleProfileModal"
+              class="profileModalFooter"
+              @closeModal="toggleProfileModal = !toggleProfileModal"
+            />
           </div>
         </nav>
       </div>
     </div>
   </footer>
+  <GeneralQuestionModal
+    :displayModal="toggleQuestionModal"
+    @closeModal="toggleQuestionModal = !toggleQuestionModal"
+  />
 </template>
 
 <style src="./MainFooter.scss" lang="scss"></style>
