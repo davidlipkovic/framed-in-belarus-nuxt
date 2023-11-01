@@ -3,6 +3,7 @@
 .profileContent {
   display: flex;
   flex-direction: column;
+  align-items: center;
   
   .userProfile {
     order: 2;
@@ -17,9 +18,9 @@
   padding: 30px 0 24px;
   background-color: $white;
   border-radius: 6px;
-  box-shadow: $defaultShadow;
   width: 100%;
   margin: 0 auto 2.5rem;
+  border: 1px solid $grey1;
 }
 
 .userProfile-header {  
@@ -65,7 +66,7 @@
 .embroideryCards {
   display: grid;
   max-width: 11.688rem;
-  margin: 0 auto 3.75rem;
+  margin: 0 0 3.75rem;
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
@@ -84,9 +85,9 @@
   }
 
   .embroideryCards {
-    max-width: calc(11.688rem * 3 + 22px * 2);
+    max-width: calc(190px * 3 + 24px * 2);
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 24px;
   }
 }
 
@@ -107,7 +108,7 @@
 
   .userProfile {
     width: 21.75rem;
-    margin: -161px 2.063rem 2.5rem 0;
+    margin: -161px 31px 2.5rem 0;
     position: relative;
   }
 }

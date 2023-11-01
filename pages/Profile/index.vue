@@ -24,6 +24,9 @@ const user = {
         <span class="subtitle">
           {{ $t('profilePage.subTitle') }}
         </span>
+        <span>
+          &nbsp;&nbsp;
+        </span>
         {{ $t('profilePage.title') }}
       </h1>
     </div>
@@ -62,11 +65,15 @@ const user = {
         />
         <RegistrationEmbroideryCard
           :newEmbroidery="false"
-          :status="{type: 'inProgress', message: 'In Progress  Step 3'}"
+          :status="{type: 'InProgress', message: 'In Progress  Step 3'}"
         />
         <RegistrationEmbroideryCard
           :newEmbroidery="false"
-          :status="{type: 'published', message: 'Published'}"
+          :status="{type: 'Published', message: 'Published'}"
+        />
+        <RegistrationEmbroideryCard
+          :newEmbroidery="false"
+          :status="{type: 'Published', message: 'Published'}"
         />
       </section>
     </div>
@@ -83,22 +90,59 @@ const user = {
         <div class="Settings-body">
           <div class="Settings-item">
             <div class="Settings-item-main">
-              <label for="nickname" class="Settings-item-title">
-                Pseudonym / Nickname
+              <label 
+                for="username" 
+                class="Settings-item-title"
+              >
+                Username
               </label>
               <input 
                 type="text" 
                 value="" 
-                placeholder="Your pseudonym / nickname" 
+                placeholder="Enter name which we will use to communicate " 
                 class="Settings-item-input" 
-                id="nickname" 
-                name="nickname"
+                id="username" 
+                name="username"
               >
               <p class="Settings-item-publish">
-                <label for="reasonPublish">
+                <label for="publishUsername">
                   Publish
                 </label>
-                <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
+                <input 
+                  type="checkbox" 
+                  name="publishUsername" 
+                  id="publishUsername" 
+                  class="switcher"
+                >
+              </p>
+            </div>
+          </div>
+          <div class="Settings-item">
+            <div class="Settings-item-main">
+              <label 
+                for="pseudonym" 
+                class="Settings-item-title"
+              >
+                Pseudonym
+              </label>
+              <input 
+                type="text" 
+                value="" 
+                placeholder="Enter name we will use for presenting your work" 
+                class="Settings-item-input" 
+                id="pseudonym" 
+                name="pseudonym"
+              >
+              <p class="Settings-item-publish">
+                <label for="publishPseudonym">
+                  Publish
+                </label>
+                <input 
+                  type="checkbox" 
+                  name="publishPseudonym" 
+                  id="publishPseudonym" 
+                  class="switcher"
+                >
               </p>
             </div>
           </div>

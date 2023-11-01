@@ -20,12 +20,16 @@
 }
 
 .Settings-item {
-  padding: 24px 2.25rem 1.125rem;
+  padding: 24px 2.25rem 4px;
 }
 
 .Settings-item_reason {
-  padding: 12px 2.25rem 1.125rem;
+  padding: 14px 2.25rem 1.125rem;
   border-bottom: 1px solid $borderLight;
+}
+
+.Settings-item_buttons {
+  padding: 16px 2.25rem 18px;
 }
 
 .Settings-item-main {
@@ -44,14 +48,15 @@
 }
 
 .Settings-item-publish {
-  margin-top: 10px;
+  margin-top: 13px;
 
   label {
-    margin-right: 1.125rem;
+    margin-right: 14px;
     font-size: 0.875rem;
   }
 
   .switcher {
+    cursor: pointer;
     background: $borderLight;
     border-radius: 7px;
     width: 2.125rem;

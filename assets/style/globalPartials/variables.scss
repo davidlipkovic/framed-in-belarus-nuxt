@@ -20,8 +20,16 @@ $greyTransparentBG: rgba(24, 24, 24, 0.75);
 $borderLight: #E0E0E0;
 $bgSpoiler: #F8F8F8;
 $lime: #27AE60; /*alert Info */
-$embroideryCardStasusProgress: #F2994A;
-$embroideryCardStasusFinish: #219653;
+
+// embroideryCard statuses
+$embroideryCardStasusInProgress: #E4791A;
+$embroideryCardStasusPatternReady: #2D9CDB;
+$embroideryCardStasusStitched: #2F80ED;
+$embroideryCardStasusSent: #009F9F;
+$embroideryCardStasusPublished: #219653;
+$embroideryCardStasusDelivered: #B812BB;
+$embroideryCardStasusRequested: #9B51E0;
+
 $defaultShadow: 0 8px 10px rgba(0,0,0,0.2);
 $orange: #EC801F;
 

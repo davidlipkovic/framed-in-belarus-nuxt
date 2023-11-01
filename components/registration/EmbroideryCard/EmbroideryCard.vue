@@ -8,11 +8,16 @@ const props = defineProps({
   },
   status: {
     type: Object,
-    default: {
-      type: '',
-      message: ''
-    }
+    default: null
   },
+})
+
+const disabled = computed(() => {
+  return false
+})
+
+const error = computed(() => {
+  return false
 })
 </script>
 
@@ -20,8 +25,8 @@ const props = defineProps({
   <nuxt-link
     v-if="newEmbroidery"
     :to="localePath('/Embroidery/Step-1-choose-hero')"
-    class="embroideryCard embroideryCard_new flexColumnCenter"
-    :class="''"
+    class="embroideryCard embroideryCardNew flexColumnCenter"
+    :class="{'embroideryCardNewDisabled': disabled}"
   >
     <div class="plusButtonWrapper flexRowCenter">
       <SvgPlus/>
@@ -38,17 +43,20 @@ const props = defineProps({
     <img 
       src="../../../assets/media/img/case1/prisoner.jpg" 
       alt="Name Surname" 
-      class="embroideryCard-img"
+      class="embroideryCardImg"
     >
-    <p class="embroideryCard-name">
-      Maryia Kalesnikava
-    </p>
     <span
-      class="embroideryCard-status"
-      :class="'embroideryCard-status_' + status.type"
+      class="embroideryCardStatus"
+      :class="'embroideryCardStatus' + status.type"
     >
       {{ status.message }}
     </span>
+    <p class="embroideryCardName">
+      <SvgWarning 
+        v-if="error"
+      />
+      Maryia Kalesnikava
+    </p>
   </nuxt-link>
 </template>
 
