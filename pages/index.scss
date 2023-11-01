@@ -25,7 +25,7 @@
 .ProjectDescr {
   margin-bottom: 65px;
 
-  .logo-project {
+  .mainLogoWrapper {
     margin-bottom: 0.5rem;
 
     .firstSymbol {
@@ -151,7 +151,7 @@
 /* Desktop */
 @media screen and (min-width: $br-point-lg) {
   .ProjectDescr {
-    .logo-project {
+    .mainLogoWrapper {
       margin-top: 10px;
 
       .text {
