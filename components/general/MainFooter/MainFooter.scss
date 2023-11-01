@@ -12,6 +12,12 @@
   margin-bottom: 0;
 }
 
+.helpButtonDesktop {
+  svg {
+    fill: none;
+  }
+}
+
 .mainFooterWrapper {
   .bg_black {
     padding-top: 1.5rem;
@@ -54,6 +60,10 @@
 
   a:last-child {
     margin-right: 0;
+  }
+
+  svg {
+    fill: none;
   }
 }
 

@@ -93,7 +93,7 @@ watch(route, n => {
             </nuxt-link>
             <button
               v-if="userStore.isLogged"
-              class="Info-menu-item flexRowCenter"
+              class="Info-menu-item helpButtonDesktop flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
