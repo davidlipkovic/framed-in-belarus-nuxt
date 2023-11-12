@@ -1,12 +1,113 @@
 <script setup>
+import { onMounted, ref, watch } from 'vue'
+
+import { useHeroesStore } from "@/stores/heroes"
+
+const heroesStore = useHeroesStore();
+
 const slides = [
-  {alt: "Ala Lapatka"},
-  {alt: "Siarhey Hatskevich"}
+  {alt: ""},
+  {alt: ""},
+  {alt: ""},
+  {alt: ""},
+  {alt: ""},
 ]
+
+const currentSlider = ref(0)
+const showGallerySwiper = ref(false)
+
+const handleGallerySwiper = (i) => {
+  showGallerySwiper.value = true
+  currentSlider.value = i
+}
+
+// WIP
+const localHero = computed(() => {
+  return {
+    "id": 215,
+    "url": "https://prisoners.spring96.org/en/person/maryja-kalesnikava",
+    "name": "Maryia Kalesnikava",
+    "status": "active",
+    "gender": "female",
+    "photo": "https://spring96.org/files/images/kalesnikava.jpg",
+    "description": "member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka, sentenced to 11 years in prison",
+    "birthday": "24 April 1982",
+    "arrested": "7 September 2020",
+    "articles/0": "Art. 361 of the Criminal Code — Calls for actions aimed at causing harm to the national security of the Republic of Belarus",
+    "articles/1": "Art. 357 of the Criminal Code — Conspiracy to seize power in an unconstitutional way",
+    "articles/2": "Art. 361-1 of the Criminal Code — Creation of an extremist formation, or participation in it",
+    "articles/3": "",
+    "prison/title": "Penal colony No. 4",
+    "prison/address": "246035, Homieĺ, vulica Antoshkina 3",
+    "declaration": "https://spring96.org/en/news/99460",
+    "decision": "11 years",
+    "penalty": "imprisonment in a general-security penal colony",
+    "judge": "Siarhei Yepikhau",
+    "councel": "",
+    "penalty_start_date": "",
+    "release_date": "",
+    "verdict_date": "6 September 2021",
+    "appeal_date": "24 December 2021",
+    "articles": "",
+    "prison": "",
+    "articles/4": "",
+    "articles/5": "",
+    "articles/6": "",
+    "articles/7": "",
+    "articles/8": "",
+    "articles/9": "",
+    "articles/10": "",
+    "articles/11": "",
+    "articles/12": ""
+  }
+})
+
+// WIP
+const author = {
+  comment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
+  reason: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
+}
+
+const showMoreComment = ref(false)
+const showMoreReason = ref(false)
+
+const buttonComment = computed(() => {
+  if (showMoreComment.value) {
+    return 'Show less'
+  } else {
+    return 'Show more'
+  }
+})
+
+const buttonReason = computed(() => {
+  if (showMoreReason.value) {
+    return 'Show less'
+  } else {
+    return 'Show more'
+  }
+})
+
+const messageComment = computed(() => {
+  if (showMoreComment.value) {
+    return author.comment
+  } else {
+    const truncate = author.comment.slice(0, 220)
+    return truncate + '...'
+  }
+})
+
+const messageReason = computed(() => {
+  if (showMoreReason.value) {
+    return author.reason
+  } else {
+    const truncate = author.reason.slice(0, 220)
+    return truncate + '...'
+  }
+})
 </script>
 
 <template>
-  <main class="Content">
+  <main class="Content galleryCaseWrapper">
     <div class="Title">
       <div class="content">
         <h1>
@@ -19,90 +120,72 @@ const slides = [
     <div class="content">
       <article>
         <GeneralSwiper 
+          class="galleryCaseSwiper"
           :slides="slides"
         />
-        <p>
-          <br>
-          <br>
-          Stitching: 360 x 360 mm   |   Canvas: 450 x 500 mm
-        </p>
-        <p class="WorkDescript">
+        <p class="swiperDescription">
+          Stitching: 360 x 360 mm   |   Canvas: 450 x 500 mm<br>
           Author: <span class="b2">Tiffany Chin</span>
         </p>
-        <!-- <p class="WorkDescript">
-          <span class="WorkDescript-title">Year of birth:</span>
-        </p>
-        <p class="WorkDescript">
-          <span class="WorkDescript-title">Country, city:</span> USA
-        </p>
-        <div class="WorkDescript">
-          <p class="WorkDescript-socnetwork">
-            <img
-              src="../../../assets/media/img/instagram_black.svg"
-              alt="Instagram"
-              class="WorkDescript-socnetwork-logo"
-            />
-            @tuffytiffchin
-          </p>
-          <p class="WorkDescript-socnetwork">
-            <img
-              src="../../../assets/media/img/facebook_black.svg"
-              alt="Facebook"
-              class="WorkDescript-socnetwork-logo"
-            />
-          </p>
-        </div> -->
       </article>
       <article>
-        <img
-          src="../../../assets/media/img/case1/prisoner.jpg"
-          alt="Hero Name Surname"
-          class="Description-item Hero-photo"
-        />
-        <div class="Description-item">
-          <h3 class="title">Date of birth:</h3>
-          <p>24 April 1982</p>
+        <div class="caseHeaderWrapper flexRowStart">
+          <img 
+            v-if="!localHero.photo || localHero.photo === '' || localHero.photo === 'FALSE'"
+            src="../../../assets/media/img/profileSymbolFramed.svg"
+            :alt="'Photo of' + localHero.name"
+            class="Description-item Hero-photo"
+          >
+          <img 
+            v-else
+            :src="localHero.photo" 
+            :alt="'Photo of' + localHero.name"
+            class="Description-item Hero-photo"
+          >
+          <div class="caseBioWrapper flexCoulmnStart">
+            <div class="Description-item">
+              <h3 class="title">
+                Date of birth:
+              </h3>
+              <p>
+                {{ localHero.birthday }}
+              </p>
+            </div>
+            <div class="Description-item">
+              <h3 class="title">
+                Date of detention:
+              </h3>
+              <p>
+                {{ localHero.arrested }}
+              </p>
+            </div>
+            <div class="Description-item">
+              <h3 class="title">
+                Sentence:
+              </h3>
+              <p>
+                {{ localHero.decision }}
+              </p>
+            </div>
+          </div>
         </div>
         <div class="Description-item">
-          <h3 class="title">Date of detention:</h3>
-          <p>7 September 2020</p>
-        </div>
-        <div class="Description-item">
-          <h3 class="title">Sentence:</h3>
-          <p>11 years</p>
-        </div>
-        <div class="Description-item">
-          <h3 class="title">Description of the Political prisoner:</h3>
+          <h3 class="title">
+            Description of the case:
+          </h3>
           <p>
-            Maryia Kalesnikava is a member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka.
+            The case description is the same as the political prisoner’s
+            description because this is an individual case, not a collective
+            one.
           </p>
-          <p>
-            She was abducted on September 7, 2020 in Minsk and, along with two other members of the Coordination Council, Anton Radniankou and Ivan Krautsou, forcibly brought to the Ukrainian border to be expelled from the country. However, by tearing her passport and jumping out of the car, Kalesnikava foiled the special operation of deportation organized by the security forces.
-          </p>
-          <p>
-            On September 9, it became known that the woman had been arrested and was suspected of a criminal offense under Part 3 of Art. 361 of the Criminal Code (appeals to actions aimed at harming the national security of the Republic of Belarus).
-          </p>
-          <p>
-            Kalesnikava was held in pre-trial detention center No. 1 in Minsk. On September 11, she was transferred to the pre-trial prison in Žodzina.
-          </p>
-          <p>
-            On September 16, she faced formal charges under Part 3 of Art. 361 of the Criminal Code.
-          </p>
-          <p>
-            On February 10, 2021, Kalesnikava faced additional charges of "conspiracy to seize power with unconstitutional means" (Part 1 of Article 357) and "creating and managing an extremist formation" (Part 1 of Article 361-1).
-          </p>
-          <p>
-            On September 6, 2021, the Minsk Regional Court sentenced Kalesnikava to 11 years in a general-security penal colony.
-          </p>
-          <p>
-            On December 24, 2021, the Supreme Court upheld the sentences of Maryia Kalesnikava and Maksim Znak.
-          </p>
-          <p>
-            On January 11, 2022, Kalesnikava was transferred to penal colony No. 4 in Homieĺ.
+          <p class="additionalInfo">
+            See more <a href="#" class="red">here<SvgLink/></a>
           </p>
         </div>
         <div class="Description-item">
-          <h3 class="title">Description of the case:</h3>
+          <h3 class="title">
+            Description of the Political prisoner:
+          </h3>
           <p>
             The case description is the same as the political prisoner’s
             description because this is an individual case, not a collective
@@ -110,53 +193,70 @@ const slides = [
           </p>
         </div>
         <div class="Description-item">
-          <h3 class="title">Address of the prison:</h3>
-          <p>Penal colony No. 4. 246035, Homieĺ, vulica Antoshkina 3</p>
+          <h3 class="title">
+            Address of the prison:
+          </h3>
+          <p>
+            {{ localHero['prison/title'] }}
+          </p>
+          <a href="#" target="_blank" class="additionalInfo red">
+            Go to the source of information <SvgLink/>
+          </a>
         </div>
         <h2 class="Description-item Description-item_title">
           Author about the work process
         </h2>
         <div class="Description-item">
-          <h3 class="title">Why did you decide to participate in a project?</h3>
+          <h3 class="title">
+            Why did you decide to participate in a project?
+          </h3>
           <p>
-            I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father's hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina's Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.
+            {{ messageReason }}
           </p>
+          <button
+            @click="showMoreReason = !showMoreReason" 
+            class="showMoreBtn flexRowStart red"
+            :class="{'showMoreBtnActive': showMoreReason}"
+          >
+            {{ buttonReason }}
+            <SvgArrowDown/>
+          </button>
         </div>
-        <!--        <div class="Description-item">-->
-        <!--          <h3 class="title">Comment</h3>-->
-        <!--          <p>-->
-        <!--            В настоящее время в Беларуси число официально признанных-->
-        <!--            политическихзаключенных достигает более 930 человек. Framed in-->
-        <!--            Belarus - это социальный арт-проект, посвященный политическим-->
-        <!--            заключенным в Беларуси.-->
-        <!--          </p>-->
-        <!--        </div>-->
-        <GeneralImageModal
-          class="Description-item_img"
-          alt=""
-          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar1_full.jpg"
-          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar1.jpg"
-        />
-        <GeneralImageModal
-          class="Description-item_img"
-          alt=""
-          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar2_full.jpg"
-          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/komentar2.jpg"
-        />
-        <GeneralImageModal
-          class="Description-item_img"
-          alt=""
-          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces1_full.jpg"
-          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces1.jpg"
-        />
-        <GeneralImageModal
-          class="Description-item_img"
-          alt=""
-          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces2_full.jpg"
-          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/proces2.jpg"
-        />
         <div class="Description-item">
-          <h3 class="ExhibitionTitle">List of exhibitions</h3>
+          <h3 class="title">
+            Comment
+          </h3>
+          <p>
+            {{ messageComment }}
+          </p>
+          <button
+            @click="showMoreComment = !showMoreComment" 
+            class="showMoreBtn flexRowStart red"
+            :class="{'showMoreBtnActive': showMoreComment}"
+          >
+            {{ buttonComment }}
+            <SvgArrowDown/>
+          </button>
+        </div>
+        <div class="galleryWrapper">
+          <img
+            v-for="(slide, i) in slides"
+            :key="slide.alt"
+            :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
+            :alt="`${slide.alt}`"
+            @click="handleGallerySwiper(i)"
+          />
+        </div>
+        <GeneralFullScreenSwiper
+          :initialSlide="currentSlider"
+          :showSwiper="showGallerySwiper"
+          :slides="slides"
+          @closeSwiper="showGallerySwiper = false"
+        />
+        <div class="Description-item exhibitionsWrapper">
+          <h2 class="Description-item Description-item_title">
+            Exhibitions where the embroidery was shown
+          </h2>
           <ul class="ExhibitionList">
             <li class="ExhibitionList-item">
               <h4 class="ExhibitionListItem-title">
@@ -165,52 +265,19 @@ const slides = [
                 </nuxt-link>
               </h4>
               <p class="ExhibitionListItem-descript">
-                <img
-                  src="../../../assets/media/img/calendar.svg"
-                  alt="Dates"
-                  class="ExhibitionListItem-descript-icon descriptIcon"
-                />
+                <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>
                 18.11.2022 - 23.04.2023
               </p>
               <p class="ExhibitionListItem-descript">
-                <img
-                  src="../../../assets/media/img/location.svg"
-                  alt="Location"
-                  class="ExhibitionListItem-descript-icon descriptIcon"
-                />
-                <span class="museumName"
-                >Weserburg Museum für Moderne Kunst.</span
-                >
-                <span class="museumCountry"
-                >Bremen, <b class="b2">Germany</b></span
-                >
+                <SvgLocation class="ExhibitionListItem-descript-icon descriptIcon"/>
+                <span>
+                  Weserburg Museum für Moderne Kunst.
+                </span>
+                <span class="museumCountry">
+                  Bremen, <b class="b2">Germany</b>
+                </span>
               </p>
             </li>
-            <!--            <li class="ExhibitionList-item">-->
-            <!--              <h4 class="ExhibitionListItem-title">Name of exhibition</h4>-->
-            <!--              <p class="ExhibitionListItem-descript">-->
-            <!--                <img-->
-            <!--                  src="../../../assets/media/img/calendar.svg"-->
-            <!--                  alt="Dates"-->
-            <!--                  class="ExhibitionListItem-descript-icon descriptIcon"-->
-            <!--                />-->
-            <!--                18.11.2022 - 23.04.2023-->
-            <!--              </p>-->
-            <!--              <p class="ExhibitionListItem-descript">-->
-            <!--                <img-->
-            <!--                  src="../../../assets/media/img/location.svg"-->
-            <!--                  alt="Location"-->
-            <!--                  class="ExhibitionListItem-descript-icon descriptIcon"-->
-            <!--                />-->
-            <!--                <span class="museumName"-->
-            <!--                  >Weserburg Museum für Moderne Kunst long long long long-->
-            <!--                  name.</span-->
-            <!--                >-->
-            <!--                <span class="museumCountry"-->
-            <!--                  >Bremen, <b class="b2">Germany</b></span-->
-            <!--                >-->
-            <!--              </p>-->
-            <!--            </li>-->
           </ul>
         </div>
       </article>
@@ -218,5 +285,5 @@ const slides = [
   </main>
 </template>
 
-<style src="./Case.scss" lang="scss" scoped></style>
+<style src="./Case.scss" lang="scss"></style>
 
