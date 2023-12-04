@@ -9,11 +9,11 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="content">
+  <div class="content signInWrapper">
     <h1 class="title">
       {{ $t("signInPage.title") }}
     </h1>
-    <p>
+    <p class="signUpLink">
       {{ $t("signInPage.signUpQuestion.content") }}
       <nuxt-link 
         :to="localePath('/SignUp')"
@@ -25,9 +25,9 @@ definePageMeta({
     <form class="formWrapper">
       <input 
         type="email" 
-        name="username" 
-        id="username" 
-        :placeholder="$t('placeholders.username')" 
+        name="email" 
+        id="email" 
+        :placeholder="$t('placeholders.email')" 
         class="usernameInput"
       >
       <input 
@@ -37,7 +37,7 @@ definePageMeta({
         :placeholder="$t('placeholders.password')" 
         class="passwordInput"
       >
-      <p class="alignRight lostPasswordWrapper">
+      <p class="alignRight lostPasswordLink">
         <nuxt-link 
           :to="localePath('/LostPassword')"
         >

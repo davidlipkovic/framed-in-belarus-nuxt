@@ -15,6 +15,8 @@
         "readLess": "Read less"
     },
     "placeholders": {
+        "email": "Email",
+        "instagram": "{'@'}instagram",
         "username": "Username",
         "password": "Password",
         "passwordAgain": "Password again",
@@ -211,11 +213,11 @@
                 "title": "What to buy?",
                 "paragraph1": {
                     "content": " white/natural (canvas or fabric with #weave)",
-                    "highlight": "Fabric color:"
+                    "highlight": "Fabric color"
                 },
                 "paragraph2": {
                     "content": " any shades of red / color combinations are possible at your discretion.",
-                    "highlight": "Thread color:"
+                    "highlight": "Thread color"
                 }
             },
             "section2": {
@@ -395,7 +397,7 @@
                     "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
+                    "title": "Address for shipping",
                     "content1": "Rufina Bazlova",
                     "content2": "Schnirchova 1447/15",
                     "content3": "17000 Prague",
@@ -412,7 +414,7 @@
                 "title": "Please read this section carefully!",
                 "section1": {
                     "title": "IMPORTANT",
-                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following:",
+                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following",
                     "content2": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
                     "content3": "On the content line please write Embroidery or Tissue.",
                     "content4": "We will need the following information from you in order to issue the customs declaration.",
@@ -423,12 +425,12 @@
                     "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
+                    "title": "Address for shipping",
                     "content1": "Rufina Bazlova",
                     "content2": "Schnirchova 1447/15",
                     "content3": "17000 Prague",
                     "content4": "Czech Republic",
-                    "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel:"
+                    "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel"
                 },
                 "input1": {
                     "label": "Name and Surname on the package",

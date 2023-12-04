@@ -1,11 +1,22 @@
 @import "../../assets/style/globalPartials/variables.scss";
 
-.alignRight {
-  font-size: 0.75rem;
-  margin-bottom: 0;
+.signInWrapper {
+  .signUpLink {
+    font-weight: 600;
+    font-size: 1rem;
+  }
 
-  a {
-    color: inherit;
-    font-weight: normal;
+  input::placeholder {
+    font-size: 1rem;
+  }
+
+  .lostPasswordLink {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+  
+    a {
+      color: inherit;
+      font-weight: normal;
+    }
   }
 }

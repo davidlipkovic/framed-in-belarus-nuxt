@@ -5,6 +5,7 @@ general:
 - list of tooltips
 - update hero database test
 - change svgs to inline
+- sign out redirects to home page if on private page
 
 to discuss:
 - incorrect login info
@@ -12,13 +13,16 @@ to discuss:
 - proper names and passwords
 - all search possibilities
 
+ready pages:
+✅ profile
+✅ Gallery/Case
+
 pages:
 
 home
 - cookies
     - google api
     - options
-- responsive menu
 - check responsive
 - popup
 
@@ -39,6 +43,7 @@ profile
 - user store
 - check responsive
 - add inputs
+- tooltips
 
 Gallery
 - gallery store
