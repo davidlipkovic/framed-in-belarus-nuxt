@@ -74,12 +74,12 @@ export default {
   <!--          </nuxt-link>-->
           </div>
           <div class="menuUserLinksWrapper flexRowCenter">
-            <nuxt-link
+            <!-- <nuxt-link
               :to="localePath('/SignIn')"
               class="Login"
             >
               {{ $t('links.signIn') }}
-            </nuxt-link>
+            </nuxt-link> -->
             <a
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               class="button bg_red"
