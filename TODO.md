@@ -27,10 +27,10 @@ home
 - popup
 
 sign up
-- lang menu
-- google api
 - warnings, log funcionality
-- check responsive
+- create responsive
+- checkboxes
+- on before route leave
 
 sign in
 - google api

@@ -14,4 +14,16 @@
     width: 43.5%;
     height: 100vh;
   }
+
+  .registrationlgLayout {
+    .Embroiderer {
+      width: 38%;
+    }
+  }
+}
+
+@media screen and (max-width: $br-point-xl) {
+  .registrationlgLayout .Embroiderer {
+    display: none;
+  }
 }

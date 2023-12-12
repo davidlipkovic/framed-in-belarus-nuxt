@@ -12,23 +12,30 @@
         "more": "More",
         "less": "Less",
         "readMore": "Read more",
-        "readLess": "Read less"
+        "readLess": "Read less",
+        "back": "Back",
+        "next": "Next",
+        "createAccount": "Create account"
     },
     "placeholders": {
         "email": "Email",
-        "instagram": "{'@'}instagram",
+        "emailLogin": "Email (login)",
+        "country": "Country of residance",
+        "instagram": "{'@'}Instagram",
         "username": "Username",
         "password": "Password",
         "passwordAgain": "Password again",
         "chooseCommunicationLanguage": "Choose communication language",
         "pseudonym": "Your pseudonym / nickname",
-        "searchHero": "Search for a Hero*ine by name"
+        "searchHero": "Search for a Hero*ine by name",
+        "findOut": "How did you find out about this project?"
     },
     "inputs": {
         "alphabetically": "A-Z",
         "alphabeticallyReversed": "Z-A",
         "chronologically": "Date (newest first)",
-        "chronologicallyReversed": "Date (oldest first)"
+        "chronologicallyReversed": "Date (oldest first)",
+        "mentionInstagram": "Mention my account in your posts"
     },
     "links": {
         "home": "Home",
@@ -47,6 +54,11 @@
         "seeImage": "See full image",
         "downloadImage": "Download full image",
         "profile": "Profile"
+    },
+    "languages": {
+        "english": "English",
+        "belarussian": "Belarussian",
+        "russian": "Russian"
     },
     "mainMenu": {
         "question": {
@@ -93,60 +105,66 @@
     "signUpPage": {
         "title": "Sign up",
         "signInQuestion": "Already a member?",
-        "textarea": "Why did you decide to join the project?",
-        "terms": {
-            "section1": {
-                "title": "Terms of participation in the project",
-                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
-                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All stories are equally important in this project, and we would like to immortalize all of them, so each political prisoner is embroidered only once."
+        "slide1": {
+            "languageSelect": "Choose communication language",
+            "paragraph1": {
+                "content1": "Please write a name or pseudonym to be used for communication and future publications related to the project. ",
+                "highlight1": "If you are in Belarus,",
+                "content2": "for security reasons,",
+                "highlight2": "we do not recommend using your real name and surname."
             },
-            "section2": {
-                "title": "Timeline",
-                "paragraph1": {
-                    "content1": "The work process is divided into several steps that you can go through at your own pace. However, ",
-                    "highlight": "we have set a time limit of 2 months",
-                    "content2": ". This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner)."
-                },
-                "paragraph2": "If you do not finish your work in 2 months and do not tell us you need more time, we may drop you from the project and pass your Hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
-                "paragraph3": {
-                    "content1": "If you decide to withdraw from the project for any reason, or ",
-                    "highlight1": "if you will not be able to finish",
-                    "content2": " your embroidery work ",
-                    "highlight2": "on time",
-                    "content3": ", please ",
-                    "highlight3": "let us know",
-                    "content4": " as soon as possible."
-                }
-            },
-            "section3": {
-                "title": "Security",
-                "paragraph1": "We don't collect your personal data. You may choose to use a pseudonym and administer your profile before publication."
-            },
-            "section4": {
-                "title": "Price",
-                "paragraph1": "Your work becomes a donation to the “Stitchit” association that is running this project and it becomes its property. The association can exhibit it, use it publicly or otherwise as it sees fit for the purpose of this project."
-            },
-            "section5": {
-                "title": "Photo",
-                "paragraph1": {
-                    "content1": "An important element of the project is the photo documentation of your embroidery process and final work. These ",
-                    "highlight": "photos will be later used on the site and in other publications on the project",
-                    "content2": ". Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously."
-                }
-            },
-            "section6": {
-                "title": "Personal Comment",
-                "paragraph1": {
-                    "content1": "At the end, we will also ",
-                    "highlight": "ask you to write a short comment about your experience",
-                    "content2": "embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work."
-                }
-            }
+            "paragraph2": "This is our primary communication channel with you. Please use only one email, otherwise, we won't be able to identify you with your work, which may lead to potential confusion.",
+            "paragraph3": "Please fill in the country where you currently reside. This information is needed for statistical purposes to help us improve the project and team's work, as well as prioritizing your embroidery for accessible exhibitions.",
+            "paragraph4": "Choose the primary language for our communication."
         },
-        "warning" : "You must agree to the Terms of participation",
-        "consent" : "I agree with the project’s terms of participation",
-        "createButton" : "Create profile and start work",
-        "signInGoogleButton" : "Sign up with Google"
+        "slide2": {
+            "textarea": "Why did you decide to join the project?",
+            "paragraph1": "Our primary correspondence will be conducted via email, but in exceptional cases, we would like to have the option to contact you through social media.",
+            "paragraph2": "Briefly describe your motivation. Your thoughts will greatly assist us in the project's development."
+        },
+        "slide3": {
+            "terms": {
+                "title": "How to participate",
+                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
+                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All stories are equally important in this project, and we would like to immortalize all of them, so each political prisoner is embroidered only once.",
+                "paragraph3": {
+                    "highlight1": "You may participate",
+                    "content1": "in the project if you",
+                    "highlight2": "are at least 18 years old,",
+                    "content2": "however, children of all ages may participate in the project if enabled by a parent or legal guardian."
+                },
+                "paragraph4": {
+                    "content1": "The work process is divided into several steps that you can go through at your own pace. However, we have set a time limit of",
+                    "highlight1": "2 months.",
+                    "content2": "This should be enough if you do occasional embroidery on your free evenings (even if you're just a beginner). "
+                },
+                "paragraph5": {
+                    "highlight1": "If you do not finish your work in 2 months",
+                    "content1": "and do not tell us you need more time, we may drop you from the project and pass your hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos."
+                },
+                "paragraph6": {
+                    "content1": "If you decide to withdraw from the project for any reason, or",
+                    "highlight1": "if you will not be able to finish your embroidery",
+                    "content2": "work on time, please let us know as soon as possible."
+                },
+                "paragraph7": "Your work becomes a donation to “Stitchit” that is running this project and it becomes its property. The association can exhibit it, use it publicly or otherwise as it sees fit for the purpose of this project.",
+                "paragraph8": {
+                    "content1": "An important element of the project is the photo documentation of your embroidery process and final work. These",
+                    "highlight1": "photos will be later used on the website and in other publications on the project.",
+                    "content2": "Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously."
+                },
+                "paragraph9": "At the end, we will also ask you to write a short comment about your experience embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
+                "paragraph10": "Please be aware that this comment will be published in our web gallery and may be used in print and online publications, exhibitions, etc. in the context of project presentations.",
+            },
+            "warning": {
+                "content1": "For more details please refer to the full version of our",
+                "highlight1": "Terms & Conditions",
+                "content2": "and",
+                "highlight2": "Privacy Policy"
+            },
+            "consent" : "I have read and accept Terms and Conditions",
+            "subscribe": "Stay updated on the project growth"
+        }
     },
     "signInPage": {
         "title": "Sign in",

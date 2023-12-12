@@ -1,0 +1,37 @@
+@import "../../assets/style/globalPartials/variables.scss";
+@import "../../assets/style/swiperPagination.scss";
+
+.verifyEmailWrapper {
+  .mainMenuWrapperRegistration .content {
+    padding-left: unset;
+  }
+
+  .Embroiderer {
+    background-color: #FFF3F1;
+    width: 282px;
+    height: 274px;
+    border-radius: 12px;
+
+    img { 
+      width: 198px;
+      height: auto;
+      margin-left: 14px;
+    }
+  }
+
+  * {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 34px;
+    font-size: 23px;
+  }
+
+  p {
+    max-width: 374px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

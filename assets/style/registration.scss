@@ -1,7 +1,7 @@
 @import "./globalPartials/variables.scss";
 
 h1.title {
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   font-weight: 600;
 }
 
@@ -58,11 +58,22 @@ h1.title {
     padding-left: 545px;
   }
 
+  .contentSignUp {
+    padding-left: unset;
+  }
+
   .formWrapper {
     margin-top: 23px;
 
     >input {
       margin-bottom: 24px;
     }
+  }
+}
+
+@media screen and (min-width: $br-point-xl) {
+  .contentSignUp {
+    margin-left: calc(38vw + 63px) !important;
+    margin-right: unset !important;
   }
 }

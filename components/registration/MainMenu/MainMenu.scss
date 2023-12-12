@@ -40,17 +40,33 @@
 }
 
 @media screen and (min-width: $br-point-lg) {
+  .registrationlg .mainMenuWrapperRegistration .content {
+    max-width: 778px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
   .mainMenuWrapperRegistration {
     .content {
       padding-left: 545px;
     }
   }
-}
 
-@media screen and (min-width: $br-point-lg) {
+  .registrationlg .mainMenuWrapperRegistration .content {
+    padding-left: unset;
+  }
+
   .langMenuWrapperRegistration {
     .langMenu {
       right: unset;
     }
+  }
+}
+
+@media screen and (min-width: $br-point-xl) {
+  .registrationlg .mainMenuWrapperRegistration .content {
+    margin-left: calc(38vw + 63px) !important;
+    margin-right: unset !important;
   }
 }
