@@ -1,0 +1,23 @@
+@import "./globalPartials/variables.scss";
+
+.swiper-pagination-bullet {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 1px solid $black;
+  margin: 0 0.5rem !important;
+  transform: rotate(45deg);
+  border-radius: unset;
+  background-color: unset;
+  opacity: unset;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet:hover {
+  background-color: $redHover;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $red;
+  border-color: $red;
+}
