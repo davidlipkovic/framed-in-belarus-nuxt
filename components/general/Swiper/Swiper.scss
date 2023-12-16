@@ -2,7 +2,8 @@
 @import "../../../assets/style/swiperPagination.scss";
 
 .basicSwiperWrapper {
-  width: 448px;
+  width: auto;
+  max-width: 448px;
   height: 505px;
   display: block;
   margin: 0 auto;
@@ -74,17 +75,10 @@
 
 @media screen and (min-width: $br-point-md) {
   .basicSwiperWrapper {
-    width: 17.688rem;
     margin: 0;
 
     .swiperControls {
       max-width: 100%;
     }
-  }
-}
-
-@media screen and (min-width: $br-point-lg) {
-  .basicSwiperWrapper {
-    width: 448px;
   }
 }
