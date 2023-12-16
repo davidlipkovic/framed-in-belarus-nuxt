@@ -55,7 +55,7 @@ const slides = [
         />
       </div>
     </section>
-    <section class="bg_grey2">
+    <section class="projectDescriptionWrapper bg_grey2">
       <article class="content">
         <div class="section">
           <p class="">
@@ -66,110 +66,68 @@ const slides = [
             {{ $t('homePage.paragraph1.content2') }}
           </p>
           <p class="">
-            <strong class="b2">
-              {{ $t("homePage.paragraph2.highlight") }}
-            </strong>
-            {{ $t('homePage.paragraph2.content') }}
+            {{ $t('homePage.paragraph2') }}
           </p>
           <p class="">
+            {{ $t('homePage.paragraph3.content1') }}
             <strong class="b2">
               {{ $t("homePage.paragraph3.highlight") }}
             </strong>
-            {{ $t('homePage.paragraph3.content') }}
+            {{ $t('homePage.paragraph3.content2') }}
+          </p>
+          <p class="">
+            {{ $t('homePage.paragraph4') }}
           </p>
         </div>
         <div class="section">
           <p class="">
-            {{ $t('homePage.paragraph4') }}
+            <strong class="b2">
+              {{ $t("homePage.paragraph5.highlight") }}
+            </strong>
+            {{ $t('homePage.paragraph5.content') }}
           </p>
           <p class="">
-            {{ $t('homePage.paragraph5') }}
+            <strong class="b2">
+              {{ $t("homePage.paragraph6.highlight") }}
+            </strong>
+            {{ $t('homePage.paragraph6.content') }}
           </p>
           <p class="">
-            {{ $t('homePage.paragraph6.content1') }}
+            {{ $t('homePage.paragraph7.content1') }}
             <a 
               href="https://www.vyzyvanka.com/" 
               target="_blank"
             >
               <strong class="b1 red">
-                {{ $t("homePage.paragraph6.highlight") }}
+                {{ $t("homePage.paragraph7.highlight") }}
               </strong>
             </a>
-            {{ $t('homePage.paragraph6.content2') }}
+            {{ $t('homePage.paragraph7.content2') }}
           </p>
         </div>
       </article>
     </section>
     <section class="content Partners">
-      <div class="Partners-group flexRowCenter">
-        <div class="Partners-logo flexRowCenter">
-          <img
-            src="../assets/media/img/logos/Tutaka_logo.svg"
-            alt="Viasna"
-            class="img"
-          />
-        </div>
+      <div class="Partners-group flexColumnCenter">
         <a 
-          href="https://spring96.org" 
+          href="#" 
           target="_blank" 
           class="Partners-logo flexRowCenter"
         >
           <img
-            src="../assets/media/img/logos/logo_viasna96_en.png"
-            alt="Viasna"
-            class="img"
-          />
-        </a>
-        <a
-          href="https://politzek.me/"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/Logo_polizek_rastr.png"
-            alt="Logo_polizek_rastr"
+            src="../assets/media/img/logos/EN_Co-fundedbytheEU_RGB_Monochrome.svg"
+            alt="EU"
             class="img"
           />
         </a>
         <a 
-          href="https://amnesty.cz" 
+          href="#" 
           target="_blank" 
           class="Partners-logo flexRowCenter"
         >
           <img
-            src="../assets/media/img/logos/LogoAmnesty.svg"
-            alt="Amnesty International"
-            class="img"
-          />
-        </a>
-        <div
-          class="Partners-logo pashtovakLogo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/majsternia_pashtovak_4b.png"
-            alt="VYZHYVANKA"
-            class="img"
-          />
-        </div>
-        <a
-          href="https://en.stranafund.org"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/stranafund-logo.png"
-            alt="COUNTRY TO LIVE IN FOUNDATION"
-            class="img"
-          />
-        </a>
-        <a
-          href="https://vyzyvanka.com"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/vyzyvanka.png"
-            alt="VYZHYVANKA"
+            src="../assets/media/img/logos/goethe-institut-logo-vector.svg"
+            alt="goethe"
             class="img"
           />
         </a>
