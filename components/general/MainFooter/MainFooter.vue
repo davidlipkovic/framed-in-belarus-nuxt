@@ -49,7 +49,19 @@ watch(route, n => {
           </div>
         </div>
         <nav class="Info-menu">
-          <div class="Info-menu-group">
+          <div class="Info-menu-group flexColumnCenter">
+            <div class="flexColumnStart subscribeWrapper">
+              <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                :placeholder="$t('placeholders.email')" 
+                class="emailInput"
+              />
+              <button class="button">
+                {{ $t('buttons.subscribe') }}
+              </button>
+            </div>
             <div class="Info-menu-group">
               <nuxt-link
                 :to="localePath('/')"
@@ -80,10 +92,15 @@ watch(route, n => {
                 {{ $t('links.aboutUs') }}
               </nuxt-link>
             </div>
-            <div class="Info-menu-group">
-            </div>
           </div>
           <div class="Info-menu-group flexRowCenter">
+            <nuxt-link
+              v-if="!userStore.isLogged"
+              :to="localePath('/SignIn')"
+              class="Info-menu-item"
+            >
+              {{ $t('links.signIn') }}
+            </nuxt-link>
             <nuxt-link
               v-if="!userStore.isLogged"
               :to="localePath('/SignUp')"
@@ -93,7 +110,7 @@ watch(route, n => {
             </nuxt-link>
             <button
               v-if="userStore.isLogged"
-              class="Info-menu-item helpButtonDesktop flexRowCenter"
+              class="Info-menu-item helpButton flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
