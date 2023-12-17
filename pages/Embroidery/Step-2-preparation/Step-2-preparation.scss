@@ -8,19 +8,29 @@
 
 .title {
   font-weight: 600;
-font-size: 24px;
-line-height: 33px;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.paternSchemaWrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 350px;
 }
 
 .manual-part,
 .subscription {
-  margin-bottom: 1.5rem;
+  margin-bottom: 28px;
 }
 
 .manual-part {
-
   ul {
     margin-left: 22px;
+  }
+
+  p, li {
+    line-height: 22px;
   }
 }
 
