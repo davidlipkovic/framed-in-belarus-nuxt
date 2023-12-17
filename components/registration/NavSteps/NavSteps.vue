@@ -1,22 +1,22 @@
-<script>
-export default {
-  props: {
-    currentStep: Number
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
+const props = defineProps({
+  currentStep: {
+    type: Number
   },
-  data () {
-    return {
-      steps: [
-        this.$t("embroidery.steps.steps.step1"),
-        this.$t("embroidery.steps.steps.step2"),
-        this.$t("embroidery.steps.steps.step3"),
-        this.$t("embroidery.steps.steps.step4"),
-        this.$t("embroidery.steps.steps.step5"),
-        this.$t("embroidery.steps.steps.step6"),
-        this.$t("embroidery.steps.steps.step7")
-      ]
-    }
-  },
-}
+})
+
+const steps = [
+  t("embroidery.steps.steps.step1"),
+  t("embroidery.steps.steps.step2"),
+  t("embroidery.steps.steps.step3"),
+  t("embroidery.steps.steps.step4"),
+  t("embroidery.steps.steps.step5"),
+  t("embroidery.steps.steps.step6"),
+  t("embroidery.steps.steps.step7")
+]
 </script>
 
 <template>
