@@ -1,143 +1,112 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .Hero {
+  position: relative;
   margin-bottom: 32px;
-  padding: 15px 16px 20px;
-  display: grid;
-  grid-template-columns: 1fr 1rem;
-  align-items: start;
+  padding: 20px 18px 30px;
   background-color: $bgSpoiler;
   border-radius: 0.75rem;
   max-width: 730px;
-}
 
-#HeroHidden:checked + .Hero {
-  display: none;
-}
+  .Hero-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 14px;
+    height: 14px;
+    margin-top: 6px;
 
-.Hero-header {
-  display: grid;
-  grid-template-columns: 66px 1fr;
-  gap: 13px 1rem;
-  align-items: center;
-}
-
-.Hero-header-photo {
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid $black;
-
-  img {
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-    filter: grayscale(100%);
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
-}
 
-.Hero-header-title {
-}
-
-.Hero-header-case {
-  margin: 4px 0 0px;
-  line-height: 1rem;
-}
-
-.Hero-header-name {
-  margin: 2px 0 0;
-  font-size: 26px;
-  line-height: 26px;
-  font-weight: 600;
-}
-
-.Hero-more-button,
-.Hero-less-button {
-  align-items: center;
-  grid-column: span 2;
-  text-align: left;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.Hero-more-button-text,
-.Hero-less-button-text {
-  margin-right: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: $red;
-}
-
-.Hero-more-button-img,
-.Hero-less-button-img {
-  width: 13px;
-  height: 8px;
-  margin-left: 3px;
-  stroke: $red;
-  stroke-width: 2px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-.Hero-less-button-img {
-  transform: rotate(180deg);
-}
-
-.Hero-more-button:hover,
-.Hero-less-button:hover  {
-  color: $redHover;
-
-  .Hero-more-button-img {
-    stroke: $redHover;
+  .Hero-header {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0px 18px;
+    align-items: center;
+    margin-bottom: 26px;
   }
-}
 
-.Hero-close {
-  width: 1rem;
-  height: 1rem;
-  margin-top: 6px;
-}
+  .Hero-header-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid $black;
 
-.Hero-close-img {
-  width: 100%;
-  height: 100%;
-}
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%);
+    }
+  }
 
-.Hero-content {
-  display: none;
-  grid-column: span 2;
-}
+  .Hero-header-case {
+    margin: 6px 0 0px;
+    line-height: 1rem;
+    color: $greyDark;
+  }
 
-.Hero-Bio-info,
-.Hero-Description-data {
-  .title {
-    font-size: 1rem;
-    margin-bottom: 0;
+  .Hero-header-name {
+    margin: 2px 0 0;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: 600;
   }
-}
 
-.Hero-Description-data {
-  margin-bottom: 20px;
-}
-
-#heroMore:checked ~ .Hero-content {
-  display: block;
-}
-#heroMore:checked ~ .Hero-header {
-  margin-bottom: 30px;
-
-  .Hero-more-button {
-    display: none;
-  }
-}
-
-@media screen and (min-width: $br-point-md) {
-  .Hero-content-titleWrapper {
-    display: grid;
-    grid-template-columns: 35% 40% 25%;
+  .Hero-Bio-Wrapper {
+    width: 100%;
     margin-bottom: 10px;
+  }
+
+  .showMoreBtn {
+    font-weight: 600;
+    font-size: 16px;
+  
+    svg {
+      width: 11px;
+      margin: 7px 0 0 22px;
+      stroke: $red;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  }
+  
+  .showMoreBtn.showMoreBtnActive {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .Hero-Bio-info,
+  .Hero-Description-data {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 1rem;
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+  }
+
+  .Hero-Description-data:last-of-type {
+    margin-bottom: 12px;
+  }
+
+  @media screen and (min-width: $br-point-sm) {
+    .Hero-Bio-Wrapper {
+      display: grid;
+      grid-template-columns: 35% 40% 25%;
+    }
+
+    .Hero-Bio-info {
+      margin-bottom: unset;
+    }
   }
 }
