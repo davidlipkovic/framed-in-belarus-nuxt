@@ -51,7 +51,8 @@
         "signOut": "Sign Out",
         "profile": "Profile",
         "myEmbroideries": "My embroideries",
-        "participate": "Go stitch!"
+        "participate": "Go stitch!",
+        "source": "Go to the source of information"
     },
     "toolTips": {
         "seeImage": "See full image",
@@ -255,7 +256,7 @@
                 "paragraph1": "You can use any fabric with a cross weave, or buy a special fabric for embroidery - Aida. To accurately determine the size of the fabric, you need to count 145 cells on the canvas. However, counting so many cells is too long and complicated, so we suggest counting 10 cells, measuring the distance with a ruler and multiplying by 14,5. To the result add about 5 cm on each side - this will be your final size.",
                 "paragraph2": "The fabric for the embroidery is called Aida. It comes in a different raster - the number behind the word Aida determines how many crosses fit in one centimetre.",
                 "paragraph3": "The smaller the number - the larger the cross. Usually it is sold in metres of 140 cm width.",
-                "paragraph4": "We have calculated in advance how much Aida fabric you might need in different widths - see the size chart:"
+                "paragraph4": "We've calculated in advance how much Aida fabric you might need in different widths - see the size chart:"
             },
             "section4": {
                 "headerRow": {

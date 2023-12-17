@@ -9,13 +9,34 @@ const props = defineProps({
 })
 
 const steps = [
-  t("embroidery.steps.steps.step1"),
-  t("embroidery.steps.steps.step2"),
-  t("embroidery.steps.steps.step3"),
-  t("embroidery.steps.steps.step4"),
-  t("embroidery.steps.steps.step5"),
-  t("embroidery.steps.steps.step6"),
-  t("embroidery.steps.steps.step7")
+  {
+    link: "/Embroidery/Step-1-choose-hero",
+    title: t("embroidery.steps.steps.step1"),
+  },
+  {
+    link: "/Embroidery/Step-2-preparation",
+    title: t("embroidery.steps.steps.step2"),
+  },
+  {
+    link: "/Embroidery/Step-3-support",
+    title: t("embroidery.steps.steps.step3"),
+  },
+  {
+    link: "/Embroidery/Step-4-photo",
+    title: t("embroidery.steps.steps.step4"),
+  },
+  {
+    link: "/Embroidery/Step-5-comment",
+    title: t("embroidery.steps.steps.step5"),
+  },
+  {
+    link: "/Embroidery/Step-6",
+    title: t("embroidery.steps.steps.step6"),
+  },
+  {
+    link: "/Embroidery/Step-7-success",
+    title: t("embroidery.steps.steps.step7"),
+  },
 ]
 </script>
 
@@ -23,12 +44,12 @@ const steps = [
   <section class="NavSteps NavStepsWrapper">
     <div 
       v-for="(step, i) in steps"
-      :key="step"
+      :key="step.title"
       class="navStepWrapper"
     >
       <nuxt-link 
         v-if="i + 1 < currentStep"
-        :to="localePath('/Embroidery/Step' + i + 1)"
+        :to="localePath(step.link)"
         class="navStep navStep_done"
       >
         <span class="navStep-number"
@@ -37,7 +58,7 @@ const steps = [
           alt="Performed"
           class="navStep_done-img"
         /></span>
-        <span class="navStep-title">{{ step }}</span>
+        <span class="navStep-title">{{ step.title }}</span>
       </nuxt-link>
       <div 
         v-if="i + 1 >= currentStep"
@@ -45,7 +66,7 @@ const steps = [
         :class="currentStep === i + 1 ? 'navStep_current' : ''"
       >
         <span class="navStep-number">{{ i + 1 }}</span>
-        <span class="navStep-title">{{ step }}</span>
+        <span class="navStep-title">{{ step.title }}</span>
       </div>
       <div 
         v-if="i + 1 < steps.length"
