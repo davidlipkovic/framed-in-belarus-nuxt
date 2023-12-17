@@ -51,6 +51,7 @@ Gallery
 - check responsive
 
 Gallery/Case
+- implement i18n
 - clickable high res gallery
 - responsive
 
