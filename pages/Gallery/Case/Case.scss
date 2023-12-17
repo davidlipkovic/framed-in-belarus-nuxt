@@ -156,29 +156,6 @@
     }
   }
 
-  .showMoreBtn {
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 2px;
-
-    svg {
-      width: 11px;
-      margin: 7px 0 0 12px;
-      stroke: $red;
-      stroke-width: 2px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-  }
-
-  .showMoreBtnActive {
-    svg {
-      transform: rotate(180deg);
-    }
-  }
-
   .exhibitionsWrapper {
     h2 { 
       margin-top: 29px;

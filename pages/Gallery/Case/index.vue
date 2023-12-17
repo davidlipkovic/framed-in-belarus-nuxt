@@ -67,43 +67,6 @@ const author = {
   comment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
   reason: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
 }
-
-const showMoreComment = ref(false)
-const showMoreReason = ref(false)
-
-const buttonComment = computed(() => {
-  if (showMoreComment.value) {
-    return 'Show less'
-  } else {
-    return 'Show more'
-  }
-})
-
-const buttonReason = computed(() => {
-  if (showMoreReason.value) {
-    return 'Show less'
-  } else {
-    return 'Show more'
-  }
-})
-
-const messageComment = computed(() => {
-  if (showMoreComment.value) {
-    return author.comment
-  } else {
-    const truncate = author.comment.slice(0, 220)
-    return truncate + '...'
-  }
-})
-
-const messageReason = computed(() => {
-  if (showMoreReason.value) {
-    return author.reason
-  } else {
-    const truncate = author.reason.slice(0, 220)
-    return truncate + '...'
-  }
-})
 </script>
 
 <template>
@@ -206,38 +169,16 @@ const messageReason = computed(() => {
         <h2 class="Description-item Description-item_title">
           Author about the work process
         </h2>
-        <div class="Description-item">
-          <h3 class="title">
-            Why did you decide to participate in a project?
-          </h3>
-          <p>
-            {{ messageReason }}
-          </p>
-          <button
-            @click="showMoreReason = !showMoreReason" 
-            class="showMoreBtn flexRowStart red"
-            :class="{'showMoreBtnActive': showMoreReason}"
-          >
-            {{ buttonReason }}
-            <SvgArrowDown/>
-          </button>
-        </div>
-        <div class="Description-item">
-          <h3 class="title">
-            Comment
-          </h3>
-          <p>
-            {{ messageComment }}
-          </p>
-          <button
-            @click="showMoreComment = !showMoreComment" 
-            class="showMoreBtn flexRowStart red"
-            :class="{'showMoreBtnActive': showMoreComment}"
-          >
-            {{ buttonComment }}
-            <SvgArrowDown/>
-          </button>
-        </div>
+        <GeneralToggleText 
+          class="Description-item"
+          :message="author.reason"
+          :title="'Why did you decide to participate in a project?'"
+        />
+        <GeneralToggleText 
+          class="Description-item"
+          :message="author.comment"
+          :title="'Comment'"
+        />
         <div class="galleryWrapper">
           <img
             v-for="(slide, i) in slides"
