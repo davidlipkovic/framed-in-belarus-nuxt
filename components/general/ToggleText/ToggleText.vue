@@ -4,6 +4,10 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const props = defineProps({
+  limit: {
+    type: Number,
+    default: 220
+  },
   message: {
     type: String,
   },
@@ -11,8 +15,6 @@ const props = defineProps({
     type: String,
   }
 })
-
-const limit = 220
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -23,14 +25,14 @@ const buttonMessage = computed(() => {
 })
 
 const enableToggle = computed(() => {
-  return props.message.length > limit
+  return props.message.length > props.limit
 })
 
 const message = computed(() => {
   if (showMore.value) {
     return props.message
   } else {
-    return props.message.slice(0, limit) + '...'
+    return props.message.slice(0, props.limit) + '...'
   }
 })
 
