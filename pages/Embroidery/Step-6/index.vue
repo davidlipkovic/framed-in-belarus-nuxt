@@ -107,7 +107,7 @@ const route = ref("EU")
             {{ $t('embroidery.step6Page.sectionOptions.warning') }}
           </p>
         </div>
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <!-- 
           <nuxt-link 
             to="/Embroidery/Step-5-comment" 

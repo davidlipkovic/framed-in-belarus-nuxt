@@ -110,7 +110,7 @@ definePageMeta({
             </button>
           </div>
         </div>
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-3-support')"
             class="button"

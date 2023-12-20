@@ -96,7 +96,7 @@ definePageMeta({
           />
         </div>
 
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
           >Previous step</nuxt-link
           > -->

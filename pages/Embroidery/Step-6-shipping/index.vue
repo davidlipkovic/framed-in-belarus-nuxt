@@ -43,7 +43,7 @@ definePageMeta({
             {{ $t('embroidery.step6Page.sectionSent.content3') }}
           </p>
         </div>
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <nuxt-link 
             :to="localePath('/Profile')"
             class="button"
@@ -62,7 +62,7 @@ definePageMeta({
       <!--          <p>We wish you all the best!!</p>-->
       <!--          <p>If you still have time and energy, you can embroider a new political prisoner.</p>-->
       <!--        </div>-->
-      <!--        <div class="buttons">-->
+      <!--        <div class="buttons flexColumnCenter">-->
       <!--          <nuxt-link-->
       <!--            to="/Embroidery/Step-1-your-hero"-->
       <!--            class="button bg_black">-->

@@ -39,7 +39,6 @@ watch(text, (n) => {
         :currentStep="5"
       />
       <section class="textWidth">
-        <input type="checkbox" class="visually-hidden" id="HeroHidden" />
         <RegistrationHeroBio />
         <div class="part">
           <h2 class="title">
@@ -159,7 +158,7 @@ watch(text, (n) => {
             {{ $t('embroidery.step5Page.section4.warning') }}
           </p>
         </div>
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-4-photo')"
             class="button"

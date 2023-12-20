@@ -120,7 +120,7 @@ onMounted(() => {
             <span class="block">OR</span>
             You can let us choose a hero for you automatically
           </p>
-          <div class="buttons">
+          <div class="buttons flexColumnCenter">
             <nuxt-link
               to="/Embroidery/Step-1-your-hero"
               class="button randomHero"
@@ -134,7 +134,7 @@ onMounted(() => {
           <h2>Sorry, this hero has already been chosen</h2>
           <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
           <p>Please choose another hero.</p>
-          <div class="buttons">
+          <div class="buttons flexColumnCenter">
             <button class="button randomHero">Choose a hero automatically</button>
           </div>
         </div>
@@ -147,7 +147,7 @@ onMounted(() => {
           <p>Often one-sided information can be found from Belarusian government sources, describing only the side of the prosecution. If you know the details and reasons for your hero's detention, please provide them. This may also help in creating a pattern.</p>
           <p>Rufina creates all the patterns by herself, so the process of creating a new pattern can take 2-3 months.</p>
           <p>Thank you for your understanding!</p>
-          <div class="buttons">
+          <div class="buttons flexColumnCenter">
             <button class="button">Leave a request</button>
             <button class="button randomHero">Choose a hero automatically</button>
           </div>

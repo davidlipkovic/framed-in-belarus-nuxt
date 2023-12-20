@@ -207,7 +207,7 @@ const AlphabetPattern3 = ref({ show: false })
             </div>
           </div>
         </article>
-        <div class="buttons">
+        <div class="buttons flexColumnCenter">
           <nuxt-link
             :to="localePath('/Embroidery/Step-3-support')"
             id="save"
