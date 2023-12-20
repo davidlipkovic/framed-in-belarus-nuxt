@@ -19,7 +19,7 @@ watch(text, (n) => {
   <main class="Content">
     <Head>
       <Title>#Framed in Belarus / Step 5 — Comment</Title>
-      <Meta name="description" content="First step" />
+      <Meta name="description" content="Fifth step" />
     </Head>
     <div class="Title">
       <div class="content">
@@ -40,82 +40,70 @@ watch(text, (n) => {
       />
       <section class="textWidth">
         <RegistrationHeroBio />
-        <div class="part">
+        <div class="sectionWrapper">
           <h2 class="title">
             {{ $t('embroidery.step5Page.section1.title') }}
           </h2>
-          <br>
           <p>
             {{ $t('embroidery.step5Page.section1.paragraph1') }}
           </p>
-          <br>
           <p>
             {{ $t('embroidery.step5Page.section1.paragraph2') }}
           </p>
-          <br>
           <p>
             {{ $t('embroidery.step5Page.section1.paragraph3') }}
           </p>
-          <br>
-          <label for="publishDisagree" class="publishComment-item">
+          <div class="publishComment-item flexRowStart">
             <input
-              type="radio"
+              type="checkbox"
               name="publish"
-              id="publishDisagree"
+              id="sentComment"
               value="disagree"
-              class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label">
+            <label for="sentComment">
               {{ $t('embroidery.step5Page.section2.content1') }}
-            </span>
-          </label>
-          <label for="publishDisagree" class="publishComment-item">
+            </label>
+          </div>
+          <div class="publishComment-item flexRowStart">
             <input
-              type="radio"
+              type="checkbox"
               name="publish"
-              id="publishDisagree"
+              id="writeComment"
               value="disagree"
-              class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label">
+            <label for="writeComment">
               {{ $t('embroidery.step5Page.section2.content2') }}
-            </span>
-          </label>
-        </div>
-        <div class="part Comment">
-          <div class="Comment-header">
-            <label for="comment" class="title">
-              {{ $t('embroidery.step5Page.section3.title') }}
             </label>
-            <!-- <output id="lettersLeft">2300</output> -->
           </div>
-          <div class="Comment-content">
-            <p class="note">
+        </div>
+        <div class="textAreaWrapper">
+          <h3 class="title">
+            {{ $t('embroidery.step5Page.section3.title') }}
+          </h3>
+          <div>
+            <label for="englishComment">
               {{ $t('embroidery.step5Page.section3.textarea1.label') }}
-            </p>
+            </label>
             <textarea
               name="comment"
-              id="comment"
+              id="englishComment"
               :placeholder="$t('embroidery.step5Page.section3.textarea1.placeholder')"
-              class=""
               v-model="text"
             />
             <p class="mistake defaultNone">
               {{ $t('embroidery.step5Page.section3.textarea1.warning') }}
             </p>
           </div>
-          <br>
-          <div class="Comment-content">
-            <p class="note">
+          <div>
+            <label for="nativeComment">
               {{ $t('embroidery.step5Page.section3.textarea2.label') }}
-            </p>
+            </label>
             <textarea
               name="comment"
-              id="comment"
+              id="nativeComment"
               :placeholder="$t('embroidery.step5Page.section3.textarea2.placeholder')"
-              class=""
               v-model="text"
             />
             <p class="mistake defaultNone">
@@ -123,37 +111,34 @@ watch(text, (n) => {
             </p>
           </div>
         </div>
-        <div class="part publishComment">
-          <p class="b2">
+        <div class="consentWrapper">
+          <p class="b1">
             {{ $t('embroidery.step5Page.section4.title') }}
           </p>
-          <br>
-          <label for="publishAgree" class="publishComment-item">
+          <div class="publishComment-item flexRowStart">
             <input
               type="radio"
               name="publish"
               id="publishAgree"
               value="agree"
-              class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label">
+            <label for="publishAgree">
               {{ $t('embroidery.step5Page.section4.content1') }}
-            </span>
-          </label>
-          <label for="publishDisagree" class="publishComment-item">
+            </label>
+          </div>
+          <div class="publishComment-item flexRowStart">
             <input
               type="radio"
               name="publish"
               id="publishDisagree"
               value="disagree"
-              class="publishComment-item-input"
               required
             />
-            <span class="publishComment-item-label">
+            <label for="publishDisagree">
               {{ $t('embroidery.step5Page.section4.content2') }}
-            </span>
-          </label>
+            </label>
+          </div>
           <p class="mistake defaultNone">
             {{ $t('embroidery.step5Page.section4.warning') }}
           </p>
@@ -168,7 +153,7 @@ watch(text, (n) => {
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6')"
             class="button bg_black" 
-            :class="fine? '' : 'button_disabled'" 
+            :class="{'button_disabled': false}" 
             id="save"
           >
             {{ $t('embroidery.step5Page.forwardButton') }}
