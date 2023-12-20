@@ -302,7 +302,7 @@
             "section2": {
                 "title": "Make posts and stories on social media",
                 "paragraph1": {
-                    "content1": "Talk about your hero and about the project and put",
+                    "content1": "Talk about your Hero*ine and about the project and put",
                     "highlight1": "#framedinbelarus",
                     "content2": "and mark the account",
                     "highlight2": "{'@'}rufinabazlova"
@@ -311,12 +311,13 @@
             "section3": {
                 "title": "Write a letter to your political prisoner",
                 "paragraph1": {
-                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on {0}",
-                    "highlight": "https://prisoners.spring96.org/en"
+                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided",
+                    "highlight": "here."
                 },
                 "paragraph2": {
-                    "highlight": "The Solidarity Postcards Atelier",
-                    "content": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page."
+                    "content1": "The",
+                    "highlight": "Solidarity Postcards Atelier",
+                    "content2": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page."
                 },
                 "paragraph3": "What do you need to know about writing letters to prisoners?",
                 "paragraph4": {
@@ -324,11 +325,11 @@
                     "highlight": "Censorship"
                 },
                 "paragraph5": {
-                    "content": "{0} Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
+                    "content": "Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
                     "highlight": "Dates"
                 },
                 "paragraph6": {
-                    "content": "{0} Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
+                    "content": "Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
                     "highlight": "Language"
                 }
             },
@@ -355,7 +356,10 @@
                 "title": "Provide photos of your work",
                 "paragraph1": "This can be phases of the embroidery, you at work, travel or events where you \"were\" with the embroidered Hero*ine, etc.",
                 "paragraph2": "These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
-                "paragraph3": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation."
+                "paragraph3": {
+                    "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
+                    "content": "Due to this, please refrain from uploading photos with confidential information if you do not want them to be published.  These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                }
             },
             "dropZone": {
                 "content": "Drag and Drop files here or",

@@ -7,10 +7,13 @@
   }
 }
 
+.heroBioWrapper {
+  margin-bottom: 25px;
+}
+
 .blockquote {
-  margin-bottom: 1rem;
+  margin-bottom: 18px;
   text-align: center;
-  font-style: italic;
 }
 
 .blockquote-content {
@@ -20,34 +23,31 @@
 }
 
 .blockquote-author {
-  color: $greyDisabledColor;
-  margin: 0.5rem 0 2rem;
+  color: $greyDark;
+  margin-top: -2px;
+  font-size: 14px;
 }
 
-.blockquote-quote_opened,
-.blockquote-quote_closed {
-  font-family: 'Oranienbaum';
-  font-size: 2.25rem;
-  font-style: normal;
-}
-
-.blockquote-quote_opened {
-  margin-right: 1rem;
-}
-
-.blockquote-quote_closed {
-  margin-left: 1rem;
+.section1 {
+  font-size: 14px;
 }
 
 .SupportMethods {
-  margin-top: 1.875rem;
+  margin-top: 40px;
+
+  dd {
+    font-size: 14px;
+    line-height: 20px;
+
+    * {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
 }
 
 .SupportMethod-title {
-  margin-left: 1.15rem;
-  margin-bottom: 1rem;
-  display: list-item;
-  list-style: disc outside;
+  margin-bottom: 14px;
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -57,7 +57,7 @@
 }
 
 .SupportMethod-content {
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 
   .title {
     font-size: 14px;
@@ -70,13 +70,29 @@
     margin-right: 0.5em;
     font-weight: 600;
   }
+}
 
-  dt::after {
-    content: ":";
+.SupportMethod-socials {
+  span {
+    color: $greyDark3;
+    font-weight: 600;
   }
+}
 
+.SupportMethod-financial {
   ul {
-    margin-left: 18px;
+    list-style: none;
+  }
+  
+  li {
+    margin: 6px 0;
+    padding-left: 8px;
+  }
+  
+  li::before {
+    content: "•";
+    padding-right: 8px;
+    color: $red;
   }
 }
 
@@ -90,12 +106,4 @@
       margin-left: 0;
     }
   }
-}
-
-.likeA {
-  color: $red;
-}
-
-.title, b, .likeA {
-  font-weight: 600;
 }
