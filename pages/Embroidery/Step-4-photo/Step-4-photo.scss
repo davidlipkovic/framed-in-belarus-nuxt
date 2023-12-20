@@ -8,8 +8,8 @@
 }
 
 .uploadFiles {
-  margin: 16px 0 30px;
-  padding: 1rem 1rem 24px;
+  margin: 10px 0 30px;
+  padding: 14px 1rem 24px;
   border: 1px dashed $greyDisabledColor;
   box-shadow: none;
   background-color: $greyBg;
@@ -28,11 +28,17 @@
 
   .line:last-child {
     width: fit-content;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+    margin-top: 8px;
+  }
+
+  svg {
+    fill: $black;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
   }
 }
+
 .uploadFiles-descript-icon {
   margin-right: 0.5rem;
   width: 0.7rem;
@@ -47,40 +53,15 @@
 
 .photos {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.875rem;
   justify-items: center;
-}
-
-.photo {
-  width: fit-content;
-  background-color: $bgSpoiler;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-
-  img {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.photo-btnDelete {
-  width: 1.625rem;
-  height: 1.625rem;
-  display: flex;
-  top: 0.75rem;
-  right: 0.75rem;
-  position: absolute;
-}
-.photo-btnDelete-img {
-  width: 100%;
-  height: 100%;
+  padding: 0 5px;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: $br-point-md) {    
   .photos {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
