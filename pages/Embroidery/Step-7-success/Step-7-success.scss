@@ -6,8 +6,17 @@
 
 .Done {
   .thankYouContent {
-    padding-top: 200px;
+    padding-top: 50vw;
     background-image: url(../../../assets/media/img/bg_done.svg);
-    background-size: 312px 186px;
+    background-size: 80vw auto;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .Done {
+    .thankYouContent {
+      padding-top: 200px;
+      background-size: 312px 186px;
+    }
   }
 }
