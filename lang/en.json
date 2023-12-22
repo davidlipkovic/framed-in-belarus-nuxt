@@ -407,10 +407,17 @@
             "title": "Shipping",
             "sectionOptions": {
                 "title": "Please choose where you are sending the package from",
-                "content1": "EU countries",
-                "content2": "Non-EU countries",
-                "content3": "Belarus",
-                "content4": "Handing over personally in Prague",
+                "option1": "EU countries",
+                "option2": "Non-EU countries",
+                "option3": "Belarus",
+                "option4": "Handing over personally in Prague",
+                "secondEmbroiderydescription": {
+                    "content1": "Since the pattern of",
+                    "content2": "you've requested is already drawn, you can proceed to stitch it and send both embroideries together in one package."
+                },
+                "secondEmbroiderydeTitle": "Please choose one option",
+                "secondEmbroideryOption1": "Ship the finished work now",
+                "secondEmbroideryOption2": "Ship both works together later",
                 "warning": "Please choose one option",
                 "backButton" : "Previous step",
                 "forwardButton" : "Get instruction"

@@ -30,7 +30,7 @@ const steps = [
     title: t("embroidery.steps.steps.step5"),
   },
   {
-    link: "/Embroidery/Step-6",
+    link: "/Embroidery/Step-6-choose-shipping",
     title: t("embroidery.steps.steps.step6"),
   },
   {

@@ -151,7 +151,7 @@ watch(text, (n) => {
             {{ $t('embroidery.step5Page.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6')"
+            :to="localePath('/Embroidery/Step-6-choose-shipping')"
             class="button bg_black" 
             :class="{'button_disabled': false}" 
             id="save"
