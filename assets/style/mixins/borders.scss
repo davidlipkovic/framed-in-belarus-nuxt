@@ -1,0 +1,6 @@
+@import "../globalPartials/variables";
+
+@mixin inputBorderLight {
+  border: 1px solid $borderLight;
+  border-radius: 0.75rem;
+}
