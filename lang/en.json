@@ -501,8 +501,8 @@
                 "forwardButton" : "Got it"
             },
             "sectionSent": {
-                "title": " Thank you! We'll be sure to get back to you as soon as we receive your embroidery",
-                "content1": "In meanwhile you can add or correct information about yourself in your personal profile",
+                "title": "Thank you! We'll be sure to get back to you as soon as we receive your embroidery",
+                "content1": "In meanwhile you can add or correct information about yourself in your personal profile.",
                 "content2": "A short text about your motivation will be published in our gallery with your embroidery. If you want to hide or add something, please do it in advance.",
                 "content3": "You can also take on another embroidery.",
                 "forwardButton" : "Go to my profile"
