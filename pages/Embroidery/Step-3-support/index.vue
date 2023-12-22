@@ -27,8 +27,8 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="3"
       />
-      <section>
-        <RegistrationHeroBio class="textWidth heroBioWrapper"/>
+      <section class="limitedTextWidthLg">
+        <RegistrationHeroBio class="heroBioWrapper"/>
         <article>
           <blockquote class="blockquote">
             <p class="blockquote-content">
@@ -41,7 +41,7 @@ definePageMeta({
           <p class="section1">
             {{ $t('embroidery.step3Page.section1.paragraph1') }}
           </p>
-          <dl class="SupportMethods textWidth">
+          <dl class="SupportMethods">
             <dt class="SupportMethod-title">
               {{ $t('embroidery.step3Page.section2.title') }}
             </dt>

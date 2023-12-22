@@ -26,7 +26,6 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="5"
       />
-
       <section class="Publication Waiting textWidth">
         <div class="Publication-content">
           <h2 class="title"> Thank you! Please wait while we verify the information you have provided</h2>

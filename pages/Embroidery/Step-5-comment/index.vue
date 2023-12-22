@@ -38,7 +38,7 @@ watch(text, (n) => {
       <RegistrationNavSteps
         :currentStep="5"
       />
-      <section class="textWidth">
+      <section class="limitedTextWidthLg">
         <RegistrationHeroBio />
         <div class="sectionWrapper">
           <h2 class="title">

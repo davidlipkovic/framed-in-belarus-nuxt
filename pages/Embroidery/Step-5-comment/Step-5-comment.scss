@@ -1,16 +1,5 @@
 @import "../../../assets/style/globalPartials/variables";
 
-.content {
-  >section:nth-child(2) {
-    max-width: 730px;
-    margin: 0 auto;
-  }
-
-  p {
-    line-height: 19px;
-  }
-}
-
 .sectionWrapper {
   margin-bottom: 1.125rem;
 

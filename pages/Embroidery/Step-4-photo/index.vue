@@ -27,7 +27,7 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="4"
       />
-      <section class="textWidth">
+      <section class="limitedTextWidthLg">
         <RegistrationHeroBio />
         <h2 class="title">
           {{ $t('embroidery.step4Page.section1.title') }}

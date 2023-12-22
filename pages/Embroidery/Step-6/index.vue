@@ -40,82 +40,73 @@ const route = ref("EU")
             for your solidarity!
           </p>
         </div> -->
-        <div class="choosePackageFrom">
+        <div class="choosePackageFrom flexColumnStart">
           <h3 class="title">
             {{ $t('embroidery.step6Page.sectionOptions.title') }}:
           </h3>
-          <label for="choosePackageFromEU" class="choosePackageFrom-option">
+          <div class="flexRowStart">
             <input
               type="radio"
               name="choosePackageFrom"
               value="eu"
               id="choosePackageFromEU"
-              class="choosePackageFrom-option-input"
               required
               @click="route = 'EU'"
             />
-            <span class="choosePackageFrom-option-label">
+            <label for="choosePackageFromEU">
               {{ $t('embroidery.step6Page.sectionOptions.content1') }}
-            </span>
-          </label>
-          <label for="choosePackageFromNonEU" class="choosePackageFrom-option">
+            </label>
+          </div>
+          <div class="flexRowStart">
             <input
               type="radio"
               name="choosePackageFrom"
               value="nonEU"
               id="choosePackageFromNonEU"
-              class="choosePackageFrom-option-input"
               required
               @click="route = 'non-EU'"
             />
-            <span class="choosePackageFrom-option-label">
+            <label for="choosePackageFromNonEU">
               {{ $t('embroidery.step6Page.sectionOptions.content2') }}
-            </span>
-          </label>
-          <label
-            for="choosePackageFromBelarus"
-            class="choosePackageFrom-option"
-          >
+            </label>
+          </div>
+          <div class="flexRowStart">
             <input
               type="radio"
               name="choosePackageFrom"
               value="belarus"
               id="choosePackageFromBelarus"
-              class="choosePackageFrom-option-input"
               required
               @click="route = 'Belarus'"
             />
-            <span class="choosePackageFrom-option-label">
+            <label for="choosePackageFromBelarus">
               {{ $t('embroidery.step6Page.sectionOptions.content3') }}
-            </span>
-          </label>
-          <label for="choosePackageFromRussia" class="choosePackageFrom-option">
+            </label>
+          </div>
+          <div class="flexRowStart">
             <input
               type="radio"
               name="choosePackageFrom"
               value="russia"
-              id="choosePackageFromRussia"
-              class="choosePackageFrom-option-input"
+              id="choosePackageFromPersonally"
               required
               @click="route = 'in-person'"
             />
-            <span class="choosePackageFrom-option-label">
+            <label for="choosePackageFromPersonally">
               {{ $t('embroidery.step6Page.sectionOptions.content4') }}
-            </span>
-          </label>
+            </label>
+          </div>
           <p class="mistake defaultNone">
             {{ $t('embroidery.step6Page.sectionOptions.warning') }}
           </p>
         </div>
         <div class="buttons flexColumnCenter">
-          <!-- 
           <nuxt-link 
             to="/Embroidery/Step-5-comment" 
             class="button"
           >
             {{ $t('embroidery.step6Page.sectionOptions.backButton') }}
           </nuxt-link>
-          -->
           <nuxt-link 
             :to="localePath(`/Embroidery/Step-6-${route}`)" 
             class="button bg_black" 
