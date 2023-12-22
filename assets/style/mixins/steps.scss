@@ -1,0 +1,30 @@
+@import "../globalPartials/variables";
+@import "./borders";
+
+@mixin chooseShipping {
+  width: 100%;
+  max-width: 444px;
+  margin: 2px auto 1rem;
+
+  .title {
+    font-weight: 600;
+    margin-left: 2px;
+    margin-bottom: 10px;
+  }
+
+  >label {
+    @include inputBorderLight;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  input {
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width: $br-point-md) {
+    margin-bottom: 1.5rem;
+  }
+}
