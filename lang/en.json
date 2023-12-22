@@ -513,18 +513,18 @@
             "section1": {
                 "title": "Good news! We received your work",
                 "paragraph1": {
-                    "content": "Thank you for your understanding!",
-                    "highlight": "The process of verifying and publishing your work in our online gallery can take anywhere from a few days to a few weeks."
+                    "highlight": "The process of verification and publishing your work in our online gallery can take anywhere from a few days to a few weeks.",
+                    "content": "Thanks for your understanding!"
                 },
                 "paragraph2": {
-                    "content1": "When the publication is ready the icon with the embroidered Hero*ine in your personal profile will get a green mark.",
-                    "content2": "by clicking that icon.",
-                    "highlight": "You will be able to check your Hero*ine's page in the gallery"
+                    "content1": "When the publication is ready the icon with the embroidered hero in your personal profile will get a green mark.",
+                    "highlight": "You will be able to check your hero’s page in the gallery",
+                    "content2": "by clicking that icon."
                 },
                 "paragraph3": "Thank you for your solidarity and participation.",
                 "paragraph4": "If you still have time and energy, you can embroider a new political prisoner."
             },
-            "forwardButton" : "Choose a new hero"
+            "forwardButton" : "Choose a new hero*ine"
         }
     },
     "galleryPage": {
