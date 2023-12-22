@@ -28,3 +28,25 @@
     margin-bottom: 1.5rem;
   }
 }
+
+@mixin thankYouContent {
+  .thankYouContent {
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-bottom: 22px;
+
+    h2 {
+      font-weight: 400;
+      line-height: 30px;
+    }
+
+    p {
+      line-height: 22px;
+    }
+  }
+
+  .Content {
+    min-height: calc(100vh - 253px);
+  }
+}
