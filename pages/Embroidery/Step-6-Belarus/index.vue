@@ -26,7 +26,6 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="6"
       />
-
       <section class="Shipping">
         <div class="instruction" id="instructionBelarus">
           <p class="title important">Please read this section carefully!</p>
@@ -63,15 +62,13 @@ definePageMeta({
             class="instruction-input"
           />
         </div>
-
         <div class="buttons flexColumnCenter">
           <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
           >Previous step</nuxt-link
           > -->
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-shipping')"
+            :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 
-            id="save"
           >
             I have sent a package
           </nuxt-link>
@@ -82,6 +79,4 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
-<style src="../Step-6/Step-6.scss" lang="scss" scoped></style>
-
+<style src="./Step-6-Belarus.scss" lang="scss" scoped></style>

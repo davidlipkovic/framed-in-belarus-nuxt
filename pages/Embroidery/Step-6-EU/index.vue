@@ -67,7 +67,7 @@ definePageMeta({
           >Previous step</nuxt-link
           > -->
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-shipping')"
+            :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 
             id="save"
           >
@@ -80,5 +80,4 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
-<style src="../Step-6/Step-6.scss" lang="scss" scoped></style>
+<style src="./Step-6-EU.scss" lang="scss" scoped></style>
