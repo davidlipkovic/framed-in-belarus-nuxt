@@ -27,7 +27,9 @@
 }
 
 .button_disabled {
-  color: $greyDisabledColor !important;
+  background-color: $borderLight;
+  color: $greyDark !important;
+  border: 1px solid rgba($color: #fff, $alpha: 0) !important;
   pointer-events: none;
 }
 
@@ -41,8 +43,8 @@
 
 .button_disabled:hover,
 .Content .button_disabled:hover {
-  background-color: $greyDisabledBg;
-  color: $greyDisabledColor !important;
+  background-color: $borderLight;
+  color: $greyDark !important;
   border: unset !important;
 }
 
