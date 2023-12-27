@@ -22,6 +22,7 @@ watch(displayImageModal, n => {
       :src="iconImageUrl"
       :alt="alt"
       class="pattern-image"
+      @click="displayImageModal = true"
     />
     <div class="pattern-buttons flexRowCenter">
       <button
