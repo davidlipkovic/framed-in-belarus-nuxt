@@ -5,14 +5,13 @@ definePageMeta({
   layout: "embroidery"
 })
 
-const text = ref('')
-const fine = ref(false)
-const writeComment = ref(false)
+const englishComment = ref(null)
+const nativeComment = ref(null)
+const publishComment = ref(null)
+const writeComment = ref(null)
 
-watch(text, (n) => {
-  if (n.length > 0) {
-    fine.value = true
-  }
+const validData = computed(() => {
+  return publishComment.value !== null && writeComment.value !== null && ((writeComment.value && englishComment.value && nativeComment.value) || !writeComment.value)
 })
 </script>
 
@@ -36,7 +35,7 @@ watch(text, (n) => {
         />
       </div>
     </div>
-    <div class="content">
+    <div class="content step5PageWrapper">
       <RegistrationNavSteps
         :currentStep="5"
       />
@@ -57,30 +56,39 @@ watch(text, (n) => {
           </p>
           <label 
             for="sentComment" 
-            class="publishComment-item flexRowStart"
+            class="publishComment-item flexRowStart simulateCheckboxWrapper"
           >
             <input
-              type="checkbox"
-              name="publish"
+              type="radio"
+              name="sentComment"
               id="sentComment"
-              value="false"
+              :value="false"
+              v-model="writeComment"
               required
+              class="simulateCheckbox"
             />
-            {{ $t('embroidery.step5Page.section2.content1') }}
+            <span class="checkmark"/>
+            <span class="labelContent">
+              {{ $t('embroidery.step5Page.section2.content1') }}
+            </span>
           </label>
           <label
             for="writeComment"
-            class="publishComment-item flexRowStart"
+            class="publishComment-item flexRowStart simulateCheckboxWrapper"
           >
             <input
-              type="checkbox"
-              name="publish"
+              type="radio"
+              name="writeComment"
               id="writeComment"
               :value="true"
               v-model="writeComment"
               required
+              class="simulateCheckbox"
             />
+            <span class="checkmark"/>
+            <span class="labelContent">
               {{ $t('embroidery.step5Page.section2.content2') }}
+            </span>
           </label>
         </div>
         <div 
@@ -96,24 +104,27 @@ watch(text, (n) => {
                 {{ $t('embroidery.step5Page.section3.textarea1.label') }}
               </label>
               <textarea
-                name="comment"
+                name="englishComment"
                 id="englishComment"
                 :placeholder="$t('embroidery.step5Page.section3.textarea1.placeholder')"
-                v-model="text"
+                v-model="englishComment"
               />
               <p class="mistake defaultNone">
                 {{ $t('embroidery.step5Page.section3.textarea1.warning') }}
               </p>
             </div>
             <div>
-              <label for="nativeComment">
-                {{ $t('embroidery.step5Page.section3.textarea2.label') }}
-              </label>
+              <div class="languageLabelWrapper flexRowStart">
+                <label for="nativeComment">
+                  {{ $t('embroidery.step5Page.section3.textarea2.label') }}
+                </label>
+                <GeneralLangMenu/>
+              </div>
               <textarea
-                name="comment"
+                name="nativeComment"
                 id="nativeComment"
                 :placeholder="$t('embroidery.step5Page.section3.textarea2.placeholder')"
-                v-model="text"
+                v-model="nativeComment"
               />
               <p class="mistake defaultNone">
                 {{ $t('embroidery.step5Page.section3.textarea2.warning') }}
@@ -131,9 +142,10 @@ watch(text, (n) => {
           >
             <input
               type="radio"
-              name="publish"
+              name="publishAgree"
               id="publishAgree"
-              value="agree"
+              :value="true"
+              v-model="publishComment"
               required
             />
             {{ $t('embroidery.step5Page.section4.content1') }}
@@ -144,9 +156,10 @@ watch(text, (n) => {
           >
             <input
               type="radio"
-              name="publish"
+              name="publishDisagree"
               id="publishDisagree"
-              value="disagree"
+              :value="false"
+              v-model="publishComment"
               required
             />
               {{ $t('embroidery.step5Page.section4.content2') }}
@@ -164,8 +177,8 @@ watch(text, (n) => {
           </nuxt-link>
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-choose-shipping')"
-            class="button bg_black" 
-            :class="{'button_disabled': false}" 
+            class="button" 
+            :class="validData ? 'bg_black' : 'button_disabled'"
             id="save"
           >
             {{ $t('embroidery.step5Page.forwardButton') }}
@@ -177,6 +190,4 @@ watch(text, (n) => {
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
-<style src="../Step-4-photo/Step-4-photo.scss" lang="scss" scoped></style>
-<style src="./Step-5-comment.scss" lang="scss" scoped></style>
+<style src="./Step-5-comment.scss" lang="scss"></style>
