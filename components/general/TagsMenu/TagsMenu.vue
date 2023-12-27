@@ -77,7 +77,7 @@ onClickOutside(root, () => {
         <button
           v-if="tag.tags"
           class="capitalize flexRowStart"
-          @click="currentTagIndex = i, showSubTags = !showSubTags, updateTagsMenuStatus()"
+          @click="showSubTags = true"
         >
           {{ tag.tagName }}
           <SvgArrowRightRounded />
@@ -92,6 +92,19 @@ onClickOutside(root, () => {
             class="flexRowStart"
           >
             <button
+              @click="currentTagIndex = i, updateTagsMenuStatus(), showSubTags = false"
+              class="capitalize flexRowStart"
+            >
+              {{ subTag }}
+            </button>
+          </li>
+          <li
+            v-for="subTag in tag.tags" 
+            :key="subTag"
+            class="flexRowStart"
+          >
+            <button
+              @click="currentTagIndex = i, updateTagsMenuStatus(), showSubTags = false"
               class="capitalize flexRowStart"
             >
               {{ subTag }}

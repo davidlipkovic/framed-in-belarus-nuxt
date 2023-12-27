@@ -80,12 +80,24 @@
 			}
 		}
 
+    li:first-child {
+      button {
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
+    }
+
 		li:last-child {
 			border-bottom: unset;
+
+      button {
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
 		}
 	}
 
-	.subTagsWrapper {
+	.tagsWrapper .subTagsWrapper {
 		position: absolute;
 		z-index: 100;
 		top: 0;
@@ -114,6 +126,7 @@
 				white-space: pre-wrap;
 				line-height: 17px;
 				color: $black;
+        border-radius: 0;
 			}
 
 			button:hover {
