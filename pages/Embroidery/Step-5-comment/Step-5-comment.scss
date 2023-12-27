@@ -26,7 +26,7 @@
 }
 
 .textAreaWrapper {
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   margin-bottom: 28px;
   border-bottom: 1px solid $borderLight;
 
@@ -48,6 +48,10 @@
     margin-bottom: 0;
     padding: 1rem 12px;
   }
+}
+
+.textAreaWrapperOpen {
+  padding-bottom: 24px;
 }
 
 .consentWrapper {

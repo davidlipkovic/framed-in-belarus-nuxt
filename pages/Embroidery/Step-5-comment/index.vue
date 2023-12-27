@@ -7,6 +7,7 @@ definePageMeta({
 
 const text = ref('')
 const fine = ref(false)
+const writeComment = ref(false)
 
 watch(text, (n) => {
   if (n.length > 0) {
@@ -54,69 +55,80 @@ watch(text, (n) => {
           <p>
             {{ $t('embroidery.step5Page.section1.paragraph3') }}
           </p>
-          <div class="publishComment-item flexRowStart">
+          <label 
+            for="sentComment" 
+            class="publishComment-item flexRowStart"
+          >
             <input
               type="checkbox"
               name="publish"
               id="sentComment"
-              value="disagree"
+              value="false"
               required
             />
-            <label for="sentComment">
-              {{ $t('embroidery.step5Page.section2.content1') }}
-            </label>
-          </div>
-          <div class="publishComment-item flexRowStart">
+            {{ $t('embroidery.step5Page.section2.content1') }}
+          </label>
+          <label
+            for="writeComment"
+            class="publishComment-item flexRowStart"
+          >
             <input
               type="checkbox"
               name="publish"
               id="writeComment"
-              value="disagree"
+              :value="true"
+              v-model="writeComment"
               required
             />
-            <label for="writeComment">
               {{ $t('embroidery.step5Page.section2.content2') }}
-            </label>
-          </div>
+          </label>
         </div>
-        <div class="textAreaWrapper">
-          <h3 class="title">
-            {{ $t('embroidery.step5Page.section3.title') }}
-          </h3>
-          <div>
-            <label for="englishComment">
-              {{ $t('embroidery.step5Page.section3.textarea1.label') }}
-            </label>
-            <textarea
-              name="comment"
-              id="englishComment"
-              :placeholder="$t('embroidery.step5Page.section3.textarea1.placeholder')"
-              v-model="text"
-            />
-            <p class="mistake defaultNone">
-              {{ $t('embroidery.step5Page.section3.textarea1.warning') }}
-            </p>
-          </div>
-          <div>
-            <label for="nativeComment">
-              {{ $t('embroidery.step5Page.section3.textarea2.label') }}
-            </label>
-            <textarea
-              name="comment"
-              id="nativeComment"
-              :placeholder="$t('embroidery.step5Page.section3.textarea2.placeholder')"
-              v-model="text"
-            />
-            <p class="mistake defaultNone">
-              {{ $t('embroidery.step5Page.section3.textarea2.warning') }}
-            </p>
-          </div>
+        <div 
+          class="textAreaWrapper"
+          :class="{'textAreaWrapperOpen' : writeComment}"
+        >
+          <template v-if="writeComment">
+            <h3 class="title">
+              {{ $t('embroidery.step5Page.section3.title') }}
+            </h3>
+            <div>
+              <label for="englishComment">
+                {{ $t('embroidery.step5Page.section3.textarea1.label') }}
+              </label>
+              <textarea
+                name="comment"
+                id="englishComment"
+                :placeholder="$t('embroidery.step5Page.section3.textarea1.placeholder')"
+                v-model="text"
+              />
+              <p class="mistake defaultNone">
+                {{ $t('embroidery.step5Page.section3.textarea1.warning') }}
+              </p>
+            </div>
+            <div>
+              <label for="nativeComment">
+                {{ $t('embroidery.step5Page.section3.textarea2.label') }}
+              </label>
+              <textarea
+                name="comment"
+                id="nativeComment"
+                :placeholder="$t('embroidery.step5Page.section3.textarea2.placeholder')"
+                v-model="text"
+              />
+              <p class="mistake defaultNone">
+                {{ $t('embroidery.step5Page.section3.textarea2.warning') }}
+              </p>
+            </div>
+          </template>
         </div>
         <div class="consentWrapper">
           <p class="b1">
             {{ $t('embroidery.step5Page.section4.title') }}
           </p>
-          <div class="publishComment-item flexRowStart">
+          <label 
+            for="publishAgree"
+            class="publishComment-item flexRowStart"
+          >
             <input
               type="radio"
               name="publish"
@@ -124,11 +136,12 @@ watch(text, (n) => {
               value="agree"
               required
             />
-            <label for="publishAgree">
-              {{ $t('embroidery.step5Page.section4.content1') }}
-            </label>
-          </div>
-          <div class="publishComment-item flexRowStart">
+            {{ $t('embroidery.step5Page.section4.content1') }}
+          </label>
+          <label 
+            for="publishDisagree" 
+            class="publishComment-item flexRowStart"
+          >
             <input
               type="radio"
               name="publish"
@@ -136,10 +149,8 @@ watch(text, (n) => {
               value="disagree"
               required
             />
-            <label for="publishDisagree">
               {{ $t('embroidery.step5Page.section4.content2') }}
-            </label>
-          </div>
+          </label>
           <p class="mistake defaultNone">
             {{ $t('embroidery.step5Page.section4.warning') }}
           </p>
