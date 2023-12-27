@@ -85,7 +85,7 @@ const route = ref(null)
             <input
               type="radio"
               name="chooseShippingInPerson"
-              value="in-person"
+              value="personally"
               id="chooseShippingInPerson"
               required
               v-model="route"

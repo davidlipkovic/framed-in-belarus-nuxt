@@ -1,6 +1,16 @@
 <script setup>
+import { ref } from 'vue'
+
 definePageMeta({
   layout: "embroidery"
+})
+
+const adress = ref(null)
+const name = ref(null)
+const trackingNumber = ref(null)
+
+const validData = computed(() => {
+  return adress.value && name.value && trackingNumber.value
 })
 </script>
 
@@ -13,9 +23,10 @@ definePageMeta({
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle"
-          >Step 6 <span class="visually-hidden">— </span></span
-          >Shipping
+          <span class="subtitle">
+            {{ $t('embroidery.steps.step') }} 6
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step6Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -26,83 +37,116 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="6"
       />
-      <section class="Shipping">
-        <div class="instruction" id="instructionNonEU">
-          <p class="title important">Please read this section carefully!</p>
-          <p>
-            Send your work only by <strong class="b2">CUSTOMER POSTAGE</strong>!
+      <section>
+        <div class="shippingInstructionWrapper">
+          <p class="title important">
+            {{ $t('embroidery.step6Page.sectionNonEU.title') }}:
           </p>
-          <p>
-            This way we will be able to track it and if it is lost, we will be
-            able to look for it by its tracking number.
+          <p class="b2 important importantWarning">
+            {{ $t('embroidery.step6Page.sectionNonEU.section1.warning') }}:
           </p>
-          <h2 class="title address">Address:</h2>
-          <p>
-            Rufina Bazlova<br />
-            Schnirchova 15,<br />
-            170 00 Prague<br />
-            Czech Republic
+          <ul>
+            <li class="flexRowStart">
+              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph1') }}
+            </li>
+            <li class="flexRowStart">
+              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph2') }}
+            </li>
+            <li class="flexRowStart">
+              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph3') }}
+            </li>
+          </ul>
+          <p class="explanation">
+            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.content1') }}
+            <strong class="b1">
+              {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.highlight') }}
+            </strong>
+            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.content2') }}
+            <br>
+            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph2') }}
           </p>
-          <p><strong class="b2">Marked</strong> ART PROJECT</p>
-          <div class="part">
-            <h2 class="title">IMPORTANT</h2>
-            <p>
-              When sending a parcel from a country outside the customs union of
-              the European Union, please do the following:
-            </p>
-            <ul>
-              <li>
-                When filling in the postal declaration, mark the parcel as GIFT,
-                worth up to 20 euros.
-              </li>
-              <li>On the content line please write Embroidery or Tissue.</li>
-              <li>
-                We will need the following information from you in order to
-                issue the customs declaration.
-              </li>
-            </ul>
-          </div>
-          <label for="nameSurname" class="title instruction-label"
-          >Name Surname</label
+          <h2 class="title address">
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.title') }}:
+          </h2>
+          <p class="adress">
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content1') }}<br/>
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content2') }}<br/>
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content3') }}<br/>
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content4') }}<br/>
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content5') }}<br/>
+            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content6') }}
+          </p>
+          <p class="declaration">
+            {{ $t('embroidery.step6Page.sectionNonEU.declaration.content') }}
+          </p>
+          <p class="declaration note">
+            {{ $t('embroidery.step6Page.sectionNonEU.declaration.note') }}
+          </p>
+          <label 
+            for="name" 
+            class="b1"
           >
+            {{ $t('embroidery.step6Page.sectionNonEU.inputName.label') }} *
+          </label>
           <input
             type="text"
-            id="nameSurname"
-            placeholder="Name Surname"
-            name="nameSurname"
-            class="instruction-input instruction-input-hasNote"
-          />
-          <p class="note">Please fill in Latin letters.</p>
-          <label for="nameSurname" class="title instruction-label"
-          >Adress with zip code and country</label
-          >
-          <input
-            type="text"
-            id="nameSurname"
-            placeholder="Address"
-            name="nameSurname"
-            class="instruction-input instruction-input-hasNote"
-          />
-          <p class="note">Please fill in Latin letters.</p>
-          <label for="trackingEU" class="instruction-label"
-          >Please write the tracking number of your parcel here:</label
-          >
-          <input
-            type="text"
-            id="trackingEU"
-            placeholder="Tracking number"
+            id="name"
+            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputName.placeholder')" 
             class="instruction-input"
+            v-model="name"
           />
+          <p class="note">
+            {{ $t('embroidery.step6Page.sectionNonEU.inputName.note') }}
+          </p>
+          <label 
+            for="adress" 
+            class="b1"
+          >
+            {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.label') }} *
+          </label>
+          <input
+            type="text"
+            id="adress"
+            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputAdress.placeholder')" 
+            class="instruction-input"
+            v-model="adress"
+          />
+          <p class="note">
+            {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.note') }}
+          </p>
+          <label 
+            for="trackingNumber" 
+            class="b1"
+          >
+            {{ $t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.label') }} *
+          </label>
+          <input
+            type="text"
+            id="trackingNumber"
+            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.placeholder')" 
+            class="instruction-input"
+            v-model="trackingNumber"
+          />
+          <p 
+            v-if="trackingNumber && trackingNumber.length < 4"
+            class="warning redLighter"
+          >
+            {{ $t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.warning') }}
+          </p>
         </div>
         <div class="buttons flexColumnCenter">
-          <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
-          >Previous step</nuxt-link
-          > -->
+          <nuxt-link 
+            to="/Embroidery/Step-6-choose-shipping" 
+            class="button"
+          >
+            {{ $t('embroidery.step6Page.sectionNonEU.backButton') }}
+          </nuxt-link>
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
-            class="button bg_black" 
+            class="button" 
+            :class="{'button_disabled': !validData, 'bg_black': validData}" 
           >
-            I have sent a package
+            {{ $t('embroidery.step6Page.sectionNonEU.forwardButton') }}
           </nuxt-link>
         </div>
       </section>
@@ -112,4 +156,3 @@ definePageMeta({
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
 <style src="./Step-6-non-EU.scss" lang="scss" scoped></style>
-

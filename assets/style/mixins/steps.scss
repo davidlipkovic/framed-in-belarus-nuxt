@@ -29,6 +29,82 @@
   }
 }
 
+@mixin shippingInstructionBasic {
+  .shippingInstructionWrapper {
+    @include inputBorderLight;
+    padding: 26px 30px;
+    max-width: 634px;
+    margin: 0 auto 32px;
+  
+    > * {
+      margin-bottom: 1rem;
+    }
+  
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin shippingInstructionText {
+  .shippingInstructionWrapper {
+    .title.important {
+      font-size: 1rem;
+    }
+  
+    p.importantWarning {
+      margin-bottom: 12px;
+    }
+  
+    ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    
+    li {
+      margin: 6px 0;
+      padding-left: 8px;
+      line-height: 19px;
+    }
+    
+    li::before {
+      content: "•";
+      padding-right: 8px;
+    }
+  
+    .explanation {
+      margin-bottom: 1rem;
+      line-height: 23px;
+    }
+  
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  
+    .adress {
+      line-height: 23px;
+    }
+  }
+}
+
+@mixin shippingInstructionInput {
+  .shippingInstructionWrapper {
+    input, textarea {
+      margin: 10px 0 0;
+      padding: 10px 14px;
+    }
+  
+    input::placeholder, textarea::placeholder {
+      font-size: 1rem;
+    }
+  
+    .warning {
+      font-size: 12px;
+    }
+  }
+}
+
 @mixin thankYouContent {
   .thankYouContent {
     background-position: 50% 0%;

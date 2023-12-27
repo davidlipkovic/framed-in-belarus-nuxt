@@ -425,25 +425,33 @@
             "sectionEU": {
                 "title": "Please read this section carefully!",
                 "section1": {
-                    "title": "IMPORTANT",
-                    "content1": "On the content line please write Embroidery or Tissue.",
-                    "content2": "We will need the following information from you in order to issue the customs declaration.",
-                    "content3": {
-                        "content": "Send your work only by {0}",
-                        "highlight": "CUSTOMER POSTAGE!"
-                    },
-                    "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                    "warning": "IMPORTANT",
+                    "paragraph1": "On the content line please write Embroidery or Tissue.",
+                    "paragraph2": "We will need the following information from you in order to issue the customs declaration."
                 },
                 "section2": {
-                    "title": "Address for shipping",
-                    "content1": "Rufina Bazlova",
-                    "content2": "Schnirchova 1447/15",
-                    "content3": "17000 Prague",
-                    "content4": "Czech Republic"
+                    "paragraph1": {
+                        "content1": "Send your work only by",
+                        "highlight": "CUSTOMER POSTAGE",
+                        "content2": "!"
+                    },
+                    "paragraph2": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
-                "input": {
-                    "label": "Tracking number",
-                    "placeholder": "Enter Tracking number"
+                "section3": {
+                    "title": "Address for shipping",
+                    "paragraph1": {
+                        "content1": "Rufina Bazlova",
+                        "content2": "Schnirchova 1447/15",
+                        "content3": "17000 Prague",
+                        "content4": "Czech Republic",
+                        "content5": "framedinbelarus{'@'}gmail.com",
+                        "content6": "(please mark the email as well - this might help speed up the delivery process)"
+                    }
+                },
+                "inputTrackingNumber": {
+                    "label": "Tracking Number",
+                    "placeholder": "Enter Tracking number",
+                    "warning": "Please enter valid number"
                 },
                 "backButton" : "Previous step",
                 "forwardButton" : "I have sent a package"
@@ -451,38 +459,48 @@
             "sectionNonEU": {
                 "title": "Please read this section carefully!",
                 "section1": {
-                    "title": "IMPORTANT",
-                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following",
-                    "content2": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
-                    "content3": "On the content line please write Embroidery or Tissue.",
-                    "content4": "We will need the following information from you in order to issue the customs declaration.",
-                    "content5": {
-                        "content": "Send your work only by {0}",
-                        "highlight": "CUSTOMER POSTAGE!"
-                    },
-                    "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                    "warning": "IMPORTANT",
+                    "paragraph1": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
+                    "paragraph2": "On the content line please write Embroidery or Tissue.",
+                    "paragraph3": "We will need the following information from you in order to issue the customs declaration."
                 },
                 "section2": {
-                    "title": "Address for shipping",
-                    "content1": "Rufina Bazlova",
-                    "content2": "Schnirchova 1447/15",
-                    "content3": "17000 Prague",
-                    "content4": "Czech Republic",
-                    "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel"
+                    "paragraph1": {
+                        "content1": "Send your work only by",
+                        "highlight": "CUSTOMER POSTAGE",
+                        "content2": "!"
+                    },
+                    "paragraph2": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
-                "input1": {
+                "section3": {
+                    "title": "Address for shipping",
+                    "paragraph1": {
+                        "content1": "Rufina Bazlova",
+                        "content2": "Schnirchova 1447/15",
+                        "content3": "17000 Prague",
+                        "content4": "Czech Republic",
+                        "content5": "framedinbelarus{'@'}gmail.com",
+                        "content6": "(please mark the email as well - this might help speed up the delivery process)"
+                    }
+                },
+                "declaration": {
+                    "content": "For the mandatory customs declaration, we will need the sender's information on the parcel.",
+                    "note": "This data will be deleted automatically as soon as the parcel is delivered."
+                },
+                "inputName": {
                     "label": "Name and Surname on the package",
                     "placeholder": "Enter Name Surname",
-                    "warning": "Please fill in Latin letters."
+                    "note": "Please fill in Latin letters."
                 },
-                "input2": {
+                "inputAdress": {
                     "label": "Adress with zip code and country",
-                    "placeholder": "Enter Address",
-                    "warning": "Please fill in Latin letters."
+                    "placeholder": "Enter Adress",
+                    "note": "Please fill in Latin letters."
                 },
-                "input3": {
-                    "label": "Tracking number",
-                    "placeholder": "Enter Tracking number"
+                "inputTrackingNumber": {
+                    "label": "Tracking Number",
+                    "placeholder": "Enter Tracking number",
+                    "warning": "Please enter valid number"
                 },
                 "backButton" : "Previous step",
                 "forwardButton" : "I have sent a package"
@@ -491,11 +509,11 @@
                 "content": "Sending work from Belarus is always a bit of a challenge, so we'll get back to you by email within 10 days. Thank you for your understanding!",
                 "forwardButton" : "Got it"
             },
-            "sectionPrague": {
+            "sectionPersonally": {
                 "content": "We will send you our offer for the place and time of the meeting within 10 days. If you have your own offer or your stay in Prague is limited, please let us know.",
                 "textarea": {
                     "label": "Comment",
-                    "placeholder": "Type a comment",
+                    "placeholder": "Type your offer",
                     "warning": "Please add a comment"
                 },
                 "forwardButton" : "Got it"

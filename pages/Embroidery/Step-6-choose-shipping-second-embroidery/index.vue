@@ -127,7 +127,7 @@ const enableButton = computed(() => {
               <input
                 type="radio"
                 name="chooseShippingInPerson"
-                value="in-person"
+                value="personally"
                 id="chooseShippingInPerson"
                 required
                 v-model="route"

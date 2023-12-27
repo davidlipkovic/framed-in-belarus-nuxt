@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+
 definePageMeta({
   layout: "embroidery"
 })
+
+const trackingNumber = ref(null)
 </script>
 
 <template>
@@ -13,9 +17,10 @@ definePageMeta({
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle"
-          >Step 6 <span class="visually-hidden">— </span></span
-          >Shipping
+          <span class="subtitle">
+            {{ $t('embroidery.steps.step') }} 6
+          <span class="visually-hidden">— </span></span>
+          {{ $t('embroidery.step6Page.title') }}
         </h1>
         <GeneralGoBack
           page="Profile"
@@ -26,52 +31,75 @@ definePageMeta({
       <RegistrationNavSteps
         :currentStep="6"
       />
-
-      <section class="Shipping">
-        <div class="instruction" id="instructionEU">
-          <p class="title important">Please read this section carefully!</p>
-          <p>
-            Send your work only by <strong class="b2">CUSTOMER POSTAGE</strong>!
+      <section>
+        <div class="shippingInstructionWrapper">
+          <p class="title important">
+            {{ $t('embroidery.step6Page.sectionEU.title') }}:
+          </p>
+          <p class="b2 important importantWarning">
+            {{ $t('embroidery.step6Page.sectionEU.section1.warning') }}:
+          </p>
+          <ul>
+            <li class="flexRowStart">
+              {{ $t('embroidery.step6Page.sectionEU.section1.paragraph1') }}
+            </li>
+            <li class="flexRowStart">
+              {{ $t('embroidery.step6Page.sectionEU.section1.paragraph2') }}
+            </li>
+          </ul>
+          <p class="explanation">
+            {{ $t('embroidery.step6Page.sectionEU.section2.paragraph1.content1') }}
+            <strong class="b1">
+              {{ $t('embroidery.step6Page.sectionEU.section2.paragraph1.highlight') }}
+            </strong>
+            {{ $t('embroidery.step6Page.sectionEU.section2.paragraph1.content2') }}
             <br>
-            This way we will be able to track it and if it is lost, we will be
-            able to look for it by its tracking number.
+            {{ $t('embroidery.step6Page.sectionEU.section2.paragraph2') }}
           </p>
-          <h2 class="title address">Address:</h2>
-          <p>
-            Amnesty International <br />
-            Kodaňská 1441/46<br />
-            101 00 Prague<br />
-            Czech Republic
+          <h2 class="title address">
+            {{ $t('embroidery.step6Page.sectionEU.section3.title') }}:
+          </h2>
+          <p class="adress">
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content1') }}<br/>
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content2') }}<br/>
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content3') }}<br/>
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content4') }}<br/>
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content5') }}<br/>
+            {{ $t('embroidery.step6Page.sectionEU.section3.paragraph1.content6') }}
           </p>
-          <p><strong class="b2">Marked</strong> ART PROJECT</p>
-          <p>
-            When filling in the postal declaration, mark the package as
-            <strong class="b2">GIFT</strong>, worth
-            <strong class="b2">€20 or less</strong>. On the contents of the
-            package, please write
-            <strong class="b2">Embroidery or Tissue</strong>
-          </p>
-          <label for="trackingEU" class="instruction-label"
-          >Please write the tracking number of your parcel here:</label
+          <label 
+            for="trackingNumber" 
+            class="b1"
           >
+            {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.label') }} *
+          </label>
           <input
             type="text"
-            id="trackingEU"
-            placeholder="Tracking number"
+            id="trackingNumber"
+            :placeholder="$t('embroidery.step6Page.sectionEU.inputTrackingNumber.placeholder')" 
             class="instruction-input"
+            v-model="trackingNumber"
           />
+          <p 
+            v-if="trackingNumber && trackingNumber.length < 4"
+            class="warning redLighter"
+          >
+            {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.warning') }}
+          </p>
         </div>
-
         <div class="buttons flexColumnCenter">
-          <!-- <nuxt-link to="/Embroidery/Step-5-comment" class="button"
-          >Previous step</nuxt-link
-          > -->
+          <nuxt-link 
+            to="/Embroidery/Step-6-choose-shipping" 
+            class="button"
+          >
+            {{ $t('embroidery.step6Page.sectionEU.backButton') }}
+          </nuxt-link>
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
-            class="button bg_black" 
-            id="save"
+            class="button" 
+            :class="{'button_disabled': !trackingNumber, 'bg_black': trackingNumber}" 
           >
-            I have sent a package
+            {{ $t('embroidery.step6Page.sectionEU.forwardButton') }}
           </nuxt-link>
         </div>
       </section>

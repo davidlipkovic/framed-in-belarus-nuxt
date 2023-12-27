@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+
 definePageMeta({
   layout: "embroidery"
 })
+
+const comment = ref(null)
 </script>
 
 <template>
@@ -30,7 +34,25 @@ definePageMeta({
       <section>
         <div class="shippingInstructionWrapper">
           <p>
-            {{ $t('embroidery.step6Page.sectionBelarus.content') }}
+            {{ $t('embroidery.step6Page.sectionPersonally.content') }}
+          </p>
+          <label 
+            for="comment" 
+            class="b1"
+          >
+            {{ $t('embroidery.step6Page.sectionPersonally.textarea.label') }} *
+          </label>
+          <textarea
+            name="comment"
+            id="comment"
+            :placeholder="$t('embroidery.step6Page.sectionPersonally.textarea.placeholder')" 
+            v-model="comment"
+          />
+          <p 
+            v-if="false"
+            class="warning redLighter"
+          >
+            {{ $t('embroidery.step6Page.sectionPersonally.textarea.warning') }}
           </p>
         </div>
         <div class="buttons flexColumnCenter">
@@ -38,7 +60,7 @@ definePageMeta({
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 
           >
-            {{ $t('embroidery.step6Page.sectionBelarus.forwardButton') }}
+            {{ $t('embroidery.step6Page.sectionPersonally.forwardButton') }}
           </nuxt-link>
         </div>
       </section>
@@ -47,4 +69,4 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="./Step-6-Belarus.scss" lang="scss" scoped></style>
+<style src="./Step-6-personally.scss" lang="scss" scoped></style>
