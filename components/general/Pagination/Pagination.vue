@@ -27,25 +27,25 @@ const currentPageMsg = computed(() => {
     <div class="paginationControlsWrapper flexRowCenter">
       <button
         @click="$emit('changePageIndexTo', 'first')"
-        :class="{'button_disabled': currentPage === 1}"
+        :class="{'button_disabledTransparent': currentPage === 1}"
       >
         <SvgStrongDoubleArrowLeft/>
       </button>
       <button
         @click="$emit('changePageIndexTo', -1)"
-        :class="{'button_disabled': currentPage === 1}"
+        :class="{'button_disabledTransparent': currentPage === 1}"
       >
         <SvgStrongArrowLeft/>
       </button>
       <button
         @click="$emit('changePageIndexTo', 1)"
-        :class="{'button_disabled': currentPage === numberOfPages}"
+        :class="{'button_disabledTransparent': currentPage === numberOfPages}"
       >
         <SvgStrongArrowRight/>
       </button>
       <button
         @click="$emit('changePageIndexTo', 'last')"
-        :class="{'button_disabled': currentPage === numberOfPages}"
+        :class="{'button_disabledTransparent': currentPage === numberOfPages}"
       >
         <SvgStrongDoubleArrowRight/>
       </button>
