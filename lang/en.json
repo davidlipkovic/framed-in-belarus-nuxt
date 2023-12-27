@@ -251,7 +251,7 @@
                 "title": "How big does my embroidery have to be?",
                 "paragraph1": "Choose any canvases that you feel most comfortable working with. The size of the embroidery will depend on that image. Each job will be a little different in format - that's ok, we take this into account."
             },
-            "section3": {
+            "`section3`": {
                 "title": "How much fabric do i buy?",
                 "paragraph1": "You can use any fabric with a cross weave, or buy a special fabric for embroidery - Aida. To accurately determine the size of the fabric, you need to count 145 cells on the canvas. However, counting so many cells is too long and complicated, so we suggest counting 10 cells, measuring the distance with a ruler and multiplying by 14,5. To the result add about 5 cm on each side - this will be your final size.",
                 "paragraph2": "The fabric for the embroidery is called Aida. It comes in a different raster - the number behind the word Aida determines how many crosses fit in one centimetre.",
@@ -550,10 +550,12 @@
     },
     "newsPage": {
         "title": "News",
-        "allItems": "All Items",
-        "workshops": "Workshops",
-        "exhibitions": "Exhibitions",
-        "other": "Other"
+        "filters": {
+            "allItems": "All Items",
+            "workshops": "Workshops",
+            "exhibitions": "Exhibitions",
+            "other": "Other"
+        }
     },
     "newsDetailPage": {
         "title": "News"
