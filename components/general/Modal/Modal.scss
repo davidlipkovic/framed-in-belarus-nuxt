@@ -22,6 +22,7 @@
 .modalContentWrapper {
   z-index: 20002;
   position: relative;
+  max-width: 750px;
 
   .closeButton {
     position: absolute;
