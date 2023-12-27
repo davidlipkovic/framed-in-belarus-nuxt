@@ -61,12 +61,6 @@ definePageMeta({
       >
         {{ $t("signInPage.signInButton") }}
       </nuxt-link>
-      <button 
-        class="button large googleBtn"
-        @click="userStore.isLogged = true"
-      >
-        {{ $t("signInPage.signInGoogleButton") }}
-      </button>
     </form>
   </div>
 </template>
