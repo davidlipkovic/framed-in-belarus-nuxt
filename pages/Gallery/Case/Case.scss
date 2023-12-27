@@ -1,16 +1,12 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .galleryCaseWrapper {
-  .content {
+  .content.galleryCaseContent {
     @media screen and (min-width: $br-point-md) {
       display: grid;
       gap: 1.875rem;
       grid-template-columns: 1fr 1fr;
     }
-  }
-
-  .Title .content {
-    display: unset;
   }
 
   .item-margin_bottom {
@@ -51,6 +47,19 @@
     object-fit: cover;
   }
 
+  .Hero-photoModal {
+    margin: 0 1rem 1rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+  }
+
   .ExhibitionList {
     @extend .item-margin_bottom;
   }
@@ -86,6 +95,7 @@
   .swiperDescription {
     margin-top: 18px;
     line-height: 28px;
+    display: none;
   }
 
   h3, p {
@@ -95,6 +105,12 @@
   h3 {
     font-size: 1rem;
     font-weight: 600;
+  }
+
+  .galleryCaseSwiperWrapper {
+    margin-bottom: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $borderLight;
   }
 
   .galleryCaseSwiper {
@@ -109,7 +125,7 @@
     }
 
     img {
-      border-radius: 12px;
+      border-radius: 0;
       width: 100%;
       height: auto;
       object-fit: cover;
@@ -167,6 +183,12 @@
   }
 
   @media screen and (min-width: $br-point-md) {
+    .galleryCaseSwiperWrapper {
+      margin-bottom: unset;
+      padding-bottom: unset;
+      border-bottom: unset;
+    }
+
     .galleryCaseSwiper {
       width: 538px;
       height: 575px;
@@ -174,6 +196,14 @@
       .swiper-slide {
         height: 538px;
       }
+
+      img {
+        border-radius: 12px;
+      }
+    }
+
+    .swiperDescription {
+      display: block;
     }
 
     .galleryWrapper {

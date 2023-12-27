@@ -5,6 +5,10 @@ const props = defineProps({
   alt: String,
   fullImageUrl: String,
   iconImageUrl: String,
+  showIcons: {
+    type: Boolean,
+    default: false
+  },
 })
 
 const displayImageModal = ref( false )
@@ -24,7 +28,10 @@ watch(displayImageModal, n => {
       class="pattern-image"
       @click="displayImageModal = true"
     />
-    <div class="pattern-buttons flexRowCenter">
+    <div 
+      v-if="showIcons"
+      class="pattern-buttons flexRowCenter"
+    >
       <button
         class="pattern-button pattern-button_look flexRowCenter"
         @click="displayImageModal = true"

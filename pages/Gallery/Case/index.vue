@@ -74,24 +74,26 @@ const author = {
     <div class="Title">
       <div class="content">
         <h1>
-          <span class="subtitle"
-          >Case: Seizure of power <span class="visually-hidden">— </span></span
-          >Maryia Kalesnikava
+          <span class="subtitle">
+          Case: Seizure of power
+          <span class="visually-hidden">— </span></span>
+          Maryia Kalesnikava
         </h1>
         <GeneralGoBack
           page="Gallery"
         />
       </div>
     </div>
-    <div class="content">
-      <article>
+    <div class="content galleryCaseContent">
+      <article class="galleryCaseSwiperWrapper">
         <GeneralSwiper 
           class="galleryCaseSwiper"
           :slides="slides"
         />
         <p class="swiperDescription">
-          Stitching: 360 x 360 mm   |   Canvas: 450 x 500 mm<br>
-          Author: <span class="b2">Tiffany Chin</span>
+          {{ $t('casePage.swiper.stitching') }}: 360 x 360 mm   |   Canvas: 450 x 500 mm<br>
+          {{ $t('casePage.swiper.author') }}: 
+          <span class="b2">username</span>
         </p>
       </article>
       <article>
@@ -102,16 +104,17 @@ const author = {
             :alt="'Photo of' + localHero.name"
             class="Description-item Hero-photo"
           >
-          <img 
+          <GeneralImageModal
             v-else
-            :src="localHero.photo" 
-            :alt="'Photo of' + localHero.name"
-            class="Description-item Hero-photo"
-          >
+            alt=""
+            :fullImageUrl="localHero.photo"
+            :iconImageUrl="localHero.photo"
+            class="Description-item Hero-photo Hero-photoModal"
+          />
           <div class="caseBioWrapper flexCoulmnStart">
             <div class="Description-item">
               <h3 class="title">
-                Date of birth:
+                {{ $t('casePage.description.birth') }}:
               </h3>
               <p>
                 {{ localHero.birthday }}
@@ -119,7 +122,7 @@ const author = {
             </div>
             <div class="Description-item">
               <h3 class="title">
-                Date of detention:
+                {{ $t('casePage.description.detention') }}:
               </h3>
               <p>
                 {{ localHero.arrested }}
@@ -127,7 +130,7 @@ const author = {
             </div>
             <div class="Description-item">
               <h3 class="title">
-                Sentence:
+                {{ $t('casePage.description.sentence') }}:
               </h3>
               <p>
                 {{ localHero.decision }}
@@ -137,7 +140,7 @@ const author = {
         </div>
         <div class="Description-item">
           <h3 class="title">
-            Description of the case:
+            {{ $t('casePage.description.descriptionCase') }}:
           </h3>
           <p>
             The case description is the same as the political prisoner’s
@@ -145,12 +148,19 @@ const author = {
             one.
           </p>
           <p class="additionalInfo">
-            See more <a href="#" class="red">here<SvgLink/></a>
+            {{ $t('casePage.description.seeMore.content') }}
+            <a 
+              href="#" 
+              class="red"
+            >
+              {{ $t('casePage.description.seeMore.highlight') }}
+              <SvgLink/>
+            </a>
           </p>
         </div>
         <div class="Description-item">
           <h3 class="title">
-            Description of the Political prisoner:
+            {{ $t('casePage.description.descriptionPrisoner') }}:
           </h3>
           <p>
             The case description is the same as the political prisoner’s
@@ -160,27 +170,27 @@ const author = {
         </div>
         <div class="Description-item">
           <h3 class="title">
-            Address of the prison:
+            {{ $t('casePage.description.address') }}:
           </h3>
           <p>
             {{ localHero['prison/title'] }}
           </p>
           <a href="#" target="_blank" class="additionalInfo red">
-            Go to the source of information <SvgLink/>
+            {{ $t('casePage.description.goToSource') }} <SvgLink/>
           </a>
         </div>
         <h2 class="Description-item Description-item_title">
-          Author about the work process
+          {{ $t('casePage.author.title') }}
         </h2>
         <GeneralToggleText 
           class="Description-item"
           :message="author.reason"
-          :title="'Why did you decide to participate in a project?'"
+          :title="$t('casePage.author.reason')"
         />
         <GeneralToggleText 
           class="Description-item"
           :message="author.comment"
-          :title="'Comment'"
+          :title="$t('casePage.author.comment')"
         />
         <div class="galleryWrapper">
           <img
@@ -199,7 +209,7 @@ const author = {
         />
         <div class="Description-item exhibitionsWrapper">
           <h2 class="Description-item Description-item_title">
-            Exhibitions where the embroidery was shown
+            {{ $t('casePage.exhibitions.title') }}
           </h2>
           <ul class="ExhibitionList">
             <li class="ExhibitionList-item">

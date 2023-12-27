@@ -549,6 +549,37 @@
     "galleryPage": {
         "title": "Gallery"
     },
+    "casePage": {
+        "title": "Gallery",
+        "swiper": {
+            "stitching": "Stitching",
+            "author": "Author"
+        },
+        "description": {
+            "case": "Case",
+            "birth": "Date of birth",
+            "detention": "Date of detention",
+            "sentence": "Sentence",
+            "descriptionPrisoner" : "Description of the Political prisoner",
+            "descriptionCase" : "Description of the case",
+            "address" : "Address of the prison",
+            "moreButton" : "More information",
+            "lessButton" : "Less information",
+            "seeMore": {
+                "content": "See more",
+                "highlight": "here"
+            },
+            "goToSource": "Go to the source of information"
+        },
+        "author": {
+            "title" : "Author about the work process",
+            "reason": "Why did you decide to participate in a project?",
+            "comment": "Comment"
+        },
+        "exhibitions": {
+            "title" : "Exhibitions where the embroidery was shown",
+        }
+    },
     "newsPage": {
         "title": "News",
         "filters": {

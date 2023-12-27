@@ -38,6 +38,7 @@ const AlphabetPattern3 = ref({ show: false })
           fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema_full.jpg"
           iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema.jpg"
           class="paternSchemaWrapper"
+          :showIcons="true"
         />
         <RegistrationHeroBio />
         <article class="manual">
@@ -192,18 +193,21 @@ const AlphabetPattern3 = ref({ show: false })
                 fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1_full.jpg"
                 iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1.jpg"
                 class="subscription-pattern"
+                :showIcons="true"
               />
               <GeneralImageModal
                 alt=""
                 fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2_full.jpg"
                 iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2.jpg"
                 class="subscription-pattern"
+                :showIcons="true"
               />
               <GeneralImageModal
                 alt=""
                 fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3_full.jpg"
                 iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3.jpg"
                 class="subscription-pattern"
+                :showIcons="true"
               />
             </div>
           </div>
