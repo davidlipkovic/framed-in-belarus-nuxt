@@ -208,3 +208,65 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.simulateCheckboxWrapper {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.simulateCheckboxWrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 18px;
+  width: 18px;
+  background-color: $white;
+  border-radius: 2px;
+  border: 2px solid $greyDark;
+}
+
+/* On mouse-over, add a grey background color */
+.simulateCheckboxWrapper:hover input ~ .checkmark {
+  background-color: $greyBg;
+}
+
+/* When the checkbox is checked, add a blue background */
+.simulateCheckboxWrapper input:checked ~ .checkmark {
+  border-color: $black;
+  background-color: $black;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.simulateCheckboxWrapper input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.simulateCheckboxWrapper .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid $white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
