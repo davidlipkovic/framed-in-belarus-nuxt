@@ -57,10 +57,6 @@
             {
                 "tagName": "male",
                 "tagProgrammatic": "male"
-            },
-            {
-                "tagName": "nonbinary",
-                "tagProgrammatic": "nonbinary"
             }
         ]
     }
