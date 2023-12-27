@@ -25,6 +25,9 @@ const slides = [
           <h1 class="content News">
             The little bird must be caught
           </h1>
+          <GeneralGoBack
+            page="News"
+          />
         </div>
       </div>
       <div class="content newsDetailWrapper">

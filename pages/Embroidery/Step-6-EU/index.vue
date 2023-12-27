@@ -23,6 +23,7 @@ const trackingNumber = ref(null)
           {{ $t('embroidery.step6Page.title') }}
         </h1>
         <GeneralGoBack
+          :isEmbroidery="true"
           page="Profile"
         />
       </div>

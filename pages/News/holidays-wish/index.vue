@@ -10,7 +10,12 @@
     <article>
       <div class="Title">
         <div class="content">
-          <h1 class="content News">Merry Christmas and a good, peaceful New Year</h1>
+          <h1 class="content News">
+            Merry Christmas and a good, peaceful New Year
+          </h1>
+          <GeneralGoBack
+            page="News"
+          />
         </div>
       </div>
       <div class="News content">

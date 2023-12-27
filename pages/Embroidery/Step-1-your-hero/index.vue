@@ -45,6 +45,7 @@ const description = `
           {{ $t('embroidery.step1Page.title') }}
         </h1>
         <GeneralGoBack
+          :isEmbroidery="true"
           page="Profile"
         />
       </div>

@@ -1,6 +1,10 @@
 <script setup>
 const props = defineProps({
-  page: String
+  isEmbroidery: {
+    type: Boolean,
+    default: false
+  },
+  page: String,
 })
 </script>
 
@@ -14,9 +18,16 @@ const props = defineProps({
       <path d="M7.03125 15H24.1406" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <span 
+      v-if="isEmbroidery"
       class="GoBack-text"
     >
       {{ $t("embroidery.steps.goBack") }}
+    </span>
+    <span 
+      v-else
+      class="GoBack-text"
+    >
+      {{ $t("buttons.goBack") }}
     </span>
   </nuxt-link>
 </template>

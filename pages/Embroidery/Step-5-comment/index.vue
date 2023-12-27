@@ -30,6 +30,7 @@ watch(text, (n) => {
           {{ $t('embroidery.step5Page.title') }}
         </h1>
         <GeneralGoBack
+          :isEmbroidery="true"
           page="Profile"
         />
       </div>

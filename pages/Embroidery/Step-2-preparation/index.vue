@@ -23,6 +23,7 @@ const AlphabetPattern3 = ref({ show: false })
           {{ $t('embroidery.step2Page.title') }}
         </h1>
         <GeneralGoBack
+          :isEmbroidery="true"
           page="Profile"
         />
       </div>

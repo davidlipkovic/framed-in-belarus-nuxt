@@ -78,6 +78,9 @@ const author = {
           >Case: Seizure of power <span class="visually-hidden">— </span></span
           >Maryia Kalesnikava
         </h1>
+        <GeneralGoBack
+          page="Gallery"
+        />
       </div>
     </div>
     <div class="content">

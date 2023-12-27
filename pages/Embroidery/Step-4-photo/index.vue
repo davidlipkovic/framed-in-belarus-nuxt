@@ -19,6 +19,7 @@ definePageMeta({
           {{ $t('embroidery.step4Page.title') }}
         </h1>
         <GeneralGoBack
+          :isEmbroidery="true"
           page="Profile"
         />
       </div>

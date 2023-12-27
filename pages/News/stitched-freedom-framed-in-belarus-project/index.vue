@@ -13,6 +13,9 @@
           <h1 class="content News">
             Stitched freedom: “Framed in Belarus” project
           </h1>
+          <GeneralGoBack
+            page="News"
+          />
         </div>
       </div>
       <div class="News content">
