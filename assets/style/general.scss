@@ -3,6 +3,10 @@
 
 @import "tooltip.scss";
 
+* {
+  color: $black;
+}
+
 h1.title {
   font-size: 1.5rem;
   margin-bottom: 2.813rem;
