@@ -1,160 +1,162 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
 .tagsMenuWrapper {
-    position: relative;
-    border-radius: 6px;
-    margin: 0 0 0;
-    min-width: 262px;
+	position: relative;
+	border-radius: 6px;
+	margin: 0 0 0;
+	min-width: 262px;
 
-    .tagsMenuTitleWrapper {
-        position: relative;
-        z-index: 102;
-        width: 100%;
-        padding: 13px 17px;
-        border: 1px solid $grey1;
-        border-radius: 6px;
-        align-items: center;
+	.tagsMenuTitleWrapper {
+		position: relative;
+		z-index: 102;
+		width: 100%;
+		padding: 13px 17px;
+		border: 1px solid $grey1;
+		border-radius: 6px;
+		align-items: center;
 
-        span {
-            font-size: 14px;
-        }
+		span {
+			font-size: 14px;
+		}
 
-        span:nth-child(1) {
-            font-weight: 600;
-        }
+		span:nth-child(1) {
+			font-weight: 600;
+		}
 
-        span:nth-child(2) {
-            font-weight: 700;
-            margin-left: 4px;
-        }
+		span:nth-child(2) {
+			font-weight: 700;
+			margin-left: 4px;
+		}
 
-        svg {
-            fill: none;
-            stroke: $grey1;
-            width: 1rem;
-            height: auto;
-            margin-left: auto;
-            transform-origin: center;
-            stroke-linecap:round;
-            stroke-linejoin:round;
-            stroke-width:2px;
-        }
-    }
+		svg {
+			fill: none;
+			stroke: $grey1;
+			width: 1rem;
+			height: auto;
+			margin-left: auto;
+			transform-origin: center;
+			stroke-linecap:round;
+			stroke-linejoin:round;
+			stroke-width:2px;
+		}
+	}
 
-    .tagsWrapper {
-        position: absolute;
-        z-index: 110;
-        top: 0;
-        left: 0;
-        margin: 55px 0px 0;
-        border: 1px solid $grey1;
-        background-color: $white;
-        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
-        min-width: 152px;
+	.tagsWrapper {
+		position: absolute;
+		z-index: 110;
+		top: 0;
+		left: 0;
+		margin: 55px 0px 0;
+		border: 1px solid $grey1;
+		background-color: $white;
+		box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+		border-radius: 6px;
+		min-width: 152px;
 
-        li {
-            width: 100%;
+		li {
+			width: 100%;
 
-            button {
-                font-weight: 600;
-                width: 100%;
-                padding: 9px 10px 9px 12px;
-                letter-spacing: 0.4px;
-                white-space: nowrap;
-                align-items: center;
- 
-                svg {
-                    margin-left: auto;
-                    fill: none;
-                    stroke: $grey1;
-                    stroke-width: 2px;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                }
-            }
+			button {
+				font-weight: 600;
+				width: 100%;
+				padding: 9px 10px 4px 12px;
+				letter-spacing: 0.4px;
+				white-space: nowrap;
+				align-items: center;
+				color: $black;
 
-            button:hover {
-                background-color: $greyBg;
-            }
-        }
+				svg {
+					margin-left: auto;
+					fill: none;
+					stroke: $grey1;
+					stroke-width: 2px;
+					stroke-linecap: round;
+					stroke-linejoin: round;
+				}
+			}
 
-        li:last-child {
-            border-bottom: unset;
-        }
-    }
+			button:hover {
+				background-color: $greyBg;
+			}
+		}
 
-    .subTagsWrapper {
-        position: absolute;
-        z-index: 100;
-        top: 0;
-        left: 0;
-        margin: 73px 0px 0 154px;
-        border: 1px solid $grey1;
-        background-color: $white;
-        box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
-        overflow: scroll;
-        width: 270px;
-        max-height: 193px;
+		li:last-child {
+			border-bottom: unset;
+		}
+	}
 
-        li {
-            width: 100%;
-            padding: 1px 0;
-            margin: 0;
-            border-bottom: unset;
+	.subTagsWrapper {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		margin: 73px 0px 0 154px;
+		border: 1px solid $grey1;
+		background-color: $white;
+		box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+		border-radius: 6px;
+		overflow: scroll;
+		width: 270px;
+		max-height: 193px;
 
-            button {
-                font-weight: 600;
-                width: 100%;
-                padding: 3px 12px;
-                letter-spacing: 0.4px;
-                text-align: left;
-                white-space: pre-wrap;
-                line-height: 17px;
-            }
+		li {
+			width: 100%;
+			padding: 1px 0;
+			margin: 0;
+			border-bottom: unset;
 
-            button:hover {
-                background-color: $greyBg;
-            }
-        }
+			button {
+				font-weight: 600;
+				width: 100%;
+				padding: 3px 12px;
+				letter-spacing: 0.4px;
+				text-align: left;
+				white-space: pre-wrap;
+				line-height: 17px;
+				color: $black;
+			}
 
-        li:first-child {
-            button {
-                padding-top: 5px;
-            }
-        }
+			button:hover {
+				background-color: $greyBg;
+			}
+		}
 
-        li:last-child {
-            border-bottom: unset;
+		li:first-child {
+			button {
+				padding-top: 5px;
+			}
+		}
 
-            button {
-                padding-bottom: 5px;
-            }
-        }
-    }
+		li:last-child {
+			border-bottom: unset;
+
+			button {
+				padding-bottom: 5px;
+			}
+		}
+	}
 }
 
 .tagsMenuWrapperClosed {
-    .tagsMenuTitleWrapper {
-        svg {
-            transform: rotate(0);
-        }
-    }
+	.tagsMenuTitleWrapper {
+		svg {
+			transform: rotate(0);
+		}
+	}
 }
 
 .tagsMenuWrapperOpened {
-    .tagsMenuTitleWrapper {
-        svg {
-            transform: rotate(-180deg);
-        }
-    }
+	.tagsMenuTitleWrapper {
+		svg {
+			transform: rotate(-180deg);
+		}
+	}
 }
 
 .tagsMenusGalleryWrapper {
-    .tagsMenuTitleWrapper {
-        * {
-            color: $white;
-        }
-    }
+	.tagsMenuTitleWrapper {
+		* {
+			color: $white;
+		}
+	}
 }
