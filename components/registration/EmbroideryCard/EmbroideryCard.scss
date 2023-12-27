@@ -1,9 +1,9 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .embroideryCard {
-  max-width: 188px;
+  max-width: 215px;
   width: 100%;
-  padding: 17px 24px 20px;
+  padding: 44px 24px 58px;
   cursor: pointer;
   border: 0;
   border: 1px solid $grey1;
@@ -30,12 +30,13 @@
 
 .embroideryCardNew {
   border: 1px dashed #4F4F4F;
-  padding: 75px 24px 51px;
+  padding: 78px 28px 60px;
   justify-content: space-between;
 
   .plusButtonWrapper {
-    width: 60px;
-    height: 60px;
+    width: 66px;
+    height: 66px;
+    margin-bottom: 12px;
     border-radius: 50%;
     border: 1px solid #bdbdbd;
     background-color: #4F4F4F;
@@ -149,7 +150,19 @@
 
 @media screen and (min-width: $br-point-md){
   .embroideryCard {
+    max-width: 188px;
     width: 188px;
     height: 245px;
+    padding: 17px 24px 20px;
+
+    .plusButtonWrapper {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0;
+    }
+  }
+
+  .embroideryCardNew {
+    padding: 75px 24px 51px;
   }
 }
