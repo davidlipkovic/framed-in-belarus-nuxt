@@ -13,8 +13,7 @@
 }
 
 .helpButton {
-  margin-bottom: 0 !important;
-  margin-right: 20px !important;
+  margin: 0 auto 10px !important;
   
   svg {
     fill: none;
@@ -160,6 +159,10 @@
     margin-right: 0;
   }
 
+  .helpButton {
+    margin: 0 20px 0 0 !important;
+  }
+
   .subscribeWrapper {
     flex-direction: row;
     
@@ -299,7 +302,7 @@
 }
 
 .profileButton {
-  width: 100%;
+  width: max-content;
   justify-content: start;
 
   div {

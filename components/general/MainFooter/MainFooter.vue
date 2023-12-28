@@ -93,7 +93,10 @@ watch(route, n => {
               </nuxt-link>
             </div>
           </div>
-          <div class="Info-menu-group flexRowCenter">
+          <div
+            class="Info-menu-group flexRowCenter"
+            :class="userStore.isLogged ? 'Info-menu-group-profileWrapper' : ''"
+          >
             <nuxt-link
               v-if="!userStore.isLogged"
               :to="localePath('/SignIn')"
@@ -128,9 +131,6 @@ watch(route, n => {
                   src="../../../assets/media/img/profileSymbolFramed.svg"
                 >
               </div>
-              <span>
-                {{ userStore.currentUser.name }}
-              </span>
             </button>
             <GeneralProfileModal
               v-if="toggleProfileModal"
