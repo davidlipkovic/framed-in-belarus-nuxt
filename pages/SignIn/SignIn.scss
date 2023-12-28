@@ -1,6 +1,9 @@
 @import "../../assets/style/globalPartials/variables.scss";
+@import "../../assets/style/mixins/sign";
 
 .signInWrapper {
+  @include signTitle;
+
   .signUpLink {
     font-weight: 600;
     font-size: 1rem;

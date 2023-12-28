@@ -1,0 +1,28 @@
+@import "../globalPartials/variables";
+@import "./borders";
+
+@mixin signTitle {
+  h1 {
+    margin-top: 88px;
+    text-align: center;
+  }
+
+  .signUpDescription {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-left: 1px;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $br-point-sm) {
+    h1 {
+      margin-top: 88px;
+      text-align: left;
+    }
+  
+    .signUpDescription {
+      text-align: left;
+    }
+  }
+}

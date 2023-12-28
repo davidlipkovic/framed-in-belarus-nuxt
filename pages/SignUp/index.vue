@@ -26,6 +26,19 @@ const prevSlide = () => {
 const createAccount = () => {
   router.push('/VerifyEmail')
 }
+
+const username = ref(null)
+const publishUsername = ref(false)
+const email = ref(null)
+const country = ref(null)
+const publishCountry = ref(false)
+const communicationLanguage = ref(null)
+
+const accept = ref(false)
+
+const validDataSlide1 = computed(() => {
+  return username.value && email.value && country.value && communicationLanguage.value
+})
 </script>
 
 <template>
@@ -55,44 +68,72 @@ const createAccount = () => {
               id="username" 
               :placeholder="$t('placeholders.username') + '*'" 
               class="usernameInput"
+              v-model="username"
             />
-            <div class="checkBoxWrapper checkBoxWrapperUsername flexRowStart">
+            <label
+              for="publishUsername" 
+              class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
+            >
               <input 
                 type="checkbox" 
-                name="publishUsernam" 
-                id="publishUsernam" 
+                name="publishUsername" 
+                id="publishUsername" 
                 class="switcher"
+                :value="true"
+                v-model="publishUsername"
               />
-              <label for="publishUsernam">
-                {{ $t('buttons.publish') }}
-              </label>
-            </div>
+              {{ $t('buttons.publish') }}
+            </label>
+            <p class="phone">
+              {{ $t('signUpPage.slide1.paragraph1.content1') }}
+              <span class="b1">
+                {{ $t('signUpPage.slide1.paragraph1.highlight1') }}
+              </span> 
+              {{ $t('signUpPage.slide1.paragraph1.content2') }}
+              <span class="b1">
+                {{ $t('signUpPage.slide1.paragraph1.highlight2') }}
+              </span>
+            </p>
             <input 
               type="email" 
               name="email" 
               id="email" 
               :placeholder="$t('placeholders.emailLogin') + '*'" 
               class="emailInput"
+              v-model="email"
             />
+            <p class="phone">
+              {{ $t('signUpPage.slide1.paragraph2') }}
+            </p>
             <input 
               type="text" 
               name="country" 
               id="country"
               :placeholder="$t('placeholders.country') + '*'" 
               class="countryInput"
+              v-model="country"
             />
-            <div class="checkBoxWrapper checkBoxWrapperCountry flexRowStart">
+            <label 
+              for="publishCountry"
+              class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
+            >
               <input 
                 type="checkbox" 
                 name="publishCountry" 
                 id="publishCountry" 
                 class="switcher"
+                :value="true"
+                v-model="publishCountry"
               />
-              <label for="publishCountry">
-                {{ $t('buttons.publish') }}
-              </label>
-            </div>
-            <select class="languageSelectWrapper">
+              {{ $t('buttons.publish') }}
+            </label>
+            <p class="phone">
+              {{ $t('signUpPage.slide1.paragraph3') }}
+            </p>
+            <select 
+              class="languageSelectWrapper"
+              v-model="communicationLanguage"
+            >
               <option value="0">
                 {{ $t('signUpPage.slide1.languageSelect') }}*
               </option>
@@ -106,8 +147,11 @@ const createAccount = () => {
                 {{ $t('languages.russian') }}
               </option>
             </select>
+            <p class="phone">
+              {{ $t('signUpPage.slide1.paragraph4') }}
+            </p>
           </div>
-          <div class="slideColumnWrapper flexColumnStart">
+          <div class="slideColumnWrapper flexColumnStart desktop">
             <p>
               {{ $t('signUpPage.slide1.paragraph1.content1') }}
               <span class="b1">
@@ -129,9 +173,10 @@ const createAccount = () => {
             </p>
           </div>
         </div>
-        <div class="buttonsWrapper buttonsWrapper1 flexRowCenter">
+        <div class="buttonsWrapper buttonsWrapper1 flexColumnStart">
           <span
-            class="button bg_black"
+            class="button"
+            :class="validDataSlide1 ? 'bg_black' : 'button_disabled'"
             @click="currentSlide = 1"
           >
             {{ $t('buttons.next') }}
@@ -151,28 +196,33 @@ const createAccount = () => {
               :placeholder="$t('placeholders.instagram')" 
               class="instagramInput"
             />
-            <div class="checkBoxWrapper checkBoxWrapperMentionInstagram flexRowStart">
+            <label
+              for="mentionInstagram"
+              class="checkBoxWrapper checkBoxWrapperMentionInstagram flexRowStart"
+            >
               <input 
                 type="checkbox" 
                 name="mentionInstagram" 
                 id="mentionInstagram" 
                 class="switcher"
               />
-              <label for="mentionInstagram">
-                {{ $t('inputs.mentionInstagram') }}
-              </label>
-            </div>
-            <div class="checkBoxWrapper checkBoxWrapperPublishInstagram flexRowStart">
+              {{ $t('inputs.mentionInstagram') }}
+            </label>
+            <label
+              for="publishInstagram"
+              class="checkBoxWrapper checkBoxWrapperPublishInstagram flexRowStart"
+            >
               <input 
                 type="checkbox" 
                 name="publishInstagram" 
                 id="publishInstagram" 
                 class="switcher"
               />
-              <label for="publishInstagram">
-                {{ $t('buttons.publish') }}
-              </label>
-            </div>
+              {{ $t('buttons.publish') }}
+            </label>
+            <p class="phone">
+              {{ $t('signUpPage.slide2.paragraph1') }}
+            </p>
             <input 
               type="text" 
               name="findOut" 
@@ -186,19 +236,23 @@ const createAccount = () => {
               class="reasonTextarea"
               :placeholder="$t('signUpPage.slide2.textarea')" 
             />
-            <div class="checkBoxWrapper flexRowStart">
+            <label
+              for="publishReason"
+              class="checkBoxWrapper flexRowStart"
+            >
               <input 
                 type="checkbox" 
                 name="publishReason" 
                 id="publishReason" 
                 class="switcher"
               />
-              <label for="publishReason">
-                {{ $t('buttons.publish') }}
-              </label>
-            </div>
+              {{ $t('buttons.publish') }}
+            </label>
+            <p class="phone">
+              {{ $t('signUpPage.slide2.paragraph2') }}
+            </p>
           </div>
-          <div class="slideColumnWrapper flexColumnStart">
+          <div class="slideColumnWrapper flexColumnStart desktop">
             <p>
               {{ $t('signUpPage.slide2.paragraph1') }}
             </p>
@@ -207,7 +261,7 @@ const createAccount = () => {
             </p>
           </div>
         </div>
-        <div class="buttonsWrapper buttonsWrapper2 flexRowCenter">
+        <div class="buttonsWrapper buttonsWrapper2 flexColumnStart">
           <span
             class="button"
             @click="currentSlide = 0"
@@ -284,7 +338,7 @@ const createAccount = () => {
               * {{ $t('signUpPage.slide3.terms.paragraph10') }}
             </p>
           </div>
-          <div>
+          <p class="conditionsLink">
             {{ $t('signUpPage.slide3.warning.content1') }}
             <span class='red'>
               {{ $t('signUpPage.slide3.warning.highlight1') }}
@@ -293,36 +347,34 @@ const createAccount = () => {
             <span class='red'>
               {{ $t('signUpPage.slide3.warning.highlight2') }}
             </span>
-          </div>
-          <div class="checkBoxWrapper checkBoxWrapperAccept flexRowStart">
+          </p>
+          <label
+            for="accept" 
+            class="checkBoxWrapper checkBoxWrapperAccept flexRowStart b1"
+          >
             <input 
               type="checkbox" 
               name="accept" 
               id="accept" 
               class="switcher"
+              :value="true"
+              v-model="accept"
             />
-            <label 
-              for="accept" 
-              class="b1"
-            >
-              {{ $t('signUpPage.slide3.consent') }}
-            </label>
-          </div>
-          <div class="checkBoxWrapper checkBoxWrapperSubscribe flexRowStart">
+            {{ $t('signUpPage.slide3.consent') }}
+          </label>
+          <label 
+            for="subscribe" 
+            class="checkBoxWrapper checkBoxWrapperSubscribe flexRowStart b1"
+          >
             <input 
               type="checkbox" 
               name="subscribe" 
               id="subscribe" 
               class="switcher"
             />
-            <label 
-              for="subscribe" 
-              class="b1"
-            >
-              {{ $t('signUpPage.slide3.subscribe') }}
-            </label>
-          </div>
-          <div class="buttonsWrapper buttonsWrapper3 flexRowCenter">
+            {{ $t('signUpPage.slide3.subscribe') }}
+          </label>
+          <div class="buttonsWrapper buttonsWrapper3 flexColumnStart">
             <span
               class="button"
               @click="currentSlide = 1"
@@ -330,7 +382,8 @@ const createAccount = () => {
               {{ $t('buttons.back') }}
             </span>
             <span
-              class="button bg_black"
+              class="button"
+              :class="accept ? 'bg_black' : 'button_disabled'"
               @click="createAccount()"
             >
               {{ $t('buttons.createAccount') }}

@@ -8,19 +8,21 @@ definePageMeta({
   <div class="verifyEmailWrapper">
     <RegistrationMainMenu/>
     <main class="Content flexColumnCenter">
-      <div class="Embroiderer flexColumnCenter">
-        <img 
-          src="../../assets/media/img/embroiderer.svg" 
-          alt="Embroiderer" 
-          class="Img"
-        >
+      <div class="content flexColumnCenter">
+        <div class="Embroiderer flexColumnCenter">
+          <img 
+            src="../../assets/media/img/embroiderer.svg" 
+            alt="Embroiderer" 
+            class="Img"
+          >
+        </div>
+        <h1>
+          {{ $t('verifyEmailPage.title') }}
+        </h1>
+        <p>
+          {{ $t('verifyEmailPage.content') }}
+        </p>
       </div>
-      <h1>
-        Verify your email address
-      </h1>
-      <p>
-        To complete your profile and start stitching please verify your email address
-      </p>
     </main>
     <GeneralCookieBar/>
   </div>

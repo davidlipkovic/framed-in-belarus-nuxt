@@ -187,6 +187,10 @@
         "signInButton" : "Sign in",
         "signInGoogleButton" : "Sign in with Google"
     },
+    "verifyEmailPage": {
+        "title": "Verify your email address",
+        "content": "To complete your profile and start stitching please verify your email address"
+    },
     "profilePage": {
         "title": "My embroideries",
         "subTitle": "Profile",
