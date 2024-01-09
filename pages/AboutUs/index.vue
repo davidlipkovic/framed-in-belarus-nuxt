@@ -53,20 +53,22 @@ export default {
             </a>
           </p>
           <br>
-          <a 
-            href="https://www.instagram.com/rufinabazlova/" 
-            target="_blank" 
-            class="button"
-          >
-            {{ $t("aboutUsPage.igButton") }}
-          </a>
-          <a 
-            href="https://www.facebook.com/rufinartist" 
-            target="_blank" 
-            class="button"
-          >
-            {{ $t("aboutUsPage.fbButton") }}
-          </a>
+          <div class="buttons">
+            <a 
+              href="https://www.instagram.com/rufinabazlova/" 
+              target="_blank" 
+              class="button"
+            >
+              {{ $t("aboutUsPage.igButton") }}
+            </a>
+            <a 
+              href="https://www.facebook.com/rufinartist" 
+              target="_blank" 
+              class="button"
+            >
+              {{ $t("aboutUsPage.fbButton") }}
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -162,7 +162,7 @@ const user = {
             </p>
           </div>
           <div class="Settings-item Settings-item_buttons">
-            <div class="Settings-item-main">
+            <div class="Settings-item-main buttons">
               <button 
                 class="button" 
                 @click="displayEditModal = false"

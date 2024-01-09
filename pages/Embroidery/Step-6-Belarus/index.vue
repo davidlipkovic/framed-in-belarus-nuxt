@@ -34,7 +34,7 @@ definePageMeta({
             {{ $t('embroidery.step6Page.sectionBelarus.content') }}
           </p>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 

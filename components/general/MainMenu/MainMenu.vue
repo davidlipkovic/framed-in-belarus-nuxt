@@ -106,7 +106,7 @@ watch(width, n => {
               class="helpButtonMobile flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
             >
-              Ask a question
+              {{ $t('mainMenu.question.label') }}
             </button>
             <nuxt-link
               v-if="userStore.isLogged"

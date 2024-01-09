@@ -160,5 +160,4 @@ onMounted(() => {
 
 <style src="../../../assets/style/search.scss" lang="scss" scoped></style>
 <style src="../../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-1-choose-hero.scss" lang="scss" scoped></style>

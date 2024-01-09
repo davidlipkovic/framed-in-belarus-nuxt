@@ -38,6 +38,5 @@ definePageMeta({
 </template>
 
 <style src="../../../assets/style/form.scss" lang="scss"></style>
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="../Step-4-photo/Step-4-photo.scss" lang="scss" scoped></style>
 <style src="./Step-5-wait.scss" lang="scss" scoped></style>

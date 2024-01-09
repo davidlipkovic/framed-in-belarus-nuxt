@@ -1,4 +1,7 @@
 @import "../../assets/style/globalPartials/variables";
+@import "../../assets/style/mixins/general";
+
+@include buttons;
 
 .profileContent {
   display: flex;

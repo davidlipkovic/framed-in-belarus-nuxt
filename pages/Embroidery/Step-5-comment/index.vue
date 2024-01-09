@@ -12,7 +12,7 @@ const sendComment = ref(null)
 const writeComment = ref(null)
 
 const validData = computed(() => {
-  return publishComment.value !== null && writeComment.value !== null && ((writeComment.value && englishComment.value && nativeComment.value) || sendComment.value)
+  return publishComment.value !== null && (sendComment.value || (writeComment.value && englishComment.value && nativeComment.value))
 })
 </script>
 
@@ -171,7 +171,7 @@ const validData = computed(() => {
             {{ $t('embroidery.step5Page.section4.warning') }}
           </p>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-4-photo')"
             class="button"

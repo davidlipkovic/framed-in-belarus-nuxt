@@ -137,7 +137,7 @@ const enableButton = computed(() => {
             </label>
           </template>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             to="/Embroidery/Step-5-comment" 
             class="button"

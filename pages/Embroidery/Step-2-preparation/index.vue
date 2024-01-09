@@ -212,7 +212,7 @@ const AlphabetPattern3 = ref({ show: false })
             </div>
           </div>
         </article>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link
             :to="localePath('/Embroidery/Step-3-support')"
             id="save"
@@ -226,5 +226,4 @@ const AlphabetPattern3 = ref({ show: false })
   </main>
 </template>
 
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-2-preparation.scss" lang="scss" scoped></style>

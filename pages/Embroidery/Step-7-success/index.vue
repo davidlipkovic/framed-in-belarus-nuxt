@@ -48,7 +48,7 @@ definePageMeta({
               {{ $t('embroidery.step7Page.section1.paragraph4') }}
             </p>
           </div>
-          <div class="buttons flexColumnCenter">
+          <div class="buttons">
             <nuxt-link
               to="/Embroidery/Step-1-your-hero"
               class="button bg_black"

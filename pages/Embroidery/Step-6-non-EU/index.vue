@@ -135,7 +135,7 @@ const validData = computed(() => {
             {{ $t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.warning') }}
           </p>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             to="/Embroidery/Step-6-choose-shipping" 
             class="button"

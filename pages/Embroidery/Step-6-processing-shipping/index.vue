@@ -44,7 +44,7 @@ definePageMeta({
             {{ $t('embroidery.step6Page.sectionSent.content3') }}
           </p>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             :to="localePath('/Profile')"
             class="button"
@@ -57,5 +57,4 @@ definePageMeta({
   </main>
 </template>
 
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-6-processing-shipping.scss" lang="scss" scoped></style>

@@ -164,7 +164,7 @@ definePageMeta({
             </dd>
           </dl>
         </article>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-2-preparation')"
             class="button"
@@ -184,5 +184,4 @@ definePageMeta({
   </main>
 </template>
 
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-3-support.scss" lang="scss" scoped></style>

@@ -1,6 +1,13 @@
 @import "../globalPartials/variables";
 @import "./borders";
 
+@mixin limitedTextWidthLg {
+  .limitedTextWidthLg {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}
+
 @mixin chooseShipping {
   width: 100%;
   max-width: 444px;

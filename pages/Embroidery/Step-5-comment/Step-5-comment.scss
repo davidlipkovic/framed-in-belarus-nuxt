@@ -1,5 +1,9 @@
 @import "../../../assets/style/globalPartials/variables";
-@import "../../../assets/style/steps";
+@import "../../../assets/style/mixins/general";
+@import "../../../assets/style/mixins/steps";
+
+@include buttons;
+@include limitedTextWidthLg;
 
 .step5PageWrapper {
   .sectionWrapper {

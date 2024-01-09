@@ -1,4 +1,9 @@
 @import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/mixins/general";
+@import "../../../assets/style/mixins/steps";
+
+@include buttons;
+@include limitedTextWidthLg;
 
 .uploadFiles {
   margin: 10px 0 30px;

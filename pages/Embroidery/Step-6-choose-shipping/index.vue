@@ -94,7 +94,7 @@ const route = ref(null)
             {{ $t('embroidery.step6Page.sectionOptions.option4') }}
           </label>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             to="/Embroidery/Step-5-comment" 
             class="button"

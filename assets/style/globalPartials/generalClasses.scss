@@ -1,3 +1,5 @@
+@import "../mixins/general";
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -174,29 +176,19 @@
 }
 
 .flexRowCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexRowCenter;
 }
 
 .flexColumnCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include flexColumnCenter;
 }
 
 .flexRowStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include flexRowStart;
 }
 
 .flexColumnStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
+  @include flexColumnStart;
 }
 
 .overflowHidden {

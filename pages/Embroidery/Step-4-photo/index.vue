@@ -70,7 +70,7 @@ definePageMeta({
           <RegistrationImagePreview/>
           <RegistrationImagePreview/>
         </div>
-        <div class="buttons flexColumnCenter">
+        <div class="buttons">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-3-support')"
             class="button"
@@ -90,5 +90,4 @@ definePageMeta({
   </main>
 </template>
 
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-4-photo.scss" lang="scss" scoped></style>

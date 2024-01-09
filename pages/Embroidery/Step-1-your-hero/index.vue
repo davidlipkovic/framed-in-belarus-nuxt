@@ -151,7 +151,7 @@ const description = `
               {{ $t("embroidery.step1Page.warning") }}
             </p>
           </div>
-          <div class="buttons flexColumnCenter">
+          <div class="buttons">
             <nuxt-link
               :to="localePath('/Embroidery/Step-1-choose-hero')"
               id="save"
@@ -173,5 +173,4 @@ const description = `
   </main>
 </template>
 
-<style src="../../../assets/style/steps.scss" lang="scss" scoped></style>
 <style src="./Step-1-your-hero.scss" lang="scss" scoped></style>
