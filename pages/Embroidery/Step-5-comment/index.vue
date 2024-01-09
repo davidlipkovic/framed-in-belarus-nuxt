@@ -8,10 +8,11 @@ definePageMeta({
 const englishComment = ref(null)
 const nativeComment = ref(null)
 const publishComment = ref(null)
+const sendComment = ref(null)
 const writeComment = ref(null)
 
 const validData = computed(() => {
-  return publishComment.value !== null && writeComment.value !== null && ((writeComment.value && englishComment.value && nativeComment.value) || !writeComment.value)
+  return publishComment.value !== null && writeComment.value !== null && ((writeComment.value && englishComment.value && nativeComment.value) || sendComment.value)
 })
 </script>
 
@@ -62,10 +63,11 @@ const validData = computed(() => {
               type="radio"
               name="sentComment"
               id="sentComment"
-              :value="false"
-              v-model="writeComment"
+              :value="!sendComment"
+              v-model="sendComment"
               required
               class="simulateCheckbox"
+              :class="{'isChecked' : sendComment}"
             />
             <span class="checkmark"/>
             <span class="labelContent">
@@ -80,10 +82,11 @@ const validData = computed(() => {
               type="radio"
               name="writeComment"
               id="writeComment"
-              :value="true"
+              :value="!writeComment"
               v-model="writeComment"
               required
               class="simulateCheckbox"
+              :class="{'isChecked' : writeComment}"
             />
             <span class="checkmark"/>
             <span class="labelContent">
