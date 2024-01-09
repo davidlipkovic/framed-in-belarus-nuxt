@@ -398,7 +398,6 @@ const validDataSlide1 = computed(() => {
         :key="slide"
         class="swiper-pagination-bullet"
         :class="{'swiper-pagination-bullet-active' : index === currentSlide}"
-        @click="currentSlide = index"
       />
     </div>
   </div>

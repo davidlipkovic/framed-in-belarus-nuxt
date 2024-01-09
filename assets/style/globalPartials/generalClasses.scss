@@ -247,20 +247,20 @@
 }
 
 /* When the checkbox is checked, add a blue background */
-.simulateCheckboxWrapper input:checked ~ .checkmark {
+.simulateCheckboxWrapper input.isChecked ~ .checkmark {
   border-color: $black;
   background-color: $black;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.simulateCheckboxWrapper .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.simulateCheckboxWrapper input:checked ~ .checkmark:after {
+.simulateCheckboxWrapper input.isChecked ~ .checkmark:after {
   display: block;
 }
 
