@@ -45,6 +45,7 @@ select {
 textarea {
   min-height: 5rem;
   overflow-y: auto;
+  resize: vertical;
 }
 
 input:required,
@@ -127,9 +128,5 @@ textarea:focus::placeholder {
   select,
   textarea {
     padding: 18px;
-  }
-
-  textarea:focus {
-    height: 50vh;
   }
 }
