@@ -242,7 +242,8 @@
 
 .mainMenuWrapper .helpButtonDesktop,
 .mainMenuWrapperClosed .menuContentWrapper,
-.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper {
+.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper,
+.profileButtonDesktop {
   display: none;
 }
 
@@ -260,7 +261,8 @@
     .helpButtonMobile, 
     .participateButtonMobile,
     .profileButton span,
-    .signOutMobile {
+    .signOutMobile,
+    .profileButtonMobile {
       display: none;
     }
 
@@ -355,6 +357,10 @@
       svg {
         fill: none;
       }
+    }
+
+    .profileButtonDesktop {
+      display: flex;
     }
 
     .profileButton {

@@ -87,12 +87,12 @@
         Embroidery Step5
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step-6"
+        to="/Embroidery/Step-6-choose-shipping"
       >
         Embroidery Step6
       </nuxt-link>
       <nuxt-link
-        to="/Embroidery/Step-6-shipping"
+        to="/Embroidery/Step-6-processing-shipping"
       >
         Embroidery Step7
       </nuxt-link>

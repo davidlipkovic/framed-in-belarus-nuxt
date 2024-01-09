@@ -142,7 +142,7 @@ watch(width, n => {
             </button>
             <button
               v-if="userStore.isLogged"
-              class="profileButton flexRowCenter"
+              class="profileButton profileButtonDesktop flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"
               v-tooltip="$t('toolTips.profile')"
@@ -156,6 +156,20 @@ watch(width, n => {
                 {{ userStore.currentUser.name }}
               </span>
             </button>
+            <nuxt-link
+              v-if="userStore.isLogged"
+              class="profileButton profileButtonMobile flexRowCenter"
+              :to="localePath('/Profile')"
+            >
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.currentUser.name }}
+              </span>
+            </nuxt-link>
             <GeneralProfileModal
               v-if="toggleProfileModal"
               class="profileModalHeader"

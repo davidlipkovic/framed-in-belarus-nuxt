@@ -92,7 +92,7 @@
     border-radius: 4px;
     background-color: $black;
     padding: 0 1rem;
-    margin-right: 18px;
+    margin-right: unset;
     margin-bottom: 20px;
   }
 
@@ -232,6 +232,12 @@
   }
 }
 
+.footerLinksWrapper {
+  .Info-menu-item {
+    margin-bottom: 1rem;
+  }
+}
+
 @media screen and (max-width: $br-point-md) {
   .Info-project {
     margin-bottom: 1.625rem;
@@ -342,6 +348,12 @@
 
     img {
       width: 26px;
+    }
+  }
+
+  .footerLinksWrapper {
+    .Info-menu-item {
+      margin-bottom: 0.5rem;
     }
   }
 }

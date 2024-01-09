@@ -2,9 +2,10 @@
 @import "../../../assets/style/swiperPagination.scss";
 
 .basicSwiperWrapper {
-  width: auto;
-  max-width: 448px;
-  height: 505px;
+  width: 448px;
+  height: 485px;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vw - 2rem + 37px);
   display: block;
   margin: 0 auto;
 
@@ -15,7 +16,7 @@
 
   .swiper-slide {
     width: 100%;
-    height: 100%;
+    max-height: calc(100vw - 2rem);
     height: auto;
     margin-bottom: 34px;
 

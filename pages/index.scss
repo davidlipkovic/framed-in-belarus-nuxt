@@ -25,7 +25,7 @@
 }
 
 .ProjectDescr {
-  margin-bottom: 65px;
+  margin-bottom: 30px;
 
   .mainLogoWrapper {
     margin-bottom: 0.5rem;
@@ -142,6 +142,8 @@
 /* Desktop */
 @media screen and (min-width: $br-point-lg) {
   .ProjectDescr {
+    margin-bottom: 65px;
+
     .mainLogoWrapper {
       margin-top: 10px;
 

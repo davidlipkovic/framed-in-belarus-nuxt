@@ -63,7 +63,7 @@ onMounted(() => {
                 :placeholder="$t('placeholders.searchHero')"
                 :aria-placeholder="$t('placeholders.searchHero')"
                 v-model="search"
-              >
+              />
             </div>
             <GeneralSortMenu 
               :menuStatus="activeMenuIndex === 1"

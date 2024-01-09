@@ -49,12 +49,16 @@ onMounted(() => {
     <div class="content">
       <div class="searchMenuWrapper">
         <div class="searchSortInputWrapper">
-          <input 
-            type="text" 
-            class="search" 
-            :placeholder="$t('placeholders.searchHero')"
-            :aria-placeholder="$t('placeholders.searchHero')"
-          >
+          <div class="searchInputWrapper flexRowCenter">
+            <SvgSearch class="searchIcon"/>
+            <input 
+              type="text" 
+              class="search" 
+              :placeholder="$t('placeholders.searchHero')"
+              :aria-placeholder="$t('placeholders.searchHero')"
+              v-model="search"
+            />
+          </div>
           <GeneralSortMenu 
             :menuStatus="activeMenuIndex === 1"
             @checkForStatus="toggleActiveMenuIndex(1)"

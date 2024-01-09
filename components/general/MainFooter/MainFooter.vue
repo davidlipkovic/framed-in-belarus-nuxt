@@ -62,7 +62,7 @@ watch(route, n => {
                 {{ $t('buttons.subscribe') }}
               </button>
             </div>
-            <div class="Info-menu-group">
+            <div class="Info-menu-group footerLinksWrapper">
               <nuxt-link
                 :to="localePath('/')"
                 class="Info-menu-item"

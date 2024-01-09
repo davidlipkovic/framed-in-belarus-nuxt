@@ -1,4 +1,7 @@
 <script setup>
+import { useUserStore } from "@/stores/user"
+const userStore = useUserStore()
+
 definePageMeta({
   layout: "home"
 })
@@ -42,7 +45,7 @@ const slides = [
           {{ $t('description') }}
         </p>
         <nuxt-link
-          :to="localePath('/SignUp')"
+          :to="userStore.isLogged ? localePath('/Profile') : localePath('/SignUp')"
           class="button bg_red"
         >
           {{ $t('links.participate') }}
