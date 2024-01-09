@@ -24,7 +24,7 @@
     "placeholders": {
         "email": "Email",
         "emailLogin": "Email (login)",
-        "country": "Country of residance",
+        "country": "Country of residence",
         "instagram": "{'@'}Instagram",
         "username": "Username",
         "password": "Password",
