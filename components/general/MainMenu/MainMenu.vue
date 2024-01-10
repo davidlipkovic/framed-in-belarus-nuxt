@@ -193,5 +193,4 @@ watch(width, n => {
   />
 </template>
 
-<style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
 <style src="./MainMenu.scss" lang="scss"></style>

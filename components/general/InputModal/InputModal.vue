@@ -15,25 +15,23 @@ watchEffect(() => {
 
 <template>
   <div
-    class="modalWrapper flexRowCenter"
+    class="inputModalWrapper flexRowCenter"
     v-if="displayModal"
   >
     <div
-      class="modalBackgroundWrapper"
+      class="inputModalBackgroundWrapper"
       @click="$emit('closeModal')"
     />
-    <div
-      class="modalContentWrapper flexRowCenter"
-    >
+    <div class="inputModalSlotWrapper flexRowCenter">
       <button
         @click="$emit('closeModal')"
         class="closeButton"
       >
-        <SvgClose />
+        <SvgClose/>
       </button>
-      <slot></slot>
+      <slot/>
     </div>
   </div>
 </template>
 
-<style src="./Modal.scss" lang="scss"></style>
+<style src="./InputModal.scss" lang="scss"></style>

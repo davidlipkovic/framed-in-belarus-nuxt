@@ -1,0 +1,90 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/general";
+
+@include buttons;
+
+.inputModalWrapper {
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20000;
+}
+
+.inputModalBackgroundWrapper {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20001;
+  background-color: $greyTransparentBG;
+}
+
+.inputModalSlotWrapper {
+  z-index: 20002;
+  position: relative;
+
+  .closeButton {
+    position: absolute;
+    right: 32px;
+    top: 24px;
+    z-index: 20003;
+
+    svg {
+      width: 25px;
+    }
+  }
+}
+
+.inputModalContentWrapper {
+  background-color: $white;
+  overflow-y: auto;
+  border-radius: 0.75rem;
+  max-width: 720px;
+  width: calc(100vw - 2rem);
+}
+
+.inputModalHeader {
+  padding: 22px 24px 14px;
+  border-bottom: 1px solid $borderLight;
+  align-items: center;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.inputModalBody {
+
+}
+
+.inputModalFooter {
+  justify-content: flex-end;
+  padding: 0 24px 18px;
+  margin-top: 8px;
+
+  .button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: $br-point-sm) {
+  .inputModalFooter {
+    flex-direction: row;
+
+    .button {
+      width: auto;
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  
+    .button:last-child {
+      margin-right: 0;
+    }
+  }
+}

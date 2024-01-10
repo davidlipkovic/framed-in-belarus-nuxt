@@ -78,7 +78,6 @@ const validDataSlide1 = computed(() => {
                 type="checkbox" 
                 name="publishUsername" 
                 id="publishUsername" 
-                class="switcher"
                 :value="true"
                 v-model="publishUsername"
               />
@@ -121,7 +120,6 @@ const validDataSlide1 = computed(() => {
                 type="checkbox" 
                 name="publishCountry" 
                 id="publishCountry" 
-                class="switcher"
                 :value="true"
                 v-model="publishCountry"
               />
@@ -204,7 +202,6 @@ const validDataSlide1 = computed(() => {
                 type="checkbox" 
                 name="mentionInstagram" 
                 id="mentionInstagram" 
-                class="switcher"
               />
               {{ $t('inputs.mentionInstagram') }}
             </label>
@@ -216,7 +213,6 @@ const validDataSlide1 = computed(() => {
                 type="checkbox" 
                 name="publishInstagram" 
                 id="publishInstagram" 
-                class="switcher"
               />
               {{ $t('buttons.publish') }}
             </label>
@@ -244,7 +240,6 @@ const validDataSlide1 = computed(() => {
                 type="checkbox" 
                 name="publishReason" 
                 id="publishReason" 
-                class="switcher"
               />
               {{ $t('buttons.publish') }}
             </label>
@@ -356,7 +351,6 @@ const validDataSlide1 = computed(() => {
               type="checkbox" 
               name="accept" 
               id="accept" 
-              class="switcher"
               :value="true"
               v-model="accept"
             />
@@ -370,7 +364,6 @@ const validDataSlide1 = computed(() => {
               type="checkbox" 
               name="subscribe" 
               id="subscribe" 
-              class="switcher"
             />
             {{ $t('signUpPage.slide3.subscribe') }}
           </label>

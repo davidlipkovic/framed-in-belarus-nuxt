@@ -181,5 +181,4 @@ const user = {
 </template>
 
 <style src="../../assets/style/form.scss" lang="scss" scoped></style>
-<style src="../../assets/style/settings.scss" lang="scss" scoped></style>
 <style src="./Profile.scss" lang="scss" scoped></style>
