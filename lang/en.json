@@ -29,6 +29,7 @@
         "username": "Username",
         "password": "Password",
         "passwordAgain": "Password again",
+        "communicationLanguage": "Communication language",
         "chooseCommunicationLanguage": "Choose communication language",
         "pseudonym": "Your pseudonym / nickname",
         "searchHero": "Search for a Hero*ine by name",
@@ -196,6 +197,7 @@
         "subTitle": "Profile",
         "question": "Why did you decide to participate?",
         "editProfile": "Edit profile",
+        "deleteAccount": "Delete account",
         "cardStatus": {
             "status1": "In Progress",
             "status2": "Pattern is ready",
@@ -219,6 +221,7 @@
             },
             "goBack": "Go back to my Profile",
             "step": "step",
+            "Step": "Step",
             "description": {
                 "case": "Case",
                 "birth": "Date of birth",

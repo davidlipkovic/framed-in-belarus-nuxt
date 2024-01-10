@@ -6,11 +6,20 @@ definePageMeta({
 })
 
 const displayEditModal = ref(false)
+const displayDeleteModal = ref(false)
 
 const user = {
   name: "Tiffany Chin",
-  comment: "To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus..."
+  comment: "To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus...",
+  email: 'name@gmail.com',
+  country: 'Poland',
+  instagram: '@insta',
+  language: 'English'
 }
+
+const commentTruncated = computed(() => {
+  return user.comment.slice(0, 220) + '...'
+})
 </script>
 
 <template>
@@ -43,19 +52,67 @@ const user = {
           </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
+          <div class="userInfoWrapper">
+            <p class="flexRowStart">
+              <span>
+                {{ $t('placeholders.username') }}
+              </span>
+              <span class="b1">
+                {{ user.name }}
+              </span>
+            </p>
+            <p class="flexRowStart">
+              <span>
+                {{ $t('placeholders.email') }}
+              </span>
+              <span class="b1">
+                {{ user.email }}
+              </span>
+            </p>
+            <p class="flexRowStart">
+              <span>
+                {{ $t('placeholders.country') }}
+              </span>
+              <span class="b1">
+                {{ user.country }}
+              </span>
+            </p>
+            <p class="flexRowStart">
+              <span>
+                {{ $t('placeholders.instagram') }}
+              </span>
+              <span class="b1">
+                {{ user.instagram }}
+              </span>
+            </p>
+            <p class="flexRowStart">
+              <span>
+                {{ $t('placeholders.communicationLanguage') }}
+              </span>
+              <span class="b1">
+                {{ user.language }}
+              </span>
+            </p>
+          </div>
           <h3 class="b">
             {{ $t('profilePage.question') }}
           </h3>
           <p>
-            {{ user.comment }}
+            {{ commentTruncated }}
           </p>
         </div>
-        <div class="userProfile-buttons">
+        <div class="userProfile-buttons flexColumnCenter">
           <button 
             class="button" 
             @click="displayEditModal = true"
           >
-            Edit profile
+            {{ $t('profilePage.editProfile') }}
+          </button>
+          <button 
+            class="deleteButton" 
+            @click="displayDeleteModal = true"
+          >
+            {{ $t('profilePage.deleteAccount') }}
           </button>
         </div>
       </section>
@@ -65,15 +122,15 @@ const user = {
         />
         <RegistrationEmbroideryCard
           :newEmbroidery="false"
-          :status="{type: 'InProgress', message: 'In Progress  Step 3'}"
+          :status="{type: 'InProgress', message: 'status1', stepIndex: 1}"
         />
         <RegistrationEmbroideryCard
           :newEmbroidery="false"
-          :status="{type: 'Published', message: 'Published'}"
+          :status="{type: 'Sent', message: 'status4'}"
         />
         <RegistrationEmbroideryCard
           :newEmbroidery="false"
-          :status="{type: 'Published', message: 'Published'}"
+          :status="{type: 'Requested', message: 'status7'}"
         />
       </section>
     </div>
@@ -84,7 +141,7 @@ const user = {
       <div class="Settings content">
         <div class="Settings-header">
           <h2>
-            Edit profile
+            {{ $t('profilePage.editProfile') }}
           </h2>
         </div>
         <div class="Settings-body">
@@ -94,7 +151,7 @@ const user = {
                 for="username" 
                 class="Settings-item-title"
               >
-                Username
+                {{ $t('placeholders.username') }}
               </label>
               <input 
                 type="text" 
@@ -104,17 +161,20 @@ const user = {
                 id="username" 
                 name="username"
               >
-              <p class="Settings-item-publish">
-                <label for="publishUsername">
-                  Publish
-                </label>
+              <label
+                for="publishUsername" 
+                class="checkBoxWrapper checkBoxWrapperUsername flexRowStart Settings-item-publish"
+              >
                 <input 
                   type="checkbox" 
                   name="publishUsername" 
                   id="publishUsername" 
                   class="switcher"
-                >
-              </p>
+                  :value="true"
+                  v-model="publishUsername"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
             </div>
           </div>
           <div class="Settings-item">
@@ -135,7 +195,7 @@ const user = {
               >
               <p class="Settings-item-publish">
                 <label for="publishPseudonym">
-                  Publish
+                  {{ $t('buttons.publish') }}
                 </label>
                 <input 
                   type="checkbox" 
@@ -149,14 +209,14 @@ const user = {
           <div class="Settings-item Settings-item_reason">
             <div class="Settings-item-main">
               <label for="reason" class="Settings-item-title">
-                Why did you decide to participate?
+                {{ $t('profilePage.question') }}
               </label>
               <textarea class="Settings-item-input" id="reason" name="reason">
               </textarea>
             </div>
             <p class="Settings-item-publish">
               <label for="reasonPublish">
-                Publish
+                {{ $t('buttons.publish') }}
               </label>
               <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
             </p>
@@ -167,10 +227,10 @@ const user = {
                 class="button" 
                 @click="displayEditModal = false"
               >
-                Cancel
+                {{ $t('buttons.cancel') }}
               </button>
               <button class="button bg_black">
-                Save
+                {{ $t('buttons.save') }}
               </button>
             </div>
           </div>

@@ -46,10 +46,18 @@ const error = computed(() => {
       class="embroideryCardImg"
     >
     <span
+      v-if="status.type === 'InProgress'"
       class="embroideryCardStatus"
       :class="'embroideryCardStatus' + status.type"
     >
-      {{ status.message }}
+      {{ $t('profilePage.cardStatus.' + status.message) }} · {{ $t('embroidery.steps.Step') + ' ' + status.stepIndex }} 
+    </span>
+    <span
+      v-else
+      class="embroideryCardStatus"
+      :class="'embroideryCardStatus' + status.type"
+    >
+      {{ $t('profilePage.cardStatus.' + status.message) }}
     </span>
     <p class="embroideryCardName">
       <SvgWarning 
