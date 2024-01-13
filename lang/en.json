@@ -271,6 +271,19 @@
             "notInDatabase": {
                 "title": "Sorry, we don't have this hero in our data base",
                 "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
+            },
+            "requestModal" :{
+                "request": {
+                    "title": "Send a request",
+                    "requestName": "Name Surname of prisoner",
+                    "requestDescription": "To create a pattern please help us by telling the hero's story. What he/she is into, what their work was, whether he/she has children or pets, etc. If you know the details and reasons for your hero's detention, please provide them. This may also help in creating a pattern."
+                },
+                "success": {
+                    "title": "Your request has been succesfully sent",
+                    "content": "Thank you for your request! We'll get back to you as soon as the pattern is ready. If you'd like, you can embroider another Hero*ine in the meantime, or just wait for your pattern.",
+                    "button1" : "Go to my profile",
+                    "button2" : "Choose a hero"
+                }
             }
         },
         "step2Page": {

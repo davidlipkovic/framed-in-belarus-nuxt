@@ -46,6 +46,11 @@ const noPattern = computed(() => {
 const notInDatabase = computed(() => {
   return !parsedHeroes.value.length
 })
+
+const displayRequestModal = ref(false)
+const requestDescription = ref(null)
+const requestName = ref(null)
+const requestNotSent = ref(true)
 </script>
 
 <template>
@@ -169,7 +174,10 @@ const notInDatabase = computed(() => {
             {{ $t('embroidery.step1Page.noPattern.paragraph2') }}<br>
             {{ $t('embroidery.step1Page.noPattern.paragraph3') }}
           </p>
-          <button class="button">
+          <button 
+            class="button"
+            @click="displayRequestModal = true"
+          >
             {{ $t('embroidery.step1Page.noPattern.button') }}
           </button>
         </div>
@@ -187,6 +195,100 @@ const notInDatabase = computed(() => {
         </div>
       </section>
     </div>
+    <GeneralInputModal
+      @closeModal="displayRequestModal = false"
+      :displayModal="displayRequestModal"
+    >
+      <div class="inputModalContentWrapper requestModalContentWrapper">
+        <div class="inputModalHeader flexRowStart">
+          <h2 
+            v-if="requestNotSent"
+            class="title"
+          >
+            {{ $t('embroidery.step1Page.requestModal.request.title') }}
+          </h2>
+          <button
+            @click="displayRequestModal = false"
+            class="closeButton"
+          >
+            <SvgClose/>
+          </button>
+        </div>
+        <div class="inputModalBody flexColumnCenter">
+          <template v-if="requestNotSent">
+            <div class="inputModalRow flexRowStart">
+              <div class="inputModalItem inputModalItemFullWidth inputModalItemTextarea flexColumnStart">
+                <textarea 
+                  type="text" 
+                  name="requestName" 
+                  id="requestName"
+                  :placeholder="$t('embroidery.step1Page.requestModal.request.requestName')" 
+                  class="contentInput requestNameInput"
+                  v-model="requestName"
+                />
+              </div>
+            </div>
+            <div class="inputModalRow flexRowStart">
+              <div class="inputModalItem inputModalItemFullWidth inputModalItemTextarea flexColumnStart">
+                <textarea 
+                  type="text" 
+                  name="requestDescription" 
+                  id="requestDescription"
+                  :placeholder="$t('embroidery.step1Page.requestModal.request.requestDescription')" 
+                  class="contentInput requestDescriptionInput"
+                  v-model="requestDescription"
+                />
+              </div>
+            </div>
+          </template>
+          <template v-else>
+            <div 
+              class="inputModalItem inputModalItemFullWidth flexColumnCenter"
+              :class="{'requestModalItemSentWrapper' : !requestNotSent}"
+            >
+              <SvgCheckMark class="checkMarkIconWrapper flexColumnCenter"/>
+              <h2 class="title">
+                {{ $t('embroidery.step1Page.requestModal.success.title') }}
+              </h2>
+              <span>
+                {{ $t('embroidery.step1Page.requestModal.success.content') }}
+              </span>
+            </div>
+          </template>
+        </div>
+        <div class="inputModalFooter buttons">
+          <template v-if="requestNotSent">
+            <button 
+              class="button" 
+              @click="displayRequestModal = false"
+            >
+              {{ $t('buttons.cancel') }}
+            </button>
+            <button 
+              class="button"
+              :class="{'button_disabled': !(requestName && requestDescription), 'bg_black': requestName && requestDescription}" 
+              @click="requestNotSent = false"
+            >
+              {{ $t('buttons.send') }}
+            </button>
+          </template>
+          <template v-else>
+            <nuxt-link
+              :to="localePath('/Profile')"
+              class="button"
+            >
+              {{ $t('embroidery.step1Page.requestModal.success.button1') }}
+            </nuxt-link>
+            <button
+              class="button bg_black"
+              @click="displayRequestModal = false"
+            >
+              {{ $t('embroidery.step1Page.requestModal.success.button2') }}
+            </button>
+          </template>
+        </div>
+      </div>
+    </GeneralInputModal>
   </main>
 </template>
 

@@ -32,3 +32,56 @@
 		max-width: 360px;
 	}
 }
+
+.requestModalContentWrapper {
+	.inputModalRow {
+		textarea {
+			min-height: unset;
+			height: 7.5rem;
+		}
+	}
+
+	.inputModalRow:first-child {
+		textarea {
+			height: 3.5rem;
+			width: 100%;
+		}
+	}
+}
+
+.requestModalItemSentWrapper {
+  padding: 8px 8px;
+
+  * {
+    text-align: center;
+  }
+
+  .checkMarkIconWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  h2 {
+    font-family: 'Roboto';
+    margin-top: 20px;
+		font-weight: 400;
+  }
+
+  span {
+    font-size: 14px;
+    margin-top: 16px;
+		max-width: 550px;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+	.requestModalContentWrapper {
+		.inputModalRow:first-child {
+			textarea {
+				min-height: unset;
+				height: 3.5rem;
+				width: 80%;
+			}
+		}
+	}
+}
