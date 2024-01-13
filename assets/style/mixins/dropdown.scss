@@ -1,0 +1,16 @@
+@import "../globalPartials/variables";
+
+@mixin dropdownMenuWrapper {
+  .dropdownMenuWrapper {
+    position: fixed;
+    background-color: $white;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 103;
+    overflow: hidden;
+
+    * {
+      color: $black;
+    }
+  }
+}
