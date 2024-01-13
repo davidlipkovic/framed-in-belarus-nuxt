@@ -269,7 +269,7 @@
                 "button": "Leave a request"
             },
             "notInDatabase": {
-                "title": "Sorry, we don't have this hero in our data base",
+                "title": "Sorry, we don't have this hero in our database",
                 "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
             },
             "requestModal" :{
