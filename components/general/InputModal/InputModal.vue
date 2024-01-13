@@ -23,12 +23,6 @@ watchEffect(() => {
       @click="$emit('closeModal')"
     />
     <div class="inputModalSlotWrapper flexRowCenter">
-      <button
-        @click="$emit('closeModal')"
-        class="closeButton"
-      >
-        <SvgClose/>
-      </button>
       <slot/>
     </div>
   </div>

@@ -25,17 +25,6 @@
 .inputModalSlotWrapper {
   z-index: 20002;
   position: relative;
-
-  .closeButton {
-    position: absolute;
-    right: 32px;
-    top: 24px;
-    z-index: 20003;
-
-    svg {
-      width: 25px;
-    }
-  }
 }
 
 .inputModalContentWrapper {

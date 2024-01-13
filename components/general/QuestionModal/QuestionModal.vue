@@ -26,6 +26,12 @@ const question = ref(null)
         <h2>
           {{ $t('mainMenu.question.label') }}
         </h2>
+        <button
+          @click="$emit('closeModal')"
+          class="closeButton"
+        >
+          <SvgClose/>
+        </button>
       </div>
       <div class="inputModalBody">
         <div class="inputModalItem questionModalItem flexColumnStart">
