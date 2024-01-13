@@ -100,6 +100,7 @@ onMounted(() => {
         />
       </section>
       <GeneralPagination
+        v-if="numberOfPages"
         :currentPage="currentPage"
         :numberOfPages="numberOfPages"
         class="paginationGalleryWrapper"

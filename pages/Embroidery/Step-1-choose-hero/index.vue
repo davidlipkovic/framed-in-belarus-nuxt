@@ -30,6 +30,22 @@ const sortedHeroes = computed(() => sortData(heroesStore, 'heroes'))
 onMounted(() => {
   numberOfPages.value = Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed())
 })
+
+const alreadyChosen = computed(() => {
+  return parsedHeroes.value.some(hero => hero.chosen)
+})
+
+const linkToAlreadyChosen = computed(() => {
+  return ''
+})
+
+const noPattern = computed(() => {
+  return parsedHeroes.value.some(hero => hero.hasPattern)
+})
+
+const notInDatabase = computed(() => {
+  return !parsedHeroes.value.length
+})
 </script>
 
 <template>
@@ -102,57 +118,73 @@ onMounted(() => {
             />
           </div>
         </div>
-        <div class="searchResultsWrapper">
-          <GeneralResultBox
-            v-for="hero in parsedHeroes" 
-            :key="hero.id"
-            :result="hero"
-            :isEmbroidery="true"
-            @click="heroesStore.setChosenHero(hero.id)"
+        <template v-if="!alreadyChosen && !noPattern && !notInDatabase">
+          <div class="searchResultsWrapper">
+            <GeneralResultBox
+              v-for="hero in parsedHeroes" 
+              :key="hero.id"
+              :result="hero"
+              :isEmbroidery="true"
+              @click="heroesStore.setChosenHero(hero.id)"
+            />
+          </div>
+          <GeneralPagination
+            v-if="numberOfPages"
+            :currentPage="currentPage"
+            :numberOfPages="numberOfPages"
+            @change-page-index-to="changePageIndex"
           />
-        </div>
-        <GeneralPagination
-          :currentPage="currentPage"
-          :numberOfPages="numberOfPages"
-          @change-page-index-to="changePageIndex"
-        />
-        <!-- <div id="default">
-          <p class="alignCenter">
-            <span class="block">OR</span>
-            You can let us choose a hero for you automatically
-          </p>
-          <div class="buttons flexColumnCenter">
+        </template>
+        <div 
+          v-if="alreadyChosen"
+          class="mistakeSearchResultsWrapper alreadyChosenWrapper flexColumnStart"
+        >
+          <SvgMistake/>
+          <h2 class="title">
+            {{ $t('embroidery.step1Page.alreadyChosen.title') }}
+          </h2>
+          <p v-if="linkToAlreadyChosen">
+            {{ $t('embroidery.step1Page.alreadyChosen.paragraph1.content') }}
             <nuxt-link
-              to="/Embroidery/Step-1-your-hero"
-              class="button randomHero"
+              :to="localePath(linkToAlreadyChosen)"
+              class="red b1"
             >
-              Choose a hero automatically
+              {{ $t('embroidery.step1Page.alreadyChosen.paragraph1.highlight') }}
             </nuxt-link>
-          </div>
+          </p>
+          <p>
+            {{ $t('embroidery.step1Page.alreadyChosen.paragraph2') }}
+          </p>
         </div>
-
-        <div class="mistake" id="heroHasBeenChosen" hidden>
-          <h2>Sorry, this hero has already been chosen</h2>
-          <p>You can see the embroidery <nuxt-link to="/Gallery">here</nuxt-link></p>
-          <p>Please choose another hero.</p>
-          <div class="buttons flexColumnCenter">
-            <button class="button randomHero">Choose a hero automatically</button>
-          </div>
+        <div 
+          v-if="noPattern"
+          class="mistakeSearchResultsWrapper noPatternWrapper flexColumnStart"
+        >
+          <SvgMistake/>
+          <h2 class="title">
+            {{ $t('embroidery.step1Page.noPattern.title') }}
+          </h2>
+          <p>
+            {{ $t('embroidery.step1Page.noPattern.paragraph1.content1') }}<span class="b1">{{ $t('embroidery.step1Page.noPattern.paragraph1.highlight') }}</span>{{ $t('embroidery.step1Page.noPattern.paragraph1.content2') }}<br>
+            {{ $t('embroidery.step1Page.noPattern.paragraph2') }}<br>
+            {{ $t('embroidery.step1Page.noPattern.paragraph3') }}
+          </p>
+          <button class="button">
+            {{ $t('embroidery.step1Page.noPattern.button') }}
+          </button>
         </div>
-
-        <div class="mistake" id="heroDontHavePattern" hidden>
-          <h2>Sorry, we don't have a pattern for this hero yet</h2>
-          <p>If you really want this hero, please <strong>leave a request for a pattern</strong> in this section.</p>
-          <p>To create a pattern  please help us by telling the hero's story. </p>
-          <p>What he/she is into, what their work was, whether he/she has children or pets, etc.</p>
-          <p>Often one-sided information can be found from Belarusian government sources, describing only the side of the prosecution. If you know the details and reasons for your hero's detention, please provide them. This may also help in creating a pattern.</p>
-          <p>Rufina creates all the patterns by herself, so the process of creating a new pattern can take 2-3 months.</p>
-          <p>Thank you for your understanding!</p>
-          <div class="buttons flexColumnCenter">
-            <button class="button">Leave a request</button>
-            <button class="button randomHero">Choose a hero automatically</button>
-          </div>
-        </div> -->
+        <div 
+          v-if="notInDatabase"
+          class="mistakeSearchResultsWrapper notInDatabaseWrapper flexColumnStart"
+        >
+          <SvgMistake/>
+          <h2 class="title">
+            {{ $t('embroidery.step1Page.notInDatabase.title') }}
+          </h2>
+          <p>
+            {{ $t('embroidery.step1Page.notInDatabase.paragraph1') }}
+          </p>
+        </div>
       </section>
     </div>
   </main>

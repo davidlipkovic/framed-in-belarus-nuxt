@@ -248,7 +248,30 @@
             "of": "of",
             "warning": "Once you choose a Hero*ine you can not change it",
             "backButton" : "Go back to all prisoners",
-            "forwardButton" : "Choose this Hero*ine"
+            "forwardButton" : "Choose this Hero*ine",
+            "alreadyChosen": {
+                "title": "Sorry, this Hero*ine has already been chosen",
+                "paragraph1": {
+                    "content": "You can see the embroidery",
+                    "highlight": "here"
+                },
+                "paragraph2": "Please choose another hero"
+            },
+            "noPattern": {
+                "title": "Sorry, we don't have a pattern for this hero yet",
+                "paragraph1": {
+                    "content1": "If you really want this hero, please leave a",
+                    "highlight": "request for a pattern",
+                    "content2": "in this section."
+                },
+                "paragraph2": "Rufina creates all the patterns by herself, so the process of creating a new pattern can take 2-3 months.",
+                "paragraph3": "Thank you for your understanding!",
+                "button": "Leave a request"
+            },
+            "notInDatabase": {
+                "title": "Sorry, we don't have this hero in our data base",
+                "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
+            }
         },
         "step2Page": {
             "title": "Preparation",
