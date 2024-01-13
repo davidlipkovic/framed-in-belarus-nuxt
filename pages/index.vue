@@ -112,28 +112,20 @@ const slides = [
     </section>
     <section class="content Partners">
       <div class="Partners-group flexColumnCenter">
-        <a 
-          href="#" 
-          target="_blank" 
-          class="Partners-logo flexRowCenter"
-        >
+        <div class="Partners-logo flexRowCenter">
           <img
             src="../assets/media/img/logos/EN_Co-fundedbytheEU_RGB_Monochrome.svg"
             alt="EU"
             class="img"
           />
-        </a>
-        <a 
-          href="#" 
-          target="_blank" 
-          class="Partners-logo flexRowCenter"
-        >
+        </div>
+        <div class="Partners-logo flexRowCenter">
           <img
             src="../assets/media/img/logos/goethe-institut-logo-vector.svg"
             alt="goethe"
             class="img"
           />
-        </a>
+        </div>
       </div>
     </section>
   </main>
