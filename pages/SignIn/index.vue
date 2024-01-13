@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted, ref, watch } from 'vue'
+
 import { useUserStore } from "@/stores/user"
 
 const userStore = useUserStore()
@@ -6,6 +8,9 @@ const userStore = useUserStore()
 definePageMeta({
   layout: "registration"
 })
+
+const email = ref(null)
+const remember = ref(false)
 </script>
 
 <template>
@@ -27,36 +32,27 @@ definePageMeta({
         type="email" 
         name="email" 
         id="email" 
+        v-model="email"
         :placeholder="$t('placeholders.email')" 
         class="usernameInput"
       >
-      <input 
-        type="password" 
-        name="password" 
-        id="password" 
-        :placeholder="$t('placeholders.password')" 
-        class="passwordInput"
+      <label
+        for="remember"
+        class="checkBoxWrapper"
       >
-      <p class="alignRight lostPasswordLink">
-        <nuxt-link 
-          :to="localePath('/LostPassword')"
-        >
-          {{ $t("signInPage.forgot") }}
-        </nuxt-link>
-      </p>
-      <p class="checkBoxWrapper">
         <input 
           type="checkbox" 
           id="remember" 
           name="remember"
+          :value="true"
+          v-model="remember"
         >
-        <label for="remember">
-          {{ $t("signInPage.remember") }}
-        </label>
-      </p>
+        {{ $t("signInPage.remember") }}
+      </label>
       <nuxt-link 
         :to="localePath('/Profile')"
-        class="button bg_black large signInBtn"
+        class="button signInBtn"
+        :class="{'button_disabled': !email, 'bg_black': email}" 
         @click.once="userStore.isLogged = true"
       >
         {{ $t("signInPage.signInButton") }}
