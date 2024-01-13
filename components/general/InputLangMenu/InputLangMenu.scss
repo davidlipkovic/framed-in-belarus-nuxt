@@ -1,0 +1,49 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/dropdown.scss";
+
+.inputLangMenuWrapper {
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  border-radius: 0.375rem;
+  border: solid 1px $grey1;
+  cursor: pointer;
+
+  .langButton {
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px;
+    font-size: 1rem;
+
+    svg {
+      width: 9px;
+      fill: $black;
+      stroke: unset;
+      stroke-width: unset;
+      margin-top: 4px;
+    }
+  }
+
+  .langButtonPlaceholder {
+    color: $greyDisabledColor;
+  }
+
+  @include dropdownMenuWrapper;
+
+  .inputLangMenu {
+    position: absolute;
+    top: 35px;
+    min-width: 65px;
+    padding: 5px 0;
+  
+    >* {
+      width: 100%;
+      padding: 4px 1rem;
+      color: $black !important;
+    }
+  
+    >*:hover {
+      background-color: $greyBg;
+    }
+  }
+}
