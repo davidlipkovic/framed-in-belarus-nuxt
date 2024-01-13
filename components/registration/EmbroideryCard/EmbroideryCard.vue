@@ -6,7 +6,7 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-  status: {
+  card: {
     type: Object,
     default: null
   },
@@ -37,31 +37,42 @@ const error = computed(() => {
   </nuxt-link>
   <nuxt-link
     v-if="!newEmbroidery"
-    :to="localePath('/Gallery/Case')"
+    :to="localePath(card.link)"
     class="embroideryCard flexColumnCenter"
+    v-tooltip.bottom="card.tooltip"
   >
     <img 
-      src="../../../assets/media/img/case1/prisoner.jpg" 
-      alt="Name Surname" 
+      v-if="!card.imageUrl || card.imageUrl === '' || card.imageUrl === 'FALSE'"
+      src="../../../assets/media/img/placeholderHero.png"
+      :alt="'Photo of' + card.name"
+      class="embroideryCardImg"
+    >
+    <img 
+      v-else
+      :src="card.imageUrl" 
+      :alt="'Photo of' + card.name"
       class="embroideryCardImg"
     >
     <span
-      v-if="status.type === 'InProgress'"
+      v-if="card.type === 'inProgress'"
       class="embroideryCardStatus"
-      :class="'embroideryCardStatus' + status.type"
+      :class="'embroideryCardStatus-' + card.type"
     >
-      {{ $t('profilePage.cardStatus.' + status.message) }} · {{ $t('embroidery.steps.Step') + ' ' + status.stepIndex }} 
+      {{ $t('profilePage.cardStatus.' + card.type) }} · {{ $t('embroidery.steps.Step') + ' ' + card.stepIndex }} 
     </span>
     <span
       v-else
       class="embroideryCardStatus"
-      :class="'embroideryCardStatus' + status.type"
+      :class="'embroideryCardStatus-' + card.type"
     >
-      {{ $t('profilePage.cardStatus.' + status.message) }}
+      {{ $t('profilePage.cardStatus.' + card.type) }}
     </span>
-    <p class="embroideryCardName">
-      <SvgWarning 
-        v-if="error"
+    <p class="embroideryCardName flexRowCenter">
+      <SvgQustionCircle
+        v-if="card.notification"
+      />
+      <SvgTriangleWarning
+        v-if="card.warning"
       />
       Maryia Kalesnikava
     </p>

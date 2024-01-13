@@ -2,6 +2,7 @@
 @import "../../../assets/style/mixins/general";
 
 @include buttons;
+@include checkBoxWrapper;
 
 .inputModalWrapper {
   position: fixed;
@@ -33,28 +34,89 @@
   border-radius: 0.75rem;
   max-width: 720px;
   width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  overflow: scroll;
 }
 
 .inputModalHeader {
-  padding: 22px 24px 14px;
+  min-height: 74px;
+  padding: 22px 36px 18px;
   border-bottom: 1px solid $borderLight;
   align-items: center;
+  justify-content: space-between;
 
   h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
   }
+
+  .closeButton {
+    margin-right: 4px;
+    margin-top: -6px;
+    margin-left: auto;
+
+    svg {
+      width: 22px;
+    }
+  }
 }
 
 .inputModalBody {
+  padding: 14px 0;
+}
 
+.inputModalRow {
+  width: 100%;
+  padding: 0 28px;
+  flex-direction: column;
+
+  .inputModalItem:first-child,
+  .inputModalItem:nth-child(2),
+  .inputModalItem.inputModalItemFullWidth {
+    width: 100%;
+  }
+}
+
+.inputModalItem {
+  padding: 10px 8px;
+
+  .labelTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .checkBoxWrapper {
+    margin-top: 6px;
+  }
+
+  .checkBoxWrapperSecond {
+    margin-top: 10px;
+  }
+}
+
+.inputModalItemTextarea {
+  >div {
+    width: 100%;
+    justify-content: space-between;
+
+    span {
+      font-size: 14px;
+      color: $greyDisabledColor;
+    }
+  }
+
+  textarea {
+    min-height: 7rem;
+  }
 }
 
 .inputModalFooter {
   justify-content: flex-end;
-  padding: 0 24px 18px;
-  margin-top: 8px;
+  padding: 18px 36px 14px;
+  border-top: 1px solid $borderLight;
+  margin-top: 0;
 
   .button {
     width: 100%;
@@ -63,6 +125,22 @@
 }
 
 @media screen and (min-width: $br-point-sm) {
+  .inputModalRow {
+    flex-direction: row;
+
+    .inputModalItem:first-child {
+      width: 46%;
+    }
+
+    .inputModalItem:nth-child(2) {
+      width: 54%;
+    }
+
+    .inputModalItem.inputModalItemFullWidth {
+      width: 100%;
+    }
+  }
+  
   .inputModalFooter {
     flex-direction: row;
 

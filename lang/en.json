@@ -4,6 +4,7 @@
     "buttons": {
         "accept": "Accept",
         "decline": "Decline",
+        "delete": "Delete",
         "manage": "Manage",
         "cancel": "Cancel",
         "publish": "Publish",
@@ -23,6 +24,8 @@
     },
     "placeholders": {
         "email": "Email",
+        "enter": "Enter",
+        "text": "text",
         "emailLogin": "Email (login)",
         "country": "Country of residence",
         "instagram": "{'@'}Instagram",
@@ -33,7 +36,8 @@
         "chooseCommunicationLanguage": "Choose communication language",
         "pseudonym": "Your pseudonym / nickname",
         "searchHero": "Search for a Hero*ine by name",
-        "findOut": "How did you find out about this project?"
+        "findOut": "How did you find out about this project?",
+        "chooseTheOption": "Choose the option"
     },
     "inputs": {
         "alphabetically": "A-Z",
@@ -199,13 +203,17 @@
         "editProfile": "Edit profile",
         "deleteAccount": "Delete account",
         "cardStatus": {
-            "status1": "In Progress",
-            "status2": "Pattern is ready",
-            "status3": "Stitched",
-            "status4": "Sent",
-            "status5": "Published",
-            "status6": "Delivered",
-            "status7": "Requested"
+            "inProgress": "In Progress",
+            "patternIsReady": "Pattern is ready",
+            "stitched": "Stitched",
+            "sent": "Sent",
+            "published": "Published",
+            "delivered": "Delivered",
+            "requested": "Requested"
+        },
+        "deleteModal": {
+            "title": "Are you sure you want to delete your personal account?",
+            "disclaimer": "In case you click “Delete” all your personal data will be deleted."
         }
     },
     "embroidery": {

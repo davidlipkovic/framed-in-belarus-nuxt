@@ -1,12 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 definePageMeta({
   layout: "embroidery"
 })
 
-const displayEditModal = ref(false)
-const displayDeleteModal = ref(false)
+const displayEditProfileModal = ref(false)
+const displayDeleteProfileModal = ref(false)
 
 const user = {
   name: "Tiffany Chin",
@@ -20,6 +20,65 @@ const user = {
 const commentTruncated = computed(() => {
   return user.comment.slice(0, 220) + '...'
 })
+
+const cards = computed(() => {
+  return [
+    {
+      type: 'inProgress', 
+      link: "/Embroidery/Step-2-preparation",
+      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+      stepIndex: 2,
+      tooltip: "",
+    },
+    {
+      type: 'sent', 
+      link: "",
+      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+      tooltip: "",
+      warning: true
+    },
+    {
+      type: 'requested', 
+      link: "",
+      imageUrl: "",
+      tooltip: "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
+    },
+    {
+      type: 'patternIsReady', 
+      link: "/Embroidery/Step-2-preparation",
+      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+      tooltip: ""
+    },
+  ]
+})
+
+const allowNewEmbroidery = computed(() => {
+  return false
+})
+
+const notification = computed(() => {
+  return false
+})
+
+const warning = computed(() => {
+  return false
+})
+
+const username = ref(null)
+const publishUsername = ref(false)
+const email = ref(null)
+const country = ref(null)
+const publishCountry = ref(false)
+const instagram = ref(null)
+const publishInstagram = ref(false)
+const mentionInstagram = ref(false)
+const communicationLanguage = ref(null)
+const reason = ref(null)
+const publishReason = ref(false)
+
+const updateCommunicationLanguage = (lang) => {
+  communicationLanguage.value = lang
+}
 </script>
 
 <template>
@@ -104,139 +163,286 @@ const commentTruncated = computed(() => {
         <div class="userProfile-buttons flexColumnCenter">
           <button 
             class="button" 
-            @click="displayEditModal = true"
+            @click="displayEditProfileModal = true"
           >
             {{ $t('profilePage.editProfile') }}
           </button>
           <button 
             class="deleteButton" 
-            @click="displayDeleteModal = true"
+            @click="displayDeleteProfileModal = true"
           >
             {{ $t('profilePage.deleteAccount') }}
           </button>
         </div>
       </section>
-      <section class="embroideryCards">
-        <RegistrationEmbroideryCard
-          :newEmbroidery="true"
+      <section class="embroideryCardsWrapper flexColumnCenter">
+        <GeneralNotificationModal
+          v-if="notification"
+          :icon="'question'"
+          :message="'You are taking too much time for one step, please proceed with your work.'"
         />
-        <RegistrationEmbroideryCard
-          :newEmbroidery="false"
-          :status="{type: 'InProgress', message: 'status1', stepIndex: 1}"
+        <GeneralNotificationModal
+          v-if="warning"
+          :icon="'warning'"
+          :message="'You are taking too much time for one step, please proceed with your work.'"
+          :link="'#'"
+          :linkMessage="'Proceed'"
         />
-        <RegistrationEmbroideryCard
-          :newEmbroidery="false"
-          :status="{type: 'Sent', message: 'status4'}"
-        />
-        <RegistrationEmbroideryCard
-          :newEmbroidery="false"
-          :status="{type: 'Requested', message: 'status7'}"
-        />
+        <div class="embroideryCards">
+          <RegistrationEmbroideryCard
+            :class="{'disabledCard': !allowNewEmbroidery}"
+            :newEmbroidery="true"
+          />
+          <RegistrationEmbroideryCard
+            v-for="(card, i) in cards"
+            :key="i"
+            :newEmbroidery="false"
+            :card="card"
+          />
+        </div>
       </section>
     </div>
-    <GeneralModal
-      @closeModal="displayEditModal = false"
-      :displayModal="displayEditModal"
+    <GeneralInputModal
+      @closeModal="displayEditProfileModal = false"
+      :displayModal="displayEditProfileModal"
     >
-      <div class="Settings content">
-        <div class="Settings-header">
+      <div class="inputModalContentWrapper editProfileModalContentWrapper">
+        <div class="inputModalHeader flexRowStart">
           <h2>
             {{ $t('profilePage.editProfile') }}
           </h2>
+          <button
+            @click="displayEditProfileModal = false"
+            class="closeButton"
+          >
+            <SvgClose/>
+          </button>
         </div>
-        <div class="Settings-body">
-          <div class="Settings-item">
-            <div class="Settings-item-main">
+        <div class="inputModalBody flexColumnStart">
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem flexColumnStart">
               <label 
-                for="username" 
-                class="Settings-item-title"
+                for="username"
+                class="labelTitle"
               >
                 {{ $t('placeholders.username') }}
               </label>
               <input 
                 type="text" 
-                value="" 
-                placeholder="Enter name which we will use to communicate " 
-                class="Settings-item-input" 
-                id="username" 
-                name="username"
-              >
-              <label
-                for="publishUsername" 
-                class="checkBoxWrapper checkBoxWrapperUsername flexRowStart Settings-item-publish"
+                name="username" 
+                id="username"
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.username')" 
+                class="contentInput usernameInput"
+                v-model="username"
+              />
+              <label 
+                for="publishUsername"
+                class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
               >
                 <input 
                   type="checkbox" 
                   name="publishUsername" 
                   id="publishUsername" 
-                  class="switcher"
                   :value="true"
                   v-model="publishUsername"
                 />
                 {{ $t('buttons.publish') }}
               </label>
             </div>
-          </div>
-          <div class="Settings-item">
-            <div class="Settings-item-main">
+            <div class="inputModalItem flexColumnStart">
               <label 
-                for="pseudonym" 
-                class="Settings-item-title"
+                for="email"
+                class="labelTitle"
               >
-                Pseudonym
+                {{ $t('placeholders.email') }}
               </label>
               <input 
                 type="text" 
-                value="" 
-                placeholder="Enter name we will use for presenting your work" 
-                class="Settings-item-input" 
-                id="pseudonym" 
-                name="pseudonym"
+                name="email" 
+                id="email"
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.email')" 
+                class="contentInput emailInput"
+                v-model="email"
+              />
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem flexColumnStart">
+              <label 
+                for="country"
+                class="labelTitle"
               >
-              <p class="Settings-item-publish">
-                <label for="publishPseudonym">
-                  {{ $t('buttons.publish') }}
-                </label>
+                {{ $t('placeholders.country') }}
+              </label>
+              <input 
+                type="text" 
+                name="country" 
+                id="country"
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.country')" 
+                class="contentInput countryInput"
+                v-model="country"
+              />
+              <label 
+                for="publishCountry"
+                class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
+              >
                 <input 
                   type="checkbox" 
-                  name="publishPseudonym" 
-                  id="publishPseudonym" 
-                  class="switcher"
-                >
-              </p>
-            </div>
-          </div>
-          <div class="Settings-item Settings-item_reason">
-            <div class="Settings-item-main">
-              <label for="reason" class="Settings-item-title">
-                {{ $t('profilePage.question') }}
-              </label>
-              <textarea class="Settings-item-input" id="reason" name="reason">
-              </textarea>
-            </div>
-            <p class="Settings-item-publish">
-              <label for="reasonPublish">
+                  name="publishCountry" 
+                  id="publishCountry" 
+                  :value="true"
+                  v-model="publishCountry"
+                />
                 {{ $t('buttons.publish') }}
               </label>
-              <input type="checkbox" name="reasonPublish" id="reasonPublish" class="switcher">
-            </p>
-          </div>
-          <div class="Settings-item Settings-item_buttons">
-            <div class="Settings-item-main buttons">
-              <button 
-                class="button" 
-                @click="displayEditModal = false"
+            </div>
+            <div class="inputModalItem flexColumnStart">
+              <label 
+                for="instagram"
+                class="labelTitle"
               >
-                {{ $t('buttons.cancel') }}
-              </button>
-              <button class="button bg_black">
-                {{ $t('buttons.save') }}
-              </button>
+                {{ $t('placeholders.instagram') }}
+              </label>
+              <input 
+                type="text" 
+                name="instagram" 
+                id="instagram"
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.instagram')" 
+                class="contentInput instagramInput"
+                v-model="instagram"
+              />
+              <label 
+                for="publishInstagram"
+                class="checkBoxWrapper checkBoxWrapperInstagram flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishInstagram" 
+                  id="publishInstagram" 
+                  :value="true"
+                  v-model="publishInstagram"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
+              <label 
+                for="mentionInstagram"
+                class="checkBoxWrapper checkBoxWrapperSecond checkBoxWrapperInstagram flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="mentionInstagram" 
+                  id="mentionInstagram" 
+                  :value="true"
+                  v-model="mentionInstagram"
+                />
+                {{ $t('inputs.mentionInstagram') }}
+              </label>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem flexColumnStart">
+              <label 
+                for="communicationLanguage"
+                class="labelTitle"
+              >
+                {{ $t('placeholders.communicationLanguage') }}
+              </label>
+              <GeneralInputLangMenu
+                id="communicationLanguage"
+                class="contentInput communicationLanguageInput"
+                @chooseLanguage="updateCommunicationLanguage"
+              />
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth inputModalItemTextarea flexColumnStart">
+              <div class="flexRowStart">
+                <label 
+                  for="reason"
+                  class="labelTitle"
+                >
+                  {{ $t('profilePage.question') }}
+                </label>
+                <span>
+                  {{ reason ? reason.length : 0 }}/800
+                </span>
+              </div>
+              <textarea 
+                type="text" 
+                name="reason" 
+                id="reason"
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.text')" 
+                class="contentInput reasonInput"
+                v-model="reason"
+              />
+              <label 
+                for="publishReason"
+                class="checkBoxWrapper checkBoxWrapperReason flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishReason" 
+                  id="publishReason" 
+                  :value="true"
+                  v-model="publishReason"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
             </div>
           </div>
         </div>
+        <div class="inputModalFooter buttons">
+          <button 
+            class="button" 
+            @click="displayEditProfileModal = false"
+          >
+            {{ $t('buttons.cancel') }}
+          </button>
+          <button class="button bg_black">
+            {{ $t('buttons.save') }}
+          </button>
+        </div>
       </div>
-    </GeneralModal>
+    </GeneralInputModal>
+    <GeneralInputModal
+      @closeModal="displayDeleteProfileModal = false"
+      :displayModal="displayDeleteProfileModal"
+    >
+      <div class="inputModalContentWrapper deleteProfileModalContentWrapper">
+        <div class="inputModalHeader flexRowStart">
+          <button
+            @click="displayDeleteProfileModal = false"
+            class="closeButton"
+          >
+            <SvgClose/>
+          </button>
+        </div>
+        <div class="inputModalBody flexColumnCenter">
+          <div class="inputModalItem inputModalItemFullWidth inputModalItemDelete flexColumnCenter">
+            <div class="trashIconWrapper flexColumnCenter">
+              <SvgTrash/>
+            </div>
+            <h2>
+              {{ $t('profilePage.deleteModal.title') }}
+            </h2>
+            <span>
+              {{ $t('profilePage.deleteModal.disclaimer') }}
+            </span>
+          </div>
+        </div>
+        <div class="inputModalFooter buttons">
+          <button 
+            class="button" 
+            @click="displayDeleteProfileModal = false"
+          >
+            {{ $t('buttons.cancel') }}
+          </button>
+          <button class="button bg_black">
+            {{ $t('buttons.delete') }}
+          </button>
+        </div>
+      </div>
+    </GeneralInputModal>
   </main>
 </template>
 

@@ -1,8 +1,6 @@
 @import "../../assets/style/globalPartials/variables";
 @import "../../assets/style/mixins/general";
 
-@include buttons;
-
 .profileContent {
   display: flex;
   flex-direction: column;
@@ -84,6 +82,41 @@
   }
 }
 
+.editProfileModalContentWrapper {
+  max-width: 900px;
+}
+
+.inputModalItemDelete {
+  padding: 8px 8px;
+
+  * {
+    text-align: center;
+  }
+
+  .trashIconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 9999px;
+    background-color: $redLighter;
+  }
+
+  h2 {
+    font-family: 'Roboto';
+    font-size: 24px;
+    margin-top: 20px;
+    max-width: 340px;
+  }
+
+  span {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+}
+
+.embroideryCardsWrapper {
+  max-width: 100%;
+}
+
 .embroideryCards {
   display: grid;
   max-width: 215px;
@@ -132,8 +165,12 @@
     }
   }
 
+  .embroideryCardsWrapper,
   .embroideryCards {
     max-width: calc(190px * 3 + 24px * 2);
+  }
+
+  .embroideryCards {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -151,7 +188,7 @@
 
   .userProfile {
     width: 20.8rem;
-    margin: -161px 31px 2.5rem 0;
+    margin: -161px 44px 2.5rem 0;
     position: relative;
   }
 }

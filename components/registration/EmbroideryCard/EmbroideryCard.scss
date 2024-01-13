@@ -110,6 +110,20 @@
 .embroideryCardName {
   font-weight: 600;
   margin: 9px auto 0;
+  line-height: 20px;
+
+  .svgQustionCircle {
+    fill: $question;
+    width: 24px;
+  }
+
+  .svgTriangleWarning {
+    width: 20px;
+
+    path:first-child {
+      fill: $warning;
+    }
+  }
 }
 
 .embroideryCardStatus {
@@ -121,31 +135,31 @@
   white-space: nowrap;
 }
 
-.embroideryCardStatusInProgress {
+.embroideryCardStatus-inProgress {
   background-color: $embroideryCardStasusInProgress;
 }
 
-.embroideryCardStatusPatternReady {
-  background-color: $embroideryCardStasusPatternReady;
+.embroideryCardStatus-patternIsReady {
+  background-color: $embroideryCardStasusPatternIsReady;
 }
 
-.embroideryCardStatusStitched {
+.embroideryCardStatus-stitched {
   background-color: $embroideryCardStasusStitched;
 }
 
-.embroideryCardStatusSent {
+.embroideryCardStatus-sent {
   background-color: $embroideryCardStasusSent;
 }
 
-.embroideryCardStatusPublished {
+.embroideryCardStatus-published {
   background-color: $embroideryCardStasusPublished;
 }
 
-.embroideryCardStatusDelivered {
+.embroideryCardStatus-delivered {
   background-color: $embroideryCardStasusDelivered;
 }
 
-.embroideryCardStatusRequested {
+.embroideryCardStatus-requested {
   background-color: $embroideryCardStasusRequested;
 }
 
