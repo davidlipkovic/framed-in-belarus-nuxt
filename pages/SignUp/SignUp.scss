@@ -1,8 +1,10 @@
 @import "../../assets/style/globalPartials/variables.scss";
 @import "../../assets/style/swiperPagination.scss";
+@import "../../assets/style/mixins/general";
 @import "../../assets/style/mixins/sign";
 
 .signUpWrapper {
+  @include checkBoxWrapper;
   @include signTitle;
 
   .slideWrapper {
@@ -33,13 +35,7 @@
     font-size: 1rem;
   }
 
-  .checkBoxWrapper {
-    margin: 20px 3px 0;
-    align-items: center;
-    font-size: 14px;
-  }
-
-  .languageSelectWrapper {
+  .communicationLanguageInput {
     width: 100%;
   }
 
@@ -80,9 +76,13 @@
         margin-bottom: 16px;
       }
 
-      .languageSelectWrapper {
+      .communicationLanguageInput {
         margin-top: 40px;
         margin-bottom: 12px;
+
+        .langButton {
+          padding: 2px 6px;
+        }
       }
     }
 
@@ -255,7 +255,7 @@
           margin-bottom: 56px;
         }
 
-        .languageSelectWrapper {
+        .communicationLanguageInput {
           margin-top: unset;
           margin-bottom: unset;
         }

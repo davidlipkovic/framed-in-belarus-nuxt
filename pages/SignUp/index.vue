@@ -36,6 +36,10 @@ const communicationLanguage = ref(null)
 
 const accept = ref(false)
 
+const updateCommunicationLanguage = (lang) => {
+  communicationLanguage.value = lang
+}
+
 const validDataSlide1 = computed(() => {
   return username.value && email.value && country.value && communicationLanguage.value
 })
@@ -128,23 +132,12 @@ const validDataSlide1 = computed(() => {
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph3') }}
             </p>
-            <select 
-              class="languageSelectWrapper"
-              v-model="communicationLanguage"
-            >
-              <option value="0">
-                {{ $t('signUpPage.slide1.languageSelect') }}*
-              </option>
-              <option value="english">
-                {{ $t('languages.english') }}
-              </option>
-              <option value="belarussian">
-                {{ $t('languages.belarussian') }}
-              </option>
-              <option value="russian">
-                {{ $t('languages.russian') }}
-              </option>
-            </select>
+            <GeneralInputLangMenu
+              id="communicationLanguage"
+              class="contentInput communicationLanguageInput"
+              :isRegistration="true"
+              @chooseLanguage="updateCommunicationLanguage"
+            />
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph4') }}
             </p>
