@@ -7,6 +7,10 @@ import { useHeroesStore } from "@/stores/heroes"
 
 const heroesStore = useHeroesStore();
 
+const emit = defineEmits([
+  'removeComponent',
+])
+
 const localHero = computed(() => {
   return heroesStore.chosenHero
 })
@@ -19,13 +23,17 @@ const buttonMessage = computed(() => {
   }
 })
 
+const hideComponent = ref(false)
 const showMore = ref(false)
 </script>
 
 <template>
-  <article class="Hero HeroWrapper flexColumnStart">
+  <article 
+    v-show="!hideComponent"
+    class="Hero HeroWrapper flexColumnStart"
+  >
     <button 
-      @click="showMore = false" 
+      @click="hideComponent = true" 
       class="Hero-close"
     >
       <SvgClose/>
