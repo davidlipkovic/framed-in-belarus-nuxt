@@ -32,19 +32,19 @@ onMounted(() => {
 })
 
 const alreadyChosen = computed(() => {
-  return parsedHeroes.value.some(hero => hero.chosen)
+  return parsedHeroes.value.some(hero => hero.chosen) || (search.value === 'alreadyChosen' && search.value !== 'noPattern' && search.value !== 'notInDatabase')
 })
 
 const linkToAlreadyChosen = computed(() => {
-  return ''
+  return 'aa'
 })
 
 const noPattern = computed(() => {
-  return parsedHeroes.value.some(hero => hero.hasPattern)
+  return parsedHeroes.value.some(hero => hero.hasPattern) || (search.value !== 'alreadyChosen' && search.value === 'noPattern' && search.value !== 'notInDatabase')
 })
 
 const notInDatabase = computed(() => {
-  return !parsedHeroes.value.length
+  return !parsedHeroes.value.length || (search.value !== 'alreadyChosen' && search.value !== 'noPattern' && search.value === 'notInDatabase')
 })
 
 const displayRequestModal = ref(false)
