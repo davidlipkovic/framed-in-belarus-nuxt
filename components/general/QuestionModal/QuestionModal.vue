@@ -22,7 +22,7 @@ const question = ref(null)
     @closeModal="$emit('closeModal')"
   >
     <div class="inputModalContentWrapper">
-      <div class="inputModalHeader">
+      <div class="inputModalHeader flexRowStart">
         <h2>
           {{ $t('mainMenu.question.label') }}
         </h2>
