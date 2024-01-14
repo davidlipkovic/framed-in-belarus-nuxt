@@ -7,6 +7,10 @@
 .Title {
   color: $white;
 
+  .content {
+    color: $white;
+  }
+
   &::before {
     background-color: rgba(134,12,34,0.71);
   }

@@ -153,7 +153,7 @@ watch(width, n => {
                 >
               </div>
               <span>
-                {{ userStore.currentUser.name }}
+                {{ userStore.currentUser.username }}
               </span>
             </button>
             <nuxt-link
@@ -167,7 +167,7 @@ watch(width, n => {
                 >
               </div>
               <span>
-                {{ userStore.currentUser.name }}
+                {{ userStore.currentUser.username }}
               </span>
             </nuxt-link>
             <GeneralProfileModal
