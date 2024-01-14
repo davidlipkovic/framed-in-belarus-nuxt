@@ -11,12 +11,16 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  chosenLanguage: {
+    type: String,
+    default: null
+  }
 })
 
 const inputLangMenu = ref(null)
 const toggleinputLangMenu = ref(false)
 
-const currentLocale = ref(null)
+const currentLocale = ref(props.chosenLanguage)
 
 onClickOutside(inputLangMenu, () => {
   toggleinputLangMenu.value = false
