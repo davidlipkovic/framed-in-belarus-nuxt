@@ -50,7 +50,7 @@ const showMore = ref(false)
     <button
       v-if="enableToggle"
       @click="showMore = !showMore" 
-      class="flexRowStart red"
+      class="flexRowStart"
       :class="{'showMoreBtnActive': showMore}"
     >
       {{ buttonMessage }}

@@ -11,6 +11,7 @@
     font-weight: 600;
     font-size: 14px;
     margin-top: 2px;
+    color: $red;
   
     svg {
       width: 11px;
@@ -20,6 +21,14 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
+    }
+  }
+
+  button:hover {
+    color: $redHover;
+
+    svg {
+      stroke: $redHover;
     }
   }
   
