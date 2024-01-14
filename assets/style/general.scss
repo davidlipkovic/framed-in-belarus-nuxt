@@ -7,6 +7,15 @@
   color: $black;
 }
 
+.v-popper__popper,
+.white {
+  color: $white;
+
+  * {
+    color: $white;
+  }
+}
+
 h1.title {
   font-size: 36px;
   margin-bottom: 2.813rem;

@@ -56,8 +56,8 @@ watch(route, () => {
 <template>
   <main class="Content galleryContent">
     <div class="Title">
-      <h1 class="content">
-        Gallery
+      <h1 class="content white">
+        {{ $t('galleryPage.title')}}
       </h1>
     </div>
     <div class="content">
