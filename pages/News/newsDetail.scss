@@ -2,6 +2,13 @@
 
 .newsDetailWrapper {
   max-width: 920px;
+
+  iframe {
+    margin: 1rem 0;
+    width: 100%;
+    height: calc((100vw - 2rem) / 16 * 9);
+    max-height: calc(920px / 16 * 9);
+  }
 }
 
 .newsSwiperWrapper {

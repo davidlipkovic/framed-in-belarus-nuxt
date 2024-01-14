@@ -18,7 +18,7 @@
           />
         </div>
       </div>
-      <div class="News content">
+      <div class="content newsDetailWrapper">
         <p class="b">
           SURVIVAL KIT 13 / PILS 23, RIGA / 1-2.10.2022
         </p>

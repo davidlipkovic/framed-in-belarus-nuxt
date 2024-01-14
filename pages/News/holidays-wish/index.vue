@@ -18,7 +18,7 @@
           />
         </div>
       </div>
-      <div class="News content">
+      <div class="content newsDetailWrapper">
         <p class="b">Dear fans and participants of the #FramedinBelarus project, We wish you a Merry Christmas and a good, peaceful New Year and fulfillment of your wishes!</p>
         <iframe class="wish" src="https://www.youtube.com/embed/UVkK9r9ZVUA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p class="b">Video postcard "Carolers"</p>
