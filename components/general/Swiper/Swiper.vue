@@ -2,14 +2,22 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Autoplay, Keyboard, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const props = defineProps({
+  fullscreen: {
+    type: Boolean,
+    default: false
+  },
   slides: {
     type: Array,
     default: []
-  }
+  },
 })
+
+const emit = defineEmits([
+  'openFullscreen',
+])
 
 const autoplay = {
   delay: 250000,
@@ -24,7 +32,7 @@ const pagination = {
 }
 
 let localSwiper = null;
-const modules = [Autoplay, Keyboard, Pagination]
+const modules = [Autoplay, Pagination]
 
 const nextSlide = () => {
   localSwiper.slideNext()
@@ -37,21 +45,23 @@ const onSwiper = (swiper) => {
 const prevSlide = () => {
   localSwiper.slidePrev()
 };
+
+const handleFullscreen = (i) => {
+  emit('openFullscreen', i)
+}
 </script>
 
 <template>
   <Swiper
     @swiper="onSwiper"
     :autoplay="autoplay"
-    :keyboard="{
-      enabled: true,
-    }"
     :loop="true"
     :pagination="pagination"
     :slides-per-view="1"
     :spaceBetween="10"
     :modules="modules"
     class="basicSwiperWrapper"
+    :class="{'enableFullscreen': fullscreen}"
   >
     <SwiperSlide 
       v-for="(slide, i) in slides"
@@ -60,6 +70,7 @@ const prevSlide = () => {
       <img
         :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
         :alt="`${slide.alt}`"
+        @click="handleFullscreen(i)"
       >
     </SwiperSlide>
     <div class="swiperControls flexRowCenter">

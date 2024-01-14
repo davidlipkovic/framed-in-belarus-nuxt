@@ -74,6 +74,12 @@
   }
 }
 
+.basicSwiperWrapper.enableFullscreen {
+  img {
+    cursor: pointer;
+  }
+}
+
 @media screen and (min-width: $br-point-md) {
   .basicSwiperWrapper {
     margin: 0;
