@@ -1,9 +1,11 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
-import { useTagsMenu } from "@/composables/TagsMenu";
-const { currentTagIndex, root } = useTagsMenu();
 
 const props = defineProps({
+  currentTag: {
+    type: String,
+    default: 'All'
+  },
   isGallery: {
     type: Boolean,
     default: false
@@ -13,10 +15,9 @@ const props = defineProps({
     default: false
   },
   type: String,
-  typeProgrammatic: String,
   tags: {
     type: Array,
-    default: ['all']
+    default: ['All']
   },
 })
 
@@ -31,13 +32,18 @@ const showSubTags = ref(false)
 const updateTagsMenuStatus = (tagValue) => {
   emit('checkForStatus')
   if (tagValue) {
-    emit('checkForTag', props.typeProgrammatic, tagValue)
+    emit('checkForTag', props.type, tagValue)
   }
 }
 
+const root = ref(null)
 onClickOutside(root, () => {
   emit('closeTagsMenu')
 })
+
+const checkTag = (tag) => {
+  return typeof tag !== 'object'
+}
 </script>
 
 <template>
@@ -51,10 +57,10 @@ onClickOutside(root, () => {
       @click="updateTagsMenuStatus()"
     >
       <span>
-        {{ type }}:
+        {{ $t("inputs.tags." + type + ".type") }}:
       </span>
       <span>
-        {{ tags[currentTagIndex].tagName }}
+        {{ $t("inputs.tags." + type + "." + currentTag) }}
       </span>
       <SvgArrowDown />
     </button>
@@ -63,54 +69,55 @@ onClickOutside(root, () => {
       class="tagsWrapper flexColumnStart"
     >
       <li
-        v-for="(tag, i) in tags" 
-        :key="tag.tagName"
+        v-for="tag in tags" 
+        :key="tag"
         class="flexRowStart"
       >
         <button
-          v-if="!tag.tags"
+          v-if="checkTag(tag)"
           class="capitalize flexRowStart"
-          @click="currentTagIndex = i, updateTagsMenuStatus(tag.tagProgrammatic)"
+          @click="updateTagsMenuStatus(tag)"
         >
-          {{ tag.tagName }}
+          {{ $t("inputs.tags." + type + "." + tag) }}
         </button>
-        <button
-          v-if="tag.tags"
-          class="capitalize flexRowStart"
-          @click="showSubTags = true"
-        >
-          {{ tag.tagName }}
-          <SvgArrowRightRounded />
-        </button>
-        <ul
-          v-if="tag.tags && showSubTags"
-          class="subTagsWrapper flexColumnStart"
-        >
-          <li
-            v-for="subTag in tag.tags" 
-            :key="subTag"
-            class="flexRowStart"
+        <template v-else>
+          <button
+            class="capitalize flexRowStart"
+            @click="showSubTags = true"
           >
-            <button
-              @click="currentTagIndex = i, updateTagsMenuStatus(), showSubTags = false"
-              class="capitalize flexRowStart"
-            >
-              {{ subTag }}
-            </button>
-          </li>
-          <li
-            v-for="subTag in tag.tags" 
-            :key="subTag"
-            class="flexRowStart"
+            {{ $t("inputs.tags." + type + ".group") }}
+            <SvgArrowRightRounded />
+          </button>
+          <ul
+            v-if="showSubTags"
+            class="subTagsWrapper flexColumnStart"
           >
-            <button
-              @click="currentTagIndex = i, updateTagsMenuStatus(), showSubTags = false"
-              class="capitalize flexRowStart"
+            <li
+              v-for="subTag in tag" 
+              :key="subTag"
+              class="flexRowStart"
             >
-              {{ subTag }}
-            </button>
-          </li>
-        </ul>
+              <button
+                @click="updateTagsMenuStatus(); showSubTags = false"
+                class="capitalize flexRowStart"
+              >
+                {{ subTag }}
+              </button>
+            </li>
+            <li
+              v-for="subTag in tag" 
+              :key="subTag"
+              class="flexRowStart"
+            >
+              <button
+                @click="updateTagsMenuStatus(); showSubTags = false"
+                class="capitalize flexRowStart"
+              >
+                {{ subTag }}
+              </button>
+            </li>
+          </ul>
+        </template>
       </li>
     </ul>
   </div>

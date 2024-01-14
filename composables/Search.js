@@ -1,15 +1,22 @@
 import { computed, ref } from "vue"
+import { useRoute, useRouter } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
 
 export function useSearch() {
+  const route = useRoute()
+  const router = useRouter()
+
   const { width } = useWindowSize()
 
   const activeMenuIndex = ref(null)
   const rangeIndex = ref(0)
   const rangePerPage = ref(16)
-  const currentOrder = ref('alphabetically')
-  const currentTag = ref(null)
-  const currentTagType = ref(null)
+  const currentOrder = ref('Alphabetically')
+  const currentTags = ref({
+    case: 'all',
+    status: 'all',
+    gender: 'all',
+  })
   const numberOfItems = ref(null)
   const numberOfPages = ref(null)
   const search = ref('')
@@ -36,32 +43,24 @@ export function useSearch() {
 
   const sliceDisplayed = (heroes) => heroes.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
-  const parseData = (dataToParse) => {
+  const parseData = (store, storeType) => {
+    const dataToParse = store[storeType + currentOrder.value].value
     let data
+
+    data = dataToParse.filter(hero => {
+      return Object.entries(currentTags.value).every(([type, tag]) => {
+        if (tag === 'all') return true
+        return hero[type] === tag
+      })
+    })
+
     if (search.value.length > 3) {
-      data = dataToParse.filter(hero => hero.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(search.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")))
-    } else if (currentTagType.value && currentTag.value && currentTag.value !== 'all') {
-      data = dataToParse.filter(hero => hero[currentTagType.value] === currentTag.value)
-    } else {
-      data = dataToParse
+      data = data.filter(hero => hero.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(search.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")))
     }
+
     numberOfPages.value = Math.ceil(data.length / rangePerPage.value)
     numberOfItems.value = data.length
     return sliceDisplayed(data)
-  }
-
-  const sortData = (store, storeType) => {
-    let data
-    if (currentOrder.value === 'alphabetically') {
-      data = store[storeType + 'Alphabetically'].value
-    } else if (currentOrder.value === 'alphabeticallyReversed') {
-      data = store[storeType + 'AlphabeticallyReversed'].value
-    } else if (currentOrder.value === 'chronologically') {
-      data = store[storeType + 'Chronologically'].value
-    } else if (currentOrder.value === 'chronologicallyReversed') {
-      data = store[storeType + 'ChronologicallyReversed'].value
-    }
-    return data
   }
 
   const toggleActiveMenuIndex = (index) => {
@@ -72,15 +71,29 @@ export function useSearch() {
     }
   }
 
-  const updateSortOrder = (orderValue) => {  
-    currentOrder.value = orderValue
+  const updateSortOrder = (orderValue) => {
+    const ogQuery = route.query
+    delete ogQuery.order
+
+    router.replace({ 
+      query: { 
+        ...{ order: orderValue },
+        ...ogQuery, 
+      }
+    })
+
     rangeIndex.value = 0
   }
   
   const updateTags = (type, tag) => {
-    if (type === 'cases') return
-    currentTag.value = tag
-    currentTagType.value = type
+    if ((type === 'case' && tag === 'group')) return
+
+    router.replace({ 
+      query: { 
+        ...route.query, 
+        ...{ [type]: tag } 
+      }
+    })
   }
 
   watch(width, n => {
@@ -95,12 +108,13 @@ export function useSearch() {
     activeMenuIndex,
     changePageIndex,
     closeTagsMenu,
+    currentOrder,
     currentPage,
+    currentTags,
     numberOfPages,
     parseData,
     rangePerPage,
     search,
-    sortData,
     toggleActiveMenuIndex,
     updateSortOrder,
     updateTags,

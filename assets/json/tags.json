@@ -1,63 +1,16 @@
 {
-    "cases": {
-        "type": "cases",
-        "typeProgrammatic": "cases",
-        "tags": [
-            {
-                "tagName": "all",
-                "tagProgrammatic": "all"
-            },
-            {
-                "tagName": "individual",
-                "tagProgrammatic": "individual"
-            },
-            {
-                "tagName": "group",
-                "tags": [
-                    "Students",
-                    "Forensic examination committee chairman's car arson",
-                    "Brest circle dances",
-                    "Brest Riots",
-                    "Cop-Cup",
-                    "Desire to fight for Ukraine"
-                ]
-            }
+    "case": [
+        "all",
+        "individual",
+        [
+            "Students",
+            "Forensic examination committee chairman's car arson",
+            "Brest circle dances",
+            "Brest Riots",
+            "Cop-Cup",
+            "Desire to fight for Ukraine"
         ]
-    },
-    "statuses": {
-        "type": "status of prisoner",
-        "typeProgrammatic": "status",
-        "tags": [
-            {
-                "tagName": "all",
-                "tagProgrammatic": "all"
-            },
-            {
-                "tagName": "in custody",
-                "tagProgrammatic": "active"
-            },
-            {
-                "tagName": "free",
-                "tagProgrammatic": "former"
-            }
-        ]
-    },
-    "genders": {
-        "type": "gender",
-        "typeProgrammatic": "gender",
-        "tags": [
-            {
-                "tagName": "all",
-                "tagProgrammatic": "all"
-            },
-            {
-                "tagName": "female",
-                "tagProgrammatic": "female"
-            },
-            {
-                "tagName": "male",
-                "tagProgrammatic": "male"
-            }
-        ]
-    }
+    ],
+    "status": ["all", "active", "former"],
+    "gender": ["all", "female", "male"]
 }

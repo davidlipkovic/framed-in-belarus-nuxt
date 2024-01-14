@@ -40,11 +40,31 @@
         "chooseTheOption": "Choose the option"
     },
     "inputs": {
-        "alphabetically": "A-Z",
-        "alphabeticallyReversed": "Z-A",
-        "chronologically": "Date (newest first)",
-        "chronologicallyReversed": "Date (oldest first)",
-        "mentionInstagram": "Mention my account in your posts"
+        "Alphabetically": "A-Z",
+        "AlphabeticallyReversed": "Z-A",
+        "Chronologically": "Date (newest first)",
+        "ChronologicallyReversed": "Date (oldest first)",
+        "mentionInstagram": "Mention my account in your posts",
+        "tags": {
+            "case": {
+                "type": "cases",
+                "all": "all",
+                "individual": "individual",
+                "group": "group"
+            },
+            "status": {
+                "type": "status of prisoner",
+                "all": "all",
+                "active": "in custody", 
+                "former": "free"
+            },
+            "gender": {
+                "type": "gender",
+                "all": "all",
+                "female": "female",
+                "male": "male"
+            }
+        }
     },
     "links": {
         "home": "Home",

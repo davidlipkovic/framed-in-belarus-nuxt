@@ -10,7 +10,6 @@ const emit = defineEmits([
 ])
 
 const router = useRouter()
-const root = ref(null)
 
 const signOut = () => {
   router.go(0)
@@ -18,6 +17,7 @@ const signOut = () => {
   emit('closeModal')
 }
 
+const root = ref(null)
 onClickOutside(root, () => {
   emit('closeModal')
 })
@@ -34,7 +34,7 @@ onClickOutside(root, () => {
     <span
       class="profileModalWrapperName"
     >
-      {{ userStore.currentUser.name }}
+      {{ userStore.currentUser.username }}
     </span>
     <nuxt-link
       :to="localePath('/Profile')"

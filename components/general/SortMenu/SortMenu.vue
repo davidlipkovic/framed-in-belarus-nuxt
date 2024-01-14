@@ -2,10 +2,12 @@
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
-import { useTagsMenu } from "@/composables/TagsMenu";
-const { currentTagIndex, root } = useTagsMenu();
 
 const props = defineProps({
+  currentOrder: {
+    type: String,
+    default: 'Alphabetically'
+  },
   menuStatus: {
     type: Boolean,
     default: false
@@ -18,12 +20,10 @@ const emit = defineEmits([
   'closeSortMenu',
 ])
 
-const alphabetically = t("inputs.alphabetically")
-const alphabeticallyReversed = t("inputs.alphabeticallyReversed")
-const chronologically = t("inputs.chronologically")
-const chronologicallyReversed = t("inputs.chronologicallyReversed")
-
-const current = ref(null)
+const Alphabetically = t("inputs.Alphabetically")
+const AlphabeticallyReversed = t("inputs.AlphabeticallyReversed")
+const Chronologically = t("inputs.Chronologically")
+const ChronologicallyReversed = t("inputs.ChronologicallyReversed")
 
 const updateSortMenuOrder = (orderValue) => {
 }
@@ -35,12 +35,9 @@ const updateTagsMenuStatus = (orderValue) => {
   }
 }
 
+const root = ref(null)
 onClickOutside(root, () => {
   emit('closeSortMenu')
-})
-
-onMounted(() => {
-  current.value = alphabetically
 })
 </script>
 
@@ -55,7 +52,7 @@ onMounted(() => {
       @click="updateTagsMenuStatus()"
     >
       <SvgSwap/>
-      Sort by: {{ current }}
+      {{ $t('inputs.' + currentOrder) }}
       <SvgArrowDown/>
     </button>
     <ul
@@ -65,33 +62,33 @@ onMounted(() => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('alphabetically')"
+          @click="updateTagsMenuStatus('Alphabetically')"
         >
-          {{ alphabetically }}
+          {{ Alphabetically }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('alphabeticallyReversed')"
+          @click="updateTagsMenuStatus('AlphabeticallyReversed')"
         >
-          {{ alphabeticallyReversed }}
+          {{ AlphabeticallyReversed }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('chronologically')"
+          @click="updateTagsMenuStatus('Chronologically')"
         >
-          {{ chronologically }}
+          {{ Chronologically }}
         </button>
       </li>
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('chronologicallyReversed')"
+          @click="updateTagsMenuStatus('ChronologicallyReversed')"
         >
-          {{ chronologicallyReversed }}
+          {{ ChronologicallyReversed }}
         </button>
       </li>
     </ul>

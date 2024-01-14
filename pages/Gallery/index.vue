@@ -1,20 +1,24 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue"
-
+import { useRoute, useRouter } from 'vue-router'
 import { useHeroesStore } from "@/stores/heroes"
 import { useSearch } from "@/composables/Search";
+
+const route = useRoute()
+const router = useRouter()
 
 const heroesStore = useHeroesStore();
 const {
   activeMenuIndex,
   changePageIndex,
   closeTagsMenu,
+  currentOrder,
   currentPage,
+  currentTags,
   numberOfPages,
   parseData,
   rangePerPage,
   search,
-  sortData,
   toggleActiveMenuIndex,
   updateSortOrder,
   updateTags,
@@ -37,6 +41,16 @@ const placeholderResult = {
 onMounted(() => {
   numberOfPages.value = 1
 })
+
+watch(route, () => {
+  if (route.query.order) {
+    currentOrder.value = route.query.order
+  }
+  for (const key in route.query) {
+    if (key === 'order') continue
+    currentTags.value[key] = route.query[key]
+  }
+}, { immediate: true })
 </script>
 
 <template>
@@ -61,32 +75,40 @@ onMounted(() => {
           </div>
           <GeneralSortMenu 
             :menuStatus="activeMenuIndex === 1"
+            :currentOrder="currentOrder"
+            @checkForOrder="updateSortOrder"
             @checkForStatus="toggleActiveMenuIndex(1)"
             @closeSortMenu="closeTagsMenu(1)"
           />
         </div>
         <div class="tagsMenusWrapper flexRowStart">
           <GeneralTagsMenu
+            :currentTag="currentTags.case"
             :menuStatus="activeMenuIndex === 2"
-            :type="localTags.cases.type"
-            :tags="localTags.cases.tags"
+            type="case"
+            :tags="localTags.case"
             class="tagsMenusGalleryWrapper"
+            @checkForTag="updateTags"
             @checkForStatus="toggleActiveMenuIndex(2)"
             @closeTagsMenu="closeTagsMenu(2)"
           />
           <GeneralTagsMenu
+            :currentTag="currentTags.status"
             :menuStatus="activeMenuIndex === 3"
-            :type="localTags.statuses.type"
-            :tags="localTags.statuses.tags"
+            type="status"
+            :tags="localTags.status"
             class="tagsMenusGalleryWrapper"
+            @checkForTag="updateTags"
             @checkForStatus="toggleActiveMenuIndex(3)"
             @closeTagsMenu="closeTagsMenu(3)"
           />
           <GeneralTagsMenu
+            :currentTag="currentTags.gender"
             :menuStatus="activeMenuIndex === 4"
-            :type="localTags.genders.type"
-            :tags="localTags.genders.tags"
+            type="gender"
+            :tags="localTags.gender"
             class="tagsMenusGalleryWrapper"
+            @checkForTag="updateTags"
             @checkForStatus="toggleActiveMenuIndex(4)"
             @closeTagsMenu="closeTagsMenu(4)"
           />
