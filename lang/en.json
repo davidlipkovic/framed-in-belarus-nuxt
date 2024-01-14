@@ -28,7 +28,8 @@
         "text": "text",
         "emailLogin": "Email (login)",
         "country": "Country of residence",
-        "instagram": "{'@'}Instagram",
+        "instagram": "Instagram",
+        "instagramAt": "{'@'}Instagram",
         "username": "Username",
         "password": "Password",
         "passwordAgain": "Password again",
@@ -645,7 +646,8 @@
         "author": {
             "title" : "Author about the work process",
             "reason": "Why did you decide to participate in a project?",
-            "comment": "Comment"
+            "comment": "Comment",
+            "nativeComment": "Comment in native language"
         },
         "exhibitions": {
             "title" : "Exhibitions where the embroidery was shown",

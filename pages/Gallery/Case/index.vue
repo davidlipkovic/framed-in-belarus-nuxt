@@ -2,8 +2,10 @@
 import { onMounted, ref, watch } from 'vue'
 
 import { useHeroesStore } from "@/stores/heroes"
+import { useUserStore } from "@/stores/user"
 
 const heroesStore = useHeroesStore();
+const userStore = useUserStore()
 
 const slides = [
   {alt: ""},
@@ -13,12 +15,20 @@ const slides = [
   {alt: ""},
 ]
 
-const currentSlider = ref(0)
+const currentFullScreenEmbroiderySlide = ref(0)
+const showFullScreenEmbroiderySwiper = ref(false)
+
+const handleFullScreenEmbroiderySwiper = (i) => {
+  showFullScreenEmbroiderySwiper.value = true
+  currentFullScreenEmbroiderySlide.value = i
+}
+
+const currentGallerySlide = ref(0)
 const showGallerySwiper = ref(false)
 
 const handleGallerySwiper = (i) => {
   showGallerySwiper.value = true
-  currentSlider.value = i
+  currentGallerySlide.value = i
 }
 
 // WIP
@@ -65,6 +75,7 @@ const localHero = computed(() => {
 // WIP
 const author = {
   comment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
+  nativeComment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
   reason: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
 }
 </script>
@@ -88,12 +99,42 @@ const author = {
       <article class="galleryCaseSwiperWrapper">
         <GeneralSwiper 
           class="galleryCaseSwiper"
+          :fullscreen="true"
           :slides="slides"
+          @openFullscreen="handleFullScreenEmbroiderySwiper"
         />
-        <p class="swiperDescription">
-          {{ $t('casePage.swiper.stitching') }}: 360 x 360 mm   |   Canvas: 450 x 500 mm<br>
-          {{ $t('casePage.swiper.author') }}: 
-          <span class="b2">username</span>
+        <GeneralFullScreenSwiper
+          :initialSlide="currentFullScreenEmbroiderySlide"
+          :showSwiper="showFullScreenEmbroiderySwiper"
+          :slides="slides"
+          @closeSwiper="showFullScreenEmbroiderySwiper = false"
+        />
+        <p class="swiperDescription flexRowStart">
+          {{ $t('casePage.swiper.stitching') }}: 360 x 360 mm | Canvas: 450 x 500 mm
+        </p>
+        <p class="swiperDescriptionInfo flexRowStart">
+          <span>
+            {{ $t('casePage.swiper.author') }}: 
+          </span>
+          <span class="b1">
+            {{ userStore.currentUser.username }}
+          </span>
+        </p>
+        <p class="swiperDescriptionInfo flexRowStart">
+          <span>
+            {{ $t('placeholders.country') }}:
+          </span>
+          <span class="b1">
+            {{ userStore.currentUser.countryOfResidance }}
+          </span>
+        </p>
+        <p class="swiperDescriptionInfo flexRowStart">
+          <span>
+            {{ $t('placeholders.instagram') }}:
+          </span>
+          <span class="b1">
+            {{ userStore.currentUser.instagram }}
+          </span>
         </p>
       </article>
       <article>
@@ -183,14 +224,22 @@ const author = {
           {{ $t('casePage.author.title') }}
         </h2>
         <GeneralToggleText 
+          v-if="author.reason"
           class="Description-item"
           :message="author.reason"
           :title="$t('casePage.author.reason')"
         />
         <GeneralToggleText 
+          v-if="author.comment"
           class="Description-item"
           :message="author.comment"
           :title="$t('casePage.author.comment')"
+        />
+        <GeneralToggleText 
+          v-if="author.nativeComment"
+          class="Description-item"
+          :message="author.nativeComment"
+          :title="$t('casePage.author.nativeComment')"
         />
         <div class="galleryWrapper">
           <img
@@ -198,11 +247,11 @@ const author = {
             :key="slide.alt"
             :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
             :alt="`${slide.alt}`"
-            @click="handleGallerySwiper(i)"
+            @click="handleGallerySwiper(showGallerySwiper, i)"
           />
         </div>
         <GeneralFullScreenSwiper
-          :initialSlide="currentSlider"
+          :initialSlide="currentGallerySlide"
           :showSwiper="showGallerySwiper"
           :slides="slides"
           @closeSwiper="showGallerySwiper = false"
@@ -218,11 +267,11 @@ const author = {
                   The little bird must be caught
                 </nuxt-link>
               </h4>
-              <p class="ExhibitionListItem-descript">
+              <p class="ExhibitionListItem-descript flexRowStart">
                 <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>
                 18.11.2022 - 23.04.2023
               </p>
-              <p class="ExhibitionListItem-descript">
+              <p class="ExhibitionListItem-descript flexRowStart">
                 <SvgLocation class="ExhibitionListItem-descript-icon descriptIcon"/>
                 <span>
                   Weserburg Museum für Moderne Kunst.

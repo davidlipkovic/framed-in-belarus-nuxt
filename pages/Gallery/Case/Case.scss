@@ -18,7 +18,7 @@
   }
 
   .item-margin_bottom_mini {
-    margin-bottom: 0.125rem;
+    margin-bottom: 0.25rem;
 
     &:last-child {
       margin-bottom: 0;
@@ -65,7 +65,7 @@
   }
 
   .ExhibitionList-item {
-    @extend .item-margin_bottom;
+    @extend .item-margin_bottom_mini;
     margin-left: 0;
     list-style: none;
   }
@@ -77,25 +77,37 @@
   }
 
   .ExhibitionListItem-descript {
-    @extend .item-margin_bottom_mini;
-    padding-left: 1.313rem;
-    display: flex;
     flex-wrap: wrap;
-    position: relative;
+    align-items: center;
+    @extend .item-margin_bottom_mini;
+
+    svg {
+      width: 20px;
+      height: 24px;
+    }
   }
 
-  .ExhibitionListItem-descript-icon {
-    position: absolute;
-    left: 0;
-    top: 0.125rem;
-    width: 20px;
-    height: 24px;
+  .swiperDescription,
+  .swiperDescriptionInfo {
+    line-height: 30px;
+    display: none;
+    font-size: 14px;
   }
 
   .swiperDescription {
     margin-top: 18px;
-    line-height: 28px;
-    display: none;
+  }
+
+  .swiperDescriptionInfo {
+    width: 100%;
+
+    span {
+      display: inline-flex;
+    }
+
+    span:first-child {
+      width: 180px;
+    }
   }
 
   h3, p {
@@ -109,8 +121,6 @@
 
   .galleryCaseSwiperWrapper {
     margin-bottom: 18px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $borderLight;
   }
 
   .galleryCaseSwiper {
@@ -180,10 +190,12 @@
   }
 
   @media screen and (min-width: $br-point-md) {
+    overflow: unset;
+
     .galleryCaseSwiperWrapper {
-      margin-bottom: unset;
-      padding-bottom: unset;
-      border-bottom: unset;
+      position: sticky;
+      top: 1.875rem;
+      height: max-content;
     }
 
     .galleryCaseSwiper {
@@ -199,7 +211,8 @@
       }
     }
 
-    .swiperDescription {
+    .swiperDescription,
+    .swiperDescriptionInfo {
       display: block;
     }
 
