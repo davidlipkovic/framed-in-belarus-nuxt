@@ -3,9 +3,20 @@
 @import "../../assets/style/mixins/general";
 @import "../../assets/style/mixins/sign";
 
+.registrationlgLayout {
+  .Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+  }
+}
+
 .signUpWrapper {
   @include checkBoxWrapper;
   @include signTitle;
+  max-height: 800px;
+  overflow-y: scroll;
 
   .slideWrapper {
     flex-direction: column;
@@ -247,10 +258,6 @@
           margin-bottom: 12px;
         }
 
-        .countryInput {
-          margin-top: unset;
-        }
-      
         .checkBoxWrapperCountry {
           margin-bottom: 56px;
         }
