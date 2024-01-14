@@ -44,10 +44,7 @@ export function useSearch() {
   const sliceDisplayed = (heroes) => heroes.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
   const parseData = (store, storeType) => {
-    const dataToParse = store[storeType + currentOrder.value].value
-    let data
-
-    data = dataToParse.filter(hero => {
+    const data = store[storeType + currentOrder.value].value.filter(hero => {
       return Object.entries(currentTags.value).every(([type, tag]) => {
         if (tag === 'all') return true
         return hero[type] === tag
