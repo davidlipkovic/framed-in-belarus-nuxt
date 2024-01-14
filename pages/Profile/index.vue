@@ -1,56 +1,27 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useUserStore } from "@/stores/user"
+
+const userStore = useUserStore()
 
 definePageMeta({
   layout: "embroidery"
 })
 
+const username = ref(userStore.currentUser.username)
+const publishUsername = ref(userStore.currentUser.publishUsername)
+const email = ref(userStore.currentUser.email)
+const countryOfResidance = ref(userStore.currentUser.countryOfResidance)
+const publishCountryOfResidance = ref(userStore.currentUser.publishCountryOfResidance)
+const instagram = ref(userStore.currentUser.instagram)
+const publishInstagram = ref(userStore.currentUser.publishInstagram)
+const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
+const communicationLanguage = ref(userStore.currentUser.communicationLanguage)
+const reason = ref(userStore.currentUser.reason)
+const publishReason = ref(userStore.currentUser.publishReason)
+
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)
-
-const user = {
-  name: "Tiffany Chin",
-  comment: "To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I'm supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava, who is a musician and politician from Belarus...",
-  email: 'name@gmail.com',
-  country: 'Poland',
-  instagram: '@insta',
-  language: 'English'
-}
-
-const commentTruncated = computed(() => {
-  return user.comment.slice(0, 220) + '...'
-})
-
-const cards = computed(() => {
-  return [
-    {
-      type: 'inProgress', 
-      link: "/Embroidery/Step-2-preparation",
-      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-      stepIndex: 2,
-      tooltip: "",
-    },
-    {
-      type: 'sent', 
-      link: "",
-      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-      tooltip: "",
-      warning: true
-    },
-    {
-      type: 'requested', 
-      link: "",
-      imageUrl: "",
-      tooltip: "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
-    },
-    {
-      type: 'patternIsReady', 
-      link: "/Embroidery/Step-2-preparation",
-      imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-      tooltip: ""
-    },
-  ]
-})
 
 const allowNewEmbroidery = computed(() => {
   return false
@@ -63,18 +34,6 @@ const notification = computed(() => {
 const warning = computed(() => {
   return false
 })
-
-const username = ref(null)
-const publishUsername = ref(false)
-const email = ref(null)
-const country = ref(null)
-const publishCountry = ref(false)
-const instagram = ref(null)
-const publishInstagram = ref(false)
-const mentionInstagram = ref(false)
-const communicationLanguage = ref(null)
-const reason = ref(null)
-const publishReason = ref(false)
 
 const updateCommunicationLanguage = (lang) => {
   communicationLanguage.value = lang
@@ -107,7 +66,7 @@ const updateCommunicationLanguage = (lang) => {
             alt="Avatar"
           >
           <h2 class="userProfile-title">
-            {{ user.name }}
+            {{ userStore.currentUser.username }}
           </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
@@ -117,7 +76,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.username') }}
               </span>
               <span class="b1">
-                {{ user.name }}
+                {{ userStore.currentUser.username }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -125,7 +84,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.email') }}
               </span>
               <span class="b1">
-                {{ user.email }}
+                {{ userStore.currentUser.email }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -133,7 +92,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.country') }}
               </span>
               <span class="b1">
-                {{ user.country }}
+                {{ userStore.currentUser.countryOfResidance }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -141,7 +100,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.instagram') }}
               </span>
               <span class="b1">
-                {{ user.instagram }}
+                {{ userStore.currentUser.instagram }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -149,7 +108,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
               <span class="b1">
-                {{ user.language }}
+                {{ userStore.currentUser.communicationLanguage }}
               </span>
             </p>
           </div>
@@ -157,7 +116,7 @@ const updateCommunicationLanguage = (lang) => {
             {{ $t('profilePage.question') }}
           </h3>
           <p>
-            {{ commentTruncated }}
+            {{ userStore.currentUser.reasonTruncated }}
           </p>
         </div>
         <div class="userProfile-buttons flexColumnCenter">
@@ -194,7 +153,7 @@ const updateCommunicationLanguage = (lang) => {
             :newEmbroidery="true"
           />
           <RegistrationEmbroideryCard
-            v-for="(card, i) in cards"
+            v-for="(card, i) in userStore.currentUser.cards"
             :key="i"
             :newEmbroidery="false"
             :card="card"
@@ -269,29 +228,29 @@ const updateCommunicationLanguage = (lang) => {
           <div class="inputModalRow flexRowStart">
             <div class="inputModalItem flexColumnStart">
               <label 
-                for="country"
+                for="countryOfResidance"
                 class="labelTitle"
               >
                 {{ $t('placeholders.country') }}
               </label>
               <input 
                 type="text" 
-                name="country" 
-                id="country"
+                name="countryOfResidance" 
+                id="countryOfResidance"
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.country')" 
-                class="contentInput countryInput"
-                v-model="country"
+                class="contentInput countryOfResidanceInput"
+                v-model="countryOfResidance"
               />
               <label 
-                for="publishCountry"
-                class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
+                for="publishCountryOfResidance"
+                class="checkBoxWrapper checkBoxWrapperPublishCountryOfResidance flexRowStart"
               >
                 <input 
                   type="checkbox" 
-                  name="publishCountry" 
-                  id="publishCountry" 
+                  name="publishCountryOfResidance" 
+                  id="publishCountryOfResidance" 
                   :value="true"
-                  v-model="publishCountry"
+                  v-model="publishCountryOfResidance"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -350,6 +309,7 @@ const updateCommunicationLanguage = (lang) => {
               <GeneralInputLangMenu
                 id="communicationLanguage"
                 class="contentInput communicationLanguageInput"
+                :chosenLanguage="communicationLanguage"
                 @chooseLanguage="updateCommunicationLanguage"
               />
             </div>
@@ -374,6 +334,7 @@ const updateCommunicationLanguage = (lang) => {
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.text')" 
                 class="contentInput reasonInput"
                 v-model="reason"
+                maxlength="800"
               />
               <label 
                 for="publishReason"
