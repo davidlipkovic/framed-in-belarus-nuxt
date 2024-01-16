@@ -409,5 +409,4 @@ const updateCommunicationLanguage = (lang) => {
   </main>
 </template>
 
-<style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./Profile.scss" lang="scss" scoped></style>

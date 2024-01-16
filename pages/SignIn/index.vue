@@ -61,6 +61,5 @@ const remember = ref(false)
   </div>
 </template>
 
-<style src="../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="../../assets/style/registration.scss" lang="scss" scoped></style>
 <style src="./SignIn.scss" lang="scss" scoped></style>

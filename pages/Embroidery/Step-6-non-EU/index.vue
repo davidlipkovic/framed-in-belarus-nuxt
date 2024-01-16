@@ -155,5 +155,4 @@ const validData = computed(() => {
   </main>
 </template>
 
-<style src="../../../assets/style/form.scss" lang="scss"></style>
 <style src="./Step-6-non-EU.scss" lang="scss" scoped></style>

@@ -157,5 +157,4 @@ const enableButton = computed(() => {
   </main>
 </template>
 
-<style src="../../../assets/style/form.scss" lang="scss"></style>
 <style src="./Step-6-choose-shipping-second-embroidery.scss" lang="scss" scoped></style>

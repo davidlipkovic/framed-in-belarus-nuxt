@@ -47,5 +47,4 @@ definePageMeta({
   </main>
 </template>
 
-<style src="../../../assets/style/form.scss" lang="scss"></style>
 <style src="./Step-6-Belarus.scss" lang="scss" scoped></style>

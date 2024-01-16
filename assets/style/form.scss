@@ -110,12 +110,9 @@ textarea:focus::placeholder {
   color: transparent;
 }
 
-.form.end {
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+input::placeholder, 
+textarea::placeholder {
+  font-size: 1rem;
 }
 
 @media screen and (min-width: $br-point-lg) {

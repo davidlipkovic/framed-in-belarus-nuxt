@@ -114,5 +114,4 @@ const route = ref(null)
   </main>
 </template>
 
-<style src="../../../assets/style/form.scss" lang="scss"></style>
 <style src="./Step-6-choose-shipping.scss" lang="scss" scoped></style>
