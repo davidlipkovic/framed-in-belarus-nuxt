@@ -1,7 +1,7 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/mixins/dropdown.scss";
+@import "../../../assets/style/extends/dropdown";
 
-.inputLangMenuWrapper {
+.inputLangMenu {
   position: relative;
   width: 100%;
   padding: 8px;
@@ -28,9 +28,8 @@
     color: $greyDisabledColor;
   }
 
-  @include dropdownMenuWrapper;
-
-  .inputLangMenu {
+  .inputLangMenuWrapper {
+    @extend .dropdownMenuWrapper;
     position: absolute;
     top: 35px;
     min-width: 65px;

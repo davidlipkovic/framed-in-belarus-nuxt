@@ -35,7 +35,7 @@ const handleChooseLanguage = (lang) => {
 
 <template>
   <div 
-    class="inputLangMenuWrapper"
+    class="inputLangMenu"
     ref="inputLangMenu"
     @click="toggleinputLangMenu = !toggleinputLangMenu"
   >
@@ -48,7 +48,7 @@ const handleChooseLanguage = (lang) => {
     </span>
     <div 
       v-if="toggleinputLangMenu"
-      class="inputLangMenu dropdownMenuWrapper flexColumnStart"
+      class="inputLangMenuWrapper flexColumnStart"
     >
       <button
         v-for="locale in locales"
