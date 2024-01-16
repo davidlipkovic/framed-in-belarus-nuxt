@@ -1,7 +1,7 @@
 @import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/swiperPagination.scss";
 @import "../../assets/style/mixins/general";
 @import "../../assets/style/mixins/sign";
+@import "../../assets/style/mixins/swiper";
 
 .registrationlgLayout {
   .Content {
@@ -212,6 +212,8 @@
     margin: 14px auto 0;
     height: 30px;
   }
+
+  @include swiper-pagination-bullet;
 
   .desktop {
     display: none;

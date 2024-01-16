@@ -1,5 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/swiperPagination.scss";
+@import "../../../assets/style/mixins/swiper";
 
 .basicSwiperWrapper {
   width: 448px;
@@ -72,6 +72,8 @@
     max-width: 380px;
     margin: -10px auto 0;
   }
+
+  @include swiper-pagination-bullet;
 }
 
 .basicSwiperWrapper.enableFullscreen {

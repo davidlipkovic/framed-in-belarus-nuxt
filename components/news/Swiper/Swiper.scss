@@ -1,5 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/swiperPagination.scss";
+@import "../../../assets/style/mixins/swiper";
 
 .newsSwiperWrapper {
   width: 100%;
@@ -68,6 +68,8 @@
     justify-content: center;
     margin: 30px auto 0;
   }
+
+  @include swiper-pagination-bullet;
 
   .slideDescriptionWrapper {
     position: absolute;
