@@ -11,6 +11,24 @@ definePageMeta({
 
 const email = ref(null)
 const remember = ref(false)
+
+const signIn = () => {
+  window.sessionStorage.setItem('fibIsLogged', true)
+  userStore.isLogged = true
+}
+
+
+  // methods: {
+  //   close() {
+  //     window.sessionStorage.setItem('bcNotificationID', this.notification.hash)
+  //     this.show = false
+  //   }
+  // },
+  // mounted() {
+  //   if (this.notification && this.notification.hash != window.sessionStorage.getItem('bcNotificationID')) {
+  //     this.show = true
+  //   }
+  // }
 </script>
 
 <template>
@@ -34,7 +52,7 @@ const remember = ref(false)
         id="email" 
         v-model="email"
         :placeholder="$t('placeholders.email')" 
-        class="usernameInput"
+        class="emailInput"
       >
       <label
         for="remember"
@@ -53,7 +71,7 @@ const remember = ref(false)
         :to="localePath('/Profile')"
         class="button signInBtn"
         :class="{'button_disabled': !email, 'bg_black': email}" 
-        @click.once="userStore.isLogged = true"
+        @click.once="signIn()"
       >
         {{ $t("signInPage.signInButton") }}
       </nuxt-link>
@@ -61,5 +79,4 @@ const remember = ref(false)
   </div>
 </template>
 
-<style src="../../assets/style/registration.scss" lang="scss" scoped></style>
-<style src="./SignIn.scss" lang="scss" scoped></style>
+<style src="./SignIn.scss" lang="scss"></style>

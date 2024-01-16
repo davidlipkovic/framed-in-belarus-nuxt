@@ -1,5 +1,5 @@
 @import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/mixins/general";
+@import "../../assets/style/extends/checkBox";
 @import "../../assets/style/mixins/sign";
 @import "../../assets/style/mixins/swiper";
 
@@ -13,7 +13,18 @@
 }
 
 .signUpWrapper {
-  @include checkBoxWrapper;
+  .button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.625rem;
+  }
+
+  .checkBoxWrapper {
+    @extend .checkBoxWrapper;
+    margin-bottom: 14px;
+    margin-left: 4px;
+  }
+
   @include signTitle;
   max-height: 800px;
   overflow-y: scroll;
@@ -38,12 +49,6 @@
   select,
   textarea {
     padding: 10px 14px;
-    border-radius: 0.25rem;
-    width: 100%;
-  }
-
-  input::placeholder {
-    font-size: 1rem;
   }
 
   .communicationLanguageInput {
@@ -140,7 +145,7 @@
 
     .slideColumnWrapper:nth-child(2) {
       p:nth-child(1) {
-        margin-bottom: 168px;
+        margin-bottom: 162px;
       }
     }
   }
@@ -209,7 +214,7 @@
   
   .paginationWrapper {
     max-width: 380px;
-    margin: 14px auto 0;
+    margin: 24px auto 0;
     height: 30px;
   }
 
@@ -242,11 +247,6 @@
 
     .checkBoxWrapper {
       margin: 9px 3px 0;
-    }
-
-    input[type="checkbox"] {
-      width: 14px;
-      height: 14px;
     }
 
     .slideWrapper1 {
@@ -304,12 +304,6 @@
           margin-bottom: 0;
         }
       }
-  
-      .slideColumnWrapper:nth-child(2) {
-        p:nth-child(1) {
-          margin-bottom: 168px;
-        }
-      }
     }
 
     .buttonsWrapper {
@@ -337,5 +331,14 @@
   @media screen and (min-width: $br-point-md) {
     max-width: 778px;
     width: 100%;
+  }
+
+  @media screen and (min-width: $br-point-lg) {
+    padding-left: unset;
+  }
+  
+  @media screen and (min-width: $br-point-xl) {
+    margin-left: calc(38vw + 63px) !important;
+    margin-right: unset !important;
   }
 }
