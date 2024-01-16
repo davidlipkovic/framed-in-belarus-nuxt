@@ -211,10 +211,11 @@ watch(route, () => {
       </section>
     </div>
     <GeneralInputModal
+      class="requestModal"
       @closeModal="displayRequestModal = false"
       :displayModal="displayRequestModal"
     >
-      <div class="inputModalContentWrapper requestModalContentWrapper">
+      <div class="inputModalContentWrapper">
         <div class="inputModalHeader flexRowStart">
           <h2 
             v-if="requestNotSent"

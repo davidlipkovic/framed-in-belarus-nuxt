@@ -1,7 +1,12 @@
 @import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/modal";
 
 .questionModal {
   max-height: calc(100vh - 3rem);
+
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+  }
 
 	.questionModalItem {
 		position: relative;

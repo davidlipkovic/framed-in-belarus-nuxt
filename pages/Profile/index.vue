@@ -162,10 +162,11 @@ const updateCommunicationLanguage = (lang) => {
       </section>
     </div>
     <GeneralInputModal
+      class="editProfileModal"
       @closeModal="displayEditProfileModal = false"
       :displayModal="displayEditProfileModal"
     >
-      <div class="inputModalContentWrapper editProfileModalContentWrapper">
+      <div class="inputModalContentWrapper">
         <div class="inputModalHeader flexRowStart">
           <h2>
             {{ $t('profilePage.editProfile') }}
@@ -366,10 +367,11 @@ const updateCommunicationLanguage = (lang) => {
       </div>
     </GeneralInputModal>
     <GeneralInputModal
+      class="deleteProfileModal"
       @closeModal="displayDeleteProfileModal = false"
       :displayModal="displayDeleteProfileModal"
     >
-      <div class="inputModalContentWrapper deleteProfileModalContentWrapper">
+      <div class="inputModalContentWrapper">
         <div class="inputModalHeader flexRowStart">
           <button
             @click="displayDeleteProfileModal = false"

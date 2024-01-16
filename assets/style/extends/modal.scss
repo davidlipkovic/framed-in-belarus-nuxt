@@ -1,0 +1,20 @@
+@import "../globalPartials/variables";
+
+.modalWrapper {
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20000;
+}
+
+.modalBackgroundWrapper {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  top: 0;
+  z-index: 20001;
+  background-color: $greyTransparentBG;
+}

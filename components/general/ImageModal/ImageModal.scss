@@ -1,4 +1,5 @@
 @import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/extends/modal";
 
 .pattern{
   margin: 0 auto 18px;
@@ -66,7 +67,21 @@
   }
 }
 
+.imageModalWrapper {
+  @extend .modalWrapper;
+}
+
+.imageModalBackgroundWrapper {
+  @extend .modalBackgroundWrapper;
+}
+
+
 .imageModalContentWrapper {
+  z-index: 20002;
+  position: relative;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+
   img {
     max-width: 95vw;
     max-height: 95vh;

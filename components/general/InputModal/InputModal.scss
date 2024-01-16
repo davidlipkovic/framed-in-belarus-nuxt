@@ -1,41 +1,21 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/mixins/general";
+@import "../../../assets/style/extends/modal";
 
 @include buttons;
 @include checkBoxWrapper;
 
 .inputModalWrapper {
-  position: fixed;
-  width: 100vw;
-  left: 0;
-  height: 100vh;
-  top: 0;
-  z-index: 20000;
+  @extend .modalWrapper;
 }
 
 .inputModalBackgroundWrapper {
-  position: absolute;
-  width: 100vw;
-  left: 0;
-  height: 100vh;
-  top: 0;
-  z-index: 20001;
-  background-color: $greyTransparentBG;
+  @extend .modalBackgroundWrapper;
 }
 
 .inputModalSlotWrapper {
   z-index: 20002;
   position: relative;
-}
-
-.inputModalContentWrapper {
-  background-color: $white;
-  overflow-y: auto;
-  border-radius: 0.75rem;
-  max-width: 720px;
-  width: calc(100vw - 2rem);
-  max-height: calc(100vh - 2rem);
-  overflow: scroll;
 }
 
 .inputModalHeader {

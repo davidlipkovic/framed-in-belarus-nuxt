@@ -50,15 +50,15 @@ watch(displayImageModal, n => {
       </a>
     </div>
     <div
-      class="modalWrapper imageModalWrapper flexRowCenter"
+      class="imageModalWrapper flexRowCenter"
       v-if="displayImageModal"
     >
       <div
-        class="modalBackgroundWrapper"
+        class="imageModalBackgroundWrapper"
         @click="displayImageModal = false"
       />
       <div
-        class="modalContentWrapper imageModalContentWrapper flexRowCenter"
+        class="imageModalContentWrapper flexRowCenter"
       >
         <!-- <button
           @click="displayImageModal = false"

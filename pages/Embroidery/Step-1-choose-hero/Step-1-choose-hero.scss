@@ -1,4 +1,5 @@
 @import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/mixins/modal";
 
 .mistakeSearchResultsWrapper {
 	padding-top: 22px;
@@ -33,7 +34,11 @@
 	}
 }
 
-.requestModalContentWrapper {
+.requestModal {
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+  }
+
 	.inputModalRow {
 		textarea {
 			min-height: unset;
@@ -75,7 +80,7 @@
 }
 
 @media screen and (min-width: $br-point-md) {
-	.requestModalContentWrapper {
+	.requestModal {
 		.inputModalRow:first-child {
 			textarea {
 				min-height: unset;
