@@ -5,6 +5,7 @@
         "accept": "Accept",
         "decline": "Decline",
         "delete": "Delete",
+        "confirm": "Confirm",
         "manage": "Manage",
         "cancel": "Cancel",
         "publish": "Publish",
@@ -29,7 +30,6 @@
         "emailLogin": "Email (login)",
         "country": "Country of residence",
         "instagram": "Instagram",
-        "instagramAt": "{'@'}Instagram",
         "username": "Username",
         "password": "Password",
         "passwordAgain": "Password again",
@@ -80,6 +80,11 @@
         "myEmbroideries": "My embroideries",
         "participate": "Go stitch!",
         "source": "Go to the source of information"
+    },
+    "notifications": {
+        "subscribeSuccess": "You have successfully subscribed!",
+        "sorry": "Sorry to see you go!",
+        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters."
     },
     "toolTips": {
         "seeImage": "See full image",
@@ -223,6 +228,18 @@
         "question": "Why did you decide to participate?",
         "editProfile": "Edit profile",
         "deleteAccount": "Delete account",
+        "notifications": {
+            "notification1": "You are taking too much time for one step, please proceed with your work.",
+            "notification2": "The deadline for this embroidery has been extended to",
+            "notification3": {
+                "highlight": "Awaiting confirmation",
+                "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
+            },
+            "notification4": {
+                "highlight": "Corrections needed / Publish",
+                "content": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button."
+            }
+        },
         "cardStatus": {
             "inProgress": "In Progress",
             "patternIsReady": "Pattern is ready",
@@ -234,7 +251,7 @@
         },
         "deleteModal": {
             "title": "Are you sure you want to delete your personal account?",
-            "disclaimer": "In case you click “Delete” all your personal data will be deleted."
+            "disclaimer": "In case you click “Confirm” all your personal data will be deleted."
         }
     },
     "embroidery": {
@@ -430,8 +447,8 @@
                 "paragraph1": "This can be phases of the embroidery, you at work, travel or events where you \"were\" with the embroidered Hero*ine, etc.",
                 "paragraph2": "These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
                 "paragraph3": {
-                    "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
-                    "content": "Due to this, please refrain from uploading photos with confidential information if you do not want them to be published.  These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                    "highlight": "Please avoid uploading photos with confidential information if you do not want them to be published.",
+                    "content": "Due to this, please refrain from uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
                 }
             },
             "dropZone": {
