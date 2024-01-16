@@ -67,5 +67,4 @@ const question = ref(null)
   </GeneralInputModal>
 </template>
 
-<style src="../../../assets/style/form.scss" lang="scss" scoped></style>
 <style src="./QuestionModal.scss" lang="scss"></style>

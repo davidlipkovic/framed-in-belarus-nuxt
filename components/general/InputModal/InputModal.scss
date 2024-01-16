@@ -1,9 +1,9 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/mixins/general";
 @import "../../../assets/style/extends/modal";
+@import "../../../assets/style/extends/checkBox";
 
 @include buttons;
-@include checkBoxWrapper;
 
 .inputModalWrapper {
   @extend .modalWrapper;
@@ -68,10 +68,12 @@
   }
 
   .checkBoxWrapper {
+    @extend .checkBoxWrapper;
     margin-top: 6px;
   }
 
   .checkBoxWrapperSecond {
+    @extend .checkBoxWrapper;
     margin-top: 10px;
   }
 }

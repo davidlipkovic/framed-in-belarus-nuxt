@@ -25,7 +25,7 @@ onClickOutside(root, () => {
 
 <template>
   <div 
-    class="profileModalWrapper dropdownMenuWrapper flexColumnStart"
+    class="profileModalWrapper flexColumnStart"
     ref="root"
   >
     <img

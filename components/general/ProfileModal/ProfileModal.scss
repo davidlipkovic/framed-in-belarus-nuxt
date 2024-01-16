@@ -1,7 +1,8 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/dropdown.scss";
+@import "../../../assets/style/extends/dropdown";
 
 .profileModalWrapper {
+  @extend .dropdownMenuWrapper;
   min-width: 304px;
   top: 50px;
 
