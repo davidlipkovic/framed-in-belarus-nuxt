@@ -168,7 +168,7 @@ const validData = computed(() => {
               {{ $t('embroidery.step5Page.section4.content2') }}
           </label>
           <p class="mistake defaultNone">
-            {{ $t('embroidery.step5Page.section4.warning') }}
+            {{ $t('embroidery.warnings.chooseOneOption') }}
           </p>
         </div>
         <div class="buttons">

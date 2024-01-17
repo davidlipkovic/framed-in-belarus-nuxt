@@ -65,6 +65,10 @@
                 "female": "female",
                 "male": "male"
             }
+        },
+        "checkBox": {
+            "content1": "Check this box if you want these data to be accessible to all website visitors.",
+            "content2": "You can hide or reveal this information at any time in your personal account."
         }
     },
     "links": {
@@ -84,7 +88,10 @@
     "notifications": {
         "subscribeSuccess": "You have successfully subscribed!",
         "sorry": "Sorry to see you go!",
-        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters."
+        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters.",
+    },
+    "warnings": {
+        "chooseOneOption": "Please choose one option"
     },
     "toolTips": {
         "seeImage": "See full image",
@@ -161,7 +168,16 @@
         "slide2": {
             "textarea": "Why did you decide to join the project?",
             "paragraph1": "Our primary correspondence will be conducted via email, but in exceptional cases, we would like to have the option to contact you through social media.",
-            "paragraph2": "Briefly describe your motivation. Your thoughts will greatly assist us in the project's development."
+            "paragraph2": "Briefly describe your motivation. Your thoughts will greatly assist us in the project's development.",
+            "findOutOptions": {
+                "instagram": "Instagram",
+                "fromFriend": "From friend",
+                "atExhibition": "At the exhibition",
+                "atWorkshop": "At the workshop",
+                "atPresentation": "At the presentation",
+                "throughMedia": "Through the media",
+                "another": "Another"
+            }
         },
         "slide3": {
             "terms": {
@@ -487,8 +503,7 @@
             "section4": {
                 "title": "This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations",
                 "content1": "I agree, I want my voice to be heard",
-                "content2": "I disagree, please keep my comment for internal project needs only",
-                "warning": "Please choose one option"
+                "content2": "I disagree, please keep my comment for internal project needs only"
             },
             "backButton" : "Previous step",
             "forwardButton" : "Save and go to Next step"
@@ -505,10 +520,10 @@
                     "content1": "Since the pattern of",
                     "content2": "you've requested is already drawn, you can proceed to stitch it and send both embroideries together in one package."
                 },
-                "secondEmbroiderydeTitle": "Please choose one option",
+                "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
+                "secondEmbroiderydescriptionDontForget": "Please don't forget to pack and send your first embroidery with the attached comment alongside your new work.",
                 "secondEmbroideryOption1": "Ship the finished work now",
                 "secondEmbroideryOption2": "Ship both works together later",
-                "warning": "Please choose one option",
                 "backButton" : "Previous step",
                 "forwardButton" : "Get instruction"
             },
@@ -614,6 +629,18 @@
                 "content2": "A short text about your motivation will be published in our gallery with your embroidery. If you want to hide or add something, please do it in advance.",
                 "content3": "You can also take on another embroidery.",
                 "forwardButton" : "Go to my profile"
+            },
+            "sectionSecondEmbroidery": {
+                "paragraph1": {
+                    "content1": "The",
+                    "content2": "pattern is now available in your profile. Please remember that the time limit for one work is",
+                    "highlight": "2 months."
+                },
+                "paragraph2": {
+                    "content1": "Your first finished embroidery will be marked as 'Stitched' and freezed until you progress with your second work to step 6 - 'Shipping.' This way",
+                    "highlight": "you will activate both embroideries for sending."
+                },
+                "paragraph3": "Go to your profile to begin working on a new embroidery."
             }
         },
         "step7Page": {

@@ -24,20 +24,20 @@
         "goBack": "Вярнуцца"
     },
     "placeholders": {
-        "email": "Email",
+        "email": "Е-мэйл",
         "enter": "Enter",
         "text": "text",
-        "emailLogin": "Email (лагін)",
-        "country": "Краіна працытавання",
+        "emailLogin": "Е-мэйл (логін)",
+        "country": "Краіна пражывання",
         "instagram": "Instagram",
         "username": "Імя карыстальніка",
         "password": "Пароль",
         "passwordAgain": "Паўтор пароля",
-        "communicationLanguage": "Communication language",
+        "communicationLanguage": "Мова камунікацыі",
         "chooseCommunicationLanguage": "Выбраць мову для камунікацыі",
         "pseudonym": "Ваш псэўданім / нік",
         "searchHero": "Пошук героя*іні па імі",
-        "findOut": "Як вы даведаліся аб гэтым праекце?",
+        "findOut": "Як вы даведаліся пра праект?",
         "chooseTheOption": "Choose the option"
     },
     "inputs": {
@@ -48,23 +48,27 @@
         "mentionInstagram": "Згадаць мой акаўнт у вашых паведамленнях",
         "tags": {
             "case": {
-                "type": "cases",
-                "all": "all",
-                "individual": "individual",
-                "group": "group"
+            "type": "випадкі",
+            "all": "усе",
+            "individual": "індывідуальны",
+            "group": "групавы"
             },
             "status": {
-                "type": "status of prisoner",
-                "all": "all",
-                "active": "in custody", 
-                "former": "free"
+            "type": "стан вязьня",
+            "all": "усе",
+            "active": "у арышці",
+            "former": "вольны"
             },
             "gender": {
-                "type": "gender",
-                "all": "all",
-                "female": "female",
-                "male": "male"
+            "type": "паля",
+            "all": "усе",
+            "female": "жаночы",
+            "male": "мужчынскі"
             }
+        },
+        "checkBox": {
+            "content1": "Адзначце, калі хаціце, каб гэтыя дадзеныя былі даступныя ўсім наведвальнікам сайта.",
+            "content2": "Вы можаце ў любы час схаваць ці адкрыць гэту інфармацыю ў вашым асабістым кабінеце."
         }
     },
     "links": {
@@ -85,6 +89,9 @@
         "subscribeSuccess": "You have successfully subscribed!",
         "sorry": "Шкада, што вы сыходзіце!",
         "unsubscribeSuccess": "Вы паспяхова адмовіліся ад рассылкі праекта #FramedinBelarus."
+    },
+    "warnings": {
+        "chooseOneOption": "Пожалуйста выберите один вариант"
     },
     "toolTips": {
         "seeImage": "Глядзець поўнае выява",
@@ -149,19 +156,28 @@
         "slide1": {
             "languageSelect": "Выберыце мову абмену",
             "paragraph1": {
-                "content1": "Калі ласка, увядзіце імя ці псеўданім для камунікацыі і будучых публікацый, звязаных з праектам.",
-                "highlight1": "Калі вы ў Беларусі,",
-                "content2": "з мэтай бяспекі,",
-                "highlight2": "мы не рэкамендуем выкарыстоўваць сваё імя і прозвішча."
+                "content1": "Напішыце імя ці псеўданім, які будзе выкарыстаны для камунікацыі і наступных публікацый, звязаных з праектам.",
+                "highlight1": "Калі вы знаходзіцеся ў Беларусі,",
+                "content2": "з мэтай бяспецы",
+                "highlight2": "мы не рэкамендуем вам выкарыстоўваць дадзеныя ідэнтычныя вашым рэальным імю і прозвішчу."
             },
-            "paragraph2": "Гэта наш асноўны канал камунікацыі з вамі. Калі ласка, выкарыстоўвайце толькі адзін адрас электроннай пошты, інакш мы не зможам ідэнтыфікаваць вас з вашай працай, што можа прывесці да патэнцыяльнага памылкі.",
-            "paragraph3": "Калі ласка, увядзіце краіну, дзе вы зараз знаходзіцеся. Гэтая інфармацыя неабходная для статыстычных мэт аптымізацыі праекту і працы каманды, а таксама для прапаганды вашага вышывання на даступных выставах.",
+            "paragraph2": "Гэта наш асноўны канал камунікацыі з вамі. Калі ласка выкарыстоўвайце толькі адзін е-мэйл, інакш мы не зможам ідэнтыфікаваць вас з вашымі працамі і можа ўзнікнуць блытаніна.",
+            "paragraph3": "Запоўніце краіну пражывання. Калі вы часова находзіцеся ў іміграцыі, запоўніце краіну, у якой вы цяпер жывяце. Гэтыя дадзеныя неабходныя для складання статыстыкі, якая дапаможа нам палепшыць праект і працу каманды а таксама прыярытызаваць выбар вашай вышыўкі для выстаў, якія праходзяць у больш даступным для вас рэгіёне.",
             "paragraph4": "Выберыце асноўную мову для нашай камунікацыі."
         },
         "slide2": {
-            "textarea": "Чаму вы рашылі прыладацца да праекту?",
-            "paragraph1": "Наша асноўная карэспандэнцыя будзе праводзіцца праз электронную пошту, але ў выпадку выключных сітуацый мы хацелі б мець магчымасць звяртацца да вас праз сацыяльныя медыя.",
-            "paragraph2": "Каротка апішыце сваю мотывацыю. Вашы думкі вялікадзейна дапаможаць нам у развіцці праекту."
+            "textarea": "Чаму вы вырашылі прыняць удзел у праекце?",
+            "paragraph1": "Нашае асноўнае ліставанне будзе весціся праз е-мэйл, але ў вылучных выпадках мы хочам мець магчымасць звязацца з вамі праз сацсеткі.",
+            "paragraph2": "Каротка апішыце сваю мотывацыю. Вашы думкі вялікадзейна дапаможаць нам у развіцці праекту.",
+            "findOutOptions": {
+                "instagram": "Інстаграм",
+                "fromFriend": "Ад знаёмых",
+                "atExhibition": "На выставе",
+                "atWorkshop": "На варкшопе",
+                "atPresentation": "На прэзентацыі",
+                "throughMedia": "Праз медыя",
+                "another": "Іншае"
+            }
         },
         "slide3": {
             "terms": {
@@ -288,39 +304,39 @@
             "backButton": "Вярнуцца да ўсіх палітвязняў",
             "forwardButton": "Выбраць гэтага Героя*іню",
             "alreadyChosen": {
-                "title": "Sorry, this Hero*ine has already been chosen",
+                "title": "Прабачце, гэты герой*ін ужо абраны",
                 "paragraph1": {
-                    "content": "You can see the embroidery",
-                    "highlight": "here"
+                "content": "Вы можаце паглядзець вышывку",
+                "highlight": "тут"
                 },
-                "paragraph2": "Please choose another hero"
+                "paragraph2": "Калі ласка, выберыце іншага героя"
             },
             "noPattern": {
-                "title": "Sorry, we don't have a pattern for this hero yet",
+                "title": "Прабачце, нашым героям для гэтага героя яшчэ няма выкройкі",
                 "paragraph1": {
-                    "content1": "If you really want this hero, please leave a",
-                    "highlight": "request for a pattern",
-                    "content2": "in this section."
+                "content1": "Калі вы сапраўды хочаце гэтага героя, калі ласка, пакіньце",
+                "highlight": "запыт на выкройку",
+                "content2": "у гэтым раздзеле."
                 },
-                "paragraph2": "Rufina creates all the patterns by herself, so the process of creating a new pattern can take 2-3 months.",
-                "paragraph3": "Thank you for your understanding!",
-                "button": "Leave a request"
+                "paragraph2": "Руфіна стварае ўсе выкройкі сама, таму працэс стварэння новай выкройкі можа заняць 2-3 месяцы.",
+                "paragraph3": "Дзякуй за разуменне!",
+                "button": "Пакінуць запыт"
             },
             "notInDatabase": {
-                "title": "Sorry, we don't have this hero in our database",
-                "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
+                "title": "Прабачце, гэтага героя няма ў нашай базе даных",
+                "paragraph1": "Магчыма, чалавек, якога вы шукаеце, не мае статусу \"палітычнага зняволенага\"."
             },
-            "requestModal" :{
+            "requestModal": {
                 "request": {
-                    "title": "Send a request",
-                    "requestName": "Name Surname of prisoner",
-                    "requestDescription": "To create a pattern please help us by telling the hero's story. What he/she is into, what their work was, whether he/she has children or pets, etc. If you know the details and reasons for your hero's detention, please provide them. This may also help in creating a pattern."
+                "title": "Адправіць запыт",
+                "requestName": "Імя прозвішча зняволенага",
+                "requestDescription": "Каб стварыць выкройку, дапамажыце нам, расказаўшы гісторыю вашага героя. Што ён/яна ўхіліўся, чым займаліся, ці ёсць у іх дзеці або дамашнія тварынкі і г.д. Калі ў вас ёсць падрабязнасці і прычыны затрымання вашага героя, калі ласка, прадастаўце іх. Гэта таксама можа дапамагчы ў стварэнні выкройкі."
                 },
                 "success": {
-                    "title": "Your request has been succesfully sent",
-                    "content": "Thank you for your request! We'll get back to you as soon as the pattern is ready. If you'd like, you can embroider another Hero*ine in the meantime, or just wait for your pattern.",
-                    "button1" : "Go to my profile",
-                    "button2" : "Choose a hero"
+                "title": "Ваш запыт паспяхова адпраўлены",
+                "content": "Дзякуй за ваш запыт! Мы звяжамся з вамі, як толькі выкройка будзе гатова. Калі хочаце, можаце вышываць іншага героя*іну ў той час, ці проста чакаць сваёй выкройкі.",
+                "button1": "Перайсці ў мой прафіль",
+                "button2": "Выбраць героя"
                 }
             }
         },
@@ -487,8 +503,7 @@
             "section4": {
                 "title": "Гэты каментар будзе апублікаваны ў вэб-галерэі і можа быць выкарыстаны ў друку і Інтэрнэце, на выставах і г.д. у кантэксце прэзентацыі праекту",
                 "content1": "Згодны(ая), я хачу, каб мой голас быў чуткі",
-                "content2": "Не згодны(ая), калі ласка, захаваць мой каментар толькі для вутарэнніх патрэб праекту",
-                "warning": "Калі ласка, выберыце адзін варыянт"
+                "content2": "Не згодны(ая), калі ласка, захаваць мой каментар толькі для вутарэнніх патрэб праекту"
             },
             "backButton": "Папярэдні этап",
             "forwardButton": "Захаваць і перайсці на наступны этап"
@@ -505,10 +520,10 @@
                     "content1": "Паколькі запытаная Вамі схема",
                     "content2": "ужо намалявана, Вы можаце пачаць яе вышываць і адправіць нам абедзве вышыўкі разам у адным пакунку."
                 },
-                "secondEmbroiderydeTitle": "Калі ласка, абярыце адзін варыянт",
+                "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
+                "secondEmbroiderydescriptionDontForget": "Калі ласка не забудзьцеся спакаваць і паслаць вашу першую вышыўку і прыкладзены да яе каментар разам з новай працай.",
                 "secondEmbroideryOption1": "Даслаць гатовую працу зараз",
                 "secondEmbroideryOption2": "Даслаць абедзве працы разам пазней",
-                "warning": "Калі ласка, абярыце адзін варыянт",
                 "backButton" : "Папярэдні этап",
                 "forwardButton" : "Атрымаць інструкцыю"
             },
@@ -575,7 +590,7 @@
                 },
                 "declaration": {
                     "content": "Для абавязковай митнай декларацыі нам патрэбныя дадзеныя адправіцеля на паштовай пасылцы.",
-                    "note": "Гэтыя дадзеныя будуць аўтаматычна выдаленыя, як толькі паштовая пасылка будзе дастаўленая."
+                    "note": "Гэтыя дадзеныя выдаляюцца аўтаматычна адразу пасля дастаўкі пасылкі."
                 },
                 "inputName": {
                     "label": "Імя і прозвішча на паштовай пасылцы",
@@ -615,6 +630,18 @@
                 "content3": "Вы также можете взяться за еще одно вышивание.",
                 "forwardButton" : "Перейти в мой профиль"
             },
+            "sectionSecondEmbroidery": {
+                "paragraph1": {
+                    "content1": "Схема",
+                    "content2": "цяпер даступная ў вашым асабістым кабінеце. Нагадваем, што тэрмін працы над адной вышыўкай складае",
+                    "highlight": "2 месяцы."
+                },
+                "paragraph2": {
+                    "content1": "Ваша першая гатовая вышыўка будзе пазначана як \"Вышыта\" і замарожана, пакуль вы не дойдзеце са сваёй другой працай да кроку 6 - \"Адпраўка\". Такім чынам,",
+                    "highlight": "вы актывізуеце абедзве вышыўкі для адпраўкі."
+                },
+                "paragraph3": "Перайдзіце ў свой прыватны кабінет, каб распачаць працу над новай вышыўкай."
+            }
         },
         "step7Page": {
             "title": "Публикация",

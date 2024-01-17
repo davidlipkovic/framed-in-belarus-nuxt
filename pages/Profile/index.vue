@@ -138,12 +138,12 @@ const updateCommunicationLanguage = (lang) => {
         <GeneralNotificationModal
           v-if="notification"
           :icon="'question'"
-          :message="'You are taking too much time for one step, please proceed with your work.'"
+          :message="$t('profilePage.notifications.notification2' + ' [1/30/2024]')"
         />
         <GeneralNotificationModal
           v-if="warning"
           :icon="'warning'"
-          :message="'You are taking too much time for one step, please proceed with your work.'"
+          :message="$t('profilePage.notifications.notification1')"
           :link="'#'"
           :linkMessage="'Proceed'"
         />
@@ -398,10 +398,10 @@ const updateCommunicationLanguage = (lang) => {
             class="button" 
             @click="displayDeleteProfileModal = false"
           >
-            {{ $t('buttons.cancel') }}
+            {{ $t('buttons.confirm') }}
           </button>
           <button class="button bg_black">
-            {{ $t('buttons.delete') }}
+            {{ $t('buttons.back') }}
           </button>
         </div>
       </div>

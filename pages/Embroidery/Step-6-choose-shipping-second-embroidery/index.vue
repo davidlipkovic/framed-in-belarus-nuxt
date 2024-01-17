@@ -45,7 +45,7 @@ const enableButton = computed(() => {
             {{ $t('embroidery.step6Page.sectionOptions.secondEmbroiderydescription.content2') }}
           </p>
           <h3 class="title">
-            {{ $t('embroidery.step6Page.sectionOptions.secondEmbroiderydeTitle') }}:
+            {{ $t('warnings.chooseOneOption') }}:
           </h3>
           <label 
             for="chooseShippingNow" 
