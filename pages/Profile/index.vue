@@ -135,12 +135,12 @@ const updateCommunicationLanguage = (lang) => {
         </div>
       </section>
       <section class="embroideryCardsWrapper flexColumnCenter">
-        <GeneralNotificationModal
+        <GeneralEmbroideryNotificationModal
           v-if="notification"
           :icon="'question'"
           :message="$t('profilePage.notifications.notification2' + ' [1/30/2024]')"
         />
-        <GeneralNotificationModal
+        <GeneralEmbroideryNotificationModal
           v-if="warning"
           :icon="'warning'"
           :message="$t('profilePage.notifications.notification1')"
@@ -149,7 +149,7 @@ const updateCommunicationLanguage = (lang) => {
         />
         <div class="embroideryCards">
           <RegistrationEmbroideryCard
-            :class="{'disabledCard': !allowNewEmbroidery}"
+            :disableNewEmbroidery="allowNewEmbroidery"
             :newEmbroidery="true"
           />
           <RegistrationEmbroideryCard

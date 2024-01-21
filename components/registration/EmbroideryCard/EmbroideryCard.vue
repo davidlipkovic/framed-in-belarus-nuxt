@@ -2,6 +2,10 @@
 import { computed, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
+  disableNewEmbroidery: {
+    type: Boolean,
+    default: false
+  },
   newEmbroidery: {
     type: Boolean,
     default: true
@@ -26,7 +30,7 @@ const error = computed(() => {
     v-if="newEmbroidery"
     :to="localePath('/Embroidery/Step-1-choose-hero')"
     class="embroideryCard embroideryCardNew flexColumnCenter"
-    :class="{'embroideryCardNewDisabled': disabled}"
+    :class="{'embroideryCardNewDisabled': disableNewEmbroidery}"
   >
     <div class="plusButtonWrapper flexRowCenter">
       <SvgPlus/>
