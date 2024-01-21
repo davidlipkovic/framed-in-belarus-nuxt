@@ -34,7 +34,7 @@ const localTags = computed(() => heroesStore.tags.value)
 const parsedHeroes = computed(() => parseData(heroesStore, 'heroes'))
 
 onMounted(() => {
-  numberOfPages.value = Number((heroesStore.originalHeroes.length / rangePerPage.value + 0.5).toFixed())
+  numberOfPages.value = Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed())
 })
 
 const alreadyChosen = computed(() => {
