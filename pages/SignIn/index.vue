@@ -1,34 +1,29 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
-
+import { computed, onMounted, ref, watch } from 'vue'
 import { useUserStore } from "@/stores/user"
+import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const userStore = useUserStore()
+const { validateEmail } = useValidateInputs()
 
 definePageMeta({
   layout: "registration"
 })
 
 const email = ref(null)
+const emailTypingStarted = ref(false)
 const remember = ref(false)
 
 const signIn = () => {
-  window.sessionStorage.setItem('fibIsLogged', true)
+  // userStore.login(email.value)
+  // window.sessionStorage.setItem('fibIsLogged', true)
+  // window.sessionStorage.getItem('bcNotificationID')
   userStore.isLogged = true
 }
 
-
-  // methods: {
-  //   close() {
-  //     window.sessionStorage.setItem('bcNotificationID', this.notification.hash)
-  //     this.show = false
-  //   }
-  // },
-  // mounted() {
-  //   if (this.notification && this.notification.hash != window.sessionStorage.getItem('bcNotificationID')) {
-  //     this.show = true
-  //   }
-  // }
+const validEmailData = computed(() => {
+  return validateEmail(email.value)
+})
 </script>
 
 <template>
@@ -52,8 +47,16 @@ const signIn = () => {
         id="email" 
         v-model="email"
         :placeholder="$t('placeholders.email')" 
+        @input="emailTypingStarted = true"
         class="emailInput"
+        :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
       >
+      <span 
+        v-if="!validEmailData && emailTypingStarted"
+        class="warningNotification note red"
+      >
+        Invalid email adress
+      </span>
       <label
         for="remember"
         class="checkBoxWrapper"
@@ -70,7 +73,7 @@ const signIn = () => {
       <nuxt-link 
         :to="localePath('/Profile')"
         class="button signInBtn"
-        :class="{'button_disabled': !email, 'bg_black': email}" 
+        :class="validEmailData ? 'bg_black' : 'button_disabled'" 
         @click.once="signIn()"
       >
         {{ $t("signInPage.signInButton") }}

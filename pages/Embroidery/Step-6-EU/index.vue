@@ -1,11 +1,17 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useValidateInputs } from "@/composables/ValidateInputs";
+
+const { validateLatinCharacters, validateText} = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery"
 })
 
 const trackingNumber = ref(null)
+const trackingNumberTypingStarted = ref(false)
+
+const validTrackingNumber = computed(() => validateLatinCharacters(trackingNumber.value) && validateText(trackingNumber.value))
 </script>
 
 <template>
@@ -79,14 +85,16 @@ const trackingNumber = ref(null)
             id="trackingNumber"
             :placeholder="$t('embroidery.step6Page.sectionEU.inputTrackingNumber.placeholder')" 
             class="instruction-input"
+            :class="{'invalidInput': !validTrackingNumber && trackingNumberTypingStarted}" 
+            @input="trackingNumberTypingStarted = true"
             v-model="trackingNumber"
           />
-          <p 
-            v-if="trackingNumber && trackingNumber.length < 4"
-            class="warning redLighter"
+          <span
+            v-if="!validTrackingNumber && trackingNumberTypingStarted"
+            class="warningNotification note warning redLighter"
           >
             {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.warning') }}
-          </p>
+          </span>
         </div>
         <div class="buttons">
           <nuxt-link 
@@ -98,7 +106,7 @@ const trackingNumber = ref(null)
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button" 
-            :class="{'button_disabled': !trackingNumber, 'bg_black': trackingNumber}" 
+            :class="validTrackingNumber ? 'bg_black' : 'button_disabled'"
           >
             {{ $t('embroidery.step6Page.sectionEU.forwardButton') }}
           </nuxt-link>

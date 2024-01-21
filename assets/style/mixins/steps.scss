@@ -101,6 +101,10 @@
       margin: 10px 0 0;
       padding: 10px 14px;
     }
+
+    >label, .warningNotification {
+      margin-bottom: 0 !important;
+    }
   
     .warning {
       font-size: 12px;

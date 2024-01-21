@@ -1,17 +1,25 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useValidateInputs } from "@/composables/ValidateInputs";
+
+const { validateAddressWithZipAndCountry, validateLatinCharacters, validateNameAndSurname, validateText} = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery"
 })
 
 const adress = ref(null)
+const adressTypingStarted = ref(false)
 const name = ref(null)
+const nameTypingStarted = ref(false)
 const trackingNumber = ref(null)
+const trackingNumberTypingStarted = ref(false)
 
-const validData = computed(() => {
-  return adress.value && name.value && trackingNumber.value
-})
+const validAdress = computed(() => validateLatinCharacters(adress.value) && validateAddressWithZipAndCountry(adress.value))
+const validName = computed(() => validateLatinCharacters(name.value) && validateNameAndSurname(name.value))
+const validTrackingNumber = computed(() => validateLatinCharacters(trackingNumber.value) && validateText(trackingNumber.value))
+
+const validData = computed(() => validAdress.value && validName.value && validTrackingNumber.value)
 </script>
 
 <template>
@@ -39,7 +47,7 @@ const validData = computed(() => {
         :currentStep="6"
       />
       <section>
-        <div class="shippingInstructionWrapper">
+        <div class="shippingInstructionWrapper flexColumnStart">
           <p class="title important">
             {{ $t('embroidery.step6Page.sectionNonEU.title') }}:
           </p>
@@ -94,8 +102,16 @@ const validData = computed(() => {
             id="name"
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputName.placeholder')" 
             class="instruction-input"
+            :class="{'invalidInput': !validName && nameTypingStarted}" 
+            @input="nameTypingStarted = true"
             v-model="name"
           />
+          <span
+            v-if="!validName && nameTypingStarted"
+            class="warningNotification note warning redLighter"
+          >
+            Please enter name and surname
+          </span>
           <p class="note">
             {{ $t('embroidery.step6Page.sectionNonEU.inputName.note') }}
           </p>
@@ -110,8 +126,16 @@ const validData = computed(() => {
             id="adress"
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputAdress.placeholder')" 
             class="instruction-input"
+            :class="{'invalidInput': !validAdress && adressTypingStarted}" 
+            @input="adressTypingStarted = true"
             v-model="adress"
           />
+          <span
+            v-if="!validAdress && adressTypingStarted"
+            class="warningNotification note warning redLighter"
+          >
+            Please enter valid adress
+          </span>
           <p class="note">
             {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.note') }}
           </p>
@@ -126,14 +150,16 @@ const validData = computed(() => {
             id="trackingNumber"
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.placeholder')" 
             class="instruction-input"
+            :class="{'invalidInput': !validTrackingNumber && trackingNumberTypingStarted}" 
+            @input="trackingNumberTypingStarted = true"
             v-model="trackingNumber"
           />
-          <p 
-            v-if="trackingNumber && trackingNumber.length < 4"
-            class="warning redLighter"
+          <span
+            v-if="!validTrackingNumber && trackingNumberTypingStarted"
+            class="warningNotification note warning redLighter"
           >
-            {{ $t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.warning') }}
-          </p>
+            Please enter tracking number
+          </span>
         </div>
         <div class="buttons">
           <nuxt-link 
@@ -144,8 +170,8 @@ const validData = computed(() => {
           </nuxt-link>
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
-            class="button" 
-            :class="{'button_disabled': !validData, 'bg_black': validData}" 
+            class="button"
+            :class="validData ? 'bg_black' : 'button_disabled'"
           >
             {{ $t('embroidery.step6Page.sectionNonEU.forwardButton') }}
           </nuxt-link>

@@ -1,11 +1,17 @@
 <script setup>
 import { ref } from 'vue'
+import { useValidateInputs } from "@/composables/ValidateInputs";
+
+const { validateLatinCharacters, validateText} = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery"
 })
 
 const comment = ref(null)
+const commentTypingStarted = ref(false)
+
+const validComment = computed(() => validateLatinCharacters(comment.value) && validateText(comment.value))
 </script>
 
 <template>
@@ -48,18 +54,21 @@ const comment = ref(null)
             id="comment"
             :placeholder="$t('embroidery.step6Page.sectionPersonally.textarea.placeholder')" 
             v-model="comment"
+            :class="{'invalidInput': !validComment && commentTypingStarted}" 
+            @input="commentTypingStarted = true"
           />
-          <p 
-            v-if="false"
-            class="warning redLighter"
+          <span
+            v-if="!validComment && commentTypingStarted"
+            class="warningNotification note warning redLighter"
           >
             {{ $t('embroidery.step6Page.sectionPersonally.textarea.warning') }}
-          </p>
+          </span>
         </div>
         <div class="buttons flexColumnCenter">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
-            class="button bg_black" 
+            class="button" 
+            :class="validComment ? 'bg_black' : 'button_disabled'"
           >
             {{ $t('embroidery.step6Page.sectionPersonally.forwardButton') }}
           </nuxt-link>

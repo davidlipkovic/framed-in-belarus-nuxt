@@ -115,6 +115,14 @@ textarea::placeholder {
   font-size: 1rem;
 }
 
+.invalidInput {
+  border-color: $red !important;
+}
+
+.warningNotification {
+  color: $red;
+}
+
 @media screen and (min-width: $br-point-lg) {
   input[type="text"],
   input[type="number"],
