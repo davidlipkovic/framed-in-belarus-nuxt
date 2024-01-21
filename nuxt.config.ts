@@ -9,12 +9,15 @@ export default defineNuxtConfig({
             viewport: 'width=device-width, initial-scale=1',
             title: 'Framed in Belarus',
             meta: [
+                { property: 'og:image', content: '/main.jpg' },
                 { name: 'description', content: 'Framed in Belarus' },
                 { name: 'format-detection', content: 'telephone=no' },
                 { name: 'robots', content: 'noindex' }
             ],
             link: [
-                { rel: 'icon', type: 'image/x-icon', href: './assets/media/fav.svg' },
+                { rel: 'apple-touch-icon', type: 'image/x-icon', href: '/fav.svg' },
+                { rel: 'apple-touch-icon-precomposed', type: 'image/x-icon', href: '/fav.svg' },
+                { rel: 'icon', type: 'image/x-icon', href: '/fav.svg' },
                 { rel: 'preconnect', href: "https://fonts.googleapis.com" },
                 { rel: 'preconnect', href: "https://fonts.gstatic.com", crossorigin: true },
                 { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" }
