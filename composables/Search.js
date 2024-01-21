@@ -1,6 +1,8 @@
 import { computed, ref } from "vue"
 import { useRoute, useRouter } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
+import { search } from 'ss-search'
+import debounce from 'lodash/debounce'
 
 export function useSearch() {
   const route = useRoute()
@@ -19,7 +21,8 @@ export function useSearch() {
   })
   const numberOfItems = ref(null)
   const numberOfPages = ref(null)
-  const search = ref('')
+  const searchQuery = ref('')
+  const temporarySearchQuery = ref('')
 
   const changePageIndex = (index) => {
     if (index === 'first') { 
@@ -41,6 +44,15 @@ export function useSearch() {
 
   const currentPage = computed(() => Math.ceil(rangeIndex.value / rangePerPage.value) + 1);
 
+  const handleSearch = debounce(() => {
+    router.replace({ 
+      query: { 
+        ...route.query, 
+        ...{ search: temporarySearchQuery.value } 
+      }
+    })
+  }, 300)
+
   const sliceDisplayed = (heroes) => heroes.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
   const parseData = (store, storeType) => {
@@ -51,8 +63,8 @@ export function useSearch() {
       })
     })
 
-    if (search.value.length > 3) {
-      data = data.filter(hero => hero.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(search.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")))
+    if (searchQuery.value.length > 3) {
+      data = search(data, ['name', 'case', 'prison/title', 'prison/adress', 'birthday', 'arrested'], searchQuery.value)
     }
 
     numberOfPages.value = Math.ceil(data.length / rangePerPage.value)
@@ -108,10 +120,12 @@ export function useSearch() {
     currentOrder,
     currentPage,
     currentTags,
+    handleSearch,
     numberOfPages,
     parseData,
     rangePerPage,
-    search,
+    searchQuery,
+    temporarySearchQuery,
     toggleActiveMenuIndex,
     updateSortOrder,
     updateTags,

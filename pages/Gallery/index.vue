@@ -15,10 +15,12 @@ const {
   currentOrder,
   currentPage,
   currentTags,
+  handleSearch,
   numberOfPages,
   parseData,
   rangePerPage,
-  search,
+  searchQuery,
+  temporarySearchQuery,
   toggleActiveMenuIndex,
   updateSortOrder,
   updateTags,
@@ -46,8 +48,14 @@ watch(route, () => {
   if (route.query.order) {
     currentOrder.value = route.query.order
   }
+
+  if (route.query.search !== null) {
+    searchQuery.value = route.query.search
+    temporarySearchQuery.value = route.query.search
+  }
+
   for (const key in route.query) {
-    if (key === 'order') continue
+    if (key === 'order' || key === 'search') continue
     currentTags.value[key] = route.query[key]
   }
 }, { immediate: true })
@@ -70,7 +78,8 @@ watch(route, () => {
               class="search" 
               :placeholder="$t('placeholders.searchHero')"
               :aria-placeholder="$t('placeholders.searchHero')"
-              v-model="search"
+              v-model="searchQuery"
+              @input="handleSearch()"
             />
           </div>
           <GeneralSortMenu 

@@ -15,10 +15,12 @@ const {
   currentOrder,
   currentPage,
   currentTags,
+  handleSearch,
   numberOfPages,
   parseData,
   rangePerPage,
-  search,
+  searchQuery,
+  temporarySearchQuery,
   toggleActiveMenuIndex,
   updateSortOrder,
   updateTags,
@@ -32,11 +34,11 @@ const localTags = computed(() => heroesStore.tags.value)
 const parsedHeroes = computed(() => parseData(heroesStore, 'heroes'))
 
 onMounted(() => {
-  numberOfPages.value = Number((heroesStore.originalHeroes.value.length / rangePerPage.value + 0.5).toFixed())
+  numberOfPages.value = Number((heroesStore.originalHeroes.length / rangePerPage.value + 0.5).toFixed())
 })
 
 const alreadyChosen = computed(() => {
-  return parsedHeroes.value.some(hero => hero.chosen) || (search.value === 'alreadyChosen' && search.value !== 'noPattern' && search.value !== 'notInDatabase')
+  return parsedHeroes.value.some(hero => hero.chosen) || (searchQuery.value === 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value !== 'notInDatabase')
 })
 
 const linkToAlreadyChosen = computed(() => {
@@ -44,11 +46,11 @@ const linkToAlreadyChosen = computed(() => {
 })
 
 const noPattern = computed(() => {
-  return parsedHeroes.value.some(hero => hero.hasPattern) || (search.value !== 'alreadyChosen' && search.value === 'noPattern' && search.value !== 'notInDatabase')
+  return parsedHeroes.value.some(hero => hero.hasPattern) || (searchQuery.value !== 'alreadyChosen' && searchQuery.value === 'noPattern' && searchQuery.value !== 'notInDatabase')
 })
 
 const notInDatabase = computed(() => {
-  return !parsedHeroes.value.length || (search.value !== 'alreadyChosen' && search.value !== 'noPattern' && search.value === 'notInDatabase')
+  return !parsedHeroes.value.length || (searchQuery.value !== 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value === 'notInDatabase')
 })
 
 const displayRequestModal = ref(false)
@@ -60,8 +62,14 @@ watch(route, () => {
   if (route.query.order) {
     currentOrder.value = route.query.order
   }
+
+  if (route.query.search !== null) {
+    searchQuery.value = route.query.search
+    temporarySearchQuery.value = route.query.search
+  }
+
   for (const key in route.query) {
-    if (key === 'order') continue
+    if (key === 'order' || key === 'search') continue
     currentTags.value[key] = route.query[key]
   }
 }, { immediate: true })
@@ -97,7 +105,8 @@ watch(route, () => {
                 class="search" 
                 :placeholder="$t('placeholders.searchHero')"
                 :aria-placeholder="$t('placeholders.searchHero')"
-                v-model="search"
+                v-model="temporarySearchQuery"
+                @input="handleSearch()"
               />
             </div>
             <GeneralSortMenu 
