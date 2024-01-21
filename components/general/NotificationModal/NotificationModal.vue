@@ -1,49 +1,48 @@
 <script setup>
-import { watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
+
+const emit = defineEmits([
+  'closeModal',
+])
 
 const props = defineProps({
-  icon: {
-    type: String,
-    default: ''
+  displayModal: {
+    type: Boolean,
+    default: false
   },
-  message: {
-    type: String,
-    default: ''
-  },
-  link: {
-    type: String,
-    default: ''
-  },
-  linkMessage: {
-    type: String,
-    default: ''
+  message: String,
+})
+
+const startTransition = ref(false)
+
+watchEffect(() => {
+  if (props.displayModal) {
+    setTimeout(() => {
+      startTransition.value = true
+      setTimeout(() => {
+        emit('closeModal')
+      }, 800)
+    }, 4000)
   }
 })
 </script>
 
 <template>
   <div 
-    class="notificationModal flexRowStart"
-    :class="{
-      'notificationModalQuestion': icon === 'question',
-      'notificationModalWarning': icon === 'warning',
-    }"
+    v-if="displayModal"
+    class="notificationModal flexColumnCenter"
   >
-    <SvgQustionCircle
-      v-if="icon === 'question'"
-    />
-    <SvgTriangleWarning
-      v-if="icon === 'warning'"
-    />
-    <span>
-      {{ message }}
-      <nuxt-link
-        v-if="link"
-        :to="localePath('/' + page)"
-      >
-        {{ linkMessage }}
-      </nuxt-link>
-    </span>
+    <div 
+      class="notificationModalContent flexRowStart"
+      :class="{ 
+        'notificationModalContentHidden': startTransition,
+        'notificationModalContentShown': !startTransition,
+      }"
+    >
+      <p class="white">
+        {{ message }}
+      </p>
+    </div>
   </div>
 </template>
 

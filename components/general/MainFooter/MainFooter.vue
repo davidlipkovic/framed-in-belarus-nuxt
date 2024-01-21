@@ -12,10 +12,12 @@ const router = useRouter()
 
 const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
+const toggleSubscribeModal = ref(false)
 
 watch(route, n => {
   toggleProfileModal.value = false
   toggleQuestionModal.value = false
+  toggleSubscribeModal.value = false
 })
 </script>
 
@@ -58,7 +60,10 @@ watch(route, n => {
                 :placeholder="$t('placeholders.email')" 
                 class="emailInput"
               />
-              <button class="button">
+              <button 
+                class="button"
+                @click="toggleSubscribeModal = true"
+              >
                 {{ $t('buttons.subscribe') }}
               </button>
             </div>
@@ -141,6 +146,11 @@ watch(route, n => {
         </nav>
       </div>
     </div>
+    <GeneralNotificationModal
+      :displayModal="toggleSubscribeModal"
+      :message="$t('notifications.subscribeSuccess')"
+      @closeModal="toggleSubscribeModal = !toggleSubscribeModal"
+    />
   </footer>
   <GeneralQuestionModal
     :displayModal="toggleQuestionModal"
