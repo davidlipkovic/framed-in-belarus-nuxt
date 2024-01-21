@@ -31,6 +31,7 @@
         "country": "Страна проживания",
         "instagram": "Instagram",
         "username": "Имя пользователя",
+        "pin": "Pin code",
         "password": "Пароль",
         "passwordAgain": "Пароль еще раз",
         "communicationLanguage": "Communication language",

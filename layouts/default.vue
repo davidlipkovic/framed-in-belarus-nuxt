@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="containsPointerUp">
+  <div class="layout containsPointerUp">
     <GeneralMainMenu/>
     <slot/>
     <GeneralPointerUp/>

@@ -1,6 +1,17 @@
 @import "../../assets/style/globalPartials/variables.scss";
+@import "../../assets/style/mixins/general";
 
 .verifyEmailWrapper {
+  main {
+    min-height: calc(100vh - 70px);
+  }
+
+  @include buttons;
+    
+  .content {
+    max-width: 320px;
+  }
+
   .mainMenuWrapperRegistration .content {
     padding-left: unset;
   }
@@ -32,5 +43,24 @@
     margin-top: 14px;
     font-size: 14px;
     line-height: 22px;
+  }
+
+  input {
+    margin-top: 24px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    margin-top: 12px;
+    appearance: textfield;
+  }
+
+  button {
+    width: 100% !important;
   }
 }

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="registrationlgLayout registrationlg">
+  <div class="layout registrationlgLayout registrationlg">
     <RegistrationMainMenu/>
     <main class="Content">
       <RegistrationEmbroiderer/>

@@ -31,6 +31,7 @@
         "country": "Country of residence",
         "instagram": "Instagram",
         "username": "Username",
+        "pin": "Pin code",
         "password": "Password",
         "passwordAgain": "Password again",
         "communicationLanguage": "Communication language",

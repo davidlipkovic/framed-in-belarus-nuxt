@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="layout">
     <GeneralMainMenu/>
     <slot/>
     <GeneralMainFooter/>
