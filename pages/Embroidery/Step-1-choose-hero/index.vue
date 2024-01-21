@@ -16,6 +16,7 @@ const {
   currentPage,
   currentTags,
   handleSearch,
+  handleSearchRouteWatch,
   numberOfPages,
   parseData,
   rangePerPage,
@@ -59,19 +60,7 @@ const requestName = ref(null)
 const requestNotSent = ref(true)
 
 watch(route, () => {
-  if (route.query.order) {
-    currentOrder.value = route.query.order
-  }
-
-  if (route.query.search !== null) {
-    searchQuery.value = route.query.search
-    temporarySearchQuery.value = route.query.search
-  }
-
-  for (const key in route.query) {
-    if (key === 'order' || key === 'search') continue
-    currentTags.value[key] = route.query[key]
-  }
+  handleSearchRouteWatch()
 }, { immediate: true })
 </script>
 

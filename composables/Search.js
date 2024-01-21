@@ -53,6 +53,22 @@ export function useSearch() {
     })
   }, 300)
 
+  const handleSearchRouteWatch = () => {
+    if (route.query.order) {
+      currentOrder.value = route.query.order
+    }
+  
+    if (route.query.search !== null) {
+      searchQuery.value = route.query.search
+      temporarySearchQuery.value = route.query.search
+    }
+  
+    for (const key in route.query) {
+      if (key === 'order' || key === 'search') continue
+      currentTags.value[key] = route.query[key]
+    }
+  }
+
   const sliceDisplayed = (heroes) => heroes.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
   const parseData = (store, storeType) => {
@@ -121,6 +137,7 @@ export function useSearch() {
     currentPage,
     currentTags,
     handleSearch,
+    handleSearchRouteWatch,
     numberOfPages,
     parseData,
     rangePerPage,
