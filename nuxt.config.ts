@@ -1,5 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+    devtools: { enabled: false },
+
     app: {
         head: {
             htmlAttrs: {
@@ -33,7 +35,7 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxtjs/i18n',
-        '@nuxt/image-edge',
+        // '@nuxt/image-edge',
         '@pinia/nuxt',
         '@vueuse/nuxt',
         'floating-vue/nuxt',
