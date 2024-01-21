@@ -6,10 +6,10 @@ import heroesJSON from '../assets/json/heroes.json'
 
 export const useHeroesStore = defineStore("heroes", () => {
   const originalHeroes = reactive([])
-  const heroesAlphabetically = reactive([])
-  const heroesAlphabeticallyReversed = reactive([])
-  const heroesChronologically = reactive([])
-  const heroesChronologicallyReversed = reactive([])
+  const heroesAlphabetically = computed(() => Array.isArray(originalHeroes.value) ? [...originalHeroes.value].sort((a, b) => a.name.localeCompare(b.name)) : [])
+  const heroesAlphabeticallyReversed = computed(() => Array.isArray(heroesAlphabetically.value) ? [...heroesAlphabetically.value].reverse() : [])
+  const heroesChronologically = computed(() => Array.isArray(originalHeroes.value) ? [...originalHeroes.value].sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic) : [])
+  const heroesChronologicallyReversed = computed(() => Array.isArray(heroesChronologically.value) ? [...heroesChronologically.value].reverse() : [])
   const tags = reactive([])
 
   // const chosenHero = (filterType, filterValue) => {
@@ -71,11 +71,21 @@ export const useHeroesStore = defineStore("heroes", () => {
     })
   }
 
+  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
+
+  const getPrisonersList = async () => {
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners')
+      originalHeroes.value = responseData.value.result
+      originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
+    } catch (error) {
+      console.error('Error fetching prisoners list data:', error)
+    }
+  }
+
+  getPrisonersList()
+
   originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
-  heroesAlphabetically.value = computed(() => originalHeroes.value.sort((a, b) => a.name.localeCompare(b.name)))
-  heroesAlphabeticallyReversed.value = computed(() => heroesAlphabetically.value.reverse())
-  heroesChronologically.value = computed(() => originalHeroes.value.sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic))
-  heroesChronologicallyReversed.value = computed(() => heroesChronologically.value.reverse())
 
   tags.value = tagsJSON
 

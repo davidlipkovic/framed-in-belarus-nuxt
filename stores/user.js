@@ -50,8 +50,99 @@ export const useUserStore = defineStore("user", () => {
 
   const isLogged = ref(false)
 
+  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY0pMZ1JBclQ4QVllTGcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA1ODU3OTAyfQ.3NQ1vlIw_J7yeid6ZPewWlSDFMLqsj4Ur-77pxXPP_o")
+  const userId = ref("recJLgRArT8AYeLg0")
+  const email = ref("david.lipkovic@gmail.com")
+
+  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
+  
+  const login = async (email) => {
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/login', {
+        method: 'post',
+        body: { 
+          email
+          // "email": "pavel.liber@gmail.com"
+        }
+      })
+      console.log(responseData.value)
+    } catch (error) {
+      console.error('Error signing in:', error)
+    }
+  }
+
+  const validatePin = async (email, pin) => {
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/validate', {
+        method: 'post',
+        body: { 
+          email, 
+          pin
+        }
+      })
+
+      console.log(responseData.value.result)
+
+      token.value = responseData.value.result.token
+      userId.value = responseData.value.result.userId
+      email.value = responseData.value.result.email
+    } catch (error) {
+      console.error('Error validating pin:', error)
+    }
+  }
+  
+  const getUserActivities = async () => {
+    try {
+      const headers = {}
+
+      if (token.value) {
+        headers['Authorization'] = 'Bearer ' + token.value
+      }
+
+      const { data: responseData } = await useFetch(endpointUrl + 'api/prisoners/user/' + userId.value, {
+        headers,
+      });
+
+      // const {data: responseData} = await useFetch(endpointUrl + 'api/prisoners/user/' + userId.value, {
+      //   onRequest({ request, options }) {
+      //     options.headers.authorization = token.value
+      //   }
+      // })
+      console.log(responseData)
+      console.log(responseData.value.result)
+
+    } catch (error) {
+      console.error('Error fetching user activities data:', error)
+    }
+  }
+
+  // app.post("/login", (req, res) => {
+  //   const USERNAME = "uma victor";
+  //   const PASSWORD = "8888";
+  //   const { username, password } = req.body;
+  //   if (username === USERNAME && password === PASSWORD) {
+  //     const user = {
+  //       id: 1,
+  //       name: "uma victor",
+  //       username: "uma victor",
+  //     };
+  //     const token = jwt.sign(user, process.env.JWT_KEY);
+  //     res.json({
+  //       token,
+  //       user,
+  //     });
+  //   } else {
+  //     res.status(403);
+  //     res.json({
+  //       message: "wrong login information",
+  //     });
+  //   }
+
   return {
     currentUser,
-    isLogged
+    isLogged,
+    login,
+    getUserActivities,
+    validatePin
   }
 })

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useUserStore } from "@/stores/user"
 
 const userStore = useUserStore()
@@ -38,6 +38,11 @@ const warning = computed(() => {
 const updateCommunicationLanguage = (lang) => {
   communicationLanguage.value = lang
 }
+
+onMounted(() => {
+  // console.log('onMounted')
+  // userStore.getUserActivities()
+})
 </script>
 
 <template>
