@@ -15,7 +15,7 @@ export function useValidateInputs() {
   }
 
   const validateNameAndSurname = (fullName) => {
-    const nameSurnameRegex = /^[A-Za-z\s]+$/
+    const nameSurnameRegex = /^[A-Z][a-z]+ [A-Z][a-z]+$/
     return nameSurnameRegex.test(fullName)
   }
 

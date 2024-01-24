@@ -11,6 +11,7 @@ definePageMeta({
 })
 
 const email = ref(null)
+const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 const remember = ref(false)
 
@@ -23,6 +24,12 @@ const signIn = () => {
 
 const validEmailData = computed(() => {
   return validateEmail(email.value)
+})
+
+onClickOutside(emailInput, () => {
+  if (email.value) {
+    emailTypingStarted.value = true
+  }
 })
 </script>
 
@@ -46,16 +53,16 @@ const validEmailData = computed(() => {
         name="email" 
         id="email" 
         v-model="email"
-        :placeholder="$t('placeholders.email')" 
-        @input="emailTypingStarted = true"
+        :placeholder="$t('placeholders.email') + '*'"  
         class="emailInput"
         :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-      >
+        ref="emailInput"
+      />
       <span 
         v-if="!validEmailData && emailTypingStarted"
         class="warningNotification note red"
       >
-        Invalid email adress
+        {{ $t('invalidInputs.enterEmailAdress') }}
       </span>
       <label
         for="remember"
@@ -67,7 +74,7 @@ const validEmailData = computed(() => {
           name="remember"
           :value="true"
           v-model="remember"
-        >
+        />
         {{ $t("signInPage.remember") }}
       </label>
       <nuxt-link 

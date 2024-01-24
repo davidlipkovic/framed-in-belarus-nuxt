@@ -2,24 +2,45 @@
 import { computed, ref } from 'vue'
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
-const { validateAddressWithZipAndCountry, validateLatinCharacters, validateNameAndSurname, validateText} = useValidateInputs()
+const { validateLatinCharacters, validateNameAndSurname, validateText} = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery"
 })
 
 const adress = ref(null)
+const adressInput = ref(null)
 const adressTypingStarted = ref(false)
 const name = ref(null)
+const nameInput = ref(null)
 const nameTypingStarted = ref(false)
 const trackingNumber = ref(null)
+const trackingNumberInput = ref(null)
 const trackingNumberTypingStarted = ref(false)
 
-const validAdress = computed(() => validateLatinCharacters(adress.value) && validateAddressWithZipAndCountry(adress.value))
+const validAdress = computed(() => validateLatinCharacters(adress.value))
 const validName = computed(() => validateLatinCharacters(name.value) && validateNameAndSurname(name.value))
 const validTrackingNumber = computed(() => validateLatinCharacters(trackingNumber.value) && validateText(trackingNumber.value))
 
 const validData = computed(() => validAdress.value && validName.value && validTrackingNumber.value)
+
+onClickOutside(adressInput, () => {
+  if (adress.value) {
+    adressTypingStarted.value = true
+  }
+})
+
+onClickOutside(nameInput, () => {
+  if (name.value) {
+    nameTypingStarted.value = true
+  }
+})
+
+onClickOutside(trackingNumberInput, () => {
+  if (trackingNumber.value) {
+    trackingNumberTypingStarted.value = true
+  }
+})
 </script>
 
 <template>
@@ -103,14 +124,14 @@ const validData = computed(() => validAdress.value && validName.value && validTr
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputName.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validName && nameTypingStarted}" 
-            @input="nameTypingStarted = true"
             v-model="name"
+            ref="nameInput"
           />
           <span
             v-if="!validName && nameTypingStarted"
             class="warningNotification note warning redLighter"
           >
-            Please enter name and surname
+            {{ $t('invalidInputs.pleaseEnterYourNameAndSurname') }}
           </span>
           <p class="note">
             {{ $t('embroidery.step6Page.sectionNonEU.inputName.note') }}
@@ -127,14 +148,14 @@ const validData = computed(() => validAdress.value && validName.value && validTr
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputAdress.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validAdress && adressTypingStarted}" 
-            @input="adressTypingStarted = true"
             v-model="adress"
+            ref="adressInput"
           />
           <span
             v-if="!validAdress && adressTypingStarted"
             class="warningNotification note warning redLighter"
           >
-            Please enter valid adress
+            {{ $t('invalidInputs.pleaseEnterYourAdress') }}
           </span>
           <p class="note">
             {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.note') }}
@@ -151,14 +172,14 @@ const validData = computed(() => validAdress.value && validName.value && validTr
             :placeholder="$t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validTrackingNumber && trackingNumberTypingStarted}" 
-            @input="trackingNumberTypingStarted = true"
             v-model="trackingNumber"
+            ref="trackingNumberInput"
           />
           <span
             v-if="!validTrackingNumber && trackingNumberTypingStarted"
             class="warningNotification note warning redLighter"
           >
-            Please enter tracking number
+            {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.warning') }}
           </span>
         </div>
         <div class="buttons">

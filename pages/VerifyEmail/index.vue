@@ -11,8 +11,10 @@ definePageMeta({
 })
 
 const email = ref(null)
+const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 const pin = ref(null)
+const pinInput = ref(null)
 const pinTypingStarted = ref(false)
 
 const validatePin = () => {
@@ -23,6 +25,18 @@ const validatePin = () => {
 const validEmailData = computed(() => validateEmail(email.value))
 const validPinData = computed(() => validatePinData(pin.value))
 const validData = computed(() => validEmailData.value && validPinData.value)
+
+onClickOutside(emailInput, () => {
+  if (email.value) {
+    emailTypingStarted.value = true
+  }
+})
+
+onClickOutside(pinInput, () => {
+  if (pin.value) {
+    pinTypingStarted.value = true
+  }
+})
 </script>
 
 <template>
@@ -48,33 +62,33 @@ const validData = computed(() => validEmailData.value && validPinData.value)
             type="email" 
             name="email" 
             id="email" 
-            :placeholder="$t('placeholders.email') + '*'" 
+            v-model="email"
+            :placeholder="$t('placeholders.email') + '*'"  
             class="emailInput"
             :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-            v-model="email"
-            @input="emailTypingStarted = true"
+            ref="emailInput"
           />
           <span 
             v-if="!validEmailData && emailTypingStarted"
             class="warningNotification note red"
           >
-            Invalid email adress
+            {{ $t('invalidInputs.enterEmailAdress') }}
           </span>
           <input 
             type="text" 
             name="pin" 
             id="pin" 
+            v-model="pin"
             :placeholder="$t('placeholders.pin') + '*'" 
             class="pinInput"
             :class="{'invalidInput': !validPinData && pinTypingStarted}" 
-            v-model="pin"
-            @input="pinTypingStarted = true"
+            ref="pinInput"
           />
           <span 
             v-if="!validPinData && pinTypingStarted"
             class="warningNotification note red"
           >
-            Invalid pin
+            {{ $t('invalidInputs.enterPinCode') }}
           </span>
         </form>
         <div class="buttons">
