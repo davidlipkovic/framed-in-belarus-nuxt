@@ -487,7 +487,8 @@
                 "paragraph2": "These photos will be published in our gallery, so we ask you to try to make quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
                 "paragraph3": {
                     "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
-                    "content": "Please avoid uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                    "content1": "Please avoid uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch.",
+                    "content2": "These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
                 }
             },
             "dropZone": {

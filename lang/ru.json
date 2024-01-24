@@ -31,7 +31,7 @@
         "country": "Страна проживания",
         "instagram": "Instagram",
         "username": "Имя пользователя",
-        "pin": "Pin code",
+        "pin": "Пин код",
         "password": "Пароль",
         "passwordAgain": "Пароль еще раз",
         "communicationLanguage": "Язык коммуникации",
@@ -486,8 +486,9 @@
                 "paragraph1": "Это могут быть фазы вышивки, вы во время работы, путешествия или мероприятия на которых вы “были” вместе с вышиваемым*ой Героем*иней и т.д.",
                 "paragraph2": "Эти фотографии будут опубликованы в галерее, поэтому мы просим вас постараться сделать качественные и интересные фотографии вашей работы и процесса её создания. Будет очень полезно, если вы также сможете сделать фотографии передней и задней стороны вашей готовой работы.",
                 "paragraph3": {
-                    "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
-                    "content": "Please avoid uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                    "highlight": "Обратите внимание, что эти фотографии могут быть использованы в печатных и интернет-изданиях, на выставках и т. д. в контексте презентации проекта.",
+                    "content1": "В связи с этим мы просим вас не загружать фотографии, содержащие конфиденциальные данные, если вы не хотите, чтобы они были опубликованы.",
+                    "content2": "Эти фотографии также являются подтверждением того, что ваша работа в порядке и готова к отправке."
                 }
             },
             "dropZone": {

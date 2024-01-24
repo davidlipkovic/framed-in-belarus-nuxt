@@ -31,7 +31,7 @@
         "country": "Краіна пражывання",
         "instagram": "Instagram",
         "username": "Імя карыстальніка",
-        "pin": "Pin code",
+        "pin": "Пін код",
         "password": "Пароль",
         "passwordAgain": "Паўтор пароля",
         "communicationLanguage": "Мова камунікацыі",
@@ -316,7 +316,7 @@
         },
         "step1Page": {
             "title": "Выберыце свайго*ю Героя*іню",
-            "search": "Search for a political prisoner",
+            "search": "Шукаць палітзняволенага*ую",
             "rows": "Радкоў на старонцы",
             "of": "з",
             "warning": "Пасля пацверджання выбару Героя*іні вы не зможаце яго*яе змяніць",
@@ -486,8 +486,9 @@
                 "paragraph1": "Гэта могуць быць фазы вышыўкі, вы падчас працы, падарожжы або мерапрыемствы, на якіх вы “былі” разам з вышываным*ай Героем*іняй і г.д.",
                 "paragraph2": "Гэтыя фатаздымкі будуць апублікаваныя ў галерэі, таму мы просім вас пастарацца зрабіць якасныя і цікавыя фатаграфіі вашай працы і працэсу яе стварэння. Нам вельмі дапаможа, калі вы таксама зможаце зрабіць фатаграфіі вонкавага і адваротнага бакоў вашай гатовай працы.",
                 "paragraph3": {
-                    "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
-                    "content": "Please avoid uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                    "highlight": "Звяртаем вашу ўвагу, што гэтыя фатаграфіі могуць быць выкарыстаны ў друкаваных і інтэрнэт-выданнях, на выставах і г.д. у кантэксце прэзентацыі праекта.",
+                    "content1": "У сувязі з гэтым мы просім вас не загружаць фатаграфіі, якія змяшчаюць канфідэнцыйныя дадзеныя, калі вы не хочаце, каб яны былі апублікаваныя.",
+                    "content2": "Гэтыя фатаграфіі таксама з'яўляюцца пацвярджэннем таго, што ваша праца ў парадку і гатова да адпраўкі."
                 }
             },
             "dropZone": {
