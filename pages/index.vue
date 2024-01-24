@@ -69,14 +69,16 @@ const slides = [
             {{ $t('homePage.paragraph1.content2') }}
           </p>
           <p class="">
-            {{ $t('homePage.paragraph2') }}
+            <span class='b2'>
+              {{ $t('homePage.paragraph2.highlight') }}
+            </span>
+            {{ $t('homePage.paragraph2.content') }}
           </p>
           <p class="">
-            {{ $t('homePage.paragraph3.content1') }}
-            <strong class="b2">
-              {{ $t("homePage.paragraph3.highlight") }}
-            </strong>
-            {{ $t('homePage.paragraph3.content2') }}
+            <span class='b2'>
+              {{ $t('homePage.paragraph3.highlight') }}
+            </span>
+            {{ $t('homePage.paragraph3.content') }}
           </p>
           <p class="">
             {{ $t('homePage.paragraph4') }}
@@ -84,28 +86,22 @@ const slides = [
         </div>
         <div class="section">
           <p class="">
+            {{ $t('homePage.paragraph5.content1') }}
             <strong class="b2">
               {{ $t("homePage.paragraph5.highlight") }}
             </strong>
-            {{ $t('homePage.paragraph5.content') }}
+            {{ $t('homePage.paragraph5.content2') }}
           </p>
           <p class="">
-            <strong class="b2">
-              {{ $t("homePage.paragraph6.highlight") }}
-            </strong>
-            {{ $t('homePage.paragraph6.content') }}
-          </p>
-          <p class="">
-            {{ $t('homePage.paragraph7.content1') }}
+            {{ $t('homePage.paragraph6.content1') }}
             <a 
               href="https://www.vyzyvanka.com/" 
               target="_blank"
             >
               <strong class="b1 red">
-                {{ $t("homePage.paragraph7.highlight") }}
+                {{ $t("homePage.paragraph6.highlight") }}
               </strong>
-            </a>
-            {{ $t('homePage.paragraph7.content2') }}
+            </a>{{ $t('homePage.paragraph6.content2') }}
           </p>
         </div>
       </article>

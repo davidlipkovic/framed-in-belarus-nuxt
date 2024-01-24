@@ -322,8 +322,12 @@ const validDataSlide1 = computed(() => {
             <p>
               {{ $t('signUpPage.slide3.terms.paragraph9') }}
             </p>
-            <p class="b1">
-              * {{ $t('signUpPage.slide3.terms.paragraph10') }}
+            <p>
+              {{ $t('signUpPage.slide3.terms.paragraph10.content1') }}
+              <span class='b1'>
+                {{ $t('signUpPage.slide3.terms.paragraph10.highlight1') }}
+              </span>
+              {{ $t('signUpPage.slide3.terms.paragraph10.content2') }}
             </p>
           </div>
           <p class="conditionsLink">
