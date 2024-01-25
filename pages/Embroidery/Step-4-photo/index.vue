@@ -43,10 +43,11 @@ definePageMeta({
         </p>
         <br>
         <p>
+          {{ $t('embroidery.step4Page.section1.paragraph3.content1') }}
           <span class="b1">
             {{ $t('embroidery.step4Page.section1.paragraph3.highlight') }}
           </span>
-          {{ $t('embroidery.step4Page.section1.paragraph3.content') }}
+          {{ $t('embroidery.step4Page.section1.paragraph3.content2') }}
         </p>
         <div class="uploadFiles" id="uploadFilesArea">
           <label class="uploadFiles-descript flexColumnCenter" for="uploadFiles">

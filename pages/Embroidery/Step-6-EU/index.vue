@@ -9,9 +9,16 @@ definePageMeta({
 })
 
 const trackingNumber = ref(null)
+const trackingNumberInput = ref(null)
 const trackingNumberTypingStarted = ref(false)
 
 const validTrackingNumber = computed(() => validateLatinCharacters(trackingNumber.value) && validateText(trackingNumber.value))
+
+onClickOutside(trackingNumberInput, () => {
+  if (trackingNumber.value) {
+    trackingNumberTypingStarted.value = true
+  }
+})
 </script>
 
 <template>
@@ -86,8 +93,8 @@ const validTrackingNumber = computed(() => validateLatinCharacters(trackingNumbe
             :placeholder="$t('embroidery.step6Page.sectionEU.inputTrackingNumber.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validTrackingNumber && trackingNumberTypingStarted}" 
-            @input="trackingNumberTypingStarted = true"
             v-model="trackingNumber"
+            ref="trackingNumberInput"
           />
           <span
             v-if="!validTrackingNumber && trackingNumberTypingStarted"

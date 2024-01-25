@@ -70,58 +70,58 @@ onClickOutside(trackingNumberInput, () => {
       <section>
         <div class="shippingInstructionWrapper flexColumnStart">
           <p class="title important">
-            {{ $t('embroidery.step6Page.sectionNonEU.title') }}:
+            {{ $t('embroidery.step6Page.sectionBelarusPost.title') }}:
           </p>
           <p class="b2 important importantWarning">
-            {{ $t('embroidery.step6Page.sectionNonEU.section1.warning') }}:
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section1.warning') }}:
           </p>
           <ul>
             <li class="flexRowStart">
-              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph1') }}
+              {{ $t('embroidery.step6Page.sectionBelarusPost.section1.paragraph1') }}
             </li>
             <li class="flexRowStart">
-              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph2') }}
+              {{ $t('embroidery.step6Page.sectionBelarusPost.section1.paragraph2') }}
             </li>
             <li class="flexRowStart">
-              {{ $t('embroidery.step6Page.sectionNonEU.section1.paragraph3') }}
+              {{ $t('embroidery.step6Page.sectionBelarusPost.section1.paragraph3') }}
             </li>
           </ul>
           <p class="explanation">
-            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.content1') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section2.paragraph1.content1') }}
             <strong class="b1">
-              {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.highlight') }}
+              {{ $t('embroidery.step6Page.sectionBelarusPost.section2.paragraph1.highlight') }}
             </strong>
-            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph1.content2') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section2.paragraph1.content2') }}
             <br>
-            {{ $t('embroidery.step6Page.sectionNonEU.section2.paragraph2') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section2.paragraph2') }}
           </p>
           <h2 class="title address">
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.title') }}:
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.title') }}:
           </h2>
           <p class="adress">
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content1') }}<br/>
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content2') }}<br/>
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content3') }}<br/>
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content4') }}<br/>
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content5') }}<br/>
-            {{ $t('embroidery.step6Page.sectionNonEU.section3.paragraph1.content6') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content1') }}<br/>
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content2') }}<br/>
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content3') }}<br/>
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content4') }}<br/>
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content5') }}<br/>
+            {{ $t('embroidery.step6Page.sectionBelarusPost.section3.paragraph1.content6') }}
           </p>
           <p class="declaration">
-            {{ $t('embroidery.step6Page.sectionNonEU.declaration.content') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.declaration.content') }}
           </p>
           <p class="declaration note">
-            {{ $t('embroidery.step6Page.sectionNonEU.declaration.note') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.declaration.note') }}
           </p>
           <label 
             for="name" 
             class="b1"
           >
-            {{ $t('embroidery.step6Page.sectionNonEU.inputName.label') }} *
+            {{ $t('embroidery.step6Page.sectionBelarusPost.inputName.label') }} *
           </label>
           <input
             type="text"
             id="name"
-            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputName.placeholder')" 
+            :placeholder="$t('embroidery.step6Page.sectionBelarusPost.inputName.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validName && nameTypingStarted}" 
             v-model="name"
@@ -134,18 +134,18 @@ onClickOutside(trackingNumberInput, () => {
             {{ $t('invalidInputs.pleaseEnterYourNameAndSurname') }}
           </span>
           <p class="note">
-            {{ $t('embroidery.step6Page.sectionNonEU.inputName.note') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.inputName.note') }}
           </p>
           <label 
             for="adress" 
             class="b1"
           >
-            {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.label') }} *
+            {{ $t('embroidery.step6Page.sectionBelarusPost.inputAdress.label') }} *
           </label>
           <input
             type="text"
             id="adress"
-            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputAdress.placeholder')" 
+            :placeholder="$t('embroidery.step6Page.sectionBelarusPost.inputAdress.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validAdress && adressTypingStarted}" 
             v-model="adress"
@@ -158,18 +158,18 @@ onClickOutside(trackingNumberInput, () => {
             {{ $t('invalidInputs.pleaseEnterYourAdress') }}
           </span>
           <p class="note">
-            {{ $t('embroidery.step6Page.sectionNonEU.inputAdress.note') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.inputAdress.note') }}
           </p>
           <label 
             for="trackingNumber" 
             class="b1"
           >
-            {{ $t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.label') }} *
+            {{ $t('embroidery.step6Page.sectionBelarusPost.inputTrackingNumber.label') }} *
           </label>
           <input
             type="text"
             id="trackingNumber"
-            :placeholder="$t('embroidery.step6Page.sectionNonEU.inputTrackingNumber.placeholder')" 
+            :placeholder="$t('embroidery.step6Page.sectionBelarusPost.inputTrackingNumber.placeholder')" 
             class="instruction-input"
             :class="{'invalidInput': !validTrackingNumber && trackingNumberTypingStarted}" 
             v-model="trackingNumber"
@@ -184,17 +184,11 @@ onClickOutside(trackingNumberInput, () => {
         </div>
         <div class="buttons">
           <nuxt-link 
-            to="/Embroidery/Step-6-choose-shipping" 
-            class="button"
-          >
-            {{ $t('embroidery.step6Page.sectionNonEU.backButton') }}
-          </nuxt-link>
-          <nuxt-link 
             :to="localePath('/Embroidery/Step-6-processing-shipping')"
             class="button"
             :class="validData ? 'bg_black' : 'button_disabled'"
           >
-            {{ $t('embroidery.step6Page.sectionNonEU.forwardButton') }}
+            {{ $t('embroidery.step6Page.sectionBelarusPost.forwardButton') }}
           </nuxt-link>
         </div>
       </section>
@@ -202,4 +196,4 @@ onClickOutside(trackingNumberInput, () => {
   </main>
 </template>
 
-<style src="./Step-6-non-EU.scss" lang="scss" scoped></style>
+<style src="./Step-6-Belarus-post.scss" lang="scss" scoped></style>

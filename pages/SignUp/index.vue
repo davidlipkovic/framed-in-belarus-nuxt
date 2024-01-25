@@ -1,13 +1,15 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
 // import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
 import { useUserStore } from "@/stores/user"
+import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const router = useRouter()
 
 const userStore = useUserStore()
+const { validateEmail, validateText } = useValidateInputs()
 
 definePageMeta({
   layout: "registrationlg"
@@ -28,10 +30,19 @@ const createAccount = () => {
 }
 
 const username = ref(null)
+const usernameInput = ref(null)
+const usernameTypingStarted = ref(null)
 const publishUsername = ref(false)
+
 const email = ref(null)
+const emailInput = ref(null)
+const emailTypingStarted = ref(false)
+
 const country = ref(null)
+const countryInput = ref(null)
+const countryTypingStarted = ref(false)
 const publishCountry = ref(false)
+
 const communicationLanguage = ref(null)
 
 const accept = ref(false)
@@ -40,8 +51,28 @@ const updateCommunicationLanguage = (lang) => {
   communicationLanguage.value = lang
 }
 
-const validDataSlide1 = computed(() => {
-  return username.value && email.value && country.value && communicationLanguage.value
+const validUsernameData = computed(() => validateText(username.value))
+const validEmailData = computed(() => validateEmail(email.value))
+const validCountryData = computed(() => validateText(country.value))
+
+const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && validCountryData.value && communicationLanguage.value)
+
+onClickOutside(usernameInput, () => {
+  if (username.value) {
+    usernameTypingStarted.value = true
+  }
+})
+
+onClickOutside(emailInput, () => {
+  if (email.value) {
+    emailTypingStarted.value = true
+  }
+})
+
+onClickOutside(countryInput, () => {
+  if (country.value) {
+    countryTypingStarted.value = true
+  }
 })
 </script>
 
@@ -70,10 +101,18 @@ const validDataSlide1 = computed(() => {
               type="text" 
               name="username" 
               id="username" 
+              v-model="username"
               :placeholder="$t('placeholders.username') + '*'" 
               class="usernameInput"
-              v-model="username"
+              :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
+              ref="usernameInput"
             />
+            <span 
+              v-if="!validUsernameData && usernameTypingStarted"
+              class="warningNotification note red"
+            >
+              {{ $t('invalidInputs.enterYourUsername') }}
+            </span>
             <label
               for="publishUsername" 
               class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
@@ -101,10 +140,18 @@ const validDataSlide1 = computed(() => {
               type="email" 
               name="email" 
               id="email" 
+              v-model="email"
               :placeholder="$t('placeholders.emailLogin') + '*'" 
               class="emailInput"
-              v-model="email"
+              :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+              ref="emailInput"
             />
+            <span 
+              v-if="!validEmailData && emailTypingStarted"
+              class="warningNotification note red"
+            >
+              {{ $t('invalidInputs.enterEmailAdress') }}
+            </span>
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph2') }}
             </p>
@@ -112,10 +159,18 @@ const validDataSlide1 = computed(() => {
               type="text" 
               name="country" 
               id="country"
+              v-model="country"
               :placeholder="$t('placeholders.country') + '*'" 
               class="countryInput"
-              v-model="country"
+              :class="{'invalidInput': !validCountryData && countryTypingStarted}" 
+              ref="countryInput"
             />
+            <span 
+              v-if="!validCountryData && countryTypingStarted"
+              class="warningNotification note red"
+            >
+              {{ $t('invalidInputs.enterCountry') }}
+            </span>
             <label 
               for="publishCountry"
               class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
@@ -322,8 +377,12 @@ const validDataSlide1 = computed(() => {
             <p>
               {{ $t('signUpPage.slide3.terms.paragraph9') }}
             </p>
-            <p class="b1">
-              * {{ $t('signUpPage.slide3.terms.paragraph10') }}
+            <p>
+              {{ $t('signUpPage.slide3.terms.paragraph10.content1') }}
+              <span class='b1'>
+                {{ $t('signUpPage.slide3.terms.paragraph10.highlight1') }}
+              </span>
+              {{ $t('signUpPage.slide3.terms.paragraph10.content2') }}
             </p>
           </div>
           <p class="conditionsLink">

@@ -58,7 +58,7 @@ export function useSearch() {
       currentOrder.value = route.query.order
     }
   
-    if (route.query.search !== null) {
+    if (route.query.search) {
       searchQuery.value = route.query.search
       temporarySearchQuery.value = route.query.search
     }

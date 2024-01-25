@@ -1,11 +1,13 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
+import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
+const { validateEmail } = useValidateInputs()
 
 const route = useRoute()
 const router = useRouter()
@@ -14,10 +16,24 @@ const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
 const toggleSubscribeModal = ref(false)
 
+const email = ref(null)
+const emailInput = ref(null)
+const emailTypingStarted = ref(false)
+
+const validEmailData = computed(() => {
+  return validateEmail(email.value)
+})
+
 watch(route, n => {
   toggleProfileModal.value = false
   toggleQuestionModal.value = false
   toggleSubscribeModal.value = false
+})
+
+onClickOutside(emailInput, () => {
+  if (email.value) {
+    emailTypingStarted.value = true
+  }
 })
 </script>
 
@@ -53,13 +69,24 @@ watch(route, n => {
         <nav class="Info-menu">
           <div class="Info-menu-group flexColumnCenter">
             <div class="flexColumnStart subscribeWrapper">
-              <input 
-                type="email" 
-                name="email" 
-                id="email" 
-                :placeholder="$t('placeholders.email')" 
-                class="emailInput"
-              />
+              <div class="flexColumnStart">
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  :placeholder="$t('placeholders.email')"
+                  v-model="email"
+                  class="emailInput"
+                  :class="{'invalidInput': !validEmailData && emailTypingStarted}"
+                  ref="emailInput"
+                />
+                <span 
+                  v-if="!validEmailData && emailTypingStarted"
+                  class="warningNotification note red"
+                >
+                  {{ $t('invalidInputs.enterEmailAdress') }}
+                </span>
+              </div>
               <button 
                 class="button"
                 @click="toggleSubscribeModal = true"

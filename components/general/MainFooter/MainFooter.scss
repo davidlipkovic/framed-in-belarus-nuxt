@@ -86,20 +86,27 @@
     color: $white;
   }
 
-  input {
-    height: 40px;
+  div {
     width: 100%;
     max-width: 308px;
-    border: solid 1px $borderLight;
-    border-radius: 4px;
-    background-color: $black;
-    padding: 0 1rem;
     margin-right: unset;
     margin-bottom: 20px;
   }
 
+  input {
+    height: 40px;
+    border: solid 1px $borderLight;
+    border-radius: 4px;
+    background-color: $black;
+    padding: 0 1rem;
+  }
+
   input::placeholder {
     color: $white;
+  }
+
+  span {
+    color: $red;
   }
 
   button {
@@ -166,10 +173,14 @@
 
   .subscribeWrapper {
     flex-direction: row;
+    align-items: flex-start;
     
+    div {
+      margin-right: 16px;
+    }
+
     input {
-      margin-right: 18px;
-      margin-bottom: unset;
+      margin-bottom: 0;
     }
   }
 }
@@ -239,25 +250,6 @@
   }
 }
 
-@media screen and (max-width: $br-point-md) {
-  .Info-project {
-    margin-bottom: 1.625rem;
-  }
-
-  .Info-project > a,
-  .Info-Project-social,
-  .Info-menu-item {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .Info-project > a,
-  .Info-menu-item {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-}
-
 @media screen and (min-width: $br-point-md) {
   .Info,
   .Info-menu-group {
@@ -289,9 +281,16 @@
     margin-right: 2.25rem;
   }
 
-  .Info-menu-item:last-child
-  {
+  .Info-menu-item:last-child {
     margin-right: 0;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .subscribeWrapper {
+    div {
+      min-width: 308px;
+    }
   }
 }
 
