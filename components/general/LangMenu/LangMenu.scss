@@ -7,14 +7,19 @@
     top: 50px;
     width: 65px;
     padding: 5px 0;
+    list-style: none;
 
-    >* {
+    li {
       width: 100%;
-      padding: 4px 1rem;
-      color: $black;
+
+      a {
+        width: 100%;
+        padding: 4px 1rem;
+        color: $black;
+      }
     }
 
-    *:hover {
+    li:hover {
       background-color: $greyBg;
     }
   }

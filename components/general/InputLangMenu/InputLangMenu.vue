@@ -20,15 +20,12 @@ const props = defineProps({
 const inputLangMenu = ref(null)
 const toggleinputLangMenu = ref(false)
 
-const currentLocale = ref(props.chosenLanguage)
-
 onClickOutside(inputLangMenu, () => {
   toggleinputLangMenu.value = false
 })
 
 const handleChooseLanguage = (lang) => {
   emit('chooseLanguage', lang)
-  currentLocale.value = lang
   toggleinputLangMenu.value = false
 }
 </script>
@@ -37,28 +34,28 @@ const handleChooseLanguage = (lang) => {
   <div 
     class="inputLangMenu"
     ref="inputLangMenu"
-    @click="toggleinputLangMenu = !toggleinputLangMenu"
   >
     <span 
       class="langButton flexRowCenter"
-      :class="{'langButtonPlaceholder' : !currentLocale}"
+      :class="{'langButtonPlaceholder' : !props.chosenLanguage}"
+      @click="toggleinputLangMenu = !toggleinputLangMenu"
     >
-      {{ currentLocale ? currentLocale : isRegistration ? $t('placeholders.chooseCommunicationLanguage') + '*' : $t('placeholders.chooseCommunicationLanguage')}}
+      {{ props.chosenLanguage ? props.chosenLanguage : isRegistration ? $t('placeholders.chooseCommunicationLanguage') + '*' : $t('placeholders.chooseCommunicationLanguage')}}
       <SvgArrowDown/>
     </span>
-    <div 
+    <ul 
       v-if="toggleinputLangMenu"
       class="inputLangMenuWrapper flexColumnStart"
     >
-      <button
+      <li
         v-for="locale in locales"
         :key="locale.code"
-        class="langLink"
-        @click="handleChooseLanguage(locale.name)"
       >
-        {{ locale.name }}
-      </button>
-    </div>
+        <button @click="handleChooseLanguage(locale.name)">
+          {{ locale.name }}
+        </button>
+      </li>
+    </ul>
   </div>
 </template>
 

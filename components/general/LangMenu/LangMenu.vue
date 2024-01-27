@@ -6,7 +6,7 @@ const { locale, locales, localeProperties } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
-const langMenuWrapper = ref(null)
+const langMenu = ref(null)
 const switchLocalePath = useSwitchLocalePath()
 const toggleLangMenu = ref(false)
 
@@ -22,42 +22,36 @@ watch(route, n => {
   toggleLangMenu.value = false
 })
 
-onClickOutside(langMenuWrapper, () => {
+onClickOutside(langMenu, () => {
   toggleLangMenu.value = false
 })
 </script>
 
 <template>
-  <div class="langMenu">
+  <div 
+    class="langMenu"
+    ref="langMenu"
+  >
     <button 
-      v-if="!toggleLangMenu"
       class="langButton flexRowCenter"
       @click="toggleLangMenu = !toggleLangMenu"
     >
       {{ currentLocale }}
       <SvgArrowDown/>
     </button>
-    <button 
-      v-if="toggleLangMenu"
-      class="langButton flexRowCenter"
-    >
-      {{ currentLocale }}
-      <SvgArrowTop/>
-    </button>
-    <div 
+    <ul 
       v-if="toggleLangMenu"
       class="langMenuWrapper flexColumnStart"
-      ref="langMenuWrapper"
     >
-      <nuxt-link
+      <li
         v-for="locale in availableLocales"
         :key="locale.code"
-        :to="switchLocalePath(locale.code)"
-        class="langLink"
       >
-        {{ locale.name }}
-      </nuxt-link>
-    </div>
+        <nuxt-link :to="switchLocalePath(locale.code)">
+          {{ locale.name }}
+        </nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
 
