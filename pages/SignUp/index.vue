@@ -27,7 +27,24 @@ const prevSlide = () => {
   localSwiper.slidePrev()
 }
 
-const createAccount = () => {
+const signUp = () => {
+  const body = {
+    email: email.value,
+    username: username.value,
+    countryOfResidence: countryOfResidence.value,
+    language: language.value,
+    instagram: instagram.value,
+    source: source.value,
+    reason: reason.value,
+    terms: terms.value,
+    subscription: subscription.value,
+    publishReason: publishReason.value,
+    publishCountryOfResidence: publishCountryOfResidence.value,
+    publishInstagram: publishInstagram.value,
+    publishUsername: publishUsername.value,
+  }
+
+  userStore.login(body)
   router.push('/VerifyEmail')
 }
 
@@ -466,8 +483,8 @@ onClickOutside(countryOfResidenceInput, () => {
             </span>
             <span
               class="button"
-              @click="createAccount()"
               :class="terms ? 'bg_black' : 'button_disabled'"
+              @click="signUp()"
             >
               {{ $t('buttons.createAccount') }}
             </span>

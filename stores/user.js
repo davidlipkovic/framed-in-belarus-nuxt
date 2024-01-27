@@ -9,7 +9,7 @@ export const useUserStore = defineStore("user", () => {
     publishUsername: true,
     email: 'name@gmail.com',
     countryOfResidence: 'Poland',
-    publishcountryOfResidence: true,
+    publishCountryOfResidence: true,
     instagram: 'Insta',
     publishInstagram: true,
     mentionInstagram: true,
@@ -50,24 +50,53 @@ export const useUserStore = defineStore("user", () => {
 
   const isLogged = ref(false)
 
-  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY0pMZ1JBclQ4QVllTGcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA1ODU3OTAyfQ.3NQ1vlIw_J7yeid6ZPewWlSDFMLqsj4Ur-77pxXPP_o")
+  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY0pMZ1JBclQ4QVllTGcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2MzkwNjQ3fQ.6hS4BEY34PpvK976YG6PgNzb_sKQaYRBdSZBRj9JaPY")
   const userId = ref("recJLgRArT8AYeLg0")
   const email = ref("david.lipkovic@gmail.com")
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
+
+  const removeNullProps = (data) => {
+    return Object.keys(data)
+    .filter((key) => data[key] != null)
+    .reduce((a, key) => ({ ...a, [key]: data[key] }), {})
+  }
   
-  const login = async (email) => {
+  const login = async (body) => {
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/login', {
         method: 'post',
-        body: { 
-          email
-          // "email": "pavel.liber@gmail.com"
-        }
+        body: removeNullProps(body)
       })
       console.log(responseData.value)
     } catch (error) {
       console.error('Error signing in:', error)
+    }
+  }
+
+  const updateUser = async (body) => {
+    const parsedBody = removeNullProps(body)
+    if (!parsedBody) {
+      return
+    }
+
+    const headers = {}
+
+    if (token.value) {
+      // headers['Authorization'] = 'Bearer ' + token.value
+      headers['Authorization'] = `"Bearer ${token.value}"`
+
+    }
+
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
+        headers,
+        method: 'post',
+        body: parsedBody
+      })
+      console.log(responseData.value)
+    } catch (error) {
+      console.error('Error updating user:', error)
     }
   }
 
@@ -142,6 +171,7 @@ export const useUserStore = defineStore("user", () => {
     currentUser,
     isLogged,
     login,
+    updateUser,
     getUserActivities,
     validatePin
   }

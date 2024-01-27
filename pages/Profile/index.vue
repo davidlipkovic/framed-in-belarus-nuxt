@@ -3,7 +3,6 @@ import { computed, onMounted, ref } from 'vue'
 import { useUserStore } from "@/stores/user"
 import { useI18n } from 'vue-i18n'
 const { locales } = useI18n()
-
 const userStore = useUserStore()
 
 definePageMeta({
@@ -22,7 +21,7 @@ const emailTypingStarted = ref(false)
 const countryOfResidence = ref(userStore.currentUser.countryOfResidence)
 const countryOfResidenceInput = ref(null)
 const countryOfResidenceTypingStarted = ref(false)
-const publishcountryOfResidence = ref(userStore.currentUser.publishcountryOfResidence)
+const publishCountryOfResidence = ref(userStore.currentUser.publishCountryOfResidence)
 
 const instagram = ref(userStore.currentUser.instagram)
 const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
@@ -54,8 +53,33 @@ const updateLanguage = (lang) => {
 
 onMounted(() => {
   // console.log('onMounted')
-  // userStore.getUserActivities()
+  userStore.getUserActivities()
 })
+
+const handleIfValueIsUpdated = (key, value) => {
+  if (userStore.currentUser[key] === value) {
+    return null
+  }
+
+  return value
+}
+
+const updateUser = () => {
+  const body = {
+    email: handleIfValueIsUpdated('email', email.value),
+    username: handleIfValueIsUpdated('username', username.value),
+    countryOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
+    language: handleIfValueIsUpdated('language', language.value),
+    instagram: handleIfValueIsUpdated('instagram', instagram.value),
+    reason: handleIfValueIsUpdated('reason', reason.value),
+    publishReason: handleIfValueIsUpdated('publishReason', publishReason.value),
+    publishCountryOfResidence: handleIfValueIsUpdated('publishCountryOfResidence', publishCountryOfResidence.value),
+    publishInstagram: handleIfValueIsUpdated('publishInstagram', publishInstagram.value),
+    publishUsername: handleIfValueIsUpdated('publishUsername', publishUsername.value),
+  }
+
+  userStore.updateUser(body)
+}
 </script>
 
 <template>
@@ -261,15 +285,15 @@ onMounted(() => {
                 v-model="countryOfResidence"
               />
               <label 
-                for="publishcountryOfResidence"
+                for="publishCountryOfResidence"
                 class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence flexRowStart"
               >
                 <input 
                   type="checkbox" 
-                  name="publishcountryOfResidence" 
-                  id="publishcountryOfResidence" 
+                  name="publishCountryOfResidence" 
+                  id="publishCountryOfResidence" 
                   :value="true"
-                  v-model="publishcountryOfResidence"
+                  v-model="publishCountryOfResidence"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -380,7 +404,10 @@ onMounted(() => {
           >
             {{ $t('buttons.cancel') }}
           </button>
-          <button class="button bg_black">
+          <button 
+            class="button bg_black"
+            @click="updateUser()"
+          >
             {{ $t('buttons.save') }}
           </button>
         </div>

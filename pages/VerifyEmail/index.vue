@@ -18,7 +18,7 @@ const pinInput = ref(null)
 const pinTypingStarted = ref(false)
 
 const validatePin = () => {
-  // userStore.validatePin(email.value, pin.value)
+  userStore.validatePin(email.value, pin.value)
   // navigateTo("/Profile")
 }
 
