@@ -75,13 +75,13 @@
     "invalidInputs": {
         "enterYourUsername": "Enter your username",
         "enterEmailAdress": "Enter email address",
-        "enterCountry": "Enter your country",
+        "enterCountry": "Choose your country",
         "chooseTheOption": "Choose the option",
         "enterPinCode": "Enter pin code",
         "enterComment": "Enter comment",
         "pleaseChooseOneOption": "Please choose one option",
-        "pleaseEnterYourNameAndSurname": "Please enter your name and surname",
-        "pleaseEnterYourAdress": "Please enter your address",
+        "pleaseEnterYourNameAndSurname": "Please enter name and surname",
+        "pleaseEnterYourAdress": "Please enter address",
         "pleaseEnterTheCorrectNumber": "Please enter the correct number",
         "pleaseEnterYourOffer": "Please enter your offer",
         "pleaseAskYourQuestion": "Please ask your question",
@@ -156,7 +156,7 @@
             "paragraph1": "Stitchit is an art collective established in 2021 by artist Rufina Bazlova (Belarus/Czechia) and curator Sofia Tocar (Moldova/Czechia). The collective responds to current socio-political issues by using traditional embroidery technique as the main artistic line in their work. This technique acts not only as a means of rethinking traditions, through the creation of new meanings, but also serves as a stimulus for dialogue. One of the main goals of the Stitchit collective is to actively involve different communities and individuals in the creative process, seeking to unify and deliberately blur traditional boundaries of authorship.",
             "paragraph2": "Collective means all people, who take part in a project and activities organized by Stitchit.",
             "paragraph3": {
-                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: ",
+                "content": "If you are an organization and interested in hosting the project, can help us with promotion, want to organize a workshop or any other form of collaboration please contact us by email: ",
                 "highlight": "framedinbelarus{'@'}gmail.com"
             }
         },

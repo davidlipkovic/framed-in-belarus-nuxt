@@ -191,6 +191,7 @@ onClickOutside(countryInput, () => {
               id="communicationLanguage"
               class="contentInput communicationLanguageInput"
               :isRegistration="true"
+              :chosenLanguage="communicationLanguage"
               @chooseLanguage="updateCommunicationLanguage"
             />
             <p class="phone">

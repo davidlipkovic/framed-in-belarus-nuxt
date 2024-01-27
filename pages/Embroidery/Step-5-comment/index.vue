@@ -7,6 +7,7 @@ definePageMeta({
 
 const englishComment = ref(null)
 const nativeComment = ref(null)
+const nativeLanguage = ref(null)
 const publishComment = ref(null)
 const sendComment = ref(null)
 const writeComment = ref(null)
@@ -14,6 +15,10 @@ const writeComment = ref(null)
 const validData = computed(() => {
   return publishComment.value !== null && (sendComment.value || (writeComment.value && englishComment.value && nativeComment.value))
 })
+
+const updateNativeLanguage = (lang) => {
+  nativeLanguage.value = lang.name
+}
 </script>
 
 <template>
@@ -118,10 +123,16 @@ const validData = computed(() => {
             </div>
             <div>
               <div class="languageLabelWrapper flexRowStart">
-                <label for="nativeComment">
+                <label 
+                  class="nativeCommentLabel"
+                  for="nativeComment" 
+                >
                   {{ $t('embroidery.step5Page.section3.textarea2.label') }}
                 </label>
-                <GeneralLangMenu/>
+                <GeneralNativeLangMenu
+                  :chosenLanguage="nativeLanguage"
+                  @chooseLanguage="updateNativeLanguage"
+                />
               </div>
               <textarea
                 name="nativeComment"

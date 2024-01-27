@@ -24,7 +24,7 @@
     font-weight: 600;
   }
 
-  .langMenu {
+  .langMenuWrapper {
     right: 10px;
   }
 
@@ -57,7 +57,7 @@
   }
 
   .langMenuWrapperRegistration {
-    .langMenu {
+    .langMenuWrapper {
       right: unset;
     }
   }

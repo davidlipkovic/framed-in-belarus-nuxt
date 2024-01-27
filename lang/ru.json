@@ -73,20 +73,20 @@
         }
     },
     "invalidInputs": {
-        "enterYourUsername": "Enter your username",
-        "enterEmailAdress": "Enter email adress",
-        "enterCountry": "Enter your country",
-        "chooseTheOption": "Choose the option",
-        "enterPinCode": "Enter pin code",
-        "enterComment": "Enter comment",
+        "enterYourUsername": "Введите имя пользователя",
+        "enterEmailAdress": "Введите адрес электронной почты",
+        "enterCountry": "Выберите страну проживания",
+        "chooseTheOption": "Выберите вариант",
+        "enterPinCode": "Введите пин код",
+        "enterComment": "Напишите комментарий",
         "pleaseChooseOneOption": "Пожалуйста выберите один вариант",
-        "pleaseEnterYourNameAndSurname": "Please enter your name and surname",
-        "pleaseEnterYourAdress": "Please enter your address",
-        "pleaseEnterTheCorrectNumber": "Please enter the correct number",
-        "pleaseEnterYourOffer": "Please enter your offer",
-        "pleaseAskYourQuestion": "Please ask your question",
-        "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
-        "pleaseEnterHerosStory": "Please enter hero’s story"
+        "pleaseEnterYourNameAndSurname": "Пожалуйста, введите имя и фамилию",
+        "pleaseEnterYourAdress": "Пожалуйста, введите адрес",
+        "pleaseEnterTheCorrectNumber": "Пожалуйста, введите правильный номер",
+        "pleaseEnterYourOffer": "Пожалуйста, напишите свое предложение",
+        "pleaseAskYourQuestion": "Пожалуйста, напишите свой вопрос",
+        "pleaseEnterNameAndSurnameOfPrisoner": "Пожалуйста, введите имя и фамилию политзаключенного*ой",
+        "pleaseEnterHerosStory": "Пожалуйста, напишите историю Героя*ини"
     },
     "links": {
         "home": "Главная",
@@ -198,10 +198,10 @@
                 "paragraph1": "На этом сайте, после подтверждения условий, вы получите подробные инструкции, которые проведут вас от этапа подготовки до отправки нам вашей готовой работы.",
                 "paragraph2": "Принимая участие в проекте вы становитесь \"послом\" заключенного*й и получаете схему \"портрета\" одного*й из политических заключённых Беларуси. Все судьбы одинаково важны в данном проекте, и мы хотели бы зафиксировать все истории, поэтому каждый*ая политический*ая заключенный*ая вышивается только один раз.",
                 "paragraph3": {
-                    "highlight1": "Вы можете участвовать,",
-                    "content1": "в проекте, если вам",
-                    "highlight2": "по крайней мере 18 лет,",
-                    "content2": "однако дети любого возраста могут участвовать в проекте при наличии разрешения родителя или законного опекуна."
+                    "highlight1": "Вы можете принять участие",
+                    "content1": "в проекте,",
+                    "highlight2": "если вам исполнилось 18 лет,",
+                    "content2": "однако в проекте могут участвовать дети любого возраста при наличии разрешения родителя или законного опекуна."
                 },
                 "paragraph4": {
                     "content1": "Процесс работы разбит на несколько шагов, которые вы можете пройти в удобном для вас ритме. Однако мы определили временные границы",
@@ -317,7 +317,7 @@
         },
         "step1Page": {
             "title": "Выберите своего*ю Героя*иню",
-            "search": "Search for a political prisoner",
+            "search": "Искать политзаключенного*ую",
             "rows": "Строк на странице",
             "of": "из",
             "warning": "После подтверждения выбора Героя*ини вы не сможете его*ее изменить",
