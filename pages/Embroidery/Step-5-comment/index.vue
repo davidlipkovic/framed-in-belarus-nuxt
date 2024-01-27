@@ -13,7 +13,7 @@ const sendComment = ref(null)
 const writeComment = ref(null)
 
 const validData = computed(() => {
-  return publishComment.value !== null && (sendComment.value || (writeComment.value && englishComment.value && nativeComment.value))
+  return publishComment.value !== null && (sendComment.value || (writeComment.value && (englishComment.value || (nativeLanguage.value && nativeComment.value))))
 })
 
 const updateNativeLanguage = (lang) => {
