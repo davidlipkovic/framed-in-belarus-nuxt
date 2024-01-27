@@ -1,6 +1,8 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useUserStore } from "@/stores/user"
+import { useI18n } from 'vue-i18n'
+const { locales } = useI18n()
 
 const userStore = useUserStore()
 
@@ -36,7 +38,7 @@ const warning = computed(() => {
 })
 
 const updateCommunicationLanguage = (lang) => {
-  communicationLanguage.value = lang
+  communicationLanguage.value = lang.name
 }
 
 onMounted(() => {
@@ -312,11 +314,13 @@ onMounted(() => {
               >
                 {{ $t('placeholders.communicationLanguage') }}
               </label>
-              <GeneralInputLangMenu
+              <GeneralInputDropdownMenu
                 id="communicationLanguage"
                 class="contentInput communicationLanguageInput"
-                :chosenLanguage="communicationLanguage"
-                @chooseLanguage="updateCommunicationLanguage"
+                :chosenOption="communicationLanguage"
+                :options="locales"
+                :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
+                @chooseOption="updateCommunicationLanguage"
               />
             </div>
           </div>

@@ -5,6 +5,8 @@ import { onBeforeRouteLeave, useRouter } from 'vue-router'
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useI18n } from 'vue-i18n'
+const { locales, t } = useI18n()
 
 const router = useRouter()
 
@@ -45,10 +47,33 @@ const publishCountry = ref(false)
 
 const communicationLanguage = ref(null)
 
+const instagram = ref(null)
+const mentionInstagram = ref(false)
+const publishInstagram = ref(false)
+
+const findOut = ref(null)
+const findOutOptions = computed(() => [
+  {name: t("signUpPage.slide2.findOutOptions.instagram")},
+  {name: t("signUpPage.slide2.findOutOptions.fromFriend")},
+  {name: t("signUpPage.slide2.findOutOptions.atExhibition")},
+  {name: t("signUpPage.slide2.findOutOptions.atWorkshop")},
+  {name: t("signUpPage.slide2.findOutOptions.atPresentation")},
+  {name: t("signUpPage.slide2.findOutOptions.throughMedia")},
+  {name: t("signUpPage.slide2.findOutOptions.another")},
+])
+
+const reason = ref(null)
+const publishReason = ref(false)
+
 const accept = ref(false)
+const subscribe = ref(false)
 
 const updateCommunicationLanguage = (lang) => {
-  communicationLanguage.value = lang
+  communicationLanguage.value = lang.name
+}
+
+const updateFindOut = (option) => {
+  findOut.value = option.name
 }
 
 const validUsernameData = computed(() => validateText(username.value))
@@ -187,12 +212,13 @@ onClickOutside(countryInput, () => {
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph3') }}
             </p>
-            <GeneralInputLangMenu
+            <GeneralInputDropdownMenu
               id="communicationLanguage"
               class="contentInput communicationLanguageInput"
-              :isRegistration="true"
-              :chosenLanguage="communicationLanguage"
-              @chooseLanguage="updateCommunicationLanguage"
+              :chosenOption="communicationLanguage"
+              :options="locales"
+              :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
+              @chooseOption="updateCommunicationLanguage"
             />
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph4') }}
@@ -242,6 +268,7 @@ onClickOutside(countryInput, () => {
               id="instagram" 
               :placeholder="$t('placeholders.instagram')" 
               class="instagramInput"
+              v-model="instagram"
             />
             <label
               for="mentionInstagram"
@@ -251,6 +278,8 @@ onClickOutside(countryInput, () => {
                 type="checkbox" 
                 name="mentionInstagram" 
                 id="mentionInstagram" 
+                :value="true"
+                v-model="mentionInstagram"
               />
               {{ $t('inputs.mentionInstagram') }}
             </label>
@@ -261,25 +290,29 @@ onClickOutside(countryInput, () => {
               <input 
                 type="checkbox" 
                 name="publishInstagram" 
-                id="publishInstagram" 
+                id="publishInstagram"
+                :value="true"
+                v-model="publishInstagram"
               />
               {{ $t('buttons.publish') }}
             </label>
             <p class="phone">
               {{ $t('signUpPage.slide2.paragraph1') }}
             </p>
-            <input 
-              type="text" 
-              name="findOut" 
-              id="findOut" 
+            <GeneralInputDropdownMenu
+              id="findOut"
+              class="contentInput findOutInput"
+              :chosenOption="findOut"
               :placeholder="$t('placeholders.findOut')" 
-              class="findOutInput"
+              :options="findOutOptions"
+              @chooseOption="updateFindOut"
             />
             <textarea 
               name="reason" 
               id="reason" 
               class="reasonTextarea"
               :placeholder="$t('signUpPage.slide2.textarea')" 
+              v-model="reason"
             />
             <label
               for="publishReason"
@@ -289,6 +322,8 @@ onClickOutside(countryInput, () => {
                 type="checkbox" 
                 name="publishReason" 
                 id="publishReason" 
+                :value="true"
+                v-model="publishReason"
               />
               {{ $t('buttons.publish') }}
             </label>
@@ -417,6 +452,8 @@ onClickOutside(countryInput, () => {
               type="checkbox" 
               name="subscribe" 
               id="subscribe" 
+              :value="true"
+              v-model="subscribe"
             />
             {{ $t('signUpPage.slide3.subscribe') }}
           </label>
