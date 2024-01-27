@@ -1,18 +1,17 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/extends/dropdown";
 
-.inputLangMenu {
+.InputDropdownMenu {
   position: relative;
   width: 100%;
-  padding: 8px;
-  border-radius: 0.375rem;
-  border: solid 1px $grey1;
   cursor: pointer;
 
   .langButton {
     width: 100%;
+    border-radius: 0.375rem;
+    border: solid 1px $grey1;
     justify-content: space-between;
-    padding: 8px;
+    padding: 1rem;
     font-size: 1rem;
 
     svg {
@@ -24,14 +23,18 @@
     }
   }
 
+  .langButton:hover {
+    background-color: $greyBg;
+  }
+
   .langButtonPlaceholder {
     color: $greyDisabledColor;
   }
 
-  .inputLangMenuWrapper {
+  .InputDropdownMenuWrapper {
     @extend .dropdownMenuWrapper;
     position: absolute;
-    top: 35px;
+    top: 45px;
     min-width: 65px;
     padding: 5px 0;
     list-style: none;
@@ -48,6 +51,14 @@
   
     li:hover {
       background-color: $greyBg;
+    }
+  }
+}
+
+.InputDropdownMenuOpened {
+  .langButton {
+    svg {
+      transform: rotate(180deg);
     }
   }
 }
