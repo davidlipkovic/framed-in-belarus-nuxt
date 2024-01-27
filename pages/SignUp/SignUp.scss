@@ -97,7 +97,7 @@
         margin-bottom: 12px;
 
         .langButton {
-          padding: 2px 6px;
+          padding: 10px 14px;
         }
       }
     }
@@ -298,6 +298,10 @@
         .findOutInput {
           margin-top: unset;
           margin-bottom: 42px;
+
+          ul li button {
+            text-align: left;
+          }
         }
       
         .reasonTextarea {
