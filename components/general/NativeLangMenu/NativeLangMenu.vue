@@ -15,15 +15,15 @@ const props = defineProps({
 
 const nativeLangMenu = ref(null)
 const nativeLangMenuWrapper = ref(null)
-const togglenativeLangMenu = ref(false)
+const toggleNativeLangMenu = ref(false)
 
 onClickOutside(nativeLangMenu, () => {
-  togglenativeLangMenu.value = false
+  toggleNativeLangMenu.value = false
 })
 
 const handleChooseLanguage = (lang) => {
   emit('chooseLanguage', lang)
-  togglenativeLangMenu.value = false
+  toggleNativeLangMenu.value = false
 }
 
 const languages = languagesJSON
@@ -32,7 +32,7 @@ const scrollToLanguage = (event) => {
   console.log(event.key)
 
   const noSpecialChar = /^[^\d\s!@#$%^&*()+=[\]{};:'".,<>?`~_|\\]+$/;
-  if (!noSpecialChar.test(event.key) || !togglenativeLangMenu.value || !props.chosenLanguage) {
+  if (!noSpecialChar.test(event.key) || !toggleNativeLangMenu.value || !props.chosenLanguage) {
     return
   }
   
@@ -50,7 +50,7 @@ const simplifiedName = (name) => {
   return parts[0]
 }
 
-watch(togglenativeLangMenu, (n, o) => {
+watch(toggleNativeLangMenu, (n, o) => {
   if (n && props.chosenLanguage) {
     const match = languages.find(language => language.name.startsWith(props.chosenLanguage))
     if (match) {
@@ -81,13 +81,13 @@ onUnmounted(() => {
     <span 
       class="langButton flexRowCenter"
       :class="{'langButtonPlaceholder' : !props.chosenLanguage}"
-      @click="togglenativeLangMenu = !togglenativeLangMenu"
+      @click="toggleNativeLangMenu = !toggleNativeLangMenu"
     >
       {{ props.chosenLanguage ? props.chosenLanguage : 'English'}}
       <SvgArrowDown/>
     </span>
     <ul 
-      v-if="togglenativeLangMenu"
+      v-if="toggleNativeLangMenu"
       class="nativeLangMenuWrapper flexColumnStart"
       ref="nativeLangMenuWrapper"
     >
