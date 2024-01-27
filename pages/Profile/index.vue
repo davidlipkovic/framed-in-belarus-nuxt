@@ -11,14 +11,25 @@ definePageMeta({
 })
 
 const username = ref(userStore.currentUser.username)
+const usernameInput = ref(null)
+const usernameTypingStarted = ref(null)
 const publishUsername = ref(userStore.currentUser.publishUsername)
+
 const email = ref(userStore.currentUser.email)
-const countryOfResidance = ref(userStore.currentUser.countryOfResidance)
-const publishCountryOfResidance = ref(userStore.currentUser.publishCountryOfResidance)
+const emailInput = ref(null)
+const emailTypingStarted = ref(false)
+
+const countryOfResidence = ref(userStore.currentUser.countryOfResidence)
+const countryOfResidenceInput = ref(null)
+const countryOfResidenceTypingStarted = ref(false)
+const publishcountryOfResidence = ref(userStore.currentUser.publishcountryOfResidence)
+
 const instagram = ref(userStore.currentUser.instagram)
-const publishInstagram = ref(userStore.currentUser.publishInstagram)
 const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
-const communicationLanguage = ref(userStore.currentUser.communicationLanguage)
+const publishInstagram = ref(userStore.currentUser.publishInstagram)
+
+const language = ref(userStore.currentUser.language)
+
 const reason = ref(userStore.currentUser.reason)
 const publishReason = ref(userStore.currentUser.publishReason)
 
@@ -37,8 +48,8 @@ const warning = computed(() => {
   return false
 })
 
-const updateCommunicationLanguage = (lang) => {
-  communicationLanguage.value = lang.name
+const updateLanguage = (lang) => {
+  language.value = lang.name
 }
 </script>
 
@@ -94,7 +105,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.country') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.countryOfResidance }}
+                {{ userStore.currentUser.countryOfResidence }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -110,7 +121,7 @@ const updateCommunicationLanguage = (lang) => {
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.communicationLanguage }}
+                {{ userStore.currentUser.language }}
               </span>
             </p>
           </div>
@@ -231,29 +242,29 @@ const updateCommunicationLanguage = (lang) => {
           <div class="inputModalRow flexRowStart">
             <div class="inputModalItem flexColumnStart">
               <label 
-                for="countryOfResidance"
+                for="countryOfResidence"
                 class="labelTitle"
               >
                 {{ $t('placeholders.country') }}
               </label>
               <input 
                 type="text" 
-                name="countryOfResidance" 
-                id="countryOfResidance"
+                name="countryOfResidence" 
+                id="countryOfResidence"
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.country')" 
-                class="contentInput countryOfResidanceInput"
-                v-model="countryOfResidance"
+                class="contentInput countryOfResidenceInput"
+                v-model="countryOfResidence"
               />
               <label 
-                for="publishCountryOfResidance"
-                class="checkBoxWrapper checkBoxWrapperPublishCountryOfResidance flexRowStart"
+                for="publishcountryOfResidence"
+                class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence flexRowStart"
               >
                 <input 
                   type="checkbox" 
-                  name="publishCountryOfResidance" 
-                  id="publishCountryOfResidance" 
+                  name="publishcountryOfResidence" 
+                  id="publishcountryOfResidence" 
                   :value="true"
-                  v-model="publishCountryOfResidance"
+                  v-model="publishcountryOfResidence"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -304,18 +315,18 @@ const updateCommunicationLanguage = (lang) => {
           <div class="inputModalRow flexRowStart">
             <div class="inputModalItem flexColumnStart">
               <label 
-                for="communicationLanguage"
+                for="language"
                 class="labelTitle"
               >
                 {{ $t('placeholders.communicationLanguage') }}
               </label>
               <GeneralInputDropdownMenu
-                id="communicationLanguage"
-                class="contentInput communicationLanguageInput"
-                :chosenOption="communicationLanguage"
+                id="language"
+                class="contentInput languageInput"
+                :chosenOption="language"
                 :options="locales"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
-                @chooseOption="updateCommunicationLanguage"
+                @chooseOption="updateLanguage"
               />
             </div>
           </div>

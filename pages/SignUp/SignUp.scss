@@ -51,7 +51,7 @@
     padding: 10px 14px;
   }
 
-  .communicationLanguageInput {
+  .languageInput {
     width: 100%;
   }
 
@@ -84,7 +84,7 @@
         margin-bottom: 10px;
       }
 
-      .countryInput {
+      .countryOfResidenceInput {
         margin-top: 40px;
       }
     
@@ -92,7 +92,7 @@
         margin-bottom: 16px;
       }
 
-      .communicationLanguageInput {
+      .languageInput {
         margin-top: 40px;
         margin-bottom: 12px;
 
@@ -133,12 +133,12 @@
         margin-bottom: 16px;
       }
     
-      .findOutInput {
+      .sourceInput {
         margin-top: 40px;
         margin-bottom: 42px;
       }
     
-      .reasonTextarea {
+      .sourceTextarea {
         margin-bottom: 0;
       }
     }
@@ -163,11 +163,11 @@
       }
     }
   
-    .checkBoxWrapperAccept {
+    .checkBoxWrapperTerms {
       margin-top: 24px;
     }
   
-    .checkBoxWrapperSubscribe {
+    .checkBoxWrapperSubscription {
       margin-top: 1rem;
     }
   
@@ -264,7 +264,7 @@
           margin-bottom: 56px;
         }
 
-        .communicationLanguageInput {
+        .languageInput {
           margin-top: unset;
           margin-bottom: unset;
         }
@@ -295,7 +295,7 @@
           margin-bottom: 45px;
         }
       
-        .findOutInput {
+        .sourceInput {
           margin-top: unset;
           margin-bottom: 42px;
 
@@ -304,7 +304,7 @@
           }
         }
       
-        .reasonTextarea {
+        .sourceTextarea {
           margin-bottom: 0;
         }
       }
