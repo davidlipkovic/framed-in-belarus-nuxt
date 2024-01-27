@@ -125,7 +125,7 @@ const author = {
             {{ $t('placeholders.country') }}:
           </span>
           <span class="b1">
-            {{ userStore.currentUser.countryOfResidance }}
+            {{ userStore.currentUser.countryOfResidence }}
           </span>
         </p>
         <p class="swiperDescriptionInfo flexRowStart">

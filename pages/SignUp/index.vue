@@ -1,9 +1,9 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
+import { useUserStore } from "@/stores/user"
 // import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
-import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 import { useI18n } from 'vue-i18n'
 const { locales, t } = useI18n()
@@ -40,19 +40,19 @@ const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
-const country = ref(null)
-const countryInput = ref(null)
-const countryTypingStarted = ref(false)
-const publishCountry = ref(false)
+const countryOfResidence = ref(null)
+const countryOfResidenceInput = ref(null)
+const countryOfResidenceTypingStarted = ref(false)
+const publishCountryOfResidence = ref(false)
 
-const communicationLanguage = ref(null)
+const language = ref(null)
 
 const instagram = ref(null)
 const mentionInstagram = ref(false)
 const publishInstagram = ref(false)
 
-const findOut = ref(null)
-const findOutOptions = computed(() => [
+const source = ref(null)
+const sourceOptions = computed(() => [
   {name: t("signUpPage.slide2.findOutOptions.instagram")},
   {name: t("signUpPage.slide2.findOutOptions.fromFriend")},
   {name: t("signUpPage.slide2.findOutOptions.atExhibition")},
@@ -65,22 +65,22 @@ const findOutOptions = computed(() => [
 const reason = ref(null)
 const publishReason = ref(false)
 
-const accept = ref(false)
-const subscribe = ref(false)
+const terms = ref(false)
+const subscription = ref(false)
 
-const updateCommunicationLanguage = (lang) => {
-  communicationLanguage.value = lang.name
+const updateLanguage = (lang) => {
+  language.value = lang.name
 }
 
-const updateFindOut = (option) => {
-  findOut.value = option.name
+const updateSource = (option) => {
+  source.value = option.name
 }
 
 const validUsernameData = computed(() => validateText(username.value))
 const validEmailData = computed(() => validateEmail(email.value))
-const validCountryData = computed(() => validateText(country.value))
+const validCountryOfResidenceData = computed(() => validateText(countryOfResidence.value))
 
-const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && validCountryData.value && communicationLanguage.value)
+const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && validCountryOfResidenceData.value && language.value)
 
 onClickOutside(usernameInput, () => {
   if (username.value) {
@@ -94,9 +94,9 @@ onClickOutside(emailInput, () => {
   }
 })
 
-onClickOutside(countryInput, () => {
-  if (country.value) {
-    countryTypingStarted.value = true
+onClickOutside(countryOfResidenceInput, () => {
+  if (countryOfResidence.value) {
+    countryOfResidenceTypingStarted.value = true
   }
 })
 </script>
@@ -182,30 +182,30 @@ onClickOutside(countryInput, () => {
             </p>
             <input 
               type="text" 
-              name="country" 
-              id="country"
-              v-model="country"
+              name="countryOfResidence" 
+              id="countryOfResidence"
+              v-model="countryOfResidence"
               :placeholder="$t('placeholders.country') + '*'" 
-              class="countryInput"
-              :class="{'invalidInput': !validCountryData && countryTypingStarted}" 
-              ref="countryInput"
+              class="countryOfResidenceInput"
+              :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
+              ref="countryOfResidenceInput"
             />
             <span 
-              v-if="!validCountryData && countryTypingStarted"
+              v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
               class="warningNotification note red"
             >
               {{ $t('invalidInputs.enterCountry') }}
             </span>
             <label 
-              for="publishCountry"
+              for="publishCountryOfResidence"
               class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
             >
               <input 
                 type="checkbox" 
-                name="publishCountry" 
-                id="publishCountry" 
+                name="publishCountryOfResidence" 
+                id="publishCountryOfResidence" 
                 :value="true"
-                v-model="publishCountry"
+                v-model="publishCountryOfResidence"
               />
               {{ $t('buttons.publish') }}
             </label>
@@ -213,12 +213,12 @@ onClickOutside(countryInput, () => {
               {{ $t('signUpPage.slide1.paragraph3') }}
             </p>
             <GeneralInputDropdownMenu
-              id="communicationLanguage"
-              class="contentInput communicationLanguageInput"
-              :chosenOption="communicationLanguage"
+              id="language"
+              class="contentInput languageInput"
+              :chosenOption="language"
               :options="locales"
               :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
-              @chooseOption="updateCommunicationLanguage"
+              @chooseOption="updateLanguage"
             />
             <p class="phone">
               {{ $t('signUpPage.slide1.paragraph4') }}
@@ -300,12 +300,12 @@ onClickOutside(countryInput, () => {
               {{ $t('signUpPage.slide2.paragraph1') }}
             </p>
             <GeneralInputDropdownMenu
-              id="findOut"
-              class="contentInput findOutInput"
-              :chosenOption="findOut"
+              id="source"
+              class="contentInput sourceInput"
+              :chosenOption="source"
               :placeholder="$t('placeholders.findOut')" 
-              :options="findOutOptions"
-              @chooseOption="updateFindOut"
+              :options="sourceOptions"
+              @chooseOption="updateSource"
             />
             <textarea 
               name="reason" 
@@ -432,28 +432,28 @@ onClickOutside(countryInput, () => {
             </span>
           </p>
           <label
-            for="accept" 
-            class="checkBoxWrapper checkBoxWrapperAccept flexRowStart b1"
+            for="terms" 
+            class="checkBoxWrapper checkBoxWrapperTerms flexRowStart b1"
           >
             <input 
               type="checkbox" 
-              name="accept" 
-              id="accept" 
+              name="terms" 
+              id="terms" 
               :value="true"
-              v-model="accept"
+              v-model="terms"
             />
             {{ $t('signUpPage.slide3.consent') }}
           </label>
           <label 
-            for="subscribe" 
-            class="checkBoxWrapper checkBoxWrapperSubscribe flexRowStart b1"
+            for="subscription" 
+            class="checkBoxWrapper checkBoxWrapperSubscription flexRowStart b1"
           >
             <input 
               type="checkbox" 
-              name="subscribe" 
-              id="subscribe" 
+              name="subscription" 
+              id="subscription" 
               :value="true"
-              v-model="subscribe"
+              v-model="subscription"
             />
             {{ $t('signUpPage.slide3.subscribe') }}
           </label>
@@ -466,8 +466,8 @@ onClickOutside(countryInput, () => {
             </span>
             <span
               class="button"
-              :class="accept ? 'bg_black' : 'button_disabled'"
               @click="createAccount()"
+              :class="terms ? 'bg_black' : 'button_disabled'"
             >
               {{ $t('buttons.createAccount') }}
             </span>
