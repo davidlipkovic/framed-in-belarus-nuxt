@@ -29,13 +29,11 @@ const handleChooseLanguage = (lang) => {
 const languages = languagesJSON
 
 const scrollToLanguage = (event) => {
-  console.log(event.key)
-
   const noSpecialChar = /^[^\d\s!@#$%^&*()+=[\]{};:'".,<>?`~_|\\]+$/;
-  if (!noSpecialChar.test(event.key) || !toggleNativeLangMenu.value || !props.chosenLanguage) {
+  if (!noSpecialChar.test(event.key) || !toggleNativeLangMenu.value) {
     return
   }
-  
+
   const match = languages.find(language => language.name.toLowerCase().startsWith(event.key.toLowerCase()))
   if (match) {
     const firstMatch = nativeLangMenuWrapper.value.querySelector('.langLink--' + match.name)
