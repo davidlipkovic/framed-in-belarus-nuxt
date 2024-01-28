@@ -1,7 +1,7 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/extends/dropdown";
 
-.InputDropdownMenu {
+.inputDropdownMenu {
   position: relative;
   width: 100%;
   cursor: pointer;
@@ -15,11 +15,13 @@
     font-size: 1rem;
 
     svg {
-      width: 9px;
-      fill: $black;
+      width: 12px;
+      fill: #020202;
       stroke: unset;
       stroke-width: unset;
-      margin-top: 4px;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 2px;
     }
   }
 
@@ -31,7 +33,7 @@
     color: $greyDisabledColor;
   }
 
-  .InputDropdownMenuWrapper {
+  .inputDropdownMenuWrapper {
     @extend .dropdownMenuWrapper;
     position: absolute;
     top: 45px;
@@ -55,10 +57,16 @@
   }
 }
 
-.InputDropdownMenuOpened {
+.inputDropdownMenuOpened {
   .langButton {
     svg {
       transform: rotate(180deg);
     }
+  }
+}
+
+.inputDropdownMenuRegistration {
+  .langButton {
+    padding: 10px 1rem;
   }
 }

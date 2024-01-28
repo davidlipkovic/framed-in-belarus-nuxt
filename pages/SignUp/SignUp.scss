@@ -26,16 +26,10 @@
   }
 
   @include signTitle;
-  max-height: 800px;
-  overflow-y: scroll;
-
+  
   .slideWrapper {
     flex-direction: column;
     margin-bottom: 40px;
-  }
-
-  .slideColumnWrapper:nth-child(1) {
-    width: 100%;
   }
 
   .formWrapper {
@@ -51,13 +45,32 @@
     padding: 10px 14px;
   }
 
-  .languageInput {
-    width: 100%;
+  .slideBorder {
+    display: none;
   }
 
-  .slideColumnWrapper p {
-    font-size: 12px;
-    line-height: 20px;
+  .inputRowWrapper {
+    width: 100%;
+    margin-bottom: 38px;
+
+    .inputContentWrapper,
+    >*:nth-child(2) {
+      width: 100%;
+    }
+
+    .inputContentWrapper {
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-family: 'Roboto';
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  .inputRowWrapper:last-child {
+    margin-bottom: 0;
   }
 
   .buttonsWrapper {
@@ -73,80 +86,9 @@
     }
   }
 
-  .slideWrapper1 {
-    .slideColumnWrapper:nth-child(1) {
-      .checkBoxWrapperUsername {
-        margin-bottom: 12px;
-      }
-    
-      .emailInput {
-        margin-top: 40px;
-        margin-bottom: 10px;
-      }
-
-      .countryOfResidenceInput {
-        margin-top: 40px;
-      }
-    
-      .checkBoxWrapperCountry {
-        margin-bottom: 16px;
-      }
-
-      .languageInput {
-        margin-top: 40px;
-        margin-bottom: 12px;
-
-        .langButton {
-          padding: 10px 14px;
-        }
-      }
-    }
-
-    .slideColumnWrapper:nth-child(2) {
-      p:nth-child(1) {
-        margin-bottom: 34px;
-      }
-
-      p:nth-child(2) {
-        margin-bottom: 34px;
-      }
-
-      p:nth-child(3) {
-        margin-bottom: 56px;
-      }
-    }
-  }
-
   .buttonsWrapper1 {
     .button {
       min-width: 120px;
-    }
-  }
-
-  .slideWrapper2 {
-    .slideColumnWrapper:nth-child(1) {
-      .checkBoxWrapperMentionInstagram {
-        margin-bottom: 2px;
-      }
-
-      .checkBoxWrapperPublishInstagram {
-        margin-bottom: 16px;
-      }
-    
-      .sourceInput {
-        margin-top: 40px;
-        margin-bottom: 42px;
-      }
-    
-      .sourceTextarea {
-        margin-bottom: 0;
-      }
-    }
-
-    .slideColumnWrapper:nth-child(2) {
-      p:nth-child(1) {
-        margin-bottom: 162px;
-      }
     }
   }
 
@@ -207,7 +149,7 @@
     }
   }
 
-  .conditionsLink {
+  .termsLink {
     font-size: 14px;
     line-height: 24px;
   }
@@ -220,94 +162,62 @@
 
   @include swiper-pagination-bullet;
 
-  .desktop {
-    display: none;
-  }
-  
   @media screen and (min-width: $br-point-sm) {
     .formWrapper {
       margin-top: 30px;
     }
 
     .slideWrapper {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .slideBorder {
+      display: block;
+      height: 100%;
+      border-left: 1px solid $grey3;
+      position: absolute;
+      left: 46.5%;
+    }
+
+    .inputRowWrapper {
       flex-direction: row;
-      margin-bottom: 33px;
+      justify-content: space-between;
+      margin-bottom: 28px;
+
+      .inputContentWrapper,
+      >*:nth-child(2) {
+        width: 50%;
+      }
+
+      .inputContentWrapper {
+        max-width: 42%;
+        margin-bottom: 0;
+      }
+
+      >*:nth-child(2) {
+        max-width: 48%;
+        margin: -1px 5px 0 0;
+      }
     }
 
-    .slideColumnWrapper:nth-child(1) {
-      width: 47%;
-      padding-right: 36px;
-      border-right: solid 1px $grey3;
+    .inputRowWrapper:last-child {
+      margin-bottom: 0;
     }
 
-    .slideColumnWrapper:nth-child(2) {
-      width: 53.2%;
-      padding-left: 35px;
+    .inputRowWrapperInstagram,
+    .inputRowWrapperSource {
+      margin-bottom: 44px;
+    }
+
+    .inputRowWrapperReason {
+      textarea {
+        min-height: 6rem;
+      }
     }
 
     .checkBoxWrapper {
       margin: 9px 3px 0;
-    }
-
-    .slideWrapper1 {
-      .slideColumnWrapper:nth-child(1) {
-        .checkBoxWrapperUsername {
-          margin-bottom: 56px;
-        }
-      
-        .emailInput {
-          margin-top: unset;
-          margin-bottom: 12px;
-        }
-
-        .checkBoxWrapperCountry {
-          margin-bottom: 56px;
-        }
-
-        .languageInput {
-          margin-top: unset;
-          margin-bottom: unset;
-        }
-      }
-  
-      .slideColumnWrapper:nth-child(2) {
-        p:nth-child(1) {
-          margin-bottom: 34px;
-        }
-  
-        p:nth-child(2) {
-          margin-bottom: 34px;
-        }
-  
-        p:nth-child(3) {
-          margin-bottom: 60px;
-        }
-      }
-    }
-
-    .slideWrapper2 {
-      .slideColumnWrapper:nth-child(1) {
-        .checkBoxWrapperMentionInstagram {
-          margin-bottom: 2px;
-        }
-  
-        .checkBoxWrapperPublishInstagram {
-          margin-bottom: 45px;
-        }
-      
-        .sourceInput {
-          margin-top: unset;
-          margin-bottom: 42px;
-
-          ul li button {
-            text-align: left;
-          }
-        }
-      
-        .sourceTextarea {
-          margin-bottom: 0;
-        }
-      }
     }
 
     .buttonsWrapper {
@@ -321,14 +231,6 @@
       .button:last-child {
         margin: 0 15px;
       }
-    }
-
-    .phone {
-      display: none;
-    }
-
-    .desktop {
-      display: flex;
     }
   }
 
