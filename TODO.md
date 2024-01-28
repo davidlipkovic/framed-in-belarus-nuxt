@@ -12,58 +12,66 @@ to discuss:
 - cookies
 - proper names and passwords
 - all search possibilities
+- step5 comment, choose language, what languages?
+
+Yulia
+115. in figma font is different?
 
 ready pages:
 ✅ profile
 ✅ Gallery/Case
 
+components:
+footer
+    - fix responsive
+
+cookies
+    - todo
+
+text pop up
+    - responsive
+
+checkboxes
+    - clickable?
+
+routing
+
+heads, meta tags
+
 pages:
 
-home
-- cookies
-    - google api
-    - options
-- check responsive
-- popup
 
 sign up
 - warnings, log funcionality
 - create responsive
-- checkboxes
 - on before route leave
 
 sign in
-- google api
 - warnings, log funcionality
-- check responsive
 
 profile
 - all possible options
 - hero store
 - user store
-- check responsive
 - add inputs
 - tooltips
 
 Gallery
 - gallery store
 - test with data
-- check responsive
+- search history in url
 
 Gallery/Case
 - implement i18n
-- clickable high res gallery
-- responsive
 
 News
-- read more btn style
-- news store
-- search funcitonality
-- check responsive
-- tags
 
 News/Detail
 - responsive
+
+Step 1
+- check no result and other possibilities
+- search history in url
 
 responsive:
 - fix bugs

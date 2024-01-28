@@ -1,23 +1,20 @@
-<script>
-export default {
-  head() {
-    return {
-      title: `#Framed in Belarus — About us`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Stitchit is an art group created in 2021 by visual artist Rufina Bazlova and curator Sofia Tocar. The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship. Collective means all people, who take part in a project and activities organized by Stitchit.'
-        }
-      ]
+<script setup>
 definePageMeta({
   middleware: [
     'auth',
   ],
 })
+
+useHead({
+  title: `#Framed in Belarus — About us`,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'Stitchit is an art group created in 2021 by visual artist Rufina Bazlova and curator Sofia Tocar. The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship. Collective means all people, who take part in a project and activities organized by Stitchit.'
     }
-  }
-}
+  ]
+})
 </script>
 
 <template>
