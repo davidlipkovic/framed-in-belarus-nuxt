@@ -53,6 +53,7 @@ const updateLanguage = (lang) => {
 
 onMounted(() => {
   // console.log('onMounted')
+  userStore.getUserData()
   userStore.getUserActivities()
 })
 
@@ -68,7 +69,7 @@ const updateUser = () => {
   const body = {
     email: handleIfValueIsUpdated('email', email.value),
     username: handleIfValueIsUpdated('username', username.value),
-    countryOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
+    countyOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
     language: handleIfValueIsUpdated('language', language.value),
     instagram: handleIfValueIsUpdated('instagram', instagram.value),
     reason: handleIfValueIsUpdated('reason', reason.value),
@@ -79,6 +80,11 @@ const updateUser = () => {
   }
 
   userStore.updateUser(body)
+}
+
+const deleteUser = () => {
+  // userStore.deleteUser()
+  displayDeleteProfileModal.value = false
 }
 </script>
 
@@ -443,11 +449,13 @@ const updateUser = () => {
         <div class="inputModalFooter buttons">
           <button 
             class="button" 
-            @click="displayDeleteProfileModal = false"
+            @click="deleteUser()"
           >
             {{ $t('buttons.confirm') }}
           </button>
-          <button class="button bg_black">
+          <button 
+            class="button bg_black"
+          >
             {{ $t('buttons.back') }}
           </button>
         </div>

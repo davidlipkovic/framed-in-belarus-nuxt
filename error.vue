@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  navigateTo("/")
+  // navigateTo("/")
 })
 </script>
 

@@ -2,6 +2,8 @@ import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 
 export const useUserStore = defineStore("user", () => {
+  const loading = ref(false)
+
   const currentUser = {
     id: 1,
     heroesId: [215],
@@ -46,12 +48,14 @@ export const useUserStore = defineStore("user", () => {
     ]
   }
 
+  const currentUserReactive = ref(null)
+
   currentUser.reasonTruncated = currentUser.reason.slice(0, 220) + '...'
 
   const isLogged = ref(false)
 
-  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY0pMZ1JBclQ4QVllTGcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2MzkwNjQ3fQ.6hS4BEY34PpvK976YG6PgNzb_sKQaYRBdSZBRj9JaPY")
-  const userId = ref("recJLgRArT8AYeLg0")
+  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY05QNnk4SEd5U3YwYmcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2NDU3NzQ2fQ.BwJcH4zRiPlCMTXsweTmXISGWS6gX2KHS25CX9dzKxI")
+  const userId = ref("recNP6y8HGySv0bg0")
   const email = ref("david.lipkovic@gmail.com")
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
@@ -83,20 +87,36 @@ export const useUserStore = defineStore("user", () => {
     const headers = {}
 
     if (token.value) {
-      // headers['Authorization'] = 'Bearer ' + token.value
-      headers['Authorization'] = `"Bearer ${token.value}"`
-
+      headers['Authorization'] = 'Bearer ' + token.value
     }
 
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
         headers,
-        method: 'post',
+        method: 'put',
         body: parsedBody
       })
       console.log(responseData.value)
     } catch (error) {
       console.error('Error updating user:', error)
+    }
+  }
+
+  const deleteUser = async () => {
+    const headers = {}
+
+    if (token.value) {
+      headers['Authorization'] = 'Bearer ' + token.value
+    }
+
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
+        headers,
+        method: 'delete',
+      })
+      console.log(responseData.value)
+    } catch (error) {
+      console.error('Error deleting user:', error)
     }
   }
 
@@ -120,6 +140,39 @@ export const useUserStore = defineStore("user", () => {
     }
   }
   
+  const getUserData = async () => {
+    const headers = {}
+
+    if (token.value) {
+      headers['Authorization'] = 'Bearer ' + token.value
+    }
+
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user', {
+        headers,
+        method: 'get',
+      })
+      console.log(responseData.value)
+
+      const result = responseData.value.result
+
+      currentUserReactive.value = {
+        email: result.email,
+        username: result.username,
+        countryOfResidence: result.countyOfResidence,
+        language: result.language,
+        instagram: result.instagram,
+        reason: result.reason,
+        publishReason: result.publishReason,
+        publishCountryOfResidence: result.publishCountryOfResidence,
+        publishInstagram: result.publishInstagram,
+        publishUsername: result.publishUsername,
+      }
+    } catch (error) {
+      console.error('Error signing in:', error)
+    }
+  }
+  
   const getUserActivities = async () => {
     try {
       const headers = {}
@@ -128,15 +181,10 @@ export const useUserStore = defineStore("user", () => {
         headers['Authorization'] = 'Bearer ' + token.value
       }
 
-      const { data: responseData } = await useFetch(endpointUrl + 'api/prisoners/user/' + userId.value, {
+      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + userId.value, {
         headers,
-      });
+      })
 
-      // const {data: responseData} = await useFetch(endpointUrl + 'api/prisoners/user/' + userId.value, {
-      //   onRequest({ request, options }) {
-      //     options.headers.authorization = token.value
-      //   }
-      // })
       console.log(responseData)
       console.log(responseData.value.result)
 
@@ -144,35 +192,31 @@ export const useUserStore = defineStore("user", () => {
       console.error('Error fetching user activities data:', error)
     }
   }
-
-  // app.post("/login", (req, res) => {
-  //   const USERNAME = "uma victor";
-  //   const PASSWORD = "8888";
-  //   const { username, password } = req.body;
-  //   if (username === USERNAME && password === PASSWORD) {
-  //     const user = {
-  //       id: 1,
-  //       name: "uma victor",
-  //       username: "uma victor",
-  //     };
-  //     const token = jwt.sign(user, process.env.JWT_KEY);
-  //     res.json({
-  //       token,
-  //       user,
-  //     });
-  //   } else {
-  //     res.status(403);
-  //     res.json({
-  //       message: "wrong login information",
-  //     });
-  //   }
+  
+  const createStitchingActivity = async (body, prisonerId) => {
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/stitching/' + prisonerId, {
+        method: 'post',
+        body: removeNullProps(body)
+      })
+      console.log(responseData.value)
+    } catch (error) {
+      console.error('Error creating stitching activity:', error)
+    }
+  }
 
   return {
+    loading,
     currentUser,
+    currentUserReactive,
     isLogged,
     login,
     updateUser,
+    deleteUser,
+    validatePin,
+    getUserData,
     getUserActivities,
-    validatePin
+    createStitchingActivity,
+    token,
   }
 })

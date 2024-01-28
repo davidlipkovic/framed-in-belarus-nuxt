@@ -34,7 +34,7 @@ onClickOutside(root, () => {
     <span
       class="profileModalWrapperName"
     >
-      {{ userStore.currentUser.username }}
+      {{ userStore.currentUserReactive.username }}
     </span>
     <nuxt-link
       :to="localePath('/Profile')"

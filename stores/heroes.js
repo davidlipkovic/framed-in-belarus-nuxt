@@ -5,6 +5,7 @@ import tagsJSON from '../assets/json/tags.json'
 import heroesJSON from '../assets/json/heroes.json'
 
 export const useHeroesStore = defineStore("heroes", () => {
+  const loading = ref(false)
   const originalHeroes = reactive([])
   const heroesAlphabetically = computed(() => Array.isArray(originalHeroes.value) ? [...originalHeroes.value].sort((a, b) => a.name.localeCompare(b.name)) : [])
   const heroesAlphabeticallyReversed = computed(() => Array.isArray(heroesAlphabetically.value) ? [...heroesAlphabetically.value].reverse() : [])
@@ -77,15 +78,14 @@ export const useHeroesStore = defineStore("heroes", () => {
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners')
       originalHeroes.value = responseData.value.result
-      originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
+      console.log(responseData.value.result);
+      // originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
     } catch (error) {
       console.error('Error fetching prisoners list data:', error)
     }
   }
 
-  getPrisonersList()
-
-  originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
+  // originalHeroes.value = fixHeroesDates(removeEmpty(heroesJSON))
 
   tags.value = tagsJSON
 
@@ -93,6 +93,8 @@ export const useHeroesStore = defineStore("heroes", () => {
     chosenHero,
     setChosenHero,
     originalHeroes,
+    loading,
+    getPrisonersList,
     heroesAlphabetically,
     heroesAlphabeticallyReversed,
     heroesChronologically,

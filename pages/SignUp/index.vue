@@ -31,7 +31,7 @@ const signUp = () => {
   const body = {
     email: email.value,
     username: username.value,
-    countryOfResidence: countryOfResidence.value,
+    countyOfResidence: countryOfResidence.value,
     language: language.value,
     instagram: instagram.value,
     source: source.value,
