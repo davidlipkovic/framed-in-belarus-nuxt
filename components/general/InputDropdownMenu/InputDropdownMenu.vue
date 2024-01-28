@@ -20,10 +20,10 @@ const props = defineProps({
   },
 })
 
-const InputDropdownMenu = ref(null)
+const inputDropdownMenu = ref(null)
 const toggleInputDropdownMenu = ref(false)
 
-onClickOutside(InputDropdownMenu, () => {
+onClickOutside(inputDropdownMenu, () => {
   toggleInputDropdownMenu.value = false
 })
 
@@ -35,9 +35,9 @@ const handleChooseLanguage = (lang) => {
 
 <template>
   <div 
-    class="InputDropdownMenu"
-    :class="toggleInputDropdownMenu ? 'InputDropdownMenuOpened' : 'InputDropdownMenuClosed'"
-    ref="InputDropdownMenu"
+    class="inputDropdownMenu"
+    :class="toggleInputDropdownMenu ? 'inputDropdownMenuOpened' : 'inputDropdownMenuClosed'"
+    ref="inputDropdownMenu"
   >
     <span 
       class="langButton flexRowCenter"
@@ -49,7 +49,7 @@ const handleChooseLanguage = (lang) => {
     </span>
     <ul 
       v-if="toggleInputDropdownMenu"
-      class="InputDropdownMenuWrapper flexColumnStart"
+      class="inputDropdownMenuWrapper flexColumnStart"
     >
       <li
         v-for="(option, i) in options"
