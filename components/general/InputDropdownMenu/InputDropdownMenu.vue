@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: null
   },
+  isRegistration: {
+    type: Boolean,
+    default: false
+  },
 })
 
 const inputDropdownMenu = ref(null)
@@ -36,7 +40,10 @@ const handleChooseLanguage = (lang) => {
 <template>
   <div 
     class="inputDropdownMenu"
-    :class="toggleInputDropdownMenu ? 'inputDropdownMenuOpened' : 'inputDropdownMenuClosed'"
+    :class="[
+      toggleInputDropdownMenu ? 'inputDropdownMenuOpened' : 'inputDropdownMenuClosed',
+      {'inputDropdownMenuRegistration' : isRegistration}
+    ]"
     ref="inputDropdownMenu"
   >
     <span 

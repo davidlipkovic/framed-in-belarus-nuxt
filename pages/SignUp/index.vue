@@ -121,37 +121,40 @@ onClickOutside(countryOfResidenceInput, () => {
         class="slide"
       >
         <div class="slideWrapper slideWrapper1 flexColumnStart">
-          <div class="slideColumnWrapper flexColumnStart">
-            <input 
-              type="text" 
-              name="username" 
-              id="username" 
-              v-model="username"
-              :placeholder="$t('placeholders.username') + '*'" 
-              class="usernameInput"
-              :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
-              ref="usernameInput"
-            />
-            <span 
-              v-if="!validUsernameData && usernameTypingStarted"
-              class="warningNotification note red"
-            >
-              {{ $t('invalidInputs.enterYourUsername') }}
-            </span>
-            <label
-              for="publishUsername" 
-              class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
-            >
+          <div class="slideBorder"/>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperUsername">
+            <div class="inputContentWrapper flexColumnStart">
               <input 
-                type="checkbox" 
-                name="publishUsername" 
-                id="publishUsername" 
-                :value="true"
-                v-model="publishUsername"
+                type="text" 
+                name="username" 
+                id="username" 
+                v-model="username"
+                :placeholder="$t('placeholders.username') + '*'" 
+                class="usernameInput"
+                :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
+                ref="usernameInput"
               />
-              {{ $t('buttons.publish') }}
-            </label>
-            <p class="phone">
+              <span 
+                v-if="!validUsernameData && usernameTypingStarted"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.enterYourUsername') }}
+              </span>
+              <label
+                for="publishUsername" 
+                class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishUsername" 
+                  id="publishUsername" 
+                  :value="true"
+                  v-model="publishUsername"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
+            </div>
+            <p>
               {{ $t('signUpPage.slide1.paragraph1.content1') }}
               <span class="b1">
                 {{ $t('signUpPage.slide1.paragraph1.highlight1') }}
@@ -160,87 +163,79 @@ onClickOutside(countryOfResidenceInput, () => {
               <span class="b1">
                 {{ $t('signUpPage.slide1.paragraph1.highlight2') }}
               </span>
-            </p>
-            <input 
-              type="email" 
-              name="email" 
-              id="email" 
-              v-model="email"
-              :placeholder="$t('placeholders.emailLogin') + '*'" 
-              class="emailInput"
-              :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-              ref="emailInput"
-            />
-            <span 
-              v-if="!validEmailData && emailTypingStarted"
-              class="warningNotification note red"
-            >
-              {{ $t('invalidInputs.enterEmailAdress') }}
-            </span>
-            <p class="phone">
-              {{ $t('signUpPage.slide1.paragraph2') }}
-            </p>
-            <input 
-              type="text" 
-              name="countryOfResidence" 
-              id="countryOfResidence"
-              v-model="countryOfResidence"
-              :placeholder="$t('placeholders.country') + '*'" 
-              class="countryOfResidenceInput"
-              :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
-              ref="countryOfResidenceInput"
-            />
-            <span 
-              v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
-              class="warningNotification note red"
-            >
-              {{ $t('invalidInputs.enterCountry') }}
-            </span>
-            <label 
-              for="publishCountryOfResidence"
-              class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
-            >
-              <input 
-                type="checkbox" 
-                name="publishCountryOfResidence" 
-                id="publishCountryOfResidence" 
-                :value="true"
-                v-model="publishCountryOfResidence"
-              />
-              {{ $t('buttons.publish') }}
-            </label>
-            <p class="phone">
-              {{ $t('signUpPage.slide1.paragraph3') }}
-            </p>
-            <GeneralInputDropdownMenu
-              id="language"
-              class="contentInput languageInput"
-              :chosenOption="language"
-              :options="locales"
-              :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
-              @chooseOption="updateLanguage"
-            />
-            <p class="phone">
-              {{ $t('signUpPage.slide1.paragraph4') }}
             </p>
           </div>
-          <div class="slideColumnWrapper flexColumnStart desktop">
-            <p>
-              {{ $t('signUpPage.slide1.paragraph1.content1') }}
-              <span class="b1">
-                {{ $t('signUpPage.slide1.paragraph1.highlight1') }}
-              </span> 
-              {{ $t('signUpPage.slide1.paragraph1.content2') }}
-              <span class="b1">
-                {{ $t('signUpPage.slide1.paragraph1.highlight2') }}
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperEmail">
+            <div class="inputContentWrapper flexColumnStart">
+              <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                v-model="email"
+                :placeholder="$t('placeholders.emailLogin') + '*'" 
+                class="emailInput"
+                :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+                ref="emailInput"
+              />
+              <span 
+                v-if="!validEmailData && emailTypingStarted"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.enterEmailAdress') }}
               </span>
-            </p>
+            </div>
             <p>
               {{ $t('signUpPage.slide1.paragraph2') }}
             </p>
+          </div>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperCountryOfResidence">
+            <div class="inputContentWrapper flexColumnStart">
+              <input 
+                type="text" 
+                name="countryOfResidence" 
+                id="countryOfResidence"
+                v-model="countryOfResidence"
+                :placeholder="$t('placeholders.country') + '*'" 
+                class="countryOfResidenceInput"
+                :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
+                ref="countryOfResidenceInput"
+              />
+              <span 
+                v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.enterCountry') }}
+              </span>
+              <label 
+                for="publishCountryOfResidence"
+                class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishCountryOfResidence" 
+                  id="publishCountryOfResidence" 
+                  :value="true"
+                  v-model="publishCountryOfResidence"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
+            </div>
             <p>
               {{ $t('signUpPage.slide1.paragraph3') }}
             </p>
+          </div>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperLanguage">
+            <div class="inputContentWrapper flexColumnStart">
+              <GeneralInputDropdownMenu
+                id="language"
+                class="contentInput languageInput"
+                :chosenOption="language"
+                :options="locales"
+                :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
+                :isRegistration="true"
+                @chooseOption="updateLanguage"
+              />
+            </div>
             <p>
               {{ $t('signUpPage.slide1.paragraph4') }}
             </p>
@@ -261,80 +256,84 @@ onClickOutside(countryOfResidenceInput, () => {
         class="slide"
       >
         <div class="slideWrapper slideWrapper2 flexColumnStart">
-          <div class="slideColumnWrapper flexColumnStart">
-            <input 
-              type="text" 
-              name="instagram" 
-              id="instagram" 
-              :placeholder="$t('placeholders.instagram')" 
-              class="instagramInput"
-              v-model="instagram"
-            />
-            <label
-              for="mentionInstagram"
-              class="checkBoxWrapper checkBoxWrapperMentionInstagram flexRowStart"
-            >
+          <div class="slideBorder"/>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperInstagram">
+            <div class="inputContentWrapper flexColumnStart">
               <input 
-                type="checkbox" 
-                name="mentionInstagram" 
-                id="mentionInstagram" 
-                :value="true"
-                v-model="mentionInstagram"
+                type="text" 
+                name="instagram" 
+                id="instagram" 
+                :placeholder="$t('placeholders.instagram')" 
+                class="instagramInput"
+                v-model="instagram"
               />
-              {{ $t('inputs.mentionInstagram') }}
-            </label>
-            <label
-              for="publishInstagram"
-              class="checkBoxWrapper checkBoxWrapperPublishInstagram flexRowStart"
-            >
-              <input 
-                type="checkbox" 
-                name="publishInstagram" 
-                id="publishInstagram"
-                :value="true"
-                v-model="publishInstagram"
-              />
-              {{ $t('buttons.publish') }}
-            </label>
-            <p class="phone">
-              {{ $t('signUpPage.slide2.paragraph1') }}
-            </p>
-            <GeneralInputDropdownMenu
-              id="source"
-              class="contentInput sourceInput"
-              :chosenOption="source"
-              :placeholder="$t('placeholders.findOut')" 
-              :options="sourceOptions"
-              @chooseOption="updateSource"
-            />
-            <textarea 
-              name="reason" 
-              id="reason" 
-              class="reasonTextarea"
-              :placeholder="$t('signUpPage.slide2.textarea')" 
-              v-model="reason"
-            />
-            <label
-              for="publishReason"
-              class="checkBoxWrapper flexRowStart"
-            >
-              <input 
-                type="checkbox" 
-                name="publishReason" 
-                id="publishReason" 
-                :value="true"
-                v-model="publishReason"
-              />
-              {{ $t('buttons.publish') }}
-            </label>
-            <p class="phone">
-              {{ $t('signUpPage.slide2.paragraph2') }}
-            </p>
-          </div>
-          <div class="slideColumnWrapper flexColumnStart desktop">
+              <label
+                for="mentionInstagram"
+                class="checkBoxWrapper checkBoxWrapperMentionInstagram flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="mentionInstagram" 
+                  id="mentionInstagram" 
+                  :value="true"
+                  v-model="mentionInstagram"
+                />
+                {{ $t('inputs.mentionInstagram') }}
+              </label>
+              <label
+                for="publishInstagram"
+                class="checkBoxWrapper checkBoxWrapperPublishInstagram flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishInstagram" 
+                  id="publishInstagram"
+                  :value="true"
+                  v-model="publishInstagram"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
+            </div>
             <p>
               {{ $t('signUpPage.slide2.paragraph1') }}
             </p>
+          </div>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperSource">
+            <div class="inputContentWrapper flexColumnStart">
+              <GeneralInputDropdownMenu
+                id="source"
+                class="contentInput sourceInput"
+                :chosenOption="source"
+                :placeholder="$t('placeholders.findOut')" 
+                :options="sourceOptions"
+                :isRegistration="true"
+                @chooseOption="updateSource"
+              />
+            </div>
+          </div>
+          <div class="inputRowWrapper flexColumnStart inputRowWrapperReason">
+            <div class="inputContentWrapper flexColumnStart">
+              <textarea 
+                name="reason" 
+                id="reason" 
+                class="reasonTextarea"
+                :placeholder="$t('signUpPage.slide2.textarea')" 
+                v-model="reason"
+              />
+              <label
+                for="publishReason"
+                class="checkBoxWrapper flexRowStart"
+              >
+                <input 
+                  type="checkbox" 
+                  name="publishReason" 
+                  id="publishReason" 
+                  :value="true"
+                  v-model="publishReason"
+                />
+                {{ $t('buttons.publish') }}
+              </label>
+            </div>
             <p>
               {{ $t('signUpPage.slide2.paragraph2') }}
             </p>
@@ -421,7 +420,7 @@ onClickOutside(countryOfResidenceInput, () => {
               {{ $t('signUpPage.slide3.terms.paragraph10.content2') }}
             </p>
           </div>
-          <p class="conditionsLink">
+          <p class="termsLink">
             {{ $t('signUpPage.slide3.warning.content1') }}
             <span class='red'>
               {{ $t('signUpPage.slide3.warning.highlight1') }}

@@ -15,11 +15,13 @@
     font-size: 1rem;
 
     svg {
-      width: 9px;
-      fill: $black;
+      width: 12px;
+      fill: #020202;
       stroke: unset;
       stroke-width: unset;
-      margin-top: 4px;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 2px;
     }
   }
 
@@ -60,5 +62,11 @@
     svg {
       transform: rotate(180deg);
     }
+  }
+}
+
+.inputDropdownMenuRegistration {
+  .langButton {
+    padding: 10px 1rem;
   }
 }
