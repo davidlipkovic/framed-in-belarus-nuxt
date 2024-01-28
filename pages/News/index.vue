@@ -2,6 +2,12 @@
 // wip
 import { onMounted, ref, watch } from 'vue'
 
+definePageMeta({
+  middleware: [
+    'auth',
+  ],
+})
+
 const articles = [
   {
     link: "News/holidays-wish",

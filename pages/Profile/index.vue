@@ -6,31 +6,34 @@ const { locales } = useI18n()
 const userStore = useUserStore()
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth',
+  ],
 })
 
-const username = ref(userStore.currentUser.username)
+const username = ref(userStore.currentUserReactive.username)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
-const publishUsername = ref(userStore.currentUser.publishUsername)
+const publishUsername = ref(userStore.currentUserReactive.publishUsername)
 
-const email = ref(userStore.currentUser.email)
+const email = ref(userStore.currentUserReactive.email)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
-const countryOfResidence = ref(userStore.currentUser.countryOfResidence)
+const countryOfResidence = ref(userStore.currentUserReactive.countryOfResidence)
 const countryOfResidenceInput = ref(null)
 const countryOfResidenceTypingStarted = ref(false)
-const publishCountryOfResidence = ref(userStore.currentUser.publishCountryOfResidence)
+const publishCountryOfResidence = ref(userStore.currentUserReactive.publishCountryOfResidence)
 
-const instagram = ref(userStore.currentUser.instagram)
-const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
-const publishInstagram = ref(userStore.currentUser.publishInstagram)
+const instagram = ref(userStore.currentUserReactive.instagram)
+const mentionInstagram = ref(userStore.currentUserReactive.mentionInstagram)
+const publishInstagram = ref(userStore.currentUserReactive.publishInstagram)
 
-const language = ref(userStore.currentUser.language)
+const language = ref(userStore.currentUserReactive.language)
 
-const reason = ref(userStore.currentUser.reason)
-const publishReason = ref(userStore.currentUser.publishReason)
+const reason = ref(userStore.currentUserReactive.reason)
+const publishReason = ref(userStore.currentUserReactive.publishReason)
 
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)

@@ -54,7 +54,8 @@ export const useUserStore = defineStore("user", () => {
 
   const isLogged = ref(false)
 
-  const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY05QNnk4SEd5U3YwYmcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2NDU3NzQ2fQ.BwJcH4zRiPlCMTXsweTmXISGWS6gX2KHS25CX9dzKxI")
+  // const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY05QNnk4SEd5U3YwYmcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2NDU3NzQ2fQ.BwJcH4zRiPlCMTXsweTmXISGWS6gX2KHS25CX9dzKxI")
+  const token = ref(null)
   const userId = ref("recNP6y8HGySv0bg0")
   const email = ref("david.lipkovic@gmail.com")
 
@@ -160,7 +161,7 @@ export const useUserStore = defineStore("user", () => {
         email: result.email,
         username: result.username,
         countryOfResidence: result.countyOfResidence,
-        language: result.language,
+        language: result.language.toUpperCase(),
         instagram: result.instagram,
         reason: result.reason,
         publishReason: result.publishReason,

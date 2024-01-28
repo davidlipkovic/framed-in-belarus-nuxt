@@ -7,6 +7,12 @@ import { useUserStore } from "@/stores/user"
 const heroesStore = useHeroesStore();
 const userStore = useUserStore()
 
+definePageMeta({
+  middleware: [
+    'auth',
+  ],
+})
+
 const slides = [
   {alt: ""},
   {alt: ""},
