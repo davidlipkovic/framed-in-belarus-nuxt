@@ -9,7 +9,7 @@ const userStore = useUserStore()
 
 definePageMeta({
   middleware: [
-    'auth',
+    'auth-general',
   ],
 })
 

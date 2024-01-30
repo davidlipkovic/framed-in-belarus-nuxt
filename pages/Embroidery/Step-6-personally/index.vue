@@ -2,7 +2,10 @@
 import { ref } from 'vue'
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const comment = ref(null)

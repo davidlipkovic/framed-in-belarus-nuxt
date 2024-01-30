@@ -5,7 +5,10 @@ import { useValidateInputs } from "@/composables/ValidateInputs";
 const { validateLatinCharacters, validateText} = useValidateInputs()
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const trackingNumber = ref(null)

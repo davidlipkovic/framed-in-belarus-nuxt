@@ -4,7 +4,7 @@ import { onMounted, ref, watch } from 'vue'
 
 definePageMeta({
   middleware: [
-    'auth',
+    'auth-general',
   ],
 })
 

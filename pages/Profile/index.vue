@@ -8,7 +8,7 @@ const userStore = useUserStore()
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'auth',
+    'auth-registration',
   ],
 })
 
@@ -61,14 +61,16 @@ onMounted(() => {
 })
 
 const handleIfValueIsUpdated = (key, value) => {
-  if (userStore.currentUser[key] === value) {
+  if (userStore.currentUserReactive[key] === value) {
     return null
   }
 
   return value
 }
 
-const updateUser = () => {
+const updateUser = async () => {
+  userStore.loading = true
+
   const body = {
     email: handleIfValueIsUpdated('email', email.value),
     username: handleIfValueIsUpdated('username', username.value),
@@ -82,11 +84,17 @@ const updateUser = () => {
     publishUsername: handleIfValueIsUpdated('publishUsername', publishUsername.value),
   }
 
-  userStore.updateUser(body)
+  await userStore.updateUser(body)
+  await userStore.getUserData()
+  userStore.loading = false
+  displayEditProfileModal.value = false
 }
 
-const deleteUser = () => {
-  // userStore.deleteUser()
+const deleteUser = async () => {
+  userStore.loading = true
+  await userStore.deleteUser()
+  await userStore.getUserData()
+  userStore.loading = false
   displayDeleteProfileModal.value = false
 }
 </script>
@@ -117,7 +125,7 @@ const deleteUser = () => {
             alt="Avatar"
           >
           <h2 class="userProfile-title">
-            {{ userStore.currentUser.username }}
+            {{ userStore.currentUserReactive.username }}
           </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
@@ -127,7 +135,7 @@ const deleteUser = () => {
                 {{ $t('placeholders.username') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.username }}
+                {{ userStore.currentUserReactive.username }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -135,7 +143,7 @@ const deleteUser = () => {
                 {{ $t('placeholders.email') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.email }}
+                {{ userStore.currentUserReactive.email }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -143,7 +151,7 @@ const deleteUser = () => {
                 {{ $t('placeholders.country') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.countryOfResidence }}
+                {{ userStore.currentUserReactive.countryOfResidence }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -151,7 +159,7 @@ const deleteUser = () => {
                 {{ $t('placeholders.instagram') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.instagram }}
+                {{ userStore.currentUserReactive.instagram }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -159,7 +167,7 @@ const deleteUser = () => {
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.language }}
+                {{ userStore.currentUserReactive.language }}
               </span>
             </p>
           </div>
@@ -167,7 +175,7 @@ const deleteUser = () => {
             {{ $t('profilePage.question') }}
           </h3>
           <p>
-            {{ userStore.currentUser.reasonTruncated }}
+            {{ userStore.currentUserReactive.reasonTruncated }}
           </p>
         </div>
         <div class="userProfile-buttons flexColumnCenter">
@@ -204,7 +212,7 @@ const deleteUser = () => {
             :newEmbroidery="true"
           />
           <RegistrationEmbroideryCard
-            v-for="(card, i) in userStore.currentUser.cards"
+            v-for="(card, i) in userStore.currentUserReactive.cards"
             :key="i"
             :newEmbroidery="false"
             :card="card"

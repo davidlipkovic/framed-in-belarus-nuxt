@@ -8,7 +8,10 @@ const changeDateFormat = (date) => date.getDay() + ' ' + date.toLocaleString('en
 const heroesStore = useHeroesStore()
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const localHero = computed(() => {

@@ -2,7 +2,10 @@
 import { computed, onMounted, ref, watch } from "vue";
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const englishComment = ref(null)

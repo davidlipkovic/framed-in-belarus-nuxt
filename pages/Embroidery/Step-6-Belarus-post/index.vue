@@ -5,7 +5,10 @@ import { useValidateInputs } from "@/composables/ValidateInputs";
 const { validateLatinCharacters, validateNameAndSurname, validateText} = useValidateInputs()
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const adress = ref(null)

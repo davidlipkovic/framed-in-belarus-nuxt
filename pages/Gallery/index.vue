@@ -30,7 +30,7 @@ const {
 
 definePageMeta({
   middleware: [
-    'auth',
+    'auth-general',
   ],
 })
 

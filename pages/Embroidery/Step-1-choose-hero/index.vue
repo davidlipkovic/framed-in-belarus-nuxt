@@ -28,7 +28,10 @@ const {
 } = useSearch();
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const localTags = computed(() => heroesStore.tags.value)
