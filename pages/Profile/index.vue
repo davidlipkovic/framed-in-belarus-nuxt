@@ -12,28 +12,28 @@ definePageMeta({
   ],
 })
 
-const username = ref(userStore.currentUserReactive.username)
+const username = ref(userStore.currentUser.username)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
-const publishUsername = ref(userStore.currentUserReactive.publishUsername)
+const publishUsername = ref(userStore.currentUser.publishUsername)
 
-const email = ref(userStore.currentUserReactive.email)
+const email = ref(userStore.currentUser.email)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
-const countryOfResidence = ref(userStore.currentUserReactive.countryOfResidence)
+const countryOfResidence = ref(userStore.currentUser.countryOfResidence)
 const countryOfResidenceInput = ref(null)
 const countryOfResidenceTypingStarted = ref(false)
-const publishCountryOfResidence = ref(userStore.currentUserReactive.publishCountryOfResidence)
+const publishCountryOfResidence = ref(userStore.currentUser.publishCountryOfResidence)
 
-const instagram = ref(userStore.currentUserReactive.instagram)
-const mentionInstagram = ref(userStore.currentUserReactive.mentionInstagram)
-const publishInstagram = ref(userStore.currentUserReactive.publishInstagram)
+const instagram = ref(userStore.currentUser.instagram)
+const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
+const publishInstagram = ref(userStore.currentUser.publishInstagram)
 
-const language = ref(userStore.currentUserReactive.language)
+const language = ref(userStore.currentUser.language)
 
-const reason = ref(userStore.currentUserReactive.reason)
-const publishReason = ref(userStore.currentUserReactive.publishReason)
+const reason = ref(userStore.currentUser.reason)
+const publishReason = ref(userStore.currentUser.publishReason)
 
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)
@@ -55,13 +55,11 @@ const updateLanguage = (lang) => {
 }
 
 onMounted(() => {
-  // console.log('onMounted')
-  userStore.getUserData()
-  userStore.getUserActivities()
+  // userStore.getUserActivities()
 })
 
 const handleIfValueIsUpdated = (key, value) => {
-  if (userStore.currentUserReactive[key] === value) {
+  if (userStore.currentUser[key] === value) {
     return null
   }
 
@@ -125,7 +123,7 @@ const deleteUser = async () => {
             alt="Avatar"
           >
           <h2 class="userProfile-title">
-            {{ userStore.currentUserReactive.username }}
+            {{ userStore.currentUser.username }}
           </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
@@ -135,7 +133,7 @@ const deleteUser = async () => {
                 {{ $t('placeholders.username') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUserReactive.username }}
+                {{ userStore.currentUser.username }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -143,7 +141,7 @@ const deleteUser = async () => {
                 {{ $t('placeholders.email') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUserReactive.email }}
+                {{ userStore.currentUser.email }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -151,7 +149,7 @@ const deleteUser = async () => {
                 {{ $t('placeholders.country') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUserReactive.countryOfResidence }}
+                {{ userStore.currentUser.countryOfResidence }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -159,7 +157,7 @@ const deleteUser = async () => {
                 {{ $t('placeholders.instagram') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUserReactive.instagram }}
+                {{ userStore.currentUser.instagram }}
               </span>
             </p>
             <p class="flexRowStart">
@@ -167,7 +165,7 @@ const deleteUser = async () => {
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUserReactive.language }}
+                {{ userStore.currentUser.language }}
               </span>
             </p>
           </div>
@@ -175,7 +173,7 @@ const deleteUser = async () => {
             {{ $t('profilePage.question') }}
           </h3>
           <p>
-            {{ userStore.currentUserReactive.reasonTruncated }}
+            {{ userStore.currentUser.reasonTruncated }}
           </p>
         </div>
         <div class="userProfile-buttons flexColumnCenter">
@@ -212,7 +210,7 @@ const deleteUser = async () => {
             :newEmbroidery="true"
           />
           <RegistrationEmbroideryCard
-            v-for="(card, i) in userStore.currentUserReactive.cards"
+            v-for="(card, i) in userStore.currentUser.cards"
             :key="i"
             :newEmbroidery="false"
             :card="card"

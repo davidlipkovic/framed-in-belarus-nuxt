@@ -16,10 +16,23 @@ const emailTypingStarted = ref(false)
 const remember = ref(false)
 
 const signIn = () => {
-  // userStore.login(email.value)
-  // window.sessionStorage.setItem('fibIsLogged', true)
-  // window.sessionStorage.getItem('bcNotificationID')
-  userStore.isLogged = true
+  // WIP
+  let data
+
+  if (window.localStorage) {
+    data = window.localStorage.getItem('fibUser')
+
+    if (data) {
+      data = JSON.parse(data)
+      data.remember = remember.value
+      window.localStorage.setItem('fibUser', JSON.stringify(data))
+    }
+  } else {
+    userStore.login({email: email.value})
+    router.push('/Profile')
+
+    userStore.isLogged = true
+  }
 }
 
 const validEmailData = computed(() => {
@@ -77,14 +90,13 @@ onClickOutside(emailInput, () => {
         />
         {{ $t("signInPage.remember") }}
       </label>
-      <nuxt-link 
-        :to="localePath('/Profile')"
+      <button 
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 
         @click.once="signIn()"
       >
         {{ $t("signInPage.signInButton") }}
-      </nuxt-link>
+      </button>
     </form>
   </div>
 </template>

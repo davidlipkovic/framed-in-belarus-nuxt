@@ -1,4 +1,5 @@
 <script setup>
+// WIP
 import { computed, onMounted, ref, watch } from 'vue'
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
@@ -16,10 +17,10 @@ const emailTypingStarted = ref(false)
 const pin = ref(null)
 const pinInput = ref(null)
 const pinTypingStarted = ref(false)
+const remember = ref(false)
 
 const validatePin = () => {
-  userStore.validatePin(email.value, pin.value)
-  // navigateTo("/Profile")
+  userStore.validatePin(email.value, pin.value, remember.value)
 }
 
 const validEmailData = computed(() => validateEmail(email.value))
@@ -90,6 +91,19 @@ onClickOutside(pinInput, () => {
           >
             {{ $t('invalidInputs.enterPinCode') }}
           </span>
+          <label
+            for="remember"
+            class="checkBoxWrapper"
+          >
+            <input 
+              type="checkbox" 
+              id="remember" 
+              name="remember"
+              :value="true"
+              v-model="remember"
+            />
+            {{ $t("signInPage.remember") }}
+          </label>
         </form>
         <div class="buttons">
           <button 

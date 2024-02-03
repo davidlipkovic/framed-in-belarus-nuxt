@@ -1,63 +1,63 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
+import { useRouter } from 'vue-router'
 
 export const useUserStore = defineStore("user", () => {
+  const router = useRouter()
+
   const loading = ref(false)
+  // const loginAttempts = ref(0)
 
-  const currentUser = {
-    id: 1,
-    heroesId: [215],
-    username: 'Tiffany Chin',
-    publishUsername: true,
-    email: 'name@gmail.com',
-    countryOfResidence: 'Poland',
-    publishCountryOfResidence: true,
-    instagram: 'Insta',
-    publishInstagram: true,
-    mentionInstagram: true,
-    language: 'ENG',
-    reason: 'To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I\'m supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava,',
-    publishReason: true,
-    cards: [
-      {
-        type: 'inProgress', 
-        link: "/Embroidery/Step-2-preparation",
-        imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-        stepIndex: 2,
-        tooltip: "",
-      },
-      {
-        type: 'sent', 
-        link: "",
-        imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-        tooltip: "",
-        warning: true
-      },
-      {
-        type: 'requested', 
-        link: "",
-        imageUrl: "",
-        tooltip: "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
-      },
-      {
-        type: 'patternIsReady', 
-        link: "/Embroidery/Step-2-preparation",
-        imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
-        tooltip: ""
-      },
-    ]
-  }
+  // const currentUser = {
+  //   id: 1,
+  //   heroesId: [215],
+  //   username: 'Tiffany Chin',
+  //   publishUsername: true,
+  //   email: 'name@gmail.com',
+  //   countryOfResidence: 'Poland',
+  //   publishCountryOfResidence: true,
+  //   instagram: 'Insta',
+  //   publishInstagram: true,
+  //   mentionInstagram: true,
+  //   language: 'ENG',
+  //   reason: 'To support political prisoners that have been imprisoned for standing up for their rights. My family is from Hong Kong, which is currently going through a similar situation like Belarus. I am also an embroiderer myself, and by supporting this project, I feel that I\'m supporting political prisoners all over the world. Speaking of political prisoners, I already have one in mind. I would like to focus on, and it is Maria Kalesnikava,',
+  //   publishReason: true,
+  //   cards: [
+  //     {
+  //       type: 'inProgress', 
+  //       link: "/Embroidery/Step-2-preparation",
+  //       imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+  //       stepIndex: 2,
+  //       tooltip: "",
+  //     },
+  //     {
+  //       type: 'sent', 
+  //       link: "",
+  //       imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+  //       tooltip: "",
+  //       warning: true
+  //     },
+  //     {
+  //       type: 'requested', 
+  //       link: "",
+  //       imageUrl: "",
+  //       tooltip: "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
+  //     },
+  //     {
+  //       type: 'patternIsReady', 
+  //       link: "/Embroidery/Step-2-preparation",
+  //       imageUrl: "https://spring96.org/files/images/kalesnikava.jpg",
+  //       tooltip: ""
+  //     },
+  //   ]
+  // }
 
-  const currentUserReactive = ref(null)
+  // currentUser.reasonTruncated = currentUser.reason.slice(0, 220) + '...'
 
-  currentUser.reasonTruncated = currentUser.reason.slice(0, 220) + '...'
+  const currentUser = ref(null)
+  const currentUserAuthorizationData = ref(null)
 
   const isLogged = ref(false)
-
-  // const token = ref("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJlY05QNnk4SEd5U3YwYmcwIiwiZW1haWwiOiJkYXZpZC5saXBrb3ZpY0BnbWFpbC5jb20iLCJyb2xlIjoicmVhZGVyIiwiaWF0IjoxNzA2NDU3NzQ2fQ.BwJcH4zRiPlCMTXsweTmXISGWS6gX2KHS25CX9dzKxI")
-  const token = ref(null)
-  const userId = ref("recNP6y8HGySv0bg0")
-  const email = ref("david.lipkovic@gmail.com")
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
@@ -66,6 +66,19 @@ export const useUserStore = defineStore("user", () => {
     .filter((key) => data[key] != null)
     .reduce((a, key) => ({ ...a, [key]: data[key] }), {})
   }
+
+  const getCurrentUserAuthorizationData = () => {
+    if (window.localStorage || window.sessionStorage) {
+      let data = window.localStorage.getItem('fibUser')
+
+      if (data) {
+        currentUserAuthorizationData.value = JSON.parse(data)
+      } else {
+        data = window.sessionStorage.getItem('fibUser')
+        currentUserAuthorizationData.value = JSON.parse(data)
+      }
+    }
+  }
   
   const login = async (body) => {
     try {
@@ -73,30 +86,38 @@ export const useUserStore = defineStore("user", () => {
         method: 'post',
         body: removeNullProps(body)
       })
+      
       console.log(responseData.value)
+
+      if (responseData.value.statusText === 'success') {
+        router.push('/VerifyEmail')
+      }
     } catch (error) {
       console.error('Error signing in:', error)
     }
   }
 
   const updateUser = async (body) => {
+    const headers = {}
     const parsedBody = removeNullProps(body)
+
+    if (currentUserAuthorizationData.value) {
+      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
+    } else {
+      return
+    }
+
     if (!parsedBody) {
       return
     }
 
-    const headers = {}
-
-    if (token.value) {
-      headers['Authorization'] = 'Bearer ' + token.value
-    }
-
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
-        headers,
         method: 'put',
+        headers,
         body: parsedBody
       })
+
       console.log(responseData.value)
     } catch (error) {
       console.error('Error updating user:', error)
@@ -106,22 +127,27 @@ export const useUserStore = defineStore("user", () => {
   const deleteUser = async () => {
     const headers = {}
 
-    if (token.value) {
-      headers['Authorization'] = 'Bearer ' + token.value
+    if (currentUserAuthorizationData.value) {
+      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
+    } else {
+      return
     }
 
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
-        headers,
         method: 'delete',
+        headers,
       })
+
       console.log(responseData.value)
+
+      router.push('/')
     } catch (error) {
       console.error('Error deleting user:', error)
     }
   }
 
-  const validatePin = async (email, pin) => {
+  const validatePin = async (email, pin, remember) => {
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/validate', {
         method: 'post',
@@ -133,9 +159,28 @@ export const useUserStore = defineStore("user", () => {
 
       console.log(responseData.value.result)
 
-      token.value = responseData.value.result.token
-      userId.value = responseData.value.result.userId
-      email.value = responseData.value.result.email
+      if (responseData.value.statusText !== 'success') {
+        throw new TypeError('Error validating pin: Not succesful')
+      }
+
+      currentUserAuthorizationData.value = {
+        email: responseData.value.result.email,
+        token: responseData.value.result.token,
+        userId: responseData.value.result.userId,
+      }
+
+      if (remember && window.localStorage) {
+        currentUserAuthorizationData.value = {
+          ...currentUserAuthorizationData.value,
+          remember,
+        }
+
+        window.localStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
+      } else if (window.sessionStorage) {
+        window.sessionStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
+      }
+
+      router.push('/Profile')
     } catch (error) {
       console.error('Error validating pin:', error)
     }
@@ -144,21 +189,24 @@ export const useUserStore = defineStore("user", () => {
   const getUserData = async () => {
     const headers = {}
 
-    if (token.value) {
-      headers['Authorization'] = 'Bearer ' + token.value
+    if (currentUserAuthorizationData.value) {
+      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
+    } else {
+      return
     }
 
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user', {
-        headers,
         method: 'get',
+        headers,
       })
-      console.log(responseData.value)
+
+      console.log('getUserData response', responseData.value)
 
       const result = responseData.value.result
 
-      currentUserReactive.value = {
-        email: result.email,
+      currentUser.value = {
+        email: currentUserAuthorizationData.value.email,
         username: result.username,
         countryOfResidence: result.countyOfResidence,
         language: result.language.toUpperCase(),
@@ -170,27 +218,28 @@ export const useUserStore = defineStore("user", () => {
         publishUsername: result.publishUsername,
       }
     } catch (error) {
-      console.error('Error signing in:', error)
+      router.push('/')
+      console.error('Error getting user data:', error)
     }
   }
   
   const getUserActivities = async () => {
+    const headers = {}
+
+    if (currentUserAuthorizationData.value) {
+      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
+    } else {
+      return
+    }
+
     try {
-      const headers = {}
-
-      if (token.value) {
-        headers['Authorization'] = 'Bearer ' + token.value
-      }
-
-      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + userId.value, {
+      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + currentUserAuthorizationData.value.userId, {
         headers,
       })
 
-      console.log(responseData)
-      console.log(responseData.value.result)
-
+      console.log(responseData.value)
     } catch (error) {
-      console.error('Error fetching user activities data:', error)
+      console.error('Error getting user activities:', error)
     }
   }
   
@@ -209,15 +258,15 @@ export const useUserStore = defineStore("user", () => {
   return {
     loading,
     currentUser,
-    currentUserReactive,
+    currentUserAuthorizationData,
     isLogged,
     login,
     updateUser,
     deleteUser,
     validatePin,
+    getCurrentUserAuthorizationData,
     getUserData,
     getUserActivities,
     createStitchingActivity,
-    token,
   }
 })

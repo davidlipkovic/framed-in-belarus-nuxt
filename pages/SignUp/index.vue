@@ -45,7 +45,7 @@ const signUp = () => {
   }
 
   userStore.login(body)
-  router.push('/VerifyEmail')
+  // router.push('/VerifyEmail')
 }
 
 const username = ref(null)

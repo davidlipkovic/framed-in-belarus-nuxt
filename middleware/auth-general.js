@@ -2,17 +2,23 @@ import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (userStore.token && !userStore.currentUserReactive) {
-    userStore.loading = true
-    await userStore.getUserData()
-    userStore.loading = false
+  if (userStore.currentUser) {
+    return
+  }
 
-    if (userStore.currentUserReactive) {
-      userStore.isLogged = true
-    } else {
-      userStore.isLogged = false
+  userStore.getCurrentUserAuthorizationData()
+
+  if (userStore.currentUserAuthorizationData && userStore.currentUserAuthorizationData.token && userStore.currentUserAuthorizationData.remember) {
+    if (!userStore.currentUser) {
+      userStore.loading = true
+      await userStore.getUserData()
+      
+      if (!userStore.currentUser) {
+        userStore.loading = false
+        userStore.isLogged = false
+      }
     }
-  } else if (userStore.currentUserReactive) {
+
     userStore.loading = false
     userStore.isLogged = true
   } else {

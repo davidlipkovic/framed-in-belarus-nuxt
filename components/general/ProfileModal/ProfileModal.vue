@@ -11,10 +11,21 @@ const emit = defineEmits([
 
 const router = useRouter()
 
-const signOut = () => {
-  router.go(0)
-  userStore.isLogged = false
+const signOut = async () => {
+  if (window.localStorage) {
+    let data = window.localStorage.getItem('fibUser')
+
+    if (data) {
+      data = JSON.parse(data)
+      data.remember = false
+      window.localStorage.setItem('fibUser', JSON.stringify(data))
+    }
+  }
+  
   emit('closeModal')
+  userStore.currentUser = null
+  userStore.currentUserAuthorizationData = null
+  router.go(0)
 }
 
 const root = ref(null)
@@ -34,7 +45,7 @@ onClickOutside(root, () => {
     <span
       class="profileModalWrapperName"
     >
-      {{ userStore.currentUserReactive.username }}
+      {{ userStore.currentUser.username }}
     </span>
     <nuxt-link
       :to="localePath('/Profile')"
