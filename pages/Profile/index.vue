@@ -127,7 +127,10 @@ const deleteUser = async () => {
         </div>
         <div class="userProfile-body flexColumnStart">
           <div class="userInfoWrapper">
-            <p class="flexRowStart">
+            <p 
+              v-if="userStore.currentUser.username"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.username') }}
               </span>
@@ -135,7 +138,10 @@ const deleteUser = async () => {
                 {{ userStore.currentUser.username }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.email"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.email') }}
               </span>
@@ -143,7 +149,10 @@ const deleteUser = async () => {
                 {{ userStore.currentUser.email }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.countryOfResidence"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.country') }}
               </span>
@@ -151,7 +160,10 @@ const deleteUser = async () => {
                 {{ userStore.currentUser.countryOfResidence }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.instagram"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.instagram') }}
               </span>
@@ -159,7 +171,10 @@ const deleteUser = async () => {
                 {{ userStore.currentUser.instagram }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.language"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
