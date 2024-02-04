@@ -24,10 +24,17 @@ const validEmailData = computed(() => {
 })
 
 const subscribe = async () => {
-  await userStore.login({
-    email: email.value,
-    subscription: true
-  })
+  if (userStore.currentUser) {
+    await userStore.updateUser({
+      email: email.value,
+      subscription: true
+    })
+  } else {
+    await userStore.login({
+      email: email.value,
+      subscription: true
+    })
+  }
 
   toggleSubscribeModal.value = true
 }
