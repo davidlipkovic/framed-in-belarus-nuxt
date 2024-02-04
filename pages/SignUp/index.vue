@@ -27,7 +27,7 @@ const prevSlide = () => {
   localSwiper.slidePrev()
 }
 
-const signUp = () => {
+const signUp = async () => {
   const body = {
     email: email.value,
     username: username.value,
@@ -44,8 +44,10 @@ const signUp = () => {
     publishUsername: publishUsername.value,
   }
 
-  userStore.login(body)
-  // router.push('/VerifyEmail')
+  userStore.loading = true
+  await userStore.login(body)
+  userStore.loading = false
+  router.push('/VerifyEmail')
 }
 
 const username = ref(null)

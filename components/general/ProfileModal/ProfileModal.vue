@@ -14,9 +14,9 @@ const router = useRouter()
 const signOut = async () => {
   if (window.localStorage) {
     let data = window.localStorage.getItem('fibUser')
+    data = JSON.parse(data)
 
     if (data) {
-      data = JSON.parse(data)
       data.remember = false
       window.localStorage.setItem('fibUser', JSON.stringify(data))
     }

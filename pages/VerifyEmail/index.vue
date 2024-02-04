@@ -1,9 +1,11 @@
 <script setup>
 // WIP
 import { computed, onMounted, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
+const router = useRouter()
 const userStore = useUserStore()
 const { validateEmail, validatePinData } = useValidateInputs()
 
@@ -21,6 +23,7 @@ const remember = ref(false)
 
 const validatePin = () => {
   userStore.validatePin(email.value, pin.value, remember.value)
+  router.push('/Profile')
 }
 
 const validEmailData = computed(() => validateEmail(email.value))

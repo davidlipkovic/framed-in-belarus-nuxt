@@ -1,9 +1,9 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 
 export const useUserStore = defineStore("user", () => {
-  const router = useRouter()
+  // const router = useRouter()
 
   const loading = ref(false)
   // const loginAttempts = ref(0)
@@ -89,9 +89,7 @@ export const useUserStore = defineStore("user", () => {
       
       console.log(responseData.value)
 
-      if (responseData.value.statusText === 'success') {
-        router.push('/VerifyEmail')
-      }
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error signing in:', error)
     }
@@ -119,6 +117,8 @@ export const useUserStore = defineStore("user", () => {
       })
 
       console.log(responseData.value)
+
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error updating user:', error)
     }
@@ -141,7 +141,18 @@ export const useUserStore = defineStore("user", () => {
 
       console.log(responseData.value)
 
-      router.push('/')
+      if (window.localStorage) {
+        window.localStorage.removeItem('fibUser')
+      }
+
+      if (window.sessionStorage) {
+        window.sessionStorage.removeItem('fibUser')
+      }
+
+      currentUser.value = null
+      currentUserAuthorizationData.value = null
+
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error deleting user:', error)
     }
@@ -165,22 +176,18 @@ export const useUserStore = defineStore("user", () => {
 
       currentUserAuthorizationData.value = {
         email: responseData.value.result.email,
+        remember,
         token: responseData.value.result.token,
         userId: responseData.value.result.userId,
       }
 
       if (remember && window.localStorage) {
-        currentUserAuthorizationData.value = {
-          ...currentUserAuthorizationData.value,
-          remember,
-        }
-
         window.localStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
       } else if (window.sessionStorage) {
         window.sessionStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
       }
 
-      router.push('/Profile')
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error validating pin:', error)
     }
@@ -217,8 +224,9 @@ export const useUserStore = defineStore("user", () => {
         publishInstagram: result.publishInstagram,
         publishUsername: result.publishUsername,
       }
+
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
-      router.push('/')
       console.error('Error getting user data:', error)
     }
   }
@@ -238,6 +246,8 @@ export const useUserStore = defineStore("user", () => {
       })
 
       console.log(responseData.value)
+
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error getting user activities:', error)
     }

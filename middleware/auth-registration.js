@@ -12,7 +12,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     if (!userStore.currentUser) {
       userStore.loading = true
       await userStore.getUserData()
-      
+
       if (!userStore.currentUser) {
         userStore.loading = false
         userStore.isLogged = false

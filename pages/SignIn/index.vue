@@ -1,8 +1,11 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
+const router = useRouter()
+const localePath = useLocalePath()
 const userStore = useUserStore()
 const { validateEmail } = useValidateInputs()
 
@@ -13,25 +16,42 @@ definePageMeta({
 const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
+const invalidEmail = ref(false)
 const remember = ref(false)
 
-const signIn = () => {
-  // WIP
+const signIn = async () => {
   let data
 
   if (window.localStorage) {
     data = window.localStorage.getItem('fibUser')
+    data = JSON.parse(data)
+    data.remember = remember.value
+    window.localStorage.setItem('fibUser', JSON.stringify(data))
 
-    if (data) {
-      data = JSON.parse(data)
-      data.remember = remember.value
-      window.localStorage.setItem('fibUser', JSON.stringify(data))
+    if (data && data.email === email.value) {
+      userStore.loading = true
+      userStore.getCurrentUserAuthorizationData()
+      const userExists = await userStore.getUserData()
+      userStore.loading = false
+
+      if (userExists) {
+        userStore.isLogged = true
+        router.push(localePath('/Profile'))
+      } else {
+        userStore.isLogged = false
+        invalidEmail.value = true
+      }
+    } else {
+      userStore.loading = true
+      const userSignedUp = await userStore.login({email: email.value})
+      userStore.loading = false
+
+      if (userSignedUp) {
+        router.push(localePath('/VerifyEmail'))
+      } else {
+        invalidEmail.value = true
+      }
     }
-  } else {
-    userStore.login({email: email.value})
-    router.push('/Profile')
-
-    userStore.isLogged = true
   }
 }
 
@@ -76,6 +96,12 @@ onClickOutside(emailInput, () => {
         class="warningNotification note red"
       >
         {{ $t('invalidInputs.enterEmailAdress') }}
+      </span>
+      <span 
+        v-if="invalidEmail"
+        class="warningNotification note red"
+      >
+        User with this email is not signed up
       </span>
       <label
         for="remember"

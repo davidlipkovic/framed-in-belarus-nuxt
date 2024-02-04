@@ -91,9 +91,8 @@ const updateUser = async () => {
 const deleteUser = async () => {
   userStore.loading = true
   await userStore.deleteUser()
-  await userStore.getUserData()
   userStore.loading = false
-  displayDeleteProfileModal.value = false
+  router.push('/')
 }
 </script>
 
