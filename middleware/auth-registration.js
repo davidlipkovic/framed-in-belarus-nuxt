@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   userStore.getCurrentUserAuthorizationData()
 
-  if (userStore.currentUserAuthorizationData && userStore.currentUserAuthorizationData.token && userStore.currentUserAuthorizationData.remember) {
+  if (userStore.currentUserAuthorizationData && userStore.currentUserAuthorizationData.token && (userStore.currentUserAuthorizationData.remember || from.fullPath.includes('VerifyEmail'))) {
     if (!userStore.currentUser) {
       userStore.loading = true
       await userStore.getUserData()

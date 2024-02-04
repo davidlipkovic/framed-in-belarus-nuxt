@@ -22,8 +22,8 @@ const pinInput = ref(null)
 const pinTypingStarted = ref(false)
 const remember = ref(false)
 
-const validatePin = () => {
-  userStore.validatePin(email.value, pin.value, remember.value)
+const validatePin = async () => {
+  await userStore.validatePin(email.value, pin.value, remember.value)
   router.push(localePath('/Profile'))
 }
 
