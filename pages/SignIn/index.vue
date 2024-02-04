@@ -48,6 +48,7 @@ const signIn = async () => {
       userStore.loading = false
 
       if (userSignedUp) {
+        data = {}
         data.remember = remember.value
         window.localStorage.setItem('fibUser', JSON.stringify(data))
 
