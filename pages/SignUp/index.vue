@@ -10,7 +10,6 @@ const { locales, t } = useI18n()
 
 const router = useRouter()
 const localePath = useLocalePath()
-
 const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
 
