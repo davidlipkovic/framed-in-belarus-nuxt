@@ -16,9 +16,6 @@ const emailTypingStarted = ref(false)
 const remember = ref(false)
 
 const signIn = () => {
-  // userStore.login(email.value)
-  // window.sessionStorage.setItem('fibIsLogged', true)
-  // window.sessionStorage.getItem('bcNotificationID')
   userStore.isLogged = true
 }
 

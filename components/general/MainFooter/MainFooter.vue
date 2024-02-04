@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useValidateInputs } from "@/composables/ValidateInputs";
@@ -10,7 +10,6 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const { validateEmail } = useValidateInputs()
 
 const route = useRoute()
-const router = useRouter()
 
 const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
