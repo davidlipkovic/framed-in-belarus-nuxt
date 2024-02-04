@@ -9,6 +9,7 @@ import { useI18n } from 'vue-i18n'
 const { locales, t } = useI18n()
 
 const router = useRouter()
+const localePath = useLocalePath()
 
 const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
@@ -28,7 +29,7 @@ const prevSlide = () => {
 }
 
 const createAccount = () => {
-  router.push('/VerifyEmail')
+  router.push(localePath('/VerifyEmail'))
 }
 
 const username = ref(null)
