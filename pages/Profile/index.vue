@@ -84,7 +84,10 @@ const updateLanguage = (lang) => {
         </div>
         <div class="userProfile-body flexColumnStart">
           <div class="userInfoWrapper">
-            <p class="flexRowStart">
+            <p 
+              v-if="userStore.currentUser.username"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.username') }}
               </span>
@@ -92,7 +95,10 @@ const updateLanguage = (lang) => {
                 {{ userStore.currentUser.username }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.email"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.email') }}
               </span>
@@ -100,7 +106,10 @@ const updateLanguage = (lang) => {
                 {{ userStore.currentUser.email }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.countryOfResidence"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.country') }}
               </span>
@@ -108,7 +117,10 @@ const updateLanguage = (lang) => {
                 {{ userStore.currentUser.countryOfResidence }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.instagram"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.instagram') }}
               </span>
@@ -116,7 +128,10 @@ const updateLanguage = (lang) => {
                 {{ userStore.currentUser.instagram }}
               </span>
             </p>
-            <p class="flexRowStart">
+            <p
+              v-if="userStore.currentUser.language"
+              class="flexRowStart"
+            >
               <span>
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
