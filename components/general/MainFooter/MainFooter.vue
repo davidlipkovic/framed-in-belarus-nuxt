@@ -23,6 +23,15 @@ const validEmailData = computed(() => {
   return validateEmail(email.value)
 })
 
+const subscribe = async () => {
+  await userStore.login({
+    email: email.value,
+    subscription: true
+  })
+
+  toggleSubscribeModal.value = true
+}
+
 watch(route, n => {
   toggleProfileModal.value = false
   toggleQuestionModal.value = false
@@ -90,7 +99,7 @@ onClickOutside(emailInput, () => {
               </div>
               <button 
                 class="button"
-                @click="toggleSubscribeModal = true"
+                @click="subscribe()"
               >
                 {{ $t('buttons.subscribe') }}
               </button>
