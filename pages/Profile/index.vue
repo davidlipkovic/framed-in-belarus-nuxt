@@ -140,12 +140,14 @@ const updateLanguage = (lang) => {
               </span>
             </p>
           </div>
-          <h3 class="b">
-            {{ $t('profilePage.question') }}
-          </h3>
-          <p>
-            {{ userStore.currentUser.reasonTruncated }}
-          </p>
+          <template v-if="userStore.currentUser.reason">
+            <h3 class="b">
+              {{ $t('profilePage.question') }}
+            </h3>
+            <p>
+              {{ userStore.currentUser.reasonTruncated }}
+            </p>
+          </template>
         </div>
         <div class="userProfile-buttons flexColumnCenter">
           <button 
