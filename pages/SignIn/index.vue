@@ -44,7 +44,7 @@ onClickOutside(emailInput, () => {
         {{ $t("signInPage.signUpQuestion.highlight") }}
       </nuxt-link>
     </p>
-    <form class="formWrapper">
+    <div class="formWrapper">
       <input 
         type="email" 
         name="email" 
@@ -82,7 +82,7 @@ onClickOutside(emailInput, () => {
       >
         {{ $t("signInPage.signInButton") }}
       </nuxt-link>
-    </form>
+    </div>
   </div>
 </template>
 

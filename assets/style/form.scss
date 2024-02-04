@@ -1,6 +1,7 @@
 @import "./globalPartials/variables.scss";
 
-form {
+form,
+.formWrapper {
   display: flex;
   flex-direction: column;
   align-items: stretch;

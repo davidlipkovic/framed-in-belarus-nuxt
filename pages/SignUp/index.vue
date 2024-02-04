@@ -116,7 +116,7 @@ onClickOutside(countryOfResidenceInput, () => {
         {{ $t("links.signIn") }}
       </nuxt-link>
     </p>
-    <form class="formWrapper flexColumnStart">
+    <div class="formWrapper">
       <div
         v-show="currentSlide === 0" 
         class="slide"
@@ -474,7 +474,7 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
         </div>
       </div>
-    </form>
+    </div>
     <div class="paginationWrapper flexRowCenter">
       <span
         v-for="(slide, index) in 3"

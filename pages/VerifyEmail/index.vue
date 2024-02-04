@@ -57,7 +57,7 @@ onClickOutside(pinInput, () => {
         <p>
           {{ $t('verifyEmailPage.content') }}
         </p>
-        <form class="formWrapper">
+        <div class="formWrapper">
           <input 
             type="email" 
             name="email" 
@@ -90,7 +90,7 @@ onClickOutside(pinInput, () => {
           >
             {{ $t('invalidInputs.enterPinCode') }}
           </span>
-        </form>
+        </div>
         <div class="buttons">
           <button 
             class="button"
