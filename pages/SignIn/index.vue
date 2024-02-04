@@ -80,29 +80,31 @@ onClickOutside(emailInput, () => {
         {{ $t("signInPage.signUpQuestion.highlight") }}
       </nuxt-link>
     </p>
-    <form class="formWrapper">
-      <input 
-        type="email" 
-        name="email" 
-        id="email" 
-        v-model="email"
-        :placeholder="$t('placeholders.email') + '*'"  
-        class="emailInput"
-        :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-        ref="emailInput"
-      />
-      <span 
-        v-if="!validEmailData && emailTypingStarted"
-        class="warningNotification note red"
-      >
-        {{ $t('invalidInputs.enterEmailAdress') }}
-      </span>
-      <span 
-        v-if="invalidEmail"
-        class="warningNotification note red"
-      >
-        User with this email is not signed up
-      </span>
+    <div class="formWrapper">
+      <div class="inputWrapper inputWrapperWarningTop">
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          v-model="email"
+          :placeholder="$t('placeholders.email') + '*'"  
+          class="emailInput"
+          :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+          ref="emailInput"
+        />
+        <span 
+          v-if="!validEmailData && emailTypingStarted"
+          class="warningNotification note red"
+        >
+          {{ $t('invalidInputs.enterEmailAdress') }}
+        </span>
+        <span 
+          v-if="invalidEmail"
+          class="warningNotification note red"
+        >
+          User with this email is not signed up
+        </span>
+      </div>
       <label
         for="remember"
         class="checkBoxWrapper"
@@ -123,7 +125,7 @@ onClickOutside(emailInput, () => {
       >
         {{ $t("signInPage.signInButton") }}
       </button>
-    </form>
+    </div>
   </div>
 </template>
 

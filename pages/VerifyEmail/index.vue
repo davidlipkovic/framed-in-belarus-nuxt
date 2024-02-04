@@ -10,7 +10,7 @@ const userStore = useUserStore()
 const { validateEmail, validatePinData } = useValidateInputs()
 
 definePageMeta({
-  layout: "clean"
+  layout: "registration"
 })
 
 const email = ref(null)
@@ -44,82 +44,68 @@ onClickOutside(pinInput, () => {
 </script>
 
 <template>
-  <div class="verifyEmailWrapper flexColumnCenter">
-    <RegistrationMainMenu/>
-    <main class="Content flexColumnCenter">
-      <div class="content flexColumnCenter">
-        <div class="Embroiderer flexColumnCenter">
-          <img 
-            src="../../assets/media/img/embroiderer.svg" 
-            alt="Embroiderer" 
-            class="Img"
-          >
-        </div>
-        <h1>
-          {{ $t('verifyEmailPage.title') }}
-        </h1>
-        <p>
-          {{ $t('verifyEmailPage.content') }}
-        </p>
-        <form class="formWrapper">
-          <input 
-            type="email" 
-            name="email" 
-            id="email" 
-            v-model="email"
-            :placeholder="$t('placeholders.email') + '*'"  
-            class="emailInput"
-            :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-            ref="emailInput"
-          />
-          <span 
-            v-if="!validEmailData && emailTypingStarted"
-            class="warningNotification note red"
-          >
-            {{ $t('invalidInputs.enterEmailAdress') }}
-          </span>
-          <input 
-            type="text" 
-            name="pin" 
-            id="pin" 
-            v-model="pin"
-            :placeholder="$t('placeholders.pin') + '*'" 
-            class="pinInput"
-            :class="{'invalidInput': !validPinData && pinTypingStarted}" 
-            ref="pinInput"
-          />
-          <span 
-            v-if="!validPinData && pinTypingStarted"
-            class="warningNotification note red"
-          >
-            {{ $t('invalidInputs.enterPinCode') }}
-          </span>
-          <label
-            for="remember"
-            class="checkBoxWrapper"
-          >
-            <input 
-              type="checkbox" 
-              id="remember" 
-              name="remember"
-              :value="true"
-              v-model="remember"
-            />
-            {{ $t("signInPage.remember") }}
-          </label>
-        </form>
-        <div class="buttons">
-          <button 
-            class="button"
-            :class="validData ? 'bg_black' : 'button_disabled'"
-            @click="validatePin()"
-          >
-            {{ $t('buttons.send') }}
-          </button>
-        </div>
+  <div class="content verifyEmailWrapper">
+    <h1 class="title">
+      {{ $t('verifyEmailPage.title') }}
+    </h1>
+    <div class="formWrapper">
+      <div class="inputWrapper inputWrapperWarningTop">
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          v-model="email"
+          :placeholder="$t('placeholders.email') + '*'"  
+          class="emailInput"
+          :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+          ref="emailInput"
+        />
+        <span 
+          v-if="!validEmailData && emailTypingStarted"
+          class="warningNotification note red"
+        >
+          {{ $t('invalidInputs.enterEmailAdress') }}
+        </span>
       </div>
-    </main>
-    <GeneralCookieBar/>
+      <div class="inputWrapper inputWrapperWarningTop">
+        <input 
+          type="text" 
+          name="pin" 
+          id="pin" 
+          v-model="pin"
+          :placeholder="$t('placeholders.pin') + '*'" 
+          class="pinInput"
+          :class="{'invalidInput': !validPinData && pinTypingStarted}" 
+          ref="pinInput"
+        />
+        <span 
+          v-if="!validPinData && pinTypingStarted"
+          class="warningNotification note red"
+        >
+          {{ $t('invalidInputs.enterPinCode') }}
+        </span>
+      </div>
+      <label
+        for="remember"
+        class="checkBoxWrapper"
+      >
+        <input 
+          type="checkbox" 
+          id="remember" 
+          name="remember"
+          :value="true"
+          v-model="remember"
+        />
+        {{ $t("signInPage.remember") }}
+      </label>
+      <button
+        class="button"
+        :class="validData ? 'bg_black' : 'button_disabled'"
+        @click="validatePin()"
+      >
+        {{ $t('buttons.send') }}
+      </button>
+    </div>
   </div>
 </template>
 

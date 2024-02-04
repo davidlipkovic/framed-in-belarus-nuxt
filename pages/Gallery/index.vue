@@ -1,11 +1,10 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue"
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useHeroesStore } from "@/stores/heroes"
 import { useSearch } from "@/composables/Search";
 
 const route = useRoute()
-const router = useRouter()
 
 const heroesStore = useHeroesStore();
 const {

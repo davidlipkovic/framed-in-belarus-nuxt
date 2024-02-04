@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useValidateInputs } from "@/composables/ValidateInputs";
@@ -10,7 +10,6 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const { validateEmail } = useValidateInputs()
 
 const route = useRoute()
-const router = useRouter()
 
 const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
@@ -70,22 +69,24 @@ onClickOutside(emailInput, () => {
           <div class="Info-menu-group flexColumnCenter">
             <div class="flexColumnStart subscribeWrapper">
               <div class="flexColumnStart">
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  :placeholder="$t('placeholders.email')"
-                  v-model="email"
-                  class="emailInput"
-                  :class="{'invalidInput': !validEmailData && emailTypingStarted}"
-                  ref="emailInput"
-                />
-                <span 
-                  v-if="!validEmailData && emailTypingStarted"
-                  class="warningNotification note red"
-                >
-                  {{ $t('invalidInputs.enterEmailAdress') }}
-                </span>
+                <div class="inputWrapper inputWrapperWarningBottom">
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    :placeholder="$t('placeholders.email')"
+                    v-model="email"
+                    class="emailInput"
+                    :class="{'invalidInput': !validEmailData && emailTypingStarted}"
+                    ref="emailInput"
+                  />
+                  <span 
+                    v-if="!validEmailData && emailTypingStarted"
+                    class="warningNotification note red"
+                  >
+                    {{ $t('invalidInputs.enterEmailAdress') }}
+                  </span>
+                </div>
               </div>
               <button 
                 class="button"

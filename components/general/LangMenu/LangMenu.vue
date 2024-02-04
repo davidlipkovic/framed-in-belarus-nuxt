@@ -1,10 +1,9 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 const { locale, locales, localeProperties } = useI18n()
 
 const route = useRoute()
-const router = useRouter()
 
 const langMenu = ref(null)
 const switchLocalePath = useSwitchLocalePath()

@@ -1,70 +1,41 @@
 @import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/mixins/general";
+@import "../../assets/style/extends/checkBox";
+@import "../../assets/style/mixins/sign";
 
 .verifyEmailWrapper {
-  main {
-    min-height: calc(100vh - 70px);
+  @include signTitle;
+
+  .signUpLink {
+    font-weight: 600;
+    font-size: 1rem;
   }
 
-  @include buttons;
-    
-  .content {
-    max-width: 320px;
+  .formWrapper {
+    margin-top: 8px;
   }
 
-  .mainMenuWrapperRegistration .content {
-    padding-left: unset;
+  .emailInput {
+    margin-bottom: 1.5rem;
   }
 
-  .Embroiderer {
-    background-color: #FFF3F1;
-    width: 282px;
-    height: 274px;
-    border-radius: 12px;
-
-    img { 
-      width: 198px;
-      height: auto;
-      margin-left: 14px;
-    }
+  .checkBoxWrapper {
+    @extend .checkBoxWrapper;
+    margin-bottom: 28px;
+    margin-left: 4px;
+    font-weight: 600;
   }
 
-  h1, p {
-    text-align: center;
-  }
-
-  h1 {
-    margin-top: 34px;
-    font-size: 23px;
-  }
-
-  p {
-    max-width: 374px;
-    margin-top: 14px;
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  form {
+  .button {
     width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.625rem;
   }
 
-  input {
-    margin-top: 24px;
-  }
+  @media screen and (min-width: $br-point-lg) {
+    padding-left: 545px;
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-
-  input[type=number] {
-    margin-top: 12px;
-    appearance: textfield;
-  }
-
-  button {
-    width: 100% !important;
+    .formWrapper {
+      margin-top: 23px;
+    }
   }
 }
