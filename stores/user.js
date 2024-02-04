@@ -176,14 +176,23 @@ export const useUserStore = defineStore("user", () => {
 
       currentUserAuthorizationData.value = {
         email: responseData.value.result.email,
-        remember,
         token: responseData.value.result.token,
         userId: responseData.value.result.userId,
       }
 
       if (remember && window.localStorage) {
+        currentUserAuthorizationData.value = {
+          ...currentUserAuthorizationData.value,
+          remember,
+        }
+
         window.localStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
       } else if (window.sessionStorage) {
+        currentUserAuthorizationData.value = {
+          ...currentUserAuthorizationData.value,
+          remember: true,
+        }
+
         window.sessionStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
       }
 
