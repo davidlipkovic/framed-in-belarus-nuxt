@@ -116,6 +116,37 @@ textarea::placeholder {
   font-size: 1rem;
 }
 
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  input,
+  >*:not(.warningNotification) {
+    position: relative;
+    width: 100%;
+  }
+
+  .warningNotification {
+    position: absolute;
+  }
+}
+
+.inputWrapperWarningTop {
+  .warningNotification {
+    top: -20px;
+  }
+}
+
+.inputWrapperWarningBottom {
+  .warningNotification {
+    bottom: -20px;
+  }
+}
+
 .invalidInput {
   border-color: $red !important;
 }

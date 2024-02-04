@@ -46,38 +46,42 @@ onClickOutside(pinInput, () => {
       {{ $t('verifyEmailPage.title') }}
     </h1>
     <div class="formWrapper">
-      <input 
-        type="email" 
-        name="email" 
-        id="email" 
-        v-model="email"
-        :placeholder="$t('placeholders.email') + '*'"  
-        class="emailInput"
-        :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-        ref="emailInput"
-      />
-      <span 
-        v-if="!validEmailData && emailTypingStarted"
-        class="warningNotification note red"
-      >
-        {{ $t('invalidInputs.enterEmailAdress') }}
-      </span>
-      <input 
-        type="text" 
-        name="pin" 
-        id="pin" 
-        v-model="pin"
-        :placeholder="$t('placeholders.pin') + '*'" 
-        class="pinInput"
-        :class="{'invalidInput': !validPinData && pinTypingStarted}" 
-        ref="pinInput"
-      />
-      <span 
-        v-if="!validPinData && pinTypingStarted"
-        class="warningNotification note red"
-      >
-        {{ $t('invalidInputs.enterPinCode') }}
-      </span>
+      <div class="inputWrapper inputWrapperWarningTop">
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          v-model="email"
+          :placeholder="$t('placeholders.email') + '*'"  
+          class="emailInput"
+          :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+          ref="emailInput"
+        />
+        <span 
+          v-if="!validEmailData && emailTypingStarted"
+          class="warningNotification note red"
+        >
+          {{ $t('invalidInputs.enterEmailAdress') }}
+        </span>
+      </div>
+      <div class="inputWrapper inputWrapperWarningTop">
+        <input 
+          type="text" 
+          name="pin" 
+          id="pin" 
+          v-model="pin"
+          :placeholder="$t('placeholders.pin') + '*'" 
+          class="pinInput"
+          :class="{'invalidInput': !validPinData && pinTypingStarted}" 
+          ref="pinInput"
+        />
+        <span 
+          v-if="!validPinData && pinTypingStarted"
+          class="warningNotification note red"
+        >
+          {{ $t('invalidInputs.enterPinCode') }}
+        </span>
+      </div>
       <label
         for="remember"
         class="checkBoxWrapper"

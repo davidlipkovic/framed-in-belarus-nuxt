@@ -69,22 +69,24 @@ onClickOutside(emailInput, () => {
           <div class="Info-menu-group flexColumnCenter">
             <div class="flexColumnStart subscribeWrapper">
               <div class="flexColumnStart">
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email" 
-                  :placeholder="$t('placeholders.email')"
-                  v-model="email"
-                  class="emailInput"
-                  :class="{'invalidInput': !validEmailData && emailTypingStarted}"
-                  ref="emailInput"
-                />
-                <span 
-                  v-if="!validEmailData && emailTypingStarted"
-                  class="warningNotification note red"
-                >
-                  {{ $t('invalidInputs.enterEmailAdress') }}
-                </span>
+                <div class="inputWrapper inputWrapperWarningBottom">
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    :placeholder="$t('placeholders.email')"
+                    v-model="email"
+                    class="emailInput"
+                    :class="{'invalidInput': !validEmailData && emailTypingStarted}"
+                    ref="emailInput"
+                  />
+                  <span 
+                    v-if="!validEmailData && emailTypingStarted"
+                    class="warningNotification note red"
+                  >
+                    {{ $t('invalidInputs.enterEmailAdress') }}
+                  </span>
+                </div>
               </div>
               <button 
                 class="button"

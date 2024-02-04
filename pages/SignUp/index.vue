@@ -125,22 +125,24 @@ onClickOutside(countryOfResidenceInput, () => {
           <div class="slideBorder"/>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperUsername">
             <div class="inputContentWrapper flexColumnStart">
-              <input 
-                type="text" 
-                name="username" 
-                id="username" 
-                v-model="username"
-                :placeholder="$t('placeholders.username') + '*'" 
-                class="usernameInput"
-                :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
-                ref="usernameInput"
-              />
-              <span 
-                v-if="!validUsernameData && usernameTypingStarted"
-                class="warningNotification note red"
-              >
-                {{ $t('invalidInputs.enterYourUsername') }}
-              </span>
+              <div class="inputWrapper inputWrapperWarningTop">
+                <input 
+                  type="text" 
+                  name="username" 
+                  id="username" 
+                  v-model="username"
+                  :placeholder="$t('placeholders.username') + '*'" 
+                  class="usernameInput"
+                  :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
+                  ref="usernameInput"
+                />
+                <span 
+                  v-if="!validUsernameData && usernameTypingStarted"
+                  class="warningNotification note red"
+                >
+                  {{ $t('invalidInputs.enterYourUsername') }}
+                </span>
+              </div>
               <label
                 for="publishUsername" 
                 class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
@@ -168,22 +170,24 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperEmail">
             <div class="inputContentWrapper flexColumnStart">
-              <input 
-                type="email" 
-                name="email" 
-                id="email" 
-                v-model="email"
-                :placeholder="$t('placeholders.emailLogin') + '*'" 
-                class="emailInput"
-                :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
-                ref="emailInput"
-              />
-              <span 
-                v-if="!validEmailData && emailTypingStarted"
-                class="warningNotification note red"
-              >
-                {{ $t('invalidInputs.enterEmailAdress') }}
-              </span>
+              <div class="inputWrapper inputWrapperWarningTop">
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  v-model="email"
+                  :placeholder="$t('placeholders.emailLogin') + '*'" 
+                  class="emailInput"
+                  :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
+                  ref="emailInput"
+                />
+                <span 
+                  v-if="!validEmailData && emailTypingStarted"
+                  class="warningNotification note red"
+                >
+                  {{ $t('invalidInputs.enterEmailAdress') }}
+                </span>
+              </div>
             </div>
             <p>
               {{ $t('signUpPage.slide1.paragraph2') }}
@@ -191,22 +195,24 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperCountryOfResidence">
             <div class="inputContentWrapper flexColumnStart">
-              <input 
-                type="text" 
-                name="countryOfResidence" 
-                id="countryOfResidence"
-                v-model="countryOfResidence"
-                :placeholder="$t('placeholders.country') + '*'" 
-                class="countryOfResidenceInput"
-                :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
-                ref="countryOfResidenceInput"
-              />
-              <span 
-                v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
-                class="warningNotification note red"
-              >
-                {{ $t('invalidInputs.enterCountry') }}
-              </span>
+              <div class="inputWrapper inputWrapperWarningTop">
+                <input 
+                  type="text" 
+                  name="countryOfResidence" 
+                  id="countryOfResidence"
+                  v-model="countryOfResidence"
+                  :placeholder="$t('placeholders.country') + '*'" 
+                  class="countryOfResidenceInput"
+                  :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
+                  ref="countryOfResidenceInput"
+                />
+                <span 
+                  v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
+                  class="warningNotification note red"
+                >
+                  {{ $t('invalidInputs.enterCountry') }}
+                </span>
+              </div>
               <label 
                 for="publishCountryOfResidence"
                 class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
