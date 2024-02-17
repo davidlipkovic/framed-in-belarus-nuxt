@@ -52,8 +52,6 @@ export const useUserStore = defineStore("user", () => {
   //   ]
   // }
 
-  // currentUser.reasonTruncated = currentUser.reason.slice(0, 220) + '...'
-
   const currentUser = ref(null)
   const currentUserAuthorizationData = ref(null)
 
@@ -70,12 +68,14 @@ export const useUserStore = defineStore("user", () => {
   const getCurrentUserAuthorizationData = () => {
     if (window.localStorage || window.sessionStorage) {
       let data = window.localStorage.getItem('fibUser')
+      data = JSON.parse(data)
 
       if (data) {
-        currentUserAuthorizationData.value = JSON.parse(data)
+        currentUserAuthorizationData.value = data
       } else {
         data = window.sessionStorage.getItem('fibUser')
-        currentUserAuthorizationData.value = JSON.parse(data)
+        data = JSON.parse(data)
+        currentUserAuthorizationData.value = data
       }
     }
   }
