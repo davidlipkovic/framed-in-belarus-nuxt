@@ -4,7 +4,7 @@ const heroesStore = useHeroesStore()
 export default defineNuxtRouteMiddleware(async (to, from) => {
   if (!heroesStore.chosenHero) {
     heroesStore.loading = true
-    let data = window.sessionStorage.getItem('fibChosenHero')
+    let data = window.sessionStorage.getItem('fibPrechosenHero')
     data = JSON.parse(data)
     if (!data) {
       return navigateTo('/Embroidery/Step-1-choose-hero')

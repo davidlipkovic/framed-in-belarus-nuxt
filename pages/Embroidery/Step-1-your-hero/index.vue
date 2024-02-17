@@ -12,10 +12,18 @@ const { convertDateToReadable } = useConvertDate()
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'chosen-hero',
+    'prechosen-hero',
     'auth-registration',
   ],
 })
+
+const handleCreateStitchingActivity = async() => {
+  heroesStore.loading = true
+  await heroesStore.createStitchingActivity(heroesStore.chosenHero.kit[0].id)
+  heroesStore.loading = false
+  router.push('/Embroidery/Step-2-preparation')
+  heroesStore.chosenHero = null
+}
 </script>
 
 <template>
@@ -147,13 +155,13 @@ definePageMeta({
             >
               {{ $t("embroidery.step1Page.backButton") }}
             </nuxt-link>
-            <nuxt-link
-              :to="localePath('/Embroidery/Step-2-preparation')"
+            <button
               id="save"
               class="button bg_black"
+              @click="handleCreateStitchingActivity()"
             >
               {{ $t("embroidery.step1Page.forwardButton") }}
-            </nuxt-link>
+            </button>
           </div>
         </div>
       </section>
