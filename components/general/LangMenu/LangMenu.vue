@@ -1,9 +1,11 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-const { locale, locales, localeProperties } = useI18n()
+const { locale, locales } = useI18n()
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const route = useRoute()
+const { currentLocaleName } = useCurrentLocale()
 
 const langMenu = ref(null)
 const switchLocalePath = useSwitchLocalePath()
@@ -11,10 +13,6 @@ const toggleLangMenu = ref(false)
 
 const availableLocales = computed(() => {
   return (locales.value).filter(i => i.code !== locale.value)
-})
-
-const currentLocale = computed(() => {
-  return localeProperties.value.name
 })
 
 watch(route, n => {
@@ -35,7 +33,7 @@ onClickOutside(langMenu, () => {
       class="langButton flexRowCenter"
       @click="toggleLangMenu = !toggleLangMenu"
     >
-      {{ currentLocale }}
+      {{ currentLocaleName }}
       <SvgArrowDown/>
     </button>
     <ul 
