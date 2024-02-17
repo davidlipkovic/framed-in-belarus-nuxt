@@ -4,16 +4,16 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 import { useHeroesStore } from "@/stores/heroes"
+import { useChosenHeroData } from "@/composables/ChosenHeroData"
+import { useConvertDate } from "@/composables/ConvertDate"
 
-const heroesStore = useHeroesStore();
+const heroesStore = useHeroesStore()
+const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
+const { convertDateToReadable } = useConvertDate()
 
 const emit = defineEmits([
   'removeComponent',
 ])
-
-const localHero = computed(() => {
-  return heroesStore.chosenHero
-})
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -41,25 +41,25 @@ const showMore = ref(false)
     <div class="Hero-header">
       <div class="Hero-header-photo">
         <img 
-          v-if="!localHero.photo || localHero.photo === '' || localHero.photo === 'FALSE'"
+          v-if="!heroesStore.chosenHero.photo || heroesStore.chosenHero.photo === '' || heroesStore.chosenHero.photo === 'FALSE'"
           src="../../../assets/media/img/profileSymbolFramed.svg"
-          :alt="'Photo of' + localHero.name"
+          :alt="'Photo of' + heroesStore.chosenHero.name"
         >
         <img 
           v-else
-          :src="localHero.photo" 
-          :alt="'Photo of' + localHero.name"
+          :src="heroesStore.chosenHero.photo" 
+          :alt="'Photo of' + heroesStore.chosenHero.name"
         >
       </div>
       <div class="Hero-header-title">
         <p 
-          v-if="localHero.case"
+          v-if="prisonerCaseName"
           class="Hero-header-case"
         >
-          {{ $t('embroidery.steps.description.case') }}: {{ localHero.case }}
+          {{ $t('embroidery.steps.description.case') }}: {{ prisonerCaseName }}
         </p>
         <h2 class="Hero-header-name">
-          {{ localHero.name }}
+          {{ heroesStore.chosenHero.name }}
         </h2>
       </div>
     </div>
@@ -69,70 +69,70 @@ const showMore = ref(false)
     >
       <div class="Hero-Bio-Wrapper flexColumnStart">
         <div 
-          v-if="localHero.birthday"
+          v-if="heroesStore.chosenHero.dateOfBirth"
           class="Hero-Bio-info"
         >
           <h3 class="title">
             {{ $t('embroidery.steps.description.birth') }}:
           </h3>
-          <p>{{ localHero.birthday }}</p>
+          <p>
+            {{ convertDateToReadable(heroesStore.chosenHero.dateOfBirth) }}
+          </p>
         </div>
         <div 
-          v-if="localHero.arrested"
+          v-if="heroesStore.chosenHero.dateOfDetention" 
           class="Hero-Bio-info"
         >
           <h3 class="title">
             {{ $t('embroidery.steps.description.detention') }}:
           </h3>
           <p>
-            {{ localHero.arrested }}
+            {{ convertDateToReadable(heroesStore.chosenHero.dateOfDetention) }}
           </p>
         </div>
         <div 
-          v-if="localHero.decision"
           class="Hero-Bio-info"
+          v-if="penalty"
         >
           <h3 class="title">
             {{ $t('embroidery.steps.description.sentence') }}:
           </h3>
           <p>
-            {{ localHero.decision }}
+            {{ penalty }}
           </p>
         </div>
       </div>
       <div 
-        v-if="localHero.description"
+        v-if="heroesStore.chosenHero.description"
         class="Hero-Description-data"
       >
         <h3 class="title">
           {{ $t('embroidery.steps.description.descriptionPrisoner') }}:
         </h3>
         <p>
-          {{ localHero.description }}
+          {{ heroesStore.chosenHero.description }}
         </p>
       </div>
       <div 
-        v-if="localHero.description"
+        v-if="prisonerCaseDescription"
         class="Hero-Description-data"
       >
         <h3 class="title">
           {{ $t('embroidery.steps.description.descriptionCase') }}:
         </h3>
         <p>
-          The case description is the same as the political prisoner’s
-          description because this is an individual case, not a collective
-          one.
+          {{ prisonerCaseDescription }}
         </p>
       </div>
       <div 
-        v-if="localHero.prisonAddress"
+        v-if="heroesStore.chosenHero.prisonAddress"
         class="Hero-Description-data"
       >
         <h3 class="title">
           {{ $t('embroidery.steps.description.address') }}:
         </h3>
         <p>
-          {{ localHero.prisonAddress }}
+          {{ heroesStore.chosenHero.prisonAddress }}
         </p>
       </div>
     </div>
