@@ -72,7 +72,7 @@ const updateUser = async () => {
   const body = {
     email: handleIfValueIsUpdated('email', email.value),
     username: handleIfValueIsUpdated('username', username.value),
-    countyOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
+    countryOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
     language: handleIfValueIsUpdated('language', language.value),
     instagram: handleIfValueIsUpdated('instagram', instagram.value),
     reason: handleIfValueIsUpdated('reason', reason.value),

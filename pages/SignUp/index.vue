@@ -31,7 +31,7 @@ const signUp = async () => {
   const body = {
     email: email.value,
     username: username.value,
-    countyOfResidence: countryOfResidence.value,
+    countryOfResidence: countryOfResidence.value,
     language: language.value,
     instagram: instagram.value,
     source: source.value,

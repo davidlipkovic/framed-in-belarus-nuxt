@@ -224,7 +224,7 @@ export const useUserStore = defineStore("user", () => {
       currentUser.value = {
         email: currentUserAuthorizationData.value.email,
         username: result.username,
-        countryOfResidence: result.countyOfResidence,
+        countryOfResidence: result.countryOfResidence,
         language: result.language.toUpperCase(),
         instagram: result.instagram,
         reason: result.reason,
