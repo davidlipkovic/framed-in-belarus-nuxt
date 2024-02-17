@@ -4,6 +4,7 @@ import { defineStore } from "pinia"
 export const useUserStore = defineStore("user", () => {
   const loading = ref(false)
   const currentUser = ref(null)
+  const currentUserSummary = ref(null)
   const currentUserAuthorizationData = ref(null)
 
   const isLogged = ref(false)
@@ -225,6 +226,8 @@ export const useUserStore = defineStore("user", () => {
 
       console.log('getUserSummary', responseData.value)
 
+      currentUserSummary.value = responseData.value.result
+
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error getting user activities:', error)
@@ -234,6 +237,7 @@ export const useUserStore = defineStore("user", () => {
   return {
     loading,
     currentUser,
+    currentUserSummary,
     currentUserAuthorizationData,
     isLogged,
     login,

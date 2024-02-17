@@ -5,6 +5,7 @@ definePageMeta({
     'heroes',
     'auth-registration',
     'stitching',
+    'user-summary',
   ],
 })
 </script>

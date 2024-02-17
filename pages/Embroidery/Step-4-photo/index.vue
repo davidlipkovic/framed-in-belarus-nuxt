@@ -1,10 +1,14 @@
 <script setup>
+import { useUserStore } from "@/stores/user"
+const userStore = useUserStore()
+
 definePageMeta({
   layout: "embroidery",
   middleware: [
     'heroes',
     'auth-registration',
     'stitching',
+    'user-summary',
   ],
 })
 </script>
@@ -54,7 +58,16 @@ definePageMeta({
           </span>
           {{ $t('embroidery.step4Page.section1.paragraph3.content2') }}
         </p>
-        <div class="uploadFiles" id="uploadFilesArea">
+        <iframe
+          class="airtable-embed" 
+          :src="'https://airtable.com/embed/appFvPAAzsEUw1hf3/shrtgf5Wiblt7v9jf?prefill_stitchingId=' + userStore.currentUserSummary[0].stitchingId + '&hide_stitchingId=true'"
+          frameborder="0" 
+          onmousewheel=""
+          width="100%" 
+          height="533" 
+          style="background: transparent; border: 1px solid #ccc;"
+        />
+        <!-- <div class="uploadFiles" id="uploadFilesArea">
           <label class="uploadFiles-descript flexColumnCenter" for="uploadFiles">
             <span class="line">
               {{ $t('embroidery.step4Page.dropZone.content') }}
@@ -75,7 +88,7 @@ definePageMeta({
           <RegistrationImagePreview/>
           <RegistrationImagePreview/>
           <RegistrationImagePreview/>
-        </div>
+        </div> -->
         <div class="buttons">
           <nuxt-link 
             :to="localePath('/Embroidery/Step-3-support')"
