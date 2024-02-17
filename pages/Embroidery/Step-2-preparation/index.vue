@@ -1,4 +1,7 @@
 <script setup>
+import { useHeroesStore } from "@/stores/heroes"
+const heroesStore = useHeroesStore()
+
 definePageMeta({
   layout: "embroidery",
   middleware: [
@@ -39,10 +42,10 @@ const AlphabetPattern3 = ref({ show: false })
       />
       <section class="Step2">
         <GeneralImageModal
-          alt=""
-          fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema_full.jpg"
-          iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/case1/schema.jpg"
           class="paternSchemaWrapper"
+          alt=""
+          :fullImageUrl="heroesStore.chosenHero.kit[0].pattern[0].photo"
+          :iconImageUrl="heroesStore.chosenHero.kit[0].pattern[0].photo"
           :showIcons="true"
         />
         <RegistrationHeroBio />
