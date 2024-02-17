@@ -2,35 +2,20 @@
 import { ref } from 'vue'
 
 import { useHeroesStore } from "@/stores/heroes"
-
-const changeDateFormat = (date) => date.getDay() + ' ' + date.toLocaleString('en-us', { month: 'long' }) + ' ' + date.getFullYear()
+import { useChosenHeroData } from "@/composables/ChosenHeroData"
+import { useConvertDate } from "@/composables/ConvertDate"
 
 const heroesStore = useHeroesStore()
+const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
+const { convertDateToReadable } = useConvertDate()
 
 definePageMeta({
   layout: "embroidery",
   middleware: [
+    'chosen-hero',
     'auth-registration',
   ],
 })
-
-const localHero = computed(() => {
-  // WIP
-  heroesStore.chosenHero.case = true
-  heroesStore.chosenHero.prisonAddress = 'test'
-
-  return heroesStore.chosenHero
-})
-
-// WIP
-const description = `
-  In April 2021, the initiative "Rabochy Ruh" was formed, uniting working people in Belarus to protect their civil and labour rights and freedoms. They put forward a number of demands to the current Belarusian authorities:
-  1. Stop the use of violence and persecution by law enforcement agencies against peaceful citizens;
-  2. To release all political prisoners and cancel court sentences handed down against them;
-  2. To release all political prisoners and cancel court sentences handed down against them;
-  2. To release all political prisoners and cancel court sentences handed down against them;
-  2. To release all political prisoners and cancel court sentences handed down against them;
-`
 </script>
 
 <template>
@@ -60,88 +45,88 @@ const description = `
       <section class="FoundHero" hidden>
         <div class="Hero-Photo">
           <img 
-            v-if="!localHero.photo || localHero.photo === '' || localHero.photo === 'FALSE'"
+            v-if="!heroesStore.chosenHero.photo || heroesStore.chosenHero.photo === '' || heroesStore.chosenHero.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"
-            :alt="'Photo of' + localHero.name"
+            :alt="'Photo of' + heroesStore.chosenHero.name"
           >
           <img 
             v-else
-            :src="localHero.photo" 
-            :alt="'Photo of' + localHero.name"
+            :src="heroesStore.chosenHero.photo" 
+            :alt="'Photo of' + heroesStore.chosenHero.name"
           >
         </div>
         <div class="Hero-Description">
           <p 
-            v-if="localHero.case"
+            v-if="prisonerCaseName"
             class="Hero-Description-case"
           >
-            {{ $t('embroidery.steps.description.case') }}: Example case
+            {{ $t('embroidery.steps.description.case') }}: {{ prisonerCaseName }}
           </p>
           <h2 class="Hero-Description-name">
-            {{ localHero.name }}
+            {{ heroesStore.chosenHero.name }}
           </h2>
           <div class="Hero-content-titleWrapper flexRowStart">
             <div
-              v-if="localHero.birthdayProgrammatic"
+              v-if="heroesStore.chosenHero.dateOfBirth"
               class="Hero-Bio-info"
             >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.birth') }}:
               </h3>
               <p>
-                {{ changeDateFormat(localHero.birthdayProgrammatic) }}
+                {{ convertDateToReadable(heroesStore.chosenHero.dateOfBirth) }}
               </p>
             </div>
             <div 
-              v-if="localHero.arrestedProgrammatic" 
+              v-if="heroesStore.chosenHero.dateOfDetention" 
               class="Hero-Bio-info"
             >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.detention') }}:
               </h3>
               <p>
-                {{ changeDateFormat(localHero.arrestedProgrammatic) }}
+                {{ convertDateToReadable(heroesStore.chosenHero.dateOfDetention) }}
               </p>
             </div>
             <div 
               class="Hero-Bio-info"
-              v-if="localHero.decision"
+              v-if="penalty"
             >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.sentence') }}:
               </h3>
               <p>
-                {{ localHero.decision }}
+                {{ penalty }}
               </p>
             </div>
           </div>
           <GeneralToggleText 
-            v-if="localHero.description"
+            v-if="prisonerCaseDescription"
             class="Hero-Description-data"
-            :message="description"
+            :message="prisonerCaseDescription"
             :title="$t('embroidery.steps.description.descriptionCase') + ':'"
             :limit="500"
           />
           <GeneralToggleText 
-            v-if="localHero.description"
+            v-if="heroesStore.chosenHero.description"
             class="Hero-Description-data"
-            :message="localHero.description"
+            :message="heroesStore.chosenHero.description"
             :title="$t('embroidery.steps.description.descriptionPrisoner') + ':'"
             :limit="500"
           />
           <div 
-            v-if="localHero.prisonAddress"
+            v-if="heroesStore.chosenHero.prisonAddress"
             class="Hero-Description-data Hero-Description-prison-address"
           >
             <h3 class="title">
               {{ $t('embroidery.steps.description.address') }}:
             </h3>
             <p>
-              {{ localHero.prisonAddress }}
+              {{ heroesStore.chosenHero.prisonAddress }}
             </p>
           </div>
           <a
-            href="#" 
+            :href="heroesStore.chosenHero.viasnaUrl" 
             target="_blank"
             class="linkToSource flexRowStart red"
           >
