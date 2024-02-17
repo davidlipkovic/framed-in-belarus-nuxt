@@ -87,7 +87,7 @@ export const useUserStore = defineStore("user", () => {
         body: removeNullProps(body)
       })
       
-      console.log(responseData.value)
+      console.log('login', responseData.value)
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -116,7 +116,7 @@ export const useUserStore = defineStore("user", () => {
         body: parsedBody
       })
 
-      console.log(responseData.value)
+      console.log('updateUser', responseData.value)
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -139,7 +139,7 @@ export const useUserStore = defineStore("user", () => {
         headers,
       })
 
-      console.log(responseData.value)
+      console.log('deleteUser', responseData.value)
 
       if (window.localStorage) {
         window.localStorage.removeItem('fibUser')
@@ -168,7 +168,7 @@ export const useUserStore = defineStore("user", () => {
         }
       })
 
-      console.log(responseData.value.result)
+      console.log('validatePin', responseData.value.result)
 
       if (responseData.value.statusText !== 'success') {
         throw new TypeError('Error validating pin: Not succesful')
@@ -217,7 +217,7 @@ export const useUserStore = defineStore("user", () => {
         headers,
       })
 
-      console.log('getUserData response', responseData.value)
+      console.log('getUserData', responseData.value)
 
       const result = responseData.value.result
 
@@ -252,10 +252,11 @@ export const useUserStore = defineStore("user", () => {
 
     try {
       const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + currentUserAuthorizationData.value.userId, {
+        method: 'get',
         headers,
       })
 
-      console.log(responseData.value)
+      console.log('getUserActivities', responseData.value)
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -263,15 +264,26 @@ export const useUserStore = defineStore("user", () => {
     }
   }
   
-  const createStitchingActivity = async (body, prisonerId) => {
+  const getUserSummary = async () => {
+    const headers = {}
+
+    if (currentUserAuthorizationData.value) {
+      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
+    } else {
+      return
+    }
+
     try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/stitching/' + prisonerId, {
-        method: 'post',
-        body: removeNullProps(body)
+      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/summary', {
+        method: 'get',
+        headers,
       })
-      console.log(responseData.value)
+
+      console.log('getUserSummary', responseData.value)
+
+      return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
-      console.error('Error creating stitching activity:', error)
+      console.error('Error getting user activities:', error)
     }
   }
 
@@ -287,6 +299,6 @@ export const useUserStore = defineStore("user", () => {
     getCurrentUserAuthorizationData,
     getUserData,
     getUserActivities,
-    createStitchingActivity,
+    getUserSummary,
   }
 })
