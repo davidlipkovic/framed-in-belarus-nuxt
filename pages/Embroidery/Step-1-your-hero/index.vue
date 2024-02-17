@@ -1,10 +1,12 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { useHeroesStore } from "@/stores/heroes"
 import { useChosenHeroData } from "@/composables/ChosenHeroData"
 import { useConvertDate } from "@/composables/ConvertDate"
 
+const router = useRouter()
 const heroesStore = useHeroesStore()
 const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
 const { convertDateToReadable } = useConvertDate()
