@@ -4,7 +4,9 @@ import { computed, onMounted, ref, watch } from "vue";
 definePageMeta({
   layout: "embroidery",
   middleware: [
+    'heroes',
     'auth-registration',
+    'stitching',
   ],
 })
 

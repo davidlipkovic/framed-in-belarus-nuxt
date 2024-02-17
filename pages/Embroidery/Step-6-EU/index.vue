@@ -7,7 +7,9 @@ const { validateLatinCharacters, validateText} = useValidateInputs()
 definePageMeta({
   layout: "embroidery",
   middleware: [
+    'heroes',
     'auth-registration',
+    'stitching',
   ],
 })
 

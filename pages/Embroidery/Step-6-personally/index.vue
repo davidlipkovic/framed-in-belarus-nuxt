@@ -4,7 +4,9 @@ import { ref } from 'vue'
 definePageMeta({
   layout: "embroidery",
   middleware: [
+    'heroes',
     'auth-registration',
+    'stitching',
   ],
 })
 
