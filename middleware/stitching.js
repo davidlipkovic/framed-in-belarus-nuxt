@@ -1,7 +1,5 @@
 import { useHeroesStore } from "@/stores/heroes"
-import { useUserStore } from "@/stores/user"
 const heroesStore = useHeroesStore()
-const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
   if (!heroesStore.chosenHero) {
