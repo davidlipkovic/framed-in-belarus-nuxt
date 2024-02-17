@@ -1,7 +1,11 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
+const router = useRouter()
+const userStore = useUserStore()
 const { validateLatinCharacters, validateText} = useValidateInputs()
 
 definePageMeta({
@@ -25,6 +29,19 @@ onClickOutside(trackingNumberInput, () => {
     trackingNumberTypingStarted.value = true
   }
 })
+
+const handleCreateShipping = async () => {
+  userStore.loading = true
+
+  const body = {
+    from: 'EU',
+    trackingNumber: trackingNumber.value,
+  }
+
+  await userStore.createShipping(body)
+  userStore.loading = false
+  router.push('/Embroidery/Step-6-processing-shipping')
+}
 </script>
 
 <template>
@@ -116,13 +133,13 @@ onClickOutside(trackingNumberInput, () => {
           >
             {{ $t('embroidery.step6Page.sectionEU.backButton') }}
           </nuxt-link>
-          <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-processing-shipping')"
+          <button 
             class="button" 
             :class="validTrackingNumber ? 'bg_black' : 'button_disabled'"
+            @click="handleCreateShipping()"
           >
             {{ $t('embroidery.step6Page.sectionEU.forwardButton') }}
-          </nuxt-link>
+          </button>
         </div>
       </section>
     </div>

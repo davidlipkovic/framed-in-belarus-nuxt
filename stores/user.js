@@ -233,9 +233,31 @@ export const useUserStore = defineStore("user", () => {
       console.error('Error getting user activities:', error)
     }
   }
+  
+  const createShipping = async (body) => {
+    const headers = setHeaders()
+
+    if (!headers) {
+      return
+    }
+
+    try {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/shipping/' + currentUserSummary.value[0].stitchingId, {
+        method: 'post',
+        headers,
+        body,
+      })
+      console.log('createShipping', responseData.value)
+
+      return responseData.value
+    } catch (error) {
+      console.error('Error creating shipping:', error)
+    }
+  }
 
   return {
     loading,
+    createShipping,
     currentUser,
     currentUserSummary,
     currentUserAuthorizationData,

@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from "@/stores/user"
+
+const router = useRouter()
+const userStore = useUserStore()
 
 definePageMeta({
   layout: "embroidery",
@@ -12,6 +17,19 @@ definePageMeta({
 })
 
 const comment = ref(null)
+
+const handleCreateShipping = async () => {
+  userStore.loading = true
+
+  const body = {
+    from: 'presonally',
+    how: comment.value
+  }
+
+  await userStore.createShipping(body)
+  userStore.loading = false
+  router.push('/Embroidery/Step-6-processing-shipping')
+}
 </script>
 
 <template>
@@ -57,12 +75,12 @@ const comment = ref(null)
           />
         </div>
         <div class="buttons flexColumnCenter">
-          <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-processing-shipping')"
+          <button 
             class="button bg_black" 
+            @click="handleCreateShipping()"
           >
             {{ $t('embroidery.step6Page.sectionPersonally.forwardButton') }}
-          </nuxt-link>
+          </button>
         </div>
       </section>
     </div>
