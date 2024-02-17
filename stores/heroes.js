@@ -46,11 +46,9 @@ export const useHeroesStore = defineStore("heroes", () => {
   }
   
   const createStitchingActivity = async (kitId) => {
-    const headers = {}
+    const headers = userStore.setHeaders()
 
-    if (userStore.currentUserAuthorizationData) {
-      headers['Authorization'] = 'Bearer ' + userStore.currentUserAuthorizationData.token
-    } else {
+    if (!headers) {
       return
     }
 
@@ -68,11 +66,9 @@ export const useHeroesStore = defineStore("heroes", () => {
   }
   
   const getStitchingActivities = async () => {
-    const headers = {}
+    const headers = userStore.setHeaders()
 
-    if (userStore.currentUserAuthorizationData) {
-      headers['Authorization'] = 'Bearer ' + userStore.currentUserAuthorizationData.token
-    } else {
+    if (!headers) {
       return
     }
 

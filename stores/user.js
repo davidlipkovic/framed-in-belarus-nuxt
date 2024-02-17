@@ -31,6 +31,13 @@ export const useUserStore = defineStore("user", () => {
     }
   }
   
+  const setHeaders = () => {
+    if (currentUserAuthorizationData.value) {
+      return {'Authorization': 'Bearer ' + currentUserAuthorizationData.value.token}
+    }
+    return null
+  }
+  
   const login = async (body) => {
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/login', {
@@ -47,16 +54,10 @@ export const useUserStore = defineStore("user", () => {
   }
 
   const updateUser = async (body) => {
-    const headers = {}
+    const headers = setHeaders()
     const parsedBody = removeNullProps(body)
 
-    if (currentUserAuthorizationData.value) {
-      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
-    } else {
-      return
-    }
-
-    if (!parsedBody) {
+    if (!headers || !parsedBody) {
       return
     }
 
@@ -76,11 +77,9 @@ export const useUserStore = defineStore("user", () => {
   }
 
   const deleteUser = async () => {
-    const headers = {}
+    const headers = setHeaders()
 
-    if (currentUserAuthorizationData.value) {
-      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
-    } else {
+    if (!headers) {
       return
     }
 
@@ -154,11 +153,9 @@ export const useUserStore = defineStore("user", () => {
   }
   
   const getUserData = async () => {
-    const headers = {}
+    const headers = setHeaders()
 
-    if (currentUserAuthorizationData.value) {
-      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
-    } else {
+    if (!headers) {
       return
     }
 
@@ -193,11 +190,9 @@ export const useUserStore = defineStore("user", () => {
   }
   
   const getUserActivities = async () => {
-    const headers = {}
+    const headers = setHeaders()
 
-    if (currentUserAuthorizationData.value) {
-      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
-    } else {
+    if (!headers) {
       return
     }
 
@@ -216,11 +211,9 @@ export const useUserStore = defineStore("user", () => {
   }
   
   const getUserSummary = async () => {
-    const headers = {}
+    const headers = setHeaders()
 
-    if (currentUserAuthorizationData.value) {
-      headers['Authorization'] = 'Bearer ' + currentUserAuthorizationData.value.token
-    } else {
+    if (!headers) {
       return
     }
 
@@ -251,5 +244,6 @@ export const useUserStore = defineStore("user", () => {
     getUserData,
     getUserActivities,
     getUserSummary,
+    setHeaders,
   }
 })
