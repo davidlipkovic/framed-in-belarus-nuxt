@@ -19,10 +19,6 @@ export const useHeroesStore = defineStore("heroes", () => {
 
   const setChosenHero = (kitId) => {
     chosenHero.value = originalHeroes.value.find((hero) => hero.kit[0].id === kitId)
-
-    if (window.sessionStorage) {
-      window.sessionStorage.setItem('fibChosenHero', JSON.stringify(chosenHero.value))
-    }
   }
 
   const setPrechosenHero = (id) => {
