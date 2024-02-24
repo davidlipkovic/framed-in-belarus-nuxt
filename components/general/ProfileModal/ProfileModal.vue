@@ -23,8 +23,8 @@ const signOut = async () => {
   }
   
   emit('closeModal')
-  userStore.currentUser = null
-  userStore.currentUserAuthorizationData = null
+  userStore.user = null
+  userStore.userAuthorizationData = null
   router.go(0)
 }
 
@@ -41,11 +41,13 @@ onClickOutside(root, () => {
   >
     <img
       src="../../../assets/media/img/profileSymbolFramed.svg"
+      alt=""
     >
     <span
+      v-if="userStore.user.username"
       class="profileModalWrapperName"
     >
-      {{ userStore.currentUser.username }}
+      {{ userStore.user.username }}
     </span>
     <nuxt-link
       :to="localePath('/Profile')"

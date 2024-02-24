@@ -24,7 +24,7 @@ const validEmailData = computed(() => {
 })
 
 const subscribe = async () => {
-  if (userStore.currentUser && userStore.currentUser.email === email.value) {
+  if (userStore.user && userStore.user.email === email.value) {
     await userStore.updateUser({
       email: email.value,
       subscription: true

@@ -31,7 +31,7 @@ const signIn = async () => {
       window.localStorage.setItem('fibUser', JSON.stringify(data))
 
       userStore.loading = true
-      userStore.getCurrentUserAuthorizationData()
+      userStore.getUserAuthorizationData()
       const userExists = await userStore.getUserData()
       userStore.loading = false
 

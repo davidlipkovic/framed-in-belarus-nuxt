@@ -122,8 +122,11 @@ const author = {
           <span>
             {{ $t('casePage.swiper.author') }}: 
           </span>
-          <span class="b1">
-            {{ userStore.currentUser.username }}
+          <span
+            v-if="userStore.user.username"
+            class="b1"
+          >
+            {{ userStore.user.username }}
           </span>
         </p>
         <p class="swiperDescriptionInfo flexRowStart">
@@ -131,7 +134,7 @@ const author = {
             {{ $t('placeholders.country') }}:
           </span>
           <span class="b1">
-            {{ userStore.currentUser.countryOfResidence }}
+            {{ userStore.user.countryOfResidence }}
           </span>
         </p>
         <p class="swiperDescriptionInfo flexRowStart">
@@ -139,7 +142,7 @@ const author = {
             {{ $t('placeholders.instagram') }}:
           </span>
           <span class="b1">
-            {{ userStore.currentUser.instagram }}
+            {{ userStore.user.instagram }}
           </span>
         </p>
       </article>

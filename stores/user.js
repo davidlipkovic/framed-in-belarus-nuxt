@@ -3,9 +3,9 @@ import { defineStore } from "pinia"
 
 export const useUserStore = defineStore("user", () => {
   const loading = ref(false)
-  const currentUser = ref(null)
-  const currentUserSummary = ref(null)
-  const currentUserAuthorizationData = ref(null)
+  const user = ref(null)
+  const userSummary = ref(null)
+  const userAuthorizationData = ref(null)
 
   const isLogged = ref(false)
 
@@ -17,24 +17,24 @@ export const useUserStore = defineStore("user", () => {
     .reduce((a, key) => ({ ...a, [key]: data[key] }), {})
   }
 
-  const getCurrentUserAuthorizationData = () => {
+  const getUserAuthorizationData = () => {
     if (window.localStorage || window.sessionStorage) {
       let data = window.localStorage.getItem('fibUser')
       data = JSON.parse(data)
 
       if (data) {
-        currentUserAuthorizationData.value = data
+        userAuthorizationData.value = data
       } else {
         data = window.sessionStorage.getItem('fibUser')
         data = JSON.parse(data)
-        currentUserAuthorizationData.value = data
+        userAuthorizationData.value = data
       }
     }
   }
   
   const setHeaders = () => {
-    if (currentUserAuthorizationData.value) {
-      return {'Authorization': 'Bearer ' + currentUserAuthorizationData.value.token}
+    if (userAuthorizationData.value) {
+      return {'Authorization': 'Bearer ' + userAuthorizationData.value.token}
     }
     return null
   }
@@ -100,8 +100,8 @@ export const useUserStore = defineStore("user", () => {
         window.sessionStorage.removeItem('fibUser')
       }
 
-      currentUser.value = null
-      currentUserAuthorizationData.value = null
+      user.value = null
+      userAuthorizationData.value = null
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -125,26 +125,26 @@ export const useUserStore = defineStore("user", () => {
         throw new TypeError('Error validating pin: Not succesful')
       }
 
-      currentUserAuthorizationData.value = {
+      userAuthorizationData.value = {
         email: responseData.value.result.email,
         token: responseData.value.result.token,
         userId: responseData.value.result.userId,
       }
 
       if (remember && window.localStorage) {
-        currentUserAuthorizationData.value = {
-          ...currentUserAuthorizationData.value,
+        userAuthorizationData.value = {
+          ...userAuthorizationData.value,
           remember,
         }
 
-        window.localStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
+        window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
       } else if (window.sessionStorage) {
-        currentUserAuthorizationData.value = {
-          ...currentUserAuthorizationData.value,
+        userAuthorizationData.value = {
+          ...userAuthorizationData.value,
           remember: true,
         }
 
-        window.sessionStorage.setItem('fibUser', JSON.stringify(currentUserAuthorizationData.value))
+        window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
       }
 
       return responseData.value && responseData.value.statusText === 'success'
@@ -170,8 +170,8 @@ export const useUserStore = defineStore("user", () => {
 
       const result = responseData.value.result
 
-      currentUser.value = {
-        email: currentUserAuthorizationData.value.email,
+      user.value = {
+        email: userAuthorizationData.value.email,
         username: result.username,
         countryOfResidence: result.countryOfResidence,
         language: result.language.toUpperCase(),
@@ -197,7 +197,7 @@ export const useUserStore = defineStore("user", () => {
     }
 
     try {
-      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + currentUserAuthorizationData.value.userId, {
+      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + userAuthorizationData.value.userId, {
         method: 'get',
         headers,
       })
@@ -225,7 +225,7 @@ export const useUserStore = defineStore("user", () => {
 
       console.log('getUserSummary', responseData.value)
 
-      currentUserSummary.value = responseData.value.result
+      userSummary.value = responseData.value.result
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -241,7 +241,7 @@ export const useUserStore = defineStore("user", () => {
     }
 
     try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/shipping/' + currentUserSummary.value[0].stitchingId, {
+      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/shipping/' + userSummary.value[0].stitchingId, {
         method: 'post',
         headers,
         body,
@@ -257,15 +257,15 @@ export const useUserStore = defineStore("user", () => {
   return {
     loading,
     createShipping,
-    currentUser,
-    currentUserSummary,
-    currentUserAuthorizationData,
+    user,
+    userSummary,
+    userAuthorizationData,
     isLogged,
     login,
     updateUser,
     deleteUser,
     validatePin,
-    getCurrentUserAuthorizationData,
+    getUserAuthorizationData,
     getUserData,
     getUserActivities,
     getUserSummary,

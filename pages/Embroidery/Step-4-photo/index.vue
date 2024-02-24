@@ -60,7 +60,7 @@ definePageMeta({
         </p>
         <iframe
           class="airtable-embed" 
-          :src="'https://airtable.com/embed/appFvPAAzsEUw1hf3/shrtgf5Wiblt7v9jf?prefill_stitchingId=' + userStore.currentUserSummary[0].stitchingId + '&hide_stitchingId=true'"
+          :src="'https://airtable.com/embed/appFvPAAzsEUw1hf3/shrtgf5Wiblt7v9jf?prefill_stitchingId=' + userStore.userSummary[0].stitchingId + '&hide_stitchingId=true'"
           frameborder="0" 
           onmousewheel=""
           width="100%" 

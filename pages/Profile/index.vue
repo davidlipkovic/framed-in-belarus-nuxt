@@ -1,7 +1,10 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from "@/stores/user"
 import { useI18n } from 'vue-i18n'
+
+const router = useRouter()
 const { locales } = useI18n()
 const userStore = useUserStore()
 
@@ -12,28 +15,28 @@ definePageMeta({
   ],
 })
 
-const username = ref(userStore.currentUser.username)
+const username = ref(userStore.user.username)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
-const publishUsername = ref(userStore.currentUser.publishUsername)
+const publishUsername = ref(userStore.user.publishUsername)
 
-const email = ref(userStore.currentUser.email)
+const email = ref(userStore.user.email)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
-const countryOfResidence = ref(userStore.currentUser.countryOfResidence)
+const countryOfResidence = ref(userStore.user.countryOfResidence)
 const countryOfResidenceInput = ref(null)
 const countryOfResidenceTypingStarted = ref(false)
-const publishCountryOfResidence = ref(userStore.currentUser.publishCountryOfResidence)
+const publishCountryOfResidence = ref(userStore.user.publishCountryOfResidence)
 
-const instagram = ref(userStore.currentUser.instagram)
-const mentionInstagram = ref(userStore.currentUser.mentionInstagram)
-const publishInstagram = ref(userStore.currentUser.publishInstagram)
+const instagram = ref(userStore.user.instagram)
+const mentionInstagram = ref(userStore.user.mentionInstagram)
+const publishInstagram = ref(userStore.user.publishInstagram)
 
-const language = ref(userStore.currentUser.language)
+const language = ref(userStore.user.language)
 
-const reason = ref(userStore.currentUser.reason)
-const publishReason = ref(userStore.currentUser.publishReason)
+const reason = ref(userStore.user.reason)
+const publishReason = ref(userStore.user.publishReason)
 
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)
@@ -51,7 +54,7 @@ const warning = computed(() => {
 })
 
 const reasonTruncated = computed(() => {
-  return userStore.currentUser.reason.length > 220 ? userStore.currentUser.reason.reason.slice(0, 220) + '...' : userStore.currentUser.reason.reason
+  return userStore.user.reason.length > 220 ? userStore.user.reason.reason.slice(0, 220) + '...' : userStore.user.reason.reason
 })
 
 const updateLanguage = (lang) => {
@@ -63,7 +66,7 @@ onMounted(() => {
 })
 
 const handleIfValueIsUpdated = (key, value) => {
-  if (userStore.currentUser[key] === value) {
+  if (userStore.user[key] === value) {
     return null
   }
 
@@ -93,6 +96,7 @@ const updateUser = async () => {
 }
 
 const deleteUser = async () => {
+  router.push('/')
   userStore.loading = true
   await userStore.deleteUser()
   userStore.loading = false
@@ -125,69 +129,72 @@ const deleteUser = async () => {
             class="userProfile-avatar" 
             alt="Avatar"
           >
-          <h2 class="userProfile-title">
-            {{ userStore.currentUser.username }}
+          <h2
+            v-if="userStore.user.username"
+            class="userProfile-title"
+          >
+            {{ userStore.user.username }}
           </h2>
         </div>
         <div class="userProfile-body flexColumnStart">
           <div class="userInfoWrapper">
             <p 
-              v-if="userStore.currentUser.username"
+              v-if="userStore.user.username"
               class="flexRowStart"
             >
               <span>
                 {{ $t('placeholders.username') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.username }}
+                {{ userStore.user.username }}
               </span>
             </p>
             <p
-              v-if="userStore.currentUser.email"
+              v-if="userStore.user.email"
               class="flexRowStart"
             >
               <span>
                 {{ $t('placeholders.email') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.email }}
+                {{ userStore.user.email }}
               </span>
             </p>
             <p
-              v-if="userStore.currentUser.countryOfResidence"
+              v-if="userStore.user.countryOfResidence"
               class="flexRowStart"
             >
               <span>
                 {{ $t('placeholders.country') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.countryOfResidence }}
+                {{ userStore.user.countryOfResidence }}
               </span>
             </p>
             <p
-              v-if="userStore.currentUser.instagram"
+              v-if="userStore.user.instagram"
               class="flexRowStart"
             >
               <span>
                 {{ $t('placeholders.instagram') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.instagram }}
+                {{ userStore.user.instagram }}
               </span>
             </p>
             <p
-              v-if="userStore.currentUser.language"
+              v-if="userStore.user.language"
               class="flexRowStart"
             >
               <span>
                 {{ $t('placeholders.communicationLanguage') }}
               </span>
               <span class="b1">
-                {{ userStore.currentUser.language }}
+                {{ userStore.user.language }}
               </span>
             </p>
           </div>
-          <template v-if="userStore.currentUser.reason">
+          <template v-if="userStore.user.reason">
             <h3 class="b">
               {{ $t('profilePage.question') }}
             </h3>
@@ -230,7 +237,7 @@ const deleteUser = async () => {
             :newEmbroidery="true"
           />
           <RegistrationEmbroideryCard
-            v-for="(card, i) in userStore.currentUser.cards"
+            v-for="(card, i) in userStore.user.cards"
             :key="i"
             :newEmbroidery="false"
             :card="card"

@@ -140,7 +140,7 @@ watch(width, n => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.isLogged && userStore.user"
               class="profileButton profileButtonDesktop flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"
@@ -152,11 +152,11 @@ watch(width, n => {
                 >
               </div>
               <span>
-                {{ userStore.currentUser.username }}
+                {{ userStore.user.username }}
               </span>
             </button>
             <nuxt-link
-              v-if="userStore.isLogged"
+              v-if="userStore.isLogged && userStore.user"
               class="profileButton profileButtonMobile flexRowCenter"
               :to="localePath('/Profile')"
             >
@@ -166,7 +166,7 @@ watch(width, n => {
                 >
               </div>
               <span>
-                {{ userStore.currentUser.username }}
+                {{ userStore.user.username }}
               </span>
             </nuxt-link>
             <GeneralProfileModal
