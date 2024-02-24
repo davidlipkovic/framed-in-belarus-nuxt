@@ -7,6 +7,7 @@ import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 import { useI18n } from 'vue-i18n'
 const { locales, t } = useI18n()
+import countries from '../../assets/json/countries.json'
 
 const router = useRouter()
 const localePath = useLocalePath()
@@ -42,8 +43,6 @@ const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
 const countryOfResidence = ref(null)
-const countryOfResidenceInput = ref(null)
-const countryOfResidenceTypingStarted = ref(false)
 const publishCountryOfResidence = ref(false)
 
 const language = ref(null)
@@ -79,9 +78,8 @@ const updateSource = (option) => {
 
 const validUsernameData = computed(() => validateText(username.value))
 const validEmailData = computed(() => validateEmail(email.value))
-const validCountryOfResidenceData = computed(() => validateText(countryOfResidence.value))
 
-const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && validCountryOfResidenceData.value && language.value)
+const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && language.value)
 
 onClickOutside(usernameInput, () => {
   if (username.value) {
@@ -95,11 +93,9 @@ onClickOutside(emailInput, () => {
   }
 })
 
-onClickOutside(countryOfResidenceInput, () => {
-  if (countryOfResidence.value) {
-    countryOfResidenceTypingStarted.value = true
-  }
-})
+const updateCountryOfResidence = (country) => {
+  countryOfResidence.value = country.name
+}
 </script>
 
 <template>
@@ -195,24 +191,14 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperCountryOfResidence">
             <div class="inputContentWrapper flexColumnStart">
-              <div class="inputWrapper inputWrapperWarningTop">
-                <input 
-                  type="text" 
-                  name="countryOfResidence" 
-                  id="countryOfResidence"
-                  v-model="countryOfResidence"
-                  :placeholder="$t('placeholders.country') + '*'" 
-                  class="countryOfResidenceInput"
-                  :class="{'invalidInput': !validCountryOfResidenceData && countryOfResidenceTypingStarted}" 
-                  ref="countryOfResidenceInput"
-                />
-                <span 
-                  v-if="!validCountryOfResidenceData && countryOfResidenceTypingStarted"
-                  class="warningNotification note red"
-                >
-                  {{ $t('invalidInputs.enterCountry') }}
-                </span>
-              </div>
+              <GeneralInputLongDropdown
+                class="contentInput countryOfResidenceDropdown"
+                :chosenOption="countryOfResidence"
+                :options="countries"
+                :placeholder="$t('placeholders.country') + '*'" 
+                :isRegistration="true"
+                @chooseOption="updateCountryOfResidence"
+              />
               <label 
                 for="publishCountryOfResidence"
                 class="checkBoxWrapper checkBoxWrapperCountry flexRowStart"
@@ -233,9 +219,8 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperLanguage">
             <div class="inputContentWrapper flexColumnStart">
-              <GeneralInputDropdownMenu
-                id="language"
-                class="contentInput languageInput"
+              <GeneralInputShortDropdown
+                class="contentInput languageDropdown"
                 :chosenOption="language"
                 :options="locales"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
@@ -307,9 +292,8 @@ onClickOutside(countryOfResidenceInput, () => {
           </div>
           <div class="inputRowWrapper flexColumnStart inputRowWrapperSource">
             <div class="inputContentWrapper flexColumnStart">
-              <GeneralInputDropdownMenu
-                id="source"
-                class="contentInput sourceInput"
+              <GeneralInputShortDropdown
+                class="contentInput sourceDropdown"
                 :chosenOption="source"
                 :placeholder="$t('placeholders.findOut')" 
                 :options="sourceOptions"

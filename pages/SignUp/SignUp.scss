@@ -73,6 +73,34 @@
     margin-bottom: 0;
   }
 
+  .countryOfResidenceDropdown {
+    width: 100%;
+
+    .dropdownButton {
+      width: 100%;
+      border-radius: 0.375rem;
+      border: solid 1px $grey1;
+      justify-content: space-between;
+      padding: 10px 1rem;
+      font-size: 1rem;
+
+      svg {
+        width: 12px;
+        fill: $black;
+        margin-right: 2px;
+      }
+    }
+
+    .dropdownButtonPlaceholder {
+      color: $greyDisabledColor;
+    }
+    
+    .dropdownWrapper {
+      top: 44px;
+      right: unset;
+    }
+  }
+
   .buttonsWrapper {
     justify-content: center;
 

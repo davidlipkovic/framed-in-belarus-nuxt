@@ -61,24 +61,21 @@
     }
 
     .languageLabelWrapper {
-      .langMenuWrapper {
-        margin-left: 18px;
-        position: relative;
-      }
-
-      .langButton {
+      .dropdownButton {
         font-size: 1rem;
         color: $greyDark;
         font-weight: 600;
 
         svg {
           stroke: $greyDark;
+          stroke-width: 2px;
           width: 14px;
+          height: 10px;
           margin: 0 0 0 8px;
         }
       }
 
-      .dropdownMenuWrapper {
+      .dropdownWrapper {
         position: absolute;
         top: 24px;
       }
