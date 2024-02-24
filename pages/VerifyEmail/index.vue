@@ -2,11 +2,13 @@
 // WIP
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useRegistrationStore } from "@/stores/registration"
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const router = useRouter()
 const localePath = useLocalePath()
+const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail, validatePinData } = useValidateInputs()
 
@@ -14,25 +16,26 @@ definePageMeta({
   layout: "registration"
 })
 
-const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
+
 const pin = ref(null)
 const pinInput = ref(null)
 const pinTypingStarted = ref(false)
+
 const remember = ref(false)
 
 const validatePin = async () => {
-  await userStore.validatePin(email.value, pin.value, remember.value)
+  await userStore.validatePin(registrationStore.email, pin.value, remember.value)
   router.push(localePath('/Profile'))
 }
 
-const validEmailData = computed(() => validateEmail(email.value))
+const validEmailData = computed(() => validateEmail(registrationStore.email))
 const validPinData = computed(() => validatePinData(pin.value))
 const validData = computed(() => validEmailData.value && validPinData.value)
 
 onClickOutside(emailInput, () => {
-  if (email.value) {
+  if (registrationStore.email) {
     emailTypingStarted.value = true
   }
 })
@@ -55,7 +58,7 @@ onClickOutside(pinInput, () => {
           type="email" 
           name="email" 
           id="email" 
-          v-model="email"
+          v-model="registrationStore.email"
           :placeholder="$t('placeholders.email') + '*'"  
           class="emailInput"
           :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
