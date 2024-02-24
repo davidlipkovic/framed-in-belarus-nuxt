@@ -79,7 +79,7 @@
     .dropdownButton {
       width: 100%;
       border-radius: 0.375rem;
-      border: solid 1px $grey1;
+      border: solid 1px $grey;
       justify-content: space-between;
       padding: 10px 1rem;
       font-size: 1rem;
@@ -92,7 +92,7 @@
     }
 
     .dropdownButtonPlaceholder {
-      color: $greyDisabledColor;
+      color: $greyDisabled;
     }
     
     .dropdownWrapper {
@@ -155,7 +155,7 @@
     margin-bottom: 15px;
     position: relative;
     border-radius: 0.5rem;
-    background-color: $bgSpoiler;
+    background-color: $greyLightBg;
   
     * {
       font-size: 14px;
@@ -203,7 +203,7 @@
     .slideBorder {
       display: block;
       height: 100%;
-      border-left: 1px solid $grey3;
+      border-left: 1px solid $greyLight;
       position: absolute;
       left: 46.5%;
     }

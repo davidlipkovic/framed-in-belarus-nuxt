@@ -29,15 +29,15 @@
 }
 
 .button_disabled {
-  background-color: $borderLight;
+  background-color: $greyLight;
   color: $greyDark !important;
-  border: 1px solid rgba($color: #fff, $alpha: 0) !important;
+  border: 1px solid rgba($color: $white, $alpha: 0) !important;
   pointer-events: none;
 }
 
 .button_disabledTransparent {
   color: $greyDark !important;
-  border: 1px solid rgba($color: #fff, $alpha: 0) !important;
+  border: 1px solid rgba($color: $white, $alpha: 0) !important;
   pointer-events: none;
 }
 
@@ -51,7 +51,7 @@
 
 .button_disabled:hover,
 .Content .button_disabled:hover {
-  background-color: $borderLight;
+  background-color: $greyLight;
   color: $greyDark !important;
   border: unset !important;
 }
@@ -124,8 +124,8 @@
   color: $red !important;
 }
 
-.redLighter {
-  color: $redLighter;
+.redLight {
+  color: $redLight;
 }
 
 .mistake,
@@ -138,17 +138,17 @@
 }
 
 .note {
-  color: $greyDisabledColor;
+  color: $greyDisabled;
 }
 
 .warning {
-  color: $redLighter;
+  color: $redLight;
   font-weight: 600;
   font-size: 14px;
   align-items: center;
 
   * {
-    color: $redLighter;
+    color: $redLight;
     font-weight: 600;
     font-size: 14px;
     align-items: center;

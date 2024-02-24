@@ -18,7 +18,7 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
-      stroke: $greyDisabledColor;
+      stroke: $greyDisabled;
       width: 48px;
       height: 48px;
     }
@@ -48,7 +48,7 @@
     align-items: center;
     height: 100%;
     max-height: 600px;
-    background-color: $borderLight;
+    background-color: $greyLight;
 
     img {
       object-fit: cover;

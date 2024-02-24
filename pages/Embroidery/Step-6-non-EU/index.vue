@@ -129,7 +129,7 @@ onClickOutside(trackingNumberInput, () => {
           />
           <span
             v-if="!validName && nameTypingStarted"
-            class="warningNotification note warning redLighter"
+            class="warningNotification note warning redLight"
           >
             {{ $t('invalidInputs.pleaseEnterYourNameAndSurname') }}
           </span>
@@ -153,7 +153,7 @@ onClickOutside(trackingNumberInput, () => {
           />
           <span
             v-if="!validAdress && adressTypingStarted"
-            class="warningNotification note warning redLighter"
+            class="warningNotification note warning redLight"
           >
             {{ $t('invalidInputs.pleaseEnterYourAdress') }}
           </span>
@@ -177,7 +177,7 @@ onClickOutside(trackingNumberInput, () => {
           />
           <span
             v-if="!validTrackingNumber && trackingNumberTypingStarted"
-            class="warningNotification note warning redLighter"
+            class="warningNotification note warning redLight"
           >
             {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.warning') }}
           </span>

@@ -1,25 +1,21 @@
 $black: #020202;
 $white: #fff;
-$red: #D10000; /* .Content a */
-$redLighter: #EB5757; /* .Content a */
-$redHover: #FF565D; /* a:hover, a:focus, button.bg_red:hover */
-$redBlood: #860C22; /* Gallery section background-color */
-$inputsBorder: #DADADA;
-$inputsBorderFocus: #6200EE;
-$greyButtonHover: #535353;
-$greyDisabledColor: #828282;
-$greyDisabledBg: #E6E6E6;
-$greyBg: #f2f2f2;
+$red: #D10000;
+$redLight: #EB5757;
+$redHover: #FF565D;
+$redDark: #860C22;
+$grey: #bdbdbd;
+$greyLight: #d9d9d9;
 $greyDark: #4F4F4F;
-$greyDark2: #1d1d1d;
-$greyDark3: #272727;
-$grey1: #bdbdbd;
-$grey2: #bdbdbd;
-$grey3: #d9d9d9;
+$greyDarkMenu: #272727;
+$greyBg: #f2f2f2;
+$greyLightBg: #F8F8F8;
+$greyButtonHover: #535353;
+$greyDisabled: #828282;
+$greyDisabledBg: #E6E6E6;
 $greyTransparentBG: rgba(24, 24, 24, 0.75);
-$borderLight: #E0E0E0;
-$bgSpoiler: #F8F8F8;
-$lime: #27AE60; /*alert Info */
+$inputBorder: #DADADA;
+$inputBorderFocus: #6200EE;
 
 // embroideryCard statuses
 $embroideryCardStasusInProgress: #E4791A;
@@ -30,7 +26,7 @@ $embroideryCardStasusPublished: #219653;
 $embroideryCardStasusDelivered: #B812BB;
 $embroideryCardStasusRequested: #9B51E0;
 
-$defaultShadow: 0 8px 10px rgba(0,0,0,0.2);
+$defaultShadow: 0 8px 10px rgba(141, 125, 125, 0.2);
 $orange: #EC801F;
 
 $br-point-xl: 1440px;

@@ -21,7 +21,7 @@
 .inputModalHeader {
   min-height: 74px;
   padding: 22px 36px 18px;
-  border-bottom: 1px solid $borderLight;
+  border-bottom: 1px solid $greyLight;
   align-items: center;
   justify-content: space-between;
 
@@ -85,7 +85,7 @@
 
     span {
       font-size: 14px;
-      color: $greyDisabledColor;
+      color: $greyDisabled;
     }
   }
 
@@ -97,7 +97,7 @@
 .inputModalFooter {
   justify-content: flex-end;
   padding: 18px 36px 14px;
-  border-top: 1px solid $borderLight;
+  border-top: 1px solid $greyLight;
   margin-top: 0;
 
   .button {

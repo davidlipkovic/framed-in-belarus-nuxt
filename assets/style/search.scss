@@ -15,12 +15,12 @@
 .search {
   padding-left: 3.375rem !important;
   height: 3.375rem;
-  background-color: #F2F2F2;
+  background-color: $greyBg;
 }
 
 .search::placeholder {
   font-weight: 600;
-  color: $greyDisabledColor;
+  color: $greyDisabled;
 }
 
 .searchIcon {

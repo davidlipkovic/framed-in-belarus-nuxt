@@ -16,13 +16,13 @@ textarea {
   padding: 8px;
   width: 100%;
   border-radius: 0.25rem;
-  border-color: $grey1;
+  border-color: $grey;
   border-width: 1px;
   cursor: pointer;
 }
 
 input[type="checkbox"] {
-  border-color: $inputsBorder;
+  border-color: $inputBorder;
   border-width: 1px;
   vertical-align: middle;
 }
@@ -96,13 +96,13 @@ input[type=radio].mistake {
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
-  color: $greyDisabledColor;
+  color: $greyDisabled;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  outline: $inputsBorderFocus solid 1px;
+  outline: $inputBorderFocus solid 1px;
 }
 
 input:focus::placeholder,

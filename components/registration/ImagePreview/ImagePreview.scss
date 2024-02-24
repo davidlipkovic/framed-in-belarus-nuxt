@@ -2,7 +2,7 @@
 
 .imagePreviewWrapper {
   width: fit-content;
-  background-color: $bgSpoiler;
+  background-color: $greyLightBg;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -25,10 +25,10 @@
     svg {
       width: 8px;
       height: 8px;
-      fill: $grey3;
+      fill: $greyLight;
 
       * {
-        fill: $grey3;
+        fill: $greyLight;
       }
     }
   }

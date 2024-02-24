@@ -6,7 +6,7 @@
   padding: 44px 24px 58px;
   cursor: pointer;
   border: 0;
-  border: 1px solid $grey1;
+  border: 1px solid $grey;
   border-radius: 6px;
   justify-content: flex-start;
 
@@ -29,7 +29,7 @@
 }
 
 .embroideryCardNew {
-  border: 1px dashed #4F4F4F;
+  border: 1px dashed $greyDark;
   padding: 78px 28px 60px;
   justify-content: space-between;
 
@@ -38,8 +38,8 @@
     height: 66px;
     margin-bottom: 12px;
     border-radius: 50%;
-    border: 1px solid #bdbdbd;
-    background-color: #4F4F4F;
+    border: 1px solid $grey;
+    background-color: $greyDark;
 
     svg {
       width: 15px;
@@ -82,18 +82,18 @@
 }
 
 .embroideryCardNewDisabled {
-  border: 1px dashed #bdbdbd;
-  color: #bdbdbd;
+  border: 1px dashed $grey;
+  color: $grey;
   cursor: default;
   pointer-events: none;
 
   .plusButtonWrapper {
-    border: 1px solid #bdbdbd;
-    background-color: #bdbdbd;
+    border: 1px solid $grey;
+    background-color: $grey;
   }
 
   p {
-    color: #bdbdbd;
+    color: $grey;
   }
 }
 

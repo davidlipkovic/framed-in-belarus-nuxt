@@ -95,7 +95,7 @@
 
   input {
     height: 40px;
-    border: solid 1px $borderLight;
+    border: solid 1px $greyLight;
     border-radius: 4px;
     background-color: $black;
     padding: 0 1rem;
@@ -110,7 +110,7 @@
   }
 
   button {
-    border: solid 1px $borderLight;
+    border: solid 1px $greyLight;
     height: 40px;
     color: $white;
   }
