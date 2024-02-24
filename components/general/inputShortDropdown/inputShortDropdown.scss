@@ -1,12 +1,12 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/extends/dropdown";
 
-.inputDropdownMenu {
+.shortDropdown {
   position: relative;
   width: 100%;
   cursor: pointer;
 
-  .langButton {
+  .dropdownButton {
     width: 100%;
     border-radius: 0.375rem;
     border: solid 1px $grey1;
@@ -25,16 +25,16 @@
     }
   }
 
-  .langButton:hover {
+  .dropdownButton:hover {
     background-color: $greyBg;
   }
 
-  .langButtonPlaceholder {
+  .dropdownButtonPlaceholder {
     color: $greyDisabledColor;
   }
 
-  .inputDropdownMenuWrapper {
-    @extend .dropdownMenuWrapper;
+  .dropdownWrapper {
+    @extend .dropdownWrapper;
     position: absolute;
     top: 45px;
     min-width: 65px;
@@ -57,16 +57,16 @@
   }
 }
 
-.inputDropdownMenuOpened {
-  .langButton {
+.inputShortDropdownOpened {
+  .dropdownButton {
     svg {
       transform: rotate(180deg);
     }
   }
 }
 
-.inputDropdownMenuRegistration {
-  .langButton {
+.inputShortDropdownRegistration {
+  .dropdownButton {
     padding: 10px 1rem;
   }
 }
