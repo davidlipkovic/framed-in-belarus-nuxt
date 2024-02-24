@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
+import languages from '../../../assets/json/languages.json'
 
 definePageMeta({
   layout: "embroidery",
@@ -12,7 +13,7 @@ definePageMeta({
 
 const englishComment = ref(null)
 const nativeComment = ref(null)
-const nativeLanguage = ref(null)
+const nativeLanguage = ref('English')
 const publishComment = ref(null)
 const sendComment = ref(null)
 const writeComment = ref(null)
@@ -134,9 +135,12 @@ const updateNativeLanguage = (lang) => {
                 >
                   {{ $t('embroidery.step5Page.section3.textarea2.label') }}
                 </label>
-                <GeneralNativeLangMenu
-                  :chosenLanguage="nativeLanguage"
-                  @chooseLanguage="updateNativeLanguage"
+                <GeneralInputLongDropdown
+                  class="nativeLanguageDropdown"
+                  :chosenOption="nativeLanguage"
+                  :options="languages"
+                  :placeholder="'English'" 
+                  @chooseOption="updateNativeLanguage"
                 />
               </div>
               <textarea

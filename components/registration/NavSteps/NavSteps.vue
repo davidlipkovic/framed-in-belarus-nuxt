@@ -52,27 +52,33 @@ const steps = [
         :to="localePath(step.link)"
         class="navStep navStep_done"
       >
-        <span class="navStep-number"
-        ><img
-          src="../../../assets/media/img/checkmark.svg"
-          alt="Performed"
-          class="navStep_done-img"
-        /></span>
-        <span class="navStep-title">{{ step.title }}</span>
+        <span class="navStep-number">
+          <img
+            src="../../../assets/media/img/checkmark.svg"
+            alt="Performed"
+            class="navStep_done-img"
+          />
+        </span>
+        <span class="navStep-title">
+          {{ step.title }}
+        </span>
       </nuxt-link>
       <div 
         v-if="i + 1 >= currentStep"
         class="navStep"
         :class="currentStep === i + 1 ? 'navStep_current' : ''"
       >
-        <span class="navStep-number">{{ i + 1 }}</span>
-        <span class="navStep-title">{{ step.title }}</span>
+        <span class="navStep-number">
+          {{ i + 1 }}
+        </span>
+        <span class="navStep-title">
+          {{ step.title }}
+        </span>
       </div>
       <div 
         v-if="i + 1 < steps.length"
         class="navStep_arrow"
-      >
-      </div>
+      />
     </div>
   </section>
 </template>

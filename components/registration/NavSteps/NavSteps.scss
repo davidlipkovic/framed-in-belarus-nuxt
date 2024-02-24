@@ -36,7 +36,7 @@
     display: block;
     width: 5.625rem;
     height: 0.125rem;
-    background-color: #BDBDBD;
+    background-color: $grey;
   }
 
   .navStep-number {
@@ -52,7 +52,7 @@
 
   .navStep-title {
     white-space: nowrap;
-    color: $greyDisabledColor;
+    color: $greyDisabled;
   }
 
   .navStep_current,

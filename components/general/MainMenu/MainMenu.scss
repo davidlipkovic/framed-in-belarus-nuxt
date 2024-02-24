@@ -144,7 +144,7 @@
   .mainMenuTopWrapper {
     justify-content: space-between;
     width: 290px;
-    background-color: $greyDark3;
+    background-color: $greyDarkMenu;
     border-bottom: 0.5px solid $greyDisabledBg;
   }
 
@@ -203,7 +203,7 @@
     .menuAllLinksWrapper {
       position: relative;
       z-index: 202;
-      background-color: $greyDark3;
+      background-color: $greyDarkMenu;
       width: 290px;
       height: 100%;
     }

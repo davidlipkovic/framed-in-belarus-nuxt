@@ -384,7 +384,7 @@ const deleteUser = async () => {
               >
                 {{ $t('placeholders.communicationLanguage') }}
               </label>
-              <GeneralInputDropdownMenu
+              <GeneralInputShortDropdown
                 id="language"
                 class="contentInput languageInput"
                 :chosenOption="language"

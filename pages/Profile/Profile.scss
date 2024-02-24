@@ -15,14 +15,14 @@
   background-color: $white;
   width: 100%;
   margin: 0 auto 28px;
-  border: 1px solid $grey1;
+  border: 1px solid $grey;
 }
 
 .userProfile-header {  
   width: 100%;
   padding-bottom: 20px;
   margin-bottom: 12px;
-  border-bottom: 1px solid $borderLight;
+  border-bottom: 1px solid $greyLight;
 }
 
 .userProfile-avatar {
@@ -109,7 +109,7 @@
       width: 80px;
       height: 80px;
       border-radius: 9999px;
-      background-color: $redLighter;
+      background-color: $redLight;
     }
   
     h2 {

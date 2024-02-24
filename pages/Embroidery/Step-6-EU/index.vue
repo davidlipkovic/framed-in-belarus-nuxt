@@ -121,7 +121,7 @@ const handleCreateShipping = async () => {
           />
           <span
             v-if="!validTrackingNumber && trackingNumberTypingStarted"
-            class="warningNotification note warning redLighter"
+            class="warningNotification note warning redLight"
           >
             {{ $t('embroidery.step6Page.sectionEU.inputTrackingNumber.warning') }}
           </span>
