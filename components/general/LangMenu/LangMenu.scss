@@ -3,7 +3,7 @@
 
 .langMenu {
   .langMenuWrapper {
-    @extend .dropdownMenuWrapper;
+    @extend .dropdownWrapper;
     top: 50px;
     width: 65px;
     padding: 5px 0;

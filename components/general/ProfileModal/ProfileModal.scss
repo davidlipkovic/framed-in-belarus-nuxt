@@ -2,7 +2,7 @@
 @import "../../../assets/style/extends/dropdown";
 
 .profileModalWrapper {
-  @extend .dropdownMenuWrapper;
+  @extend .dropdownWrapper;
   min-width: 304px;
   top: 50px;
 
