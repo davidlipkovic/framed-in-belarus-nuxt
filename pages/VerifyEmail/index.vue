@@ -1,8 +1,10 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
+import { useRegistrationStore } from "@/stores/registration"
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
+const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail, validatePinData } = useValidateInputs()
 
@@ -10,25 +12,26 @@ definePageMeta({
   layout: "registration"
 })
 
-const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
+
 const pin = ref(null)
 const pinInput = ref(null)
 const pinTypingStarted = ref(false)
+
 const remember = ref(false)
 
 const validatePin = () => {
-  // userStore.validatePin(email.value, pin.value)
+  // userStore.validatePin(registrationStore.email, pin.value)
   // navigateTo("/Profile")
 }
 
-const validEmailData = computed(() => validateEmail(email.value))
+const validEmailData = computed(() => validateEmail(registrationStore.email))
 const validPinData = computed(() => validatePinData(pin.value))
 const validData = computed(() => validEmailData.value && validPinData.value)
 
 onClickOutside(emailInput, () => {
-  if (email.value) {
+  if (registrationStore.email) {
     emailTypingStarted.value = true
   }
 })
@@ -51,7 +54,7 @@ onClickOutside(pinInput, () => {
           type="email" 
           name="email" 
           id="email" 
-          v-model="email"
+          v-model="registrationStore.email"
           :placeholder="$t('placeholders.email') + '*'"  
           class="emailInput"
           :class="{'invalidInput': !validEmailData && emailTypingStarted}" 

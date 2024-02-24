@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
+import { useRegistrationStore } from "@/stores/registration"
 import { useUserStore } from "@/stores/user"
 // import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
@@ -11,7 +12,7 @@ import countries from '../../assets/json/countries.json'
 
 const router = useRouter()
 const localePath = useLocalePath()
-
+const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
 
@@ -38,7 +39,6 @@ const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
 const publishUsername = ref(false)
 
-const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
@@ -77,7 +77,7 @@ const updateSource = (option) => {
 }
 
 const validUsernameData = computed(() => validateText(username.value))
-const validEmailData = computed(() => validateEmail(email.value))
+const validEmailData = computed(() => validateEmail(registrationStore.email))
 
 const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && language.value)
 
@@ -88,7 +88,7 @@ onClickOutside(usernameInput, () => {
 })
 
 onClickOutside(emailInput, () => {
-  if (email.value) {
+  if (registrationStore.email) {
     emailTypingStarted.value = true
   }
 })
@@ -171,7 +171,7 @@ const updateCountryOfResidence = (country) => {
                   type="email" 
                   name="email" 
                   id="email" 
-                  v-model="email"
+                  v-model="registrationStore.email"
                   :placeholder="$t('placeholders.emailLogin') + '*'" 
                   class="emailInput"
                   :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
