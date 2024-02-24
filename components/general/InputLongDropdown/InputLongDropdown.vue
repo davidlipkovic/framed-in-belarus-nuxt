@@ -45,7 +45,7 @@ const scrollToOption = (event) => {
 
   const match = props.options.find(option => option.name.toLowerCase().startsWith(event.key.toLowerCase()))
   if (match) {
-    const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + match.name)
+    const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match.name))
     if (firstMatch) {
       firstMatch.scrollIntoView()
     }
