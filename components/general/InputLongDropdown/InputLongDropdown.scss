@@ -1,12 +1,12 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/extends/dropdown";
 
-.nativeLangMenu {
+.longDropdown {
   position: relative;
   width: auto;
   cursor: pointer;
 
-  .langButton {
+  .dropdownButton {
     width: 100%;
     justify-content: space-between;
     font-size: 1rem;
@@ -19,12 +19,12 @@
     }
   }
 
-  .langButtonPlaceholder {
+  .dropdownButtonPlaceholder {
     color: $greyDisabledColor;
   }
 
-  .nativeLangMenuWrapper {
-    @extend .dropdownMenuWrapper;
+  .dropdownWrapper {
+    @extend .dropdownWrapper;
     position: absolute;
     top: 25px;
     right: -20px;
@@ -52,8 +52,8 @@
 }
 
 @media screen and (min-width: $br-point-sm) {
-  .nativeLangMenu {
-    .nativeLangMenuWrapper {
+  .longDropdown {
+    .dropdownWrapper {
       right: unset;
     }
   }
