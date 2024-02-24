@@ -177,7 +177,6 @@ export const useUserStore = defineStore("user", () => {
         language: result.language.toUpperCase(),
         instagram: result.instagram,
         reason: result.reason,
-        reasonTruncated: result.reason.length > 220 ? result.reason.slice(0, 220) + '...' : result.reason,
         publishReason: result.publishReason,
         publishCountryOfResidence: result.publishCountryOfResidence,
         publishInstagram: result.publishInstagram,

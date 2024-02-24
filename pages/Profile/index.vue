@@ -50,6 +50,10 @@ const warning = computed(() => {
   return false
 })
 
+const reasonTruncated = computed(() => {
+  return userStore.currentUser.reason.length > 220 ? userStore.currentUser.reason.reason.slice(0, 220) + '...' : userStore.currentUser.reason.reason
+})
+
 const updateLanguage = (lang) => {
   language.value = lang.name
 }
@@ -188,7 +192,7 @@ const deleteUser = async () => {
               {{ $t('profilePage.question') }}
             </h3>
             <p>
-              {{ userStore.currentUser.reasonTruncated }}
+              {{ reasonTruncated }}
             </p>
           </template>
         </div>
