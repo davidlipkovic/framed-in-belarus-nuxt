@@ -2,6 +2,10 @@ import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
+  if (userStore.userDataBeforeDelete) {
+    userStore.deleteUserData()
+  }
+
   if (userStore.user) {
     return
   }

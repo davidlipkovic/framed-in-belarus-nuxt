@@ -6,6 +6,7 @@ export const useUserStore = defineStore("user", () => {
   const user = ref(null)
   const userSummary = ref(null)
   const userAuthorizationData = ref(null)
+  const userDataBeforeDelete = ref(false)
 
   const isLogged = ref(false)
 
@@ -92,21 +93,27 @@ export const useUserStore = defineStore("user", () => {
 
       console.log('deleteUser', responseData.value)
 
-      if (window.localStorage) {
-        window.localStorage.removeItem('fibUser')
-      }
-
-      if (window.sessionStorage) {
-        window.sessionStorage.removeItem('fibUser')
-      }
-
-      user.value = null
-      userAuthorizationData.value = null
+      userDataBeforeDelete.value = true
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
       console.error('Error deleting user:', error)
     }
+  }
+
+  const deleteUserData = () => {
+    if (window.localStorage) {
+      window.localStorage.removeItem('fibUser')
+    }
+
+    if (window.sessionStorage) {
+      window.sessionStorage.removeItem('fibUser')
+    }
+
+    user.value = null
+    userAuthorizationData.value = null
+
+    userDataBeforeDelete.value = false
   }
 
   const validatePin = async (email, pin, remember) => {
@@ -260,10 +267,12 @@ export const useUserStore = defineStore("user", () => {
     user,
     userSummary,
     userAuthorizationData,
+    userDataBeforeDelete,
     isLogged,
     login,
     updateUser,
     deleteUser,
+    deleteUserData,
     validatePin,
     getUserAuthorizationData,
     getUserData,

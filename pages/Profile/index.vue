@@ -96,7 +96,6 @@ const updateUser = async () => {
 }
 
 const deleteUser = async () => {
-  router.push('/')
   userStore.loading = true
   await userStore.deleteUser()
   userStore.loading = false
