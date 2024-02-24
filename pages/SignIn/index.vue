@@ -1,11 +1,13 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useRegistrationStore } from "@/stores/registration"
 import { useUserStore } from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const router = useRouter()
 const localePath = useLocalePath()
+const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail } = useValidateInputs()
 
@@ -13,9 +15,9 @@ definePageMeta({
   layout: "registration"
 })
 
-const email = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
+
 const invalidEmail = ref(false)
 const remember = ref(false)
 
@@ -26,7 +28,7 @@ const signIn = async () => {
     data = window.localStorage.getItem('fibUser')
     data = JSON.parse(data)
 
-    if (data && data.email === email.value) {
+    if (data && data.email === registrationStore.email) {
       data.remember = remember.value
       window.localStorage.setItem('fibUser', JSON.stringify(data))
 
@@ -44,7 +46,7 @@ const signIn = async () => {
       }
     } else {
       userStore.loading = true
-      const userSignedUp = await userStore.login({email: email.value})
+      const userSignedUp = await userStore.login({email: registrationStore.email})
       userStore.loading = false
 
       if (userSignedUp) {
@@ -61,11 +63,11 @@ const signIn = async () => {
 }
 
 const validEmailData = computed(() => {
-  return validateEmail(email.value)
+  return validateEmail(registrationStore.email)
 })
 
 onClickOutside(emailInput, () => {
-  if (email.value) {
+  if (registrationStore.email) {
     emailTypingStarted.value = true
   }
 })
@@ -91,7 +93,7 @@ onClickOutside(emailInput, () => {
           type="email" 
           name="email" 
           id="email" 
-          v-model="email"
+          v-model="registrationStore.email"
           :placeholder="$t('placeholders.email') + '*'"  
           class="emailInput"
           :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
