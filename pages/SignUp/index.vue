@@ -32,7 +32,7 @@ const prevSlide = () => {
 
 const signUp = async () => {
   const body = {
-    email: email.value,
+    email: registrationStore.email,
     username: username.value,
     countryOfResidence: countryOfResidence.value,
     language: language.value,
