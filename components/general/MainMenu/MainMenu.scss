@@ -1,50 +1,138 @@
 @import "../../../assets/style/globalPartials/variables.scss";
-@import "./Lang.scss";
 
 .mainMenuWrapper {
   position: fixed;
   width: 100vw;
-  min-height: 3.75rem;
+  min-height: 46px;
   z-index: 200;
-  padding-top: 0.313rem;
-  padding-bottom: 0.313rem;
   background-color: $black;
   color: $white;
   font-size: 1rem;
-}
 
-.content {
-  >* {
-    margin-top: auto;
-    margin-bottom: auto;
+  .content {
+    width: 100%;
+    height: 46px;
+
+    >* {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
   }
-}
 
-.menuButton {
-  display: flex;
-  margin-right: 8px;
+  .menuButton {
+    display: flex;
 
-  >div {
-    width: 1rem;
+    >div {
+      div {
+        background-color: $white;
+      }
+    }
+  }
+
+  .mainMenuTopWrapper {
+    height: 100%;
+  }
+
+  .mainLogoWrapper {
+    color: $white;
+    line-height: 160%;
+    white-space: nowrap;
+    margin-top: 3px;
+  }
+
+  .menuContentWrapper {
+    * {
+      color: $white;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .menuLinksWrapper,
+  .menuUserLinksWrapper {
+    >*:hover {
+      color: $red;
+    }
+  }
+
+  .menuLinksWrapper {
+    padding: 0 24px 4px;
+    border-bottom: 0.5px solid $greyDisabledBg;
+    width: 100%;
+
+    >* {
+      margin: 15px 0;
+    }
+  }
+
+  .menuUserLinksWrapper {
+    width: 100%;
+    padding: 12px 23px;
+    align-items: center;
+    border-bottom: 0.5px solid $greyDisabledBg;
+
+    a {
+      width: 100%;
+    }
+  }
+
+  .profileButton {
+    width: 100%;
+    justify-content: start;
 
     div {
+      border-radius: 50%;
       background-color: $white;
-      height: 2px;
+      width: 55px;
+      height: 55px;
     }
+
+    img {
+      width: 48px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    span {
+      margin-left: 18px;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .participateButtonMobile {
+    order: 4;
+    margin: 14px auto 0;
+    width: calc(100% - 45px);
   }
 }
 
 .mainMenuWrapperOpened {
   z-index: 200;
 
+  .mainMenuTopWrapper {
+    justify-content: space-between;
+    width: 290px;
+    background-color: $greyDarkMenu;
+    border-bottom: 0.5px solid $greyDisabledBg;
+  }
+
   .menuButton {
+    order: 2;
+    margin-right: 23px;
+
     >div {
       position: relative;
+      width: 1rem;
+      height: 1rem;
 
       div {
         position: absolute;
         top: 0;
         width: 1.2rem;
+        height: 2px;
+        margin-top: 7px;
       }
 
       div:nth-child(1) {
@@ -59,11 +147,16 @@
     }
   }
 
+  .mainLogoWrapper {
+    order: 1;
+    margin-left: 24px;
+  }
+
   .menuContentWrapper {
     display: flex;    
     position: fixed;
     left: 0;
-    top: 37px;
+    top: 46px;
     height: calc(100vh - 37px);
 
     .menuContentBackground {
@@ -80,319 +173,167 @@
     .menuAllLinksWrapper {
       position: relative;
       z-index: 202;
-      background-color: $black;
-      min-width: 50vw;
-      width: auto;
+      background-color: $greyDarkMenu;
+      width: 290px;
       height: 100%;
-      padding-left: 50px;
     }
   }
 }
 
 .mainMenuWrapperClosed {
+  .mainMenuTopWrapper {
+    width: calc(100% - 34px);
+  }
+
   .menuButton {
+    order: 1;
+    margin-left: 10px;
+
     >div {
+      width: 24px;
+
       div {
         margin: 2px auto;
-        width: 1rem;
+        width: 24px;
+        height: 4px;
       }
     }
   }
-
-  .menuContentWrapper {
-    display: none;
+  
+  .mainLogoWrapper {
+    order: 2;
+    margin: 3px auto 0;
   }
 }
 
-.logo-project {
-  color: $white;
-  line-height: 160%;
-  white-space: nowrap;
-}
-
-// .langWrapper {
-//   display: none;
-// }
-
-.menuContentWrapper {
-  * {
-    color: $white;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-}
-
-.menuLinksWrapper,
-.menuUserLinksWrapper {
-  >*:hover {
-    color: $red;
-  }
-}
-
-.profileButton {
-  border-radius: 50%;
-  background-color: $white;
-  width: 30px;
-  height: 30px;
-
-  img {
-    width: 26px;
-    height: auto;
-    object-fit: cover;
-  }
-}
-
-.dropdownMenuWrapper {
-  position: fixed;
-  background-color: $white;
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  z-index: 10;
-  overflow: hidden;
-
-  * {
-    color: $black;
-  }
-}
-
-.profileMenuWrapper {
-  min-width: 304px;
-  top: 50px;
-
-  >span, >a {
-    width: auto;
-  }
-
-  img {
-    width: 81px;
-    height: auto;
-    margin: 40px auto 0;
-  }
-
-  .profileMenuWrapper__name {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    margin: 24px 18px 12px;
-  }
-
-  .profileMenuWrapper__profileLink,
-  .profileMenuWrapper__signOut {
-    width: 100%;
-    align-items: center;
-
-    span {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 0.1px;
-      color: rgba(0, 0, 0, 0.6);
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-  }
-
-  .profileMenuWrapper__profileLink:hover,
-  .profileMenuWrapper__signOut:hover {
-    background-color: $greyDisabledBg;
-  }
-
-  .profileMenuWrapper__profileLink {
-    border-top: 1px solid $greyDisabledBg;
-    border-bottom: 1px solid $greyDisabledBg;
-    min-height: 36px;
-  }
-
-  .profileMenuWrapper__signOut {
-    min-height: 42px;
-  }
-}
-
-.langMenu {
-  top: 40px;
-
-  >* {
-    width: 100%;
-    border-bottom: 1px solid $greyBg;
-    padding: 2px 4px;
-  }
-
-  >*:hover {
-    background-color: $greyBg;
-  }
-
-  >*:last-child {
-    border-bottom: none;
-  }
+.mainMenuWrapper .helpButtonDesktop,
+.mainMenuWrapperClosed .menuContentWrapper,
+.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper,
+.profileButtonDesktop {
+  display: none;
 }
 
 @media screen and (min-width: $br-point-md) {
   .mainMenuWrapper {
     position: static;
     padding: 12px 0 10px;
-  }
+    min-height: 3.75rem;
+    padding-top: 0.313rem;
+    padding-bottom: 0.313rem;
 
-  .menuButton {
-    display: none;
-  }
-
-  .mainMenuWrapperClosed {
-    .menuContentWrapper {
-      display: block;
-    }
-  }
-
-  .menuContentWrapper {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: -2px;
-    margin-left: 26px;
-  }
-
-  .menuContentBackground {
-    display: none;
-  }
-
-  .menuAllLinksWrapper {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .menuLinksWrapper {
-    flex-direction: row;
-    align-items: center;
-
-    a {
-      margin-right: 26px;
+    .menuButton, 
+    .menuContentBackground, 
+    .signInMobile, 
+    .helpButtonMobile, 
+    .participateButtonMobile,
+    .profileButton span,
+    .signOutMobile,
+    .profileButtonMobile {
+      display: none;
     }
 
-    a:last-child {
-      margin-right: 26px;
+    .content {
+      width: calc(100vw - 2rem);
     }
-  }
-
-  .menuUserLinksWrapper {
-    >* {
-      margin-right: 23px;
-    }
-
-    >*:last-child {
-      margin-right: 5px;
-    }
-  }
-
-  .helpButton {
-    svg {
-      fill: none;
-    }
-  }
-
-  .profileButton {
     
-  }
+    .mainMenuTopWrapper {
+      width: auto;
+    }
 
-  .langButton {
-    svg {
-      width: 9px;
-      fill: none;
-      stroke: $white;
-      stroke-width: 2px;
-      margin-top: 4px;
-      margin-left: 3px;
+    .mainLogoWrapper {
+      order: 1;
+    }
+
+    .mainMenuWrapperClosed {
+      .menuContentWrapper {
+        display: block;
+      }
+    }
+
+    .menuContentWrapper {
+      order: 2;
+      top: 60px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 26px;
+
+    }
+
+    .menuAllLinksWrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-right: 7px;
+    }
+    
+    .menuLinksWrapper {
+      order: 1;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      border: unset;
+      margin: -2px 0 0;
+
+      >* {
+        margin: 0;
+        margin-right: 26px;
+        text-wrap: nowrap;
+      }
+    }
+
+    .menuUserLinksWrapper {
+      order: 2;
+      margin-left: auto;
+      padding: 0;
+      border: unset;
+      justify-content: flex-end;
+      width: auto;
+
+      >* {
+        margin-right: 24px;
+        text-wrap: nowrap;
+      }
+
+      .participateButton {
+        padding: 8px 13px;
+      }
+    }
+
+    .helpButtonDesktop {
+      display: inline-flex;
+
+      svg {
+        fill: none;
+      }
+    }
+
+    .profileButtonDesktop {
+      display: flex;
+    }
+
+    .profileButton {
+      justify-content: flex-end;
+
+      div {
+        width: 30px;
+        height: 30px;
+      }
+
+      img {
+        width: 26px;
+      }
     }
   }
 }
 
 @media screen and (min-width: $br-point-lg) {
-
+  .mainMenuWrapper {
+    .content {
+      width: 69.375rem;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-// .Lang .arrow {
-//   position: relative;
-//   top: -0.1rem;
-//   margin-left: 2px;
-// }
-
-// .Lang.open .arrow {
-//   transform: rotate(180deg);
-//   transition-property: transform;
-//   transition-duration: 0.15s;
-// }
-
-.pattern-button-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  transition-property: clip-path, clip, width, height;
-  transition-duration: 0.15s;
-}
-
-// .Burger-menu-item:hover {
-//   position: relative;
-
-//   .pattern-button-text {
-//     padding: 0.25rem 0.75rem;
-//     width: auto;
-//     height: 1.75rem;
-//     border-radius: 0.25rem;
-//     background-color: $greyDisabledColor;
-//     color: $white;
-//     top: 3rem;
-//     left: -100%;
-//     clip: auto;
-//     clip-path: none;
-//     z-index: 1000;
-//   }
-// }
-
-// @media screen and (min-width: $br-point-md) {
-//   .mainMenuWrapper {
-//     padding-bottom: 0;
-//     padding-top: 0;
-//   }
-
-//   .Burger-menu-item.profileLink {
-//     margin-right: 14px;
-//     background-color: $greyBg;
-//     border-radius: 50%;
-//     width: 30px;
-//     height: 30px;
-
-//     img {
-//       width: 26px;
-//       height: auto;
-//     }
-//   }
-// }
-
-// @media screen and (min-width: $br-point-lg) {
-//   .mainMenuWrapper {
-//     padding-top: 1rem;
-//     padding-bottom: 14px;
-//     position: static;
-//   }
-// }

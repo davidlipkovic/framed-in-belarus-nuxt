@@ -19,27 +19,29 @@ export default {
     :class="toggleMenu ? 'mainMenuWrapperOpened' : 'mainMenuWrapperClosed'"
   >
     <div class="content flexRowStart">
-      <button 
-        class="menuButton"
-        @click="toggleMenu = !toggleMenu"
-      >
-        <div 
-          v-if="!toggleMenu"
-          class="menuButtonOpen flexColumnCenter"
+      <div class="mainMenuTopWrapper flexRowCenter">
+        <button 
+          class="menuButton"
+          @click="toggleMenu = !toggleMenu"
         >
-          <div/>
-          <div/>
-          <div/>
-        </div>
-        <div 
-          v-if="toggleMenu"
-          class="menuButtonClose flexColumnCenter"
-        >
-          <div/>
-          <div/>
-        </div>
-      </button>
-      <main-logo/>
+          <div 
+            v-if="!toggleMenu"
+            class="menuButtonOpen flexColumnCenter"
+          >
+            <div/>
+            <div/>
+            <div/>
+          </div>
+          <div 
+            v-if="toggleMenu"
+            class="menuButtonClose flexColumnCenter"
+          >
+            <div/>
+            <div/>
+          </div>
+        </button>
+        <main-logo/>
+      </div>
       <div class="menuContentWrapper flexColumnStart">
         <div 
           class="menuContentBackground"
@@ -52,47 +54,19 @@ export default {
             >
               {{ $t('links.home') }}
             </nuxt-link>
-            <!-- <nuxt-link
-              :to="localePath('/Gallery')"
-            >
-              {{ $t('links.gallery') }}
-            </nuxt-link>
-            <nuxt-link
-              :to="localePath('/News')"
-            >
-              {{ $t('links.news') }}
-            </nuxt-link> -->
             <nuxt-link
               :to="localePath('/AboutUs')"
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link>
-  <!--          <nuxt-link -->
-  <!--            :to="localePath('/FAQ')" -->
-  <!--          >-->
-  <!--            {{ $t('links.FAQ') }}-->
-  <!--          </nuxt-link>-->
           </div>
           <div class="menuUserLinksWrapper flexRowCenter">
-            <!-- <nuxt-link
-              :to="localePath('/SignIn')"
-              class="Login"
-            >
-              {{ $t('links.signIn') }}
-            </nuxt-link> -->
             <a
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               class="button bg_red"
             >
               {{ $t('links.participate') }}
             </a>
-            <div class="langWrapper">
-              <button 
-                class="langButton flexRowCenter"
-              >
-                ENG
-              </button>
-            </div>
           </div>
         </nav>
       </div>
