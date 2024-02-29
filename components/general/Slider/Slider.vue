@@ -56,7 +56,7 @@ export default {
       <img
         v-for="(slide, i) in slides"
         :key="slide.alt"
-        :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
+        :src="getStaticMediaLink('media/img/slider', i+1, 'jpg')"
         class="Slider-item"
         :class="i === index? 'active' : ''"
         :alt="`${slide.alt}`"

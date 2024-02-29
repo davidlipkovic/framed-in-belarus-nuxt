@@ -1,7 +1,18 @@
+let base
+if (process.env.NODE_ENV === 'production' && process.env.NUXT_ENV_PORT === '8080') {
+  base = 'https://framedinbelarus.net/'
+} else {
+  base = 'http://localhost:3000/'
+}
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
       port: process.env.NUXT_ENV_PORT
+  },
+
+  env: {
+    baseURL: base
   },
 
   head: {
@@ -13,7 +24,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Social art project dedicated to political prisoners in Belarus' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { property: 'og:image', content: './main.jpg' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: './fav.svg' },
@@ -54,5 +66,9 @@ export default {
     lazy: true,
     langDir: 'lang/',
     defaultLocale: 'en'
-  }
+  },
+
+  plugins: [
+    {src: '@/plugins/globalMixin'},
+  ],
 }
