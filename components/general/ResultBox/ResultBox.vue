@@ -19,9 +19,11 @@ const link = computed(() => {
   else return "/Gallery/Case"
 })
 
+const placeholderImage = import.meta.glob('@/assets/media/img/swiper/1.jpg', { eager: true })
+
 const photo = computed(() => {
   if (props.isEmbroidery) return props.result.photo
-  else return "https://televizeestrada.cz/framed-in-belarus/slider/1.jpg"
+  else return placeholderImage['/assets/media/img/swiper/1.jpg'].default
 })
 </script>
 
