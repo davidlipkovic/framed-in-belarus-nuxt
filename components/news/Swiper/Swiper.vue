@@ -32,6 +32,8 @@ const onSwiper = (swiper) => {
 const prevSlide = () => {
   localSwiper.slidePrev()
 };
+
+const images = import.meta.glob('@/assets/media/img/news/the-little-bird-must-be-caught/*.jpg', { eager: true })
 </script>
 
 <template>
@@ -59,7 +61,7 @@ const prevSlide = () => {
         class="flexColumnCenter"
       >
         <img
-          :src="`https://televizeestrada.cz/framed-in-belarus/the-little-bird-must-be-caught/${i+1}.jpg`"
+          :src="images[`/assets/media/img/news/the-little-bird-must-be-caught/${ i + 1 }.jpg`].default"
           :alt="`${slide.alt}`"
         >
         <div class="slideDescriptionWrapper flexRowCenter">

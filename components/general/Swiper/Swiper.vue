@@ -49,6 +49,8 @@ const prevSlide = () => {
 const handleFullscreen = (i) => {
   emit('openFullscreen', i)
 }
+
+const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
 </script>
 
 <template>
@@ -68,7 +70,7 @@ const handleFullscreen = (i) => {
       :key="slide.alt"
     >
       <img
-        :src="`https://televizeestrada.cz/framed-in-belarus/slider/${i+1}.jpg`"
+        :src="images[`/assets/media/img/swiper/${ i + 1 }.jpg`].default"
         :alt="`${slide.alt}`"
         @click="handleFullscreen(i)"
       >

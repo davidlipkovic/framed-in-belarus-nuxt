@@ -14,6 +14,8 @@ definePageMeta({
 const AlphabetPattern1 = ref({ show: false })
 const AlphabetPattern2 = ref({ show: false })
 const AlphabetPattern3 = ref({ show: false })
+
+const images = import.meta.glob('@/assets/media/img/schemaExample/*.jpg', { eager: true })
 </script>
 
 <template>
@@ -42,10 +44,10 @@ const AlphabetPattern3 = ref({ show: false })
       />
       <section class="Step2">
         <GeneralImageModal
-          class="paternSchemaWrapper"
           alt=""
-          :fullImageUrl="heroesStore.chosenHero.kit[0].pattern[0].photo"
-          :iconImageUrl="heroesStore.chosenHero.kit[0].pattern[0].photo"
+          class="paternSchemaWrapper"
+          :fullImageUrl="images['/assets/media/img/schemaExample/schema_full.jpg'].default"
+          :iconImageUrl="images['/assets/media/img/schemaExample/schema.jpg'].default"
           :showIcons="true"
         />
         <RegistrationHeroBio />
@@ -198,22 +200,22 @@ const AlphabetPattern3 = ref({ show: false })
             <div class="subscription-patterns-wrapper">
               <GeneralImageModal
                 alt=""
-                fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1_full.jpg"
-                iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD1.jpg"
+                :fullImageUrl="images['/assets/media/img/schemaExample/ABCD1_full.jpg'].default"
+                :iconImageUrl="images['/assets/media/img/schemaExample/ABCD1.jpg'].default"
                 class="subscription-pattern"
                 :showIcons="true"
               />
               <GeneralImageModal
                 alt=""
-                fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2_full.jpg"
-                iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD2.jpg"
+                :fullImageUrl="images['/assets/media/img/schemaExample/ABCD2_full.jpg'].default"
+                :iconImageUrl="images['/assets/media/img/schemaExample/ABCD2.jpg'].default"
                 class="subscription-pattern"
                 :showIcons="true"
               />
               <GeneralImageModal
                 alt=""
-                fullImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3_full.jpg"
-                iconImageUrl="https://televizeestrada.cz/framed-in-belarus/media/img/ABCD3.jpg"
+                :fullImageUrl="images['/assets/media/img/schemaExample/ABCD3_full.jpg'].default"
+                :iconImageUrl="images['/assets/media/img/schemaExample/ABCD3.jpg'].default"
                 class="subscription-pattern"
                 :showIcons="true"
               />

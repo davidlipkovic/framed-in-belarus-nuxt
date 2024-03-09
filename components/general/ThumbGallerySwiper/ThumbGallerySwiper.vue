@@ -65,6 +65,8 @@ const prevThumb = () => {
 onMounted(() => {
   checkThumbsLoaded()
 })
+
+const images = import.meta.glob('@/assets/media/img/news/the-little-bird-must-be-caught/*.jpg', { eager: true })
 </script>
 
 <template>
@@ -97,7 +99,7 @@ onMounted(() => {
         >
           <div class="slideWrapper">
             <img
-              :src="`https://televizeestrada.cz/framed-in-belarus/the-little-bird-must-be-caught/${i+1}.jpg`"
+              :src="images[`/assets/media/img/news/the-little-bird-must-be-caught/${ i + 1 }.jpg`].default"
               :alt="`${slide.alt}`"
             >
             <div class="slideDescriptionWrapper flexRowCenter">
@@ -138,7 +140,7 @@ onMounted(() => {
           :key="slide.alt"
         >
           <img
-            :src="`https://televizeestrada.cz/framed-in-belarus/the-little-bird-must-be-caught/${i+1}.jpg`"
+            :src="images[`/assets/media/img/news/the-little-bird-must-be-caught/${ i + 1 }.jpg`].default"
             :alt="`${slide.alt}`"
           >
         </SwiperSlide>
