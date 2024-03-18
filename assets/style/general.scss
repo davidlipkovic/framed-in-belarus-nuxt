@@ -77,6 +77,11 @@ p {
   }
 }
 
+.formLayout .Content {
+  min-height: 100vh;
+  padding-top: 2.875rem;
+}
+
 .containsPointerUp .Content {
   margin-bottom: -116px;
 }
@@ -153,6 +158,11 @@ svg {
 
   .containsPointerUp .Content {
     margin-bottom: -134px;
+  }
+
+  .formLayout .Content {
+    min-height: calc(100vh - 3.75rem);
+    padding-top: 0;
   }
 }
 
