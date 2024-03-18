@@ -133,6 +133,7 @@ const updateNativeLanguage = (lang) => {
                 <GeneralInputLongDropdown
                   class="nativeLanguageDropdown"
                   :chosenOption="nativeLanguage"
+                  :enableScroll="true"
                   :options="languages"
                   :placeholder="'English'" 
                   @chooseOption="updateNativeLanguage"

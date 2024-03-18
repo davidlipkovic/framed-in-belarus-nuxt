@@ -22,6 +22,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  enableScroll: {
+    type: Boolean,
+    default: false
+  },
 })
 
 const dropdown = ref(null)
@@ -57,26 +61,32 @@ const simplifiedName = (name) => {
   return parts[0]
 }
 
-watch(toggleDropdown, (n, o) => {
-  if (n && props.chosenOption) {
-    const match = props.options.find(option => option.name.startsWith(props.chosenOption))
-    if (match) {
-      nextTick(() => {
-        const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match.name))
-        if (firstMatch) {
-          firstMatch.scrollIntoView()
-        }
-      })
-    }
+watch(toggleDropdown, (n) => {
+  if (!n || !props.chosenOption || !props.enableScroll) {
+    return
+  }
+
+  const match = props.options.find(option => option.name.startsWith(props.chosenOption))
+  if (match) {
+    nextTick(() => {
+      const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match.name))
+      if (firstMatch) {
+        firstMatch.scrollIntoView()
+      }
+    })
   }
 })
 
 onMounted(() => {
-  addEventListener("keypress", scrollToOption)
+  if (props.enableScroll) {
+    addEventListener("keypress", scrollToOption)
+  }
 })
 
 onUnmounted(() => {
-  removeEventListener("keypress", scrollToOption)
+  if (props.enableScroll) {
+    removeEventListener("keypress", scrollToOption)
+  }
 })
 </script>
 
@@ -103,12 +113,12 @@ onUnmounted(() => {
       ref="dropdownWrapper"
     >
       <li
-        v-for="option in options"
-        :key="option.code"
-        :class="'optionLink--' + simplifiedName(option.name)"
+        v-for="(option, i) in options"
+        :key="i"
+        :class="enableScroll ? 'optionLink--' + simplifiedName(option.name) : ''"
       >
         <button @click="handleChooseOption(option)">
-          {{ option.name }}
+          {{ option.name ? option.name : option }}
         </button>
       </li>
     </ul>

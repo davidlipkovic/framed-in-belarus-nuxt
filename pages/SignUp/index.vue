@@ -194,6 +194,7 @@ const updateCountryOfResidence = (country) => {
               <GeneralInputLongDropdown
                 class="contentInput countryOfResidenceDropdown"
                 :chosenOption="countryOfResidence"
+                :enableScroll="true"
                 :options="countries"
                 :placeholder="$t('placeholders.country') + '*'" 
                 :isRegistration="true"
