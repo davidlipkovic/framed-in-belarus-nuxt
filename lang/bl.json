@@ -856,6 +856,15 @@
         "success": {
             "title": "Thank you!",
             "description": "If you would like to rejoin our project, we will be happy to see you!"
+        },
+        "notReadyPage": {
+            "title": "Sorry, the page is not ready yet...",
+            "subTitle": "You may choose another Hero*ine with the ready pattern"
+        },
+        "notFoundPage": {
+            "title": "The page is not found",
+            "subTitle": "The page you are looking for does not exist",
+            "backButton" : "Go back"
         }
     }
 }
