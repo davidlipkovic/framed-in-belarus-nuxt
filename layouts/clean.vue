@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="layout">
+  <div class="layout cleanLayout">
     <slot/>
   </div>
 </template>

@@ -82,6 +82,10 @@ p {
   padding-top: 2.875rem;
 }
 
+.cleanLayout .Content {
+  min-height: 100vh;
+}
+
 .containsPointerUp .Content {
   margin-bottom: -116px;
 }
@@ -174,6 +178,10 @@ svg {
       margin-right: 1.25rem;
       margin-bottom: 1.25rem;
     }
+  }
+  
+  .cleanLayout .Content {
+    min-height: 100vh;
   }
 
   .content {
