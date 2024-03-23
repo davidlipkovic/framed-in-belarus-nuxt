@@ -118,7 +118,7 @@ onUnmounted(() => {
         :class="enableScroll ? 'optionLink--' + simplifiedName(option.name) : ''"
       >
         <button @click="handleChooseOption(option)">
-          {{ option.name ? option.name : option }}
+          {{ option.name }}
         </button>
       </li>
     </ul>
