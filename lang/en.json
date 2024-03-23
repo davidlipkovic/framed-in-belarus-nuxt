@@ -853,5 +853,9 @@
             "option1": "Yes, I want to help the project",
             "option2": "No, I'm not interested"
         },
+        "success": {
+            "title": "Thank you!",
+            "description": "If you would like to rejoin our project, we will be happy to see you!"
+        }
     }
 }
