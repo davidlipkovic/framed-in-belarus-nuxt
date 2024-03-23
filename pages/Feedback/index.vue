@@ -31,14 +31,38 @@ const submitForm = async () => {
 }
 
 const leaveReasonOptions = [
-  t("feedbackPage.dropdownReason.option1"),
-  t("feedbackPage.dropdownReason.option2"),
-  t("feedbackPage.dropdownReason.option3"),
-  t("feedbackPage.dropdownReason.option4"),
-  t("feedbackPage.dropdownReason.option5"),
-  t("feedbackPage.dropdownReason.option6"),
-  t("feedbackPage.dropdownReason.option7"),
-  t("feedbackPage.dropdownReason.optionOther"),
+  {
+    "id": "option1",
+    "name": t("feedbackPage.dropdownReason.option1")
+  },
+  {
+    "id": "option2",
+    "name": t("feedbackPage.dropdownReason.option2")
+  },
+  {
+    "id": "option3",
+    "name": t("feedbackPage.dropdownReason.option3")
+  },
+  {
+    "id": "option4",
+    "name": t("feedbackPage.dropdownReason.option4")
+  },
+  {
+    "id": "option5",
+    "name": t("feedbackPage.dropdownReason.option5")
+  },
+  {
+    "id": "option6",
+    "name": t("feedbackPage.dropdownReason.option6")
+  },
+  {
+    "id": "option7",
+    "name": t("feedbackPage.dropdownReason.option7")
+  },
+  {
+    "id": "other",
+    "name": t("feedbackPage.dropdownReason.optionOther")
+  },
 ]
 
 const leaveReason = ref(null)
@@ -62,8 +86,8 @@ onClickOutside(leaveReasonOtherInput, () => {
 const validLeaveReasonOtherData = computed(() => validateLatinCharacters(leaveReasonOther.value) && validateText(leaveReasonOther.value))
 
 const validData = computed(() => {
-  (leaveReason.value && leaveReason.value !== t("feedbackPage.dropdownReason.optionOther") ||
-  leaveReason.value === t("feedbackPage.dropdownReason.optionOther") && leaveReasonOther.value) &&
+  return (leaveReason.value && leaveReason.value?.id !== "other" ||
+  leaveReason.value?.id === "other" && validLeaveReasonOtherData.value) &&
   subscribeNews.value !== null && subscribeCommercial.value !== null
 })
 </script>
@@ -79,7 +103,7 @@ const validData = computed(() => {
     </Head>
     <div 
       v-if="!success"
-      class="content correctionsContent"
+      class="content feedbackContent"
     >
       <h1 class="title">
         {{ $t('feedbackPage.title') }}
@@ -92,39 +116,42 @@ const validData = computed(() => {
       </p>
       <div class="formWrapper flexColumnStart">
         <label
-          for="publishUsername" 
+          for="leaveReasonDropdown" 
           class="flexRowStart"
         >
           {{ $t('feedbackPage.dropdownReason.label') }}
         </label>
-        <GeneralInputLongDropdown
-          class="contentInput leaveReasonDropdown"
-          :chosenOption="leaveReason"
-          :options="leaveReasonOptions"
-          :placeholder="$t('feedbackPage.dropdownReason.placeholder')" 
-          :isRegistration="true"
-          @chooseOption="updateLeaveReason"
-        />
-        <div 
-          v-if="leaveReason === $t('feedbackPage.dropdownReason.optionOther')"
-          class="inputWrapper inputWrapperWarningBottom"
-        >
-          <textarea 
-            type="text" 
-            name="leaveReasonOther" 
-            id="leaveReasonOther" 
-            v-model="leaveReasonOther"
-            :placeholder="$t('feedbackPage.dropdownReason.otherPlaceholder')" 
-            class="leaveReasonOtherInput"
-            :class="{'invalidInput': !validLeaveReasonOtherData && leaveReasonOtherTypingStarted}" 
-            ref="leaveReasonOtherInput"
+        <div class="leaveReasonWrapper">
+          <GeneralInputLongDropdown
+            id="leaveReasonDropdown"
+            class="contentInput leaveReasonDropdown"
+            :chosenOption="leaveReason?.name"
+            :options="leaveReasonOptions"
+            :placeholder="$t('feedbackPage.dropdownReason.placeholder')" 
+            :isRegistration="true"
+            @chooseOption="updateLeaveReason"
           />
-          <span 
-            v-if="!validLeaveReasonOtherData && leaveReasonOtherTypingStarted"
-            class="warningNotification note red"
+          <div 
+            v-if="leaveReason?.id === 'other'"
+            class="inputWrapper inputWrapperWarningBottom"
           >
-            {{ $t('invalidInputs.enterComment') }}
-          </span>
+            <textarea 
+              type="text" 
+              name="leaveReasonOther" 
+              id="leaveReasonOther" 
+              v-model="leaveReasonOther"
+              :placeholder="$t('feedbackPage.dropdownReason.otherPlaceholder')" 
+              class="leaveReasonOtherInput"
+              :class="{'invalidInput': !validLeaveReasonOtherData && leaveReasonOtherTypingStarted}" 
+              ref="leaveReasonOtherInput"
+            />
+            <span 
+              v-if="!validLeaveReasonOtherData && leaveReasonOtherTypingStarted"
+              class="warningNotification note red"
+            >
+              {{ $t('invalidInputs.enterComment') }}
+            </span>
+          </div>
         </div>
         <div class="optionsWrapper">
           <p class="b1">
@@ -205,7 +232,7 @@ const validData = computed(() => {
     </div>
     <div 
       v-else
-      class="content correctionsContent correctionsSuccessContent flexColumnCenter"
+      class="content feedbackContent feedbackSuccessContent flexColumnCenter"
     >
       <SvgCheckMark/>
       <h1 class="title">
