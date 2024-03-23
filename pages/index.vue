@@ -3,7 +3,7 @@ import { useUserStore } from "@/stores/user"
 const userStore = useUserStore()
 
 definePageMeta({
-  layout: "home"
+  layout: "nopointer"
 })
 
 const numberOfHeroes = 1432
