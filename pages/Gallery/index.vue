@@ -58,24 +58,15 @@ watch(route, () => {
     </div>
     <div class="content">
       <div class="searchMenuWrapper">
-        <div class="searchSortInputWrapper">
-          <div class="searchInputWrapper flexRowCenter">
-            <SvgSearch class="searchIcon"/>
-            <input 
-              type="text" 
-              class="search" 
-              :placeholder="$t('placeholders.searchHero')"
-              :aria-placeholder="$t('placeholders.searchHero')"
-              v-model="searchQuery"
-              @input="handleSearch()"
-            />
-          </div>
-          <GeneralSortMenu 
-            :menuStatus="activeMenuIndex === 1"
-            :currentOrder="currentOrder"
-            @checkForOrder="updateSortOrder"
-            @checkForStatus="toggleActiveMenuIndex(1)"
-            @closeSortMenu="closeTagsMenu(1)"
+        <div class="searchInputWrapper flexRowCenter">
+          <SvgSearch class="searchIcon"/>
+          <input 
+            type="text" 
+            class="search" 
+            :placeholder="$t('placeholders.searchHero')"
+            :aria-placeholder="$t('placeholders.searchHero')"
+            v-model="searchQuery"
+            @input="handleSearch()"
           />
         </div>
         <div class="tagsMenusWrapper flexRowStart">
@@ -108,6 +99,14 @@ watch(route, () => {
             @checkForTag="updateTags"
             @checkForStatus="toggleActiveMenuIndex(4)"
             @closeTagsMenu="closeTagsMenu(4)"
+          />
+          <GeneralSortMenu 
+            :menuStatus="activeMenuIndex === 1"
+            :currentOrder="currentOrder"
+            class="sortMenusGalleryWrapper"
+            @checkForOrder="updateSortOrder"
+            @checkForStatus="toggleActiveMenuIndex(1)"
+            @closeSortMenu="closeTagsMenu(1)"
           />
         </div>
       </div>

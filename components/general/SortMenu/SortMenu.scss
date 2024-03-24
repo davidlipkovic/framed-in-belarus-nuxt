@@ -5,28 +5,24 @@
 	border-radius: 6px;
 	margin: 0;
 
-	* {
-		color: $black;
-	}
-
 	.sortMenuTitleWrapper {
 		position: relative;
 		z-index: 102;
+		height: 100%;
 		width: 100%;
 		min-width: 251px;
 		height: 100%;
-		padding: 14px 1rem 13px;
+		padding: 10px 17px;
 		border: 1px solid $grey;
 		border-radius: 6px;
 		align-items: center;
-		background-color: $greyBg;
 		font-size: 14px;
 		white-space: nowrap;
 		font-weight: 600;
 
 		svg {
 			fill: none;
-			stroke: $black;
+			stroke: $grey;
 			height: auto;
 			transform-origin: center;
 			stroke-linecap: round;
@@ -50,7 +46,7 @@
 		z-index: 110;
 		top: 0;
 		left: 0;
-		margin: 60px 0px 0;
+		margin: 56px 0px 0;
 		border: 1px solid $grey;
 		background-color: $white;
 		box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
@@ -96,8 +92,12 @@
 	}
 }
 
-@media screen and (min-width: $br-point-md) {
-	.sortMenuWrapper {
-		margin: 0 0 0 30px;
+.sortMenusGalleryWrapper .sortMenuTitleWrapper {
+	color: $white;
+
+	svg:nth-child(1) {
+		* {
+			stroke: $white;
+		}
 	}
 }
