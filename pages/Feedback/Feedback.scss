@@ -1,0 +1,166 @@
+@import "../../assets/style/globalPartials/variables";
+@import "../../assets/style/mixins/general";
+
+.feedbackContent {
+  h1 {
+    font-size: 32px;
+    margin-top: 26px;
+    margin-bottom: 22px;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .formWrapper {
+    margin-top: 32px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 0;
+      margin-bottom: 12px;
+    }
+
+    .leaveReasonWrapper {
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 4px;
+    }
+
+    .leaveReasonDropdown {
+      width: 100%;
+      margin-bottom: 26px;
+  
+      .dropdownButton {
+        width: 100%;
+        border-radius: 0.375rem;
+        border: solid 1px $grey;
+        justify-content: space-between;
+        padding: 10px 1rem;
+        font-size: 1rem;
+        font-family: 'Roboto';
+  
+        svg {
+          width: 12px;
+          fill: $black;
+          margin-right: 2px;
+        }
+      }
+  
+      .dropdownButtonPlaceholder {
+        color: $greyDisabled;
+      }
+      
+      .dropdownWrapper {
+        top: 44px;
+        right: unset;
+        height: auto;
+      }
+    }
+
+    .inputWrapper {
+      margin-bottom: 30px;
+
+      textarea {
+        max-height: 66px;
+        min-height: 66px;
+        font-size: 16px;
+        padding: 16px 14px;
+      }
+    }
+  }
+
+  .optionsWrapper {
+    margin-bottom: 12px;
+
+    p {
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    label {
+      font-weight: 400;
+      margin-bottom: 22px;
+
+      input {
+        margin-right: 10px;
+        margin-left: 2px;
+      }
+    }
+  }
+
+  .optionsWrapper:last-child {
+    margin-bottom: 0;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+}
+
+.feedbackContent.feedbackSuccessContent {
+  h1 {
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .feedbackContent {
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 2px;
+    }
+
+    .formWrapper {
+      margin-top: 18px;
+
+      label {
+        margin-bottom: 8px;
+      }
+
+      .leaveReasonWrapper {
+        margin-bottom: 16px;
+      }
+  
+      .leaveReasonDropdown {
+        margin-bottom: 18px;
+    
+        .dropdownButton {
+          padding: 18px 1rem;
+        }
+        
+        .dropdownWrapper {
+          top: 54px;
+        }
+      }
+
+      .inputWrapper {
+        textarea {
+          max-height: 56px;
+          min-height: 56px;
+        }
+      }
+
+      .optionsWrapper {
+        margin-bottom: 16px;
+
+        p {
+          margin-bottom: 12px;
+        }
+    
+        label {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .buttons {
+      margin-top: 18px;
+    }
+  }
+}

@@ -57,6 +57,134 @@ const notInDatabase = computed(() => {
   return !parsedHeroes.value.length || (searchQuery.value !== 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value === 'notInDatabase')
 })
 
+const noAccess = computed(() => {
+  return false
+})
+
+const noMoreRequest = computed(() => {
+  return false
+})
+
+const testRequestable = [
+  {
+      "id": 523,
+      "url": "https://prisoners.spring96.org/en/person/ala-lapatka",
+      "name": "Ala Lapatka",
+      "status": "former",
+      "gender": "female",
+      "photo": "https://spring96.org/files/images/lopatko_alla.jpg",
+      "description": "chief engineer at TUT.BY",
+      "birthday": "1964-04-09",
+      "arrested": "2021-05-18",
+      "articles/0": "Art. 243 of the Criminal Code — Evasion of taxes and fees",
+      "articles/1": "",
+      "articles/2": "",
+      "articles/3": "",
+      "prison/title": "",
+      "prison/address": "",
+      "declaration": "https://spring96.org/en/news/103530",
+      "decision": "",
+      "penalty": "",
+      "judge": "",
+      "councel": "",
+      "penalty_start_date": "",
+      "release_date": "",
+      "verdict_date": "",
+      "appeal_date": "",
+      "articles": "",
+      "prison": "FALSE",
+      "articles/4": "",
+      "articles/5": "",
+      "articles/6": "",
+      "articles/7": "",
+      "articles/8": "",
+      "articles/9": "",
+      "articles/10": "",
+      "articles/11": "",
+      "articles/12": "",
+      "arrestedProgrammatic": "2021-05-18T00:00:00.000Z",
+      "birthdayProgrammatic": "1964-04-09T00:00:00.000Z"
+  },
+  {
+      "id": 523,
+      "url": "https://prisoners.spring96.org/en/person/ala-lapatka",
+      "name": "Ala Lapatka",
+      "status": "former",
+      "gender": "female",
+      "photo": "https://spring96.org/files/images/lopatko_alla.jpg",
+      "description": "chief engineer at TUT.BY",
+      "birthday": "1964-04-09",
+      "arrested": "2021-05-18",
+      "articles/0": "Art. 243 of the Criminal Code — Evasion of taxes and fees",
+      "articles/1": "",
+      "articles/2": "",
+      "articles/3": "",
+      "prison/title": "",
+      "prison/address": "",
+      "declaration": "https://spring96.org/en/news/103530",
+      "decision": "",
+      "penalty": "",
+      "judge": "",
+      "councel": "",
+      "penalty_start_date": "",
+      "release_date": "",
+      "verdict_date": "",
+      "appeal_date": "",
+      "articles": "",
+      "prison": "FALSE",
+      "articles/4": "",
+      "articles/5": "",
+      "articles/6": "",
+      "articles/7": "",
+      "articles/8": "",
+      "articles/9": "",
+      "articles/10": "",
+      "articles/11": "",
+      "articles/12": "",
+      "arrestedProgrammatic": "2021-05-18T00:00:00.000Z",
+      "birthdayProgrammatic": "1964-04-09T00:00:00.000Z"
+  },
+  {
+      "id": 259,
+      "url": "https://prisoners.spring96.org/en/person/ala-szarko",
+      "name": "Ala Sharko",
+      "status": "former",
+      "gender": "female",
+      "photo": "https://spring96.org/files/images/sharko_hanna.jpg",
+      "description": "program director of Press Club Belarus, released",
+      "birthday": "1977-08-24",
+      "arrested": "2020-12-22",
+      "articles/0": "Art. 243 of the Criminal Code — Evasion of taxes and fees",
+      "articles/1": "",
+      "articles/2": "",
+      "articles/3": "",
+      "prison/title": "",
+      "prison/address": "",
+      "declaration": "https://spring96.org/en/news/101305",
+      "decision": "",
+      "penalty": "",
+      "judge": "",
+      "councel": "",
+      "penalty_start_date": "",
+      "release_date": "",
+      "verdict_date": "",
+      "appeal_date": "",
+      "articles": "",
+      "prison": "FALSE",
+      "articles/4": "",
+      "articles/5": "",
+      "articles/6": "",
+      "articles/7": "",
+      "articles/8": "",
+      "articles/9": "",
+      "articles/10": "",
+      "articles/11": "",
+      "articles/12": "",
+      "arrestedProgrammatic": "2020-12-22T00:00:00.000Z",
+      "birthdayProgrammatic": "1977-08-24T00:00:00.000Z"
+  },
+]
+
 const displayRequestModal = ref(false)
 const requestDescription = ref(null)
 const requestName = ref(null)
@@ -83,32 +211,45 @@ watch(route, () => {
         />
       </div>
     </div>
-    <div class="content">
+    <div class="content step1ChooseHeroContent">
       <RegistrationNavSteps
         :currentStep="1"
       />
       <section class="searchWrapper flexColumnnStart">
         <div class="searchMenuWrapper">
-          <div class="searchSortInputWrapper">
-            <div class="searchInputWrapper flexRowCenter">
-              <SvgSearch class="searchIcon"/>
-              <input 
-                type="text" 
-                class="search" 
-                :placeholder="$t('placeholders.searchHero')"
-                :aria-placeholder="$t('placeholders.searchHero')"
-                v-model="temporarySearchQuery"
-                @input="handleSearch()"
-              />
-            </div>
-            <GeneralSortMenu 
-              :menuStatus="activeMenuIndex === 1"
-              :currentOrder="currentOrder"
-              @checkForOrder="updateSortOrder"
-              @checkForStatus="toggleActiveMenuIndex(1)"
-              @closeSortMenu="closeTagsMenu(1)"
+          <div class="searchInputWrapper flexRowCenter">
+            <SvgSearch class="searchIcon"/>
+            <input 
+              type="text" 
+              class="search" 
+              :placeholder="$t('placeholders.searchHero')"
+              :aria-placeholder="$t('placeholders.searchHero')"
+              v-model="temporarySearchQuery"
+              @input="handleSearch()"
             />
+            <ul 
+              v-if="temporarySearchQuery.length > 3"
+              class="dropdownWrapper requestableSearchDropdown flexColumnStart"
+              ref="dropdownWrapper"
+            >
+              <li
+                v-for="(hero, i) in testRequestable"
+                :key="i"
+                class="flexRowStart"
+              >
+                <img 
+                  :src="hero.photo" 
+                  :alt="'Photo of' + hero.name"
+                >
+                <button>
+                  {{ hero.name }}
+                </button>
+              </li>
+            </ul>
           </div>
+          <h2 class="subTitle">
+            {{ $t('embroidery.step1Page.subTitle') }}
+          </h2>
           <div class="tagsMenusWrapper flexRowStart">
             <GeneralTagsMenu
               :currentTag="currentTags.case"
@@ -137,6 +278,13 @@ watch(route, () => {
               @checkForStatus="toggleActiveMenuIndex(4)"
               @closeTagsMenu="closeTagsMenu(4)"
             />
+            <GeneralSortMenu 
+              :menuStatus="activeMenuIndex === 1"
+              :currentOrder="currentOrder"
+              @checkForOrder="updateSortOrder"
+              @checkForStatus="toggleActiveMenuIndex(1)"
+              @closeSortMenu="closeTagsMenu(1)"
+            />
           </div>
         </div>
         <template v-if="!alreadyChosen && !noPattern && !notInDatabase">
@@ -157,13 +305,13 @@ watch(route, () => {
           />
         </template>
         <div 
-          v-if="alreadyChosen"
+          v-else-if="alreadyChosen"
           class="mistakeSearchResultsWrapper alreadyChosenWrapper flexColumnStart"
         >
           <SvgMistake/>
-          <h2 class="title">
+          <h3 class="title">
             {{ $t('embroidery.step1Page.alreadyChosen.title') }}
-          </h2>
+          </h3>
           <p v-if="linkToAlreadyChosen">
             {{ $t('embroidery.step1Page.alreadyChosen.paragraph1.content') }}
             <nuxt-link
@@ -178,13 +326,13 @@ watch(route, () => {
           </p>
         </div>
         <div 
-          v-if="noPattern"
+          v-else-if="noPattern"
           class="mistakeSearchResultsWrapper noPatternWrapper flexColumnStart"
         >
           <SvgMistake/>
-          <h2 class="title">
+          <h3 class="title">
             {{ $t('embroidery.step1Page.noPattern.title') }}
-          </h2>
+          </h3>
           <p>
             {{ $t('embroidery.step1Page.noPattern.paragraph1.content1') }}<span class="b1">{{ $t('embroidery.step1Page.noPattern.paragraph1.highlight') }}</span>{{ $t('embroidery.step1Page.noPattern.paragraph1.content2') }}<br>
             {{ $t('embroidery.step1Page.noPattern.paragraph2') }}<br>
@@ -198,15 +346,39 @@ watch(route, () => {
           </button>
         </div>
         <div 
-          v-if="notInDatabase"
+          v-else-if="notInDatabase"
           class="mistakeSearchResultsWrapper notInDatabaseWrapper flexColumnStart"
         >
           <SvgMistake/>
-          <h2 class="title">
+          <h3 class="title">
             {{ $t('embroidery.step1Page.notInDatabase.title') }}
-          </h2>
+          </h3>
           <p>
             {{ $t('embroidery.step1Page.notInDatabase.paragraph1') }}
+          </p>
+        </div>
+        <div 
+          v-else-if="noAccess"
+          class="mistakeSearchResultsWrapper noAccessWrapper flexColumnStart"
+        >
+          <SvgMistake/>
+          <h3 class="title">
+            {{ $t('embroidery.step1Page.noAccess.title') }}
+          </h3>
+          <p>
+            {{ $t('embroidery.step1Page.noAccess.paragraph1') }}
+          </p>
+        </div>
+        <div 
+          v-else-if="noMoreRequest"
+          class="mistakeSearchResultsWrapper noAccessWrapper flexColumnStart"
+        >
+          <SvgMistake/>
+          <h3 class="title">
+            {{ $t('embroidery.step1Page.noMoreRequest.title') }}
+          </h3>
+          <p>
+            {{ $t('embroidery.step1Page.noMoreRequest.paragraph1') }}
           </p>
         </div>
       </section>
@@ -218,12 +390,12 @@ watch(route, () => {
     >
       <div class="inputModalContentWrapper">
         <div class="inputModalHeader flexRowStart">
-          <h2 
+          <h3
             v-if="requestNotSent"
             class="title"
           >
             {{ $t('embroidery.step1Page.requestModal.request.title') }}
-          </h2>
+          </h3>
           <button
             @click="displayRequestModal = false"
             class="closeButton"
@@ -264,9 +436,9 @@ watch(route, () => {
               :class="{'requestModalItemSentWrapper' : !requestNotSent}"
             >
               <SvgCheckMark class="checkMarkIconWrapper flexColumnCenter"/>
-              <h2 class="title">
+              <h3 class="title">
                 {{ $t('embroidery.step1Page.requestModal.success.title') }}
-              </h2>
+              </h3>
               <span>
                 {{ $t('embroidery.step1Page.requestModal.success.content') }}
               </span>

@@ -21,7 +21,8 @@
         "next": "Далей",
         "createAccount": "Стварыць уліковы запіс",
         "subscribe": "Падпісацца",
-        "goBack": "Вярнуцца"
+        "goBack": "Вярнуцца",
+        "submit": "Submit"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -318,6 +319,7 @@
         "step1Page": {
             "title": "Выберыце свайго*ю Героя*іню",
             "search": "Шукаць палітзняволенага*ую",
+            "subTitle": "Available for stitching",
             "rows": "Радкоў на старонцы",
             "of": "з",
             "warning": "Пасля пацверджання выбару Героя*іні вы не зможаце яго*яе змяніць",
@@ -345,6 +347,14 @@
             "notInDatabase": {
                 "title": "Прабачце, гэтага Героя*iнi няма ў нашай базе даных",
                 "paragraph1": "Магчыма, чалавек, якога вы шукаеце, не мае статусу \"палітычнага зняволенага\"."
+            },
+            "noAccess": {
+                "title": "You have no access",
+                "paragraph1": "Please ask Admin to open the access"
+            },
+            "noMoreRequest": {
+                "title": "We are sorry, you can't make more than one request",
+                "paragraph1": "You may choose another Hero*ine with the ready pattern"
             },
             "onWorkshop": {
                 "title": "Прабачце, профіль гэтага*й Героя*іні ўтоены па прычынах, звязаных з воркшопам.",
@@ -798,5 +808,72 @@
     },
     "newsDetailPage": {
         "title": "Навіны"
+    },
+    "correctionsPage": {
+        "title": "Corrections",
+        "description": "Please provide your comments on changes you would like us to make.",
+        "inputCommentProfessionalPhotos": {
+            "label": "Professional photos of the embroidery (front and back sides)",
+            "placeholder": "If you wish to hide your signature, please make a note"
+        },
+        "inputCommentComments": {
+            "label": "Comment(s) you have provided",
+            "placeholder": "If you want to unpublish your comment(s) or make corrections, please include a note"
+        },
+        "inputCommentProcessPhotos": {
+            "label": "Process photos you have provided",
+            "placeholder": "If you want to make corrections, please include a note"
+        },
+        "inputCommentOther": {
+            "label": "Other",
+            "placeholder": "For anything else, please include a note"
+        },
+        "success": {
+            "title": "Thank you!",
+            "description": "Thank you for completing the form, we will contact you soon."
+        }
+    },
+    "feedbackPage": {
+        "title": "Feedback form",
+        "description": {
+            "highlight": "We understand and appreciate your decision to leave the project!",
+            "content": "Please complete a short survey, it won't take more than three minutes, but it will really help us to improve our project."
+        },
+        "dropdownReason": {
+            "label": "What was the main reason you left the project?",
+            "placeholder": "Choose option",
+            "option1": "It has become unsafe for me and my loved ones.",
+            "option2": "Because of health problems.",
+            "option3": "The political situation in the world has changed and my focus of activism has shifted.",
+            "option4": "I had to wait too long for the embroidery scheme, after which I lost interest in the project.",
+            "option5": "Due to time constraints.",
+            "option6": "My expectations were not met and I don't see the point of this project anymore.",
+            "option7": "Financial reasons. The costs of materials and postage were unexpectedly high for me.",
+            "optionOther": "Other",
+            "otherPlaceholder": "Enter text"
+        },
+        "optionsNews": {
+            "title": "Would you like to receive news about further development of the project?",
+            "option1": "Yes, let’s stay in touch",
+            "option2": "No, delete all my contacts"
+        },
+        "optionsFinancial": {
+            "title": "Would you be interested in contributing financially to the project and occasionally receiving commercial messages?",
+            "option1": "Yes, I want to help the project",
+            "option2": "No, I'm not interested"
+        },
+        "success": {
+            "title": "Thank you!",
+            "description": "If you would like to rejoin our project, we will be happy to see you!"
+        },
+        "notReadyPage": {
+            "title": "Sorry, the page is not ready yet...",
+            "subTitle": "You may choose another Hero*ine with the ready pattern"
+        },
+        "notFoundPage": {
+            "title": "The page is not found",
+            "subTitle": "The page you are looking for does not exist",
+            "backButton" : "Go back"
+        }
     }
 }

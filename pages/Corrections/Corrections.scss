@@ -1,0 +1,75 @@
+@import "../../assets/style/globalPartials/variables";
+@import "../../assets/style/mixins/general";
+
+.correctionsContent {
+  h1 {
+    font-size: 32px;
+    margin-top: 26px;
+    margin-bottom: 22px;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .formWrapper {
+    margin-top: 32px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 0;
+      margin-bottom: 4px;
+    }
+
+    .inputWrapper {
+      margin-bottom: 32px;
+
+      textarea {
+        min-height: 90px;
+        font-size: 16px;
+        padding: 16px 14px;
+      }
+    }
+  }
+
+  .buttons {
+    margin-top: 8px;
+  }
+}
+
+.correctionsContent.correctionsSuccessContent {
+  h1 {
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .correctionsContent {
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 2px;
+    }
+
+    .formWrapper {
+      margin-top: 26px;
+
+      label {
+        margin-bottom: 8px;
+      }
+
+      .inputWrapper {
+        textarea {
+          max-height: 56px;
+          min-height: 56px;
+        }
+      }
+    }
+
+    .buttons {
+      margin-top: 28px;
+    }
+  }
+}

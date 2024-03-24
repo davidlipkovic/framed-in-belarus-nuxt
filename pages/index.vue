@@ -6,7 +6,7 @@ const heroesStore = useHeroesStore()
 const userStore = useUserStore()
 
 definePageMeta({
-  layout: "home",
+  layout: "nopointer",
   middleware: [
     'auth-general',
     'heroes',

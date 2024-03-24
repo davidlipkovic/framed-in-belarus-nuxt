@@ -77,6 +77,15 @@ p {
   }
 }
 
+.formLayout .Content {
+  min-height: 100vh;
+  padding-top: 2.875rem;
+}
+
+.cleanLayout .Content {
+  min-height: 100vh;
+}
+
 .containsPointerUp .Content {
   margin-bottom: -116px;
 }
@@ -105,6 +114,7 @@ p {
     display: block;
     font-size: 24px;
     margin-bottom: -3px;
+    text-transform: capitalize;
   }
 
   h1 {
@@ -154,6 +164,11 @@ svg {
   .containsPointerUp .Content {
     margin-bottom: -134px;
   }
+
+  .formLayout .Content {
+    min-height: calc(100vh - 3.75rem);
+    padding-top: 0;
+  }
 }
 
 @media screen and (min-width: $br-point-lg) {
@@ -164,6 +179,10 @@ svg {
       margin-right: 1.25rem;
       margin-bottom: 1.25rem;
     }
+  }
+  
+  .cleanLayout .Content {
+    min-height: 100vh;
   }
 
   .content {

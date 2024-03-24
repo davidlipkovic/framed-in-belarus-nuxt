@@ -2,7 +2,9 @@
 </script>
 
 <template>
-  <div class="layout cleanLayout">
+  <div class="layout formLayout">
+    <FormMainMenu/>
     <slot/>
+    <GeneralCookieBar/>
   </div>
 </template>

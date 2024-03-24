@@ -1,5 +1,52 @@
 @import "../../../assets/style/globalPartials/variables";
 @import "../../../assets/style/mixins/modal";
+@import "../../../assets/style/extends/dropdown";
+
+.step1ChooseHeroContent {
+	h2.subTitle {
+		font-size: 24px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+}
+
+.requestableSearchDropdown {
+	@extend .dropdownWrapper;
+	position: absolute;
+	top: 56px;
+	height: auto;
+	min-width: 265px;
+	width: 100%;
+	right: 0;
+	padding: 5px 0;
+	overflow-y: scroll;
+	list-style: none;
+
+	li {
+		width: 100%;
+		padding: 6px 14px;
+		align-items: center;
+		cursor: pointer;
+
+		img {
+			width: 36px;
+			height: 36px;
+			border-radius: 8px;
+			object-fit: cover;
+			filter: grayscale(100%);
+		}
+
+		button {
+			color: $black !important;
+			text-align: left;
+			margin-left: 10px;
+		}
+	}
+
+	li:hover {
+		background-color: $greyBg;
+	}
+}
 
 .mistakeSearchResultsWrapper {
 	padding-top: 22px;
@@ -14,7 +61,7 @@
 	}
 
 	h2 {
-    font-family: 'Roboto';
+		font-family: 'Roboto';
 		font-weight: 400;
 		margin-bottom: 18px;
 	}
@@ -35,9 +82,9 @@
 }
 
 .requestModal {
-  .inputModalContentWrapper {
-  	@include inputModalContentWrapper;
-  }
+	.inputModalContentWrapper {
+		@include inputModalContentWrapper;
+	}
 
 	.inputModalRow {
 		textarea {
@@ -55,31 +102,37 @@
 }
 
 .requestModalItemSentWrapper {
-  padding: 8px 8px;
+	padding: 8px 8px;
 
-  * {
-    text-align: center;
-  }
+	* {
+		text-align: center;
+	}
 
-  .checkMarkIconWrapper {
-    width: 80px;
-    height: 80px;
-  }
+	.checkMarkIconWrapper {
+		width: 80px;
+		height: 80px;
+	}
 
-  h2 {
-    font-family: 'Roboto';
-    margin-top: 20px;
+	h2 {
+		font-family: 'Roboto';
+		margin-top: 20px;
 		font-weight: 400;
-  }
+	}
 
-  span {
-    font-size: 14px;
-    margin-top: 16px;
+	span {
+		font-size: 14px;
+		margin-top: 16px;
 		max-width: 550px;
-  }
+	}
 }
 
 @media screen and (min-width: $br-point-md) {
+	.step1ChooseHeroContent {
+		h2.subTitle {
+			margin-bottom: 22px;
+		}
+	}
+
 	.requestModal {
 		.inputModalRow:first-child {
 			textarea {
