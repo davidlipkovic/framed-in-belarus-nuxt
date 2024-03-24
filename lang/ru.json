@@ -319,6 +319,7 @@
         "step1Page": {
             "title": "Выберите своего*ю Героя*иню",
             "search": "Искать политзаключенного*ую",
+            "subTitle": "Available for stitching",
             "rows": "Строк на странице",
             "of": "из",
             "warning": "После подтверждения выбора Героя*ини вы не сможете его*ее изменить",
@@ -346,6 +347,14 @@
             "notInDatabase": {
                 "title": "Извините, у нас нет этого*й Героя*ини в нашей базе данных",
                 "paragraph1": "Возможно, человек, которого вы ищете, не имеет статуса \"политического*й заключенного*й\"."
+            },
+            "noAccess": {
+                "title": "You have no access",
+                "paragraph1": "Please ask Admin to open the access"
+            },
+            "noMoreRequest": {
+                "title": "We are sorry, you can't make more than one request",
+                "paragraph1": "You may choose another Hero*ine with the ready pattern"
             },
             "onWorkshop": {
                 "title": "Извините, профиль этого*й Героя*ини скрыт по причинам, связанным с воркшопом.",

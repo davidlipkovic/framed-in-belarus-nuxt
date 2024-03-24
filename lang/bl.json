@@ -319,6 +319,7 @@
         "step1Page": {
             "title": "Выберыце свайго*ю Героя*іню",
             "search": "Шукаць палітзняволенага*ую",
+            "subTitle": "Available for stitching",
             "rows": "Радкоў на старонцы",
             "of": "з",
             "warning": "Пасля пацверджання выбару Героя*іні вы не зможаце яго*яе змяніць",
@@ -346,6 +347,14 @@
             "notInDatabase": {
                 "title": "Прабачце, гэтага Героя*iнi няма ў нашай базе даных",
                 "paragraph1": "Магчыма, чалавек, якога вы шукаеце, не мае статусу \"палітычнага зняволенага\"."
+            },
+            "noAccess": {
+                "title": "You have no access",
+                "paragraph1": "Please ask Admin to open the access"
+            },
+            "noMoreRequest": {
+                "title": "We are sorry, you can't make more than one request",
+                "paragraph1": "You may choose another Hero*ine with the ready pattern"
             },
             "onWorkshop": {
                 "title": "Прабачце, профіль гэтага*й Героя*іні ўтоены па прычынах, звязаных з воркшопам.",

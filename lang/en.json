@@ -106,7 +106,7 @@
     "notifications": {
         "subscribeSuccess": "You have successfully subscribed!",
         "sorry": "Sorry to see you go!",
-        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters.",
+        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters."
     },
     "toolTips": {
         "seeImage": "See full image",
@@ -136,7 +136,7 @@
         },
          "paragraph3":{
             "highlight": "Participation in the project",
-            "content": " is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the (or “by the dictatorship”) and share their stories through the non-traditional tool of political protest - cross-stitching.",
+            "content": " is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the (or “by the dictatorship”) and share their stories through the non-traditional tool of political protest - cross-stitching."
         },
         "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular prisoner. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
         "paragraph5": {
@@ -319,6 +319,7 @@
         "step1Page": {
             "title": "Choose your Hero*ine",
             "search": "Search for a political prisoner",
+            "subTitle": "Available for stitching",
             "rows": "Rows per page",
             "of": "of",
             "warning": "Once you choose a Hero*ine you can not change it",
@@ -346,6 +347,14 @@
             "notInDatabase": {
                 "title": "Sorry, we don't have this Hero*ine in our database",
                 "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
+            },
+            "noAccess": {
+                "title": "You have no access",
+                "paragraph1": "Please ask Admin to open the access"
+            },
+            "noMoreRequest": {
+                "title": "We are sorry, you can't make more than one request",
+                "paragraph1": "You may choose another Hero*ine with the ready pattern"
             },
             "onWorkshop": {
                 "title": "Sorry, the profile of this Hero*ine is hidden due to workshop reasons.",
