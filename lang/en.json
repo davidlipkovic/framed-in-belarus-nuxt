@@ -498,7 +498,7 @@
                 "paragraph2": "These photos will be published in our gallery, so we ask you to try to make quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
                 "paragraph3": {
                     "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
-                    "content1": "Please avoid uploading photos with confidential information if you do not want them to be published. These photos also serve as confirmation that your work is in proper condition and ready for dispatch.",
+                    "content1": "Please avoid uploading photos with confidential information if you do not want them to be published. If there are third parties in the photos, you are responsible for obtaining their consent.",
                     "content2": "These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
                 }
             },
@@ -855,12 +855,12 @@
         "optionsNews": {
             "title": "Would you like to receive news about further development of the project?",
             "option1": "Yes, let’s stay in touch",
-            "option2": "No, delete all my contacts"
+            "option2": "No, I'm not interested"
         },
         "optionsFinancial": {
             "title": "Would you be interested in contributing financially to the project and occasionally receiving commercial messages?",
             "option1": "Yes, I want to help the project",
-            "option2": "No, I'm not interested"
+            "option2": "No, I don't have the opportunity"
         },
         "success": {
             "title": "Thank you!",

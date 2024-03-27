@@ -22,7 +22,7 @@
         "createAccount": "Создать учетную запись",
         "subscribe": "Подписаться",
         "goBack": "Назад",
-        "submit": "Submit"
+        "submit": "Подать"
     },
     "placeholders": {
         "email": "Емейл",
@@ -319,7 +319,7 @@
         "step1Page": {
             "title": "Выберите своего*ю Героя*иню",
             "search": "Искать политзаключенного*ую",
-            "subTitle": "Available for stitching",
+            "subTitle": "Доступно для вышивки",
             "rows": "Строк на странице",
             "of": "из",
             "warning": "После подтверждения выбора Героя*ини вы не сможете его*ее изменить",
@@ -349,12 +349,12 @@
                 "paragraph1": "Возможно, человек, которого вы ищете, не имеет статуса \"политического*й заключенного*й\"."
             },
             "noAccess": {
-                "title": "You have no access",
-                "paragraph1": "Please ask Admin to open the access"
+                "title": "Извините, профиль этого*ой Героя*ини скрыт по причинам, связанным с воркшопом.",
+                "paragraph1": "Пожалуйста, попросите администраторов открыть доступ"
             },
             "noMoreRequest": {
-                "title": "We are sorry, you can't make more than one request",
-                "paragraph1": "You may choose another Hero*ine with the ready pattern"
+                "title": "К сожалению, вы не можете сделать более одного запроса",
+                "paragraph1": "Вы можете выбрать другого*ую Героя*иню с готовой схемой"
             },
             "onWorkshop": {
                 "title": "Извините, профиль этого*й Героя*ини скрыт по причинам, связанным с воркшопом.",
@@ -498,7 +498,7 @@
                 "paragraph2": "Эти фотографии будут опубликованы в галерее, поэтому мы просим вас постараться сделать качественные и интересные фотографии вашей работы и процесса её создания. Будет очень полезно, если вы также сможете сделать фотографии передней и задней стороны вашей готовой работы.",
                 "paragraph3": {
                     "highlight": "Обратите внимание, что эти фотографии могут быть использованы в печатных и интернет-изданиях, на выставках и т. д. в контексте презентации проекта.",
-                    "content1": "В связи с этим мы просим вас не загружать фотографии, содержащие конфиденциальные данные, если вы не хотите, чтобы они были опубликованы.",
+                    "content1": "В связи с этим мы просим вас не загружать фотографии, содержащие конфиденциальные данные, если вы не хотите, чтобы они были опубликованы. Если на фотографиях присутствуют третьи лица, вы отвечаете за то, чтобы заручиться их согласием.",
                     "content2": "Эти фотографии также являются подтверждением того, что ваша работа в порядке и готова к отправке."
                 }
             },
@@ -810,70 +810,70 @@
         "title": "Новости"
     },
     "correctionsPage": {
-        "title": "Corrections",
-        "description": "Please provide your comments on changes you would like us to make.",
+        "title": "Изменения",
+        "description": "Пожалуйста, оставьте свои комментарии по изменениям, которые вы хотели бы, чтобы мы внесли.",
         "inputCommentProfessionalPhotos": {
-            "label": "Professional photos of the embroidery (front and back sides)",
-            "placeholder": "If you wish to hide your signature, please make a note"
+            "label": "Профессиональные фотографии вышивки (лицевая и изнаночная стороны)",
+            "placeholder": "Пометьте, если хотите скрыть свою подпись."
         },
         "inputCommentComments": {
-            "label": "Comment(s) you have provided",
-            "placeholder": "If you want to unpublish your comment(s) or make corrections, please include a note"
+            "label": "Ваш(и) комментарий(и)",
+            "placeholder": "Если вы хотите скрыть публикацию своего(их) комментария(иев) или внести изменения, пожалуйста, пометьте."
         },
         "inputCommentProcessPhotos": {
-            "label": "Process photos you have provided",
-            "placeholder": "If you want to make corrections, please include a note"
+            "label": "Предоставленные вами фотографии процесса вышивки",
+            "placeholder": "Если вы хотите внести изменения, пожалуйста, пометьте."
         },
         "inputCommentOther": {
-            "label": "Other",
-            "placeholder": "For anything else, please include a note"
+            "label": "Другое",
+            "placeholder": "Если у вас есть еще какие-либо замечания, пожалуйста, пометьте."
         },
         "success": {
-            "title": "Thank you!",
-            "description": "Thank you for completing the form, we will contact you soon."
+            "title": "Спасибо!",
+            "description": "Благодарим вас за заполнение формы. Мы свяжемся с вами в ближайшее время."
         }
     },
     "feedbackPage": {
-        "title": "Feedback form",
+        "title": "Форма обратной связи",
         "description": {
-            "highlight": "We understand and appreciate your decision to leave the project!",
-            "content": "Please complete a short survey, it won't take more than three minutes, but it will really help us to improve our project."
+            "highlight": "Мы понимаем и ценим ваше решение покинуть проект!",
+            "content": "Пожалуйста, заполните небольшой опрос. Это займет не более трех минут, но поможет нам значительно улучшить проект."
         },
         "dropdownReason": {
-            "label": "What was the main reason you left the project?",
-            "placeholder": "Choose option",
-            "option1": "It has become unsafe for me and my loved ones.",
-            "option2": "Because of health problems.",
-            "option3": "The political situation in the world has changed and my focus of activism has shifted.",
-            "option4": "I had to wait too long for the embroidery scheme, after which I lost interest in the project.",
-            "option5": "Due to time constraints.",
-            "option6": "My expectations were not met and I don't see the point of this project anymore.",
-            "option7": "Financial reasons. The costs of materials and postage were unexpectedly high for me.",
-            "optionOther": "Other",
-            "otherPlaceholder": "Enter text"
+            "label": "Какова основная причина вашего ухода из проекта?",
+            "placeholder": "Выберите вариант",
+            "option1": "Это стало небезопасным для меня и моих близких.",
+            "option2": "Из-за проблем со здоровьем.",
+            "option3": "Политическая ситуация в мире изменилась, и мой фокус активности сместился.",
+            "option4": "Мне пришлось слишком долго ждать схему вышивки, после чего мой интерес к проекту пропал.",
+            "option5": "Из-за ограничений по времени.",
+            "option6": "Мои ожидания не оправдались, и я больше не вижу смысла в этом проекте",
+            "option7": "Финансовые причины. Расходы на материалы и почтовые услуги оказались для меня неожиданно высокими.",
+            "optionOther": "Другое",
+            "otherPlaceholder": "Введите текст"
         },
         "optionsNews": {
-            "title": "Would you like to receive news about further development of the project?",
-            "option1": "Yes, let’s stay in touch",
-            "option2": "No, delete all my contacts"
+            "title": "Хотели бы вы получать новости о дальнейшем развитии проекта?",
+            "option1": "Да, давайте оставаться на связи",
+            "option2": "Нет, мне не интересно"
         },
         "optionsFinancial": {
-            "title": "Would you be interested in contributing financially to the project and occasionally receiving commercial messages?",
-            "option1": "Yes, I want to help the project",
-            "option2": "No, I'm not interested"
+            "title": "Было бы вам интересно поучаствовать в финансовой поддержке проекта и иногда получать сообщения коммерческого характера?",
+            "option1": "Да, я хочу помочь проекту",
+            "option2": "Нет, у меня нет такой возможности"
         },
         "success": {
-            "title": "Thank you!",
-            "description": "If you would like to rejoin our project, we will be happy to see you!"
+            "title": "Спасибо!",
+            "description": "Если Вы захотите снова присоединиться к нашему проекту, мы будем очень рады!"
         }
     },
     "notReadyPage": {
-        "title": "Sorry, the page is not ready yet...",
-        "subTitle": "You may choose another Hero*ine with the ready pattern"
+        "title": "Извините, страница еще не готова...",
+        "subTitle": "Вы можете выбрать другого*ую Героя*иню с готовой схемой"
     },
     "notFoundPage": {
-        "title": "The page is not found",
-        "subTitle": "The page you are looking for does not exist",
-        "backButton" : "Go back"
+        "title": "Страница не найдена",
+        "subTitle": "Страница, которую вы ищете, не существует",
+        "backButton" : "Вернуться назад"
     }
 }
