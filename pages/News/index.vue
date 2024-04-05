@@ -1,12 +1,16 @@
 <script setup>
 // wip
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useNewsStore } from "@/stores/news"
 
 definePageMeta({
   middleware: [
     'auth-general',
+    'news',
   ],
 })
+
+const newsStore = useNewsStore()
 
 const articles = [
   {
@@ -50,6 +54,10 @@ const filterArticles = (tag) => {
     filteredArticles.value = articles.filter((article) => article.tag === tag)
   }
 }
+
+const news = computed(() => {
+  return newsStore.news.value
+})
 </script>
 
 <template>
