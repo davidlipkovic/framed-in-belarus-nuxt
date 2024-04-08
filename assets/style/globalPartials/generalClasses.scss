@@ -1,3 +1,5 @@
+@import "../mixins/general";
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -27,7 +29,15 @@
 }
 
 .button_disabled {
-  color: $greyDisabledColor !important;
+  background-color: $greyLight;
+  color: $greyDark !important;
+  border: 1px solid rgba($color: $white, $alpha: 0) !important;
+  pointer-events: none;
+}
+
+.button_disabledTransparent {
+  color: $greyDark !important;
+  border: 1px solid rgba($color: $white, $alpha: 0) !important;
   pointer-events: none;
 }
 
@@ -41,8 +51,8 @@
 
 .button_disabled:hover,
 .Content .button_disabled:hover {
-  background-color: $greyDisabledBg;
-  color: $greyDisabledColor !important;
+  background-color: $greyLight;
+  color: $greyDark !important;
   border: unset !important;
 }
 
@@ -110,8 +120,12 @@
   color: $red;
 }
 
-.redLighter {
-  color: $redLighter;
+.redImportatnt {
+  color: $red !important;
+}
+
+.redLight {
+  color: $redLight;
 }
 
 .mistake,
@@ -124,19 +138,19 @@
 }
 
 .note {
-  color: $greyDisabledColor;
+  color: $greyDisabled;
 }
 
 .warning {
-  color: $redLighter;
+  color: $redLight;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   align-items: center;
 
   * {
-    color: $redLighter;
+    color: $redLight;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     align-items: center;
   }
 
@@ -162,31 +176,95 @@
 }
 
 .flexRowCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexRowCenter;
 }
 
 .flexColumnCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include flexColumnCenter;
 }
 
 .flexRowStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include flexRowStart;
 }
 
 .flexColumnStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
+  @include flexColumnStart;
 }
 
 .overflowHidden {
   overflow: hidden;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.svgLink {
+  fill: none;
+  stroke: $red;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.simulateCheckboxWrapper {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.simulateCheckboxWrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 18px;
+  width: 18px;
+  background-color: $white;
+  border-radius: 2px;
+  border: 2px solid $greyDark;
+}
+
+/* On mouse-over, add a grey background color */
+.simulateCheckboxWrapper:hover input ~ .checkmark {
+  background-color: $greyBg;
+}
+
+/* When the checkbox is checked, add a blue background */
+.simulateCheckboxWrapper input.isChecked ~ .checkmark {
+  border-color: $black;
+  background-color: $black;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.simulateCheckboxWrapper .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.simulateCheckboxWrapper input.isChecked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.simulateCheckboxWrapper .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid $white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

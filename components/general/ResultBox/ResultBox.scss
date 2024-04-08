@@ -1,0 +1,68 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.resultBoxWrapper {
+  width: auto;
+
+  .resultImageWrapper {
+    border-radius: 1rem;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16);
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .resultNameWrapper {
+    display: flex;
+    justify-content: center;
+    width: auto;
+
+    h2 {
+      width: auto;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 24px;
+      margin: 8px 0 0;
+      margin: 8px 0 1.75rem;
+      color: $black;
+    }
+  }
+}
+
+.galleryBoxWrapper {
+  * {
+    color: $white !important;
+  }
+}
+
+.embroideryBoxWrapper {
+  .resultImageWrapper {
+    img {
+      filter: grayscale(100%);
+    }
+  }
+
+  .resultBoxWrapperHovered {
+    * {
+      color: $redHover !important;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .resultBoxWrapper {
+    .resultNameWrapper {
+      h2 {
+        font-size: 20px;
+        margin: 12px 0 0;
+      }
+    }
+  }
+}

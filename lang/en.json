@@ -4,6 +4,8 @@
     "buttons": {
         "accept": "Accept",
         "decline": "Decline",
+        "delete": "Delete",
+        "confirm": "Confirm",
         "manage": "Manage",
         "cancel": "Cancel",
         "publish": "Publish",
@@ -12,21 +14,80 @@
         "more": "More",
         "less": "Less",
         "readMore": "Read more",
-        "readLess": "Read less"
+        "readLess": "Read less",
+        "showMore": "Show more",
+        "showLess": "Show less",
+        "back": "Back",
+        "next": "Next",
+        "createAccount": "Create account",
+        "subscribe": "Subscribe",
+        "goBack": "Go back",
+        "submit": "Submit"
     },
     "placeholders": {
+        "email": "Email",
+        "enter": "Enter",
+        "text": "text",
+        "emailLogin": "Email (login)",
+        "country": "Country of residence",
+        "instagram": "Instagram",
         "username": "Username",
+        "pin": "Pin code",
         "password": "Password",
         "passwordAgain": "Password again",
+        "communicationLanguage": "Communication language",
         "chooseCommunicationLanguage": "Choose communication language",
         "pseudonym": "Your pseudonym / nickname",
-        "searchHero": "Search for a Hero*ine by name"
+        "searchHero": "Search for a Hero*ine by name",
+        "findOut": "How did you find out about this project?",
+        "chooseTheOption": "Choose the option"
     },
     "inputs": {
-        "alphabetically": "A-Z",
-        "alphabeticallyReversed": "Z-A",
-        "chronologically": "Date (newest first)",
-        "chronologicallyReversed": "Date (oldest first)"
+        "Alphabetically": "A-Z",
+        "AlphabeticallyReversed": "Z-A",
+        "Chronologically": "Date (newest first)",
+        "ChronologicallyReversed": "Date (oldest first)",
+        "mentionInstagram": "Mention my account in your posts",
+        "tags": {
+            "case": {
+                "type": "cases",
+                "all": "all",
+                "individual": "individual",
+                "group": "group"
+            },
+            "status": {
+                "type": "status of prisoner",
+                "all": "all",
+                "active": "in custody", 
+                "former": "free"
+            },
+            "gender": {
+                "type": "gender",
+                "all": "all",
+                "female": "female",
+                "male": "male"
+            }
+        },
+        "checkBox": {
+            "content1": "Check this box if you want these data to be accessible to all website visitors.",
+            "content2": "You can hide or reveal this information at any time in your personal account."
+        }
+    },
+    "invalidInputs": {
+        "enterYourUsername": "Enter your username",
+        "enterEmailAdress": "Enter email adress",
+        "enterCountry": "Choose your country",
+        "chooseTheOption": "Choose the option",
+        "enterPinCode": "Enter pin code",
+        "enterComment": "Enter comment",
+        "pleaseChooseOneOption": "Please choose one option",
+        "pleaseEnterYourNameAndSurname": "Please enter name and surname",
+        "pleaseEnterYourAdress": "Please enter address",
+        "pleaseEnterTheCorrectNumber": "Please enter the correct number",
+        "pleaseEnterYourOffer": "Please enter your offer",
+        "pleaseAskYourQuestion": "Please ask your question",
+        "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
+        "pleaseEnterHerosStory": "Please enter Hero*ine’s story"
     },
     "links": {
         "home": "Home",
@@ -39,7 +100,23 @@
         "signOut": "Sign Out",
         "profile": "Profile",
         "myEmbroideries": "My embroideries",
-        "participate": "Start stitching"
+        "participate": "Go stitch!",
+        "source": "Go to the source of information"
+    },
+    "notifications": {
+        "subscribeSuccess": "You have successfully subscribed!",
+        "sorry": "Sorry to see you go!",
+        "unsubscribeSuccess": "You've successfully unsubscribed from #FramedinBelarus project newsletters."
+    },
+    "toolTips": {
+        "seeImage": "See full image",
+        "downloadImage": "Download full image",
+        "profile": "Profile"
+    },
+    "languages": {
+        "english": "English",
+        "belarussian": "Belarusian",
+        "russian": "Russian"
     },
     "mainMenu": {
         "question": {
@@ -51,33 +128,37 @@
     "homePage": {
         "paragraph1": {
             "content1": "The number of officially recognized political prisoners in Belarus currently reaches more than",
-            "content2": "people."
+            "content2": "persons."
         },
         "paragraph2": {
-            "highlight": "The project aims",
-            "content": "to create portraits of each illegally convicted citizen using the traditional Belarusian embroidery technique of red thread on a white background, thereby recording an important era of Belarusian history with a folk code - ornament."
+            "highlight": "The aim of the #FramedinBelarus project",
+            "content": "is to tell about each illegally convicted citizen of Belarus and create their portraits using the traditional Belarussian technique of embroidery with red thread on a white background, and thus to record an important era of Belarusian history with a folk code ornament."
         },
-        "paragraph3": {
+         "paragraph3":{
             "highlight": "Participation in the project",
-            "content": "is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the dictatorship and share their stories through the non-traditional tool of political protest - cross-stitching."
+            "content": " is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the (or “by the dictatorship”) and share their stories through the non-traditional tool of political protest - cross-stitching."
         },
         "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular prisoner. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
-        "paragraph5": "Already, more than 400 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups. The final form of the project will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies.",
+        "paragraph5": {
+            "content1": "Already, more than 400 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups.",
+            "highlight": "The final form of the project",
+            "content2": " will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies."
+        },
         "paragraph6": {
-            "content1": "The project is a continuation of the series",
+            "content1": "The project is a continuation of the cycle",
             "highlight": "\"History of Belarusian Vyzhyvanka\"",
-            "content2": ", created by Rufina Bazlova in 2020-2021, and is run by the Stitchit Collective. Through the #FramedinBelarus project, the collective creative process allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus."
+            "content2": ", created by Rufina Bazlova in 2020-2021, and is managed by Stitchit Association. Through the collective creative process the #FramedinBelarus project, allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus."
         }
     },
     "aboutUsPage": {
         "title": "About us",
         "section": {
             "title": "Stitchit and Collective",
-            "paragraph1": "Stitchit is an art group created in 2021 by visual artist Rufina Bazlova (Belarus) and curator Sofia Tocar (Moldova). The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship.",
+            "paragraph1": "Stitchit is an art collective established in 2021 by artist Rufina Bazlova (Belarus/Czechia) and curator Sofia Tocar (Moldova/Czechia). The collective responds to current socio-political issues by using traditional embroidery technique as the main artistic line in their work. This technique acts not only as a means of rethinking traditions, through the creation of new meanings, but also serves as a stimulus for dialogue. One of the main goals of the Stitchit collective is to actively involve different communities and individuals in the creative process, seeking to unify and deliberately blur traditional boundaries of authorship.",
             "paragraph2": "Collective means all people, who take part in a project and activities organized by Stitchit.",
             "paragraph3": {
-                "content": "If you are an organisation and interested in hosting the project, can help us with promotion, want to organise a workshop or any other form of collaboration please contact us by email: ",
-                "highlight": "framedinbelarus@gmail.com"
+                "content": "If you are an organization and interested in hosting the project, can help us with promotion, want to organize a workshop or any other form of collaboration please contact us by email: ",
+                "highlight": "framedinbelarus{'@'}gmail.com"
             }
         },
         "igButton": "Find us on Instagram",
@@ -86,62 +167,84 @@
     "signUpPage": {
         "title": "Sign up",
         "signInQuestion": "Already a member?",
-        "textarea": "Why did you decide to join the project?",
-        "terms": {
-            "section1": {
-                "title": "How to participate",
-                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
-                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All fates are equally important in this project, and we would like to immortalise all stories, so each political prisoner is embroidered only once."
+        "slide1": {
+            "languageSelect": "Choose communication language",
+            "paragraph1": {
+                "content1": "Please write a name or pseudonym to be used for communication and future publications related to the project. ",
+                "highlight1": "If you are in Belarus, ",
+                "content2": "for security reasons,",
+                "highlight2": " we do not recommend using your real name and surname."
             },
-            "section2": {
-                "title": "Timeline",
-                "paragraph1": {
-                    "content": "The work process is divided into several steps that you can go through at your own pace. However, {0}. This should be enough if you do occasional embroidery on your free evenings (or even if you're just a beginner).",
-                    "highlight": "we have set a time limit of 2 months"
-                },
-                "paragraph2": "If you do not finish your work in 2 months and tell us you need more time, we may drop you from the project and pass your hero to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos.",
-                "paragraph3": {
-                    "content": "If you decide to withdraw from the project for any reason, or {0} your embroidery work {1}, please {2} as soon as possible.",
-                    "highlight1": "if you will not be able to finish",
-                    "highlight2": "on time",
-                    "highlight3": "let us know"
-                }
-            },
-            "section3": {
-                "title": "Publicity",
-                "paragraph1": {
-                    "content": "After your registration, {0}. You can also choose whether to use your real name or pseudonym and administer your own profile.",
-                    "highlight": "your data will not be available to other users on the website"
-                },
-                "paragraph2": {
-                    "content": "An important element of the project is photo documentation of your embroidery process and final work. These {0}. Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously.",
-                    "highlight": "photos will be later used on the site and in other publications on the project"
-                }
-            },
-            "section4": {
-                "title": "Price",
-                "paragraph1": {
-                    "content": "{0} and open to all those who are willing to give their time and effort to create an embroidery. The cost of creating the work is at your own expense and will cost you the equivalent of two cups of coffee. The final idea of the project is to create a large-scale canvas with embroideries of all political prisoners, therefore, by participating in the project you are committing to send us your embroidery and become part of a large mosaic of portraits, which will later be publicly exhibited in galleries and cultural institutions.",
-                    "highlight": "Participation in the project is free"
-                }
-            },
-            "section5": {
-                "title": "Personal Comment",
-                "paragraph1": {
-                    "content": "At the end, we will also {0} embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understand the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
-                    "highlight": "ask you to write a short comment about your experience"
-                }
+            "paragraph2": "This is our primary communication channel with you. Please use only one email, otherwise, we won't be able to identify you with your work, which may lead to potential confusion.",
+            "paragraph3": "Fill in your country of residence. If you are temporarily in immigration, fill in the country where you are currently living. This information is needed for statistical purposes to help us improve the project and team's work, as well as prioritizing your embroidery for accessible exhibitions.",
+            "paragraph4": "Choose the primary language for our communication."
+        },
+        "slide2": {
+            "textarea": "Why did you decide to join the project?",
+            "paragraph1": "Our primary correspondence will be conducted via email, but in exceptional cases, we would like to have the option to contact you through social media.",
+            "paragraph2": "Briefly describe your motivation. Your thoughts will greatly assist us in the project's development.",
+            "findOutOptions": {
+                "instagram": "Instagram",
+                "fromFriend": "From friend",
+                "atExhibition": "At the exhibition",
+                "atWorkshop": "At the workshop",
+                "atPresentation": "At the presentation",
+                "throughMedia": "Through the media",
+                "another": "Another"
             }
         },
-        "consent" : "I agree with the project’s terms of participation",
-        "warning": "You must agree to the Terms of participation",
-        "createButton" : "Create profile and start work",
-        "signInGoogleButton" : "Sign up with Google"
+        "slide3": {
+            "terms": {
+                "title": "How to participate",
+                "paragraph1": "On this site, after confirming the conditions, you will receive detailed instructions that will guide you from the preparation stage to sending us your finished work.",
+                "paragraph2": "By taking part in the project you become an \"ambassador\" of a prisoner and will receive a \"portrait\" of a political prisoner in Belarus. All stories are equally important in this project, and we would like to immortalize all of them, so each political prisoner is embroidered only once.",
+                "paragraph3": {
+                    "highlight1": "You may participate",
+                    "content1": "in the project if you",
+                    "highlight2": "are at least 18 years old,",
+                    "content2": "however, children of all ages may participate in the project if enabled by a parent or legal guardian."
+                },
+                "paragraph4": {
+                    "content1": "The work process is divided into several steps that you can go through at your own pace. However, we have set a time limit of",
+                    "highlight1": "2 months",
+                    "content2": ". This should be enough if you do occasional embroidery on your free evenings (even if you're just a beginner). "
+                },
+                "paragraph5": {
+                    "highlight1": "If you do not finish your work in 2 months",
+                    "content1": "and do not tell us you need more time, we may drop you from the project and pass your Hero*ine to someone else. We regret these strict rules, but we need to create some boundaries so the project does not turn into chaos."
+                },
+                "paragraph6": {
+                    "content1": "If you decide to withdraw from the project for any reason, or",
+                    "highlight1": " if you are not be able to finish your embroidery work on time",
+                    "content2": ", please let us know as soon as possible."
+                },
+                "paragraph7": "Your work becomes a donation to “Stitchit” that is running this project and it becomes its property. The association can exhibit it, use it publicly or otherwise as it sees fit for the purpose of this project.",
+                "paragraph8": {
+                    "content1": "An important element of the project is the photo documentation of your embroidery process and final work. These",
+                    "highlight1": "photos will be later used on the website and in other publications on the project.",
+                    "content2": "Therefore, we want to warn you about it in advance and ask you to take the quality of future photos seriously."
+                },
+                "paragraph9": "At the end, we will also ask you to write a short comment about your experience embroidering a political prisoner and participating in the project. Embroidery is a slow-paced process that allows you to gain a better experience and understanding of the story you will be working on. We would love to hear your thoughts, as they may become an addition to your work.",
+                "paragraph10":  {
+                    "content1": "Please be aware that ",
+                    "highlight1": "this comment will be published in our web gallery and may be used in print and online publications, exhibitions, etc.",
+                    "content2": " in the context of project presentations."
+                }
+            },
+            "warning": {
+                "content1": "For more details please refer to the full version of our",
+                "highlight1": "Terms & Conditions",
+                "content2": "and",
+                "highlight2": "Privacy Policy"
+            },
+            "consent" : "I have read and accept Terms and Conditions",
+            "subscribe": "Stay updated on the project growth"
+        }
     },
     "signInPage": {
         "title": "Sign in",
         "signUpQuestion": {
-            "content": "Not a member? {0}",
+            "content": "Not a member?",
             "highlight": "Sign up"
         },
         "forgot": "Forgot the password?",
@@ -149,19 +252,42 @@
         "signInButton" : "Sign in",
         "signInGoogleButton" : "Sign in with Google"
     },
+    "verifyEmailPage": {
+        "title": "Verify your email address",
+        "content": "To complete your profile and start stitching please verify your email address"
+    },
     "profilePage": {
         "title": "My embroideries",
         "subTitle": "Profile",
         "question": "Why did you decide to participate?",
         "editProfile": "Edit profile",
+        "deleteAccount": "Delete account",
+        "notifications": {
+            "notification1": "You are taking too much time for one step, please proceed with your work.",
+            "notification2": "The deadline for this embroidery has been extended to",
+            "notification3": {
+                "highlight": "Awaiting confirmation",
+                "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
+            },
+            "notification4": {
+                "highlight": "Corrections needed / Publish",
+                "content": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button."
+            },
+            "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
+        },
         "cardStatus": {
-            "status1": "In Progress",
-            "status2": "Pattern is ready",
-            "status3": "Stitched",
-            "status4": "Sent",
-            "status5": "Published",
-            "status6": "Delivered",
-            "status7": "Requested"
+            "inProgress": "In Progress",
+            "patternIsReady": "Pattern is ready",
+            "stitched": "Stitched",
+            "sent": "Sent",
+            "published": "Published",
+            "delivered": "Delivered",
+            "requested": "Requested",
+            "lostInPost": "Lost in post"
+        },
+        "deleteModal": {
+            "title": "Are you sure you want to delete your personal account?",
+            "disclaimer": "In case you click “Confirm” all your personal data will be deleted."
         }
     },
     "embroidery": {
@@ -177,6 +303,7 @@
             },
             "goBack": "Go back to my Profile",
             "step": "step",
+            "Step": "Step",
             "description": {
                 "case": "Case",
                 "birth": "Date of birth",
@@ -191,11 +318,61 @@
         },
         "step1Page": {
             "title": "Choose your Hero*ine",
+            "search": "Search for a political prisoner",
+            "subTitle": "Available for stitching",
             "rows": "Rows per page",
             "of": "of",
             "warning": "Once you choose a Hero*ine you can not change it",
             "backButton" : "Go back to all prisoners",
-            "forwardButton" : "Choose this Hero*ine"
+            "forwardButton" : "Choose this Hero*ine",
+            "alreadyChosen": {
+                "title": "Sorry, this Hero*ine has already been chosen",
+                "paragraph1": {
+                    "content": "You can see the embroidery",
+                    "highlight": "here"
+                },
+                "paragraph2": "Please choose another Hero*ine"
+            },
+            "noPattern": {
+                "title": "Sorry, we don't have a pattern for this Hero*ine yet",
+                "paragraph1": {
+                    "content1": "If you really want this Hero*ine, please",
+                    "highlight": " leave a request for a pattern",
+                    "content2": "in this section."
+                },
+                "paragraph2": "Rufina creates all the patterns by herself. Unfortunately, we cannot provide a direct timeframe for when the new pattern will be created.",
+                "paragraph3": "Thank you for your understanding!",
+                "button": "Leave a request"
+            },
+            "notInDatabase": {
+                "title": "Sorry, we don't have this Hero*ine in our database",
+                "paragraph1": "Perhaps the person you are looking for does not have \"political prisoner\" status."
+            },
+            "noAccess": {
+                "title": "You have no access",
+                "paragraph1": "Please ask Admin to open the access"
+            },
+            "noMoreRequest": {
+                "title": "We are sorry, you can't make more than one request",
+                "paragraph1": "You may choose another Hero*ine with the ready pattern"
+            },
+            "onWorkshop": {
+                "title": "Sorry, the profile of this Hero*ine is hidden due to workshop reasons.",
+                "paragraph1": "Please contact the workshop leader for assistance."
+            },
+            "requestModal" :{
+                "request": {
+                    "title": "Send a request",
+                    "requestName": "Name Surname of prisoner",
+                    "requestDescription": "To create a pattern please help us by telling the Hero*ine's story. What he*she is into, what their work was, whether he*she has children or pets, etc. If you know the details and reasons for your Hero*ine's detention, please provide them. This may also help in creating a pattern."
+                },
+                "success": {
+                    "title": "Your request has been successfully sent",
+                    "content": "Thank you for your request! We'll get back to you as soon as the pattern is ready. If you'd like, you can embroider another Hero*ine in the meantime, or just wait for your pattern.",
+                    "button1" : "Go to my profile",
+                    "button2" : "Choose a Hero*ine"
+                }
+            }
         },
         "step2Page": {
             "title": "Preparation",
@@ -203,11 +380,11 @@
                 "title": "What to buy?",
                 "paragraph1": {
                     "content": " white/natural (canvas or fabric with #weave)",
-                    "highlight": "Fabric color:"
+                    "highlight": "Fabric color"
                 },
                 "paragraph2": {
                     "content": " any shades of red / color combinations are possible at your discretion.",
-                    "highlight": "Thread color:"
+                    "highlight": "Thread color"
                 }
             },
             "section2": {
@@ -257,29 +434,30 @@
             "title": "Support the political prisoner",
             "quote": {
                 "content": "The more we talk about them, the safer they are",
-                "author": "Darya Losik, wife of unjustly convicted blogger Ihar Losik"
+                "author": "political prisoner Daria Losik, wife of unjustly convicted blogger Igor Losik"
             },
             "section1": {
-                "paragraph1": "By taking part in the project you become a kind of \"ambassador\" of the prisoner, telling his/her story to the world."
+                "paragraph1": "By taking part in the project you become a kind of \"ambassador\" of the prisoner, telling his*her story to the world."
             },
             "section2": {
                 "title": "Make posts and stories on social media",
                 "paragraph1": {
-                    "content1": "Talk about your hero and about the project and put",
-                    "content2": "and mark the account",
+                    "content1": "Talk about your Hero*ine and about the project, put",
                     "highlight1": "#framedinbelarus",
+                    "content2": "hashtag and mark the account",
                     "highlight2": "{'@'}rufinabazlova"
                 }
             },
             "section3": {
                 "title": "Write a letter to your political prisoner",
                 "paragraph1": {
-                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided on {0}",
-                    "highlight": "https://prisoners.spring96.org/en"
+                    "content": "You can mail a letter from your country. The full list of political prisoners with updated addresses is provided",
+                    "highlight": "here."
                 },
                 "paragraph2": {
-                    "content": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page.",
-                    "highlight": "The Solidarity Postcards Atelier"
+                    "content1": "The",
+                    "highlight": "Solidarity Postcards Atelier",
+                    "content2": "can help you send a postcard or a letter \"online\". Volunteers will transcribe your text and send it by mail in Belarus. Volunteers will also translate your message from English into Belarusian. When the response comes, they can translate it into English on your demand. You can find more information on how to support the initiative on their page."
                 },
                 "paragraph3": "What do you need to know about writing letters to prisoners?",
                 "paragraph4": {
@@ -287,17 +465,17 @@
                     "highlight": "Censorship"
                 },
                 "paragraph5": {
-                    "content": "{0} Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
+                    "content": "Write the date on the letter. You can also give it a number – it helps to figure out which letters get lost and how much time is needed for delivery.",
                     "highlight": "Dates"
                 },
                 "paragraph6": {
-                    "content": "{0} Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
+                    "content": "Not all censors speak English. Most prisons only accept letters in Russian or Belarusian. So use a translator or an initiative where volunteers will translate your letters. Letters with unknown abbreviations, word reductions and words may not go through censorship. Also, don‘t send poems or literary works in the letters – they have a low chance of passing censorship.",
                     "highlight": "Language"
                 }
             },
             "section4": {
                 "title": {
-                    "content": "Get involved in the initiative",
+                    "content": "Get involved in the initiative ",
                     "highlight": "politzek.me"
                 },
                 "paragraph1": "The platform allows you to befriend a political prisoner and complete different tasks."
@@ -317,8 +495,12 @@
             "section1": {
                 "title": "Provide photos of your work",
                 "paragraph1": "This can be phases of the embroidery, you at work, travel or events where you \"were\" with the embroidered Hero*ine, etc.",
-                "paragraph2": "These photos will be published in the general gallery, so we ask you to try to make high-quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
-                "paragraph3": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation."
+                "paragraph2": "These photos will be published in our gallery, so we ask you to try to make quality and interesting photos of your work and the process of its creation. It will be very helpful if you can also make photos of the front- and backside of your finished work.",
+                "paragraph3": {
+                    "highlight": "Please be aware that these photos may be used in print and online publications, exhibitions, etc. in the context of project presentation.",
+                    "content1": "Please avoid uploading photos with confidential information if you do not want them to be published. If there are third parties in the photos, you are responsible for obtaining their consent.",
+                    "content2": "These photos also serve as confirmation that your work is in proper condition and ready for dispatch."
+                }
             },
             "dropZone": {
                 "content": "Drag and Drop files here or",
@@ -332,7 +514,7 @@
             "title": "Comment",
             "section1": {
                 "title": "Write a short comment about your experience of embroidering a political prisoner",
-                "paragraph1": "It could be interesting stories that happened to you in the context of the project or facts that you learned during this time about your Hero*ine, about Belarus, etc. It could be quotes from your correspondence with the political prisoner or your thoughts that arise during the work. Here you can also write wishes for your hero, his/her family, to all Belarusians or our project. This can take the form of an open letter.",
+                "paragraph1": "It could be interesting stories that happened to you in the context of the project or facts that you learned during this time about your Hero*ine, about Belarus, etc. It could be quotes from your correspondence with the political prisoner or your thoughts that arise during the work. Here you can also write wishes for your Hero*ine, his/her family, to all Belarusians or our project. This can take the form of an open letter.",
                 "paragraph2": "We would like to know if the project has left any resonance in you. Did participating in the project bring you any new experiences? Your answer will help us improve the project.",
                 "paragraph3": "It would be wonderful if you can also write a handwritten comment and send it to us together with the finished embroidery. Because the handwritten text looks better when installed on the exhibitions."
             },
@@ -356,8 +538,7 @@
             "section4": {
                 "title": "This comment will be published in the web gallery and may be used in print and online publications, exhibitions, etc. in the context of the project presentations",
                 "content1": "I agree, I want my voice to be heard",
-                "content2": "I disagree, please keep my comment for internal project needs only",
-                "warning": "Please choose one option"
+                "content2": "I disagree, please keep my comment for internal project needs only"
             },
             "backButton" : "Previous step",
             "forwardButton" : "Save and go to Next step"
@@ -366,36 +547,68 @@
             "title": "Shipping",
             "sectionOptions": {
                 "title": "Please choose where you are sending the package from",
-                "content1": "EU countries",
-                "content2": "Non-EU countries",
-                "content3": "Belarus",
-                "content4": "Handing over personally in Prague",
-                "warning": "Please choose one option",
+                "option1": "EU countries",
+                "option2": "Non-EU countries",
+                "option3": "Belarus",
+                "option4": "Handing over personally in Prague",
+                "secondEmbroiderySendingBoth": "Please don't forget to pack and send your first embroidery along with the attached comment when submitting your new work.",
+                "SecondEmbroiderynoDrawnRequest": "We apologize, but unfortunately the requested pattern has not been created yet. Kindly send the finished embroidery. Thank you!",
+                "secondEmbroideryBookedReady": {
+                    "content1": "Since the pattern of ",
+                    "content2": " you've requested is already drawn, you can proceed to stitch it and send both embroideries together in one package.",
+                    "paragraph1": "Please choose one option:"
+                },
+                "secondEmbroideryOption1": "Ship the finished work now",
+                "secondEmbroideryOption2": "Ship both works together later",
                 "backButton" : "Previous step",
                 "forwardButton" : "Get instruction"
             },
+            "secondEmbroideryBookedActivation": {
+                "paragraph1": {
+                    "content1": "The ",
+                    "content2": " pattern is now available in your profile. Please remember that the time limit for one work is",
+                    "highlight1": "  2 months",
+                    "content4": "."
+                },
+                "paragraph2": {
+                    "content1": "Your first finished embroidery will be marked as ”Stitched” and freezed until you progress with your second work to step 6 - ”Shipping”. This way ",
+                    "highlight1": "you will activate both embroideries for sending",
+                    "content2": "."
+                },
+                "paragraph3": "Go to your profile to begin working on a new embroidery.",
+                "forwardButton": "Go to my profile"
+            },
+            "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
             "sectionEU": {
                 "title": "Please read this section carefully!",
                 "section1": {
-                    "title": "IMPORTANT",
-                    "content1": "On the content line please write Embroidery or Tissue.",
-                    "content2": "We will need the following information from you in order to issue the customs declaration.",
-                    "content3": {
-                        "content": "Send your work only by {0}",
-                        "highlight": "CUSTOMER POSTAGE!"
-                    },
-                    "content4": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                    "warning": "IMPORTANT",
+                    "paragraph1": "On the content line please write EMBROIDERY or NAPKIN.",
+                    "paragraph2": "We will need the following information from you in order to issue the customs declaration."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
-                    "content1": "Rufina Bazlova",
-                    "content2": "Schnirchova 1447/15",
-                    "content3": "17000 Prague",
-                    "content4": "Czech Republic"
+                    "paragraph1": {
+                        "content1": "Send your work only by",
+                        "highlight": "CUSTOMER POSTAGE",
+                        "content2": "!"
+                    },
+                    "paragraph2": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
-                "input": {
-                    "label": "Tracking number",
-                    "placeholder": "Enter Tracking number"
+                "section3": {
+                    "title": "Address",
+                    "paragraph1": {
+                        "content1": "Rufina Bazlova",
+                        "content2": "Schnirchova 15",
+                        "content3": "170 00 Prague",
+                        "content4": "Czech Republic",
+                        "content5": "framedinbelarus{'@'}gmail.com",
+                        "content6": "(please mark the email as well - this might help speed up the delivery process)"
+                    }
+                },
+                "inputTrackingNumber": {
+                    "label": "Tracking Number",
+                    "placeholder": "Enter a Tracking number",
+                    "warning": "Please enter a valid number"
                 },
                 "backButton" : "Previous step",
                 "forwardButton" : "I have sent a package"
@@ -403,38 +616,48 @@
             "sectionNonEU": {
                 "title": "Please read this section carefully!",
                 "section1": {
-                    "title": "IMPORTANT",
-                    "content1": "When sending a parcel from a country outside the customs union of the European Union, please do the following:",
-                    "content2": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
-                    "content3": "On the content line please write Embroidery or Tissue.",
-                    "content4": "We will need the following information from you in order to issue the customs declaration.",
-                    "content5": {
-                        "content": "Send your work only by {0}",
-                        "highlight": "CUSTOMER POSTAGE!"
-                    },
-                    "content6": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                    "warning": "IMPORTANT",
+                    "paragraph1": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
+                    "paragraph2": "On the content line please write EMBROIDERY or NAPKIN.",
+                    "paragraph3": "We will need the following information from you in order to issue the customs declaration."
                 },
                 "section2": {
-                    "title": "Address for shipping:",
-                    "content1": "Rufina Bazlova",
-                    "content2": "Schnirchova 1447/15",
-                    "content3": "17000 Prague",
-                    "content4": "Czech Republic",
-                    "content5": "For the mandatory customs declaration, we will need the sender's information on the parcel:"
+                    "paragraph1": {
+                        "content1": "Send your work only by",
+                        "highlight": "CUSTOMER POSTAGE",
+                        "content2": "!"
+                    },
+                    "paragraph2": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
                 },
-                "input1": {
-                    "label": "Name and Surname on the package",
-                    "placeholder": "Enter Name Surname",
-                    "warning": "Please fill in Latin letters."
+                "section3": {
+                    "title": "Address",
+                    "paragraph1": {
+                        "content1": "Rufina Bazlova",
+                        "content2": "Schnirchova 15",
+                        "content3": "170 00 Prague",
+                        "content4": "Czech Republic",
+                        "content5": "framedinbelarus{'@'}gmail.com",
+                        "content6": "(please mark the email as well - this might help speed up the delivery process)"
+                    }
                 },
-                "input2": {
-                    "label": "Adress with zip code and country",
-                    "placeholder": "Enter Address",
-                    "warning": "Please fill in Latin letters."
+                "declaration": {
+                    "content": "We will need the following information from you in order to issue the customs declaration.",
+                    "note": "This data will be deleted automatically as soon as the parcel is delivered."
                 },
-                "input3": {
-                    "label": "Tracking number",
-                    "placeholder": "Enter Tracking number"
+                "inputName": {
+                    "label": "Name and Surname as on the package",
+                    "placeholder": "Enter Name and Surname",
+                    "note": "Please fill in Latin letters."
+                },
+                "inputAdress": {
+                    "label": "Adress with ZIP code and country",
+                    "placeholder": "Enter Adress",
+                    "note": "Please fill in Latin letters."
+                },
+                "inputTrackingNumber": {
+                    "label": "Tracking Number",
+                    "placeholder": "Enter a Tracking number",
+                    "warning": "Please enter a valid number"
                 },
                 "backButton" : "Previous step",
                 "forwardButton" : "I have sent a package"
@@ -443,21 +666,81 @@
                 "content": "Sending work from Belarus is always a bit of a challenge, so we'll get back to you by email within 10 days. Thank you for your understanding!",
                 "forwardButton" : "Got it"
             },
-            "sectionPrague": {
+            "sectionBelarusPost": {
+                "title": "Please read this section carefully!",
+                "section1": {
+                    "warning": "IMPORTANT",
+                    "paragraph1": "When filling in the postal declaration, mark the parcel as GIFT, worth up to 20 euros.",
+                    "paragraph2": "On the content line please write EMBROIDERY or NAPKIN.",
+                    "paragraph3": "We will need the following information from you in order to issue the customs declaration."
+                },
+                "section2": {
+                    "paragraph1": {
+                        "content1": "Send your work only by",
+                        "highlight": "CUSTOMER POSTAGE",
+                        "content2": "!"
+                    },
+                    "paragraph2": "This way we will be able to track it and if it is lost, we will be able to look for it by its tracking number."
+                },
+                "section3": {
+                    "title": "Address",
+                    "paragraph1": {
+                        "content1": "Martina Gažarová",
+                        "content2": "Klimentska 2",
+                        "content3": "110 00 Praha",
+                        "content4": "Czech Republic",
+                        "content5": "framedinbelarus{'@'}gmail.com",
+                        "content6": "(please mark the email as well - this might help speed up the delivery process)"
+                    }
+                },
+                "declaration": {
+                    "content": "For the mandatory customs declaration, we will need the sender's information on the parcel.",
+                    "note": "This data will be deleted automatically as soon as the parcel is delivered."
+                },
+                "inputName": {
+                    "label": "Name and Surname on the package",
+                    "placeholder": "Enter Name and Surname",
+                    "note": "Please fill in Latin letters."
+                },
+                "inputAdress": {
+                    "label": "Adress with ZIP code and country",
+                    "placeholder": "Enter Adress",
+                    "note": "Please fill in Latin letters."
+                },
+                "inputTrackingNumber": {
+                    "label": "Tracking Number",
+                    "placeholder": "Enter a Tracking number",
+                    "warning": "Please enter a valid number"
+                },
+                "forwardButton" : "I have sent a package"
+            },
+            "sectionPersonally": {
                 "content": "We will send you our offer for the place and time of the meeting within 10 days. If you have your own offer or your stay in Prague is limited, please let us know.",
                 "textarea": {
                     "label": "Comment",
-                    "placeholder": "Type a comment",
+                    "placeholder": "Type your proposal",
                     "warning": "Please add a comment"
                 },
                 "forwardButton" : "Got it"
             },
             "sectionSent": {
-                "title": " Thank you! We'll be sure to get back to you as soon as we receive your embroidery",
-                "content1": "In meanwhile you can add or correct information about yourself in your personal profile",
-                "content2": "A short text about your motivation will be published in our gallery with your embroidery. If you want to hide or add something, please do it in advance.",
+                "title": "Thank you! We'll be sure to get back to you as soon as we receive your embroidery.",
+                "content1": "In meanwhile you can add or correct information about yourself in your personal profile.",
+                "content2": "If you want to hide or add something, please do it in advance.",
                 "content3": "You can also take on another embroidery.",
                 "forwardButton" : "Go to my profile"
+            },
+            "sectionSecondEmbroidery": {
+                "paragraph1": {
+                    "content1": "The",
+                    "content2": "pattern is now available in your profile. Please remember that the time limit for one work is",
+                    "highlight": "2 months."
+                },
+                "paragraph2": {
+                    "content1": "Your first finished embroidery will be marked as 'Stitched' and freezed until you progress with your second work to step 6 - 'Shipping.' This way",
+                    "highlight": "you will activate both embroideries for sending."
+                },
+                "paragraph3": "Go to your profile to begin working on a new embroidery."
             }
         },
         "step7Page": {
@@ -465,31 +748,132 @@
             "section1": {
                 "title": "Good news! We received your work",
                 "paragraph1": {
-                    "content": "Thank you for your understanding!",
-                    "highlight": "The process of verifying and publishing your work in our online gallery can take anywhere from a few days to a few weeks."
+                    "highlight": "The process of verifying and publishing your work in our online gallery can take anywhere from a few days to a few weeks.",
+                    "content": "Thank you for your understanding!"
                 },
                 "paragraph2": {
                     "content1": "When the publication is ready the icon with the embroidered Hero*ine in your personal profile will get a green mark.",
-                    "content2": "by clicking that icon.",
-                    "highlight": "You will be able to check your Hero*ine's page in the gallery"
+                    "highlight": "You will be able to check your Hero*ine’s page in the gallery",
+                    "content2": "by clicking that icon."
                 },
                 "paragraph3": "Thank you for your solidarity and participation.",
                 "paragraph4": "If you still have time and energy, you can embroider a new political prisoner."
             },
-            "forwardButton" : "Choose a new hero"
+            "forwardButton" : "Choose a new Hero*ine"
         }
     },
     "galleryPage": {
         "title": "Gallery"
     },
+    "casePage": {
+        "title": "Gallery",
+        "swiper": {
+            "stitching": "Stitching",
+            "author": "Author"
+        },
+        "description": {
+            "case": "Case",
+            "birth": "Date of birth",
+            "detention": "Date of detention",
+            "sentence": "Sentence",
+            "descriptionPrisoner" : "Description of the Political prisoner",
+            "descriptionCase" : "Description of the case",
+            "address" : "Address of the prison",
+            "moreButton" : "More information",
+            "lessButton" : "Less information",
+            "seeMore": {
+                "content": "See more",
+                "highlight": "here"
+            },
+            "goToSource": "Go to the source of information"
+        },
+        "author": {
+            "title" : "Author about the work process",
+            "reason": "Why did you decide to participate in a project?",
+            "comment": "Comment",
+            "nativeComment": "Comment in native language"
+        },
+        "exhibitions": {
+            "title" : "List of the exhibitions where the embroidery was shown"
+        }
+    },
     "newsPage": {
         "title": "News",
-        "allItems": "All Items",
-        "workshops": "Workshops",
-        "exhibitions": "Exhibitions",
-        "other": "Other"
+        "filters": {
+            "allItems": "All Items",
+            "workshops": "Workshops",
+            "exhibitions": "Exhibitions",
+            "other": "Other"
+        }
     },
     "newsDetailPage": {
         "title": "News"
+    },
+    "correctionsPage": {
+        "title": "Corrections",
+        "description": "Please provide your comments on changes you would like us to make.",
+        "inputCommentProfessionalPhotos": {
+            "label": "Professional photos of the embroidery (front and back sides)",
+            "placeholder": "If you wish to hide your signature, please make a note"
+        },
+        "inputCommentComments": {
+            "label": "Comment(s) you have provided",
+            "placeholder": "If you want to unpublish your comment(s) or make corrections, please include a note"
+        },
+        "inputCommentProcessPhotos": {
+            "label": "Process photos you have provided",
+            "placeholder": "If you want to make corrections, please include a note"
+        },
+        "inputCommentOther": {
+            "label": "Other",
+            "placeholder": "For anything else, please include a note"
+        },
+        "success": {
+            "title": "Thank you!",
+            "description": "Thank you for completing the form, we will contact you soon."
+        }
+    },
+    "feedbackPage": {
+        "title": "Feedback form",
+        "description": {
+            "highlight": "We understand and appreciate your decision to leave the project!",
+            "content": "Please complete a short survey, it won't take more than three minutes, but it will really help us to improve our project."
+        },
+        "dropdownReason": {
+            "label": "What was the main reason you left the project?",
+            "placeholder": "Choose option",
+            "option1": "It has become unsafe for me and my loved ones.",
+            "option2": "Because of health problems.",
+            "option3": "The political situation in the world has changed and my focus of activism has shifted.",
+            "option4": "I had to wait too long for the embroidery scheme, after which I lost interest in the project.",
+            "option5": "Due to time constraints.",
+            "option6": "My expectations were not met and I don't see the point of this project anymore.",
+            "option7": "Financial reasons. The costs of materials and postage were unexpectedly high for me.",
+            "optionOther": "Other",
+            "otherPlaceholder": "Enter text"
+        },
+        "optionsNews": {
+            "title": "Would you like to receive news about further development of the project?",
+            "option1": "Yes, let’s stay in touch",
+            "option2": "No, I'm not interested"
+        },
+        "optionsFinancial": {
+            "title": "Would you be interested in contributing financially to the project and occasionally receiving commercial messages?",
+            "option1": "Yes, I want to help the project",
+            "option2": "No, I don't have the opportunity"
+        },
+        "success": {
+            "title": "Thank you!",
+            "description": "If you would like to rejoin our project, we will be happy to see you!"
+        }
+    },
+    "notReadyPage": {
+        "title": "Sorry, the page is not ready yet...",
+        "subTitle": "You may choose another Hero*ine with the ready pattern"
+    },
+    "notFoundPage": {
+        "title": "The page is not found",
+        "subTitle": "The page you are looking for does not exist",
+        "backButton" : "Go back"
     }
 }

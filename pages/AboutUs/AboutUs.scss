@@ -1,4 +1,7 @@
 @import "../../assets/style/globalPartials/variables.scss";
+@import "../../assets/style/mixins/general";
+
+@include buttons;
 
 .aboutUs {
   flex-direction: column;

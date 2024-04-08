@@ -1,0 +1,40 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.toggleTextWrapper {
+  h3 {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  button {
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 2px;
+    color: $red;
+  
+    svg {
+      width: 11px;
+      margin: 7px 0 0 12px;
+      stroke: $red;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  }
+
+  button:hover {
+    color: $redHover;
+
+    svg {
+      stroke: $redHover;
+    }
+  }
+  
+  button.showMoreBtnActive {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

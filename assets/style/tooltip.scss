@@ -1,0 +1,13 @@
+@import "./globalPartials/variables.scss";
+
+.v-popper__inner {
+  background-color: $greyDark;
+
+  * {
+    font-size: 12px;
+  }
+}
+
+.v-popper__arrow-container {
+  display: none !important;
+}

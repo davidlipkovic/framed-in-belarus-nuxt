@@ -7,25 +7,27 @@
   > .content {
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 3.75rem;
+    padding-top: 70px;
     padding-bottom: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  .bg_grey2 .content {
-    padding-top: 30px;
-    padding-bottom: 72px;
+  .projectDescriptionWrapper {
+    .content {
+      padding-top: 30px;
+      padding-bottom: 24px;
 
-    p {
-      margin-bottom: 24px;
+      p {
+        margin-bottom: 24px;
+      }
     }
   }
 }
 
 .ProjectDescr {
-  margin-bottom: 65px;
+  margin-bottom: 30px;
 
-  .logo-project {
+  .mainLogoWrapper {
     margin-bottom: 0.5rem;
 
     .firstSymbol {
@@ -41,16 +43,16 @@
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    max-width: 78%;
   }
 
   .button {
-    width: 100%;
-    margin: 0;
+    display: flex;
+    width: max-content;
+    margin: 0 auto;
   }
 }
 
-.sliderWrapper {
+.swiperWrapper {
   position: relative;
 
   .bg_red {
@@ -63,40 +65,37 @@
   }
 }
 
-.FirstPage > .content.Partners,
-.Partners-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.Partners-group {
-  align-items: center;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .FirstPage > .content.Partners {
   margin-bottom: 0;
-  padding-top: 2.5rem;
-  padding-bottom: 0;
+  padding-top: 50px;
+  padding-bottom: 22px;
+}
+
+.FirstPage > .content.Partners .Partners-group {
+  width: 100%;
 }
 
 .Partners-logo {
   page-break-inside: avoid;
-  width: 50%;
-  margin: 10px 0;
+  margin: 20px auto;
 
   .img {
-    -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    width: 120px;
+    width: auto;
     height: auto;
   }
 }
 
-.Partners-logo:last-child {
-  margin-bottom: 0;
+.Partners-logo:nth-child(1) {
+  .img {
+    height: 62px;
+  }
+}
+
+.Partners-logo:nth-child(2) {
+  .img {
+    height: 72px;
+  }
 }
 
 /* Tablet */
@@ -107,15 +106,24 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding-top: 42px;
     }
   }
 
   .ProjectDescr {
     width: 50%;
     padding-right: 2.5rem;
+
+    .subtitle {
+      max-width: 78%;
+    }
+
+    .button {
+      margin: 0;
+    }
   }
 
-  .sliderWrapper {
+  .swiperWrapper {
     width: 50%;
     margin-right: auto;
     margin-left: 24px;
@@ -123,10 +131,6 @@
 
   .Partners-group {
     flex-direction: row;
-  }
-
-  .Partners-group {
-    justify-content: space-evenly;
     margin-bottom: 1.5rem;
     width: 92%;
   }
@@ -136,55 +140,39 @@
   }
 }
 
-@media screen and (max-width: $br-point-lg) {
-  .FirstPage .bg_grey2 .content {
-    .section {
-      margin-bottom: 1rem;
-    }
-
-    .section:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
 /* Desktop */
 @media screen and (min-width: $br-point-lg) {
   .ProjectDescr {
-    .logo-project {
+    margin-bottom: 65px;
+
+    .mainLogoWrapper {
       margin-top: 10px;
 
       .text {
         font-size: 3rem;
       }
     }
-
-    .button {
-      width: auto;
-    }
   }
 
-  .sliderWrapper {
+  .swiperWrapper {
     .bg_red {
       height: 19rem;
     }
   }
 
-  .FirstPage .bg_grey2 .content {
+  .FirstPage .projectDescriptionWrapper .content {
     width: 922px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.875rem;
   }
 
-  .Partners-logo {
-    width: auto;
-    margin: 0;
+  .FirstPage > .content.Partners {
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
-}
 
-.pashtovakLogo {
-  img {
-    width: 75px !important;
+  .Partners-logo {
+    margin: 10px 28px;
   }
 }

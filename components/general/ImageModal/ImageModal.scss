@@ -1,0 +1,112 @@
+@import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/extends/modal";
+
+.pattern{
+  margin: 0 auto 18px;
+  width: fit-content;
+  position: relative;
+
+  .pattern-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.pattern-buttons {  
+  position: absolute;
+  top: 24px;
+  right: 30px;
+}
+
+.pattern-button {
+  margin-right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: $greyDark;
+  border-radius: 50%;
+
+  svg {
+    width: 18px;
+    fill: none;
+    stroke: $white;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.pattern-button:last-child {
+  margin-right: 0;
+}
+
+.pattern-button:hover {
+  position: relative;
+
+  * {
+    color: $redHover;
+    stroke: $redHover;
+  }
+}
+
+.subscription-pattern {
+  width: 100%;
+
+  .pattern-image {
+    width: 100%;
+  }
+
+  .pattern-buttons {
+    top: 15px;
+    right: 12px;
+
+    .pattern-button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.imageModalWrapper {
+  @extend .modalWrapper;
+}
+
+.imageModalBackgroundWrapper {
+  @extend .modalBackgroundWrapper;
+}
+
+
+.imageModalContentWrapper {
+  z-index: 20002;
+  position: relative;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+
+  img {
+    max-width: 95vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .pattern {
+    margin-left: 2.125rem;
+    margin-right: 0;
+    float: right;
+  }
+
+  .imageModalContentWrapper {
+    img {
+      max-width: 70vw;
+      max-height: 70vh;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .subscription-pattern {
+    width: 21.75rem;
+  }
+}

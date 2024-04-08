@@ -1,19 +1,12 @@
-<script>
-import MainFooter from '@/components/general/MainFooter'
-import MainMenu from '@/components/general/MainMenu'
-
-export default {
-  components: {
-    MainFooter,
-    MainMenu,
-  },
-}
+<script setup lang="ts">
 </script>
 
 <template>
-  <div>
-    <MainMenu/>
-    <nuxt/>
-    <MainFooter/>
+  <div class="layout containsPointerUp">
+    <GeneralMainMenu/>
+    <slot/>
+    <GeneralPointerUp/>
+    <GeneralMainFooter/>
+    <GeneralCookieBar/>
   </div>
 </template>

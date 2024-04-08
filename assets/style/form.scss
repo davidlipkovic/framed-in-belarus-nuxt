@@ -1,6 +1,7 @@
 @import "./globalPartials/variables.scss";
 
-form {
+form,
+.formWrapper {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -15,16 +16,16 @@ textarea {
   padding: 8px;
   width: 100%;
   border-radius: 0.25rem;
-  border-color: $grey1;
+  border-color: $grey;
   border-width: 1px;
+}
+
+select {
   cursor: pointer;
 }
 
 input[type="checkbox"] {
-  width: 1.125rem;
-  height: 1.125rem;
-  margin-right: 1.313rem;
-  border-color: $inputsBorder;
+  border-color: $inputBorder;
   border-width: 1px;
   vertical-align: middle;
 }
@@ -45,6 +46,8 @@ select {
 textarea {
   min-height: 5rem;
   overflow-y: auto;
+  resize: vertical;
+  padding: 4px 10px;
 }
 
 input:required,
@@ -96,13 +99,13 @@ input[type=radio].mistake {
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
-  color: $greyDisabledColor;
+  color: $greyDisabled;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  outline: $inputsBorderFocus solid 1px;
+  outline: $inputBorderFocus solid 1px;
 }
 
 input:focus::placeholder,
@@ -111,12 +114,48 @@ textarea:focus::placeholder {
   color: transparent;
 }
 
-.form.end {
-  margin-top: 3.75rem;
-  margin-bottom: 3.75rem;
+input::placeholder, 
+textarea::placeholder {
+  font-size: 1rem;
+}
+
+.inputWrapper {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+
+  input,
+  >*:not(.warningNotification) {
+    position: relative;
+    width: 100%;
+  }
+
+  .warningNotification {
+    position: absolute;
+  }
+}
+
+.inputWrapperWarningTop {
+  .warningNotification {
+    top: -20px;
+  }
+}
+
+.inputWrapperWarningBottom {
+  .warningNotification {
+    bottom: -20px;
+  }
+}
+
+.invalidInput {
+  border-color: $red !important;
+}
+
+.warningNotification {
+  color: $red;
 }
 
 @media screen and (min-width: $br-point-lg) {
@@ -124,12 +163,7 @@ textarea:focus::placeholder {
   input[type="number"],
   input[type="email"],
   input[type="password"],
-  select,
-  textarea {
+  select {
     padding: 18px;
-  }
-
-  textarea:focus {
-    height: 50vh;
   }
 }

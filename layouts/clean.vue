@@ -1,8 +1,8 @@
-<script>
+<script setup lang="ts">
 </script>
 
 <template>
-  <div>
-    <nuxt/>
+  <div class="layout cleanLayout">
+    <slot/>
   </div>
 </template>

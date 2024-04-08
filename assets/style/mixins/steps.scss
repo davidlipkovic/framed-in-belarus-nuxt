@@ -1,0 +1,135 @@
+@import "../globalPartials/variables";
+@import "./borders";
+
+@mixin limitedTextWidthLg {
+  .limitedTextWidthLg {
+    max-width: 730px;
+    margin: 0 auto;
+  }
+}
+
+@mixin chooseShipping {
+  width: 100%;
+  max-width: 444px;
+  margin: 2px auto 1rem;
+
+  .title {
+    font-weight: 600;
+    margin-left: 2px;
+    margin-bottom: 10px;
+  }
+
+  >label {
+    @include inputBorderLight;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  input {
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width: $br-point-md) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@mixin shippingInstructionBasic {
+  .shippingInstructionWrapper {
+    @include inputBorderLight;
+    padding: 26px 30px;
+    max-width: 634px;
+    margin: 0 auto 32px;
+  
+    > * {
+      margin-bottom: 1rem;
+    }
+  
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@mixin shippingInstructionText {
+  .shippingInstructionWrapper {
+    .title.important {
+      font-size: 1rem;
+    }
+  
+    p.importantWarning {
+      margin-bottom: 12px;
+    }
+  
+    ul {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    
+    li {
+      margin: 6px 0;
+      padding-left: 8px;
+      line-height: 19px;
+    }
+    
+    li::before {
+      content: "•";
+      padding-right: 8px;
+    }
+  
+    .explanation {
+      margin-bottom: 1rem;
+      line-height: 23px;
+    }
+  
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  
+    .adress {
+      line-height: 23px;
+    }
+  }
+}
+
+@mixin shippingInstructionInput {
+  .shippingInstructionWrapper {
+    input, textarea {
+      margin: 10px 0 0;
+      padding: 10px 14px;
+    }
+
+    >label, .warningNotification {
+      margin-bottom: 0 !important;
+    }
+  
+    .warning {
+      font-size: 12px;
+    }
+  }
+}
+
+@mixin thankYouContent {
+  .thankYouContent {
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-bottom: 22px;
+
+    h2 {
+      font-weight: 400;
+      line-height: 30px;
+    }
+
+    p {
+      line-height: 22px;
+    }
+  }
+
+  .Content {
+    min-height: calc(100vh - 253px);
+  }
+}

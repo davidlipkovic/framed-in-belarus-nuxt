@@ -40,11 +40,17 @@
     margin-top: 3px;
   }
 
-  .menuContentWrapper {
+  .menuContentWrapper, .langMenu {
     * {
       color: $white;
       font-size: 1rem;
       font-weight: 600;
+    }
+  }
+
+  .langMenuWrapper {
+    * {
+      color: $black;
     }
   }
 
@@ -56,6 +62,7 @@
   }
 
   .menuLinksWrapper {
+    order: 2;
     padding: 0 24px 4px;
     border-bottom: 0.5px solid $greyDisabledBg;
     width: 100%;
@@ -66,13 +73,30 @@
   }
 
   .menuUserLinksWrapper {
+    order: 1;
     width: 100%;
     padding: 12px 23px;
     align-items: center;
     border-bottom: 0.5px solid $greyDisabledBg;
+  }
 
-    a {
-      width: 100%;
+  .langMenu {
+    order: 3;
+    position: relative;
+    padding: 14px 24px;
+
+    .langMenuWrapper {
+      color: $black;
+      position: absolute;
+      top: 50px;
+    }
+
+    .langButton svg{
+      width: 1rem;
+      height: 1rem;
+      margin-left: 15px;
+      stroke-width: 2px;
+      stroke-linecap: round;
     }
   }
 
@@ -98,6 +122,12 @@
       font-family: 'Roboto';
       font-size: 20px;
       font-weight: 500;
+    }
+  }
+
+  .langMenu {
+    svg {
+      fill: none;
     }
   }
 
@@ -178,6 +208,12 @@
       height: 100%;
     }
   }
+
+  .langMenu {
+    svg {
+      stroke: $white;
+    }
+  }
 }
 
 .mainMenuWrapperClosed {
@@ -208,7 +244,7 @@
 
 .mainMenuWrapper .helpButtonDesktop,
 .mainMenuWrapperClosed .menuContentWrapper,
-.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper,
+.mainMenuWrapperOpened .menuUserLinksWrapper,
 .profileButtonDesktop {
   display: none;
 }
@@ -300,6 +336,20 @@
 
       .participateButton {
         padding: 8px 13px;
+      }
+    }
+
+    .langMenu {
+      padding: 0;
+  
+      .langButton svg{
+        width: 9px;
+        height: 9px;
+        margin-left: 3px;
+      }
+
+      .langMenuWrapper {
+        top: 30px;
       }
     }
 

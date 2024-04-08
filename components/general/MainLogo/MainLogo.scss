@@ -1,15 +1,9 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
-.logo-project {
+.mainLogoWrapper {
   .text {
     font-family: 'Anton', sans-serif;
     font-size: 1.25rem;
     margin-left: 4px;
-  }
-}
-
-.Header_sign {
-  svg {
-    fill: $black;
   }
 }

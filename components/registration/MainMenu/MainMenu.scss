@@ -1,0 +1,71 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.mainMenuWrapperRegistration {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 7px;
+
+  * {
+    color: $greyDark;
+  }
+
+  .content {
+    justify-content: space-between;
+  }
+
+  svg {
+    fill: $greyDark;
+  }
+}
+
+.langMenuWrapperRegistration {
+  * {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .langMenuWrapper {
+    right: 10px;
+  }
+
+  svg {
+    stroke: $greyDark;
+    fill: none;
+    width: 9px;
+    stroke-width: 2px;
+    margin-top: 4px;
+    margin-left: 3px;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .registrationlg .mainMenuWrapperRegistration .content {
+    max-width: 778px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .mainMenuWrapperRegistration {
+    .content {
+      padding-left: 545px;
+    }
+  }
+
+  .registrationlg .mainMenuWrapperRegistration .content {
+    padding-left: unset;
+  }
+
+  .langMenuWrapperRegistration {
+    .langMenuWrapper {
+      right: unset;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-xl) {
+  .registrationlg .mainMenuWrapperRegistration .content {
+    margin-left: calc(38vw + 63px) !important;
+    margin-right: unset !important;
+  }
+}

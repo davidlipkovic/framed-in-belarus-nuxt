@@ -1,0 +1,35 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.GoBack {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  top: -20px;
+  position: absolute;
+}
+
+.GoBack-img {
+  display: block;
+  width: 25px;
+  fill: none !important;
+}
+
+.GoBack-text {
+  display: none;
+}
+
+@media screen and (min-width: $br-point-md) {
+  .GoBack {
+    top: -28px;
+    left: 2px;
+  }
+
+  .GoBack-text {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $black;
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.pointerUpWrapper {
+  position: sticky;
+  width: 42px;
+  height: 42px;
+  bottom: 2rem;
+  left: calc(100vw - (2rem + 42px));
+  margin-bottom: calc(2rem + 42px);
+  z-index: 100;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  svg {
+	  fill: none;
+    stroke: $white;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    width: 1.25rem;
+    height: auto;
+  }
+}
+
+.pointerUpWrapper:hover {
+  svg {
+	  stroke: $greyDisabled;
+  }
+}
+
+@media screen and (min-width: $br-point-md){
+  .pointerUpWrapper {
+    width: 60px;
+    height: 60px;
+    bottom: 62px;
+    left: calc(100vw - 124px);
+    margin-bottom: 62px;
+  
+    svg {
+      width: 28px;
+    }
+  }
+}

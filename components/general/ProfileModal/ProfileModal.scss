@@ -1,0 +1,56 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/extends/dropdown";
+
+.profileModalWrapper {
+  @extend .dropdownWrapper;
+  min-width: 304px;
+  top: 50px;
+
+  >span, >a {
+    width: auto;
+  }
+
+  img {
+    width: 81px;
+    height: auto;
+    margin: 25px auto 0;
+  }
+
+  .profileModalWrapperName {
+    font-weight: 500 !important;
+    font-size: 24px !important;
+    line-height: 32px;
+    margin: 20px 18px 6px;
+    color: $black !important;
+  }
+
+  .profileModalWrapperProfileLink,
+  .profileModalWrapperSignOut {
+    width: 100%;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.1px;
+      color: rgba(0, 0, 0, 0.6);
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .profileModalWrapperProfileLink:hover,
+  .profileModalWrapperSignOut:hover {
+    background-color: $greyDisabledBg;
+  }
+
+  .profileModalWrapperProfileLink {
+    border-top: 0.5px solid $greyDisabledBg;
+    border-bottom: 0.5px solid $greyDisabledBg;
+    min-height: 38px;
+  }
+
+  .profileModalWrapperSignOut {
+    min-height: 42px;
+  }
+}

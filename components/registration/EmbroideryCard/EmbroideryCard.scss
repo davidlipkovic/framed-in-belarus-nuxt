@@ -1,0 +1,183 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.embroideryCard {
+  max-width: 215px;
+  width: 100%;
+  padding: 44px 24px 58px;
+  cursor: pointer;
+  border: 0;
+  border: 1px solid $grey;
+  border-radius: 6px;
+  justify-content: flex-start;
+
+  * {
+    text-align: center;
+    font-size: 0.875rem;
+    color: $black;
+  }
+}
+
+.embroideryCard:hover {
+  * {
+    color: $black;
+  }
+
+  .embroideryCardStatus {
+    color: $white;
+    opacity: 0.7;
+  }
+}
+
+.embroideryCardNew {
+  border: 1px dashed $greyDark;
+  padding: 78px 28px 60px;
+  justify-content: space-between;
+
+  .plusButtonWrapper {
+    width: 66px;
+    height: 66px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    border: 1px solid $grey;
+    background-color: $greyDark;
+
+    svg {
+      width: 15px;
+      color: $white !important;
+      stroke: $white !important;
+
+      path {
+        color: $white !important;
+        stroke: $white !important;
+      }
+    }
+  }
+
+  p {
+    font-weight: 600;
+  }
+}
+
+.embroideryCardNew:hover {
+  border: 1px dashed $black;
+
+  * {
+    color: $black;
+  }
+
+  .plusButtonWrapper {
+    border: 1px solid $black;
+    background-color: $black;
+
+    svg {
+      color: $white !important;
+      stroke: $white !important;
+
+      path {
+        color: $white !important;
+        stroke: $white !important;
+      }
+    }
+  }
+}
+
+.embroideryCardNewDisabled {
+  border: 1px dashed $grey;
+  color: $grey;
+  cursor: default;
+  pointer-events: none;
+
+  .plusButtonWrapper {
+    border: 1px solid $grey;
+    background-color: $grey;
+  }
+
+  p {
+    color: $grey;
+  }
+}
+
+.embroideryCardImg {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 0.375rem;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.embroideryCardName {
+  font-weight: 600;
+  margin: 9px auto 0;
+  line-height: 20px;
+
+  .svgQustionCircle {
+    fill: $question;
+    width: 24px;
+  }
+
+  .svgTriangleWarning {
+    width: 20px;
+
+    path:first-child {
+      fill: $warning;
+    }
+  }
+}
+
+.embroideryCardStatus {
+  font-family: 'Roboto';
+  margin-top: 6px;
+  padding: 4px 6px;
+  border-radius: 12px;
+  color: $white;
+  white-space: nowrap;
+}
+
+.embroideryCardStatus-inProgress {
+  background-color: $embroideryCardStasusInProgress;
+}
+
+.embroideryCardStatus-patternIsReady {
+  background-color: $embroideryCardStasusPatternIsReady;
+}
+
+.embroideryCardStatus-stitched {
+  background-color: $embroideryCardStasusStitched;
+}
+
+.embroideryCardStatus-sent {
+  background-color: $embroideryCardStasusSent;
+}
+
+.embroideryCardStatus-published {
+  background-color: $embroideryCardStasusPublished;
+}
+
+.embroideryCardStatus-delivered {
+  background-color: $embroideryCardStasusDelivered;
+}
+
+.embroideryCardStatus-requested {
+  background-color: $embroideryCardStasusRequested;
+}
+
+@media screen and (min-width: $br-point-md){
+  .embroideryCard {
+    max-width: 188px;
+    width: 188px;
+    height: 245px;
+    padding: 17px 24px 20px;
+
+    .plusButtonWrapper {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0;
+    }
+  }
+
+  .embroideryCardNew {
+    padding: 75px 24px 51px;
+  }
+}

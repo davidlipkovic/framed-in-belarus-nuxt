@@ -1,0 +1,27 @@
+@import "../../assets/style/globalPartials/variables.scss";
+
+.filterMenuWrapper {
+  margin-bottom: 1.25rem;
+
+  button {
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+}
+
+.articlesWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2.875rem;
+}
+
+@media screen and (min-width: $br-point-md) {
+  .filterMenuWrapper {
+    margin-bottom: 0.25rem;
+  }
+
+  .articlesWrapper {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.875rem;
+  }
+}

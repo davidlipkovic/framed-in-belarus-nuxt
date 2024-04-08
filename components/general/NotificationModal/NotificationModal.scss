@@ -1,0 +1,42 @@
+@import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/extends/modal";
+
+.notificationModal{
+  position: absolute;
+  width: 100vw;
+  min-height: 48px;
+  bottom: 620px;
+  left: 0;
+  pointer-events: none;
+
+  .notificationModalContent {
+    width: calc(100vw - 2rem);
+    max-width: 384px;
+    height: 100%;
+    background-color: rgba($color: $black, $alpha: 0.87);
+    padding: 12px 16px;
+    align-items: center;
+		box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.8s;
+  }
+
+  .notificationModalContentHidden {
+    opacity: 0;
+  }
+
+  .notificationModalContentShown {
+    opacity: 1;
+  }
+
+  * {
+    font-family: 'Roboto';
+    color: $white;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .notificationModal{
+    bottom: 220px;
+  }
+}

@@ -1,8 +1,33 @@
 @import "globalPartials/variables.scss";
 @import "globalPartials/generalClasses.scss";
 
+@import "form.scss";
+@import "tooltip.scss";
+
+* {
+  color: $black;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.v-popper__popper,
+.white {
+  color: $white;
+
+  * {
+    color: $white;
+  }
+}
+
+.layout {
+  min-height: 100vh;
+}
+
 h1.title {
-  font-size: 1.5rem;
+  font-size: 36px;
   margin-bottom: 2.813rem;
 }
 
@@ -52,10 +77,23 @@ p {
   }
 }
 
+.formLayout .Content {
+  min-height: 100vh;
+  padding-top: 2.875rem;
+}
+
+.cleanLayout .Content {
+  min-height: 100vh;
+}
+
+.containsPointerUp .Content {
+  margin-bottom: -116px;
+}
+
 .Title {
   position: relative;
-  padding: 70px 0 32px;
-  margin-top: 0;
+  padding: 32px 0;
+  margin-top: 46px;
   margin-bottom: 30px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -66,15 +104,17 @@ p {
   .content {
     position: relative;
     z-index: 2;
-    font-size: 1.8rem;
+    font-size: 36px;
+    line-height: 48px;
   }
 
   .subtitle {
     font-weight: 600;
     color: $greyDark;
     display: block;
-    font-size: 1.2rem;
+    font-size: 24px;
     margin-bottom: -3px;
+    text-transform: capitalize;
   }
 
   h1 {
@@ -103,7 +143,34 @@ svg {
   fill: $white;
 }
 
-/* Desktop */
+@media screen and (min-width: $br-point-sm) {
+  h1.title {
+    font-size: 1.5rem;
+    margin-bottom: 2.813rem;
+  }
+
+  .Title {
+    .content {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .Title {
+    margin-top: 0;
+  }
+
+  .containsPointerUp .Content {
+    margin-bottom: -134px;
+  }
+
+  .formLayout .Content {
+    min-height: calc(100vh - 3.75rem);
+    padding-top: 0;
+  }
+}
+
 @media screen and (min-width: $br-point-lg) {
   .Content {
     min-height: calc(100vh - 10.876rem);
@@ -112,6 +179,10 @@ svg {
       margin-right: 1.25rem;
       margin-bottom: 1.25rem;
     }
+  }
+  
+  .cleanLayout .Content {
+    min-height: 100vh;
   }
 
   .content {
@@ -130,6 +201,11 @@ svg {
   
     .subtitle {
       font-size: 1.5rem;
+      text-transform: capitalize;
     }
   }
+}
+
+.v-popper__popper {
+  max-width: 215px;
 }

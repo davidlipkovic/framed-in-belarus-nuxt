@@ -1,0 +1,29 @@
+@import "../globalPartials/variables";
+
+@mixin signTitle {
+  h1 {
+    margin-top: 88px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .signUpDescription {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-left: 1px;
+    text-align: center;
+  }
+
+  @media screen and (min-width: $br-point-sm) {
+    h1 {
+      margin-top: 88px;
+      text-align: left;
+    }
+  
+    .signUpDescription {
+      text-align: left;
+    }
+  }
+}

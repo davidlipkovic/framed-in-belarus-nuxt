@@ -1,0 +1,139 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/general";
+@import "../../../assets/style/extends/modal";
+@import "../../../assets/style/extends/checkBox";
+
+@include buttons;
+
+.inputModalWrapper {
+  @extend .modalWrapper;
+}
+
+.inputModalBackgroundWrapper {
+  @extend .modalBackgroundWrapper;
+}
+
+.inputModalSlotWrapper {
+  z-index: 20002;
+  position: relative;
+}
+
+.inputModalHeader {
+  min-height: 74px;
+  padding: 22px 36px 18px;
+  border-bottom: 1px solid $greyLight;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .closeButton {
+    margin-right: 4px;
+    margin-top: -6px;
+    margin-left: auto;
+
+    svg {
+      width: 22px;
+    }
+  }
+}
+
+.inputModalBody {
+  padding: 14px 0;
+}
+
+.inputModalRow {
+  width: 100%;
+  padding: 0 28px;
+  flex-direction: column;
+
+  .inputModalItem:first-child,
+  .inputModalItem:nth-child(2),
+  .inputModalItem.inputModalItemFullWidth {
+    width: 100%;
+  }
+}
+
+.inputModalItem {
+  padding: 10px 8px;
+
+  .labelTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .checkBoxWrapper {
+    @extend .checkBoxWrapper;
+    margin-top: 6px;
+  }
+
+  .checkBoxWrapperSecond {
+    @extend .checkBoxWrapper;
+    margin-top: 10px;
+  }
+}
+
+.inputModalItemTextarea {
+  >div {
+    width: 100%;
+    justify-content: space-between;
+
+    span {
+      font-size: 14px;
+      color: $greyDisabled;
+    }
+  }
+
+  textarea {
+    min-height: 7rem;
+  }
+}
+
+.inputModalFooter {
+  justify-content: flex-end;
+  padding: 18px 36px 14px;
+  border-top: 1px solid $greyLight;
+  margin-top: 0;
+
+  .button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: $br-point-sm) {
+  .inputModalRow {
+    flex-direction: row;
+
+    .inputModalItem:first-child {
+      width: 46%;
+    }
+
+    .inputModalItem:nth-child(2) {
+      width: 54%;
+    }
+
+    .inputModalItem.inputModalItemFullWidth {
+      width: 100%;
+    }
+  }
+  
+  .inputModalFooter {
+    flex-direction: row;
+
+    .button {
+      width: auto;
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  
+    .button:last-child {
+      margin-right: 0;
+    }
+  }
+}

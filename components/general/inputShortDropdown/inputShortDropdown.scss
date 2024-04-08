@@ -1,0 +1,72 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/extends/dropdown";
+
+.shortDropdown {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+
+  .dropdownButton {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: solid 1px $grey;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1rem;
+
+    svg {
+      width: 12px;
+      fill: $black;
+      stroke: unset;
+      stroke-width: unset;
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 2px;
+    }
+  }
+
+  .dropdownButton:hover {
+    background-color: $greyBg;
+  }
+
+  .dropdownButtonPlaceholder {
+    color: $greyDisabled;
+  }
+
+  .dropdownWrapper {
+    @extend .dropdownWrapper;
+    position: absolute;
+    top: 45px;
+    min-width: 65px;
+    padding: 5px 0;
+    list-style: none;
+  
+    li {
+      width: 100%;
+
+      button {
+        width: 100%;
+        padding: 4px 1rem;
+        color: $black !important;
+      }
+    }
+  
+    li:hover {
+      background-color: $greyBg;
+    }
+  }
+}
+
+.inputShortDropdownOpened {
+  .dropdownButton {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.inputShortDropdownRegistration {
+  .dropdownButton {
+    padding: 10px 1rem;
+  }
+}

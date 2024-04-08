@@ -1,0 +1,77 @@
+@import "../globalPartials/variables";
+
+@mixin flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumnCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin flexRowStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flexColumnStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+@mixin buttons {
+  .buttons {
+    @include flexColumnCenter;
+    width: 100%;
+    margin-top: 1.25rem;
+
+    .button {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    .button:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: $br-point-lg) {
+    .buttons {
+      flex-direction: row;
+      align-items: flex-start;
+
+      .button {
+        width: auto;
+        margin-right: 4.5rem;
+        margin-bottom: 0;
+      }
+
+      .button:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@mixin checkBoxWrapper {
+  .checkBoxWrapper {
+    margin: 6px 3px 0;
+    align-items: center;
+    font-size: 14px;
+
+    input {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+    }
+  }
+}

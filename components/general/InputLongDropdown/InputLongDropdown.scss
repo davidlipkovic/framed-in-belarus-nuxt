@@ -1,0 +1,68 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/extends/dropdown";
+
+.longDropdown {
+  position: relative;
+  width: auto;
+  cursor: pointer;
+
+  .dropdownButton {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1rem;
+
+    svg {
+      width: 9px;
+      stroke: unset;
+      stroke-width: unset;
+      margin-top: 4px;
+    }
+  }
+
+  .dropdownButtonPlaceholder {
+    color: $greyDisabled;
+  }
+
+  .dropdownWrapper {
+    @extend .dropdownWrapper;
+    position: absolute;
+    top: 25px;
+    right: -20px;
+    height: 280px;
+    min-width: 265px;
+    padding: 5px 0;
+    overflow-y: scroll;
+    list-style: none;
+  
+    li {
+      width: 100%;
+
+      button {
+        width: 100%;
+        padding: 4px 1rem;
+        color: $black !important;
+        text-align: left;
+      }
+    }
+  
+    li:hover {
+      background-color: $greyBg;
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-sm) {
+  .longDropdown {
+    .dropdownWrapper {
+      right: unset;
+    }
+  }
+}
+
+.inputLongDropdownOpened {
+  .dropdownButton {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

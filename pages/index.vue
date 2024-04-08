@@ -1,26 +1,43 @@
-<script>
-import Slider from '@/components/general/Slider'
+<script setup>
+import { computed, onMounted, reactive, ref, watch } from "vue"
+import { useHeroesStore } from "@/stores/heroes"
+import { useUserStore } from "@/stores/user"
+const heroesStore = useHeroesStore()
+const userStore = useUserStore()
 
-export default {
-  components: {
-    Slider
-  },
-  data() {
-    return {
-      numberOfPrisoners: 1432
-    }
-  },
-  mounted() {
-    // console.log(this.i18n)
+definePageMeta({
+  layout: "nopointer",
+  middleware: [
+    'heroes',
+  ],
+})
+
+const numberOfHeroes = computed(() => {
+  if (!heroesStore.loading) {
+    return heroesStore.originalHeroes.value.length;
   }
-}
+  return 0
+})
+
+const slides = [
+  {alt: "Ala Lapatka"},
+  {alt: "Siarhey Hatskevich"},
+  {alt: "Tatsiana Kaneuskaya"},
+  {alt: "Pyatro Marchanka"},
+  {alt: "Vladzmir Zmurauka"},
+  {alt: "Marina Kirilchyk"},
+  {alt: "Dmitry Kubarau"},
+  {alt: "Dmitriy Dubkou"},
+  {alt: "Viacheslav Rahanchuk"},
+  {alt: "Ales Pushkin"}
+]
 </script>
 
 <template>
   <main class="Content FirstPage">
     <section class="content">
       <div class="ProjectDescr">
-        <h1 class="title logo-project">
+        <h1 class="title mainLogoWrapper">
           <svg
             width="33"
             height="39"
@@ -46,40 +63,46 @@ export default {
           {{ $t('links.participate') }}
         </a>
       </div>
-      <div class="sliderWrapper">
+      <div class="swiperWrapper">
         <div class="bg_red"></div>
-        <slider />
+        <GeneralSwiper 
+          :slides="slides"
+        />
       </div>
     </section>
-    <section class="bg_grey2">
+    <section class="projectDescriptionWrapper bg_grey2">
       <article class="content">
         <div class="section">
           <p class="">
             {{ $t('homePage.paragraph1.content1') }}
             <span class='bigger1'>
-              {{ numberOfPrisoners }}
+              {{ numberOfHeroes }}
             </span>
             {{ $t('homePage.paragraph1.content2') }}
           </p>
           <p class="">
-            <strong class="b2">
-              {{ $t("homePage.paragraph2.highlight") }}
-            </strong>
+            <span class='b2'>
+              {{ $t('homePage.paragraph2.highlight') }}
+            </span>
             {{ $t('homePage.paragraph2.content') }}
           </p>
           <p class="">
-            <strong class="b2">
-              {{ $t("homePage.paragraph3.highlight") }}
-            </strong>
+            <span class='b2'>
+              {{ $t('homePage.paragraph3.highlight') }}
+            </span>
             {{ $t('homePage.paragraph3.content') }}
+          </p>
+          <p class="">
+            {{ $t('homePage.paragraph4') }}
           </p>
         </div>
         <div class="section">
           <p class="">
-            {{ $t('homePage.paragraph4') }}
-          </p>
-          <p class="">
-            {{ $t('homePage.paragraph5') }}
+            {{ $t('homePage.paragraph5.content1') }}
+            <strong class="b2">
+              {{ $t("homePage.paragraph5.highlight") }}
+            </strong>
+            {{ $t('homePage.paragraph5.content2') }}
           </p>
           <p class="">
             {{ $t('homePage.paragraph6.content1') }}
@@ -90,87 +113,29 @@ export default {
               <strong class="b1 red">
                 {{ $t("homePage.paragraph6.highlight") }}
               </strong>
-            </a>
-            {{ $t('homePage.paragraph6.content2') }}
+            </a>{{ $t('homePage.paragraph6.content2') }}
           </p>
         </div>
       </article>
     </section>
-    <!-- <section class="content Partners">
-      <div class="Partners-group flexRowCenter">
+    <section class="content Partners">
+      <div class="Partners-group flexColumnCenter">
         <div class="Partners-logo flexRowCenter">
           <img
-            src="../assets/media/img/logos/Tutaka_logo.svg"
-            alt="Viasna"
+            src="../assets/media/img/logos/EN_Co-fundedbytheEU_RGB_Monochrome.svg"
+            alt="EU"
             class="img"
           />
         </div>
-        <a 
-          href="https://spring96.org" 
-          target="_blank" 
-          class="Partners-logo flexRowCenter"
-        >
+        <div class="Partners-logo flexRowCenter">
           <img
-            src="../assets/media/img/logos/logo_viasna96_en.png"
-            alt="Viasna"
-            class="img"
-          />
-        </a>
-        <a
-          href="https://politzek.me/"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/Logo_polizek_rastr.png"
-            alt="Logo_polizek_rastr"
-            class="img"
-          />
-        </a>
-        <a 
-          href="https://amnesty.cz" 
-          target="_blank" 
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/LogoAmnesty.svg"
-            alt="Amnesty International"
-            class="img"
-          />
-        </a>
-        <div
-          class="Partners-logo pashtovakLogo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/majsternia_pashtovak_4b.png"
-            alt="VYZHYVANKA"
+            src="../assets/media/img/logos/goethe-institut-logo-vector.svg"
+            alt="goethe"
             class="img"
           />
         </div>
-        <a
-          href="https://en.stranafund.org"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/stranafund-logo.png"
-            alt="COUNTRY TO LIVE IN FOUNDATION"
-            class="img"
-          />
-        </a>
-        <a
-          href="https://vyzyvanka.com"
-          target="_blank"
-          class="Partners-logo flexRowCenter"
-        >
-          <img
-            src="../assets/media/img/logos/vyzyvanka.png"
-            alt="VYZHYVANKA"
-            class="img"
-          />
-        </a>
       </div>
-    </section> -->
+    </section>
   </main>
 </template>
 

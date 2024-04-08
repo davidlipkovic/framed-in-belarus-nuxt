@@ -1,22 +1,34 @@
-<script>
-import MainLogo from '@/components/general/MainLogo'
+<script setup>
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
+import { useWindowSize } from '@vueuse/core'
 
-export default {
-  components: {
-    MainLogo
-  },
-  data() {
-    return {
-      toggleMenu: false
-    }
+const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
+
+const route = useRoute()
+
+const toggleMenu = ref(false)
+const { width } = useWindowSize()
+
+watch(route, n => {
+  toggleMenu.value = false
+})
+
+watch(width, n => {
+  if (n > 800) {
+    toggleMenu.value = false
   }
-}
+})
 </script>
 
 <template>
   <header 
     class="mainMenuWrapper flexRowCenter"
-    :class="toggleMenu ? 'mainMenuWrapperOpened' : 'mainMenuWrapperClosed'"
+    :class="{
+      'mainMenuWrapperOpened' : toggleMenu,
+      'mainMenuWrapperClosed' : !toggleMenu,
+    }"
   >
     <div class="content flexRowStart">
       <div class="mainMenuTopWrapper flexRowCenter">
@@ -40,7 +52,7 @@ export default {
             <div/>
           </div>
         </button>
-        <main-logo/>
+        <GeneralMainLogo/>
       </div>
       <div class="menuContentWrapper flexColumnStart">
         <div 
@@ -51,28 +63,42 @@ export default {
           <div class="menuLinksWrapper flexColumnStart">
             <nuxt-link
               :to="localePath('/')"
+              :class="{ 'redImportatnt' : checkHomeRoute('/') }"
             >
               {{ $t('links.home') }}
             </nuxt-link>
+            <!-- <nuxt-link
+              :to="localePath('/News')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
+            >
+              {{ $t('links.news') }}
+            </nuxt-link> -->
             <nuxt-link
               :to="localePath('/AboutUs')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link>
           </div>
-          <div class="menuUserLinksWrapper flexRowCenter">
+          <div class="menuUserLinksWrapper flexRowStart">
             <a
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
-              class="button bg_red"
+              class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </a>
           </div>
+          <GeneralLangMenu/>
+          <a
+            href="https://forms.gle/SKCcvWGzRkQxx2fH9"
+            class="participateButton participateButtonMobile button bg_red"
+          >
+            {{ $t('links.participate') }}
+          </a>
         </nav>
       </div>
     </div>
   </header>
 </template>
 
-<style src="../../../assets/style/settings.scss" lang="scss" scoped></style>
-<style src="./MainMenu.scss" lang="scss" scoped></style>
+<style src="./MainMenu.scss" lang="scss"></style>
