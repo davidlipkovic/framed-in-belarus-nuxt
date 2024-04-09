@@ -7,7 +7,12 @@ export function useCurrentLocale() {
     return localeProperties.value.name
   })
 
+  const getCurrentLocaleStringValue = (data, key) => {
+    return data[key + currentLocaleName.value.toLowerCase()]
+  }
+
   return {
     currentLocaleName,
+    getCurrentLocaleStringValue,
   }
 }
