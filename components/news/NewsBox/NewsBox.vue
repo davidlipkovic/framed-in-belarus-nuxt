@@ -26,7 +26,7 @@ const title = computed(() => {
     <div class="categoryTag">
       {{ $t('newsPage.categories.' + article.category) }}
     </div>
-    <a
+    <!-- <a
       v-if="article.readMoreLink"
       :href="article.readMoreLink"
       target="_blank"
@@ -37,9 +37,8 @@ const title = computed(() => {
         class="img" 
         :alt="article.photos[0].filename"
       />
-    </a>
+    </a> -->
     <nuxt-link
-      v-else-if="!article.readMoreLink"
       :to="localePath('/News/Article/' + article.id)"
       class="newsImageWrapper"
     >
@@ -55,16 +54,15 @@ const title = computed(() => {
     <p>
       {{ description }}
     </p>
-    <a
+    <!-- <a
       v-if="article.readMoreLink"
       :href="article.readMoreLink"
       target="_blank"
       class="button"
     >
       {{ $t('buttons.readMore') }}
-    </a>
+    </a> -->
     <nuxt-link
-      v-else-if="!article.readMoreLink"
       :to="localePath('/News/Article/' + article.id)"
       class="button"
     >
