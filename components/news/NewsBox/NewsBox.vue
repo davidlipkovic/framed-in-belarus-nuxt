@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import MarkdownIt from 'markdown-it'
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
@@ -12,8 +13,8 @@ const props = defineProps({
 })
 
 const description = computed(() => {
-  const d = getCurrentLocaleStringValue(props.article, 'description_')
-  return d?.slice(0, 230) + '...'
+  const md = new MarkdownIt()
+  return md.render(getCurrentLocaleStringValue(props.article, 'description_'))
 })
 
 const title = computed(() => {
@@ -51,9 +52,10 @@ const title = computed(() => {
     <h2 class="title b1">
       {{ title }}
     </h2>
-    <p>
-      {{ description }}
-    </p>
+    <div 
+      class="newsBoxPerex"
+      v-html="description"
+    />
     <!-- <a
       v-if="article.readMoreLink"
       :href="article.readMoreLink"
@@ -71,4 +73,4 @@ const title = computed(() => {
   </div>
 </template>
 
-<style src="./NewsBox.scss" lang="scss" scoped></style>
+<style src="./NewsBox.scss" lang="scss"></style>

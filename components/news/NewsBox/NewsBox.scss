@@ -39,10 +39,23 @@
     color: $black;
   }
 
-  p {
-    margin-top: auto;
+  >p, .newsBoxPerex {
     overflow: hidden;
     margin-bottom: 18px;
+  }
+
+  >p {
+    margin-top: auto;
+  }
+
+  .newsBoxPerex {
+    * {
+      display: none;
+    }
+
+    >*:nth-child(1) {
+      display: block;
+    }
   }
 
   .button {
