@@ -55,7 +55,7 @@ const handleGallerySwiper = (i) => {
 </script>
 
 <template>
-  <main class="Content">
+  <main class="Content newsArticleContentWrapper">
     <Head>
       <Title>
         #Framed in Belarus - {{ title }}
