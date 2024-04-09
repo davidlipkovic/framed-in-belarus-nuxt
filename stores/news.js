@@ -3,16 +3,16 @@ import { defineStore } from "pinia"
 
 export const useNewsStore = defineStore("news", () => {
   const loading = ref(false)
-  const news = reactive([])
+  const articles = reactive([])
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-  const getNewsList = async () => {
+  const getArticles = async () => {
     try {
       const {data: responseData} = await useFetch(endpointUrl + '/api/news', {
         method: 'get',
       })
-      news.value = responseData.value.result
-      console.log('getNewsList', responseData.value.result)
+      articles.value = responseData.value.result
+      console.log('getArticles', responseData.value.result)
 
       return responseData.value && responseData.value.statusText === 'success'
     } catch (error) {
@@ -21,8 +21,8 @@ export const useNewsStore = defineStore("news", () => {
   }
 
   return {
-    news,
+    articles,
     loading,
-    getNewsList,
+    getArticles,
   }
 })

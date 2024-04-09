@@ -2,6 +2,18 @@
 
 .newsBoxWrapper {
   width: auto;
+  position: relative;
+
+  .categoryTag {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    padding: 6px 16px;
+    border-radius: 16px;
+    background-color: rgba($greyLightBg, 0.7);
+    font-size: 14px;
+    font-weight: 600;
+  }
 
   .newsImageWrapper {
     border-radius: 1rem;
@@ -29,16 +41,13 @@
 
   p {
     margin-top: auto;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
     overflow: hidden;
     margin-bottom: 18px;
   }
 
   .button {
     width: fit-content;
-    max-width: 125px;
+    max-width: 155px;
     margin-top: auto;
   }
 }

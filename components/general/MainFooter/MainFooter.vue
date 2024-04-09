@@ -44,13 +44,13 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
               >
                 {{ $t('links.home') }}
               </nuxt-link>
-              <!-- <nuxt-link
+              <nuxt-link
                 :to="localePath('/News')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
               >
                 {{ $t('links.news') }}
-              </nuxt-link> -->
+              </nuxt-link>
               <nuxt-link
                 :to="localePath('/AboutUs')"
                 class="Info-menu-item"

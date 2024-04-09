@@ -804,6 +804,11 @@
             "workshops": "Майстар-класы",
             "exhibitions": "Выставы",
             "other": "Іншае"
+        },
+        "categories": {
+            "Workshop": "Workshop",
+            "Exhibition": "Exhibition",
+            "Other": "Other"
         }
     },
     "newsDetailPage": {
