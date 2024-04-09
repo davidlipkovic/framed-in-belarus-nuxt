@@ -1,0 +1,96 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.fullScreenSwiperWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 110;
+
+  .swiperBackground {
+    background-color: $greyTransparentBG;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .fullScreenSwiper {
+    position: absolute;
+    pointer-events: none;
+    left: 10vw;
+    top: 10vh;
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 80vw;
+    height: 80vh;
+  }
+
+  .swiper-wrapper {
+    width: 100vw;
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-height: 80vh;
+        max-width: 70vw;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .swiperArrowBtn {
+    position: absolute;
+    top: calc(50vh - 1.5rem);
+    z-index: 10;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+
+    svg {
+      width: 3rem;
+      fill: none;
+      stroke: $white;
+    }
+  }
+
+  .swiperArrowBtnLeft {
+    left: 1.5vw;
+  }
+
+  .swiperArrowBtnRight {
+    right: 1.5vw;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .fullScreenSwiperWrapper {
+    .swiperArrowBtn {
+      top: calc(50vh - 2rem);
+      height: 4rem;
+      width: 4rem;
+  
+      svg {
+        width: 4rem;
+      }
+    }
+  
+    .swiperArrowBtnLeft {
+      left: 6vw;
+    }
+  
+    .swiperArrowBtnRight {
+      right: 6vw;
+    }
+  }
+}
