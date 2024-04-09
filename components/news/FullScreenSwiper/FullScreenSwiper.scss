@@ -55,8 +55,9 @@
           position: absolute;
           bottom: 0;
           background: linear-gradient(0deg, rgba(26,26,26,1) 0%, rgba(26,26,26,0) 75%);
-          padding: 60px 6px 6px;
-          
+          padding: 60px 0 6px;
+          width: 100%;
+
           span {
             color: $white;
           }
