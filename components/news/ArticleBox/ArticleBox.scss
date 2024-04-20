@@ -1,9 +1,21 @@
 @import "../../../assets/style/globalPartials/variables";
 
-.newsBoxWrapper {
+.articleBoxWrapper {
   width: auto;
+  position: relative;
 
-  .newsImageWrapper {
+  .categoryTag {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    padding: 6px 16px;
+    border-radius: 16px;
+    background-color: rgba($greyLightBg, 0.7);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .articleImageWrapper {
     border-radius: 1rem;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16);
     display: block;
@@ -27,24 +39,34 @@
     color: $black;
   }
 
-  p {
-    margin-top: auto;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+  >p, .articleBoxPerex {
     overflow: hidden;
     margin-bottom: 18px;
   }
 
+  >p {
+    margin-top: auto;
+  }
+
+  .articleBoxPerex {
+    * {
+      display: none;
+    }
+
+    >*:nth-child(1) {
+      display: block;
+    }
+  }
+
   .button {
     width: fit-content;
-    max-width: 125px;
+    max-width: 155px;
     margin-top: auto;
   }
 }
 
 @media screen and (min-width: $br-point-md) {
-  .newsBoxWrapper {
+  .articleBoxWrapper {
     h2 {
       font-size: 24px;
     }

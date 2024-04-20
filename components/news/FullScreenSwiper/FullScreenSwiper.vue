@@ -38,6 +38,10 @@ const onSwiper = (swiper) => {
 const prevSlide = () => {
   localSwiper.slidePrev()
 }
+
+const fileNameWithoutSuffix = (filename) => {
+  return filename.substring(0, filename.lastIndexOf('.'));
+}
 </script>
 
 <template>
@@ -65,10 +69,17 @@ const prevSlide = () => {
         v-for="(slide, i) in slides"
         :key="slide.alt"
       >
-        <img
-          :src="slide.url"
-          :alt="slide.filename"
-        >
+        <div>
+          <img
+            :src="slide.url"
+            :alt="fileNameWithoutSuffix(slide.filename)"
+          >
+          <div>
+            <span>
+              {{ fileNameWithoutSuffix(slide.filename) }}
+            </span>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
     <button
