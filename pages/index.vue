@@ -1,12 +1,24 @@
 <script setup>
+import { computed, onMounted, reactive, ref, watch } from "vue"
+import { useHeroesStore } from "@/stores/heroes"
 import { useUserStore } from "@/stores/user"
+const heroesStore = useHeroesStore()
 const userStore = useUserStore()
 
 definePageMeta({
-  layout: "nopointer"
+  layout: "nopointer",
+  middleware: [
+    'heroes',
+  ],
 })
 
-const numberOfHeroes = 1432
+const numberOfHeroes = computed(() => {
+  if (!heroesStore.loading) {
+    return heroesStore.originalHeroes.value.length;
+  }
+  return 0
+})
+
 const slides = [
   {alt: "Ala Lapatka"},
   {alt: "Siarhey Hatskevich"},

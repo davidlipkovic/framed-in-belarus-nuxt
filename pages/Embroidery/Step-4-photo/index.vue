@@ -1,6 +1,9 @@
 <script setup>
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'heroes',
+  ],
 })
 </script>
 

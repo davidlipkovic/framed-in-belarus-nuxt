@@ -3,7 +3,10 @@ import { computed, onMounted, ref, watch } from "vue";
 import languages from '../../../assets/json/languages.json'
 
 definePageMeta({
-  layout: "embroidery"
+  layout: "embroidery",
+  middleware: [
+    'heroes',
+  ],
 })
 
 const englishComment = ref(null)
