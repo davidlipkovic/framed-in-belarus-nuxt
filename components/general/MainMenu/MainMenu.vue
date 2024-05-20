@@ -82,6 +82,12 @@ watch(width, n => {
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <a
+              href="https://donorbox.org/framedinbelarus"
+              class="supportButton button"
+            >
+              {{ $t('links.supportUs') }}
+            </a>
+            <a
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               class="participateButton button bg_red"
             >
@@ -89,6 +95,12 @@ watch(width, n => {
             </a>
           </div>
           <GeneralLangMenu/>
+          <a
+            href="https://donorbox.org/framedinbelarus"
+            class="supportButton supportButtonMobile button"
+          >
+            {{ $t('links.supportUs') }}
+          </a>
           <a
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             class="participateButton participateButtonMobile button bg_red"
