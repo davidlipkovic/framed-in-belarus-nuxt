@@ -18,19 +18,6 @@ const numberOfHeroes = computed(() => {
   }
   return 0
 })
-
-const slides = [
-  {alt: "Ala Lapatka"},
-  {alt: "Siarhey Hatskevich"},
-  {alt: "Tatsiana Kaneuskaya"},
-  {alt: "Pyatro Marchanka"},
-  {alt: "Vladzmir Zmurauka"},
-  {alt: "Marina Kirilchyk"},
-  {alt: "Dmitry Kubarau"},
-  {alt: "Dmitriy Dubkou"},
-  {alt: "Viacheslav Rahanchuk"},
-  {alt: "Ales Pushkin"}
-]
 </script>
 
 <template>
@@ -65,9 +52,7 @@ const slides = [
       </div>
       <div class="swiperWrapper">
         <div class="bg_red"></div>
-        <GeneralSwiper 
-          :slides="slides"
-        />
+        <HomeSwiper />
       </div>
     </section>
     <section class="projectDescriptionWrapper bg_grey2">

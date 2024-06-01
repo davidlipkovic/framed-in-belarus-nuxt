@@ -1,0 +1,93 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/swiper";
+
+.basicSwiperWrapper {
+  width: 448px;
+  height: 485px;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vw - 2rem + 37px);
+  display: block;
+  margin: 0 auto;
+
+  .swiper-wrapper {
+    position: relative;
+    z-index: 9;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    max-height: calc(100vw - 2rem);
+    height: auto;
+    margin-bottom: 34px;
+
+    * {
+      display: inherit;
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  .swiperControls {
+    position: relative;
+    z-index: 10;
+    margin-top: -26px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .swiperArrowBtn,
+  .swiperPaginationItem {
+    border: none;
+    background-color: transparent;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .swiperArrowBtn {
+    height: 1.438rem;
+    width: 0.625rem;
+
+    svg {
+      fill: $black;
+    }
+  }
+
+  .swiperArrowBtnLeft {
+    margin-left: 10px;
+  }
+
+  .swiperArrowBtnRight {
+    margin-right: 10px;
+  }
+
+  .swiper-pagination {
+    position: relative;
+    z-index: 11;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 380px;
+    margin: -10px auto 0;
+  }
+
+  @include swiper-pagination-bullet;
+}
+
+.basicSwiperWrapper.enableFullscreen {
+  img {
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .basicSwiperWrapper {
+    margin: 0;
+
+    .swiperControls {
+      max-width: 100%;
+    }
+  }
+}
