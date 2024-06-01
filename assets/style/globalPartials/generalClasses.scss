@@ -28,6 +28,10 @@
   text-align: center;
 }
 
+.button_border {
+  padding: 7px 14px !important;
+}
+
 .button_disabled {
   background-color: $greyLight;
   color: $greyDark !important;

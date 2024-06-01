@@ -43,12 +43,20 @@ const numberOfHeroes = computed(() => {
         <p class="subtitle">
           {{ $t('description') }}
         </p>
-        <a
-          href="https://forms.gle/SKCcvWGzRkQxx2fH9"
-          class="button bg_red"
-        >
-          {{ $t('links.participate') }}
-        </a>
+        <div class="flexRowStart">
+          <a
+            href="https://forms.gle/SKCcvWGzRkQxx2fH9"
+            class="button bg_red"
+          >
+            {{ $t('links.participate') }}
+          </a>
+          <a
+            href="https://donorbox.org/framedinbelarus"
+            class="supportButton button button_border"
+          >
+            {{ $t('links.supportUs') }}
+          </a>
+        </div>
       </div>
       <div class="swiperWrapper">
         <div class="bg_red"></div>

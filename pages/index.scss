@@ -46,9 +46,11 @@
   }
 
   .button {
-    display: flex;
-    width: max-content;
-    margin: 0 auto;
+    margin-right: 18px;
+  }
+
+  .supportButton {
+    border: 2px solid $black;
   }
 }
 
@@ -116,10 +118,6 @@
 
     .subtitle {
       max-width: 78%;
-    }
-
-    .button {
-      margin: 0;
     }
   }
 
