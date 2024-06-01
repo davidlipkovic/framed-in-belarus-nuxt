@@ -1,6 +1,4 @@
 <script setup>
-// WIP
-import { computed, onMounted, reactive, ref, watch } from "vue"
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -49,13 +47,15 @@ const handleFullscreen = (i) => {
 }
 
 const globJpg = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
-// const globWebp = import.meta.glob('@/assets/media/img/swiper/*.webp', { eager: true })
+const globWebp = import.meta.glob('@/assets/media/img/swiper/*.webp', { eager: true })
 
-const allImages = { ...globJpg }
+const images = Object.entries(globJpg).map(([path, module]) => {
+  const webpPath = path.replace(/\.jpg$/, '.webp')
 
-const images = Object.entries(allImages).map(([path, module]) => {
-  const extension = path.split('.').pop() // Get the file extension
-  return { [extension]: { path, module } }
+  return {
+    'jpg': { path, module },
+    'webp': { path: webpPath, module: globWebp[webpPath] },
+  }
 })
 </script>
 
@@ -75,11 +75,21 @@ const images = Object.entries(allImages).map(([path, module]) => {
       v-for="(slide, i) in images"
       :key="slide.alt"
     >
-      <img
-        :src="slide.jpg.module.default"
-        :alt="`${slide.alt}`"
-        @click="handleFullscreen(i)"
-      >
+      <picture>
+        <source
+          :srcset="slide.webp.module.default"
+          type="webp"
+        />
+        <source
+          :srcset="slide.jpg.module.default"
+          type="jpg"
+        />
+        <img
+          :src="slide.jpg.module.default"
+          :alt="`${slide.alt}`"
+          @click="handleFullscreen(i)"
+        >
+      </picture>
     </SwiperSlide>
     <div class="swiperControls flexRowCenter">
       <button

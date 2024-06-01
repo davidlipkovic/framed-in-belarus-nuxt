@@ -128,7 +128,7 @@
     height: 575px;
 
     .swiper-slide {
-      height: 538px;
+      max-height: 538px;
     }
 
     img {
@@ -202,10 +202,6 @@
       width: 538px;
       height: 575px;
   
-      .swiper-slide {
-        height: 538px;
-      }
-
       img {
         border-radius: 12px;
       }
