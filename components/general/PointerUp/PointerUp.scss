@@ -5,8 +5,7 @@
   width: 42px;
   height: 42px;
   bottom: 2rem;
-  left: calc(100vw - (2rem + 42px));
-  margin-bottom: calc(2rem + 42px);
+  left: calc(100vw - (2rem + 26px));
   z-index: 100;
   background-color: rgba($color: $black, $alpha: 0.5);
   border-radius: 50%;
@@ -25,6 +24,8 @@
 }
 
 .pointerUpWrapper:hover {
+  background-color: rgba($color: $black, $alpha: 0.8);
+
   svg {
 	  stroke: $greyDisabled;
   }
@@ -35,11 +36,16 @@
     width: 60px;
     height: 60px;
     bottom: 62px;
-    left: calc(100vw - 124px);
-    margin-bottom: 62px;
+    left: calc(100vw - 76px);
   
     svg {
       width: 28px;
     }
+  }
+}
+
+@media screen and (min-width: $br-point-xl){
+  .pointerUpWrapper {
+    left: calc(100vw - 124px);
   }
 }
