@@ -2,8 +2,8 @@
 // WIP
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { useRegistrationStore } from "@/stores/registration"
-import { useUserStore } from "@/stores/user"
+import useRegistrationStore from "@/stores/registration"
+import useUserStore from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const router = useRouter()

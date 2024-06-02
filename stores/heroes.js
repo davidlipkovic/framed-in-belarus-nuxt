@@ -1,9 +1,9 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 import tagsJSON from '../assets/json/tags.json'
-import { useUserStore } from './user'
+import useUserStore from './user'
 
-export const useHeroesStore = defineStore("heroes", () => {
+export default defineStore("heroes", () => {
   const userStore = useUserStore()
 
   const loading = ref(false)
@@ -23,26 +23,30 @@ export const useHeroesStore = defineStore("heroes", () => {
 
   const setPrechosenHero = (id) => {
     chosenHero.value = originalHeroes.value.find(hero => hero.id === id)
-    
-    if (window.sessionStorage) {
-      window.sessionStorage.setItem('fibPrechosenHero', JSON.stringify(chosenHero.value))
-    }
+
+    // WIP
+    // if (window.sessionStorage) {
+    //   window.sessionStorage.setItem('fibPrechosenHero', JSON.stringify(chosenHero.value))
+    // }
   }
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getPrisonersList = async () => {
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners', {
-        method: 'get',
-      })
-      originalHeroes.value = responseData.value.result
-      console.log('getPrisonersList', responseData.value.result)
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners', {
+      method: 'get',
+    })
 
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error getting prisoners list data:', error)
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
     }
+
+    console.log('getPrisonersList', data.value.result)
+
+    originalHeroes.value = data.value.result
   }
   
   const createStitchingActivity = async (kitId) => {
@@ -51,18 +55,20 @@ export const useHeroesStore = defineStore("heroes", () => {
     if (!headers) {
       return
     }
+    
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/stitching/' + kitId, {
+      method: 'post',
+      headers,
+    })
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/stitching/' + kitId, {
-        method: 'post',
-        headers,
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-      console.log('createStitchingActivity', responseData.value)
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error creating stitching activity:', error)
     }
+
+    console.log('createStitchingActivity', data.value)
   }
   
   const getStitchingActivities = async () => {
@@ -72,17 +78,19 @@ export const useHeroesStore = defineStore("heroes", () => {
       return
     }
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/stitching/', {
-        method: 'get',
-        headers,
-      })
-      console.log('getStitchingActivities', responseData.value)
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/stitching/', {
+      method: 'get',
+      headers,
+    })
 
-      return responseData.value
-    } catch (error) {
-      console.error('Error getting stitching activities:', error)
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
     }
+
+    console.log('getStitchingActivities', data.value)
   }
 
   tags.value = tagsJSON

@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useRoute } from 'vue-router'
-import { useHeroesStore } from "@/stores/heroes"
+import useHeroesStore from "@/stores/heroes"
 import { useSearch } from "@/composables/Search";
 
 const route = useRoute()

@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import { useCookiesStore } from "@/stores/cookies"
+import useCookiesStore from "@/stores/cookies"
 
 const cookiesStore = useCookiesStore()
 </script>

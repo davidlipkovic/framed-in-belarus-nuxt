@@ -1,7 +1,7 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 
-export const useUserStore = defineStore("user", () => {
+export default defineStore("user", () => {
   const loading = ref(false)
   const user = ref(null)
   const userSummary = ref(null)

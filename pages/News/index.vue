@@ -1,7 +1,7 @@
 <script setup>
 // wip
 import { computed, onMounted, ref, watch } from 'vue'
-import { useNewsStore } from "@/stores/news"
+import useNewsStore from "@/stores/news"
 
 definePageMeta({
   middleware: [
@@ -15,7 +15,7 @@ const newsStore = useNewsStore()
 const currentTag = ref(null)
 
 const filteredArticles = computed(() => {
-  const mergedArticles = newsStore.articles.value
+  const mergedArticles = newsStore.articles
   if (!currentTag.value) return mergedArticles
   return mergedArticles.filter((article) => article.category.toLowerCase() === currentTag.value)
 })

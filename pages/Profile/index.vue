@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from "@/stores/user"
+import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
