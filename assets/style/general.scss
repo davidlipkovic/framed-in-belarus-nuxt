@@ -86,8 +86,24 @@ p {
   min-height: 100vh;
 }
 
-.containsPointerUp .Content {
-  margin-bottom: -116px;
+.containsPointerUp {
+  .Content {
+    margin-bottom: -136px;
+  }
+
+  .pointerUpWrapper {
+    margin-bottom: calc(2rem + 62px);
+  }
+}
+
+.containsPointerUp:has(.buttons) {
+  .Content {
+    margin-bottom: -186px;
+  }
+
+  .pointerUpWrapper {
+    margin-bottom: calc(2rem + 112px);
+  }
 }
 
 .Title {
@@ -161,8 +177,24 @@ svg {
     margin-top: 0;
   }
 
-  .containsPointerUp .Content {
-    margin-bottom: -134px;
+  .containsPointerUp {
+    .Content {
+      margin-bottom: -134px;
+    }
+  
+    .pointerUpWrapper {
+      margin-bottom: 62px;
+    }
+  }
+
+  .containsPointerUp:has(.buttons) {
+    .Content {
+      margin-bottom: -134px;
+    }
+  
+    .pointerUpWrapper {
+      margin-bottom: 62px;
+    }
   }
 
   .formLayout .Content {
