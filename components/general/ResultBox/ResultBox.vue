@@ -15,15 +15,21 @@ const props = defineProps({
 const isHovered = ref(false)
 
 const link = computed(() => {
-  if (props.isEmbroidery) return "/Embroidery/Step-1-your-hero"
-  else return "/Gallery/Case"
+  if (props.isEmbroidery) {
+    return "/Embroidery/Step-1-your-hero"
+  }
+
+  return "/Gallery/Case"
 })
 
 const placeholderImage = import.meta.glob('@/assets/media/img/swiper/1.jpg', { eager: true })
 
 const photo = computed(() => {
-  if (props.isEmbroidery) return props.result.photo
-  else return placeholderImage['/assets/media/img/swiper/1.jpg'].default
+  if (props.isEmbroidery) {
+    return props.result.photo
+  }
+
+  return placeholderImage['/assets/media/img/swiper/1.jpg'].default
 })
 </script>
 

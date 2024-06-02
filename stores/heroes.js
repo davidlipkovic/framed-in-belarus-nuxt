@@ -23,10 +23,11 @@ export const useHeroesStore = defineStore("heroes", () => {
 
   const setPrechosenHero = (id) => {
     chosenHero.value = originalHeroes.value.find(hero => hero.id === id)
-    
-    if (window.sessionStorage) {
-      window.sessionStorage.setItem('fibPrechosenHero', JSON.stringify(chosenHero.value))
-    }
+
+    // WIP
+    // if (window.sessionStorage) {
+    //   window.sessionStorage.setItem('fibPrechosenHero', JSON.stringify(chosenHero.value))
+    // }
   }
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
