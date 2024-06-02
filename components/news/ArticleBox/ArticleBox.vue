@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import MarkdownIt from 'markdown-it'
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
@@ -12,8 +13,8 @@ const props = defineProps({
 })
 
 const description = computed(() => {
-  const d = getCurrentLocaleStringValue(props.article, 'description_')
-  return d?.slice(0, 230) + '...'
+  const md = new MarkdownIt()
+  return md.render(getCurrentLocaleStringValue(props.article, 'description_'))
 })
 
 const title = computed(() => {
@@ -22,26 +23,25 @@ const title = computed(() => {
 </script>
 
 <template>
-  <div class="newsBoxWrapper flexColumnStart">
+  <div class="articleBoxWrapper flexColumnStart">
     <div class="categoryTag">
       {{ $t('newsPage.categories.' + article.category) }}
     </div>
-    <a
+    <!-- <a
       v-if="article.readMoreLink"
       :href="article.readMoreLink"
       target="_blank"
-      class="newsImageWrapper"
+      class="articleImageWrapper"
     >
       <img 
         :src="article.photos[0].thumbnails.large.url"
         class="img" 
         :alt="article.photos[0].filename"
       />
-    </a>
+    </a> -->
     <nuxt-link
-      v-else-if="!article.readMoreLink"
       :to="localePath('/News/Article/' + article.id)"
-      class="newsImageWrapper"
+      class="articleImageWrapper"
     >
       <img 
         :src="article.photos[0].thumbnails.large.url"
@@ -52,19 +52,19 @@ const title = computed(() => {
     <h2 class="title b1">
       {{ title }}
     </h2>
-    <p>
-      {{ description }}
-    </p>
-    <a
+    <div 
+      class="articleBoxPerex"
+      v-html="description"
+    />
+    <!-- <a
       v-if="article.readMoreLink"
       :href="article.readMoreLink"
       target="_blank"
       class="button"
     >
       {{ $t('buttons.readMore') }}
-    </a>
+    </a> -->
     <nuxt-link
-      v-else-if="!article.readMoreLink"
       :to="localePath('/News/Article/' + article.id)"
       class="button"
     >
@@ -73,4 +73,4 @@ const title = computed(() => {
   </div>
 </template>
 
-<style src="./NewsBox.scss" lang="scss" scoped></style>
+<style src="./ArticleBox.scss" lang="scss"></style>

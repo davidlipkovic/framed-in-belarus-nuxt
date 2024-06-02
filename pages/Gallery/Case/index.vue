@@ -105,10 +105,10 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
     </div>
     <div class="content galleryCaseContent">
       <article class="galleryCaseSwiperWrapper">
-        <GeneralSwiper 
+        <!-- WIP -->
+        <HomeSwiper 
           class="galleryCaseSwiper"
           :fullscreen="true"
-          :slides="slides"
           @openFullscreen="handleFullScreenEmbroiderySwiper"
         />
         <GeneralFullScreenSwiper
@@ -274,9 +274,9 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
           <ul class="ExhibitionList">
             <li class="ExhibitionList-item">
               <h4 class="ExhibitionListItem-title">
-                <nuxt-link to="/News/the-little-bird-must-be-caught">
+                <a href="#">
                   The little bird must be caught
-                </nuxt-link>
+                </a>
               </h4>
               <p class="ExhibitionListItem-descript flexRowStart">
                 <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>

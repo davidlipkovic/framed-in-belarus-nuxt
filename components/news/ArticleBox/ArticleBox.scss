@@ -1,6 +1,6 @@
 @import "../../../assets/style/globalPartials/variables";
 
-.newsBoxWrapper {
+.articleBoxWrapper {
   width: auto;
   position: relative;
 
@@ -15,7 +15,7 @@
     font-weight: 600;
   }
 
-  .newsImageWrapper {
+  .articleImageWrapper {
     border-radius: 1rem;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.16);
     display: block;
@@ -39,10 +39,23 @@
     color: $black;
   }
 
-  p {
-    margin-top: auto;
+  >p, .articleBoxPerex {
     overflow: hidden;
     margin-bottom: 18px;
+  }
+
+  >p {
+    margin-top: auto;
+  }
+
+  .articleBoxPerex {
+    * {
+      display: none;
+    }
+
+    >*:nth-child(1) {
+      display: block;
+    }
   }
 
   .button {
@@ -53,7 +66,7 @@
 }
 
 @media screen and (min-width: $br-point-md) {
-  .newsBoxWrapper {
+  .articleBoxWrapper {
     h2 {
       font-size: 24px;
     }

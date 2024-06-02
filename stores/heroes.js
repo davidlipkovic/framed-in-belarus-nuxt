@@ -7,12 +7,12 @@ export const useHeroesStore = defineStore("heroes", () => {
   const userStore = useUserStore()
 
   const loading = ref(false)
-  const originalHeroes = reactive([])
-  const availableHeroes = computed(() => Array.isArray(originalHeroes.value) ? [...originalHeroes.value].filter((hero) => hero.kit[0].status === 'Taken') : [])
-  const heroesAlphabetically = computed(() => Array.isArray(availableHeroes.value) ? [...availableHeroes.value].sort((a, b) => a.name.localeCompare(b.name)) : [])
-  const heroesAlphabeticallyReversed = computed(() => Array.isArray(heroesAlphabetically.value) ? [...heroesAlphabetically.value].reverse() : [])
-  const heroesChronologically = computed(() => Array.isArray(availableHeroes.value) ? [...availableHeroes.value].sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic) : [])
-  const heroesChronologicallyReversed = computed(() => Array.isArray(heroesChronologically.value) ? [...heroesChronologically.value].reverse() : [])
+  const originalHeroes = ref(null)
+  const availableHeroes = computed(() => originalHeroes.value.filter((hero) => hero.kit && hero.kit[0].status === 'Shared'))
+  const heroesAlphabetically = computed(() => availableHeroes.value.sort((a, b) => a.name.localeCompare(b.name)))
+  const heroesAlphabeticallyReversed = computed(() => heroesAlphabetically.value.reverse())
+  const heroesChronologically = computed(() => availableHeroes.value.sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic))
+  const heroesChronologicallyReversed = computed(() => heroesChronologically.value.reverse())
   const tags = reactive([])
 
   const chosenHero = ref(null)

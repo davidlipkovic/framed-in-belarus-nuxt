@@ -15,23 +15,10 @@ definePageMeta({
 
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading) {
-    return heroesStore.originalHeroes.value.length;
+    return heroesStore.originalHeroes.length;
   }
   return 0
 })
-
-const slides = [
-  {alt: "Ala Lapatka"},
-  {alt: "Siarhey Hatskevich"},
-  {alt: "Tatsiana Kaneuskaya"},
-  {alt: "Pyatro Marchanka"},
-  {alt: "Vladzmir Zmurauka"},
-  {alt: "Marina Kirilchyk"},
-  {alt: "Dmitry Kubarau"},
-  {alt: "Dmitriy Dubkou"},
-  {alt: "Viacheslav Rahanchuk"},
-  {alt: "Ales Pushkin"}
-]
 </script>
 
 <template>
@@ -57,18 +44,24 @@ const slides = [
         <p class="subtitle">
           {{ $t('description') }}
         </p>
-        <nuxt-link
-          :to="userStore.isLogged ? localePath('/Profile') : localePath('/SignUp')"
-          class="button bg_red"
-        >
-          {{ $t('links.participate') }}
-        </nuxt-link>
+        <div class="flexRowStart">
+          <nuxt-link
+            :to="userStore.isLogged ? localePath('/Profile') : localePath('/SignUp')"
+            class="button bg_red"
+          >
+            {{ $t('links.participate') }}
+          </nuxt-link>
+          <a
+            href="https://donorbox.org/framedinbelarus"
+            class="supportButton button button_border"
+          >
+            {{ $t('links.supportUs') }}
+          </a>
+        </div>
       </div>
       <div class="swiperWrapper">
         <div class="bg_red"></div>
-        <GeneralSwiper 
-          :slides="slides"
-        />
+        <HomeSwiper />
       </div>
     </section>
     <section class="projectDescriptionWrapper bg_grey2">

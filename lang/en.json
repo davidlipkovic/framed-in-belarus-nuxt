@@ -101,7 +101,8 @@
         "profile": "Profile",
         "myEmbroideries": "My embroideries",
         "participate": "Go stitch!",
-        "source": "Go to the source of information"
+        "source": "Go to the source of information",
+        "supportUs": "Support us"
     },
     "notifications": {
         "subscribeSuccess": "You have successfully subscribed!",

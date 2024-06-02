@@ -1,6 +1,14 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 
+.newsArticleContentWrapper {
+  h1 {
+    max-width: 80%;
+  }
+}
+
 .newsArticleContent {
+  max-width: 920px;
+  
   .infoWrapper {
     svg {
       width: 20px;

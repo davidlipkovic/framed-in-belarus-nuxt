@@ -101,7 +101,8 @@
         "profile": "Личный кабинет",
         "myEmbroideries": "Мои вышивки",
         "participate": "Участвовать",
-        "source": "Перейти к источнику информации"
+        "source": "Перейти к источнику информации",
+        "supportUs": "Поддержать нас"
     },
     "notifications": {
         "subscribeSuccess": "Вы успешно подписались!",
