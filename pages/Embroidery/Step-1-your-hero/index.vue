@@ -20,6 +20,9 @@ definePageMeta({
 })
 
 const handleCreateStitchingActivity = async() => {
+  // WIP
+  router.push('/Embroidery/Step-2-preparation')
+  return
   heroesStore.loading = true
   await heroesStore.createStitchingActivity(heroesStore.chosenHero.kit[0].id)
   heroesStore.loading = false

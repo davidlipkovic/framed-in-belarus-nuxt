@@ -15,7 +15,31 @@ export default defineStore("heroes", () => {
   const heroesChronologicallyReversed = computed(() => heroesChronologically.value.reverse())
   const tags = reactive([])
 
-  const chosenHero = ref(null)
+  // WIP
+  // const chosenHero = ref(null)
+  const chosenHero = {
+    id: 215,
+    url: "https://prisoners.spring96.org/en/person/maryja-kalesnikava",
+    name: "Maryia Kalesnikava",
+    case: "Seizure of power",
+    status: "active",
+    gender: "female",
+    photo: "https://spring96.org/files/images/kalesnikava.jpg",
+    description: "member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka, sentenced to 11 years in prison",
+    birthday: "1982-04-24",
+    arrested: "2020-09-07",
+    articles0: "Art. 361 of the Criminal Code — Calls for actions aimed at causing harm to the national security of the Republic of Belarus",
+    articles1: "Art. 357 of the Criminal Code — Conspiracy to seize power in an unconstitutional way",
+    articles2: "Art. 361-1 of the Criminal Code — Creation of an extremist formation, or participation in it",
+    prisonTitle: "Penal colony No. 4",
+    prisonAddress: "246035, Homieĺ, vulica Antoshkina 3",
+    declaration: "https://spring96.org/en/news/99460",
+    decision: "11 years",
+    penalty: "imprisonment in a general-security penal colony",
+    judge: "Siarhei Yepikhau",
+    verdictDate: "2021-09-06",
+    appealDate: "2021-12-24",
+  }
 
   const setChosenHero = (kitId) => {
     chosenHero.value = originalHeroes.value.find((hero) => hero.kit[0].id === kitId)

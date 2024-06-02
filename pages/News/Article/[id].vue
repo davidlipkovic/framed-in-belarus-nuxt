@@ -15,21 +15,8 @@ const route = useRoute()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 
-const slides = [
-  {alt: "Ala Lapatka"},
-  {alt: "Siarhey Hatskevich"},
-  {alt: "Tatsiana Kaneuskaya"},
-  {alt: "Pyatro Marchanka"},
-  {alt: "Vladzmir Zmurauka"},
-  {alt: "Marina Kirilchyk"},
-  {alt: "Dmitry Kubarau"},
-  {alt: "Dmitriy Dubkou"},
-  {alt: "Viacheslav Rahanchuk"},
-  {alt: "Ales Pushkin"}
-]
-
 const article = computed(() => {
-  return newsStore.articles.value.find(article => article.id === route.params.id)
+  return newsStore.articles.find(article => article.id === route.params.id)
 })
 
 const description = computed(() => {
