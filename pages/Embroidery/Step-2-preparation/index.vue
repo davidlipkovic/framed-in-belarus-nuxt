@@ -1,5 +1,5 @@
 <script setup>
-import { useHeroesStore } from "@/stores/heroes"
+import useHeroesStore from "@/stores/heroes"
 const heroesStore = useHeroesStore()
 
 definePageMeta({

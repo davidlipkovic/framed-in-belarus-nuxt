@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from "@/stores/user"
+import useUserStore from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
 const router = useRouter()

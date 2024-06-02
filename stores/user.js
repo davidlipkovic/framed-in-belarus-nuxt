@@ -41,18 +41,19 @@ export default defineStore("user", () => {
   }
   
   const login = async (body) => {
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/login', {
-        method: 'post',
-        body: removeNullProps(body)
-      })
-      
-      console.log('login', responseData.value)
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/email/login', {
+      method: 'post',
+      body: removeNullProps(body)
+    })
 
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error signing in:', error)
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
     }
+    
+    console.log('login', data.value)
   }
 
   const updateUser = async (body) => {
@@ -63,19 +64,20 @@ export default defineStore("user", () => {
       return
     }
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
-        method: 'put',
-        headers,
-        body: parsedBody
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/', {
+      method: 'put',
+      headers,
+      body: parsedBody
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-
-      console.log('updateUser', responseData.value)
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error updating user:', error)
     }
+
+    console.log('updateUser', data.value)
   }
 
   const deleteUser = async () => {
@@ -85,20 +87,21 @@ export default defineStore("user", () => {
       return
     }
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user/', {
-        method: 'delete',
-        headers,
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/', {
+      method: 'delete',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-
-      console.log('deleteUser', responseData.value)
-
-      userDataBeforeDelete.value = true
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error deleting user:', error)
     }
+
+    console.log('deleteUser', data.value)
+
+    userDataBeforeDelete.value = true
   }
 
   const deleteUserData = () => {
@@ -117,46 +120,47 @@ export default defineStore("user", () => {
   }
 
   const validatePin = async (email, pin, remember) => {
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/email/validate', {
-        method: 'post',
-        body: { 
-          email, 
-          pin
-        }
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/email/validate', {
+      method: 'post',
+      body: { 
+        email, 
+        pin
+      }
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
+    }
 
-      console.log('validatePin', responseData.value.result)
+    if (data.value.statusText !== 'success') {
+      throw new TypeError('Error validating pin: Not succesful')
+    }
 
-      if (responseData.value.statusText !== 'success') {
-        throw new TypeError('Error validating pin: Not succesful')
-      }
+    console.log('validatePin', data.value.result)
 
+    userAuthorizationData.value = {
+      email: data.value.result.email,
+      token: data.value.result.token,
+      userId: data.value.result.userId,
+    }
+
+    if (remember && window.localStorage) {
       userAuthorizationData.value = {
-        email: responseData.value.result.email,
-        token: responseData.value.result.token,
-        userId: responseData.value.result.userId,
+        ...userAuthorizationData.value,
+        remember,
       }
 
-      if (remember && window.localStorage) {
-        userAuthorizationData.value = {
-          ...userAuthorizationData.value,
-          remember,
-        }
-
-        window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
-      } else if (window.sessionStorage) {
-        userAuthorizationData.value = {
-          ...userAuthorizationData.value,
-          remember: true,
-        }
-
-        window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
+      window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
+    } else if (window.sessionStorage) {
+      userAuthorizationData.value = {
+        ...userAuthorizationData.value,
+        remember: true,
       }
 
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error validating pin:', error)
+      window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
     }
   }
   
@@ -167,32 +171,33 @@ export default defineStore("user", () => {
       return
     }
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/auth/user', {
-        method: 'get',
-        headers,
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user', {
+      method: 'get',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
+    }
 
-      console.log('getUserData', responseData.value)
+    console.log('getUserData', data.value)
 
-      const result = responseData.value.result
+    const result = data.value.result
 
-      user.value = {
-        email: userAuthorizationData.value.email,
-        username: result.username,
-        countryOfResidence: result.countryOfResidence,
-        language: result.language.toUpperCase(),
-        instagram: result.instagram,
-        reason: result.reason,
-        publishReason: result.publishReason,
-        publishCountryOfResidence: result.publishCountryOfResidence,
-        publishInstagram: result.publishInstagram,
-        publishUsername: result.publishUsername,
-      }
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error getting user data:', error)
+    user.value = {
+      email: userAuthorizationData.value.email,
+      username: result.username,
+      countryOfResidence: result.countryOfResidence,
+      language: result.language.toUpperCase(),
+      instagram: result.instagram,
+      reason: result.reason,
+      publishReason: result.publishReason,
+      publishCountryOfResidence: result.publishCountryOfResidence,
+      publishInstagram: result.publishInstagram,
+      publishUsername: result.publishUsername,
     }
   }
   
@@ -203,18 +208,19 @@ export default defineStore("user", () => {
       return
     }
 
-    try {
-      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/' + userAuthorizationData.value.userId, {
-        method: 'get',
-        headers,
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/user/' + userAuthorizationData.value.userId, {
+      method: 'get',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-
-      console.log('getUserActivities', responseData.value)
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error getting user activities:', error)
     }
+
+    console.log('getUserActivities', data.value)
   }
   
   const getUserSummary = async () => {
@@ -224,20 +230,21 @@ export default defineStore("user", () => {
       return
     }
 
-    try {
-      const { data: responseData } = await useFetch(endpointUrl + '/api/prisoners/user/summary', {
-        method: 'get',
-        headers,
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/user/summary', {
+      method: 'get',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-
-      console.log('getUserSummary', responseData.value)
-
-      userSummary.value = responseData.value.result
-
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error getting user activities:', error)
     }
+
+    console.log('getUserSummary', data.value)
+
+    userSummary.value = data.value.result
   }
   
   const createShipping = async (body) => {
@@ -246,19 +253,20 @@ export default defineStore("user", () => {
     if (!headers) {
       return
     }
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/shipping/' + userSummary.value[0].stitchingId, {
+      method: 'post',
+      headers,
+      body,
+    })
 
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/prisoners/shipping/' + userSummary.value[0].stitchingId, {
-        method: 'post',
-        headers,
-        body,
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
       })
-      console.log('createShipping', responseData.value)
-
-      return responseData.value
-    } catch (error) {
-      console.error('Error creating shipping:', error)
     }
+    
+    console.log('createShipping', data.value)
   }
 
   return {
