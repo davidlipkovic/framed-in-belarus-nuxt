@@ -295,7 +295,7 @@ watch(route, () => {
               :key="hero.id"
               :result="hero"
               :isEmbroidery="true"
-              @click="heroesStore.setChosenHero(hero.id)"
+              @click="heroesStore.setPrechosenHero(hero.id)"
             />
           </div>
           <GeneralPagination

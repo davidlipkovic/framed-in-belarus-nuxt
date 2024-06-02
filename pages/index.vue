@@ -14,7 +14,7 @@ definePageMeta({
 
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading) {
-    return heroesStore.originalHeroes.value.length;
+    return heroesStore.originalHeroes.length;
   }
   return 0
 })
