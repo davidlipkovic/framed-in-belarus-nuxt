@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from "@/stores/user"
+import useUserStore from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs"
 
 const { t } = useI18n()

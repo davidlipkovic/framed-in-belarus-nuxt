@@ -1,6 +1,7 @@
 <script setup>
-import { computed, ref } from 'vue'
-import { useUserStore } from "@/stores/user"
+import { computed, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
 const { locales } = useI18n()
 

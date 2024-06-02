@@ -1,8 +1,8 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
-import { useRegistrationStore } from "@/stores/registration"
-import { useUserStore } from "@/stores/user"
+import useRegistrationStore from "@/stores/registration"
+import useUserStore from "@/stores/user"
 // import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
 import { useValidateInputs } from "@/composables/ValidateInputs";

@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 
-import { useHeroesStore } from "@/stores/heroes"
-import { useUserStore } from "@/stores/user"
+import useHeroesStore from "@/stores/heroes"
+import useUserStore from "@/stores/user"
 
 const heroesStore = useHeroesStore();
 const userStore = useUserStore()

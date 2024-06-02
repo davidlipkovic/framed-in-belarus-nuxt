@@ -2,7 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import MarkdownIt from 'markdown-it'
-import { useNewsStore } from "@/stores/news"
+import useNewsStore from "@/stores/news"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 definePageMeta({

@@ -1,5 +1,5 @@
 import { computed } from "vue"
-import { useHeroesStore } from "@/stores/heroes"
+import useHeroesStore from "@/stores/heroes"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 export function useChosenHeroData() {
