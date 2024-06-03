@@ -46,15 +46,21 @@ const handleFullscreen = (i) => {
   emit('openFullscreen', i)
 }
 
-const globJpg = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
-const globWebp = import.meta.glob('@/assets/media/img/swiper/*.webp', { eager: true })
+const globJpg1x = import.meta.glob('@/assets/media/img/swiper/*-1x.jpg', { eager: true })
+const globJpg2x = import.meta.glob('@/assets/media/img/swiper/*-2x.jpg', { eager: true })
+const globWebp1x = import.meta.glob('@/assets/media/img/swiper/*-1x.webp', { eager: true })
+const globWebp2x = import.meta.glob('@/assets/media/img/swiper/*-2x.webp', { eager: true })
 
-const images = Object.entries(globJpg).map(([path, module]) => {
-  const webpPath = path.replace(/\.jpg$/, '.webp')
+const images = Object.entries(globJpg1x).map(([path, module]) => {
+  const jpg2xPath = path.replace('1x', '2x');
+  const webp1xPath = path.replace(/\.jpg$/, '.webp')
+  const webp2xPath = jpg2xPath.replace(/\.jpg$/, '.webp')
 
   return {
-    'jpg': { path, module },
-    'webp': { path: webpPath, module: globWebp[webpPath] },
+    'jpg-1x': { path, module },
+    'jpg-2x': { path: jpg2xPath, module: globJpg2x[jpg2xPath] },
+    'webp-1x': { path: webp1xPath, module: globWebp1x[webp1xPath] },
+    'webp-2x': { path: webp2xPath, module: globWebp2x[webp2xPath] },
   }
 })
 </script>
@@ -76,18 +82,20 @@ const images = Object.entries(globJpg).map(([path, module]) => {
       :key="slide.alt"
     >
       <picture>
+        <source 
+          :srcset="slide['webp-1x'].module.default + ' 1x, ' + slide['webp-2x'].module.default + ' 2x'"
+          type="image/webp"
+        >
         <source
-          :srcset="slide.webp.module.default"
-          type="webp"
-        />
-        <source
-          :srcset="slide.jpg.module.default"
-          type="jpg"
+          :srcset="slide['jpg-1x'].module.default + ' 1x, ' + slide['jpg-2x'].module.default + ' 2x'"
+          type="image/jpg"
         />
         <img
-          :src="slide.jpg.module.default"
+          :src="slide['jpg-1x'].module.default"
           :alt="`${slide.alt}`"
           @click="handleFullscreen(i)"
+          width="448" 
+          height="448"
         >
       </picture>
     </SwiperSlide>
