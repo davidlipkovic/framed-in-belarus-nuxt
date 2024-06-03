@@ -288,7 +288,7 @@
         },
         "deleteModal": {
             "title": "Вы ўпэўненыя, што хочаце выдаліць свой уліковы запіс?",
-            "disclaimer": "Калі вы націснеце «Пацвердзіць», усе вашы асабістыя даныя будуць выдалены."
+            "disclaimer": "Калі вы націснеце \"Пацвердзіць\", вы страціце доступ да свайго ўліковага запісу."
         }
     },
     "embroidery": {
@@ -801,15 +801,15 @@
     "newsPage": {
         "title": "Навіны",
         "filters": {
-            "allItems": "Усе матэрыялы",
-            "workshops": "Майстар-класы",
+            "allItems": "Усе",
+            "workshops": "Майстэрні",
             "exhibitions": "Выставы",
             "other": "Іншае"
         },
         "categories": {
-            "Workshop": "Workshop",
-            "Exhibition": "Exhibition",
-            "Other": "Other"
+            "Workshop": "Майстэрня",
+            "Exhibition": "Выстава",
+            "Other": "Іншае"
         }
     },
     "newsDetailPage": {

@@ -288,7 +288,7 @@
         },
         "deleteModal": {
             "title": "Вы уверены, что хотите удалить свой личный кабинет?",
-            "disclaimer": "Если вы нажмете «Подтвердить», все ваши личные данные будут удалены."
+            "disclaimer": "Если вы нажмете «Подтвердить», вы потеряете доступ к своему аккаунту."
         }
     },
     "embroidery": {
@@ -807,9 +807,9 @@
             "other": "Другое"
         },
         "categories": {
-            "Workshop": "Workshop",
-            "Exhibition": "Exhibition",
-            "Other": "Other"
+            "Workshop": "Мастер-класс",
+            "Exhibition": "Выставка",
+            "Other": "Другое"
         }
     },
     "newsDetailPage": {
