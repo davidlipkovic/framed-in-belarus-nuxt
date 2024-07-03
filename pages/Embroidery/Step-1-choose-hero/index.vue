@@ -6,7 +6,7 @@ import { useSearch } from "@/composables/Search";
 
 const route = useRoute()
 
-const heroesStore = useHeroesStore();
+const heroesStore = useHeroesStore()
 const {
   activeMenuIndex,
   changePageIndex,

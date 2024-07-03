@@ -22,14 +22,14 @@ const link = computed(() => {
   return "/Gallery/Case"
 })
 
-const placeholderImage = import.meta.glob('@/assets/media/img/swiper/1.jpg', { eager: true })
+const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg', { eager: true })
 
 const photo = computed(() => {
   if (props.isEmbroidery) {
     return props.result.photo
   }
 
-  return placeholderImage['/assets/media/img/swiper/1.jpg'].default
+  return placeholderImage['/assets/media/img/swiper/01-1x.jpg'].default
 })
 </script>
 
