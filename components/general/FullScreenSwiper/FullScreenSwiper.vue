@@ -68,7 +68,7 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
         :key="slide.alt"
       >
         <img
-          :src="images[`/assets/media/img/swiper/${ i + 1 }.jpg`].default"
+          :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
           :alt="`${slide.alt}`"
         >
       </SwiperSlide>

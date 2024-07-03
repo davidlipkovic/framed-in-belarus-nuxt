@@ -37,7 +37,7 @@ const localTags = computed(() => heroesStore.tags.value)
 
 const placeholderResult = {
   name: 'Name Surname',
-  photo: '../../../assets/media/img/swiper/1.jpg'
+  photo: '../../../assets/media/img/swiper/01-1x.jpg'
 }
 
 onMounted(() => {

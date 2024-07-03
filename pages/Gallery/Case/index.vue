@@ -247,9 +247,9 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
           <img
             v-for="(slide, i) in slides"
             :key="slide.alt"
-            :src="images[`/assets/media/img/swiper/${ i + 1 }.jpg`].default"
+            :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
             :alt="`${slide.alt}`"
-            @click="handleGallerySwiper(showGallerySwiper, i)"
+            @click="handleGallerySwiper(i)"
           />
         </div>
         <GeneralFullScreenSwiper
