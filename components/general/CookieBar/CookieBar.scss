@@ -1,4 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/modal";
 
 .cookieBarWrapper {
   position: fixed;
@@ -8,6 +9,8 @@
   width: 100vw;
   height: 260px;
   background-color: $greyTransparentBG;
+  justify-content: space-between;
+  flex-direction: column;
 
   * {
     color: $white;
@@ -15,26 +18,19 @@
     font-weight: 600;
   }
 
-  .content {
+  div {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     flex-direction: column;
+    width: 100%;
 
-    div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      flex-direction: column;
+    .button {
       width: 100%;
-
-      .button {
-        width: 100%;
-        padding: 6px 27px;
-        border: 2px solid $white;
-        border-radius: 6px;
-        margin: 10px 0;
-      }
+      padding: 6px 27px;
+      border: 2px solid $white;
+      border-radius: 6px;
+      margin: 10px 0;
     }
   }
 
@@ -49,23 +45,25 @@
   }
 }
 
-@media screen and (min-width: $br-point-lg) {
+.cookiePreferencesModal {
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
   .cookieBarWrapper {
     height: 120px;
     justify-content: center;
-    align-items: center;
-  
-    .content {
-      flex-direction: row;
-  
-      div {
-        flex-direction: row;
-        width: auto;
+    flex-direction: row;
 
-        .button {
-          margin: 0 0 0 13px;
-          width: auto;
-        }
+    div {
+      flex-direction: row;
+      width: auto;
+
+      .button {
+        margin: 0 0 0 13px;
+        width: auto;
       }
     }
   }
