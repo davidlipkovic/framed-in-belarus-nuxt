@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import MarkdownIt from 'markdown-it'
+import VueMarkdown from 'vue-markdown-render'
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
@@ -12,9 +12,8 @@ const props = defineProps({
   },
 })
 
-const description = computed(() => {
-  const md = new MarkdownIt()
-  return md.render(getCurrentLocaleStringValue(props.article, 'description_'))
+const perex = computed(() => {
+  return getCurrentLocaleStringValue(props.article, 'perex_')
 })
 
 const title = computed(() => {
@@ -24,8 +23,8 @@ const title = computed(() => {
 
 <template>
   <div class="articleBoxWrapper flexColumnStart">
-    <div class="categoryTag">
-      {{ $t('newsPage.categories.' + article.category) }}
+    <div class="typeTag capitalize">
+      {{ $t('newsPage.types.' + article.type) }}
     </div>
     <!-- <a
       v-if="article.readMoreLink"
@@ -52,9 +51,9 @@ const title = computed(() => {
     <h2 class="title b1">
       {{ title }}
     </h2>
-    <div 
+    <vue-markdown 
       class="articleBoxPerex"
-      v-html="description"
+      :source="perex" 
     />
     <!-- <a
       v-if="article.readMoreLink"

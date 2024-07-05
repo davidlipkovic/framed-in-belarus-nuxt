@@ -811,6 +811,10 @@
             "Workshop": "Workshop",
             "Exhibition": "Exhibition",
             "Other": "Other"
+        },
+        "types": {
+            "announce": "announce",
+            "report": "report"
         }
     },
     "newsDetailPage": {
