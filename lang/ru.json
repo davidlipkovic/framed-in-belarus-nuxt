@@ -40,7 +40,8 @@
         "pseudonym": "Ваш псевдоним / никнейм",
         "searchHero": "Поиск Героя*ини по имени",
         "findOut": "Как вы узнали о проекте?",
-        "chooseTheOption": "Выберите вариант"
+        "chooseTheOption": "Выберите вариант",
+        "select": "Select"
     },
     "inputs": {
         "Alphabetically": "А-Я",
