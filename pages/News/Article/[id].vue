@@ -22,13 +22,19 @@ const article = computed(() => {
 })
 
 const date = computed(() => {
-  const startDate = convertDateToReadable(article.value.startDate, 'DD.MM.YYYY')
-  const endDate = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
+  const startDate = new Date(article.value.startDate)
+  const endDate = new Date(article.value.endDate)
   
-  if (startDate === endDate) {
-    return startDate
+  const startYear = startDate.getFullYear()
+  const endYear = endDate.getFullYear()
+  
+  const startDateFormatted = convertDateToReadable(article.value.startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
+  const endDateFormatted = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
+  
+  if (startDateFormatted === endDateFormatted) {
+    return startDateFormatted
   } else {
-    return `${startDate} - ${endDate}`
+    return `${startDateFormatted} - ${endDateFormatted}`
   }
 })
 

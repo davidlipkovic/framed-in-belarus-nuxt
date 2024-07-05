@@ -37,6 +37,7 @@ export default defineNuxtConfig({
 
     modules: [
         '@nuxt/content',
+        '@nuxt/image',
         '@nuxtjs/i18n',
         '@pinia/nuxt',
         '@vueuse/nuxt',

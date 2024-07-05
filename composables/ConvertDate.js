@@ -26,6 +26,8 @@ export function useConvertDate() {
 
     if (format === 'DD.MM.YYYY') {
       return `${day}.${date.getMonth() + 1}.${year}`
+    } else if (format === 'DD.MM') {
+      return `${day}.${date.getMonth() + 1}.`
     } else if (format === 'DD MMMM YYYY') {
       return `${day} ${month} ${year}`
     } else {
