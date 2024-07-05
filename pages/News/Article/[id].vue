@@ -1,9 +1,10 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import MarkdownIt from 'markdown-it'
+import VueMarkdown from 'vue-markdown-render'
 import useNewsStore from "@/stores/news"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
+import { useConvertDate } from "@/composables/ConvertDate"
 
 definePageMeta({
   middleware: [
@@ -14,15 +15,25 @@ definePageMeta({
 const route = useRoute()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
+const { convertDateToReadable } = useConvertDate()
 
 const article = computed(() => {
   return newsStore.articles.find(article => article.id === route.params.id)
 })
 
+const date = computed(() => {
+  const startDate = convertDateToReadable(article.value.startDate, 'DD.MM.YYYY')
+  const endDate = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
+  
+  if (startDate === endDate) {
+    return startDate
+  } else {
+    return `${startDate} - ${endDate}`
+  }
+})
+
 const description = computed(() => {
-  const md = new MarkdownIt()
-  return md.render(getCurrentLocaleStringValue(article.value, 'description_'))
-  // return getCurrentLocaleStringValue(article.value, 'description_')
+  return getCurrentLocaleStringValue(article.value, 'description_')
 })
 
 const title = computed(() => {
@@ -59,10 +70,13 @@ const handleGallerySwiper = (i) => {
         </div>
       </div>
       <article class="content newsArticleContent">
-        <p class="infoWrapper infoWrapperCalendar flexRowStart">
+        <p 
+          v-if="date"
+          class="infoWrapper infoWrapperCalendar flexRowStart"
+        >
           <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>
           <b class="b2">
-            {{ article.startDate }} - {{ article.endDate }}
+            {{ date }}
           </b>
         </p>
         <p class="infoWrapper infoWrapperPlace flexRowStart">
@@ -71,9 +85,9 @@ const handleGallerySwiper = (i) => {
             {{ article.place }}, {{ article.city }}, {{ article.country }}
           </b>
         </p>
-        <div 
+        <vue-markdown 
           class="newsDetailWrapper"
-          v-html="description"
+          :source="description" 
         />
         <div class="galleryWrapper">
           <img

@@ -4,6 +4,8 @@ import { defineStore } from "pinia"
 export default defineStore("news", () => {
   const loading = ref(false)
   const articles = ref(null)
+  const articlesPublication = computed(() => articles.value.sort((a, b) => a.publicationDate - b.publicationDate))
+  const articlesPublicationReversed = computed(() => articlesChronologically.value.reverse())
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
@@ -29,6 +31,8 @@ export default defineStore("news", () => {
 
   return {
     articles,
+    articlesPublication,
+    articlesPublicationReversed,
     loading,
     getArticles,
   }

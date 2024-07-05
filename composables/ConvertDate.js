@@ -7,8 +7,8 @@ export function useConvertDate() {
     let msec = Date.parse(date)
     return new Date(msec)
   }
-  
-  const convertDateToReadable = (date) => {
+
+  const convertDateToReadable = (date, format = 'DD MMMM YYYY') => {
     date = convertToJsDate(date)
     let localeToConvertTo = null
 
@@ -20,7 +20,18 @@ export function useConvertDate() {
       localeToConvertTo = 'en-US'
     }
 
-    return date.getDay() + ' ' + date.toLocaleString(localeToConvertTo, { month: 'long' }) + ' ' + date.getFullYear()
+    let day = date.getDate()
+    let month = date.toLocaleString(localeToConvertTo, { month: 'long' })
+    let year = date.getFullYear()
+
+    if (format === 'DD.MM.YYYY') {
+      return `${day}.${date.getMonth() + 1}.${year}`
+    } else if (format === 'DD MMMM YYYY') {
+      return `${day} ${month} ${year}`
+    } else {
+      // Default to 'DD MMMM YYYY' if an unrecognized format is passed
+      return `${day} ${month} ${year}`
+    }
   }
 
   return {

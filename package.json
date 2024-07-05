@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@nuxtjs/i18n": "^8.0.0",
-    "nuxt": "^3.9.3",
+    "nuxt": "^3.12.3",
     "sass": "^1.70.0",
     "sass-loader": "^14.0.0",
     "vue": "^3.4.14",
@@ -26,10 +26,10 @@
     "@vueuse/nuxt": "^10.7.2",
     "floating-vue": "^5.2.0",
     "lodash": "^4.17.21",
-    "markdown-it": "^14.1.0",
     "pinia": "^2.1.7",
     "ss-search": "^1.9.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "vue-markdown-render": "^2.2.1"
   },
   "browserslist": [
     ">0.3%",

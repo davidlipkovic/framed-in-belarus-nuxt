@@ -811,6 +811,10 @@
             "Workshop": "Мастер-класс",
             "Exhibition": "Выставка",
             "Other": "Другое"
+        },
+        "types": {
+            "announce": "announce",
+            "report": "report"
         }
     },
     "newsDetailPage": {

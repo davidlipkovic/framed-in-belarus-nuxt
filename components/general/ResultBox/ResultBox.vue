@@ -19,7 +19,7 @@ const link = computed(() => {
     return "/Embroidery/Step-1-your-hero"
   }
 
-  return "/Gallery/Case"
+  return "/Gallery/Embroidery"
 })
 
 const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg', { eager: true })

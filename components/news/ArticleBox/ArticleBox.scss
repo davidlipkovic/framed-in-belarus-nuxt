@@ -4,7 +4,7 @@
   width: auto;
   position: relative;
 
-  .categoryTag {
+  .typeTag {
     position: absolute;
     top: 14px;
     right: 16px;
@@ -46,16 +46,6 @@
 
   >p {
     margin-top: auto;
-  }
-
-  .articleBoxPerex {
-    * {
-      display: none;
-    }
-
-    >*:nth-child(1) {
-      display: block;
-    }
   }
 
   .button {

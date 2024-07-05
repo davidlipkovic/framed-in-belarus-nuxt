@@ -811,6 +811,10 @@
             "Workshop": "Майстэрня",
             "Exhibition": "Выстава",
             "Other": "Іншае"
+        },
+        "types": {
+            "announce": "announce",
+            "report": "report"
         }
     },
     "newsDetailPage": {

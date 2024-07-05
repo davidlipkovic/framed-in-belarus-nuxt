@@ -15,7 +15,7 @@ const newsStore = useNewsStore()
 const currentTag = ref(null)
 
 const filteredArticles = computed(() => {
-  const mergedArticles = newsStore.articles
+  const mergedArticles = newsStore.articlesPublication
   if (!currentTag.value) return mergedArticles
   return mergedArticles.filter((article) => article.category.toLowerCase() === currentTag.value)
 })

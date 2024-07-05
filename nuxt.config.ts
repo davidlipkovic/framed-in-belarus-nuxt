@@ -33,10 +33,11 @@ export default defineNuxtConfig({
         '@/assets/style/general.scss',
     ],
 
+    compatibilityDate: '2024-07-05',
+
     modules: [
         '@nuxt/content',
         '@nuxtjs/i18n',
-        // '@nuxt/image-edge',
         '@pinia/nuxt',
         '@vueuse/nuxt',
         'floating-vue/nuxt',
