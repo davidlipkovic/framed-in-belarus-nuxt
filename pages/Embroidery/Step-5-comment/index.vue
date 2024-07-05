@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
-import languages from '../../../assets/json/languages.json'
+import languagesJSON from '../../../assets/json/languages.json'
 
 definePageMeta({
   layout: "embroidery",
@@ -13,10 +13,14 @@ definePageMeta({
 
 const englishComment = ref(null)
 const nativeComment = ref(null)
-const nativeLanguage = ref('English')
+const nativeLanguage = ref(null)
 const publishComment = ref(null)
 const sendComment = ref(null)
 const writeComment = ref(null)
+
+const languages = computed(() => {
+  return languagesJSON.filter(language => language.code !== "en")
+})
 
 const validData = computed(() => {
   return publishComment.value !== null && (sendComment.value || (writeComment.value && (englishComment.value || (nativeLanguage.value && nativeComment.value))))
@@ -140,7 +144,7 @@ const updateNativeLanguage = (lang) => {
                   :chosenOption="nativeLanguage"
                   :enableScroll="true"
                   :options="languages"
-                  :placeholder="'English'" 
+                  :placeholder="$t('placeholders.select')" 
                   @chooseOption="updateNativeLanguage"
                 />
               </div>

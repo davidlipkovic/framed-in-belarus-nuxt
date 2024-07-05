@@ -40,7 +40,8 @@
         "pseudonym": "Your pseudonym / nickname",
         "searchHero": "Search for a Hero*ine by name",
         "findOut": "How did you find out about this project?",
-        "chooseTheOption": "Choose the option"
+        "chooseTheOption": "Choose the option",
+        "select": "Select"
     },
     "inputs": {
         "Alphabetically": "A-Z",
