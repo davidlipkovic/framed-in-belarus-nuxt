@@ -290,5 +290,5 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
   </main>
 </template>
 
-<style src="./Case.scss" lang="scss"></style>
+<style src="./Embroidery.scss" lang="scss"></style>
 

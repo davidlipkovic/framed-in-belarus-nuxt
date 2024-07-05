@@ -19,7 +19,7 @@ Yulia
 
 ready pages:
 ✅ profile
-✅ Gallery/Case
+✅ Gallery/Embroidery
 
 components:
 footer
@@ -61,7 +61,7 @@ Gallery
 - test with data
 - search history in url
 
-Gallery/Case
+Gallery/Embroidery
 - implement i18n
 
 News
