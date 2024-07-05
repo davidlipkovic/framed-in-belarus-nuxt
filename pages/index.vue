@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
-import { useHeroesStore } from "@/stores/heroes"
-import { useUserStore } from "@/stores/user"
+import useHeroesStore from "@/stores/heroes"
+import useUserStore from "@/stores/user"
 const heroesStore = useHeroesStore()
 const userStore = useUserStore()
 
@@ -14,7 +14,7 @@ definePageMeta({
 
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading) {
-    return heroesStore.originalHeroes.value.length;
+    return heroesStore.originalHeroes.length;
   }
   return 0
 })
@@ -46,6 +46,7 @@ const numberOfHeroes = computed(() => {
         <div class="flexRowStart">
           <a
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
+            target="_blank"
             class="button bg_red"
           >
             {{ $t('links.participate') }}

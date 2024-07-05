@@ -1,13 +1,13 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import MarkdownIt from 'markdown-it'
-import { useNewsStore } from "@/stores/news"
+import VueMarkdown from 'vue-markdown-render'
+import useNewsStore from "@/stores/news"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
+import { useConvertDate } from "@/composables/ConvertDate"
 
 definePageMeta({
   middleware: [
-    'auth-general',
     'news',
   ],
 })
@@ -15,28 +15,31 @@ definePageMeta({
 const route = useRoute()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
-
-const slides = [
-  {alt: "Ala Lapatka"},
-  {alt: "Siarhey Hatskevich"},
-  {alt: "Tatsiana Kaneuskaya"},
-  {alt: "Pyatro Marchanka"},
-  {alt: "Vladzmir Zmurauka"},
-  {alt: "Marina Kirilchyk"},
-  {alt: "Dmitry Kubarau"},
-  {alt: "Dmitriy Dubkou"},
-  {alt: "Viacheslav Rahanchuk"},
-  {alt: "Ales Pushkin"}
-]
+const { convertDateToReadable } = useConvertDate()
 
 const article = computed(() => {
-  return newsStore.articles.value.find(article => article.id === route.params.id)
+  return newsStore.articles.find(article => article.id === route.params.id)
+})
+
+const date = computed(() => {
+  const startDate = new Date(article.value.startDate)
+  const endDate = new Date(article.value.endDate)
+  
+  const startYear = startDate.getFullYear()
+  const endYear = endDate.getFullYear()
+  
+  const startDateFormatted = convertDateToReadable(article.value.startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
+  const endDateFormatted = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
+  
+  if (startDateFormatted === endDateFormatted) {
+    return startDateFormatted
+  } else {
+    return `${startDateFormatted} - ${endDateFormatted}`
+  }
 })
 
 const description = computed(() => {
-  const md = new MarkdownIt()
-  return md.render(getCurrentLocaleStringValue(article.value, 'description_'))
-  // return getCurrentLocaleStringValue(article.value, 'description_')
+  return getCurrentLocaleStringValue(article.value, 'description_')
 })
 
 const title = computed(() => {
@@ -73,10 +76,13 @@ const handleGallerySwiper = (i) => {
         </div>
       </div>
       <article class="content newsArticleContent">
-        <p class="infoWrapper infoWrapperCalendar flexRowStart">
+        <p 
+          v-if="date"
+          class="infoWrapper infoWrapperCalendar flexRowStart"
+        >
           <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>
           <b class="b2">
-            {{ article.startDate }} - {{ article.endDate }}
+            {{ date }}
           </b>
         </p>
         <p class="infoWrapper infoWrapperPlace flexRowStart">
@@ -85,9 +91,9 @@ const handleGallerySwiper = (i) => {
             {{ article.place }}, {{ article.city }}, {{ article.country }}
           </b>
         </p>
-        <div 
-          class="content newsDetailWrapper"
-          v-html="description"
+        <vue-markdown 
+          class="newsDetailWrapper"
+          :source="description" 
         />
         <div class="galleryWrapper">
           <img

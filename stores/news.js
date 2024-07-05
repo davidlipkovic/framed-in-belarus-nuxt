@@ -1,27 +1,38 @@
-import { reactive, ref } from "vue"
+import { ref } from "vue"
 import { defineStore } from "pinia"
 
-export const useNewsStore = defineStore("news", () => {
+export default defineStore("news", () => {
   const loading = ref(false)
-  const articles = reactive([])
+  const articles = ref(null)
+  const articlesPublication = computed(() => articles.value.sort((a, b) => a.publicationDate - b.publicationDate))
+  const articlesPublicationReversed = computed(() => articlesChronologically.value.reverse())
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-  const getArticles = async () => {
-    try {
-      const {data: responseData} = await useFetch(endpointUrl + '/api/news', {
-        method: 'get',
-      })
-      articles.value = responseData.value.result
-      console.log('getArticles', responseData.value.result)
 
-      return responseData.value && responseData.value.statusText === 'success'
-    } catch (error) {
-      console.error('Error getting prisoners list data:', error)
+  const getArticles = async () => {
+    const { data, error } = await useFetch(
+      endpointUrl + '/api/news', 
+      {
+        method: 'get',
+      }
+    )
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
     }
+
+    console.log('getArticles', data.value.result)
+    
+    articles.value = data.value.result
   }
 
   return {
     articles,
+    articlesPublication,
+    articlesPublicationReversed,
     loading,
     getArticles,
   }

@@ -19,21 +19,19 @@ const props = defineProps({
 const buttonMessage = computed(() => {
   if (showMore.value) {
     return t("buttons.showLess")
-  } else {
-    return t("buttons.showMore")
   }
+
+  return t("buttons.showMore")
 })
 
-const enableToggle = computed(() => {
-  return props.message.length > props.limit
-})
+const enableToggle = computed(() => props.message.length > props.limit)
 
 const message = computed(() => {
-  if (showMore.value) {
+  if (showMore.value && !enableToggle.value) {
     return props.message
-  } else {
-    return props.message.slice(0, props.limit) + '...'
   }
+
+  return props.message.slice(0, props.limit) + '...'
 })
 
 const showMore = ref(false)

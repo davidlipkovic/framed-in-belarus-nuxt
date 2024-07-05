@@ -40,7 +40,8 @@
         "pseudonym": "Ваш псэўданім / нік",
         "searchHero": "Пошук героя*іні паводле імя",
         "findOut": "Як вы даведаліся пра праект?",
-        "chooseTheOption": "Выберце варыянт"
+        "chooseTheOption": "Выберце варыянт",
+        "select": "Select"
     },
     "inputs": {
         "Alphabetically": "А-Я",
@@ -810,6 +811,10 @@
             "Workshop": "Майстэрня",
             "Exhibition": "Выстава",
             "Other": "Іншае"
+        },
+        "types": {
+            "announce": "announce",
+            "report": "report"
         }
     },
     "newsDetailPage": {
