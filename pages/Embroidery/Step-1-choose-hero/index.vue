@@ -392,12 +392,12 @@ watch(route, () => {
     >
       <div class="inputModalContentWrapper">
         <div class="inputModalHeader flexRowStart">
-          <h3
+          <h2
             v-if="requestNotSent"
             class="title"
           >
             {{ $t('embroidery.step1Page.requestModal.request.title') }}
-          </h3>
+          </h2>
           <button
             @click="displayRequestModal = false"
             class="closeButton"

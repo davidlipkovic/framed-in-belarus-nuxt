@@ -21,7 +21,7 @@ const loadGoogleAnalytics = () => {
   // return
   if (preferences.value.analytics && typeof gtag === 'undefined') {
     const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=G-FMW33NJ4WM`
+    script.src = `https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X`; // Replace with your tracking ID
     script.async = true;
     document.head.appendChild(script);
 
@@ -81,12 +81,12 @@ onMounted(() => {
 <template>
   <div 
     v-if="showCookieConsent"
-    class="cookieBarWrapper content flexRowCenter"
+    class="cookieBarWrapper content flexColumnStart"
   >
     <p>
-      This site uses cookies to improve your experience. By clicking "Accept All", you agree to our use of cookies. You can manage your preferences or read our <a href="/#" target="_blank">Cookie Policy</a>.
+      {{ $t('cookies.barMessage') }}
     </p>
-    <div>
+    <div class="flexColumnStart">
       <button 
         class="button"
         @click="cookiesStore.isChecked = true, acceptCookies(true)"
@@ -115,7 +115,7 @@ onMounted(() => {
     <div class="inputModalContentWrapper">
       <div class="inputModalHeader flexRowStart">
         <h2>
-          manage preferences
+          {{ $t('cookies.modal.title') }}
         </h2>
         <button
           @click="showPreferences = false"
@@ -124,41 +124,46 @@ onMounted(() => {
           <SvgClose/>
         </button>
       </div>
-      <div class="inputModalBody">
-        <div class="inputModalItem checkBoxWrapper flexRowCenter">
-          <label for="functionalCookies">
-            Functional Cookies
-          </label>
-          <input 
-            id="functionalCookies"
-            type="checkbox" 
-            v-model="preferences.functional"
-            disabled
-          >
-        </div>
-        <div class="inputModalItem checkBoxWrapper flexRowCenter">
-          <label for="analyticsCookies">
-            Analytics Cookies
-          </label>
-          <input 
-            id="analyticsCookies"
-            type="checkbox" 
-            v-model="preferences.analytics"
-          >
-        </div>
+      <div class="inputModalBody cookiePreferencesModalBody">
+        <p class="inputModalItem cookieDetailsLinkWrapper">
+          {{ $t('cookies.modal.cookieDetailsLink.content') }} <a href="" target="_blank">{{ $t('cookies.modal.cookieDetailsLink.highlight') }}</a>
+        </p>
+        <GeneralCookiePreferencesModalItem 
+          class="inputModalItem"
+          v-model="preferences.functional"
+          :disabled="true"
+        >
+          <template #label>
+            {{ $t('cookies.modal.essentialCookies.label') }}
+          </template>
+          <template #description>
+            {{ $t('cookies.modal.essentialCookies.description.content1') }}
+          </template>
+        </GeneralCookiePreferencesModalItem>
+        <GeneralCookiePreferencesModalItem 
+          class="inputModalItem"
+          v-model="preferences.analytics"
+        >
+          <template #label>
+            {{ $t('cookies.modal.performanceCookies.label') }}
+          </template>
+          <template #description>
+            {{ $t('cookies.modal.performanceCookies.description.content1') }}
+          </template>
+        </GeneralCookiePreferencesModalItem>
       </div>
       <div class="inputModalFooter buttons">
         <button 
-          class="button bg_black"
+          class="button"
           @click="cookiesStore.isChecked = true, acceptCookies(true)"
         >
-          {{ $t('buttons.accept') }}
+          {{ $t('buttons.cancel') }}
         </button>
         <button 
           class="button bg_black"
           @click="cookiesStore.isChecked = true, acceptCookies(false)"
         >
-          {{ $t('buttons.decline') }}
+          {{ $t('buttons.save') }}
         </button>
       </div>
     </div>

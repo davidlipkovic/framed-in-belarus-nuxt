@@ -1,0 +1,39 @@
+@import "../../../assets/style/globalPartials/variables.scss";
+
+.cookiePreferencesModalItem {
+  width: 100%;
+  border: 1px solid $black;
+  border-radius: 1rem;
+  padding: 20px 16px;
+
+  .checkBoxWrapper {
+    width: 100%;
+    justify-content: flex-start;
+    margin: unset;
+    padding: 0 6px;
+  }
+
+  button {
+    width: 20px;
+    margin-right: 10px;
+
+    svg {
+      fill: $greyDark;
+    }
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    margin-left: auto;
+  }
+
+  .description {
+    border-top: 1px solid $black;
+    margin-top: 14px;
+    padding-top: 8px;
+    font-size: 20px;
+  }
+}

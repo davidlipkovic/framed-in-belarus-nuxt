@@ -90,6 +90,19 @@
   	@include inputModalContentWrapper;
     max-width: 900px;
   }
+
+  .inputModalHeader {
+    padding: 22px 36px 18px;
+  }
+
+  .inputModalRow {
+    padding: 0 28px;
+  }
+
+  .inputModalFooter {
+    border-top: 1px solid $greyLight;
+    padding: 16px 36px 18px;
+  }
 }
 
 .deleteProfileModal {

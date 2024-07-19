@@ -1,5 +1,6 @@
 @import "../../../assets/style/globalPartials/variables.scss";
 @import "../../../assets/style/mixins/modal";
+@import "../../../assets/style/mixins/modal";
 
 .cookieBarWrapper {
   position: fixed;
@@ -9,13 +10,16 @@
   width: 100vw;
   height: 260px;
   background-color: $greyTransparentBG;
-  justify-content: space-between;
-  flex-direction: column;
+  padding: 16px 36px;
 
   * {
     color: $white;
     font-size: 1rem;
     font-weight: 600;
+  }
+
+  p {
+    margin: 0 0 10px;
   }
 
   div {
@@ -32,11 +36,10 @@
       border-radius: 6px;
       margin: 10px 0;
     }
-  }
 
-  p {
-    max-width: 650px;
-    margin: 0;
+    .button:nth-child(1) {
+      margin: 0;
+    }
   }
 
   .button:hover {
@@ -49,13 +52,29 @@
   .inputModalContentWrapper {
   	@include inputModalContentWrapper;
   }
+
+  .cookiePreferencesModalBody {
+    padding: 18px 24px;
+  }
+
+  .cookieDetailsLinkWrapper {
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 18px;
+  }
+
+  .cookiePreferencesModalItem:nth-child(2) {
+    margin-bottom: 16px;
+  }
+
+  .inputModalFooter {
+    border: none;
+  }
 }
 
 @media screen and (min-width: $br-point-md) {
   .cookieBarWrapper {
     height: 120px;
-    justify-content: center;
-    flex-direction: row;
 
     div {
       flex-direction: row;
@@ -65,6 +84,19 @@
         margin: 0 0 0 13px;
         width: auto;
       }
+    }
+  }
+}
+
+@media screen and (min-width: $br-point-lg) {
+  .cookieBarWrapper {
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    p {
+      max-width: 650px;
     }
   }
 }
