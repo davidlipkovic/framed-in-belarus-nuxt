@@ -289,7 +289,7 @@
         },
         "deleteModal": {
             "title": "Are you sure you want to delete your personal account?",
-            "disclaimer": "In case you click “Confirm” all your personal data will be deleted."
+            "disclaimer": "In case you click “Confirm” you will lose the access to your personal account."
         }
     },
     "embroidery": {
