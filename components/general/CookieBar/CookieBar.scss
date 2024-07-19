@@ -7,9 +7,8 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 260px;
   background-color: $greyTransparentBG;
-  padding: 16px 36px;
+  padding: 26px 36px;
 
   * {
     color: $white;
@@ -18,7 +17,7 @@
   }
 
   p {
-    margin: 0 0 10px;
+    margin: 0 0 30px;
   }
 
   div {
@@ -37,7 +36,11 @@
     }
 
     .button:nth-child(1) {
-      margin: 0;
+      margin-top: 0;
+    }
+
+    .button:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -73,8 +76,6 @@
 
 @media screen and (min-width: $br-point-md) {
   .cookieBarWrapper {
-    height: 120px;
-
     div {
       flex-direction: row;
       width: auto;
@@ -82,6 +83,10 @@
       .button {
         margin: 0 0 0 13px;
         width: auto;
+      }
+
+      .button:nth-child(1) {
+        margin-left: 0;
       }
     }
   }
@@ -96,6 +101,7 @@
 
     p {
       max-width: 650px;
+      margin-bottom: 0;
     }
   }
 }
