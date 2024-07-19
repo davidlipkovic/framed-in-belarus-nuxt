@@ -41,7 +41,7 @@
         "searchHero": "Поиск Героя*ини по имени",
         "findOut": "Как вы узнали о проекте?",
         "chooseTheOption": "Выберите вариант",
-        "select": "Select"
+        "select": "Выбрать"
     },
     "inputs": {
         "Alphabetically": "А-Я",
@@ -813,8 +813,8 @@
             "Other": "Другое"
         },
         "types": {
-            "announce": "announce",
-            "report": "report"
+            "announce": "анонс",
+            "report": "отчет"
         }
     },
     "newsDetailPage": {
