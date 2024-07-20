@@ -1,20 +1,23 @@
 @import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/switcher";
 
 .cookiePreferencesModalItem {
+  @include switcher;
+  
   width: 100%;
   border: 1px solid $black;
   border-radius: 1rem;
   padding: 20px 16px;
 
-  .checkBoxWrapper {
+  >div {
     width: 100%;
     justify-content: flex-start;
     margin: unset;
-    padding: 0 6px;
   }
 
   button {
     width: 20px;
+    margin-left: 6px;
     margin-right: 10px;
 
     svg {
