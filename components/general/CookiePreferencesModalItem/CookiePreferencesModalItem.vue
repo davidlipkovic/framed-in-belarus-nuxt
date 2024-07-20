@@ -14,7 +14,7 @@ const toggleDesription = ref(false)
 
 <template>
   <div class="cookiePreferencesModalItem flexColumnStart">
-    <div class="checkBoxWrapper flexRowCenter">
+    <div class="flexRowCenter">
       <button 
         class="flexRowCenter"
         @click="toggleDesription = !toggleDesription"
@@ -28,10 +28,12 @@ const toggleDesription = ref(false)
         </slot>
       </label>
       <input 
-        id="cookiesInput"
         type="checkbox" 
-        v-model="model"
+        id="cookiesInput"
+        name="cookiesInput" 
+        class="switcher"
         :disabled="disabled"
+        v-model="model"
       >
     </div>
     <p 
