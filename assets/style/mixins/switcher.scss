@@ -1,0 +1,41 @@
+@import "../globalPartials/variables";
+
+@mixin switcher {
+  .switcher {
+    cursor: pointer;
+    background: $greyBg;
+    border-radius: 7px;
+    width: 2.5rem;
+    height: 1rem;
+    position: relative;
+    appearance: none;
+  }
+
+  .switcher:focus{
+    outline: none;
+  }
+
+  .switcher:after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -0.28rem;
+    left: 0;
+    transition-property: left;
+    transition-duration: 0.15s;
+  }
+
+  .switcher:checked {    
+    background: $greyBg;
+  }
+
+  .switcher:checked:after {
+    background: $greyDisabledBg;
+    left: 41.18%;
+  }
+}
