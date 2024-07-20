@@ -126,7 +126,30 @@
             "content": "Калі ў вас ёсць тэрміновае пытанне, калі ласка, задайце яго нам, і мы дашлем вам емейл."
         }
     },
-    "cookies": "Для вымярэння паслуг сайта Framed in Belarus і для паляпшэння нашых паслуг для вас мы выкарыстоўваем інструменты, якія выкарыстоўваюць файлы cookies.",
+    "cookies": {
+        "barMessage": "For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.",
+        "modal": {
+            "title": "Manage cookies",
+            "cookieDetailsLink": {
+                "content": "More details you can learn",
+                "highlight": "here"
+            },
+            "essentialCookies": {
+                "label": "Essential Cookies",
+                "description": {
+                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
+                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                }
+            },
+            "performanceCookies": {
+                "label": "Performance Cookies",
+                "description": {
+                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
+                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                }
+            }
+        }
+    },
     "homePage": {
         "paragraph1": {
             "content1": "Колькасць афіцыйна прызнаных палітычных зняволеных у Беларусі на дадзены момант перавышае",

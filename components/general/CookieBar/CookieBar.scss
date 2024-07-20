@@ -1,4 +1,5 @@
 @import "../../../assets/style/globalPartials/variables.scss";
+@import "../../../assets/style/mixins/modal";
 
 .cookieBarWrapper {
   position: fixed;
@@ -6,8 +7,8 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 260px;
   background-color: $greyTransparentBG;
+  padding: 26px 36px;
 
   * {
     color: $white;
@@ -15,32 +16,32 @@
     font-weight: 600;
   }
 
-  .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-
-    div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      flex-direction: column;
-      width: 100%;
-
-      .button {
-        width: 100%;
-        padding: 6px 27px;
-        border: 2px solid $white;
-        border-radius: 6px;
-        margin: 10px 0;
-      }
-    }
+  p {
+    margin: 0 0 30px;
   }
 
-  p {
-    max-width: 650px;
-    margin: 0;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .button {
+      width: 100%;
+      padding: 6px 27px;
+      border: 2px solid $white;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .button:nth-child(1) {
+      margin-top: 0;
+    }
+
+    .button:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .button:hover {
@@ -49,24 +50,58 @@
   }
 }
 
+.cookiePreferencesModal {
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+  }
+
+  .cookiePreferencesModalBody {
+    padding: 18px 24px;
+  }
+
+  .cookieDetailsLinkWrapper {
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 18px;
+  }
+
+  .cookiePreferencesModalItem:nth-child(2) {
+    margin-bottom: 16px;
+  }
+
+  .inputModalFooter {
+    border: none;
+  }
+}
+
+@media screen and (min-width: $br-point-md) {
+  .cookieBarWrapper {
+    div {
+      flex-direction: row;
+      width: auto;
+
+      .button {
+        margin: 0 0 0 13px;
+        width: auto;
+      }
+
+      .button:nth-child(1) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: $br-point-lg) {
   .cookieBarWrapper {
     height: 120px;
     justify-content: center;
     align-items: center;
-  
-    .content {
-      flex-direction: row;
-  
-      div {
-        flex-direction: row;
-        width: auto;
+    flex-direction: row;
 
-        .button {
-          margin: 0 0 0 13px;
-          width: auto;
-        }
-      }
+    p {
+      max-width: 650px;
+      margin-bottom: 0;
     }
   }
 }

@@ -19,8 +19,8 @@
 }
 
 .inputModalHeader {
-  min-height: 74px;
-  padding: 22px 36px 18px;
+  min-height: 70px;
+  padding: 22px 24px 16px;
   border-bottom: 1px solid $greyLight;
   align-items: center;
   justify-content: space-between;
@@ -32,12 +32,12 @@
   }
 
   .closeButton {
-    margin-right: 4px;
-    margin-top: -6px;
+    margin-right: 6px;
+    margin-top: -2px;
     margin-left: auto;
 
     svg {
-      width: 22px;
+      width: 26px;
     }
   }
 }
@@ -48,7 +48,7 @@
 
 .inputModalRow {
   width: 100%;
-  padding: 0 28px;
+  padding: 0 16px;
   flex-direction: column;
 
   .inputModalItem:first-child,
@@ -96,8 +96,7 @@
 
 .inputModalFooter {
   justify-content: flex-end;
-  padding: 18px 36px 14px;
-  border-top: 1px solid $greyLight;
+  padding: 8px 24px 18px;
   margin-top: 0;
 
   .button {
