@@ -1,4 +1,4 @@
-import { useHeroesStore } from "@/stores/heroes"
+import useHeroesStore from "@/stores/heroes"
 const heroesStore = useHeroesStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
