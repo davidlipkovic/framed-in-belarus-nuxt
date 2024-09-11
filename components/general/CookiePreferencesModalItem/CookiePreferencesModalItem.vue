@@ -23,9 +23,7 @@ const toggleDesription = ref(false)
         <SvgMinus v-else/>
       </button>
       <label for="cookiesInput">
-        <slot name="label">
-          Performance Cookies
-        </slot>
+        <slot name="label"/>
       </label>
       <input 
         type="checkbox" 
@@ -40,9 +38,7 @@ const toggleDesription = ref(false)
       v-if="toggleDesription"
       class="description"
     >
-      <slot name="description">
-        These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.
-      </slot>
+      <slot name="description"/>
     </p>
   </div>
 </template>
