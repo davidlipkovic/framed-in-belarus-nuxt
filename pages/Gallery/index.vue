@@ -1,12 +1,20 @@
 <script setup>
 import { computed, onMounted, reactive, ref } from "vue"
 import { useRoute } from 'vue-router'
-import useHeroesStore from "@/stores/heroes"
+import useGalleryStore from "@/stores/gallery"
 import { useSearch } from "@/composables/Search";
+
+definePageMeta({
+  middleware: [
+    'auth-general',
+    'gallery',
+  ],
+})
 
 const route = useRoute()
 
-const heroesStore = useHeroesStore();
+const galleryStore = useGalleryStore()
+
 const {
   activeMenuIndex,
   changePageIndex,
@@ -30,6 +38,7 @@ const {
 definePageMeta({
   middleware: [
     'auth-general',
+    'gallery',
   ],
 })
 
@@ -40,7 +49,8 @@ useHead({
   ]
 })
 
-const localTags = computed(() => heroesStore.tags.value)
+const localTags = computed(() => galleryStore.tags)
+const parsedEmbroideries = computed(() => parseData(galleryStore, 'embroideries'))
 
 const placeholderResult = {
   name: 'Name Surname',
@@ -48,7 +58,7 @@ const placeholderResult = {
 }
 
 onMounted(() => {
-  numberOfPages.value = 1
+  numberOfPages.value = Number((galleryStore.embroideriesAlphabetically.length / rangePerPage.value + 0.5).toFixed())
 })
 
 watch(route, () => {
@@ -119,9 +129,9 @@ watch(route, () => {
       </div>
       <section class="searchResultsWrapper">
         <GeneralResultBox
-          v-for="item in rangePerPage"
+          v-for="item in parsedEmbroideries"
           :key="item"
-          :result="placeholderResult"
+          :result="item"
         />
       </section>
       <GeneralPagination

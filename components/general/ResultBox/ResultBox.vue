@@ -19,7 +19,7 @@ const link = computed(() => {
     return "/Embroidery/Step-1-your-hero"
   }
 
-  return "/Gallery/Embroidery"
+  return "/Gallery/Embroidery/" + props.result.id 
 })
 
 const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg', { eager: true })
@@ -27,6 +27,10 @@ const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg',
 const photo = computed(() => {
   if (props.isEmbroidery) {
     return props.result.photo
+  }
+  
+  if (props.result.image) {
+    return props.result.image
   }
 
   return placeholderImage['/assets/media/img/swiper/01-1x.jpg'].default

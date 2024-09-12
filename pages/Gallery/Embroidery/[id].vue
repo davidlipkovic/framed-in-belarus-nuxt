@@ -1,15 +1,16 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 
-import useHeroesStore from "@/stores/heroes"
-import useUserStore from "@/stores/user"
+import useGalleryStore from "@/stores/gallery"
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
-const heroesStore = useHeroesStore();
-const userStore = useUserStore()
+const galleryStore = useGalleryStore()
+const { getCurrentLocaleStringValue } = useCurrentLocale()
 
 definePageMeta({
   middleware: [
     'auth-general',
+    'gallery-embroidery',
   ],
 })
 
@@ -38,47 +39,6 @@ const handleGallerySwiper = (i) => {
 }
 
 // WIP
-const localHero = computed(() => {
-  return {
-    "id": 215,
-    "url": "https://prisoners.spring96.org/en/person/maryja-kalesnikava",
-    "name": "Maryia Kalesnikava",
-    "status": "active",
-    "gender": "female",
-    "photo": "https://spring96.org/files/images/kalesnikava.jpg",
-    "description": "member of the presidium of the Coordination Council, head of the campaign headquarters of former presidential nominee Viktar Babaryka, sentenced to 11 years in prison",
-    "birthday": "24 April 1982",
-    "arrested": "7 September 2020",
-    "articles/0": "Art. 361 of the Criminal Code — Calls for actions aimed at causing harm to the national security of the Republic of Belarus",
-    "articles/1": "Art. 357 of the Criminal Code — Conspiracy to seize power in an unconstitutional way",
-    "articles/2": "Art. 361-1 of the Criminal Code — Creation of an extremist formation, or participation in it",
-    "articles/3": "",
-    "prison/title": "Penal colony No. 4",
-    "prison/address": "246035, Homieĺ, vulica Antoshkina 3",
-    "declaration": "https://spring96.org/en/news/99460",
-    "decision": "11 years",
-    "penalty": "imprisonment in a general-security penal colony",
-    "judge": "Siarhei Yepikhau",
-    "councel": "",
-    "penalty_start_date": "",
-    "release_date": "",
-    "verdict_date": "6 September 2021",
-    "appeal_date": "24 December 2021",
-    "articles": "",
-    "prison": "",
-    "articles/4": "",
-    "articles/5": "",
-    "articles/6": "",
-    "articles/7": "",
-    "articles/8": "",
-    "articles/9": "",
-    "articles/10": "",
-    "articles/11": "",
-    "articles/12": ""
-  }
-})
-
-// WIP
 const author = {
   comment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
   nativeComment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
@@ -86,6 +46,18 @@ const author = {
 }
 
 const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
+
+const caseName = computed(() => {
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'caseName_')
+})
+
+const caseDescription = computed(() => {
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'description_')
+})
+
+const prisonerDescription = computed(() => {
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'description_')
+})
 </script>
 
 <template>
@@ -95,8 +67,9 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
         <h1>
           <span class="subtitle">
           Case: Seizure of power
+          {{ caseName }}
           <span class="visually-hidden">— </span></span>
-          Maryia Kalesnikava
+          {{ galleryStore.currentEmbroidery.prisoner.name }}
         </h1>
         <GeneralGoBack
           page="Gallery"
@@ -106,7 +79,7 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
     <div class="content galleryCaseContent">
       <article class="galleryCaseSwiperWrapper">
         <!-- WIP -->
-        <HomeSwiper 
+        <GeneralSwiper 
           class="galleryCaseSwiper"
           :fullscreen="true"
           @openFullscreen="handleFullScreenEmbroiderySwiper"
@@ -118,86 +91,102 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
           @closeSwiper="showFullScreenEmbroiderySwiper = false"
         />
         <p class="swiperDescription flexRowStart">
-          {{ $t('casePage.swiper.stitching') }}: 360 x 360 mm | Canvas: 450 x 500 mm
+          {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | Canvas: {{ galleryStore.currentEmbroidery.canvasSize }} mm
         </p>
         <p class="swiperDescriptionInfo flexRowStart">
           <span>
             {{ $t('casePage.swiper.author') }}: 
           </span>
           <span
-            v-if="userStore.user.username"
+            v-if="galleryStore.currentEmbroidery.name"
             class="b1"
           >
-            {{ userStore.user.username }}
+            {{ galleryStore.currentEmbroidery.name }}
           </span>
         </p>
-        <p class="swiperDescriptionInfo flexRowStart">
+        <p 
+          v-if="galleryStore.currentEmbroidery.countryOfResidence"
+          class="swiperDescriptionInfo flexRowStart"
+        >
           <span>
             {{ $t('placeholders.country') }}:
           </span>
           <span class="b1">
-            {{ userStore.user.countryOfResidence }}
+            {{ galleryStore.currentEmbroidery.countryOfResidence }}
           </span>
         </p>
-        <p class="swiperDescriptionInfo flexRowStart">
+        <p 
+          v-if="galleryStore.currentEmbroidery.instagram"
+          class="swiperDescriptionInfo flexRowStart"
+        >
           <span>
             {{ $t('placeholders.instagram') }}:
           </span>
           <span class="b1">
-            {{ userStore.user.instagram }}
+            {{ galleryStore.currentEmbroidery.instagram }}
           </span>
         </p>
       </article>
       <article>
         <div class="caseHeaderWrapper flexRowStart">
           <img 
-            v-if="!localHero.photo || localHero.photo === '' || localHero.photo === 'FALSE'"
+            v-if="!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"
-            :alt="'Photo of' + localHero.name"
+            :alt="'Photo of' + galleryStore.currentEmbroidery.prisoner.name"
             class="Description-item Hero-photo"
           >
           <GeneralImageModal
             v-else
             alt=""
-            :fullImageUrl="localHero.photo"
-            :iconImageUrl="localHero.photo"
+            :fullImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
+            :iconImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
             class="Description-item Hero-photo Hero-photoModal"
           />
           <div class="caseBioWrapper flexCoulmnStart">
-            <div class="Description-item">
+            <div 
+              v-if="galleryStore.currentEmbroidery.prisoner.birthday"
+              class="Description-item"
+            >
               <h3 class="title">
                 {{ $t('casePage.description.birth') }}:
               </h3>
               <p>
-                {{ localHero.birthday }}
+                {{ galleryStore.currentEmbroidery.prisoner.birthday }}
               </p>
             </div>
-            <div class="Description-item">
+            <div 
+              v-if="galleryStore.currentEmbroidery.prisoner.dateOfDetention"
+              class="Description-item"
+            >
               <h3 class="title">
                 {{ $t('casePage.description.detention') }}:
               </h3>
               <p>
-                {{ localHero.arrested }}
+                {{ galleryStore.currentEmbroidery.prisoner.dateOfDetention }}
               </p>
             </div>
-            <div class="Description-item">
+            <div 
+              v-if="galleryStore.currentEmbroidery.prisoner.sentence"
+              class="Description-item"
+            >
               <h3 class="title">
                 {{ $t('casePage.description.sentence') }}:
               </h3>
               <p>
-                {{ localHero.decision }}
+                {{ galleryStore.currentEmbroidery.prisoner.sentence }}
               </p>
             </div>
           </div>
         </div>
-        <div class="Description-item">
+        <div 
+          v-if="caseDescription"
+          class="Description-item"
+        >
           <h3 class="title">
             {{ $t('casePage.description.descriptionCase') }}:
           </h3>
           <p>
-            The case description is the same as the political prisoner’s
-            description because this is an individual case, not a collective
-            one.
+            {{ caseDescription }}
           </p>
           <p class="additionalInfo">
             {{ $t('casePage.description.seeMore.content') }}
@@ -210,24 +199,35 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
             </a>
           </p>
         </div>
-        <div class="Description-item">
+        <div 
+          v-if="prisonerDescription && prisonerDescription.length > 2"
+          class="Description-item"
+        >
           <h3 class="title">
             {{ $t('casePage.description.descriptionPrisoner') }}:
           </h3>
           <p>
-            The case description is the same as the political prisoner’s
-            description because this is an individual case, not a collective
-            one.
+            {{ prisonerDescription }}
           </p>
         </div>
-        <div class="Description-item">
-          <h3 class="title">
-            {{ $t('casePage.description.address') }}:
-          </h3>
-          <p>
-            {{ localHero['prison/title'] }}
-          </p>
-          <a href="#" target="_blank" class="additionalInfo red">
+        <div 
+          v-if="galleryStore.currentEmbroidery.prisoner.address || galleryStore.currentEmbroidery.prisoner.viasnaUrl"
+          class="Description-item"
+        >
+          <template v-if="galleryStore.currentEmbroidery.prisoner.address">
+            <h3 class="title">
+              {{ $t('casePage.description.address') }}:
+            </h3>
+            <p>
+              {{ galleryStore.currentEmbroidery.prisoner.address }}
+            </p>
+          </template>
+          <a 
+            v-if="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
+            :href="galleryStore.currentEmbroidery.prisoner.viasnaUrl" 
+            target="_blank" 
+            class="additionalInfo red"
+          >
             {{ $t('casePage.description.goToSource') }} <SvgLink/>
           </a>
         </div>
