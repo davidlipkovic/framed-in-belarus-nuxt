@@ -84,6 +84,7 @@
     order: 3;
     position: relative;
     padding: 14px 24px;
+    margin-bottom: 56px;
 
     .langMenuWrapper {
       color: $black;
@@ -341,6 +342,7 @@
 
     .langMenu {
       padding: 0;
+      margin-bottom: 0;
   
       .langButton svg{
         width: 9px;
