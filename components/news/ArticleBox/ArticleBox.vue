@@ -24,7 +24,7 @@ const title = computed(() => {
 <template>
   <div class="articleBoxWrapper flexColumnStart">
     <div class="typeTag capitalize">
-      {{ $t('newsPage.types.' + article.type) }}
+      {{ $t('newsPage.categories.' + article.category) }}
     </div>
     <!-- <a
       v-if="article.readMoreLink"

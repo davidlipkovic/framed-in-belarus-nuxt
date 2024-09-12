@@ -30,9 +30,9 @@ const date = computed(() => {
   
   const startDateFormatted = convertDateToReadable(article.value.startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
   const endDateFormatted = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
-  
-  if (startDateFormatted === endDateFormatted) {
-    return startDateFormatted
+
+  if (article.value.startDate === article.value.endDate) {
+    return endDateFormatted
   } else {
     return `${startDateFormatted} - ${endDateFormatted}`
   }

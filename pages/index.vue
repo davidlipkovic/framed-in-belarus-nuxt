@@ -124,8 +124,15 @@ const numberOfHeroes = computed(() => {
         <div class="Partners-logo flexRowCenter">
           <img
             src="../assets/media/img/logos/goethe-institut-logo-vector.svg"
-            alt="goethe"
+            alt="Goethe institut"
             class="img"
+          />
+        </div>
+        <div class="Partners-logo flexRowCenter">
+          <img
+            src="../assets/media/img/logos/logo-Forum-Civ.svg"
+            alt="Forum Civ"
+            class="img forumCiv"
           />
         </div>
       </div>

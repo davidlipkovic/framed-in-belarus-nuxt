@@ -120,8 +120,8 @@ p, span, label {
   .content {
     position: relative;
     z-index: 2;
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 24px;
+    line-height: 28px;
   }
 
   .subtitle {
@@ -168,6 +168,7 @@ svg {
   .Title {
     .content {
       font-size: 1.8rem;
+      line-height: 2.2rem;
     }
   }
 }
