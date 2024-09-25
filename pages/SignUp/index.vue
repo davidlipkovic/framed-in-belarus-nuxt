@@ -168,6 +168,7 @@ const updateCountryOfResidence = (country) => {
                   id="publishUsername" 
                   :value="true"
                   v-model="publishUsername"
+                  :disabled="!username"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -289,6 +290,7 @@ const updateCountryOfResidence = (country) => {
                   id="mentionInstagram" 
                   :value="true"
                   v-model="mentionInstagram"
+                  :disabled="!instagram"
                 />
                 {{ $t('inputs.mentionInstagram') }}
               </label>
@@ -302,6 +304,7 @@ const updateCountryOfResidence = (country) => {
                   id="publishInstagram"
                   :value="true"
                   v-model="publishInstagram"
+                  :disabled="!instagram"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -341,6 +344,7 @@ const updateCountryOfResidence = (country) => {
                   id="publishReason" 
                   :value="true"
                   v-model="publishReason"
+                  :disabled="!reason"
                 />
                 {{ $t('buttons.publish') }}
               </label>

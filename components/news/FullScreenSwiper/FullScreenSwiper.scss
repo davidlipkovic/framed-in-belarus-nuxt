@@ -41,29 +41,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        max-height: 100%;
 
         img {
-          max-height: 80vh;
+          max-height: 70vh;
           max-width: 70vw;
           width: auto;
           height: auto;
           object-fit: cover;
-          position: relative;
+          border-radius: 4px;
+          flex-grow: 1;
         }
 
         div {
-          position: absolute;
-          bottom: 0;
-          background: linear-gradient(0deg, rgba(26,26,26,1) 0%, rgba(26,26,26,0) 75%);
-          padding: 60px 0 6px;
           width: 100%;
+          max-width: 70vw;
+          background-color: $greyDarkMenu;
 
           span {
             color: $white;
             text-align: center;
             display: block;
-            font-size: 12px;
+            font-size: 10px;
             line-height: 14px;
+            padding: 4px 10px;
           }
         }
       }
