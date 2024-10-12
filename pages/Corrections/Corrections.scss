@@ -1,6 +1,8 @@
 @import "../../assets/style/globalPartials/variables";
 @import "../../assets/style/mixins/general";
 
+@include radioWrapper;
+
 .correctionsContent {
   h1 {
     font-size: 32px;
@@ -15,26 +17,22 @@
   .formWrapper {
     margin-top: 32px;
 
-    label {
-      font-size: 14px;
-      font-weight: 600;
-      margin-left: 0;
-      margin-bottom: 4px;
-    }
+    .radioWrapper {
+      margin-bottom: 8px;
 
-    .inputWrapper {
-      margin-bottom: 32px;
-
-      textarea {
-        min-height: 90px;
-        font-size: 16px;
-        padding: 16px 14px;
+      label svg {
+        margin-left: 8px;
       }
     }
   }
 
+  .radioWrapper .HelpCircleThick {
+    fill: $greyDark;
+  }
+
   .buttons {
     margin-top: 8px;
+    justify-content: flex-start;
   }
 }
 
@@ -55,17 +53,6 @@
 
     .formWrapper {
       margin-top: 26px;
-
-      label {
-        margin-bottom: 8px;
-      }
-
-      .inputWrapper {
-        textarea {
-          max-height: 56px;
-          min-height: 56px;
-        }
-      }
     }
 
     .buttons {
