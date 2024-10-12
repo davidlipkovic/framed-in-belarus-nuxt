@@ -845,22 +845,33 @@
     },
     "correctionsPage": {
         "title": "Corrections",
-        "description": "Please provide your comments on changes you would like us to make.",
-        "inputCommentProfessionalPhotos": {
-            "label": "Professional photos of the embroidery (front and back sides)",
-            "placeholder": "If you wish to hide your signature, please make a note"
+        "description": "Please mark items for changes.",
+        "inputStudioPhotos": {
+            "title": "Studio photos of the embroidery (front and back sides)",
+            "option1": "Publish with exposed signature",
+            "option2": "Publish with hidden signature"
         },
-        "inputCommentComments": {
-            "label": "Comment(s) you have provided",
-            "placeholder": "If you want to unpublish your comment(s) or make corrections, please include a note"
+        "inputComments": {
+            "title": "Comment(s) you have provided",
+            "option1": "Publish with exposed personal data",
+            "option2": "Publish with hidden personal data",
+            "option3": "Do not publish"
         },
-        "inputCommentProcessPhotos": {
-            "label": "Process photos you have provided",
-            "placeholder": "If you want to make corrections, please include a note"
+        "inputProcessPhotos": {
+            "title": "Process photos you have provided",
+            "option1": "Publish with exposed personal data",
+            "option2": "Publish with hidden personal data"
         },
-        "inputCommentOther": {
-            "label": "Other",
-            "placeholder": "For anything else, please include a note"
+        "inputOriginalEmbroidery": {
+            "title": "Original embroidery",
+            "option1": "Exhibit with exposed signature",
+            "option2": "Exhibit with hidden signature",
+            "option2Tooltip": "This item concerns future presentations. Alas, we cannot fully track photo documentations from exhibitions that have already taken place."
+        },
+        "additionalInfo": {
+            "content1": "Unfortunately, we cannot perform other aesthetic changes on photos due to limited resources. If you would like to change something critical that is not described above, please email us at ",
+            "highlight": "framedinbelarus{'@'}gmail.com",
+            "content2": " with “Corrections” in the subject line. Thank you for your understanding!"
         },
         "success": {
             "title": "Thank you!",
