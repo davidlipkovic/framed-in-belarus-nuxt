@@ -1,6 +1,8 @@
 @import "../../assets/style/globalPartials/variables";
 @import "../../assets/style/mixins/general";
 
+@include radioWrapper;
+
 .feedbackContent {
   h1 {
     font-size: 32px;
@@ -72,30 +74,6 @@
     }
   }
 
-  .optionsWrapper {
-    margin-bottom: 12px;
-
-    p {
-      margin-bottom: 14px;
-      font-size: 14px;
-      line-height: 18px;
-    }
-
-    label {
-      font-weight: 400;
-      margin-bottom: 22px;
-
-      input {
-        margin-right: 10px;
-        margin-left: 2px;
-      }
-    }
-  }
-
-  .optionsWrapper:last-child {
-    margin-bottom: 0;
-  }
-
   .buttons {
     margin-top: 20px;
   }
@@ -143,18 +121,6 @@
         textarea {
           max-height: 56px;
           min-height: 56px;
-        }
-      }
-
-      .optionsWrapper {
-        margin-bottom: 16px;
-
-        p {
-          margin-bottom: 12px;
-        }
-    
-        label {
-          margin-bottom: 16px;
         }
       }
     }
