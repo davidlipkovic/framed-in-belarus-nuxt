@@ -1,9 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
 import useUserStore from "@/stores/user"
-import { useValidateInputs } from "@/composables/ValidateInputs"
-
-const { validateLatinCharacters, validateText} = useValidateInputs()
 
 const userStore = useUserStore()
 
@@ -12,57 +9,21 @@ definePageMeta({
 })
 
 const success = ref(false)
+const publishStudioPhotosSignature = ref(null)
+const publishComments = ref(null)
+const publishProcessPhotosPersonalData = ref(null)
+const exhibitSignature = ref(null)
 
-const commentProfessionalPhotos = ref(null)
-const commentProfessionalPhotosInput = ref(null)
-const commentProfessionalPhotosTypingStarted = ref(false)
-
-const commentComments = ref(null)
-const commentCommentsInput = ref(null)
-const commentCommentsTypingStarted = ref(false)
-
-const commentProcessPhotos = ref(null)
-const commentProcessPhotosInput = ref(null)
-const commentProcessPhotosTypingStarted = ref(false)
-
-const commentOther = ref(null)
-const commentOtherInput = ref(null)
-const commentOtherTypingStarted = ref(false)
-
-const validCommentProfessionalPhotosData = computed(() => validateLatinCharacters(commentProfessionalPhotos.value) && validateText(commentProfessionalPhotos.value))
-const validCommentCommentsData = computed(() => validateLatinCharacters(commentComments.value) && validateText(commentComments.value))
-const validCommentProcessPhotosData = computed(() => validateLatinCharacters(commentProcessPhotos.value) && validateText(commentProcessPhotos.value))
-const validCommentOtherData = computed(() => validateLatinCharacters(commentOther.value) && validateText(commentOther.value))
-
-const validData = computed(() => validCommentProfessionalPhotosData.value && validCommentCommentsData.value && validCommentProcessPhotosData.value && validCommentOtherData.value)
+const validData = computed(() => 
+  publishStudioPhotosSignature.value !== null && 
+  publishComments.value !== null && 
+  publishProcessPhotosPersonalData.value !== null && 
+  exhibitSignature.value !== null 
+)
 
 const submitForm = async () => {
   success.value = true
 }
-
-onClickOutside(commentProfessionalPhotosInput, () => {
-  if (commentProfessionalPhotos.value) {
-    commentProfessionalPhotosTypingStarted.value = true
-  }
-})
-
-onClickOutside(commentCommentsInput, () => {
-  if (commentComments.value) {
-    commentCommentsTypingStarted.value = true
-  }
-})
-
-onClickOutside(commentProcessPhotosInput, () => {
-  if (commentProcessPhotos.value) {
-    commentProcessPhotosTypingStarted.value = true
-  }
-})
-
-onClickOutside(commentOtherInput, () => {
-  if (commentOther.value) {
-    commentOtherTypingStarted.value = true
-  }
-})
 </script>
 
 <template>
@@ -85,104 +46,160 @@ onClickOutside(commentOtherInput, () => {
         {{ $t('correctionsPage.description') }}
       </p>
       <div class="formWrapper flexColumnStart">
-        <label
-          for="publishUsername" 
-          class="flexRowStart"
-        >
-          {{ $t('correctionsPage.inputCommentProfessionalPhotos.label') }}
-        </label>
-        <div class="inputWrapper inputWrapperWarningBottom">
-          <textarea 
-            type="text" 
-            name="commentProfessionalPhotos" 
-            id="commentProfessionalPhotos" 
-            v-model="commentProfessionalPhotos"
-            :placeholder="$t('correctionsPage.inputCommentProfessionalPhotos.placeholder')" 
-            class="commentProfessionalPhotosInput"
-            :class="{'invalidInput': !validCommentProfessionalPhotosData && commentProfessionalPhotosTypingStarted}" 
-            ref="commentProfessionalPhotosInput"
-          />
-          <span 
-            v-if="!validCommentProfessionalPhotosData && commentProfessionalPhotosTypingStarted"
-            class="warningNotification note red"
+        <div class="radioWrapper">
+          <p class="b1">
+            {{ $t('correctionsPage.inputStudioPhotos.title') }}
+          </p>
+          <label 
+            for="publishStudioPhotosSignature"
+            class="flexRowStart"
           >
-            {{ $t('invalidInputs.enterComment') }}
-          </span>
-        </div>
-        <label
-          for="commentComments" 
-          class="flexRowStart"
-        >
-          {{ $t('correctionsPage.inputCommentComments.label') }}
-        </label>
-        <div class="inputWrapper inputWrapperWarningBottom">
-          <textarea 
-            type="text" 
-            name="commentComments" 
-            id="commentComments" 
-            v-model="commentComments"
-            :placeholder="$t('correctionsPage.inputCommentComments.placeholder')" 
-            class="commentCommentsInput"
-            :class="{'invalidInput': !validCommentCommentsData && commentCommentsTypingStarted}" 
-            ref="commentCommentsInput"
-          />
-          <span 
-            v-if="!validCommentCommentsData && commentCommentsTypingStarted"
-            class="warningNotification note red"
+            <input
+              type="radio"
+              name="publishStudioPhotosSignature"
+              id="acceptSubscribeNews"
+              :value="true"
+              v-model="publishStudioPhotosSignature"
+              required
+            />
+            {{ $t('correctionsPage.inputStudioPhotos.option1') }}
+          </label>
+          <label 
+            for="publishStudioPhotosHiddenSignature" 
+            class="flexRowStart"
           >
-            {{ $t('invalidInputs.enterComment') }}
-          </span>
+            <input
+              type="radio"
+              name="publishStudioPhotosHiddenSignature"
+              id="publishStudioPhotosHiddenSignature"
+              :value="false"
+              v-model="publishStudioPhotosSignature"
+              required
+            />
+            {{ $t('correctionsPage.inputStudioPhotos.option2') }}
+          </label>
         </div>
-        <label
-          for="commentProcessPhotos" 
-          class="flexRowStart"
-        >
-          {{ $t('correctionsPage.inputCommentProcessPhotos.label') }}
-        </label>
-        <div class="inputWrapper inputWrapperWarningBottom">
-          <textarea 
-            type="text" 
-            name="commentProcessPhotos" 
-            id="commentProcessPhotos" 
-            v-model="commentProcessPhotos"
-            :placeholder="$t('correctionsPage.inputCommentProcessPhotos.placeholder')" 
-            class="commentProcessPhotosInput"
-            :class="{'invalidInput': !validCommentProcessPhotosData && commentProcessPhotosTypingStarted}" 
-            ref="commentProcessPhotosInput"
-          />
-          <span 
-            v-if="!validCommentProcessPhotosData && commentProcessPhotosTypingStarted"
-            class="warningNotification note red"
+        <div class="radioWrapper">
+          <p class="b1">
+            {{ $t('correctionsPage.inputComments.title') }}
+          </p>
+          <label 
+            for="publishCommentsPersonalData"
+            class="flexRowStart"
           >
-            {{ $t('invalidInputs.enterComment') }}
-          </span>
-        </div>
-        <label
-          for="commentOther" 
-          class="flexRowStart"
-        >
-          {{ $t('correctionsPage.inputCommentOther.label') }}
-        </label>
-        <div class="inputWrapper inputWrapperWarningBottom">
-          <textarea 
-            type="text" 
-            name="commentOther" 
-            id="commentOther" 
-            v-model="commentOther"
-            :placeholder="$t('correctionsPage.inputCommentOther.placeholder')" 
-            class="commentOtherInput"
-            :class="{'invalidInput': !validCommentOtherData && commentOtherTypingStarted}" 
-            ref="commentOtherInput"
-          />
-          <span 
-            v-if="!validCommentOtherData && commentOtherTypingStarted"
-            class="warningNotification note red"
+            <input
+              type="radio"
+              name="publishCommentsPersonalData"
+              id="publishCommentsPersonalData"
+              :value="'personalData'"
+              v-model="publishComments"
+              required
+            />
+            {{ $t('correctionsPage.inputComments.option1') }}
+          </label>
+          <label 
+            for="publishCommentsNoPersonalData" 
+            class="flexRowStart"
           >
-            {{ $t('invalidInputs.enterComment') }}
-          </span>
+            <input
+              type="radio"
+              name="publishCommentsNoPersonalData"
+              id="publishCommentsNoPersonalData"
+              :value="'noPersonalData'"
+              v-model="publishComments"
+              required
+            />
+            {{ $t('correctionsPage.inputComments.option2') }}
+          </label>
+          <label 
+            for="noPublishComments" 
+            class="flexRowStart"
+          >
+            <input
+              type="radio"
+              name="noPublishComments"
+              id="noPublishComments"
+              :value="false"
+              v-model="publishComments"
+              required
+            />
+            {{ $t('correctionsPage.inputComments.option3') }}
+          </label>
         </div>
+        <div class="radioWrapper">
+          <p class="b1">
+            {{ $t('correctionsPage.inputProcessPhotos.title') }}
+          </p>
+          <label 
+            for="publishProcessPhotosPersonalData"
+            class="flexRowStart"
+          >
+            <input
+              type="radio"
+              name="publishProcessPhotosPersonalData"
+              id="publishProcessPhotosPersonalData"
+              :value="true"
+              v-model="publishProcessPhotosPersonalData"
+              required
+            />
+            {{ $t('correctionsPage.inputProcessPhotos.option1') }}
+          </label>
+          <label 
+            for="publishProcessPhotosNoPersonalData" 
+            class="flexRowStart"
+          >
+            <input
+              type="radio"
+              name="publishProcessPhotosNoPersonalData"
+              id="publishProcessPhotosNoPersonalData"
+              :value="false"
+              v-model="publishProcessPhotosPersonalData"
+              required
+            />
+            {{ $t('correctionsPage.inputProcessPhotos.option2') }}
+          </label>
+        </div>
+        <div class="radioWrapper">
+          <p class="b1">
+            {{ $t('correctionsPage.inputOriginalEmbroidery.title') }}
+          </p>
+          <label 
+            for="exhibitSignature"
+            class="flexRowStart"
+          >
+            <input
+              type="radio"
+              name="exhibitSignature"
+              id="exhibitSignature"
+              :value="true"
+              v-model="exhibitSignature"
+              required
+            />
+            {{ $t('correctionsPage.inputOriginalEmbroidery.option1') }}
+          </label>
+          <label 
+            for="exhibitNoSignature" 
+            class="flexRowStart"
+          >
+            <input
+              type="radio"
+              name="exhibitNoSignature"
+              id="exhibitNoSignature"
+              :value="false"
+              v-model="exhibitSignature"
+              required
+            />
+            {{ $t('correctionsPage.inputOriginalEmbroidery.option2') }}
+            <SvgHelpCircleThick
+              v-tooltip="$t('correctionsPage.inputOriginalEmbroidery.option2Tooltip')"
+            />
+          </label>
+        </div>
+        <p>
+          {{ $t('correctionsPage.additionalInfo.content1') }}<a href="mailto:framedinbelarus@gmail.com">{{ $t('correctionsPage.additionalInfo.highlight') }}</a>{{ $t('correctionsPage.additionalInfo.content2') }}
+        </p>
       </div>
-      <div class="buttons flexRowCenter">
+      <div class="buttons flexRowStart">
         <button 
           class="button" 
           :class="validData ? 'bg_black' : 'button_disabled'"

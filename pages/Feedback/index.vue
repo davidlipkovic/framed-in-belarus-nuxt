@@ -153,7 +153,7 @@ const validData = computed(() => {
             </span>
           </div>
         </div>
-        <div class="optionsWrapper">
+        <div class="radioWrapper">
           <p class="b1">
             {{ $t('feedbackPage.optionsNews.title') }}
           </p>
@@ -186,7 +186,7 @@ const validData = computed(() => {
             {{ $t('feedbackPage.optionsNews.option2') }}
           </label>
         </div>
-        <div class="optionsWrapper">
+        <div class="radioWrapper">
           <p class="b1">
             {{ $t('feedbackPage.optionsFinancial.title') }}
           </p>

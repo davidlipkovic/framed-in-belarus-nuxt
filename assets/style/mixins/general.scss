@@ -75,3 +75,45 @@
     }
   }
 }
+
+@mixin radioWrapper {
+  .radioWrapper {
+    margin-bottom: 12px;
+
+    p {
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    label {
+      font-weight: 400;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-right: 8px;
+        margin-left: 2px;
+      }
+    }
+  }
+
+  .radioWrapper:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $br-point-lg) {
+    .radioWrapper {
+      margin-bottom: 16px;
+
+      p {
+        margin-bottom: 16px;
+      }
+  
+      label {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

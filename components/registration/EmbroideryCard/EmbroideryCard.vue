@@ -72,7 +72,7 @@ const error = computed(() => {
       {{ $t('profilePage.cardStatus.' + card.type) }}
     </span>
     <p class="embroideryCardName flexRowCenter">
-      <SvgQustionCircle
+      <SvgHelpCircle
         v-if="card.notification"
       />
       <SvgTriangleWarning
