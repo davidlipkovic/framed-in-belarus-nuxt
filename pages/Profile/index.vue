@@ -41,6 +41,8 @@ const publishReason = ref(userStore.user.publishReason)
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)
 
+const deleteCheckbox = ref(false)
+
 const allowNewEmbroidery = computed(() => {
   return false
 })
@@ -476,22 +478,48 @@ const deleteUser = async () => {
             <h2>
               {{ $t('profilePage.deleteModal.title') }}
             </h2>
-            <span>
-              {{ $t('profilePage.deleteModal.disclaimer') }}
-            </span>
+            <p class="">
+              {{ $t('profilePage.deleteModal.paragraph1.content') }}
+              <a href="framedinbelarus@gmail.com">
+                {{ $t('profilePage.deleteModal.paragraph1.highlight') }}
+              </a>
+            </p>
+            <p class="">
+              {{ $t('profilePage.deleteModal.paragraph2.content1') }}
+              <span class='b2'>
+                {{ $t('profilePage.deleteModal.paragraph2.highlight1') }}
+              </span>
+              {{ $t('profilePage.deleteModal.paragraph2.content2') }}
+              <span class='b2'>
+                {{ $t('profilePage.deleteModal.paragraph2.highlight2') }}
+              </span>
+              {{ $t('profilePage.deleteModal.paragraph2.content3') }}
+            </p>
+            <label
+              for="deleteCheckbox" 
+              class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
+            >
+              <input 
+                type="checkbox" 
+                name="deleteCheckbox" 
+                id="deleteCheckbox" 
+                :value="false"
+                v-model="deleteCheckbox"
+              />
+              {{ $t('profilePage.deleteModal.checkBox') }}
+            </label>
           </div>
         </div>
         <div class="inputModalFooter buttons">
-          <button 
-            class="button" 
-            @click="deleteUser()"
-          >
-            {{ $t('buttons.confirm') }}
+          <button class="button">
+            {{ $t('buttons.cancel') }}
           </button>
           <button 
-            class="button bg_black"
+            class="button"
+            :class="deleteCheckbox ? 'bg_red' : 'button_disabled'"
+            @click="displayDeleteProfileModal = false"
           >
-            {{ $t('buttons.back') }}
+            {{ $t('buttons.confirm') }}
           </button>
         </div>
       </div>
