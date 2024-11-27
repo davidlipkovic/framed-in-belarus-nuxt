@@ -54,6 +54,8 @@ export default defineStore("user", () => {
     }
     
     console.log('login', data.value)
+
+    return data.value.result
   }
 
   const updateUser = async (body) => {
