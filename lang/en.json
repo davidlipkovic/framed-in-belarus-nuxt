@@ -311,8 +311,19 @@
             "lostInPost": "Lost in post"
         },
         "deleteModal": {
-            "title": "Are you sure you want to delete your personal account?",
-            "disclaimer": "In case you click “Confirm” you will lose the access to your personal account."
+            "title": "Are you sure you want to delete your account?",
+            "paragraph1": {
+                "content": "If you just want to cancel your current embroidery, write to us at",
+                "highlight": " framedinbelarus{'@'}gmail.com"
+            },
+            "paragraph2": {
+                "content1": "By deleting your account, ",
+                "highlight1": "you will lose access to all your works!",
+                "content2": " If you contact us in the future, we",
+                "highlight2": "will not be able to prove your involvement in the embroidery,",
+                "content3": " as we will delete all your personal data, including from the original canvases, and will continue to exhibit them anonymously."
+            },
+            "checkBox": "I understand and accept the terms"
         }
     },
     "embroidery": {
