@@ -98,6 +98,10 @@ const updateUser = async () => {
 }
 
 const deleteUser = async () => {
+  if (!deleteCheckbox.value) {
+    return
+  }
+
   userStore.loading = true
   await userStore.deleteUser()
   userStore.loading = false
@@ -517,7 +521,7 @@ const deleteUser = async () => {
           <button 
             class="button"
             :class="deleteCheckbox ? 'bg_red' : 'button_disabled'"
-            @click="displayDeleteProfileModal = false"
+            @click="deleteUser()"
           >
             {{ $t('buttons.confirm') }}
           </button>
