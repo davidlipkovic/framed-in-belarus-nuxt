@@ -319,8 +319,8 @@
             "paragraph2": {
                 "content1": "By deleting your account, ",
                 "highlight1": "you will lose access to all your works!",
-                "content2": " If you contact us in the future, we",
-                "highlight2": "will not be able to prove your involvement in the embroidery,",
+                "content2": " If you contact us in the future, ",
+                "highlight2": "we will not be able to prove your involvement in the embroidery,",
                 "content3": " as we will delete all your personal data, including from the original canvases, and will continue to exhibit them anonymously."
             },
             "checkBox": "I understand and accept the terms"
