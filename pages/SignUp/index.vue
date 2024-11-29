@@ -510,7 +510,7 @@ const cancelRegistration = () => {
             <SvgCircleWarning />
             <p>
               {{ $t('signUpPage.modalBelarusWarning.paragraph1.content1') }}
-              <span>
+              <span class="b2"
                 {{ $t('signUpPage.modalBelarusWarning.paragraph1.highlight') }}
               </span>
               {{ $t('signUpPage.modalBelarusWarning.paragraph1.content2') }}
