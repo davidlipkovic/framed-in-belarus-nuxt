@@ -93,8 +93,18 @@ onClickOutside(emailInput, () => {
   }
 })
 
+const showBelarusModal = ref(false)
+
 const updateCountryOfResidence = (country) => {
+  if (country.name === 'Belarus') {
+    showBelarusModal.value = true
+  }
+  
   countryOfResidence.value = country.name
+}
+
+const cancelRegistration = () => {
+  router.push('/')
 }
 </script>
 
@@ -478,6 +488,64 @@ const updateCountryOfResidence = (country) => {
         :class="{'swiper-pagination-bullet-active' : index === currentSlide}"
       />
     </div>
+    <GeneralInputModal
+      class="modalBelarusWarning"
+      @closeModal="showBelarusModal = false"
+      :displayModal="showBelarusModal"
+    >
+      <div class="inputModalContentWrapper">
+        <div class="inputModalHeader flexRowStart">
+          <h2>
+            {{ $t('signUpPage.modalBelarusWarning.title') }}
+          </h2>
+          <button
+            @click="displayEditProfileModal = false"
+            class="closeButton"
+          >
+            <SvgClose/>
+          </button>
+        </div>
+        <div class="inputModalBody flexColumnStart">
+          <div class="inputModalItem inputModalItemFullWidth inputModalItemDelete flexColumnStart">
+            <SvgCircleWarning />
+            <p>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph1.content1') }}
+              <span>
+                {{ $t('signUpPage.modalBelarusWarning.paragraph1.highlight') }}
+              </span>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph1.content2') }}
+            </p>
+            <p>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph2') }}
+            </p>
+            <p>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph3') }}
+            </p>
+            <p>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph4') }}
+            </p>
+            <p>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph5.content1') }}<br>
+              {{ $t('signUpPage.modalBelarusWarning.paragraph5.content2') }}
+            </p>
+          </div>
+        </div>
+        <div class="inputModalFooter buttons">
+          <button 
+            class="button" 
+            @click="cancelRegistration()"
+          >
+            {{ $t('buttons.cancelRegistration') }}
+          </button>
+          <button 
+            class="button bg_black"
+            @click="showBelarusModal = false"
+          >
+            {{ $t('buttons.gotIt') }}
+          </button>
+        </div>
+      </div>
+    </GeneralInputModal>
   </div>
 </template>
 
