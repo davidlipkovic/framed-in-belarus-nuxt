@@ -22,7 +22,9 @@
         "createAccount": "Create account",
         "subscribe": "Subscribe",
         "goBack": "Go back",
-        "submit": "Submit"
+        "submit": "Submit",
+        "cancelRegistration": "Cancel registration",
+        "gotIt": "Got it"
     },
     "placeholders": {
         "email": "Email",
@@ -264,6 +266,21 @@
             },
             "consent" : "I have read and accept Terms and Conditions",
             "subscribe": "Stay updated on the project growth"
+        },
+        "modalBelarusWarning": {
+            "title": "Warning!",
+            "paragraph1": {
+                "content1": "We are writing to you with an important message about the possible risks associated with participating in our project, since you have indicated ",
+                "highlight": "Belarus",
+                "content2": " as your country of residence."
+            },
+            "paragraph2": "The #FramedinBelarus project draws attention to the problem of political prisoners in Belarus. Although at the moment our project is not recognized as extremist, there is still a risk that you may be accused of supporting extremist ideas in the eyes of the regime.",
+            "paragraph3": "When sending finished embroidery, you run the risk of the parcel being opened at the post office or at the border. But in case you send the embroidery without a tracking number, the likelihood of losing your work increases.",
+            "paragraph4": "We encourage you to carefully weigh all the risks and make an informed decision about your participation in the project. For our part, we are ready to discuss any questions or concerns you may have.",
+            "paragraph5": {
+                "content1": "With care for your safety,",
+                "content2": "#FramedibBelarus team"
+            }
         }
     },
     "signInPage": {
@@ -319,8 +336,8 @@
             "paragraph2": {
                 "content1": "By deleting your account, ",
                 "highlight1": "you will lose access to all your works!",
-                "content2": " If you contact us in the future, we",
-                "highlight2": "will not be able to prove your involvement in the embroidery,",
+                "content2": " If you contact us in the future, ",
+                "highlight2": "we will not be able to prove your involvement in the embroidery,",
                 "content3": " as we will delete all your personal data, including from the original canvases, and will continue to exhibit them anonymously."
             },
             "checkBox": "I understand and accept the terms"

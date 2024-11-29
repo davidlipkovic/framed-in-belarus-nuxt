@@ -2,6 +2,7 @@
 @import "../../assets/style/extends/checkBox";
 @import "../../assets/style/mixins/sign";
 @import "../../assets/style/mixins/swiper";
+@import "../../assets/style/mixins/modal";
 
 .registrationlgLayout {
   .Content {
@@ -189,6 +190,41 @@
 
   @include swiper-pagination-bullet;
 
+  .modalBelarusWarning {
+    .inputModalContentWrapper {
+      @include inputModalContentWrapper;
+      max-width: 850px;
+      max-height: calc(100vh - 10rem);
+    }
+
+    .inputModalHeader {
+      padding: 22px 36px 18px;
+    }
+
+    .inputModalBody {
+      padding: 0 28px 28px;
+
+      svg {
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+
+        .toFill {
+          fill: $orange;
+        }
+      }
+
+      p {
+        margin-top: 36px;
+      }
+    }
+
+    .inputModalFooter {
+      border-top: 1px solid $greyLight;
+      padding: 16px 36px 18px;
+    }
+  }
+
   @media screen and (min-width: $br-point-sm) {
     .formWrapper {
       margin-top: 30px;
@@ -257,6 +293,20 @@
 
       .button:last-child {
         margin: 0 15px;
+      }
+    }
+
+    .modalBelarusWarning {
+      .inputModalFooter {
+        .button {
+          width: auto;
+          margin-right: 1rem;
+          margin-bottom: 0;
+        }
+
+        .button:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
