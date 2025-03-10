@@ -95,7 +95,7 @@
     "links": {
         "home": "Home",
         "gallery": "Gallery",
-        "news": "News",
+        "news": "Events",
         "aboutUs": "About us",
         "faq": "FAQ",
         "signIn": "Sign in",
@@ -851,7 +851,7 @@
         }
     },
     "newsPage": {
-        "title": "News",
+        "title": "Events",
         "filters": {
             "allItems": "All Items",
             "workshops": "Workshops",
@@ -869,7 +869,7 @@
         }
     },
     "newsDetailPage": {
-        "title": "News"
+        "title": "Events"
     },
     "correctionsPage": {
         "title": "Corrections",
