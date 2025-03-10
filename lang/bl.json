@@ -95,7 +95,7 @@
     "links": {
         "home": "Галоўная",
         "gallery": "Галерэя",
-        "news": "Навіны",
+        "news": "Падзеі",
         "aboutUs": "Пра нас",
         "faq": "Часта задаваныя пытанні",
         "signIn": "Увайсці",
@@ -851,7 +851,7 @@
         }
     },
     "newsPage": {
-        "title": "Навіны",
+        "title": "Падзеі",
         "filters": {
             "allItems": "Усе",
             "workshops": "Майстэрні",
@@ -869,7 +869,7 @@
         }
     },
     "newsDetailPage": {
-        "title": "Навіны"
+        "title": "Падзеі"
     },
     "correctionsPage": {
         "title": "Змены",

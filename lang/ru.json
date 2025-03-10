@@ -95,7 +95,7 @@
     "links": {
         "home": "Главная",
         "gallery": "Галерея",
-        "news": "Новости",
+        "news": "События",
         "aboutUs": "О нас",
         "faq": "Часто задаваемые вопросы",
         "signIn": "Войти",
@@ -851,7 +851,7 @@
         }
     },
     "newsPage": {
-        "title": "Новости",
+        "title": "События",
         "filters": {
             "allItems": "Все",
             "workshops": "Воркшопы",
@@ -869,7 +869,7 @@
         }
     },
     "newsDetailPage": {
-        "title": "Новости"
+        "title": "События"
     },
     "correctionsPage": {
         "title": "Изменения",
