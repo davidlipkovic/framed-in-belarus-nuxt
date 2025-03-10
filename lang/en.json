@@ -22,7 +22,9 @@
         "createAccount": "Create account",
         "subscribe": "Subscribe",
         "goBack": "Go back",
-        "submit": "Submit"
+        "submit": "Submit",
+        "cancelRegistration": "Cancel registration",
+        "gotIt": "Got it"
     },
     "placeholders": {
         "email": "Email",
@@ -93,7 +95,7 @@
     "links": {
         "home": "Home",
         "gallery": "Gallery",
-        "news": "News",
+        "news": "Events",
         "aboutUs": "About us",
         "faq": "FAQ",
         "signIn": "Sign in",
@@ -264,6 +266,21 @@
             },
             "consent" : "I have read and accept Terms and Conditions",
             "subscribe": "Stay updated on the project growth"
+        },
+        "modalBelarusWarning": {
+            "title": "Warning!",
+            "paragraph1": {
+                "content1": "We are writing to you with an important message about the possible risks associated with participating in our project, since you have indicated ",
+                "highlight": "Belarus",
+                "content2": " as your country of residence."
+            },
+            "paragraph2": "The #FramedinBelarus project draws attention to the problem of political prisoners in Belarus. Although at the moment our project is not recognized as extremist, there is still a risk that you may be accused of supporting extremist ideas in the eyes of the regime.",
+            "paragraph3": "When sending finished embroidery, you run the risk of the parcel being opened at the post office or at the border. But in case you send the embroidery without a tracking number, the likelihood of losing your work increases.",
+            "paragraph4": "We encourage you to carefully weigh all the risks and make an informed decision about your participation in the project. For our part, we are ready to discuss any questions or concerns you may have.",
+            "paragraph5": {
+                "content1": "With care for your safety,",
+                "content2": "#FramedibBelarus team"
+            }
         }
     },
     "signInPage": {
@@ -311,8 +328,19 @@
             "lostInPost": "Lost in post"
         },
         "deleteModal": {
-            "title": "Are you sure you want to delete your personal account?",
-            "disclaimer": "In case you click “Confirm” you will lose the access to your personal account."
+            "title": "Are you sure you want to delete your account?",
+            "paragraph1": {
+                "content": "If you just want to cancel your current embroidery, write to us at",
+                "highlight": " framedinbelarus{'@'}gmail.com"
+            },
+            "paragraph2": {
+                "content1": "By deleting your account, ",
+                "highlight1": "you will lose access to all your works!",
+                "content2": " If you contact us in the future, ",
+                "highlight2": "we will not be able to prove your involvement in the embroidery,",
+                "content3": " as we will delete all your personal data, including from the original canvases, and will continue to exhibit them anonymously."
+            },
+            "checkBox": "I understand and accept the terms"
         }
     },
     "embroidery": {
@@ -823,7 +851,7 @@
         }
     },
     "newsPage": {
-        "title": "News",
+        "title": "Events",
         "filters": {
             "allItems": "All Items",
             "workshops": "Workshops",
@@ -841,26 +869,37 @@
         }
     },
     "newsDetailPage": {
-        "title": "News"
+        "title": "Events"
     },
     "correctionsPage": {
         "title": "Corrections",
-        "description": "Please provide your comments on changes you would like us to make.",
-        "inputCommentProfessionalPhotos": {
-            "label": "Professional photos of the embroidery (front and back sides)",
-            "placeholder": "If you wish to hide your signature, please make a note"
+        "description": "Please mark items for changes.",
+        "inputStudioPhotos": {
+            "title": "Studio photos of the embroidery (front and back sides)",
+            "option1": "Publish with exposed signature",
+            "option2": "Publish with hidden signature"
         },
-        "inputCommentComments": {
-            "label": "Comment(s) you have provided",
-            "placeholder": "If you want to unpublish your comment(s) or make corrections, please include a note"
+        "inputComments": {
+            "title": "Comment(s) you have provided",
+            "option1": "Publish with exposed personal data",
+            "option2": "Publish with hidden personal data",
+            "option3": "Do not publish"
         },
-        "inputCommentProcessPhotos": {
-            "label": "Process photos you have provided",
-            "placeholder": "If you want to make corrections, please include a note"
+        "inputProcessPhotos": {
+            "title": "Process photos you have provided",
+            "option1": "Publish with exposed personal data",
+            "option2": "Publish with hidden personal data"
         },
-        "inputCommentOther": {
-            "label": "Other",
-            "placeholder": "For anything else, please include a note"
+        "inputOriginalEmbroidery": {
+            "title": "Original embroidery",
+            "option1": "Exhibit with exposed signature",
+            "option2": "Exhibit with hidden signature",
+            "option2Tooltip": "This item concerns future presentations. Alas, we cannot fully track photo documentations from exhibitions that have already taken place."
+        },
+        "additionalInfo": {
+            "content1": "Unfortunately, we cannot perform other aesthetic changes on photos due to limited resources. If you would like to change something critical that is not described above, please email us at ",
+            "highlight": "framedinbelarus{'@'}gmail.com",
+            "content2": " with “Corrections” in the subject line. Thank you for your understanding!"
         },
         "success": {
             "title": "Thank you!",

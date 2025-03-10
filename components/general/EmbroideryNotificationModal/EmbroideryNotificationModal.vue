@@ -29,7 +29,7 @@ const props = defineProps({
       'embroideryNotificationModalWarning': icon === 'warning',
     }"
   >
-    <SvgQustionCircle
+    <SvgQuestionCircle
       v-if="icon === 'question'"
     />
     <SvgTriangleWarning
