@@ -42,11 +42,13 @@ const subscribe = async () => {
   if (userStore.user && userStore.user.email === email.value) {
     await userStore.updateUser({
       email: email.value,
+      language: language.value,
       subscription: true
     })
   } else {
     await userStore.login({
       email: email.value,
+      language: language.value,
       subscription: true
     })
   }
