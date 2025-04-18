@@ -822,7 +822,8 @@
         "title": "Gallery",
         "swiper": {
             "stitching": "Stitching",
-            "author": "Author"
+            "author": "Author",
+            "anonymous": "Anonymous"
         },
         "description": {
             "case": "Case",
