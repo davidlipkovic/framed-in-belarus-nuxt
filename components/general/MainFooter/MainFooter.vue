@@ -98,7 +98,7 @@ onClickOutside(emailInput, () => {
                     ref="emailInput"
                   />
                   <span 
-                    v-if="!validEmailData && emailTypingStarted && toggleSubscribeClicked"
+                    v-if="!validEmailData && (emailTypingStarted || toggleSubscribeClicked)"
                     class="warningNotification note red"
                   >
                     {{ $t('invalidInputs.enterEmailAdress') }}
