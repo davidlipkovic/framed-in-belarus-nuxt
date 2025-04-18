@@ -36,7 +36,6 @@
   .dropdownWrapper {
     @extend .dropdownWrapper;
     position: absolute;
-    top: 45px;
     min-width: 65px;
     padding: 5px 0;
     list-style: none;
@@ -54,6 +53,14 @@
     li:hover {
       background-color: $greyBg;
     }
+  }
+
+  .dropdownWrapperBottom {
+    top: 45px;
+  }
+
+  .dropdownWrapperTop {
+    bottom: 45px;
   }
 }
 

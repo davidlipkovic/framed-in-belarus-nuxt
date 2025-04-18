@@ -822,7 +822,8 @@
         "title": "Галерея",
         "swiper": {
             "stitching": "Вышивка",
-            "author": "Автор*ка"
+            "author": "Автор*ка",
+            "anonymous": "Anonymous"
         },
         "description": {
             "case": "Дело",

@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: null
   },
+  position: {
+    type: String,
+    default: 'Bottom'
+  },
   isRegistration: {
     type: Boolean,
     default: false
@@ -57,6 +61,7 @@ const handleChooseOption = (lang) => {
     <ul 
       v-if="toggleDropdown"
       class="dropdownWrapper flexColumnStart"
+      :class="'dropdownWrapper' + position"
     >
       <li
         v-for="(option, i) in options"
