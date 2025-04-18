@@ -1,19 +1,24 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useValidateInputs } from "@/composables/ValidateInputs";
 
+const { locales } = useI18n()
 const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const { validateEmail } = useValidateInputs()
 
 const route = useRoute()
 
+const language = ref(null)
+
 const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
 const toggleSubscribeModal = ref(false)
+const toggleSubscribeClicked = ref(false)
 
 const email = ref(null)
 const emailInput = ref(null)
@@ -22,6 +27,18 @@ const emailTypingStarted = ref(false)
 const validEmailData = computed(() => {
   return validateEmail(email.value)
 })
+
+const updateLanguage = (lang) => {
+  language.value = lang.name
+}
+
+const handleSubscribe = () => {
+  toggleSubscribeClicked.value = true
+
+  if (validEmailData.value && language.value) {
+    toggleSubscribeModal.value = true
+  }
+}
 
 watch(route, n => {
   toggleProfileModal.value = false
@@ -81,16 +98,32 @@ onClickOutside(emailInput, () => {
                     ref="emailInput"
                   />
                   <span 
-                    v-if="!validEmailData && emailTypingStarted"
+                    v-if="!validEmailData && emailTypingStarted && toggleSubscribeClicked"
                     class="warningNotification note red"
                   >
                     {{ $t('invalidInputs.enterEmailAdress') }}
                   </span>
                 </div>
+                <div class="inputWrapper inputWrapperWarningBottom">
+                  <GeneralInputShortDropdown
+                    class="contentInput languageDropdown"
+                    :chosenOption="language"
+                    :options="locales"
+                    :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'"
+                    position="Top" 
+                    @chooseOption="updateLanguage"
+                  />
+                  <span 
+                    v-if="!language && toggleSubscribeClicked"
+                    class="warningNotification note red"
+                  >
+                    {{ $t('invalidInputs.pleaseChooseOneOption') }}
+                  </span>
+                </div>
               </div>
               <button 
                 class="button"
-                @click="toggleSubscribeModal = true"
+                @click="handleSubscribe()"
               >
                 {{ $t('buttons.subscribe') }}
               </button>
@@ -175,9 +208,9 @@ onClickOutside(emailInput, () => {
       </div>
     </div>
     <GeneralNotificationModal
-      :displayModal="toggleSubscribeModal"
+      :displayModal="toggleSubscribeModal && validEmailData && language !== null"
       :message="$t('notifications.subscribeSuccess')"
-      @closeModal="toggleSubscribeModal = !toggleSubscribeModal"
+      @closeModal="toggleSubscribeModal = !toggleSubscribeModal, toggleSubscribeClicked = false"
     />
   </footer>
   <GeneralQuestionModal
