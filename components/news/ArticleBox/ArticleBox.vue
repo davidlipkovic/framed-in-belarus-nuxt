@@ -39,7 +39,7 @@ const title = computed(() => {
       />
     </a> -->
     <nuxt-link
-      :to="$localePath('/News/Article/' + article.id)"
+      :to="$localePath('/Events/Article/' + article.id)"
       class="articleImageWrapper"
     >
       <img 
@@ -64,7 +64,7 @@ const title = computed(() => {
       {{ $t('buttons.readMore') }}
     </a> -->
     <nuxt-link
-      :to="$localePath('/News/Article/' + article.id)"
+      :to="$localePath('/Events/Article/' + article.id)"
       class="button"
     >
       {{ $t('buttons.readMore') }}
