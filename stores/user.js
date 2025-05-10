@@ -1,7 +1,10 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
+import { useRemoveNull } from "@/composables/RemoveNull"
 
 export default defineStore("user", () => {
+const { removeNullProps } = useRemoveNull()
+
   const loading = ref(false)
   const user = ref(null)
   const userSummary = ref(null)
@@ -11,12 +14,6 @@ export default defineStore("user", () => {
   const isLogged = ref(false)
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-
-  const removeNullProps = (data) => {
-    return Object.keys(data)
-    .filter((key) => data[key] != null)
-    .reduce((a, key) => ({ ...a, [key]: data[key] }), {})
-  }
 
   const getUserAuthorizationData = () => {
     if (window.localStorage || window.sessionStorage) {
