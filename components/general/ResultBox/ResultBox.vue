@@ -29,8 +29,8 @@ const photo = computed(() => {
     return props.result.photo
   }
   
-  if (props.result.image) {
-    return props.result.image
+  if (props.result.imageData) {
+    return props.result.imageData.small
   }
 
   return placeholderImage['/assets/media/img/swiper/01-1x.jpg'].default
