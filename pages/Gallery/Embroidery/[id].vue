@@ -3,10 +3,12 @@ import { onMounted, ref, watch } from 'vue'
 
 import useGalleryStore from "@/stores/gallery"
 import { useCheckImage } from "@/composables/CheckImage"
+import { useConvertDate } from "@/composables/ConvertDate"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const galleryStore = useGalleryStore()
 const { checkImage } = useCheckImage()
+const { convertDateToReadable } = useConvertDate()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 
 definePageMeta({
@@ -51,11 +53,20 @@ const author = {
 const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
 
 const caseName = computed(() => {
+  // WIP placeholder
+  if (!galleryStore.currentEmbroidery.prisoner.prisonerCase[0]['caseName_eng']) {
+    return 'Case: Seizure of power'
+  }
+
   return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'caseName_')
 })
 
 const caseDescription = computed(() => {
   return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'description_')
+})
+
+const prisonerName = computed(() => {
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'name_')
 })
 
 const prisonerDescription = computed(() => {
@@ -81,10 +92,9 @@ onMounted(() => {
       <div class="content">
         <h1>
           <span class="subtitle">
-          Case: Seizure of power
           {{ caseName }}
           <span class="visually-hidden">— </span></span>
-          {{ galleryStore.currentEmbroidery.prisoner.name }}
+          {{ prisonerName }}
         </h1>
         <GeneralGoBack
           page="Gallery"
@@ -160,35 +170,35 @@ onMounted(() => {
             :iconImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
             class="Description-item Hero-photo Hero-photoModal"
           />
-          <div class="caseBioWrapper flexCoulmnStart">
+          <div class="caseBioWrapper flexColumnStart">
             <div 
               v-if="galleryStore.currentEmbroidery.prisoner.birthday"
-              class="Description-item"
+              class="Description-item flexRowStart"
             >
               <h3 class="title">
-                {{ $t('casePage.description.birth') }}:
+                {{ $t('casePage.description.birth') }}:&nbsp;&nbsp;
               </h3>
               <p>
-                {{ galleryStore.currentEmbroidery.prisoner.birthday }}
+                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.birthday) }}
               </p>
             </div>
             <div 
               v-if="galleryStore.currentEmbroidery.prisoner.dateOfDetention"
-              class="Description-item"
+              class="Description-item flexRowStart"
             >
               <h3 class="title">
-                {{ $t('casePage.description.detention') }}:
+                {{ $t('casePage.description.detention') }}:&nbsp;&nbsp;
               </h3>
               <p>
-                {{ galleryStore.currentEmbroidery.prisoner.dateOfDetention }}
+                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfDetention) }}
               </p>
             </div>
             <div 
               v-if="prisonerSentence"
-              class="Description-item"
+              class="Description-item flexRowStart"
             >
               <h3 class="title">
-                {{ $t('casePage.description.sentence') }}:
+                {{ $t('casePage.description.sentence') }}:&nbsp;&nbsp;
               </h3>
               <p>
                 {{ prisonerSentence }}
@@ -196,49 +206,37 @@ onMounted(() => {
             </div>
             <div 
               v-if="galleryStore.currentEmbroidery.prisoner.dateOfRelease"
-              class="Description-item"
+              class="Description-item flexRowStart"
             >
               <h3 class="title">
-                {{ $t('casePage.description.release') }}:
+                {{ $t('casePage.description.release') }}:&nbsp;&nbsp;
               </h3>
               <p>
-                {{ galleryStore.currentEmbroidery.prisoner.dateOfRelease }}
+                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfRelease) }}
               </p>
             </div>
           </div>
         </div>
-        <div 
-          v-if="caseDescription"
+        <GeneralToggleText 
+          v-if="caseDescription && caseDescription.length > 2"
           class="Description-item"
-        >
-          <h3 class="title">
-            {{ $t('casePage.description.descriptionCase') }}:
-          </h3>
-          <p>
-            {{ caseDescription }}
-          </p>
-          <p class="additionalInfo">
-            {{ $t('casePage.description.seeMore.content') }}
-            <a 
-              href="#" 
-              class="red"
-            >
-              {{ $t('casePage.description.seeMore.highlight') }}
-              <SvgLink/>
-            </a>
-          </p>
-        </div>
-        <div 
+          :message="caseDescription"
+          :title="$t('casePage.description.descriptionCase')"
+          :source="{
+            title: 'See more',
+            link: '#',
+          }"
+        />
+        <GeneralToggleText 
           v-if="prisonerDescription && prisonerDescription.length > 2"
           class="Description-item"
-        >
-          <h3 class="title">
-            {{ $t('casePage.description.descriptionPrisoner') }}:
-          </h3>
-          <p>
-            {{ prisonerDescription }}
-          </p>
-        </div>
+          :message="prisonerDescription"
+          :title="$t('casePage.description.descriptionPrisoner')"
+          :source="{
+            title: 'See more',
+            link: '#',
+          }"
+        />
         <div 
           v-if="galleryStore.currentEmbroidery.prisoner.address || galleryStore.currentEmbroidery.prisoner.viasnaUrl"
           class="Description-item"
