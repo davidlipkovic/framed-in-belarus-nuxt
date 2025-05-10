@@ -41,7 +41,7 @@ const photo = computed(() => {
     <nuxt-link
       @mouseover="isHovered = true"
       @mouseleave="isHovered = false"
-      :to="localePath(link)"
+      :to="$localePath(link)"
       class="resultImageWrapper"
       :class="{'resultBoxWrapperHovered' : isHovered}"
     >
@@ -63,7 +63,7 @@ const photo = computed(() => {
       <nuxt-link
         @mouseover="isHovered = true"
         @mouseleave="isHovered = false"
-        :to="localePath(link)"
+        :to="$localePath(link)"
       >
         <h2>
           {{ result.name }}

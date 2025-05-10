@@ -28,7 +28,7 @@ const error = computed(() => {
 <template>
   <nuxt-link
     v-if="newEmbroidery"
-    :to="localePath('/Embroidery/Step-1-choose-hero')"
+    :to="$localePath('/Embroidery/Step-1-choose-hero')"
     class="embroideryCard embroideryCardNew flexColumnCenter"
     :class="{'embroideryCardNewDisabled': disableNewEmbroidery}"
   >
@@ -41,7 +41,7 @@ const error = computed(() => {
   </nuxt-link>
   <nuxt-link
     v-if="!newEmbroidery"
-    :to="localePath(card.link)"
+    :to="$localePath(card.link)"
     class="embroideryCard flexColumnCenter"
     v-tooltip.bottom="card.tooltip"
   >

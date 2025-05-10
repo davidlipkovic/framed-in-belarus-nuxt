@@ -49,7 +49,7 @@ const steps = [
     >
       <nuxt-link 
         v-if="i + 1 < currentStep"
-        :to="localePath(step.link)"
+        :to="$localePath(step.link)"
         class="navStep navStep_done"
       >
         <span class="navStep-number">

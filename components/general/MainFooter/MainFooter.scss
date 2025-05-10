@@ -91,14 +91,31 @@
     max-width: 308px;
     margin-right: unset;
     margin-bottom: 20px;
+
+    >div {
+      margin-bottom: 20px;
+    }
+  }
+
+  input, .languageDropdown > .dropdownButton {
+    border: solid 1px $greyLight;
+    border-radius: 4px;
+    background-color: $black;
   }
 
   input {
     height: 40px;
-    border: solid 1px $greyLight;
-    border-radius: 4px;
-    background-color: $black;
     padding: 0 1rem;
+  }
+
+  .languageDropdown > .dropdownButton {
+    height: auto;
+    padding: 0.45rem 1rem;
+    color: $white;
+
+    svg {
+      fill: $white;
+    }
   }
 
   input::placeholder {
@@ -113,6 +130,12 @@
     border: solid 1px $greyLight;
     height: 40px;
     color: $white;
+  }
+
+  .languageDropdown {
+    button {
+      border: none;
+    }
   }
 }
 

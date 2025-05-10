@@ -62,19 +62,19 @@ watch(width, n => {
         <nav class="menuAllLinksWrapper flexColumnStart">
           <div class="menuLinksWrapper flexColumnStart">
             <nuxt-link
-              :to="localePath('/')"
+              :to="$localePath('/')"
               :class="{ 'redImportatnt' : checkHomeRoute('/') }"
             >
               {{ $t('links.home') }}
             </nuxt-link>
             <nuxt-link
-              :to="localePath('/News')"
-              :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
+              :to="$localePath('/Events')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('Events') }"
             >
               {{ $t('links.news') }}
             </nuxt-link>
             <nuxt-link
-              :to="localePath('/AboutUs')"
+              :to="$localePath('/AboutUs')"
               :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
             >
               {{ $t('links.aboutUs') }}

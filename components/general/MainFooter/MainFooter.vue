@@ -38,21 +38,21 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
           <div class="Info-menu-group flexColumnCenter">
             <div class="Info-menu-group footerLinksWrapper">
               <nuxt-link
-                :to="localePath('/')"
+                :to="$localePath('/')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkHomeRoute('/') }"
               >
                 {{ $t('links.home') }}
               </nuxt-link>
               <nuxt-link
-                :to="localePath('/News')"
+                :to="$localePath('/Events')"
                 class="Info-menu-item"
-                :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
+                :class="{ 'redImportatnt' : checkCurrentRoute('Events') }"
               >
                 {{ $t('links.news') }}
               </nuxt-link>
               <nuxt-link
-                :to="localePath('/AboutUs')"
+                :to="$localePath('/AboutUs')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
               >
