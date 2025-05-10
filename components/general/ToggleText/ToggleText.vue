@@ -11,10 +11,16 @@ const props = defineProps({
   message: {
     type: String,
   },
+  source: {
+    type: Object,
+    default: null
+  },
   title: {
     type: String,
   }
 })
+
+const showMore = ref(false)
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -27,14 +33,12 @@ const buttonMessage = computed(() => {
 const enableToggle = computed(() => props.message.length > props.limit)
 
 const message = computed(() => {
-  if (showMore.value && !enableToggle.value) {
+  if (!enableToggle.value || showMore.value) {
     return props.message
   }
 
   return props.message.slice(0, props.limit) + '...'
 })
-
-const showMore = ref(false)
 </script>
 
 <template>
@@ -45,6 +49,14 @@ const showMore = ref(false)
     <p>
       {{ message }}
     </p>
+    <a 
+      v-if="source && (!enableToggle || showMore)"
+      :href="source.link" 
+      class="red additionalInfo"
+    >
+      {{ source.title }}
+      <SvgLink/>
+    </a>
     <button
       v-if="enableToggle"
       @click="showMore = !showMore" 
