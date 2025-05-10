@@ -36,13 +36,6 @@ const handleGallerySwiper = (i) => {
   currentGallerySlide.value = i
 }
 
-// WIP
-const author = {
-  comment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
-  nativeComment: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
-  reason: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
-}
-
 const caseName = computed(() => {
   // WIP placeholder
   if (!galleryStore.currentEmbroidery.prisoner.prisonerCase[0]['caseName_eng']) {
@@ -76,7 +69,10 @@ const embroiderySlides = computed(() => {
 })
 
 const processSlides = computed(() => {
-  return galleryStore.currentEmbroidery.imagesData
+  return removeNullItems([
+    ...galleryStore.currentEmbroidery.imagesData,
+    galleryStore.currentEmbroidery.comment.ApprovedHandwrittenAll[0].thumbnails,
+  ])
 })
 
 const slides = computed(() => {
@@ -254,21 +250,21 @@ onMounted(() => {
           {{ $t('casePage.author.title') }}
         </h2>
         <GeneralToggleText 
-          v-if="author.reason"
+          v-if="galleryStore.currentEmbroidery.reason"
           class="Description-item"
-          :message="author.reason"
+          :message="galleryStore.currentEmbroidery.reason"
           :title="$t('casePage.author.reason')"
         />
         <GeneralToggleText 
-          v-if="author.comment"
+          v-if="galleryStore.currentEmbroidery.comment.eng"
           class="Description-item"
-          :message="author.comment"
+          :message="galleryStore.currentEmbroidery.comment.eng"
           :title="$t('casePage.author.comment')"
         />
         <GeneralToggleText 
-          v-if="author.nativeComment"
+          v-if="galleryStore.currentEmbroidery.comment.native"
           class="Description-item"
-          :message="author.nativeComment"
+          :message="galleryStore.currentEmbroidery.comment.native"
           :title="$t('casePage.author.nativeComment')"
         />
         <div class="galleryWrapper">
