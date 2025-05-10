@@ -146,28 +146,28 @@ onClickOutside(emailInput, () => {
             </div>
             <div class="Info-menu-group footerLinksWrapper">
               <nuxt-link
-                :to="localePath('/')"
+                :to="$localePath('/')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkHomeRoute('/') }"
               >
                 {{ $t('links.home') }}
               </nuxt-link>
               <nuxt-link
-                :to="localePath('/Gallery')"
+                :to="$localePath('/Gallery')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkCurrentRoute('Gallery') }"
               >
                 {{ $t('links.gallery') }}
               </nuxt-link>
               <nuxt-link
-                :to="localePath('/News')"
+                :to="$localePath('/News')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
               >
                 {{ $t('links.news') }}
               </nuxt-link>
               <nuxt-link
-                :to="localePath('/AboutUs')"
+                :to="$localePath('/AboutUs')"
                 class="Info-menu-item"
                 :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
               >
@@ -181,14 +181,14 @@ onClickOutside(emailInput, () => {
           >
             <nuxt-link
               v-if="!userStore.isLogged"
-              :to="localePath('/SignIn')"
+              :to="$localePath('/SignIn')"
               class="Info-menu-item"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
               v-if="!userStore.isLogged"
-              :to="localePath('/SignUp')"
+              :to="$localePath('/SignUp')"
               class="Info-menu-item button bg_red"
             >
               {{ $t('links.participate') }}

@@ -46,7 +46,7 @@ const numberOfHeroes = computed(() => {
         </p>
         <div class="flexRowStart">
           <nuxt-link
-            :to="userStore.isLogged ? localePath('/Profile') : localePath('/SignUp')"
+            :to="userStore.isLogged ? $localePath('/Profile') : $localePath('/SignUp')"
             class="button bg_red"
           >
             {{ $t('links.participate') }}

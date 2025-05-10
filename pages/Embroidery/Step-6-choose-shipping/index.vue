@@ -107,7 +107,7 @@ const route = ref(null)
             {{ $t('embroidery.step6Page.sectionOptions.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-' + route)" 
+            :to="$localePath('/Embroidery/Step-6-' + route)" 
             class="button" 
             :class="{'button_disabled': !route, 'bg_black': route}" 
           >

@@ -198,13 +198,13 @@ const updateNativeLanguage = (lang) => {
         </div>
         <div class="buttons">
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-4-photo')"
+            :to="$localePath('/Embroidery/Step-4-photo')"
             class="button"
           >
             {{ $t('embroidery.step5Page.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-choose-shipping')"
+            :to="$localePath('/Embroidery/Step-6-choose-shipping')"
             class="button" 
             :class="validData ? 'bg_black' : 'button_disabled'"
             id="save"

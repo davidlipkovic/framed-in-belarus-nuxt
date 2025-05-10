@@ -34,14 +34,6 @@ const {
   updateTags,
 } = useSearch();
 
-
-definePageMeta({
-  middleware: [
-    'auth-general',
-    'gallery',
-  ],
-})
-
 useHead({
   title: '#Framed in Belarus / Gallery',
   meta: [

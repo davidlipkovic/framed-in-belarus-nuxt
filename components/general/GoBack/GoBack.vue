@@ -10,7 +10,7 @@ const props = defineProps({
 
 <template>
   <nuxt-link
-    :to="localePath('/' + page)"
+    :to="$localePath('/' + page)"
     class="GoBack"
   >
     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="GoBack-img">

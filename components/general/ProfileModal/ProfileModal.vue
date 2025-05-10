@@ -50,7 +50,7 @@ onClickOutside(root, () => {
       {{ userStore.user.username }}
     </span>
     <nuxt-link
-      :to="localePath('/Profile')"
+      :to="$localePath('/Profile')"
       class="profileModalWrapperProfileLink flexRowStart"
     >
       <span>
@@ -58,7 +58,7 @@ onClickOutside(root, () => {
       </span>
     </nuxt-link>
     <nuxt-link
-      :to="localePath('/')"
+      :to="$localePath('/')"
       class="profileModalWrapperSignOut flexRowStart"
       @click.prevent="signOut()"
     >

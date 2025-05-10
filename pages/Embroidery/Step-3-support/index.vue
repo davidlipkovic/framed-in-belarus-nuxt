@@ -171,13 +171,13 @@ definePageMeta({
         </article>
         <div class="buttons">
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-2-preparation')"
+            :to="$localePath('/Embroidery/Step-2-preparation')"
             class="button"
           >
             {{ $t('embroidery.step3Page.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-4-photo')"
+            :to="$localePath('/Embroidery/Step-4-photo')"
             class="button bg_black" 
             id="save"
           >

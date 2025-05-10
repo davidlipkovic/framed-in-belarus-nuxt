@@ -224,7 +224,7 @@ const images = import.meta.glob('@/assets/media/img/schemaExample/*.jpg', { eage
         </article>
         <div class="buttons">
           <nuxt-link
-            :to="localePath('/Embroidery/Step-3-support')"
+            :to="$localePath('/Embroidery/Step-3-support')"
             id="save"
             class="button bg_black"
           >

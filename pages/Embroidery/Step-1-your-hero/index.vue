@@ -151,7 +151,7 @@ const handleCreateStitchingActivity = async() => {
           </div>
           <div class="buttons">
             <nuxt-link
-              :to="localePath('/Embroidery/Step-1-choose-hero')"
+              :to="$localePath('/Embroidery/Step-1-choose-hero')"
               id="save"
               class="button"
             >

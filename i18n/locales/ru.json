@@ -53,22 +53,22 @@
         "mentionInstagram": "Отмечать мой аккаунт в ваших постах",
         "tags": {
             "case": {
-            "type": "дела",
-            "all": "все",
-            "individual": "индивидуальные",
-            "group": "групповые"
+                "type": "дела",
+                "all": "все",
+                "individual": "индивидуальные",
+                "group": "групповые"
             },
             "status": {
-            "type": "статус заключенного*ой",
-            "all": "все",
-            "active": "находится под стражей",
-            "former": "освобожден*а"
+                "type": "cтатус",
+                "all": "все",
+                "active": "Под стражей ",
+                "former": "oсвобожден*а"
             },
             "gender": {
-            "type": "гендор",
-            "all": "все",
-            "female": "женский",
-            "male": "мужской"
+                "type": "Пол",
+                "all": "все",
+                "female": "женский",
+                "male": "мужской"
             }
         },
         "checkBox": {
@@ -360,6 +360,7 @@
             "description": {
                 "case": "Дело",
                 "birth": "Дата рождения",
+                "release": "Date of release",
                 "detention": "Дата ареста",
                 "sentence": "Приговор",
                 "descriptionPrisoner" : "Описание политзаключенного*ой",

@@ -156,7 +156,7 @@
   }
 
   .caseHeaderWrapper {
-    margin-bottom: 3px;
+    margin-bottom: 16px;
 
     img {
       margin-right: 19px;
@@ -216,6 +216,10 @@
       gap: 18px;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+    }
+
+    .Hero-photoModal {
+      margin: 0 1rem 3px 0;
     }
   }
 }

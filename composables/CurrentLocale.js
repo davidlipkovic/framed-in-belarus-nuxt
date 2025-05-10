@@ -8,6 +8,10 @@ export function useCurrentLocale() {
   })
 
   const getCurrentLocaleStringValue = (data, key) => {
+    if (!data[key + currentLocaleName.value.toLowerCase()] || data[key + currentLocaleName.value.toLowerCase()] === "undefined") {
+      return
+    }
+
     return data[key + currentLocaleName.value.toLowerCase()]
   }
 

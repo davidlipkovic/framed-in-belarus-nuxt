@@ -63,7 +63,6 @@ export default defineNuxtConfig({
             }
         ],
         lazy: true,
-        langDir: 'lang/',
         defaultLocale: 'en'
     },
 

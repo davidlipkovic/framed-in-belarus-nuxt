@@ -39,7 +39,7 @@ const props = defineProps({
       {{ message }}
       <nuxt-link
         v-if="link"
-        :to="localePath('/' + page)"
+        :to="$localePath('/' + page)"
       >
         {{ linkMessage }}
       </nuxt-link>

@@ -81,7 +81,7 @@ onClickOutside(emailInput, () => {
     <p class="signUpLink">
       {{ $t("signInPage.signUpQuestion.content") }}
       <nuxt-link 
-        :to="localePath('/SignUp')"
+        :to="$localePath('/SignUp')"
         class="redLight"
       >
         {{ $t("signInPage.signUpQuestion.highlight") }}
