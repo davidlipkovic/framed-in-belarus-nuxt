@@ -144,9 +144,9 @@ onClickOutside(emailInput, () => {
                 {{ $t('links.gallery') }}
               </nuxt-link>
               <nuxt-link
-                :to="$localePath('/News')"
+                :to="$localePath('/Events')"
                 class="Info-menu-item"
-                :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
+                :class="{ 'redImportatnt' : checkCurrentRoute('Events') }"
               >
                 {{ $t('links.news') }}
               </nuxt-link>

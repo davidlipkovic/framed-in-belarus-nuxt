@@ -82,8 +82,8 @@ watch(width, n => {
               {{ $t('links.gallery') }}
             </nuxt-link>
             <nuxt-link
-              :to="$localePath('/News')"
-              :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
+              :to="$localePath('/Events')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('Events') }"
             >
               {{ $t('links.news') }}
             </nuxt-link>

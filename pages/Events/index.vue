@@ -27,8 +27,8 @@ const updateCurrentTag = (val) => {
 <template>
   <main class="Content">
     <Head>
-      <Title>#Framed in Belarus — News</Title>
-      <Meta name="description" content="News"/>
+      <Title>#Framed in Belarus — Events</Title>
+      <Meta name="description" content="Events"/>
     </Head>
     <div class="Title">
       <h1 class="content">
