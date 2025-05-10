@@ -360,7 +360,7 @@
             "description": {
                 "case": "Справа",
                 "birth": "Дата нараджэння",
-                "release": "Date of release",
+                "release": "Дата вызвалення",
                 "detention": "Дата арышту",
                 "sentence": "Пакаранне",
                 "descriptionPrisoner": "Апісанне палітзняволенага*ай",
@@ -829,6 +829,7 @@
         "description": {
             "case": "Справа",
             "birth": "Дата нараджэння",
+            "release": "Дата вызвалення",
             "detention": "Дата арышту",
             "sentence": "Пакаранне",
             "descriptionPrisoner" : "Апісанне палітзняволенага*ай",
@@ -845,7 +846,7 @@
         "author": {
             "title" : "Аўтар*ка пра працэс працы",
             "reason": "Чаму вы вырашылі прыняць удзел у праекце?",
-            "comment": "Каментар",
+            "comment": "Каментар на ангельскай",
             "nativeComment": "Каментар на роднай мове"
         },
         "exhibitions": {
