@@ -21,6 +21,7 @@ const props = defineProps({
 })
 
 const showMore = ref(false)
+const extraContent = ref(null)
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -30,7 +31,7 @@ const buttonMessage = computed(() => {
   return t("buttons.showMore")
 })
 
-const enableToggle = computed(() => props.message.length > props.limit)
+const enableToggle = computed(() => props.message.length > props.limit || !!useSlots().default)
 
 const message = computed(() => {
   if (!enableToggle.value || showMore.value) {
@@ -49,6 +50,7 @@ const message = computed(() => {
     <p>
       {{ message }}
     </p>
+    <slot v-if="showMore"/>
     <a 
       v-if="source && (!enableToggle || showMore)"
       :href="source.link" 

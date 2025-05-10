@@ -78,10 +78,10 @@ const images = Object.entries(allImages).map(([path, module]) => {
   >
     <SwiperSlide 
       v-for="(slide, i) in slides"
-      :key="slide.alt"
+      :key="i"
     >
       <img
-        :src="slide"
+        :src="slide.large"
         :alt="`${slide?.alt}`"
         @click="handleFullscreen(i)"
       >

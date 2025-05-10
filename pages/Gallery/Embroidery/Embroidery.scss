@@ -1,6 +1,10 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .galleryCaseWrapper {
+  .Title {
+    z-index: 1;
+  }
+
   .content.galleryCaseContent {
     @media screen and (min-width: $br-point-md) {
       display: grid;
@@ -27,10 +31,12 @@
 
   .Description-item {
     @extend .item-margin_bottom;
+    margin-bottom: 10px;
 
     .title {
       margin-bottom: 0;
       font-weight: 600;
+      font-size: 1rem;
     }
   }
 
@@ -144,12 +150,11 @@
     max-width: 100%;
     gap: 14px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     margin-bottom: 0;
 
     img {
       width: 100%;
-      height: auto;
+      aspect-ratio: 1 / 1;
       border-radius: 6px;
       cursor: pointer;
     }
@@ -215,7 +220,6 @@
     .galleryWrapper {
       gap: 18px;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
     }
 
     .Hero-photoModal {

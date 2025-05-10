@@ -1,15 +1,16 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-
 import useGalleryStore from "@/stores/gallery"
 import { useCheckImage } from "@/composables/CheckImage"
 import { useConvertDate } from "@/composables/ConvertDate"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
+import { useRemoveNull } from "@/composables/RemoveNull"
 
 const galleryStore = useGalleryStore()
 const { checkImage } = useCheckImage()
 const { convertDateToReadable } = useConvertDate()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
+const { removeNullItems } = useRemoveNull()
 
 definePageMeta({
   middleware: [
@@ -17,14 +18,6 @@ definePageMeta({
     'gallery-embroidery',
   ],
 })
-
-const slides = [
-  {alt: ""},
-  {alt: ""},
-  {alt: ""},
-  {alt: ""},
-  {alt: ""},
-]
 
 const currentFullScreenEmbroiderySlide = ref(0)
 const showFullScreenEmbroiderySwiper = ref(false)
@@ -50,12 +43,10 @@ const author = {
   reason: 'I chose to participate in this project not only because I was an avid stitcher, but the 2020 protests in Belarus reminded me of the 2019 protests in Hong Kong, my father\'s hometown. Although their protest origins were slightly different from each other, they both still share a common goal, which was to fight against authoritarian rule and government repression. The portrait I chose and stitched was of musician/politician Maria Kalesnikava, who was kidnapped by unidentified law enforcement officers in 2020 and sentenced to eleven years in prison in 2021 for her political activity. Rufina\'s Instagram stories clip of Maria creating a heart sign during her trial in Belarus appeared in my Instagram feed, reminded me very much of another well-known female politician in Hong Kong, who, along with 46 other lawmakers and politicians, were arrested under the National Security Law for "subversion", when they were only participating in primary elections for the 2020 LegCo elections. Stitching her portrait was therapeutic for me, particularly when I was in isolation due to a health issue, and I felt that I was contributing to both Belarus and Hong Kong.',
 }
 
-const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
-
 const caseName = computed(() => {
   // WIP placeholder
   if (!galleryStore.currentEmbroidery.prisoner.prisonerCase[0]['caseName_eng']) {
-    return 'Case: Seizure of power'
+    return 'Seizure of power'
   }
 
   return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'caseName_')
@@ -77,6 +68,24 @@ const prisonerSentence = computed(() => {
   return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'sentence_')
 })
 
+const embroiderySlides = computed(() => {
+  return removeNullItems([
+    galleryStore.currentEmbroidery.imageData,
+    galleryStore.currentEmbroidery.imageBackedData,
+  ])
+})
+
+const processSlides = computed(() => {
+  return galleryStore.currentEmbroidery.imagesData
+})
+
+const slides = computed(() => {
+  return removeNullItems([
+    ...embroiderySlides.value,
+    ...processSlides.value,
+  ])
+})
+
 onMounted(() => {
   if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
     return
@@ -92,7 +101,7 @@ onMounted(() => {
       <div class="content">
         <h1>
           <span class="subtitle">
-          {{ caseName }}
+            {{ $t('casePage.description.case') }}: {{ caseName }}
           <span class="visually-hidden">— </span></span>
           {{ prisonerName }}
         </h1>
@@ -107,7 +116,7 @@ onMounted(() => {
         <GeneralSwiper 
           class="galleryCaseSwiper"
           :fullscreen="true"
-          :slides="[galleryStore.currentEmbroidery.imageData]"
+          :slides="embroiderySlides"
           @openFullscreen="handleFullScreenEmbroiderySwiper"
         />
         <GeneralFullScreenSwiper
@@ -171,50 +180,42 @@ onMounted(() => {
             class="Description-item Hero-photo Hero-photoModal"
           />
           <div class="caseBioWrapper flexColumnStart">
-            <div 
-              v-if="galleryStore.currentEmbroidery.prisoner.birthday"
-              class="Description-item flexRowStart"
+            <p 
+              v-if="galleryStore.currentEmbroidery.prisoner.dateOfBirth"
+              class="Description-item"
             >
-              <h3 class="title">
-                {{ $t('casePage.description.birth') }}:&nbsp;&nbsp;
-              </h3>
-              <p>
-                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.birthday) }}
-              </p>
-            </div>
-            <div 
+              <span class="title">
+                {{ $t('casePage.description.birth') }}:&nbsp;
+              </span>
+              {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfBirth) }}
+            </p>
+            <p 
               v-if="galleryStore.currentEmbroidery.prisoner.dateOfDetention"
-              class="Description-item flexRowStart"
+              class="Description-item"
             >
-              <h3 class="title">
-                {{ $t('casePage.description.detention') }}:&nbsp;&nbsp;
-              </h3>
-              <p>
-                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfDetention) }}
-              </p>
-            </div>
-            <div 
+              <span class="title">
+                {{ $t('casePage.description.detention') }}:&nbsp;
+              </span>
+              {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfDetention) }}
+            </p>
+            <p 
               v-if="prisonerSentence"
-              class="Description-item flexRowStart"
+              class="Description-item"
             >
-              <h3 class="title">
-                {{ $t('casePage.description.sentence') }}:&nbsp;&nbsp;
-              </h3>
-              <p>
-                {{ prisonerSentence }}
-              </p>
-            </div>
-            <div 
+              <span class="title">
+                {{ $t('casePage.description.sentence') }}:&nbsp;
+              </span>
+              {{ prisonerSentence }}
+            </p>
+            <p 
               v-if="galleryStore.currentEmbroidery.prisoner.dateOfRelease"
-              class="Description-item flexRowStart"
+              class="Description-item"
             >
-              <h3 class="title">
-                {{ $t('casePage.description.release') }}:&nbsp;&nbsp;
-              </h3>
-              <p>
-                {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfRelease) }}
-              </p>
-            </div>
+              <span class="title">
+                {{ $t('casePage.description.release') }}:&nbsp;
+              </span>
+              {{ convertDateToReadable(galleryStore.currentEmbroidery.prisoner.dateOfRelease) }}
+            </p>
           </div>
         </div>
         <GeneralToggleText 
@@ -233,31 +234,22 @@ onMounted(() => {
           :message="prisonerDescription"
           :title="$t('casePage.description.descriptionPrisoner')"
           :source="{
-            title: 'See more',
-            link: '#',
+            title: $t('casePage.description.goToSource'),
+            link: galleryStore.currentEmbroidery.prisoner.viasnaUrl,
           }"
-        />
-        <div 
-          v-if="galleryStore.currentEmbroidery.prisoner.address || galleryStore.currentEmbroidery.prisoner.viasnaUrl"
-          class="Description-item"
         >
-          <template v-if="galleryStore.currentEmbroidery.prisoner.address">
+          <div 
+            v-if="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
+            class="Description-item"
+          >
             <h3 class="title">
               {{ $t('casePage.description.address') }}:
             </h3>
             <p>
-              {{ galleryStore.currentEmbroidery.prisoner.address }}
+              {{ galleryStore.currentEmbroidery.prisoner.viasnaUrl }}
             </p>
-          </template>
-          <a 
-            v-if="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
-            :href="galleryStore.currentEmbroidery.prisoner.viasnaUrl" 
-            target="_blank" 
-            class="additionalInfo red"
-          >
-            {{ $t('casePage.description.goToSource') }} <SvgLink/>
-          </a>
-        </div>
+          </div>
+        </GeneralToggleText>
         <h2 class="Description-item Description-item_title">
           {{ $t('casePage.author.title') }}
         </h2>
@@ -281,11 +273,11 @@ onMounted(() => {
         />
         <div class="galleryWrapper">
           <img
-            v-for="(slide, i) in slides"
-            :key="slide.alt"
-            :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
-            :alt="`${slide.alt}`"
-            @click="handleGallerySwiper(i)"
+            v-for="(slide, i) in processSlides"
+            :key="i"
+            :src="slide.small"
+            :alt="`${slide?.alt}`"
+            @click="handleGallerySwiper(i + embroiderySlides.length)"
           />
         </div>
         <GeneralFullScreenSwiper
