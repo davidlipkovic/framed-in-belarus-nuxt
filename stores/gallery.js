@@ -30,8 +30,13 @@ export default defineStore("gallery", () => {
     }
 
     console.log('getEmbroideries', data.value.result)
-    
-    originalEmbroideries.value = data.value.result
+
+    // WIP for testing, maybe backend should return already filtered
+    const filteredData = data.value.result.filter(embroidery => embroidery.status === 'Prepublished')
+
+    console.log('getEmbroideries filtered', filteredData)
+
+    originalEmbroideries.value = filteredData
   }
 
   const getEmbroidery = async (id) => {

@@ -2,9 +2,11 @@
 import { onMounted, ref, watch } from 'vue'
 
 import useGalleryStore from "@/stores/gallery"
+import { useCheckImage } from "@/composables/CheckImage"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const galleryStore = useGalleryStore()
+const { checkImage } = useCheckImage()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 
 definePageMeta({
@@ -24,6 +26,7 @@ const slides = [
 
 const currentFullScreenEmbroiderySlide = ref(0)
 const showFullScreenEmbroiderySwiper = ref(false)
+const showPrisonerImage = ref(false)
 
 const handleFullScreenEmbroiderySwiper = (i) => {
   showFullScreenEmbroiderySwiper.value = true
@@ -58,6 +61,18 @@ const caseDescription = computed(() => {
 const prisonerDescription = computed(() => {
   return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'description_')
 })
+
+const prisonerSentence = computed(() => {
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'sentence_')
+})
+
+onMounted(() => {
+  if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
+    return
+  }
+
+  checkImage(galleryStore.currentEmbroidery.prisoner.photo, showPrisonerImage)
+})
 </script>
 
 <template>
@@ -82,6 +97,7 @@ const prisonerDescription = computed(() => {
         <GeneralSwiper 
           class="galleryCaseSwiper"
           :fullscreen="true"
+          :slides="[galleryStore.currentEmbroidery.imageData]"
           @openFullscreen="handleFullScreenEmbroiderySwiper"
         />
         <GeneralFullScreenSwiper
@@ -97,11 +113,13 @@ const prisonerDescription = computed(() => {
           <span>
             {{ $t('casePage.swiper.author') }}: 
           </span>
-          <span
-            v-if="galleryStore.currentEmbroidery.name"
-            class="b1"
-          >
-            {{ galleryStore.currentEmbroidery.name }}
+          <span class="b1">
+            <template v-if="galleryStore.currentEmbroidery.name">
+              {{ galleryStore.currentEmbroidery.name }}
+            </template>
+            <template v-else>
+              {{ $t('casePage.swiper.anonymous') }}
+            </template>
           </span>
         </p>
         <p 
@@ -129,14 +147,14 @@ const prisonerDescription = computed(() => {
       </article>
       <article>
         <div class="caseHeaderWrapper flexRowStart">
-          <img 
-            v-if="!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
+          <!-- <img 
+            v-if="!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"
             :alt="'Photo of' + galleryStore.currentEmbroidery.prisoner.name"
             class="Description-item Hero-photo"
-          >
+          > -->
           <GeneralImageModal
-            v-else
+            v-if="!(!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE')"
             alt=""
             :fullImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
             :iconImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
@@ -166,14 +184,25 @@ const prisonerDescription = computed(() => {
               </p>
             </div>
             <div 
-              v-if="galleryStore.currentEmbroidery.prisoner.sentence"
+              v-if="prisonerSentence"
               class="Description-item"
             >
               <h3 class="title">
                 {{ $t('casePage.description.sentence') }}:
               </h3>
               <p>
-                {{ galleryStore.currentEmbroidery.prisoner.sentence }}
+                {{ prisonerSentence }}
+              </p>
+            </div>
+            <div 
+              v-if="galleryStore.currentEmbroidery.prisoner.dateOfRelease"
+              class="Description-item"
+            >
+              <h3 class="title">
+                {{ $t('casePage.description.release') }}:
+              </h3>
+              <p>
+                {{ galleryStore.currentEmbroidery.prisoner.dateOfRelease }}
               </p>
             </div>
           </div>
