@@ -316,7 +316,7 @@ watch(route, () => {
           <p v-if="linkToAlreadyChosen">
             {{ $t('embroidery.step1Page.alreadyChosen.paragraph1.content') }}
             <nuxt-link
-              :to="localePath(linkToAlreadyChosen)"
+              :to="$localePath(linkToAlreadyChosen)"
               class="red b1"
             >
               {{ $t('embroidery.step1Page.alreadyChosen.paragraph1.highlight') }}
@@ -464,7 +464,7 @@ watch(route, () => {
           </template>
           <template v-else>
             <nuxt-link
-              :to="localePath('/Profile')"
+              :to="$localePath('/Profile')"
               class="button"
             >
               {{ $t('embroidery.step1Page.requestModal.success.button1') }}

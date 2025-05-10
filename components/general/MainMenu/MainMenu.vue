@@ -70,32 +70,32 @@ watch(width, n => {
         <nav class="menuAllLinksWrapper flexColumnStart">
           <div class="menuLinksWrapper flexColumnStart">
             <nuxt-link
-              :to="localePath('/')"
+              :to="$localePath('/')"
               :class="{ 'redImportatnt' : checkHomeRoute('/') }"
             >
               {{ $t('links.home') }}
             </nuxt-link>
             <nuxt-link
-              :to="localePath('/Gallery')"
+              :to="$localePath('/Gallery')"
               :class="{ 'redImportatnt' : checkCurrentRoute('Gallery') }"
             >
               {{ $t('links.gallery') }}
             </nuxt-link>
             <nuxt-link
-              :to="localePath('/News')"
+              :to="$localePath('/News')"
               :class="{ 'redImportatnt' : checkCurrentRoute('News') }"
             >
               {{ $t('links.news') }}
             </nuxt-link>
             <nuxt-link
-              :to="localePath('/AboutUs')"
+              :to="$localePath('/AboutUs')"
               :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link>
             <nuxt-link
               v-if="!userStore.isLogged"
-              :to="localePath('/SignIn')"
+              :to="$localePath('/SignIn')"
               class="signInMobile"
             >
               {{ $t('links.signIn') }}
@@ -109,7 +109,7 @@ watch(width, n => {
             </button>
             <nuxt-link
               v-if="userStore.isLogged"
-              :to="localePath('/')"
+              :to="$localePath('/')"
               @click.prevent="signOut()"
               class="signOutMobile"
             >
@@ -119,14 +119,14 @@ watch(width, n => {
           <div class="menuUserLinksWrapper flexRowStart">
             <nuxt-link
               v-if="!userStore.isLogged"
-              :to="localePath('/SignIn')"
+              :to="$localePath('/SignIn')"
               class="Login"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
               v-if="!userStore.isLogged"
-              :to="localePath('/SignUp')"
+              :to="$localePath('/SignUp')"
               class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
@@ -158,7 +158,7 @@ watch(width, n => {
             <nuxt-link
               v-if="userStore.isLogged"
               class="profileButton profileButtonMobile flexRowCenter"
-              :to="localePath('/Profile')"
+              :to="$localePath('/Profile')"
             >
               <div class="flexRowCenter">
                 <img
@@ -177,7 +177,7 @@ watch(width, n => {
           </div>
           <GeneralLangMenu/>
           <nuxt-link
-            :to="localePath('/SignUp')"
+            :to="$localePath('/SignUp')"
             class="participateButton participateButtonMobile button bg_red"
           >
             {{ $t('links.participate') }}

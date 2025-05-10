@@ -148,7 +148,7 @@ const enableButton = computed(() => {
             {{ $t('embroidery.step6Page.sectionOptions.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-' + route)" 
+            :to="$localePath('/Embroidery/Step-6-' + route)" 
             class="button" 
             :class="enableButton ? 'bg_black' : 'button_disabled'" 
           >

@@ -40,7 +40,7 @@ onClickOutside(emailInput, () => {
     <p class="signUpLink">
       {{ $t("signInPage.signUpQuestion.content") }}
       <nuxt-link 
-        :to="localePath('/SignUp')"
+        :to="$localePath('/SignUp')"
         class="redLight"
       >
         {{ $t("signInPage.signUpQuestion.highlight") }}
@@ -79,7 +79,7 @@ onClickOutside(emailInput, () => {
         {{ $t("signInPage.remember") }}
       </label>
       <nuxt-link 
-        :to="localePath('/Profile')"
+        :to="$localePath('/Profile')"
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 
         @click.once="signIn()"

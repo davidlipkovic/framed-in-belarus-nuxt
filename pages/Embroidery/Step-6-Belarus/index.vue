@@ -39,7 +39,7 @@ definePageMeta({
         </div>
         <div class="buttons">
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-processing-shipping')"
+            :to="$localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 
           >
             {{ $t('embroidery.step6Page.sectionBelarus.forwardButton') }}

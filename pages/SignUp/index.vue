@@ -11,7 +11,7 @@ const { locales, t } = useI18n()
 import countries from '../../assets/json/countries.json'
 
 const router = useRouter()
-const localePath = useLocalePath()
+const $localePath = useLocalePath()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
@@ -31,7 +31,7 @@ const prevSlide = () => {
 }
 
 const createAccount = () => {
-  router.push(localePath('/VerifyEmail'))
+  router.push($localePath('/VerifyEmail'))
 }
 
 const username = ref(null)
@@ -116,7 +116,7 @@ const cancelRegistration = () => {
     <p class="signUpDescription">
       {{ $t("signUpPage.signInQuestion") }}
       <nuxt-link 
-        :to="localePath('/SignIn')"
+        :to="$localePath('/SignIn')"
         class="red"
       >
         {{ $t("links.signIn") }}

@@ -76,13 +76,13 @@ definePageMeta({
         </div>
         <div class="buttons">
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-3-support')"
+            :to="$localePath('/Embroidery/Step-3-support')"
             class="button"
           >
             {{ $t('embroidery.step4Page.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-5-comment')"
+            :to="$localePath('/Embroidery/Step-5-comment')"
             class="button bg_black" 
             id="save"
           >

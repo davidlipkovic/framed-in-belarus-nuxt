@@ -55,7 +55,7 @@ const comment = ref(null)
         </div>
         <div class="buttons flexColumnCenter">
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-processing-shipping')"
+            :to="$localePath('/Embroidery/Step-6-processing-shipping')"
             class="button bg_black" 
           >
             {{ $t('embroidery.step6Page.sectionPersonally.forwardButton') }}

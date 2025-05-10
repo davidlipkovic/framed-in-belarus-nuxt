@@ -114,7 +114,7 @@ onClickOutside(trackingNumberInput, () => {
             {{ $t('embroidery.step6Page.sectionEU.backButton') }}
           </nuxt-link>
           <nuxt-link 
-            :to="localePath('/Embroidery/Step-6-processing-shipping')"
+            :to="$localePath('/Embroidery/Step-6-processing-shipping')"
             class="button" 
             :class="validTrackingNumber ? 'bg_black' : 'button_disabled'"
           >
