@@ -53,22 +53,22 @@
         "mentionInstagram": "Згадаць мой акаўнт у вашых пастах",
         "tags": {
             "case": {
-            "type": "справы",
-            "all": "усе",
-            "individual": "індывідуальныя",
-            "group": "групавыя"
+                "type": "справы",
+                "all": "усе",
+                "individual": "індывідуальныя",
+                "group": "групавыя"
             },
             "status": {
-            "type": "стан зняволенага*ай",
-            "all": "усе",
-            "active": "пад вартай",
-            "former": "вольны*ая"
+                "type": "cтатус",
+                "all": "усе",
+                "active": "Пад вартай",
+                "former": "bызвален*а"
             },
             "gender": {
-            "type": "гендар",
-            "all": "усе",
-            "female": "жаночы",
-            "male": "мужчынскі"
+                "type": "Пол",
+                "all": "усе",
+                "female": "жаночы",
+                "male": "мужчынскі"
             }
         },
         "checkBox": {
@@ -360,6 +360,7 @@
             "description": {
                 "case": "Справа",
                 "birth": "Дата нараджэння",
+                "release": "Date of release",
                 "detention": "Дата арышту",
                 "sentence": "Пакаранне",
                 "descriptionPrisoner": "Апісанне палітзняволенага*ай",

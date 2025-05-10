@@ -59,13 +59,13 @@
                 "group": "group"
             },
             "status": {
-                "type": "status of prisoner",
+                "type": "status",
                 "all": "all",
                 "active": "in custody", 
-                "former": "free"
+                "former": "released"
             },
             "gender": {
-                "type": "gender",
+                "type": "sex",
                 "all": "all",
                 "female": "female",
                 "male": "male"
@@ -360,6 +360,7 @@
             "description": {
                 "case": "Case",
                 "birth": "Date of birth",
+                "release": "Date of release",
                 "detention": "Date of detention",
                 "sentence": "Sentence",
                 "descriptionPrisoner" : "Description of the Political prisoner",

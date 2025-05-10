@@ -1,3 +1,9 @@
+API
+- new specs for newsletter
+- 
+
+
+
 general:
 - fix css
 - clean and unify variables
