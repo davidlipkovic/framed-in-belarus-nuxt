@@ -70,8 +70,8 @@ const embroiderySlides = computed(() => {
 
 const processSlides = computed(() => {
   return removeNullItems([
-    ...galleryStore.currentEmbroidery.imagesData,
-    galleryStore.currentEmbroidery.comment.ApprovedHandwrittenAll[0].thumbnails,
+    ...(galleryStore.currentEmbroidery.imagesData ?? []),
+    galleryStore.currentEmbroidery.comment.imageData,
   ])
 })
 
@@ -256,15 +256,15 @@ onMounted(() => {
           :title="$t('casePage.author.reason')"
         />
         <GeneralToggleText 
-          v-if="galleryStore.currentEmbroidery.comment.eng"
+          v-if="galleryStore.currentEmbroidery.comment.text_eng"
           class="Description-item"
-          :message="galleryStore.currentEmbroidery.comment.eng"
+          :message="galleryStore.currentEmbroidery.comment.text_eng"
           :title="$t('casePage.author.comment')"
         />
         <GeneralToggleText 
-          v-if="galleryStore.currentEmbroidery.comment.native"
+          v-if="galleryStore.currentEmbroidery.comment.text_original"
           class="Description-item"
-          :message="galleryStore.currentEmbroidery.comment.native"
+          :message="galleryStore.currentEmbroidery.comment.text_original"
           :title="$t('casePage.author.nativeComment')"
         />
         <div class="galleryWrapper">
