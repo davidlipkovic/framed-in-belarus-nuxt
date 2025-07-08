@@ -54,6 +54,24 @@ const { removeNullProps } = useRemoveNull()
 
     return data.value.result
   }
+  
+  const subscribe = async (body) => {
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/email/subscribe', {
+      method: 'post',
+      body: removeNullProps(body)
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+    
+    console.log('subscribe', data.value)
+
+    return data.value.result
+  }
 
   const updateUser = async (body) => {
     const headers = setHeaders()
@@ -286,5 +304,6 @@ const { removeNullProps } = useRemoveNull()
     getUserActivities,
     getUserSummary,
     setHeaders,
+    subscribe,
   }
 })

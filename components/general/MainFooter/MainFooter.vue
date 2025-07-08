@@ -46,10 +46,9 @@ const subscribe = async () => {
       subscription: true
     })
   } else {
-    await userStore.login({
+    await userStore.subscribe({
       email: email.value,
       language: language.value,
-      subscription: true
     })
   }
 
