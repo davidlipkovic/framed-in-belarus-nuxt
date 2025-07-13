@@ -8,7 +8,7 @@ import { useRemoveNull } from "@/composables/RemoveNull"
 
 const galleryStore = useGalleryStore()
 const { checkImage } = useCheckImage()
-const { convertDateToReadable } = useConvertDate()
+const { convertDateToReadable, convertToEventDate } = useConvertDate()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 const { removeNullItems } = useRemoveNull()
 
@@ -37,16 +37,11 @@ const handleGallerySwiper = (i) => {
 }
 
 const caseName = computed(() => {
-  // WIP placeholder
-  if (!galleryStore.currentEmbroidery.prisoner.prisonerCase[0]['caseName_eng']) {
-    return 'Seizure of power'
-  }
-
-  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'caseName_')
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'caseName_')
 })
 
 const caseDescription = computed(() => {
-  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase[0], 'description_')
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_')
 })
 
 const prisonerName = computed(() => {
@@ -73,6 +68,15 @@ const processSlides = computed(() => {
     ...(galleryStore.currentEmbroidery.imagesData ?? []),
     galleryStore.currentEmbroidery.comment.imageData,
   ])
+})
+
+const showComment = computed(() => {
+  return Boolean(
+    galleryStore.currentEmbroidery.reason ||
+    galleryStore.currentEmbroidery.comment.text_eng ||
+    galleryStore.currentEmbroidery.comment.text_original ||
+    (processSlides.value && processSlides.value.length > 0)
+  )
 })
 
 const slides = computed(() => {
@@ -246,7 +250,10 @@ onMounted(() => {
             </p>
           </div>
         </GeneralToggleText>
-        <h2 class="Description-item Description-item_title">
+        <h2 
+          v-if="showComment"
+          class="Description-item Description-item_title"
+        >
           {{ $t('casePage.author.title') }}
         </h2>
         <GeneralToggleText 
@@ -267,14 +274,20 @@ onMounted(() => {
           :message="galleryStore.currentEmbroidery.comment.text_original"
           :title="$t('casePage.author.nativeComment')"
         />
-        <div class="galleryWrapper">
-          <img
+        <div 
+          v-if="processSlides && processSlides.length > 0"
+          class="galleryWrapper"
+        >
+          <div
             v-for="(slide, i) in processSlides"
             :key="i"
-            :src="slide.small"
-            :alt="`${slide?.alt}`"
-            @click="handleGallerySwiper(i + embroiderySlides.length)"
-          />
+          >
+            <img
+              :src="slide.small"
+              :alt="`${slide?.alt}`"
+              @click="handleGallerySwiper(i + embroiderySlides.length)"
+            />
+          </div>
         </div>
         <GeneralFullScreenSwiper
           :initialSlide="currentGallerySlide"
@@ -282,29 +295,43 @@ onMounted(() => {
           :slides="slides"
           @closeSwiper="showGallerySwiper = false"
         />
-        <div class="Description-item exhibitionsWrapper">
+        <div 
+          v-if="galleryStore.currentEmbroidery.news.length > 0"
+          class="Description-item exhibitionsWrapper"
+        >
           <h2 class="Description-item Description-item_title">
             {{ $t('casePage.exhibitions.title') }}
           </h2>
           <ul class="ExhibitionList">
-            <li class="ExhibitionList-item">
+            <li 
+              v-for="event in galleryStore.currentEmbroidery.news"
+              :key="event.id"
+              class="ExhibitionList-item"
+            >
               <h4 class="ExhibitionListItem-title">
-                <a href="#">
-                  The little bird must be caught
-                </a>
+                <nuxt-link :to="$localePath('/Events/Article/' + event.id)">
+                  {{ getCurrentLocaleStringValue(event, 'title_') }}
+                </nuxt-link>
               </h4>
-              <p class="ExhibitionListItem-descript flexRowStart">
+              <p 
+                v-if="event.startDate && event.endDate"
+                class="ExhibitionListItem-descript flexRowStart"
+              >
                 <SvgCalendar class="ExhibitionListItem-descript-icon descriptIcon"/>
-                18.11.2022 - 23.04.2023
+                {{ convertToEventDate(event.startDate, event.endDate) }}
               </p>
-              <p class="ExhibitionListItem-descript flexRowStart">
+              <p 
+                v-if="event.place"
+                class="ExhibitionListItem-descript flexRowStart"
+              >
                 <SvgLocation class="ExhibitionListItem-descript-icon descriptIcon"/>
-                <span>
+                {{ event.place }}
+                <!-- <span>
                   Weserburg Museum für Moderne Kunst.
                 </span>
                 <span class="museumCountry">
                   Bremen, <b class="b2">Germany</b>
-                </span>
+                </span> -->
               </p>
             </li>
           </ul>

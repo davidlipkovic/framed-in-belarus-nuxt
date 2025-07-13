@@ -38,8 +38,6 @@ const onSwiper = (swiper) => {
 const prevSlide = () => {
   localSwiper.slidePrev()
 }
-
-const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
 </script>
 
 <template>
@@ -68,7 +66,7 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
         :key="i"
       >
         <img
-          :src="slide.url"
+          :src="slide.large"
           :alt="`${slide?.alt}`"
         >
       </SwiperSlide>
