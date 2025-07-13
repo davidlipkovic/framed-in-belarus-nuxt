@@ -15,27 +15,14 @@ definePageMeta({
 const route = useRoute()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
-const { convertDateToReadable } = useConvertDate()
+const { convertToEventDate } = useConvertDate()
 
 const article = computed(() => {
   return newsStore.articles.find(article => article.id === route.params.id)
 })
 
 const date = computed(() => {
-  const startDate = new Date(article.value.startDate)
-  const endDate = new Date(article.value.endDate)
-  
-  const startYear = startDate.getFullYear()
-  const endYear = endDate.getFullYear()
-  
-  const startDateFormatted = convertDateToReadable(article.value.startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
-  const endDateFormatted = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
-
-  if (article.value.startDate === article.value.endDate) {
-    return endDateFormatted
-  } else {
-    return `${startDateFormatted} - ${endDateFormatted}`
-  }
+  return convertToEventDate(article.value.startDate, article.value.endDate)
 })
 
 const description = computed(() => {
@@ -110,15 +97,6 @@ const handleGallerySwiper = (i) => {
           :slides="article.photos"
           @closeSwiper="showGallerySwiper = false"
         />
-
-        <!-- <p>
-          The list of exhibeted embroideries:<br>
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>
-        </p> -->
       </article>
     </div>
   </main>

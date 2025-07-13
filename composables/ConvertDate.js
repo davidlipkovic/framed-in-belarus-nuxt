@@ -36,7 +36,27 @@ export function useConvertDate() {
     }
   }
 
+  const convertToEventDate = (startDate, endDate) => {    
+    if (!startDate || !endDate) {
+      return
+    }
+
+    const endDateFormatted = convertDateToReadable(endDate, 'DD.MM.YYYY')
+
+    if (startDate === endDate) {
+      return endDateFormatted
+    }
+
+    const startYear = new Date(startDate).getFullYear()
+    const endYear = new Date(endDate).getFullYear()
+    
+    const startDateFormatted = convertDateToReadable(startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
+    
+    return `${startDateFormatted} - ${endDateFormatted}`
+  }
+
   return {
     convertDateToReadable,
+    convertToEventDate,
   }
 }

@@ -244,13 +244,16 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
           :title="$t('casePage.author.nativeComment')"
         />
         <div class="galleryWrapper">
-          <img
+          <div
             v-for="(slide, i) in slides"
             :key="slide.alt"
-            :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
-            :alt="`${slide.alt}`"
-            @click="handleGallerySwiper(i)"
-          />
+          >
+            <img
+              :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
+              :alt="`${slide.alt}`"
+              @click="handleGallerySwiper(i)"
+            />
+          </div>
         </div>
         <GeneralFullScreenSwiper
           :initialSlide="currentGallerySlide"

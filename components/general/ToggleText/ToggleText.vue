@@ -16,6 +16,8 @@ const props = defineProps({
   }
 })
 
+const showMore = ref(false)
+
 const buttonMessage = computed(() => {
   if (showMore.value) {
     return t("buttons.showLess")
@@ -26,25 +28,37 @@ const buttonMessage = computed(() => {
 
 const enableToggle = computed(() => props.message.length > props.limit)
 
+const toggleOpened = computed(() => !enableToggle.value || showMore.value)
+
 const message = computed(() => {
-  if (showMore.value && !enableToggle.value) {
+  if (toggleOpened.value) {
     return props.message
   }
 
   return props.message.slice(0, props.limit) + '...'
 })
-
-const showMore = ref(false)
 </script>
 
 <template>
-  <div class="toggleTextWrapper">
+  <div 
+    class="toggleTextWrapper"
+    :class="{'toggleOpened': toggleOpened}"
+  >
     <h3>
       {{ title }}
     </h3>
     <p>
       {{ message }}
     </p>
+    <slot v-if="showMore"/>
+    <a 
+      v-if="source && toggleOpened"
+      :href="source.link" 
+      class="red additionalInfo"
+    >
+      {{ source.title }}
+      <SvgLink/>
+    </a>
     <button
       v-if="enableToggle"
       @click="showMore = !showMore" 
