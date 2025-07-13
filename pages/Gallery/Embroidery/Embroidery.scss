@@ -1,10 +1,6 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .galleryCaseWrapper {
-  .Title {
-    z-index: 1;
-  }
-
   .content.galleryCaseContent {
     @media screen and (min-width: $br-point-md) {
       display: grid;

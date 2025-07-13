@@ -7,7 +7,16 @@ export function useRemoveNull() {
 
   const removeNullItems = (data) => {
     return data.reduce((acc, item) => {
-      if (item) acc.push(item)
+      if (item) {
+        if (typeof item === 'object') {
+          if (Object.keys(item).length > 0) {
+            acc.push(item)
+          }
+        } else {
+          acc.push(item)
+        }
+      }
+
       return acc
     }, [])
   }
