@@ -38,6 +38,10 @@
       font-weight: 600;
       font-size: 1rem;
     }
+
+    p {
+      white-space: pre-line;
+    }
   }
 
   .Description-item_title {
@@ -71,7 +75,7 @@
   }
 
   .ExhibitionList-item {
-    @extend .item-margin_bottom_mini;
+    @extend .item-margin_bottom;
     margin-left: 0;
     list-style: none;
   }
@@ -152,11 +156,21 @@
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
 
-    img {
+    div {
+      display: flex;
       width: 100%;
       aspect-ratio: 1 / 1;
       border-radius: 6px;
       cursor: pointer;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        min-width: 100%;
+        min-width: 100%;
+        height: auto;
+        height: auto;
+      }
     }
   }
 

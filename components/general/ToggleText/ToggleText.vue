@@ -21,7 +21,6 @@ const props = defineProps({
 })
 
 const showMore = ref(false)
-const extraContent = ref(null)
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -33,8 +32,10 @@ const buttonMessage = computed(() => {
 
 const enableToggle = computed(() => props.message.length > props.limit || !!useSlots().default)
 
+const toggleOpened = computed(() => !enableToggle.value || showMore.value)
+
 const message = computed(() => {
-  if (!enableToggle.value || showMore.value) {
+  if (toggleOpened.value) {
     return props.message
   }
 
@@ -43,7 +44,10 @@ const message = computed(() => {
 </script>
 
 <template>
-  <div class="toggleTextWrapper">
+  <div 
+    class="toggleTextWrapper"
+    :class="{'toggleOpened': toggleOpened}"
+  >
     <h3>
       {{ title }}
     </h3>
@@ -52,7 +56,7 @@ const message = computed(() => {
     </p>
     <slot v-if="showMore"/>
     <a 
-      v-if="source && (!enableToggle || showMore)"
+      v-if="source && toggleOpened"
       :href="source.link" 
       class="red additionalInfo"
     >
