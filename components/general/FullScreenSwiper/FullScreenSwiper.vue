@@ -3,6 +3,9 @@ import { onMounted, ref, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import { Keyboard } from 'swiper/modules'
+import { useWindowSize } from '@vueuse/core'
+
+const { width } = useWindowSize()
 
 const emit = defineEmits([
   'closeSwiper',
@@ -66,7 +69,7 @@ const prevSlide = () => {
         :key="i"
       >
         <img
-          :src="slide.large"
+          :src="width > 1280 ? slide.url : slide.large"
           :alt="`${slide?.alt}`"
         >
       </SwiperSlide>
