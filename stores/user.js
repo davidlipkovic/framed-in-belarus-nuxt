@@ -7,6 +7,7 @@ const { removeNullProps } = useRemoveNull()
 
   const loading = ref(false)
   const user = ref(null)
+  const oldUser = ref(null)
   const userSummary = ref(null)
   const userAuthorizationData = ref(null)
   const userDataBeforeDelete = ref(false)
@@ -180,7 +181,7 @@ const { removeNullProps } = useRemoveNull()
       window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
     }
   }
-  
+
   const getUserData = async () => {
     const headers = setHeaders()
 
@@ -209,6 +210,45 @@ const { removeNullProps } = useRemoveNull()
       username: result.username,
       countryOfResidence: result.countryOfResidence,
       language: result.language.toUpperCase(),
+      instagram: result.instagram,
+      reason: result.reason,
+      publishReason: result.publishReason,
+      publishCountryOfResidence: result.publishCountryOfResidence,
+      publishInstagram: result.publishInstagram,
+      publishUsername: result.publishUsername,
+    }
+  }
+  
+  //WIP
+  const getOldUserData = async (userId, userToken) => {
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/token/' + userId + '/' + userToken, {
+      method: 'get',
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+
+    console.log('getOldUserData', data.value)
+
+    const result = data.value.result
+    // const result = {
+    //   email: 'david',
+    //   username: 'davidl'
+    // }
+
+    if (!result) {
+      return
+    }
+
+    oldUser.value = {
+      email: result.email,
+      username: result.username,
+      countryOfResidence: result.countryOfResidence,
+      language: result.language?.toUpperCase(),
       instagram: result.instagram,
       reason: result.reason,
       publishReason: result.publishReason,
@@ -290,6 +330,7 @@ const { removeNullProps } = useRemoveNull()
     loading,
     createShipping,
     user,
+    oldUser,
     userSummary,
     userAuthorizationData,
     userDataBeforeDelete,
@@ -301,6 +342,7 @@ const { removeNullProps } = useRemoveNull()
     validatePin,
     getUserAuthorizationData,
     getUserData,
+    getOldUserData,
     getUserActivities,
     getUserSummary,
     setHeaders,

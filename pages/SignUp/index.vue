@@ -17,7 +17,17 @@ const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
 
 definePageMeta({
-  layout: "registrationlg"
+  layout: "registrationlg",
+
+  //WIP
+  middleware: [
+    async function (to, from) {
+      if (to.query.userId && to.query.userToken) {
+        const userStore = useUserStore()
+        await userStore.getOldUserData(to.query.userId, to.query.userToken)
+      }
+    },
+  ],
 })
 
 const currentSlide = ref(0)
@@ -86,6 +96,21 @@ const publishReason = ref(false)
 
 const terms = ref(false)
 const subscription = ref(false)
+
+console.log('signup page', userStore.oldUser)
+
+if (userStore.oldUser) {
+  emailInput.value = userStore.oldUser.email
+  username.value = userStore.oldUser.username
+  publishUsername.value = userStore.oldUser.publishUsername
+  countryOfResidence.value = userStore.oldUser.countryOfResidence
+  publishCountryOfResidence.value = userStore.oldUser.publishCountryOfResidence
+  language.value = userStore.oldUser.language
+  instagram.value = userStore.oldUser.instagram
+  mentionInstagram.value = userStore.oldUser.mentionInstagram
+  publishInstagram.value = userStore.oldUser.publishInstagram
+  source.value = userStore.oldUser.source
+}
 
 const updateLanguage = (lang) => {
   language.value = lang.name
