@@ -9,17 +9,12 @@ const { width } = useWindowSize()
 
 const emit = defineEmits([
   'closeSwiper',
-  'showSwiper',
 ])
 
 const props = defineProps({
   initialSlide: {
     type: Number,
     default: 0
-  },
-  showSwiper: {
-    type: Boolean,
-    default: false
   },
   slides: {
     type: Array,
@@ -44,10 +39,7 @@ const prevSlide = () => {
 </script>
 
 <template>
-  <div
-    v-if="showSwiper"
-    class="fullScreenSwiperWrapper"
-  >
+  <div class="fullScreenSwiperWrapper">
     <div 
       class="swiperBackground"
       @click="$emit('closeSwiper')"
@@ -65,13 +57,20 @@ const prevSlide = () => {
       class="fullScreenSwiper"
     >
       <SwiperSlide 
-        v-for="(slide, i) in slides"
-        :key="i"
+        v-for="slide in slides"
+        :key="slide.full"
       >
-        <img
-          :src="width > 1280 ? slide.url : slide.large"
-          :alt="`${slide?.alt}`"
-        >
+        <div>
+          <img
+            :src="width > 1280 ? slide.full : slide.large"
+            :alt="slide.alt"
+          >
+          <div v-if="slide.alt">
+            <span>
+              {{ slide.alt }}
+            </span>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
     <button

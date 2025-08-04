@@ -33,14 +33,23 @@ const title = computed(() => {
   return getCurrentLocaleStringValue(article.value, 'title_')
 })
 
+const slides = computed(() => {
+  return article.value.photos.map((photo) => {
+    return {
+      small: photo.thumbnails.small.url,
+      large: photo.thumbnails.large.url,
+      full: photo.thumbnails.full.url,
+      alt: photo.filename.substring(0, photo.filename.lastIndexOf('.'))
+    }
+  })
+})
+
 const currentGallerySlide = ref(0)
 const showGallerySwiper = ref(false)
 
 const handleGallerySwiper = (i) => {
   showGallerySwiper.value = true
   currentGallerySlide.value = i
-
-  console.log(showGallerySwiper, currentGallerySlide)
 }
 </script>
 
@@ -84,17 +93,17 @@ const handleGallerySwiper = (i) => {
         />
         <div class="galleryWrapper">
           <img
-            v-for="(photo, i) in article.photos"
+            v-for="(photo, i) in slides"
             :key="photo.alt"
-            :src="photo.thumbnails.large.url"
-            :alt="photo.filename"
+            :src="photo.large"
+            :alt="photo.alt"
             @click="handleGallerySwiper(i)"
           />
         </div>
-        <NewsFullScreenSwiper
+        <GeneralFullScreenSwiper
+          v-if="showGallerySwiper"
           :initialSlide="currentGallerySlide"
-          :showSwiper="showGallerySwiper"
-          :slides="article.photos"
+          :slides="slides"
           @closeSwiper="showGallerySwiper = false"
         />
       </article>

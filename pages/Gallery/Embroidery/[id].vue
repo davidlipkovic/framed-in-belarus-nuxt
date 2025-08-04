@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import useGalleryStore from "@/stores/gallery"
 import { useCheckImage } from "@/composables/CheckImage"
 import { useConvertDate } from "@/composables/ConvertDate"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 import { useRemoveNull } from "@/composables/RemoveNull"
 
+const { t } = useI18n()
 const galleryStore = useGalleryStore()
 const { checkImage } = useCheckImage()
 const { convertDateToReadable, convertToEventDate } = useConvertDate()
@@ -19,21 +21,13 @@ definePageMeta({
   ],
 })
 
-const currentFullScreenEmbroiderySlide = ref(0)
-const showFullScreenEmbroiderySwiper = ref(false)
+const currentFullScreenSlide = ref(0)
+const showFullScreenSwiper = ref(false)
 const showPrisonerImage = ref(false)
 
-const handleFullScreenEmbroiderySwiper = (i) => {
-  showFullScreenEmbroiderySwiper.value = true
-  currentFullScreenEmbroiderySlide.value = i
-}
-
-const currentGallerySlide = ref(0)
-const showGallerySwiper = ref(false)
-
-const handleGallerySwiper = (i) => {
-  showGallerySwiper.value = true
-  currentGallerySlide.value = i
+const handleFullScreenSwiper = (i) => {
+  showFullScreenSwiper.value = true
+  currentFullScreenSlide.value = i
 }
 
 const caseName = computed(() => {
@@ -60,14 +54,42 @@ const embroiderySlides = computed(() => {
   return removeNullItems([
     galleryStore.currentEmbroidery.imageData,
     galleryStore.currentEmbroidery.imageBackedData,
-  ])
+  ]).map((photo) => {
+    return {
+      small: photo.small,
+      large: photo.large,
+      full: photo.url,
+      alt: null,
+    }
+  })
 })
 
 const processSlides = computed(() => {
-  return removeNullItems([
-    ...(galleryStore.currentEmbroidery.imagesData ?? []),
-    galleryStore.currentEmbroidery.comment.imageData,
-  ])
+  const author = galleryStore.currentEmbroidery.name ? galleryStore.currentEmbroidery.name : t('casePage.swiper.anonymous')
+  const alt = t('descriptions.photo.part1') + author.toLowerCase() + t('descriptions.photo.part2')
+
+  const authorSlides = removeNullItems(galleryStore.currentEmbroidery.imagesData ?? []).map((photo) => {
+    return {
+      small: photo.small,
+      large: photo.large,
+      full: photo.url,
+      alt
+    }
+  })
+
+  const commentSlides = removeNullItems([galleryStore.currentEmbroidery.comment.imageData]).map((photo) => {
+    return {
+      small: photo.small,
+      large: photo.large,
+      full: photo.url,
+      alt: null,
+    }
+  })
+
+  return [
+    ...authorSlides,
+    ...commentSlides,
+  ]
 })
 
 const showComment = computed(() => {
@@ -117,13 +139,7 @@ onMounted(() => {
           class="galleryCaseSwiper"
           :fullscreen="true"
           :slides="embroiderySlides"
-          @openFullscreen="handleFullScreenEmbroiderySwiper"
-        />
-        <GeneralFullScreenSwiper
-          :initialSlide="currentFullScreenEmbroiderySlide"
-          :showSwiper="showFullScreenEmbroiderySwiper"
-          :slides="slides"
-          @closeSwiper="showFullScreenEmbroiderySwiper = false"
+          @openFullscreen="handleFullScreenSwiper"
         />
         <p class="swiperDescription flexRowStart">
           {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | Canvas: {{ galleryStore.currentEmbroidery.canvasSize }} mm
@@ -285,16 +301,10 @@ onMounted(() => {
             <img
               :src="slide.small"
               :alt="`${slide?.alt}`"
-              @click="handleGallerySwiper(i + embroiderySlides.length)"
+              @click="handleFullScreenSwiper(i + embroiderySlides.length)"
             />
           </div>
         </div>
-        <GeneralFullScreenSwiper
-          :initialSlide="currentGallerySlide"
-          :showSwiper="showGallerySwiper"
-          :slides="slides"
-          @closeSwiper="showGallerySwiper = false"
-        />
         <div 
           v-if="galleryStore.currentEmbroidery.news.length > 0"
           class="Description-item exhibitionsWrapper"
@@ -336,6 +346,12 @@ onMounted(() => {
             </li>
           </ul>
         </div>
+        <GeneralFullScreenSwiper
+          v-if="showFullScreenSwiper"
+          :initialSlide="currentFullScreenSlide"
+          :slides="slides"
+          @closeSwiper="showFullScreenSwiper = false"
+        />
       </article>
     </div>
   </main>
