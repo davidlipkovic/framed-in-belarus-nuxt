@@ -107,6 +107,12 @@
         "source": "Перайсці да крыніцы інфармацыі",
         "supportUs": "Падтрымаць нас"
     },
+    "descriptions": {
+        "photo": {
+            "part1": "Photo by ",
+            "part2": " for #FramedinBelarus project"
+        }
+    },
     "notifications": {
         "subscribeSuccess": "Вы паспяхова падпісаліся!",
         "sorry": "Шкада, што вы сыходзіце!",
