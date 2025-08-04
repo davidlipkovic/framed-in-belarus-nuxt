@@ -11,6 +11,12 @@
     margin-top: 1rem;
   }
 
+  .ToggleTextMessage {
+    >* {
+      margin-bottom: 12px;
+    }
+  }
+
   .additionalInfo {
     display: block;
     margin-bottom: 8px;

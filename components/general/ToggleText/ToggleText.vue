@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import VueMarkdown from 'vue-markdown-render'
+
 const { t } = useI18n()
 
 const props = defineProps({
@@ -51,13 +53,15 @@ const message = computed(() => {
     <h3>
       {{ title }}
     </h3>
-    <p>
-      {{ message }}
-    </p>
+    <vue-markdown 
+      class="ToggleTextMessage"
+      :source="message" 
+    />
     <slot v-if="showMore"/>
     <a 
       v-if="source && toggleOpened"
       :href="source.link" 
+      target="_blank"
       class="red additionalInfo"
     >
       {{ source.title }}
