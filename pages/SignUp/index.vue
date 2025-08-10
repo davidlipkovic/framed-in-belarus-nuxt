@@ -32,14 +32,6 @@ definePageMeta({
 
 const currentSlide = ref(0)
 
-const nextSlide = () => {
-  localSwiper.slideNext()
-}
-
-const prevSlide = () => {
-  localSwiper.slidePrev()
-}
-
 const signUp = async () => {
   const body = {
     email: registrationStore.email,
@@ -100,7 +92,7 @@ const subscription = ref(false)
 console.log('signup page', userStore.oldUser)
 
 if (userStore.oldUser) {
-  emailInput.value = userStore.oldUser.email
+  registrationStore.email = userStore.oldUser.email
   username.value = userStore.oldUser.username
   publishUsername.value = userStore.oldUser.publishUsername
   countryOfResidence.value = userStore.oldUser.countryOfResidence
@@ -110,6 +102,7 @@ if (userStore.oldUser) {
   mentionInstagram.value = userStore.oldUser.mentionInstagram
   publishInstagram.value = userStore.oldUser.publishInstagram
   source.value = userStore.oldUser.source
+  reason.value = userStore.oldUser.reason
 }
 
 const updateLanguage = (lang) => {
