@@ -77,7 +77,11 @@ const processSlides = computed(() => {
     }
   })
 
-  const commentSlides = removeNullItems([galleryStore.currentEmbroidery.comment.imageData]).map((photo) => {
+  if (!Array.isArray(galleryStore.currentEmbroidery.comment.imagesData) || !galleryStore.currentEmbroidery.comment.imagesData.length) {
+    return authorSlides
+  }
+
+  const commentSlides = removeNullItems([...galleryStore.currentEmbroidery.comment.imagesData]).map((photo) => {
     return {
       small: photo.small,
       large: photo.large,
@@ -237,30 +241,27 @@ onMounted(() => {
           class="Description-item"
           :message="caseDescription"
           :title="$t('casePage.description.descriptionCase')"
-          :source="{
-            title: 'See more',
-            link: '#',
-          }"
+          :link="galleryStore.currentEmbroidery.prisoner.prisonerCase.materialsUrl"
+          :linkTitle="getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'mediaComment_')"
         />
         <GeneralToggleText 
           v-if="prisonerDescription && prisonerDescription.length > 2"
           class="Description-item"
           :message="prisonerDescription"
           :title="$t('casePage.description.descriptionPrisoner')"
-          :source="{
-            title: $t('casePage.description.goToSource'),
-            link: galleryStore.currentEmbroidery.prisoner.viasnaUrl,
-          }"
+          :link="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
+          :linkTitle="$t('casePage.description.goToSource')"
         >
           <div 
-            v-if="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
+            v-if="galleryStore.currentEmbroidery.prisoner.prison_eng && galleryStore.currentEmbroidery.prisoner.prisonAddress_eng"
             class="Description-item"
           >
             <h3 class="title">
               {{ $t('casePage.description.address') }}:
             </h3>
             <p>
-              {{ galleryStore.currentEmbroidery.prisoner.viasnaUrl }}
+              {{ getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'prison_') }}
+              {{ getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'prisonAddress_') }}
             </p>
           </div>
         </GeneralToggleText>

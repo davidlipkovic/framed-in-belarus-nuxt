@@ -13,11 +13,13 @@ const props = defineProps({
   message: {
     type: String,
   },
-  source: {
-    type: Object,
-    default: null
-  },
   title: {
+    type: String,
+  },
+  link: {
+    type: String,
+  },
+  linkTitle: {
     type: String,
   }
 })
@@ -59,12 +61,12 @@ const message = computed(() => {
     />
     <slot v-if="showMore"/>
     <a 
-      v-if="source && toggleOpened"
-      :href="source.link" 
+      v-if="link && linkTitle && toggleOpened"
+      :href="link" 
       target="_blank"
       class="red additionalInfo"
     >
-      {{ source.title }}
+      {{ linkTitle }}
       <SvgLink/>
     </a>
     <button

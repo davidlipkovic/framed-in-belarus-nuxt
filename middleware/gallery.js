@@ -2,7 +2,7 @@ import useGalleryStore from "@/stores/gallery"
 const galleryStore = useGalleryStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (!galleryStore.articles) {
+  if (!galleryStore.originalEmbroideries) {
     galleryStore.loading = true
     await galleryStore.getEmbroideries()
     galleryStore.populateGroupCases()
