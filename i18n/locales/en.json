@@ -1,6 +1,7 @@
 {
     "title": "Framed in Belarus",
     "description": "A social art project dedicated to political prisoners in Belarus",
+    "email": "framedinbelarus{'@'}gmail.com",
     "buttons": {
         "accept": "Accept",
         "decline": "Decline",
@@ -310,6 +311,7 @@
         "question": "Why did you decide to participate?",
         "editProfile": "Edit profile",
         "deleteAccount": "Delete account",
+        "changeMail": "To change your email, write to ",
         "notifications": {
             "notification1": "You are taking too much time for one step, please proceed with your work.",
             "notification2": "The deadline for this embroidery has been extended to",
