@@ -146,15 +146,14 @@
             "essentialCookies": {
                 "label": "Essential Cookies",
                 "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content1": "These cookies are essential for the operation of our website. They enable you to navigate the site and use its features, such as accessing secure areas. Without these cookies, certain services you have asked for cannot be provided."
                 }
             },
             "performanceCookies": {
                 "label": "Performance Cookies",
                 "description": {
                     "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies."
                 }
             }
         }
@@ -640,7 +639,6 @@
                 "paragraph3": "Go to your profile to begin working on a new embroidery.",
                 "forwardButton": "Go to my profile"
             },
-            "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
             "sectionEU": {
                 "title": "Please read this section carefully!",
                 "section1": {

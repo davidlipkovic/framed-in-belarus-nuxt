@@ -136,25 +136,24 @@
         }
     },
     "cookies": {
-        "barMessage": "For measurements services of Framed in Belarus website, and to improve our services for you, we use tools that use cookies.",
+        "barMessage": "Для аналитики посещаемости сайта Framed in Belarus и улучшения нашей работы мы используем инструменты, работающие с файлами cookie.",
         "modal": {
-            "title": "Manage cookies",
+            "title": "Управление файлами cookie",
             "cookieDetailsLink": {
                 "content": "More details you can learn",
                 "highlight": "here"
             },
             "essentialCookies": {
-                "label": "Essential Cookies",
+                "label": "Необходимые файлы cookie",
                 "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content1": "Эти файлы cookie необходимы для работы нашего веб-сайта. Они обеспечивают навигацию по сайту и использование его функций, таких как доступ к защищенным разделам. Без этих файлов cookie некоторые запрошенные вами сервисы не могут быть предоставлены."
                 }
             },
             "performanceCookies": {
-                "label": "Performance Cookies",
+                "label": "Статистические файлы cookie",
                 "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content1": "Эти файлы cookie позволяют нам подсчитывать посещения и источники трафика на наш веб-сайт, чтобы мы могли измерять и улучшать его производительность. Они помогают нам определить, какие разделы нашего веб-сайта являются наиболее или наименее популярными, а также позволяют нам отслеживать, как посетители перемещаются по сайту. Любая информация, собираемая этими файлами cookie, агрегируется и, следовательно, анонимна. Если вы не разрешите использование этих файлов cookie, у нас не будет информации об использовании нашего сайта.",
+                    "content2": "Мы используем Google Analytics, чтобы получить более детальное представление о том, как пользователи используют наш веб-сайт. Собранная информация отправляется и хранится в США на серверах Google. Google использует файлы cookie, чтобы оценить, как вы используете наш веб-сайт, создать отчеты о вашей активности и предложить другие услуги/продукты, которые могут вас заинтересовать. Google Analytics размещает как постоянные файлы cookie, так и сеансовые файлы cookie."
                 }
             }
         }
@@ -640,7 +639,6 @@
                 "paragraph3": "Перейдите в свой личный кабинет, чтобы начать работу над новой вышивкой.",
                 "forwardButton": "Перейти в личный кабинет"
             },
-            "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
             "sectionEU": {
                 "title": "Пожалуйста, внимательно прочитайте этот раздел!",
                 "section1": {
