@@ -66,9 +66,7 @@ const handleGallerySwiper = (i) => {
           <h1 class="content News">
             {{ title }}
           </h1>
-          <GeneralGoBack
-            page="Events"
-          />
+          <GeneralGoBack/>
         </div>
       </div>
       <article class="content newsArticleContent">

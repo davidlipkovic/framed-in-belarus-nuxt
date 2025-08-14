@@ -34,7 +34,6 @@ const images = import.meta.glob('@/assets/media/img/schemaExample/*.jpg', { eage
         </h1>
         <GeneralGoBack
           :isEmbroidery="true"
-          page="Profile"
         />
       </div>
     </div>

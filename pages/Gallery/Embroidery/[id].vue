@@ -127,9 +127,7 @@ onMounted(() => {
           <span class="visually-hidden">— </span></span>
           {{ prisonerName }}
         </h1>
-        <GeneralGoBack
-          page="Gallery"
-        />
+        <GeneralGoBack/>
       </div>
     </div>
     <div class="content galleryCaseContent">

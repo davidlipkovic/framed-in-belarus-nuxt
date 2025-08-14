@@ -44,7 +44,6 @@ const handleCreateShipping = async () => {
         </h1>
         <GeneralGoBack
           :isEmbroidery="true"
-          page="Profile"
         />
       </div>
     </div>
