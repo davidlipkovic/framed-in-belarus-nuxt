@@ -145,6 +145,10 @@ watch(
     numberOfPages.value = Math.ceil(dataAccumulator.length / rangePerPage.value)
     numberOfItems.value = dataAccumulator.length
     parsedEmbroideries.value = sliceDisplayed(dataAccumulator)
+
+    if (currentPage.value > numberOfPages.value) {
+      updatePageIndex(1)
+    }
   }, 
   { immediate: true }
 )
@@ -200,7 +204,7 @@ watch(
           />
         </div>
       </div>
-      <template v-if="parsedEmbroideries.length">
+      <template v-if="numberOfItems > 0">
         <section class="searchResultsWrapper">
           <GeneralResultBox
             v-for="item in parsedEmbroideries"
