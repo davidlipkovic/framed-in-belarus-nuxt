@@ -823,7 +823,8 @@
         }
     },
     "galleryPage": {
-        "title": "Галерэя"
+        "title": "Галерэя",
+        "noResults": "Sorry, we don't have any matching embroidery in our database"
     },
     "casePage": {
         "title": "Галерэя",

@@ -8,20 +8,17 @@ const route = useRoute()
 
 const heroesStore = useHeroesStore()
 const {
-  activeMenuIndex,
-  changePageIndex,
-  closeTagsMenu,
+  updatePageIndex,
   currentOrder,
   currentPage,
   currentTags,
-  handleSearch,
+  updateSearch,
   handleSearchRouteWatch,
   numberOfPages,
   parseData,
   rangePerPage,
   searchQuery,
   temporarySearchQuery,
-  toggleActiveMenuIndex,
   updateSortOrder,
   updateTags,
 } = useSearch();
@@ -226,7 +223,7 @@ watch(route, () => {
               :placeholder="$t('placeholders.searchHero')"
               :aria-placeholder="$t('placeholders.searchHero')"
               v-model="temporarySearchQuery"
-              @input="handleSearch()"
+              @input="updateSearch()"
             />
             <ul 
               v-if="temporarySearchQuery.length > 3"
@@ -254,37 +251,26 @@ watch(route, () => {
           <div class="tagsMenusWrapper flexRowStart">
             <GeneralTagsMenu
               :currentTag="currentTags.case"
-              :menuStatus="activeMenuIndex === 2"
               type="case"
               :tags="localTags.case"
               @checkForTag="updateTags"
-              @checkForStatus="toggleActiveMenuIndex(2)"
-              @closeTagsMenu="closeTagsMenu(2)"
             />
             <GeneralTagsMenu
               :currentTag="currentTags.status"
-              :menuStatus="activeMenuIndex === 3"
               type="status"
               :tags="localTags.status"
               @checkForTag="updateTags"
-              @checkForStatus="toggleActiveMenuIndex(3)"
-              @closeTagsMenu="closeTagsMenu(3)"
             />
             <GeneralTagsMenu
               :currentTag="currentTags.gender"
-              :menuStatus="activeMenuIndex === 4"
               type="gender"
               :tags="localTags.gender"
               @checkForTag="updateTags"
-              @checkForStatus="toggleActiveMenuIndex(4)"
-              @closeTagsMenu="closeTagsMenu(4)"
             />
             <GeneralSortMenu 
-              :menuStatus="activeMenuIndex === 1"
               :currentOrder="currentOrder"
+              :enableChronological="true"
               @checkForOrder="updateSortOrder"
-              @checkForStatus="toggleActiveMenuIndex(1)"
-              @closeSortMenu="closeTagsMenu(1)"
             />
           </div>
         </div>
@@ -302,7 +288,7 @@ watch(route, () => {
             v-if="numberOfPages"
             :currentPage="currentPage"
             :numberOfPages="numberOfPages"
-            @change-page-index-to="changePageIndex"
+            @change-page-index-to="updatePageIndex"
           />
         </template>
         <div 

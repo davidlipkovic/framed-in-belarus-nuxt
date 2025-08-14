@@ -26,6 +26,10 @@
 		span:nth-child(2) {
 			font-weight: 700;
 			margin-left: 4px;
+			display: block;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
 		}
 
 		svg {

@@ -1,6 +1,6 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
-import tagsJSON from '../assets/json/tags.json'
+// import tagsJSON from '../assets/json/tags.json'
 import useUserStore from './user'
 
 export default defineStore("heroes", () => {
@@ -93,7 +93,7 @@ export default defineStore("heroes", () => {
     console.log('getStitchingActivities', data.value)
   }
 
-  tags.value = tagsJSON
+  // tags.value = tagsJSON
 
   return {
     chosenHero,

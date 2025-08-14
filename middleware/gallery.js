@@ -5,6 +5,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   if (!galleryStore.articles) {
     galleryStore.loading = true
     await galleryStore.getEmbroideries()
+    galleryStore.populateGroupCases()
     galleryStore.loading = false
   } else {
     galleryStore.loading = false

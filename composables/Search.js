@@ -1,16 +1,11 @@
-import { computed, ref } from "vue"
+import { ref } from "vue"
 import { useRoute, useRouter } from 'vue-router'
-import { useWindowSize } from '@vueuse/core'
-import { search } from 'ss-search'
 import debounce from 'lodash/debounce'
 
 export function useSearch() {
   const route = useRoute()
   const router = useRouter()
 
-  const { width } = useWindowSize()
-
-  const activeMenuIndex = ref(null)
   const rangeIndex = ref(0)
   const rangePerPage = ref(16)
   const currentOrder = ref('Alphabetically')
@@ -21,88 +16,53 @@ export function useSearch() {
   })
   const numberOfItems = ref(null)
   const numberOfPages = ref(null)
-  const searchQuery = ref('')
-  const temporarySearchQuery = ref('')
 
-  const changePageIndex = (index) => {
+  const updatePageIndex = (index) => {
+    let calculatedRangeIndex
+
     if (index === 'first') { 
-      rangeIndex.value = 0
+      calculatedRangeIndex = 0
     } else if (index === -1) {
-      rangeIndex.value = Math.max(rangeIndex.value - rangePerPage.value, 0)
+      calculatedRangeIndex = Math.max(rangeIndex.value - rangePerPage.value, 0)
     } else if (index === 1) { 
-      rangeIndex.value = Math.min(rangeIndex.value + rangePerPage.value, numberOfItems.value - rangePerPage.value)
+      calculatedRangeIndex = Math.min(rangeIndex.value + rangePerPage.value, numberOfItems.value - rangePerPage.value)
     } else if (index === 'last') { 
-      rangeIndex.value = Math.max(numberOfItems.value - rangePerPage.value, 0)
+      calculatedRangeIndex = Math.max(numberOfItems.value - rangePerPage.value, 0)
     }
-  }
 
-  const closeTagsMenu = (index) => {
-    if (activeMenuIndex.value === index) {
-      activeMenuIndex.value = null
-    }
-  }
-
-  const currentPage = computed(() => Math.ceil(rangeIndex.value / rangePerPage.value) + 1);
-
-  const handleSearch = debounce(() => {
     router.replace({ 
       query: { 
         ...route.query, 
-        ...{ search: temporarySearchQuery.value } 
+        ...{ p: Math.ceil(calculatedRangeIndex / rangePerPage.value) + 1 } 
       }
     })
-  }, 300)
-
-  const handleSearchRouteWatch = () => {
-    if (route.query.order) {
-      currentOrder.value = route.query.order
-    }
-  
-    if (route.query.search) {
-      searchQuery.value = route.query.search
-      temporarySearchQuery.value = route.query.search
-    }
-  
-    for (const key in route.query) {
-      if (key === 'order' || key === 'search') continue
-      currentTags.value[key] = route.query[key]
-    }
   }
+
+  const updateSearch = debounce((searchQuery) => {
+    if (searchQuery.length < 3) {
+      const query = {...route.query}
+      delete query.search
+
+      router.replace({ query })
+    } else {
+      router.replace({ 
+        query: { 
+          ...route.query, 
+          ...{ search: searchQuery } 
+        }
+      })
+    }
+  }, 300)
 
   const sliceDisplayed = (heroes) => heroes.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
-  const parseData = (store, storeType) => {
-    let data = store[storeType + currentOrder.value].filter(hero => {
-      return Object.entries(currentTags.value).every(([type, tag]) => {
-        if (tag === 'all') return true
-        return hero[type] === tag
-      })
-    })
-
-    if (searchQuery.value.length > 3) {
-      data = search(data, ['name', 'case', 'prison/title', 'prison/adress', 'birthday', 'arrested'], searchQuery.value)
-    }
-
-    numberOfPages.value = Math.ceil(data.length / rangePerPage.value)
-    numberOfItems.value = data.length
-    return sliceDisplayed(data)
-  }
-
-  const toggleActiveMenuIndex = (index) => {
-    if (activeMenuIndex.value !== index) {
-      activeMenuIndex.value = index
-    } else {
-      activeMenuIndex.value = null
-    }
-  }
-
   const updateSortOrder = (orderValue) => {
     const ogQuery = route.query
-    delete ogQuery.order
+    delete ogQuery.o
 
     router.replace({ 
       query: { 
-        ...{ order: orderValue },
+        ...{ o: orderValue },
         ...ogQuery, 
       }
     })
@@ -111,40 +71,26 @@ export function useSearch() {
   }
   
   const updateTags = (type, tag) => {
-    if ((type === 'case' && tag === 'group')) return
-
     router.replace({ 
       query: { 
         ...route.query, 
-        ...{ [type]: tag } 
+        ...{ [type.charAt(0)]: tag },
+        ...{ p: 1 },
       }
     })
   }
 
-  watch(width, n => {
-    if ( n >= 1142) {
-      rangePerPage.value = 16
-    } else {
-      rangePerPage.value = 12
-    }
-  },{ immediate: true })
-
   return {
-    activeMenuIndex,
-    changePageIndex,
-    closeTagsMenu,
+    updatePageIndex,
     currentOrder,
-    currentPage,
     currentTags,
-    handleSearch,
-    handleSearchRouteWatch,
+    updateSearch,
+    numberOfItems,
     numberOfPages,
-    parseData,
+    rangeIndex,
     rangePerPage,
-    searchQuery,
-    temporarySearchQuery,
-    toggleActiveMenuIndex,
+    sliceDisplayed,
     updateSortOrder,
     updateTags,
-  };
+  }
 }

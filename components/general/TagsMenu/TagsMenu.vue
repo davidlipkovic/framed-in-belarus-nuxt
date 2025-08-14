@@ -1,71 +1,69 @@
 <script setup>
-import { computed, onMounted, ref, watch } from "vue";
+import { ref } from "vue"
+import { useCurrentLocale } from "@/composables/CurrentLocale"
+
+const { getCurrentLocaleStringValue } = useCurrentLocale()
 
 const props = defineProps({
   currentTag: {
-    type: String,
+    type: [String, Object],
     default: 'All'
-  },
-  isGallery: {
-    type: Boolean,
-    default: false
-  },
-  menuStatus: {
-    type: Boolean,
-    default: false
   },
   type: String,
   tags: {
     type: Array,
     default: ['All']
   },
+  groupCases: {
+    type: Array,
+    default: null
+  },
 })
 
 const emit = defineEmits([
   'checkForTag',
-  'checkForStatus',
-  'closeTagsMenu',
 ])
 
+const root = ref(null)
+const open = ref(false)
 const showSubTags = ref(false)
 
 const updateTagsMenuStatus = (tagValue) => {
-  emit('checkForStatus')
+  open.value = false
   if (tagValue) {
     emit('checkForTag', props.type, tagValue)
   }
 }
 
-const root = ref(null)
 onClickOutside(root, () => {
-  emit('closeTagsMenu')
+  open.value = false
+  showSubTags.value = false
 })
-
-const checkTag = (tag) => {
-  return typeof tag !== 'object'
-}
 </script>
 
 <template>
   <div
     class="tagsMenuWrapper"
-    :class="{'tagsMenuWrapperOpened': menuStatus, 'tagsMenuWrapperClosed': !menuStatus, 'tagsMenusGalleryWrapper': isGallery}"
+    :class="{'tagsMenuWrapperOpened': open, 'tagsMenuWrapperClosed': !open}"
     ref="root"
   >
     <button
       class="tagsMenuTitleWrapper capitalize flexRowStart"
-      @click="updateTagsMenuStatus()"
+      @click="open = true"
     >
       <span>
         {{ $t("inputs.tags." + type + ".type") }}:
       </span>
-      <span>
+      <span v-if="typeof currentTag === 'object' && currentTag !== null">
+        {{ currentTag.translation }}
+      </span>
+      <span v-else>
         {{ $t("inputs.tags." + type + "." + currentTag) }}
       </span>
       <SvgArrowDown />
     </button>
     <ul
-      v-if="menuStatus"
+      v-if="open"
       class="tagsWrapper flexColumnStart"
     >
       <li
@@ -74,50 +72,29 @@ const checkTag = (tag) => {
         class="flexRowStart"
       >
         <button
-          v-if="checkTag(tag)"
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus(tag)"
+          @click="tag === 'group' ? showSubTags = true : updateTagsMenuStatus(tag)"
         >
           {{ $t("inputs.tags." + type + "." + tag) }}
+          <SvgArrowRightRounded v-if="tag === 'group'"/>
         </button>
-        <template v-else>
-          <button
-            class="capitalize flexRowStart"
-            @click="showSubTags = true"
+        <ul
+          v-if="showSubTags"
+          class="subTagsWrapper flexColumnStart"
+        >
+          <li
+            v-for="groupCase in groupCases" 
+            :key="groupCase.id"
+            class="flexRowStart"
           >
-            {{ $t("inputs.tags." + type + ".group") }}
-            <SvgArrowRightRounded />
-          </button>
-          <ul
-            v-if="showSubTags"
-            class="subTagsWrapper flexColumnStart"
-          >
-            <li
-              v-for="subTag in tag" 
-              :key="subTag"
-              class="flexRowStart"
+            <button
+              @click="updateTagsMenuStatus(groupCase.id); showSubTags = false"
+              class="capitalize flexRowStart"
             >
-              <button
-                @click="updateTagsMenuStatus(); showSubTags = false"
-                class="capitalize flexRowStart"
-              >
-                {{ subTag }}
-              </button>
-            </li>
-            <li
-              v-for="subTag in tag" 
-              :key="subTag"
-              class="flexRowStart"
-            >
-              <button
-                @click="updateTagsMenuStatus(); showSubTags = false"
-                class="capitalize flexRowStart"
-              >
-                {{ subTag }}
-              </button>
-            </li>
-          </ul>
-        </template>
+              {{ getCurrentLocaleStringValue(groupCase, 'caseName_') }}
+            </button>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>

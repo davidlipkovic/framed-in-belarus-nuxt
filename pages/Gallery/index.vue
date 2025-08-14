@@ -1,8 +1,11 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from "vue"
+import { ref, watch } from "vue"
 import { useRoute } from 'vue-router'
+import { search } from 'ss-search'
+import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
-import { useSearch } from "@/composables/Search";
+import { useSearch } from "@/composables/Search"
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 definePageMeta({
   middleware: [
@@ -11,29 +14,6 @@ definePageMeta({
   ],
 })
 
-const route = useRoute()
-
-const galleryStore = useGalleryStore()
-
-const {
-  activeMenuIndex,
-  changePageIndex,
-  closeTagsMenu,
-  currentOrder,
-  currentPage,
-  currentTags,
-  handleSearch,
-  handleSearchRouteWatch,
-  numberOfPages,
-  parseData,
-  rangePerPage,
-  searchQuery,
-  temporarySearchQuery,
-  toggleActiveMenuIndex,
-  updateSortOrder,
-  updateTags,
-} = useSearch();
-
 useHead({
   title: '#Framed in Belarus / Gallery',
   meta: [
@@ -41,21 +21,133 @@ useHead({
   ]
 })
 
-const localTags = computed(() => galleryStore.tags)
-const parsedEmbroideries = computed(() => parseData(galleryStore, 'embroideries'))
+const route = useRoute()
+const { width } = useWindowSize()
+const galleryStore = useGalleryStore()
 
-const placeholderResult = {
-  name: 'Name Surname',
-  photo: '../../../assets/media/img/swiper/01-1x.jpg'
-}
+const {
+  updatePageIndex,
+  currentOrder,
+  currentTags,
+  updateSearch,
+  numberOfItems,
+  numberOfPages,
+  rangeIndex,
+  rangePerPage,
+  sliceDisplayed,
+  updateSortOrder,
+  updateTags,
+} = useSearch()
 
-onMounted(() => {
-  numberOfPages.value = Number((galleryStore.embroideriesAlphabetically.length / rangePerPage.value + 0.5).toFixed())
-})
+const { getCurrentLocaleStringValue } = useCurrentLocale()
 
-watch(route, () => {
-  handleSearchRouteWatch()
-}, { immediate: true })
+const currentPage = ref(1)
+const parsedEmbroideries = ref(null)
+const searchQuery = ref(null)
+
+watch(
+  [
+    () => route.query,
+    () => width.value,
+  ],
+  ([newQuery, newWidth]) => {
+    if (newQuery.o) {
+      currentOrder.value = newQuery.o
+    }
+
+    if (newQuery.p) {
+      currentPage.value = parseInt(newQuery.p)
+      rangeIndex.value = (currentPage.value - 1) * rangePerPage.value
+    }
+
+    if (newQuery.c) {
+      if (newQuery.c === 'all' || newQuery.c === 'individual') {
+        currentTags.value.case = newQuery.c
+      } else {
+        currentTags.value.case = {
+          id: newQuery.c,
+          translation: getCurrentLocaleStringValue(galleryStore.groupCasesMap.get(newQuery.c), 'caseName_')
+        }
+      }
+    }
+
+    if (newQuery.s) {
+      currentTags.value.status = newQuery.s
+    }
+
+    if (newQuery.g) {
+      currentTags.value.gender = newQuery.g
+    }
+
+    const areEmptyTags = Object.values(currentTags.value).every(value => value === 'all')
+
+    let dataAccumulator = galleryStore['embroideries' + currentOrder.value]
+
+    if (!areEmptyTags) {
+      dataAccumulator = dataAccumulator.filter(embroidery => {
+        return Object.entries(currentTags.value).every(([type, tag]) => {
+          if (tag === 'all') return true
+
+          if (type === 'case') {
+            if (tag === 'individual') {
+              return embroidery.case.type === 'Individual'
+            } else {
+              return embroidery.case.id === tag.id
+            }
+          }
+
+          if (type === 'status') {
+            if (tag === 'active') {
+              return embroidery.prisoner.status === 'in jail'
+            } else if (tag === 'former') {
+              return embroidery.prisoner.status === 'released'
+            }
+          }
+
+          if (type === 'gender') {
+            return embroidery.prisoner.gender === tag
+          }
+
+          return embroidery[type] === tag
+        })
+      })
+    }
+
+
+    if (newQuery.search) {
+      searchQuery.value = newQuery.search
+      dataAccumulator = search(
+        dataAccumulator, 
+        [
+          'case.caseName_bel', 
+          'case.caseName_eng',
+          'case.caseName_rus', 
+          'case.description_bel', 
+          'case.description_eng',
+          'case.description_rus', 
+          'prisoner.dateOfDetention', 
+          'prisoner.gender', 
+          'prisoner.name_bel', 
+          'prisoner.name_eng', 
+          'prisoner.name_rus', 
+          'prisoner.status', 
+        ],
+        searchQuery.value
+      )    
+    }
+
+    if (newWidth >= 1142) {
+      rangePerPage.value = 16
+    } else {
+      rangePerPage.value = 12
+    }
+
+    numberOfPages.value = Math.ceil(dataAccumulator.length / rangePerPage.value)
+    numberOfItems.value = dataAccumulator.length
+    parsedEmbroideries.value = sliceDisplayed(dataAccumulator)
+  }, 
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -75,64 +167,63 @@ watch(route, () => {
             :placeholder="$t('placeholders.searchHero')"
             :aria-placeholder="$t('placeholders.searchHero')"
             v-model="searchQuery"
-            @input="handleSearch()"
+            @input="updateSearch(searchQuery)"
           />
         </div>
         <div class="tagsMenusWrapper flexRowStart">
           <GeneralTagsMenu
             :currentTag="currentTags.case"
-            :menuStatus="activeMenuIndex === 2"
             type="case"
-            :tags="localTags.case"
+            :tags="galleryStore.tags.case.options"
+            :groupCases="galleryStore.tags.case.group"
             class="tagsMenusGalleryWrapper"
             @checkForTag="updateTags"
-            @checkForStatus="toggleActiveMenuIndex(2)"
-            @closeTagsMenu="closeTagsMenu(2)"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.status"
-            :menuStatus="activeMenuIndex === 3"
             type="status"
-            :tags="localTags.status"
+            :tags="galleryStore.tags.status.options"
             class="tagsMenusGalleryWrapper"
             @checkForTag="updateTags"
-            @checkForStatus="toggleActiveMenuIndex(3)"
-            @closeTagsMenu="closeTagsMenu(3)"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.gender"
-            :menuStatus="activeMenuIndex === 4"
             type="gender"
-            :tags="localTags.gender"
+            :tags="galleryStore.tags.gender.options"
             class="tagsMenusGalleryWrapper"
             @checkForTag="updateTags"
-            @checkForStatus="toggleActiveMenuIndex(4)"
-            @closeTagsMenu="closeTagsMenu(4)"
           />
           <GeneralSortMenu 
-            :menuStatus="activeMenuIndex === 1"
             :currentOrder="currentOrder"
             class="sortMenusGalleryWrapper"
             @checkForOrder="updateSortOrder"
-            @checkForStatus="toggleActiveMenuIndex(1)"
-            @closeSortMenu="closeTagsMenu(1)"
           />
         </div>
       </div>
-      <section class="searchResultsWrapper">
-        <GeneralResultBox
-          v-for="item in parsedEmbroideries"
-          :key="item"
-          :result="item"
+      <template v-if="parsedEmbroideries.length">
+        <section class="searchResultsWrapper">
+          <GeneralResultBox
+            v-for="item in parsedEmbroideries"
+            :key="item"
+            :result="item"
+          />
+        </section>
+        <GeneralPagination
+          v-if="numberOfPages"
+          :currentPage="currentPage"
+          :numberOfPages="numberOfPages"
+          class="paginationGalleryWrapper"
+          @updatePageIndex="updatePageIndex"
         />
-      </section>
-      <GeneralPagination
-        v-if="numberOfPages"
-        :currentPage="currentPage"
-        :numberOfPages="numberOfPages"
-        class="paginationGalleryWrapper"
-        @change-page-index-to="changePageIndex"
-      />
+      </template>
+      <div 
+        v-else
+        class="noResultsWrapper flexColumnCenter"
+      >
+        <h3 class="title">
+          {{ $t('galleryPage.noResults') }}
+        </h3>
+      </div>
     </div>
   </main>
 </template>
