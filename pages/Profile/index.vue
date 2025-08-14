@@ -256,7 +256,11 @@ const updateLanguage = (lang) => {
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.email')" 
                 class="contentInput emailInput"
                 v-model="email"
+                disabled
               />
+              <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence flexRowStart">
+                {{ $t('profilePage.changeMail') }}&nbsp;<strong class="red bold">{{ $t('email') }}</strong>
+              </span>
             </div>
           </div>
           <div class="inputModalRow flexRowStart">
