@@ -113,7 +113,6 @@ watch(
       })
     }
 
-
     if (newQuery.search) {
       searchQuery.value = newQuery.search
       dataAccumulator = search(

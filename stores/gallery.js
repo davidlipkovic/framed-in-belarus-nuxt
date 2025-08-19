@@ -58,7 +58,7 @@ export default defineStore("gallery", () => {
     const groupCasesAccumulator = []
 
     originalEmbroideries.value.forEach(embroidery => {
-      if (!groupCasesMap.has(embroidery.case.id) && embroidery.case.caseName_eng) {
+      if (!groupCasesMap.has(embroidery.case.id) && embroidery.case.type === 'Group' && embroidery.case.caseName_eng) {
         groupCasesMap.set(embroidery.case.id, {
           id: embroidery.case.id,
           caseName_eng: embroidery.case.caseName_eng,
