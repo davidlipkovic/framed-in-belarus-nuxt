@@ -47,7 +47,7 @@ export default defineStore("gallery", () => {
     console.log('getEmbroideries', data.value.result)
 
     // WIP for testing, maybe backend should return already filtered
-    const filteredData = data.value.result.filter(embroidery => embroidery.status === 'Prepublished')
+    const filteredData = data.value.result.filter(embroidery => embroidery.status === 'Prepublished' && embroidery.prisoner.name_eng)
 
     console.log('getEmbroideries filtered', filteredData)
 

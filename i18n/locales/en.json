@@ -54,22 +54,22 @@
         "mentionInstagram": "Mention my account in your posts",
         "tags": {
             "case": {
-                "type": "cases",
-                "all": "all",
-                "individual": "individual",
-                "group": "group"
+                "type": "Cases",
+                "all": "All",
+                "individual": "Individual",
+                "group": "Group"
             },
             "status": {
-                "type": "status",
-                "all": "all",
-                "active": "in custody", 
-                "former": "released"
+                "type": "Status",
+                "all": "All",
+                "active": "In custody", 
+                "former": "Released"
             },
             "gender": {
-                "type": "sex",
-                "all": "all",
-                "female": "female",
-                "male": "male"
+                "type": "Sex",
+                "all": "All",
+                "female": "Female",
+                "male": "Male"
             }
         },
         "checkBox": {

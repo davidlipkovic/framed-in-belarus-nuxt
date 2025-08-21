@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const props = defineProps({
   isEmbroidery: {
@@ -12,6 +13,7 @@ const props = defineProps({
   },
 })
 
+const { getCurrentLocaleStringValue } = useCurrentLocale()
 const isHovered = ref(false)
 
 const link = computed(() => {
@@ -70,7 +72,7 @@ const photo = computed(() => {
         :to="$localePath(link)"
       >
         <h2>
-          {{ result.name }}
+          {{ getCurrentLocaleStringValue(result.prisoner, 'name_') }}
         </h2>
       </nuxt-link>
     </div>

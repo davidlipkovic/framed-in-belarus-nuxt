@@ -35,6 +35,14 @@ const updateTagsMenuStatus = (tagValue) => {
   }
 }
 
+const openMenu = () => {
+  open.value = !open.value
+
+  if (!open.value) {
+    showSubTags.value = false
+  }
+}
+
 onClickOutside(root, () => {
   open.value = false
   showSubTags.value = false
@@ -48,8 +56,8 @@ onClickOutside(root, () => {
     ref="root"
   >
     <button
-      class="tagsMenuTitleWrapper capitalize flexRowStart"
-      @click="open = true"
+      class="tagsMenuTitleWrapper flexRowStart"
+      @click="openMenu()"
     >
       <span>
         {{ $t("inputs.tags." + type + ".type") }}:
@@ -72,7 +80,7 @@ onClickOutside(root, () => {
         class="flexRowStart"
       >
         <button
-          class="capitalize flexRowStart"
+          class="flexRowStart"
           @click="tag === 'group' ? showSubTags = true : updateTagsMenuStatus(tag)"
         >
           {{ $t("inputs.tags." + type + "." + tag) }}
@@ -89,7 +97,7 @@ onClickOutside(root, () => {
           >
             <button
               @click="updateTagsMenuStatus(groupCase.id); showSubTags = false"
-              class="capitalize flexRowStart"
+              class="flexRowStart"
             >
               {{ getCurrentLocaleStringValue(groupCase, 'caseName_') }}
             </button>

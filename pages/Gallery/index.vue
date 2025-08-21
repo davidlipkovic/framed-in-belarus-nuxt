@@ -121,15 +121,9 @@ watch(
           'case.caseName_bel', 
           'case.caseName_eng',
           'case.caseName_rus', 
-          'case.description_bel', 
-          'case.description_eng',
-          'case.description_rus', 
-          'prisoner.dateOfDetention', 
-          'prisoner.gender', 
           'prisoner.name_bel', 
           'prisoner.name_eng', 
           'prisoner.name_rus', 
-          'prisoner.status', 
         ],
         searchQuery.value
       )    
@@ -207,7 +201,7 @@ watch(
         <section class="searchResultsWrapper">
           <GeneralResultBox
             v-for="item in parsedEmbroideries"
-            :key="item"
+            :key="item.id"
             :result="item"
           />
         </section>

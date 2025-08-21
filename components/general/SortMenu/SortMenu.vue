@@ -15,7 +15,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
-  'checkForStatus',
+  'checkForOrder',
 ])
 
 const Alphabetically = t("inputs.Alphabetically")
@@ -26,7 +26,7 @@ const ChronologicallyReversed = t("inputs.ChronologicallyReversed")
 const open = ref(false)
 
 const updateSortMenuStatus = (orderValue) => {
-  menuStatus.value = false
+  open.value = false
   if (orderValue) {
     emit('checkForOrder', orderValue)
   }
@@ -46,7 +46,7 @@ onClickOutside(root, () => {
   >
     <button
       class="sortMenuTitleWrapper flexRowStart"
-      @click="open = true"
+      @click="open = !open"
     >
       <SvgSwap/>
       {{ $t('inputs.' + currentOrder) }}
