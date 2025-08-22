@@ -1,29 +1,30 @@
-import { ref } from "vue"
+import { ref, shallowRef } from "vue"
 import { defineStore } from "pinia"
 
 export default defineStore("gallery", () => {
   const loading = ref(false)
-  const originalEmbroideries = ref(null)
-  const embroideriesAlphabetically = computed(() => originalEmbroideries.value.sort((a, b) => a.name.localeCompare(b.name)))
-  const embroideriesAlphabeticallyReversed = computed(() => embroideriesAlphabetically.value.reverse())
-  // const embroideriesChronologically = computed(() => originalEmbroideries.value.sort((a, b) => a.publicationDate - b.publicationDate))
-  // const embroideriesChronologicallyReversed = computed(() => embroideriesChronologically.value.reverse())
+  const originalEmbroideries = shallowRef(null)
+  const embroideriesAlphabetically = shallowRef(null)
+  const embroideriesAlphabeticallyReversed = shallowRef(null)
+  // const embroideriesChronologically = shallowRef(null)
+  // const embroideriesChronologicallyReversed = shallowRef(null)
+
   const currentEmbroidery = ref(null)
   const groupCasesMap = new Map()
 
   const tags = ref({
     case: {
-      current: "all",
-      options: ["all", "individual", "group"],
+      current: null,
+      options: [null, "individual", "group"],
       group: null
     },
     status: {
-      current: "all",
-      options: ["all", "active", "former"]
+      current: null,
+      options: [null, "active", "former"]
     },
     gender: {
-      current: "all",
-      options: ["all", "female", "male"]
+      current: null,
+      options: [null, "female", "male"]
     }
   })
 
@@ -98,6 +99,11 @@ export default defineStore("gallery", () => {
     currentEmbroidery.value = data.value.result
   }
 
+  const sortEmbroideries = () => {
+    embroideriesAlphabetically.value = [...originalEmbroideries.value].sort((a, b) => a.name.localeCompare(b.name))
+    embroideriesAlphabeticallyReversed.value = [...embroideriesAlphabetically.value].reverse()
+  }
+
   return {
     originalEmbroideries,
     embroideriesAlphabetically,
@@ -107,6 +113,7 @@ export default defineStore("gallery", () => {
     loading,
     getEmbroideries,
     getEmbroidery,
+    sortEmbroideries,
     currentEmbroidery,
     populateGroupCases,
     groupCasesMap,

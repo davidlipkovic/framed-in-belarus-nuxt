@@ -7,12 +7,12 @@ const { getCurrentLocaleStringValue } = useCurrentLocale()
 const props = defineProps({
   currentTag: {
     type: [String, Object],
-    default: 'All'
+    default: null
   },
   type: String,
   tags: {
     type: Array,
-    default: ['All']
+    default: null
   },
   groupCases: {
     type: Array,
@@ -30,9 +30,7 @@ const showSubTags = ref(false)
 
 const updateTagsMenuStatus = (tagValue) => {
   open.value = false
-  if (tagValue) {
-    emit('checkForTag', props.type, tagValue)
-  }
+  emit('checkForTag', props.type.charAt(0), tagValue)
 }
 
 const openMenu = () => {
@@ -65,6 +63,9 @@ onClickOutside(root, () => {
       <span v-if="typeof currentTag === 'object' && currentTag !== null">
         {{ currentTag.translation }}
       </span>
+      <span v-else-if="currentTag === null">
+        {{ $t("inputs.tags." + type + ".all") }}
+      </span>
       <span v-else>
         {{ $t("inputs.tags." + type + "." + currentTag) }}
       </span>
@@ -83,7 +84,7 @@ onClickOutside(root, () => {
           class="flexRowStart"
           @click="tag === 'group' ? showSubTags = true : updateTagsMenuStatus(tag)"
         >
-          {{ $t("inputs.tags." + type + "." + tag) }}
+          {{ !tag ? $t("inputs.tags." + type + ".all") : $t("inputs.tags." + type + "." + tag) }}
           <SvgArrowRightRounded v-if="tag === 'group'"/>
         </button>
         <ul

@@ -33,6 +33,10 @@
 }
 
 .galleryContent {
+  input.search:focus{
+    outline: none;
+  }
+
   .noResultsWrapper {
     max-width: 100%;
     color: $white;

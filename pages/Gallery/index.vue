@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from "vue"
+import { computed, watch } from "vue"
 import { useRoute } from 'vue-router'
 import { search } from 'ss-search'
 import { useWindowSize } from '@vueuse/core'
@@ -26,107 +26,113 @@ const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
 
 const {
-  updatePageIndex,
   currentOrder,
+  currentPage,
   currentTags,
-  updateSearch,
-  numberOfItems,
-  numberOfPages,
+  handleFilterBySearch,
   rangeIndex,
   rangePerPage,
+  searchQuery,
   sliceDisplayed,
-  updateSortOrder,
-  updateTags,
+  updateQuery,
 } = useSearch()
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 
-const currentPage = ref(1)
-const parsedEmbroideries = ref(null)
-const searchQuery = ref(null)
+const sortedEmbroideries = computed(() => {
+  if (!galleryStore.embroideriesAlphabetically) {
+    return
+  }
+
+  if (!currentOrder.value) {
+    return galleryStore.embroideriesAlphabetically
+  }
+
+  return galleryStore.embroideriesAlphabeticallyReversed
+})
+
+const filteredByTagsEmbroideries = computed(() => {
+  if (!sortedEmbroideries.value) {
+    return
+  }
+
+  if (Object.values(currentTags.value).every(value => !value)) {
+    return sortedEmbroideries.value
+  }
+
+  return sortedEmbroideries.value.filter(embroidery => {
+    return Object.entries(currentTags.value).every(([type, tag]) => {
+      if (!tag) return true
+
+      if (type === 'case') {
+        if (tag === 'individual') {
+          return embroidery.case.type === 'Individual'
+        } else {
+          return embroidery.case.id === tag.id
+        }
+      }
+
+      if (type === 'status') {
+        if (tag === 'active') {
+          return embroidery.prisoner.status === 'in jail'
+        } else if (tag === 'former') {
+          return embroidery.prisoner.status === 'released'
+        }
+      }
+
+      if (type === 'gender') {
+        return embroidery.prisoner.gender === tag
+      }
+
+      return embroidery[type] === tag
+    })
+  })
+})
+
+const filteredBySearchEmbroideries = computed(() => {
+  return handleFilterBySearch(filteredByTagsEmbroideries.value, [
+    'case.caseName_bel', 
+    'case.caseName_eng',
+    'case.caseName_rus', 
+    'prisoner.name_bel', 
+    'prisoner.name_eng', 
+    'prisoner.name_rus', 
+  ])
+})
+
+const numberOfPages = computed(() =>  Math.ceil(filteredBySearchEmbroideries.value?.length / rangePerPage.value))
+
+const displayedEmbroideries = computed(() => {
+  if (!filteredBySearchEmbroideries.value) {
+    return
+  }
+
+  return sliceDisplayed(filteredBySearchEmbroideries.value, rangeIndex.value, rangePerPage.value)
+})
+
+const handleUpdatePageIndex = (index) => {
+  updateQuery('p', index)
+}
+
+const handleUpdateSortOrder = (sortOrder) => {
+  updateQuery('o', sortOrder)
+}
 
 watch(
   [
     () => route.query,
     () => width.value,
   ],
-  ([newQuery, newWidth]) => {
-    if (newQuery.o) {
-      currentOrder.value = newQuery.o
-    }
-
+  ([newQuery, newWidth], [oldQuery]) => {
     if (newQuery.p) {
-      currentPage.value = parseInt(newQuery.p)
-      rangeIndex.value = (currentPage.value - 1) * rangePerPage.value
-    }
-
-    if (newQuery.c) {
-      if (newQuery.c === 'all' || newQuery.c === 'individual') {
-        currentTags.value.case = newQuery.c
-      } else {
-        currentTags.value.case = {
-          id: newQuery.c,
-          translation: getCurrentLocaleStringValue(galleryStore.groupCasesMap.get(newQuery.c), 'caseName_')
-        }
+      if (newQuery.p === oldQuery.p) {
+        updateQuery('p', 1)
+        return
       }
-    }
 
-    if (newQuery.s) {
-      currentTags.value.status = newQuery.s
-    }
-
-    if (newQuery.g) {
-      currentTags.value.gender = newQuery.g
-    }
-
-    const areEmptyTags = Object.values(currentTags.value).every(value => value === 'all')
-
-    let dataAccumulator = galleryStore['embroideries' + currentOrder.value]
-
-    if (!areEmptyTags) {
-      dataAccumulator = dataAccumulator.filter(embroidery => {
-        return Object.entries(currentTags.value).every(([type, tag]) => {
-          if (tag === 'all') return true
-
-          if (type === 'case') {
-            if (tag === 'individual') {
-              return embroidery.case.type === 'Individual'
-            } else {
-              return embroidery.case.id === tag.id
-            }
-          }
-
-          if (type === 'status') {
-            if (tag === 'active') {
-              return embroidery.prisoner.status === 'in jail'
-            } else if (tag === 'former') {
-              return embroidery.prisoner.status === 'released'
-            }
-          }
-
-          if (type === 'gender') {
-            return embroidery.prisoner.gender === tag
-          }
-
-          return embroidery[type] === tag
-        })
-      })
-    }
-
-    if (newQuery.search) {
-      searchQuery.value = newQuery.search
-      dataAccumulator = search(
-        dataAccumulator, 
-        [
-          'case.caseName_bel', 
-          'case.caseName_eng',
-          'case.caseName_rus', 
-          'prisoner.name_bel', 
-          'prisoner.name_eng', 
-          'prisoner.name_rus', 
-        ],
-        searchQuery.value
-      )    
+      currentPage.value = parseInt(newQuery.p)
+    } else {
+      currentPage.value = 1
     }
 
     if (newWidth >= 1142) {
@@ -135,15 +141,31 @@ watch(
       rangePerPage.value = 12
     }
 
-    numberOfPages.value = Math.ceil(dataAccumulator.length / rangePerPage.value)
-    numberOfItems.value = dataAccumulator.length
-    parsedEmbroideries.value = sliceDisplayed(dataAccumulator)
+    rangeIndex.value = (currentPage.value - 1) * rangePerPage.value
 
-    if (currentPage.value > numberOfPages.value) {
-      updatePageIndex(1)
+    currentOrder.value = newQuery.o
+
+    if (newQuery.c === 'individual') {
+      currentTags.value.case = newQuery.c
+    } else if (newQuery.c) {
+      currentTags.value.case = {
+        id: newQuery.c,
+        translation: getCurrentLocaleStringValue(galleryStore.groupCasesMap.get(newQuery.c), 'caseName_')
+      }
+    } else {
+      currentTags.value.case = null
+    }
+
+    currentTags.value.status = newQuery.s
+    currentTags.value.gender = newQuery.g
+
+    if (newQuery.search) {
+      searchQuery.value = newQuery.search
     }
   }, 
-  { immediate: true }
+  { 
+    immediate: true,
+  }
 )
 </script>
 
@@ -164,7 +186,7 @@ watch(
             :placeholder="$t('placeholders.searchHero')"
             :aria-placeholder="$t('placeholders.searchHero')"
             v-model="searchQuery"
-            @input="updateSearch(searchQuery)"
+            @input="updateQuery('search', searchQuery)"
           />
         </div>
         <div class="tagsMenusWrapper flexRowStart">
@@ -174,33 +196,33 @@ watch(
             :tags="galleryStore.tags.case.options"
             :groupCases="galleryStore.tags.case.group"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateTags"
+            @checkForTag="updateQuery"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.status"
             type="status"
             :tags="galleryStore.tags.status.options"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateTags"
+            @checkForTag="updateQuery"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.gender"
             type="gender"
             :tags="galleryStore.tags.gender.options"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateTags"
+            @checkForTag="updateQuery"
           />
           <GeneralSortMenu 
             :currentOrder="currentOrder"
             class="sortMenusGalleryWrapper"
-            @checkForOrder="updateSortOrder"
+            @checkForOrder="handleUpdateSortOrder"
           />
         </div>
       </div>
-      <template v-if="numberOfItems > 0">
+      <template v-if="displayedEmbroideries?.length > 0">
         <section class="searchResultsWrapper">
           <GeneralResultBox
-            v-for="item in parsedEmbroideries"
+            v-for="item in displayedEmbroideries"
             :key="item.id"
             :result="item"
           />
@@ -210,7 +232,7 @@ watch(
           :currentPage="currentPage"
           :numberOfPages="numberOfPages"
           class="paginationGalleryWrapper"
-          @updatePageIndex="updatePageIndex"
+          @updatePageIndex="handleUpdatePageIndex"
         />
       </template>
       <div 

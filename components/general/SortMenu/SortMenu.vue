@@ -27,9 +27,7 @@ const open = ref(false)
 
 const updateSortMenuStatus = (orderValue) => {
   open.value = false
-  if (orderValue) {
-    emit('checkForOrder', orderValue)
-  }
+  emit('checkForOrder', orderValue)
 }
 
 const root = ref(null)
@@ -49,7 +47,7 @@ onClickOutside(root, () => {
       @click="open = !open"
     >
       <SvgSwap/>
-      {{ $t('inputs.' + currentOrder) }}
+      {{ !currentOrder ? $t('inputs.Alphabetically') : $t('inputs.' + currentOrder) }}
       <SvgArrowDown/>
     </button>
     <ul
@@ -59,7 +57,7 @@ onClickOutside(root, () => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateSortMenuStatus('Alphabetically')"
+          @click="updateSortMenuStatus(null)"
         >
           {{ Alphabetically }}
         </button>
