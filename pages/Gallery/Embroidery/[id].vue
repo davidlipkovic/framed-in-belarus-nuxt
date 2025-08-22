@@ -183,7 +183,7 @@ onMounted(() => {
         </p>
       </article>
       <article>
-        <div class="caseHeaderWrapper flexRowStart">
+        <div class="caseHeaderWrapper flexColumnCenter">
           <!-- <img 
             v-if="!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"

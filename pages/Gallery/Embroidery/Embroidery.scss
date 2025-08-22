@@ -1,11 +1,9 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .galleryCaseWrapper {
-  .content.galleryCaseContent {
-    @media screen and (min-width: $br-point-md) {
-      display: grid;
-      gap: 1.875rem;
-      grid-template-columns: 1fr 1fr;
+  .Title {
+    .subtitle {
+      margin-bottom: 0.4rem;
     }
   }
 
@@ -212,6 +210,12 @@
   @media screen and (min-width: $br-point-md) {
     overflow: unset;
 
+    .content.galleryCaseContent {
+      display: grid;
+      gap: 1.875rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
     .galleryCaseSwiperWrapper {
       position: sticky;
       top: 1.875rem;
@@ -237,8 +241,22 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
 
+    .caseHeaderWrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
     .Hero-photoModal {
       margin: 0 1rem 3px 0;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .caseBioWrapper .Description-item {
+      span {
+        display: block;
+      }
     }
   }
 }

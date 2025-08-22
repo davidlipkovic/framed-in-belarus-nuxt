@@ -1,7 +1,6 @@
 <script setup>
 import { computed, watch } from "vue"
 import { useRoute } from 'vue-router'
-import { search } from 'ss-search'
 import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
 import { useSearch } from "@/composables/Search"
