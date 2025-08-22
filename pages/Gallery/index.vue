@@ -106,7 +106,7 @@ const displayedEmbroideries = computed(() => {
     return
   }
 
-  return sliceDisplayed(filteredBySearchEmbroideries.value, rangeIndex.value, rangePerPage.value)
+  return sliceDisplayed(filteredBySearchEmbroideries.value)
 })
 
 const handleUpdatePageIndex = (index) => {
@@ -117,12 +117,7 @@ const handleUpdateSortOrder = (sortOrder) => {
   updateQuery('o', sortOrder)
 }
 
-watch(
-  [
-    () => route.query,
-    () => width.value,
-  ],
-  ([newQuery, newWidth], [oldQuery]) => {
+watch(() => route.query, (newQuery, oldQuery) => {
     if (newQuery.p) {
       if (newQuery.p === oldQuery?.p) {
         updateQuery('p', 1)
@@ -132,12 +127,6 @@ watch(
       currentPage.value = parseInt(newQuery.p)
     } else {
       currentPage.value = 1
-    }
-
-    if (newWidth >= 1142) {
-      rangePerPage.value = 16
-    } else {
-      rangePerPage.value = 12
     }
 
     rangeIndex.value = (currentPage.value - 1) * rangePerPage.value
@@ -162,9 +151,19 @@ watch(
       searchQuery.value = newQuery.search
     }
   }, 
-  { 
-    immediate: true,
-  }
+  { immediate: true }
+)
+
+watch(width, (newWidth) => {
+    if (newWidth >= 1142) {
+      rangePerPage.value = 16
+    } else {
+      rangePerPage.value = 12
+    }
+
+    rangeIndex.value = (currentPage.value - 1) * rangePerPage.value
+  }, 
+  { immediate: true }
 )
 </script>
 
