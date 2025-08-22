@@ -124,7 +124,7 @@ watch(
   ],
   ([newQuery, newWidth], [oldQuery]) => {
     if (newQuery.p) {
-      if (newQuery.p === oldQuery.p) {
+      if (newQuery.p === oldQuery?.p) {
         updateQuery('p', 1)
         return
       }
