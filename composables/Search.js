@@ -26,7 +26,7 @@ export function useSearch() {
       return items
     }
 
-    return search( items, searchFilter, searchQuery.value)
+    return search(items, searchFilter, searchQuery.value)
   }
 
   const sliceDisplayed = (items) => items.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
