@@ -30,7 +30,7 @@ const showSubTags = ref(false)
 
 const updateTagsMenuStatus = (tagValue) => {
   open.value = false
-  emit('checkForTag', props.type.charAt(0), tagValue)
+  emit('checkForTag', props.type, tagValue)
 }
 
 const openMenu = () => {

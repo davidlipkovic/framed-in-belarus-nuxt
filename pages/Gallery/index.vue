@@ -117,6 +117,10 @@ const handleUpdateSortOrder = (sortOrder) => {
   updateQuery('o', sortOrder)
 }
 
+const handleUpdateTag = (type, tag) => {
+  updateQuery(type.charAt(0), tag)
+}
+
 watch(() => route.query, (newQuery, oldQuery) => {
     if (newQuery.p) {
       if (newQuery.p === oldQuery?.p) {
@@ -194,21 +198,21 @@ watch(width, (newWidth) => {
             :tags="galleryStore.tags.case.options"
             :groupCases="galleryStore.tags.case.group"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateQuery"
+            @checkForTag="handleUpdateTag"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.status"
             type="status"
             :tags="galleryStore.tags.status.options"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateQuery"
+            @checkForTag="handleUpdateTag"
           />
           <GeneralTagsMenu
             :currentTag="currentTags.gender"
             type="gender"
             :tags="galleryStore.tags.gender.options"
             class="tagsMenusGalleryWrapper"
-            @checkForTag="updateQuery"
+            @checkForTag="handleUpdateTag"
           />
           <GeneralSortMenu 
             :currentOrder="currentOrder"
