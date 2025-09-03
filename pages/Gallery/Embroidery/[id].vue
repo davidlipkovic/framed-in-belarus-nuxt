@@ -65,8 +65,8 @@ const embroiderySlides = computed(() => {
 })
 
 const processSlides = computed(() => {
-  const author = galleryStore.currentEmbroidery.name ? galleryStore.currentEmbroidery.name : t('casePage.swiper.anonymous')
-  const alt = t('descriptions.photo.part1') + author.toLowerCase() + t('descriptions.photo.part2')
+  const author = galleryStore.currentEmbroidery.name ? galleryStore.currentEmbroidery.name : t('casePage.swiper.anonymous').toLowerCase()
+  const alt = t('descriptions.photo.part1') + author + t('descriptions.photo.part2')
 
   const authorSlides = removeNullItems(galleryStore.currentEmbroidery.imagesData ?? []).map((photo) => {
     return {
