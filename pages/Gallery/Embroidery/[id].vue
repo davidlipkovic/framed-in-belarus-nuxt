@@ -146,10 +146,10 @@ onMounted(() => {
         <p class="swiperDescription flexRowStart">
           {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | Canvas: {{ galleryStore.currentEmbroidery.canvasSize }} mm
         </p>
-        <p class="swiperDescriptionInfo flexRowStart">
+        <p class="swiperDescriptionInfo">
           <span>
             {{ $t('casePage.swiper.author') }}: 
-          </span>
+          </span>&nbsp;
           <span class="b1">
             <template v-if="galleryStore.currentEmbroidery.name">
               {{ galleryStore.currentEmbroidery.name }}
@@ -161,22 +161,22 @@ onMounted(() => {
         </p>
         <p 
           v-if="galleryStore.currentEmbroidery.countryOfResidence"
-          class="swiperDescriptionInfo flexRowStart"
+          class="swiperDescriptionInfo"
         >
           <span>
             {{ $t('placeholders.country') }}:
-          </span>
+          </span>&nbsp;
           <span class="b1">
             {{ galleryStore.currentEmbroidery.countryOfResidence }}
           </span>
         </p>
         <p 
           v-if="galleryStore.currentEmbroidery.instagram"
-          class="swiperDescriptionInfo flexRowStart"
+          class="swiperDescriptionInfo"
         >
           <span>
             {{ $t('placeholders.instagram') }}:
-          </span>
+          </span>&nbsp;
           <span class="b1">
             {{ galleryStore.currentEmbroidery.instagram }}
           </span>
@@ -253,15 +253,15 @@ onMounted(() => {
           :linkTitle="$t('casePage.description.goToSource')"
         >
           <div 
-            v-if="galleryStore.currentEmbroidery.prisoner.prison_eng && galleryStore.currentEmbroidery.prisoner.prisonAddress_eng"
+            v-if="galleryStore.currentEmbroidery.prisoner.prison && galleryStore.currentEmbroidery.prisoner.prisonAddress"
             class="Description-item"
           >
             <h3 class="title">
               {{ $t('casePage.description.address') }}:
             </h3>
             <p>
-              {{ getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'prison_') }}
-              {{ getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner, 'prisonAddress_') }}
+              {{ galleryStore.currentEmbroidery.prisoner.prison }}
+              {{ galleryStore.currentEmbroidery.prisoner.prisonAddress }}
             </p>
           </div>
         </GeneralToggleText>

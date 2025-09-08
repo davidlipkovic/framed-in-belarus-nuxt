@@ -158,6 +158,18 @@ watch(() => route.query, (newQuery, oldQuery) => {
   { immediate: true }
 )
 
+watch(() => route.fullPath, (newPath, oldPath) => {
+    if (newPath.startsWith('/ru')) {
+      galleryStore.updateTagsGroupCasesOrder('rus')
+    } else if (newPath.startsWith('/bl')) {
+      galleryStore.updateTagsGroupCasesOrder('bel')
+    } else {
+      galleryStore.updateTagsGroupCasesOrder('eng')
+    }
+  }, 
+  { immediate: true }
+)
+
 watch(width, (newWidth) => {
     if (newWidth >= 1142) {
       rangePerPage.value = 16

@@ -113,10 +113,6 @@
     span {
       display: inline-flex;
     }
-
-    span:first-child {
-      width: 180px;
-    }
   }
 
   h3 {
@@ -182,6 +178,8 @@
   }
 
   .caseBioWrapper {
+    margin-right: auto;
+
     * {
       line-height: 24px;
     }

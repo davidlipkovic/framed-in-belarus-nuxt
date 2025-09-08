@@ -79,6 +79,10 @@ export default defineStore("gallery", () => {
     tags.value.case.group = groupCasesAccumulator.sort((a, b) => a.caseName_eng.localeCompare(b.caseName_eng))
   }
 
+  const updateTagsGroupCasesOrder = (lang) => {
+    tags.value.case.group = tags.value.case.group.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
+  }
+
   const getEmbroidery = async (id) => {
     const { data, error } = await useFetch(
       endpointUrl + '/api/prisoners/gallery/' + id, 
@@ -116,6 +120,7 @@ export default defineStore("gallery", () => {
     sortEmbroideries,
     currentEmbroidery,
     populateGroupCases,
+    updateTagsGroupCasesOrder,
     groupCasesMap,
     tags,
   }

@@ -824,14 +824,14 @@
     },
     "galleryPage": {
         "title": "Галерэя",
-        "noResults": "Sorry, we don't have any matching embroidery in our database"
+        "noResults": "Прабачце, у нашай базе дадзеных няма адпаведнай вышыўкі."
     },
     "casePage": {
         "title": "Галерэя",
         "swiper": {
             "stitching": "Вышыўка",
             "author": "Аўтар*ка",
-            "anonymous": "Ананім"
+            "anonymous": "aнанім"
         },
         "description": {
             "case": "Справа",
