@@ -39,7 +39,7 @@ const caseName = computed(() => {
 })
 
 const caseDescription = computed(() => {
-  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_')
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_')
 })
 
 const prisonerName = computed(() => {

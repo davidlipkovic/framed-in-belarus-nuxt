@@ -35,6 +35,7 @@ const {
   rangePerPage,
   searchQuery,
   sliceDisplayed,
+  resetQuery,
   updateQuery,
 } = useSearch()
 
@@ -197,35 +198,40 @@ watch(() => locale, () => {
             @input="updateQuery('search', searchQuery)"
           />
         </div>
-        <div class="tagsMenusWrapper flexRowStart">
-          <GeneralTagsMenu
-            :currentTag="currentTags.case"
-            type="case"
-            :tags="galleryStore.tags.case.options"
-            :groupCases="galleryStore.tags.case.group"
-            class="tagsMenusGalleryWrapper"
-            @checkForTag="handleUpdateTag"
-          />
-          <GeneralTagsMenu
-            :currentTag="currentTags.status"
-            type="status"
-            :tags="galleryStore.tags.status.options"
-            class="tagsMenusGalleryWrapper"
-            @checkForTag="handleUpdateTag"
-          />
-          <GeneralTagsMenu
-            :currentTag="currentTags.gender"
-            type="gender"
-            :tags="galleryStore.tags.gender.options"
-            class="tagsMenusGalleryWrapper"
-            @checkForTag="handleUpdateTag"
-          />
-          <GeneralSortMenu 
-            :currentOrder="currentOrder"
-            class="sortMenusGalleryWrapper"
-            @checkForOrder="handleUpdateSortOrder"
-          />
-        </div>
+        <button 
+          class="resetBtn"
+          :disabled="Object.keys(route.query).length < 1"
+          @click="resetQuery()"
+        >
+          {{ $t('buttons.resetFilters')}}
+        </button>
+        <GeneralTagsMenu
+          :currentTag="currentTags.case"
+          type="case"
+          :tags="galleryStore.tags.case.options"
+          :groupCases="galleryStore.tags.case.group"
+          class="tagsMenusGalleryWrapper"
+          @checkForTag="handleUpdateTag"
+        />
+        <GeneralTagsMenu
+          :currentTag="currentTags.status"
+          type="status"
+          :tags="galleryStore.tags.status.options"
+          class="tagsMenusGalleryWrapper"
+          @checkForTag="handleUpdateTag"
+        />
+        <GeneralTagsMenu
+          :currentTag="currentTags.gender"
+          type="gender"
+          :tags="galleryStore.tags.gender.options"
+          class="tagsMenusGalleryWrapper"
+          @checkForTag="handleUpdateTag"
+        />
+        <GeneralSortMenu 
+          :currentOrder="currentOrder"
+          class="sortMenusGalleryWrapper"
+          @checkForOrder="handleUpdateSortOrder"
+        />
       </div>
       <template v-if="displayedEmbroideries?.length > 0">
         <section class="searchResultsWrapper">

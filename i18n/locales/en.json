@@ -25,7 +25,8 @@
         "goBack": "Go back",
         "submit": "Submit",
         "cancelRegistration": "Cancel registration",
-        "gotIt": "Got it"
+        "gotIt": "Got it",
+        "resetFilters": "Reset filters"
     },
     "placeholders": {
         "email": "Email",

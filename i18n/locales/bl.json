@@ -25,7 +25,8 @@
         "goBack": "Вярнуцца",
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
-        "gotIt": "Прыняць"
+        "gotIt": "Прыняць",
+        "resetFilters": "Reset filters"
     },
     "placeholders": {
         "email": "Емэйл",

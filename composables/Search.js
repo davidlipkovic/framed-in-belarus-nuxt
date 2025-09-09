@@ -31,6 +31,10 @@ export function useSearch() {
 
   const sliceDisplayed = (items) => items.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
+  const resetQuery = () => {
+    router.replace({ })
+  }
+
   const updateQuery = (type, value) => {
     if (route.query[type] === value) {
       return
@@ -64,6 +68,7 @@ export function useSearch() {
     rangePerPage,
     searchQuery,
     sliceDisplayed,
+    resetQuery,
     updateQuery,
   }
 }

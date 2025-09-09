@@ -25,7 +25,8 @@
         "goBack": "Назад",
         "submit": "Подать",
         "cancelRegistration": "Отменить регистрацию",
-        "gotIt": "Принять"
+        "gotIt": "Принять",
+        "resetFilters": "Reset filters"
     },
     "placeholders": {
         "email": "Емейл",
