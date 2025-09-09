@@ -21,6 +21,10 @@ const props = defineProps({
   },
   linkTitle: {
     type: String,
+  },
+  scrollToTop: {
+    type: Number,
+    default: null
   }
 })
 
@@ -45,6 +49,17 @@ const message = computed(() => {
 
   return props.message.slice(0, props.limit) + '...'
 })
+
+const toggle = () => {
+  showMore.value = !showMore.value
+
+  if (!showMore.value && props.scrollToTop) {
+    window.scrollTo({ 
+      behavior: 'smooth', 
+      top: props.scrollToTop
+    })
+  }
+}
 </script>
 
 <template>
@@ -71,7 +86,7 @@ const message = computed(() => {
     </a>
     <button
       v-if="enableToggle"
-      @click="showMore = !showMore" 
+      @click="toggle()" 
       class="flexRowStart"
       :class="{'showMoreBtnActive': showMore}"
     >

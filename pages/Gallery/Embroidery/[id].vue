@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
 import { useCheckImage } from "@/composables/CheckImage"
 import { useConvertDate } from "@/composables/ConvertDate"
@@ -8,6 +9,7 @@ import { useCurrentLocale } from "@/composables/CurrentLocale"
 import { useRemoveNull } from "@/composables/RemoveNull"
 
 const { t } = useI18n()
+const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
 const { checkImage } = useCheckImage()
 const { convertDateToReadable, convertToEventDate } = useConvertDate()
@@ -24,6 +26,8 @@ definePageMeta({
 const currentFullScreenSlide = ref(0)
 const showFullScreenSwiper = ref(false)
 const showPrisonerImage = ref(false)
+const caseHeaderWrapper = ref(null)
+const toggleTextScrollToTop = ref(null)
 
 const handleFullScreenSwiper = (i) => {
   showFullScreenSwiper.value = true
@@ -35,7 +39,7 @@ const caseName = computed(() => {
 })
 
 const caseDescription = computed(() => {
-  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_')
+  return getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_') + getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'description_')
 })
 
 const prisonerName = computed(() => {
@@ -118,6 +122,28 @@ onMounted(() => {
   }
 
   checkImage(galleryStore.currentEmbroidery.prisoner.photo, showPrisonerImage)
+
+  let paddingTop = 30
+
+  if (width.value < 800) {
+    paddingTop = 65
+  }
+
+  toggleTextScrollToTop.value = caseHeaderWrapper.value.offsetTop - paddingTop
+})
+
+watch(width, (newWidth) => {
+  if (!caseHeaderWrapper.value) {
+    return
+  }
+
+  let paddingTop = 30
+
+  if (newWidth < 800) {
+    paddingTop = 65
+  }
+
+  toggleTextScrollToTop.value = caseHeaderWrapper.value.offsetTop - paddingTop
 })
 </script>
 
@@ -183,7 +209,10 @@ onMounted(() => {
         </p>
       </article>
       <article>
-        <div class="caseHeaderWrapper flexColumnCenter">
+        <div 
+          ref="caseHeaderWrapper"
+          class="caseHeaderWrapper flexColumnCenter"
+        >
           <!-- <img 
             v-if="!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"
@@ -243,6 +272,7 @@ onMounted(() => {
           :title="$t('casePage.description.descriptionCase')"
           :link="galleryStore.currentEmbroidery.prisoner.prisonerCase.materialsUrl"
           :linkTitle="getCurrentLocaleStringValue(galleryStore.currentEmbroidery.prisoner.prisonerCase, 'mediaComment_')"
+          :scrollToTop="toggleTextScrollToTop"
         />
         <GeneralToggleText 
           v-if="prisonerDescription && prisonerDescription.length > 2"
@@ -251,6 +281,7 @@ onMounted(() => {
           :title="$t('casePage.description.descriptionPrisoner')"
           :link="galleryStore.currentEmbroidery.prisoner.viasnaUrl"
           :linkTitle="$t('casePage.description.goToSource')"
+          :scrollToTop="toggleTextScrollToTop"
         >
           <div 
             v-if="galleryStore.currentEmbroidery.prisoner.prison && galleryStore.currentEmbroidery.prisoner.prisonAddress"
@@ -276,18 +307,21 @@ onMounted(() => {
           class="Description-item"
           :message="galleryStore.currentEmbroidery.reason"
           :title="$t('casePage.author.reason')"
+          :scrollToTop="toggleTextScrollToTop"
         />
         <GeneralToggleText 
           v-if="galleryStore.currentEmbroidery.comment.text_eng"
           class="Description-item"
           :message="galleryStore.currentEmbroidery.comment.text_eng"
           :title="$t('casePage.author.comment')"
+          :scrollToTop="toggleTextScrollToTop"
         />
         <GeneralToggleText 
           v-if="galleryStore.currentEmbroidery.comment.text_original"
           class="Description-item"
           :message="galleryStore.currentEmbroidery.comment.text_original"
           :title="$t('casePage.author.nativeComment')"
+          :scrollToTop="toggleTextScrollToTop"
         />
         <div 
           v-if="processSlides && processSlides.length > 0"

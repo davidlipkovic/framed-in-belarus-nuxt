@@ -1,6 +1,7 @@
 <script setup>
 import { computed, watch } from "vue"
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
 import { useSearch } from "@/composables/Search"
@@ -21,6 +22,7 @@ useHead({
 })
 
 const route = useRoute()
+const { locale, localeProperties } = useI18n()
 const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
 
@@ -158,18 +160,6 @@ watch(() => route.query, (newQuery, oldQuery) => {
   { immediate: true }
 )
 
-watch(() => route.fullPath, (newPath, oldPath) => {
-    if (newPath.startsWith('/ru')) {
-      galleryStore.updateTagsGroupCasesOrder('rus')
-    } else if (newPath.startsWith('/bl')) {
-      galleryStore.updateTagsGroupCasesOrder('bel')
-    } else {
-      galleryStore.updateTagsGroupCasesOrder('eng')
-    }
-  }, 
-  { immediate: true }
-)
-
 watch(width, (newWidth) => {
     if (newWidth >= 1142) {
       rangePerPage.value = 16
@@ -181,6 +171,10 @@ watch(width, (newWidth) => {
   }, 
   { immediate: true }
 )
+
+watch(() => locale, () => {
+  galleryStore.updateTagsGroupCasesOrder(localeProperties.value.name.toLowerCase())
+}, { immediate: true })
 </script>
 
 <template>
