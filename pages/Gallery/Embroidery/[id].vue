@@ -170,7 +170,7 @@ watch(width, (newWidth) => {
           @openFullscreen="handleFullScreenSwiper"
         />
         <p class="swiperDescription flexRowStart">
-          {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | Canvas: {{ galleryStore.currentEmbroidery.canvasSize }} mm
+          {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | {{ $t('casePage.swiper.canvas') }}: {{ galleryStore.currentEmbroidery.canvasSize }} mm
         </p>
         <p class="swiperDescriptionInfo">
           <span>

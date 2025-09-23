@@ -832,7 +832,8 @@
         "swiper": {
             "stitching": "Вышивка",
             "author": "Автор*ка",
-            "anonymous": "аноним"
+            "anonymous": "аноним",
+            "canvas": "Полотно"
         },
         "description": {
             "case": "Дело",

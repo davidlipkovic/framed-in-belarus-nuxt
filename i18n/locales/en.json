@@ -832,7 +832,8 @@
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",
-            "anonymous": "anonymous"
+            "anonymous": "anonymous",
+            "canvas": "Canvas"
         },
         "description": {
             "case": "Case",
