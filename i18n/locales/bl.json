@@ -26,7 +26,8 @@
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
         "gotIt": "Прыняць",
-        "resetFilters": "Reset filters"
+        "resetFilters": "Reset filters",
+        "correctionsNeeded": "Неабходны выпраўленні"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -829,6 +830,7 @@
     },
     "casePage": {
         "title": "Галерэя",
+        "notification": "Калі ласка, праверце старонку. Калі вы хочаце ўнесці праўкі, націсніце кнопку «Патрэбны выпраўленні». Калі ўсё ў парадку, націсніце кнопку «Апублікаваць».",
         "swiper": {
             "stitching": "Вышыўка",
             "author": "Аўтар*ка",
