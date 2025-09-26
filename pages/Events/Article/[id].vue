@@ -15,27 +15,14 @@ definePageMeta({
 const route = useRoute()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
-const { convertDateToReadable } = useConvertDate()
+const { convertToEventDate } = useConvertDate()
 
 const article = computed(() => {
   return newsStore.articles.find(article => article.id === route.params.id)
 })
 
 const date = computed(() => {
-  const startDate = new Date(article.value.startDate)
-  const endDate = new Date(article.value.endDate)
-  
-  const startYear = startDate.getFullYear()
-  const endYear = endDate.getFullYear()
-  
-  const startDateFormatted = convertDateToReadable(article.value.startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
-  const endDateFormatted = convertDateToReadable(article.value.endDate, 'DD.MM.YYYY')
-
-  if (article.value.startDate === article.value.endDate) {
-    return endDateFormatted
-  } else {
-    return `${startDateFormatted} - ${endDateFormatted}`
-  }
+  return convertToEventDate(article.value.startDate, article.value.endDate)
 })
 
 const description = computed(() => {
@@ -46,14 +33,23 @@ const title = computed(() => {
   return getCurrentLocaleStringValue(article.value, 'title_')
 })
 
+const slides = computed(() => {
+  return article.value.photos.map((photo) => {
+    return {
+      small: photo.thumbnails.small.url,
+      large: photo.thumbnails.large.url,
+      full: photo.thumbnails.full.url,
+      alt: photo.filename.substring(0, photo.filename.lastIndexOf('.'))
+    }
+  })
+})
+
 const currentGallerySlide = ref(0)
 const showGallerySwiper = ref(false)
 
 const handleGallerySwiper = (i) => {
   showGallerySwiper.value = true
   currentGallerySlide.value = i
-
-  console.log(showGallerySwiper, currentGallerySlide)
 }
 </script>
 
@@ -70,9 +66,7 @@ const handleGallerySwiper = (i) => {
           <h1 class="content News">
             {{ title }}
           </h1>
-          <GeneralGoBack
-            page="Events"
-          />
+          <GeneralGoBack/>
         </div>
       </div>
       <article class="content newsArticleContent">
@@ -97,28 +91,19 @@ const handleGallerySwiper = (i) => {
         />
         <div class="galleryWrapper">
           <img
-            v-for="(photo, i) in article.photos"
+            v-for="(photo, i) in slides"
             :key="photo.alt"
-            :src="photo.thumbnails.large.url"
-            :alt="photo.filename"
+            :src="photo.large"
+            :alt="photo.alt"
             @click="handleGallerySwiper(i)"
           />
         </div>
-        <NewsFullScreenSwiper
+        <GeneralFullScreenSwiper
+          v-if="showGallerySwiper"
           :initialSlide="currentGallerySlide"
-          :showSwiper="showGallerySwiper"
-          :slides="article.photos"
+          :slides="slides"
           @closeSwiper="showGallerySwiper = false"
         />
-
-        <!-- <p>
-          The list of exhibeted embroideries:<br>
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>, 
-          <a href="https://lcca.lv/en/survival-kit/" target="_blank">Ivan Ivanov</a>
-        </p> -->
       </article>
     </div>
   </main>

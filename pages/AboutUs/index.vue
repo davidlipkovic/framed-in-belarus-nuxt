@@ -1,4 +1,10 @@
 <script setup>
+definePageMeta({
+  middleware: [
+    'auth-general',
+  ],
+})
+
 useHead({
   title: `#Framed in Belarus — About us`,
   meta: [

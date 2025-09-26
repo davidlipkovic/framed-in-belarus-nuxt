@@ -4,15 +4,20 @@
   width: auto;
   position: relative;
 
-  .typeTag {
+  .typeTagsWrapper {
     position: absolute;
     top: 14px;
     right: 16px;
-    padding: 6px 16px;
-    border-radius: 16px;
-    background-color: rgba($greyLightBg, 0.7);
-    font-size: 14px;
-    font-weight: 600;
+    align-items: flex-end;
+    gap: 14px;
+
+    .typeTag {
+      padding: 6px 16px;
+      border-radius: 16px;
+      background-color: rgba($greyLightBg, 0.7);
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 
   .articleImageWrapper {

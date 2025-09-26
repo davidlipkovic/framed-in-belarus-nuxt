@@ -88,11 +88,11 @@ p, span, label {
 
 .containsPointerUp {
   .Content {
-    margin-bottom: -136px;
+    margin-bottom: -74px;
   }
 
   .pointerUpWrapper {
-    margin-bottom: calc(2rem + 62px);
+    margin-bottom: calc(2rem);
   }
 }
 
@@ -137,6 +137,9 @@ p, span, label {
     margin-bottom: 0;
     text-align: center;
     font-weight: 600;
+    width: calc(100% - 4rem);
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -180,11 +183,11 @@ svg {
 
   .containsPointerUp {
     .Content {
-      margin-bottom: -134px;
+      margin-bottom: -118px;
     }
   
     .pointerUpWrapper {
-      margin-bottom: 62px;
+      margin-bottom: 58px;
     }
   }
 

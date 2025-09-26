@@ -1,6 +1,7 @@
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 export function useConvertDate() {
+  const { $dayjs } = useNuxtApp()
   const { currentLocaleName } = useCurrentLocale()
 
   const convertToJsDate = (date) => {
@@ -9,34 +10,50 @@ export function useConvertDate() {
   }
 
   const convertDateToReadable = (date, format = 'DD MMMM YYYY') => {
-    date = convertToJsDate(date)
-    let localeToConvertTo = null
-
-    if (currentLocaleName.value === 'RUS') {
-      localeToConvertTo = 'ru-RU'
-    } else if (currentLocaleName.value === 'BEL') {
-      localeToConvertTo = 'be'
-    } else {
-      localeToConvertTo = 'en-US'
-    }
-
-    let day = date.getDate()
-    let month = date.toLocaleString(localeToConvertTo, { month: 'long' })
-    let year = date.getFullYear()
+    const convertedDate = convertToJsDate(date)
+    let day = convertedDate.getDate()
+    let year = convertedDate.getFullYear()
 
     if (format === 'DD.MM.YYYY') {
-      return `${day}.${date.getMonth() + 1}.${year}`
+      return `${day}.${convertedDate.getMonth() + 1}.${year}`
     } else if (format === 'DD.MM') {
-      return `${day}.${date.getMonth() + 1}.`
-    } else if (format === 'DD MMMM YYYY') {
-      return `${day} ${month} ${year}`
+      return `${day}.${convertedDate.getMonth() + 1}.`
     } else {
-      // Default to 'DD MMMM YYYY' if an unrecognized format is passed
+      let month
+
+      if (currentLocaleName.value === 'RUS') {
+        month = convertedDate.toLocaleString('ru-RU', { month: 'long' })
+      } else if (currentLocaleName.value === 'BEL') {      
+        month = $dayjs(date).format('MMMM')
+      } else {
+        month = convertedDate.toLocaleString('en-US', { month: 'long' })
+      }
+
       return `${day} ${month} ${year}`
     }
   }
 
+  const convertToEventDate = (startDate, endDate) => {    
+    if (!startDate || !endDate) {
+      return
+    }
+
+    const endDateFormatted = convertDateToReadable(endDate, 'DD.MM.YYYY')
+
+    if (startDate === endDate) {
+      return endDateFormatted
+    }
+
+    const startYear = new Date(startDate).getFullYear()
+    const endYear = new Date(endDate).getFullYear()
+    
+    const startDateFormatted = convertDateToReadable(startDate, startYear === endYear ? 'DD.MM' : 'DD.MM.YYYY')
+    
+    return `${startDateFormatted} - ${endDateFormatted}`
+  }
+
   return {
     convertDateToReadable,
+    convertToEventDate,
   }
 }

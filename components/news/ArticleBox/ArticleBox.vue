@@ -19,12 +19,31 @@ const perex = computed(() => {
 const title = computed(() => {
   return getCurrentLocaleStringValue(props.article, 'title_')
 })
+
+const status = computed(() => {
+  const currentDate = new Date()
+  const startDate = new Date(props.article.startDate)
+  const endDate = new Date(props.article.endDate)
+
+  if (currentDate < startDate) {
+    return 'upcoming'
+  } else if (currentDate > endDate) {
+    return 'passed'
+  } else {
+    return 'ongoing'
+  }
+})
 </script>
 
 <template>
   <div class="articleBoxWrapper flexColumnStart">
-    <div class="typeTag capitalize">
-      {{ $t('newsPage.categories.' + article.category) }}
+    <div class="typeTagsWrapper flexColumnStart">
+      <div class="typeTag capitalize">
+        {{ $t('newsPage.categories.' + article.category) }}
+      </div>
+      <div class="typeTag capitalize">
+        {{ status }}
+      </div>
     </div>
     <!-- <a
       v-if="article.readMoreLink"

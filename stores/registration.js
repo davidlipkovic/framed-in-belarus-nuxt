@@ -6,6 +6,7 @@ export default defineStore("registration", () => {
   const email = ref(null)
 
   return {
-    email
+    loading,
+    email,
   }
 })

@@ -5,6 +5,7 @@ import useNewsStore from "@/stores/news"
 
 definePageMeta({
   middleware: [
+    'auth-general',
     'news',
   ],
 })

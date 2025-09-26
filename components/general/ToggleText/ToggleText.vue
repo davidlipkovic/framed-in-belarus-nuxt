@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import VueMarkdown from 'vue-markdown-render'
+
 const { t } = useI18n()
 
 const props = defineProps({
@@ -13,8 +15,20 @@ const props = defineProps({
   },
   title: {
     type: String,
+  },
+  link: {
+    type: String,
+  },
+  linkTitle: {
+    type: String,
+  },
+  scrollToTop: {
+    type: Number,
+    default: null
   }
 })
+
+const showMore = ref(false)
 
 const buttonMessage = computed(() => {
   if (showMore.value) {
@@ -24,30 +38,55 @@ const buttonMessage = computed(() => {
   return t("buttons.showMore")
 })
 
-const enableToggle = computed(() => props.message.length > props.limit)
+const enableToggle = computed(() => props.message.length > props.limit || !!useSlots().default)
+
+const toggleOpened = computed(() => !enableToggle.value || showMore.value)
 
 const message = computed(() => {
-  if (showMore.value && !enableToggle.value) {
+  if (toggleOpened.value) {
     return props.message
   }
 
   return props.message.slice(0, props.limit) + '...'
 })
 
-const showMore = ref(false)
+const toggle = () => {
+  showMore.value = !showMore.value
+
+  if (!showMore.value && props.scrollToTop) {
+    window.scrollTo({ 
+      behavior: 'smooth', 
+      top: props.scrollToTop
+    })
+  }
+}
 </script>
 
 <template>
-  <div class="toggleTextWrapper">
+  <div 
+    class="toggleTextWrapper"
+    :class="{'toggleOpened': toggleOpened}"
+  >
     <h3>
       {{ title }}
     </h3>
-    <p>
-      {{ message }}
-    </p>
+    <vue-markdown 
+      class="ToggleTextMessage"
+      :source="message" 
+    />
+    <slot v-if="showMore"/>
+    <a 
+      v-if="link && linkTitle && toggleOpened"
+      :href="link" 
+      target="_blank"
+      class="red additionalInfo"
+    >
+      {{ linkTitle }}
+      <SvgLink/>
+    </a>
     <button
       v-if="enableToggle"
-      @click="showMore = !showMore" 
+      @click="toggle()" 
       class="flexRowStart"
       :class="{'showMoreBtnActive': showMore}"
     >

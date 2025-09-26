@@ -8,6 +8,7 @@ const userStore = useUserStore()
 definePageMeta({
   layout: "nopointer",
   middleware: [
+    'auth-general',
     'heroes',
   ],
 })

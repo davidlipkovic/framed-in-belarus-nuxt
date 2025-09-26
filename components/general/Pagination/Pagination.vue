@@ -12,7 +12,9 @@ const props = defineProps({
   }
 })
 
-const showMenu = ref(null)
+const emit = defineEmits([
+  'updatePageIndex',
+])
 
 const currentPageMsg = computed(() => {
   return `${props.currentPage} ${t('embroidery.step1Page.of')} ${props.numberOfPages}`
@@ -26,26 +28,30 @@ const currentPageMsg = computed(() => {
     </p>
     <div class="paginationControlsWrapper flexRowCenter">
       <button
-        @click="$emit('changePageIndexTo', 'first')"
+        @click="$emit('updatePageIndex', 1)"
         :class="{'button_disabledTransparent': currentPage === 1}"
+        :disabled="currentPage === 1"
       >
         <SvgStrongDoubleArrowLeft/>
       </button>
       <button
-        @click="$emit('changePageIndexTo', -1)"
+        @click="$emit('updatePageIndex', currentPage - 1)"
         :class="{'button_disabledTransparent': currentPage === 1}"
+        :disabled="currentPage === 1"
       >
         <SvgStrongArrowLeft/>
       </button>
       <button
-        @click="$emit('changePageIndexTo', 1)"
+        @click="$emit('updatePageIndex', currentPage + 1)"
         :class="{'button_disabledTransparent': currentPage === numberOfPages}"
+        :disabled="currentPage === numberOfPages"
       >
         <SvgStrongArrowRight/>
       </button>
       <button
-        @click="$emit('changePageIndexTo', 'last')"
+        @click="$emit('updatePageIndex', numberOfPages)"
         :class="{'button_disabledTransparent': currentPage === numberOfPages}"
+        :disabled="currentPage === numberOfPages"
       >
         <SvgStrongDoubleArrowRight/>
       </button>

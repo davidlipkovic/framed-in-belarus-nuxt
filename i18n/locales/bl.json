@@ -1,10 +1,11 @@
 {
     "title": "Framed in Belarus",
     "description": "Сацыяльны арт-праект, прысвечаны палітычным зняволеным у Беларусі",
+    "email": "framedinbelarus{'@'}gmail.com",
     "buttons": {
         "accept": "Прыняць",
         "decline": "не прымаць",
-        "delete": "Delete",
+        "delete": "Выдаліць",
         "confirm": "Пацвердзіць",
         "manage": "змяніць наладкі",
         "cancel": "Адмяніць",
@@ -24,7 +25,8 @@
         "goBack": "Вярнуцца",
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
-        "gotIt": "Прыняць"
+        "gotIt": "Прыняць",
+        "resetFilters": "Reset filters"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -53,22 +55,22 @@
         "mentionInstagram": "Згадаць мой акаўнт у вашых пастах",
         "tags": {
             "case": {
-                "type": "справы",
-                "all": "усе",
-                "individual": "індывідуальныя",
-                "group": "групавыя"
+                "type": "Справы",
+                "all": "Усе",
+                "individual": "Індывідуальныя",
+                "group": "Групавыя"
             },
             "status": {
-                "type": "cтатус",
-                "all": "усе",
+                "type": "Cтатус",
+                "all": "Усе",
                 "active": "Пад вартай",
-                "former": "bызвален*а"
+                "former": "Bызвален*а"
             },
             "gender": {
                 "type": "Пол",
-                "all": "усе",
-                "female": "жаночы",
-                "male": "мужчынскі"
+                "all": "Усе",
+                "female": "Жаночы",
+                "male": "Мужчынскі"
             }
         },
         "checkBox": {
@@ -107,6 +109,12 @@
         "source": "Перайсці да крыніцы інфармацыі",
         "supportUs": "Падтрымаць нас"
     },
+    "descriptions": {
+        "photo": {
+            "part1": "Photo by ",
+            "part2": " for #FramedinBelarus project"
+        }
+    },
     "notifications": {
         "subscribeSuccess": "Вы паспяхова падпісаліся!",
         "sorry": "Шкада, што вы сыходзіце!",
@@ -133,21 +141,20 @@
         "modal": {
             "title": "Manage cookies",
             "cookieDetailsLink": {
-                "content": "More details you can learn",
-                "highlight": "here"
+                "content": "Подробнее вы можете узнать",
+                "highlight": "здесь"
             },
             "essentialCookies": {
-                "label": "Essential Cookies",
+                "label": "Абавязковыя файлы cookie",
                 "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content1": "Гэтыя файлы cookie з’яўляюцца неабходнымі для функцыянавання нашага сайта. Яны дазваляюць перамяшчацца па сайце і выкарыстоўваць яго функцыі, такія як доступ да абароненых раздзелаў сайта. Без гэтых файлаў cookie некаторыя запытаныя вамі паслугі не могуць быць прадастаўлены."
                 }
             },
             "performanceCookies": {
-                "label": "Performance Cookies",
+                "label": "Аналітычныя файлы cookie",
                 "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google Analytics does not collect any personal data that can be linked to you as an individual. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies. Google will not associate your IP address with information collected or data that has already been collected."
+                    "content1": "Гэтыя файлы cookie дазваляюць нам падлічваць колькасць наведванняў і крыніцы трафіку, каб мы маглі ацаніць і палепшыць працу сайта. Яны дапамагаюць вызначыць, якія раздзелы сайта найбольш і найменш папулярныя, а таксама аналізаваць, як наведвальнікі перамяшчаюцца па сайце. Уся сабраная інфармацыя абагульняецца і застаецца ананімнай. Калі вы адключыце гэтыя файлы cookie, мы не будзем мець інфармацыі пра выкарыстанне нашага сайта.",
+                    "content2": "Мы выкарыстоўваем Google Analytics для больш глыбокага разумення таго, як нашы карыстальнікі выкарыстоўваюць сайт. Атрыманая інфармацыя адпраўляецца і захоўваецца на серверах Google у ЗША. Google выкарыстоўвае файлы cookie для ацэнкі выкарыстання сайта, стварэння справаздач аб вашай актыўнасці і прапанавання іншых паслуг/прадуктаў, якія могуць вас зацікавіць. Google Analytics размяшчае як пастаянныя, так і сесійныя файлы cookie."
                 }
             }
         }
@@ -304,6 +311,7 @@
         "question": "Чаму вы вырашылі ўдзельнічаць?",
         "editProfile": "Рэдагаваць асабісты кабінет",
         "deleteAccount": "Выдаліць уліковы запіс",
+        "changeMail": "Каб змяніць свой емэйл, напішыце на ",
         "notifications": {
             "notification1": "Вы занадта затрымаліся на адным кроку, калі ласка, працягніце працу.",
             "notification2": "Тэрмін працы над гэтай вышыўкай падоўжаны да",
@@ -378,7 +386,7 @@
             "of": "з",
             "warning": "Пасля пацверджання выбару Героя*іні вы не зможаце яго*яе змяніць",
             "backButton": "Вярнуцца да ўсіх палітвязняў",
-            "forwardButton": "Выбраць гэтага*ую Героя*іню",
+            "forwardButton": "Перайсці ў асабісты кабінет",
             "alreadyChosen": {
                 "title": "Прабачце, гэты*ая Герой*іня ужо абраны*ая",
                 "paragraph1": {
@@ -632,7 +640,6 @@
                 "paragraph3": "Перайдзіце ў свой прыватны кабінет, каб распачаць працу над новай вышыўкай.",
                 "forwardButton": "Go to my profile"
             },
-            "secondEmbroiderydescriptionPatternReady": "Since you have booked pattern you may stitch it and send us both embroideries in one package.",
             "sectionEU": {
                 "title": "Калі ласка, ўважліва прачытайце гэтую секцыю!",
                 "section1": {
@@ -817,14 +824,16 @@
         }
     },
     "galleryPage": {
-        "title": "Галерэя"
+        "title": "Галерэя",
+        "noResults": "Прабачце, у нашай базе дадзеных няма адпаведнай вышыўкі."
     },
     "casePage": {
         "title": "Галерэя",
         "swiper": {
             "stitching": "Вышыўка",
             "author": "Аўтар*ка",
-            "anonymous": "Anonymous"
+            "anonymous": "aнанім",
+            "canvas": "Палатно"
         },
         "description": {
             "case": "Справа",

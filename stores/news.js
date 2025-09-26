@@ -25,8 +25,8 @@ export default defineStore("news", () => {
     }
 
     console.log('getArticles', data.value.result)
-    
-    articles.value = data.value.result
+
+    articles.value = data.value.result.sort((a, b) => b.startDate.localeCompare(a.startDate))
   }
 
   return {

@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const props = defineProps({
   isEmbroidery: {
@@ -12,6 +13,7 @@ const props = defineProps({
   },
 })
 
+const { getCurrentLocaleStringValue } = useCurrentLocale()
 const isHovered = ref(false)
 
 const link = computed(() => {
@@ -19,7 +21,7 @@ const link = computed(() => {
     return "/Embroidery/Step-1-your-hero"
   }
 
-  return "/Gallery/Embroidery"
+  return "/Gallery/Embroidery/" + props.result.id 
 })
 
 const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg', { eager: true })
@@ -27,6 +29,10 @@ const placeholderImage = import.meta.glob('@/assets/media/img/swiper/01-1x.jpg',
 const photo = computed(() => {
   if (props.isEmbroidery) {
     return props.result.photo
+  }
+  
+  if (props.result.imageData) {
+    return props.result.imageData.small
   }
 
   return placeholderImage['/assets/media/img/swiper/01-1x.jpg'].default
@@ -66,7 +72,7 @@ const photo = computed(() => {
         :to="$localePath(link)"
       >
         <h2>
-          {{ result.name }}
+          {{ getCurrentLocaleStringValue(result.prisoner, 'name_') }}
         </h2>
       </nuxt-link>
     </div>

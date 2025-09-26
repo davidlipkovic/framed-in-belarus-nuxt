@@ -1,22 +1,16 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import { Keyboard } from 'swiper/modules'
 
 const emit = defineEmits([
   'closeSwiper',
-  'showSwiper',
 ])
 
 const props = defineProps({
   initialSlide: {
     type: Number,
     default: 0
-  },
-  showSwiper: {
-    type: Boolean,
-    default: false
   },
   slides: {
     type: Array,
@@ -38,15 +32,10 @@ const onSwiper = (swiper) => {
 const prevSlide = () => {
   localSwiper.slidePrev()
 }
-
-const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true })
 </script>
 
 <template>
-  <div
-    v-if="showSwiper"
-    class="fullScreenSwiperWrapper"
-  >
+  <div class="fullScreenSwiperWrapper">
     <div 
       class="swiperBackground"
       @click="$emit('closeSwiper')"
@@ -64,13 +53,20 @@ const images = import.meta.glob('@/assets/media/img/swiper/*.jpg', { eager: true
       class="fullScreenSwiper"
     >
       <SwiperSlide 
-        v-for="(slide, i) in slides"
-        :key="slide.alt"
+        v-for="slide in slides"
+        :key="slide.full"
       >
-        <img
-          :src="images[`/assets/media/img/swiper/0${ i + 1 }-1x.jpg`].default"
-          :alt="`${slide.alt}`"
-        >
+        <div>
+          <img
+            :src="slide.full"
+            :alt="slide.alt"
+          >
+          <div v-if="slide.alt">
+            <span>
+              {{ slide.alt }}
+            </span>
+          </div>
+        </div>
       </SwiperSlide>
     </Swiper>
     <button

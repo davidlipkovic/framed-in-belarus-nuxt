@@ -8,7 +8,7 @@ const props = defineProps({
     type: String,
     default: 'Alphabetically'
   },
-  menuStatus: {
+  enableChronological: {
     type: Boolean,
     default: false
   },
@@ -16,8 +16,6 @@ const props = defineProps({
 
 const emit = defineEmits([
   'checkForOrder',
-  'checkForStatus',
-  'closeSortMenu',
 ])
 
 const Alphabetically = t("inputs.Alphabetically")
@@ -25,44 +23,41 @@ const AlphabeticallyReversed = t("inputs.AlphabeticallyReversed")
 const Chronologically = t("inputs.Chronologically")
 const ChronologicallyReversed = t("inputs.ChronologicallyReversed")
 
-const updateSortMenuOrder = (orderValue) => {
-}
+const open = ref(false)
 
-const updateTagsMenuStatus = (orderValue) => {
-  emit('checkForStatus')
-  if (orderValue) {
-    emit('checkForOrder', orderValue)
-  }
+const updateSortMenuStatus = (orderValue) => {
+  open.value = false
+  emit('checkForOrder', orderValue)
 }
 
 const root = ref(null)
 onClickOutside(root, () => {
-  emit('closeSortMenu')
+  open.value = false
 })
 </script>
 
 <template>
   <div
     class="sortMenuWrapper"
-    :class="menuStatus ? 'sortMenuWrapperOpened' : 'sortMenuWrapperClosed'"
+    :class="open ? 'sortMenuWrapperOpened' : 'sortMenuWrapperClosed'"
     ref="root"
   >
     <button
       class="sortMenuTitleWrapper flexRowStart"
-      @click="updateTagsMenuStatus()"
+      @click="open = !open"
     >
       <SvgSwap/>
-      {{ $t('inputs.' + currentOrder) }}
+      {{ !currentOrder ? $t('inputs.Alphabetically') : $t('inputs.' + currentOrder) }}
       <SvgArrowDown/>
     </button>
     <ul
-      v-if="menuStatus"
+      v-if="open"
       class="sortingWrapper flexColumnStart"
     >
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('Alphabetically')"
+          @click="updateSortMenuStatus(null)"
         >
           {{ Alphabetically }}
         </button>
@@ -70,23 +65,29 @@ onClickOutside(root, () => {
       <li class="flexRowStart">
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('AlphabeticallyReversed')"
+          @click="updateSortMenuStatus('AlphabeticallyReversed')"
         >
           {{ AlphabeticallyReversed }}
         </button>
       </li>
-      <li class="flexRowStart">
+      <li 
+        v-if="enableChronological"
+        class="flexRowStart"
+      >
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('Chronologically')"
+          @click="updateSortMenuStatus('Chronologically')"
         >
           {{ Chronologically }}
         </button>
       </li>
-      <li class="flexRowStart">
+      <li 
+        v-if="enableChronological"
+        class="flexRowStart"
+      >
         <button
           class="capitalize flexRowStart"
-          @click="updateTagsMenuStatus('ChronologicallyReversed')"
+          @click="updateSortMenuStatus('ChronologicallyReversed')"
         >
           {{ ChronologicallyReversed }}
         </button>

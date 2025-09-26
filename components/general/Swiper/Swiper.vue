@@ -11,6 +11,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  slides: {
+    type: Array,
+    default: []
+  }
 })
 
 const emit = defineEmits([
@@ -61,6 +65,7 @@ const images = Object.entries(allImages).map(([path, module]) => {
 
 <template>
   <Swiper
+    v-if="slides.length > 1"
     @swiper="onSwiper"
     :autoplay="autoplay"
     :loop="true"
@@ -72,12 +77,12 @@ const images = Object.entries(allImages).map(([path, module]) => {
     :class="{'enableFullscreen': fullscreen}"
   >
     <SwiperSlide 
-      v-for="(slide, i) in images"
-      :key="slide.alt"
+      v-for="(slide, i) in slides"
+      :key="i"
     >
       <img
-        :src="slide.jpg.module.default"
-        :alt="`${slide.alt}`"
+        :src="slide.large"
+        :alt="`${slide?.alt}`"
         @click="handleFullscreen(i)"
       >
     </SwiperSlide>
@@ -96,6 +101,21 @@ const images = Object.entries(allImages).map(([path, module]) => {
       </button>
     </div>
   </Swiper>
+  <div
+    v-else-if="slides.length === 1"
+    class="basicSwiperWrapper swiper swiper-initialized swiper-horizontal"
+    :class="{'enableFullscreen': fullscreen}"
+  >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide-active">
+        <img
+          :src="slides[0].large"
+          :alt="`${slides[0]?.alt}`"
+          @click="handleFullscreen(0)"
+        >
+      </div>
+    </div>
+  </div>
 </template>
 
 <style src="./Swiper.scss" lang="scss"></style>

@@ -1,16 +1,22 @@
 <script setup>
+import { computed } from "vue"
+const { $getPreviousRoute, $localePath } = useNuxtApp()
+
 const props = defineProps({
   isEmbroidery: {
     type: Boolean,
     default: false
   },
-  page: String,
+})
+
+const backPath = computed(() => {
+  return $getPreviousRoute() ? $getPreviousRoute() : '/'
 })
 </script>
 
 <template>
   <nuxt-link
-    :to="$localePath('/' + page)"
+    :to="$localePath(backPath)"
     class="GoBack"
   >
     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="GoBack-img">
