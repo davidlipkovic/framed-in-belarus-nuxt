@@ -38,10 +38,16 @@ export default defineStore("heroes", () => {
     })
 
     if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
+      console.log('getPrisonersList error', data)
+
+      originalHeroes.value = null
+
+      return
+
+      // throw createError({ 
+      //   statusCode: error.value.statusCode,
+      //   statusMessage: error.value.statusMessage,
+      // })
     }
 
     console.log('getPrisonersList', data.value.result)

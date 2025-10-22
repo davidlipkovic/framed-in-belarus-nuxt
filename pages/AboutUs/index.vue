@@ -1,7 +1,7 @@
 <script setup>
 definePageMeta({
   middleware: [
-    'auth-general',
+    // 'auth-general',
   ],
 })
 

@@ -1,23 +1,22 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import useHeroesStore from "@/stores/heroes"
-import useUserStore from "@/stores/user"
 const heroesStore = useHeroesStore()
-const userStore = useUserStore()
 
 definePageMeta({
   layout: "nopointer",
   middleware: [
-    'auth-general',
+    // 'auth-general',
     'heroes',
   ],
 })
 
 const numberOfHeroes = computed(() => {
-  if (!heroesStore.loading) {
-    return heroesStore.originalHeroes.length;
+  if (!heroesStore.loading && heroesStore.originalHeroes) {
+    return heroesStore.originalHeroes.length
   }
-  return 0
+
+  return 3000
 })
 </script>
 
