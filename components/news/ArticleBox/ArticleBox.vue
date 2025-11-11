@@ -62,9 +62,9 @@ const status = computed(() => {
       class="articleImageWrapper"
     >
       <img 
-        :src="article.photos[0].thumbnails.large.url"
+        :src="article.photo"
         class="img" 
-        :alt="article.photos[0].filename"
+        :alt="title"
       />
     </nuxt-link>
     <h2 class="title b1">
