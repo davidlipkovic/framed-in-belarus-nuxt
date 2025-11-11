@@ -73,12 +73,12 @@ watch(width, n => {
             >
               {{ $t('links.news') }}
             </nuxt-link>
-            <nuxt-link
+            <!-- <nuxt-link
               :to="$localePath('/AboutUs')"
               :class="{ 'redImportatnt' : checkCurrentRoute('AboutUs') }"
             >
               {{ $t('links.aboutUs') }}
-            </nuxt-link>
+            </nuxt-link> -->
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <a
