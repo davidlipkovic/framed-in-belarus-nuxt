@@ -211,7 +211,8 @@
             },
             "paragraph2": "This is our primary communication channel with you. Please use only one email, otherwise, we won't be able to identify you with your work, which may lead to potential confusion.",
             "paragraph3": "Fill in your country of residence. If you are temporarily in immigration, fill in the country where you are currently living. This information is needed for statistical purposes to help us improve the project and team's work, as well as prioritizing your embroidery for accessible exhibitions.",
-            "paragraph4": "Choose the primary language for our communication."
+            "paragraph4": "Choose the primary language for our communication.",
+            "emailDisclaimer": "To change your email address, please write to framedinbelarus{'@'}gmail.com."
         },
         "slide2": {
             "textarea": "Why did you decide to join the project?",
