@@ -64,7 +64,7 @@ const handleCreateShipping = async () => {
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="6"
       />
       <section>

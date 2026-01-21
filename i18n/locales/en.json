@@ -326,11 +326,12 @@
             },
             "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
         },
-        "cardStatus": {
+        "embroideryStatus": {
             "inProgress": "In Progress",
             "patternIsReady": "Pattern is ready",
             "stitched": "Stitched",
             "sent": "Sent",
+            "prepublished": "Prepublished",
             "published": "Published",
             "delivered": "Delivered",
             "requested": "Requested",

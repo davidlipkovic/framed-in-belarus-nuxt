@@ -11,6 +11,9 @@ const { removeNullProps } = useRemoveNull()
   const userSummary = ref(null)
   const userAuthorizationData = ref(null)
   const userDataBeforeDelete = ref(false)
+  const embroideries = ref(null)
+  const prepublishedEmbroideriesIds = ref([])
+  const isUsersEmbroidery = ref(false)
 
   const isLogged = ref(false)
 
@@ -258,7 +261,7 @@ const { removeNullProps } = useRemoveNull()
     }
   }
   
-  const getUserActivities = async () => {
+  const getUserEmbroideries = async () => {
     const headers = setHeaders()
 
     if (!headers) {
@@ -277,7 +280,17 @@ const { removeNullProps } = useRemoveNull()
       })
     }
 
-    console.log('getUserActivities', data.value)
+    console.log('getUserEmbroideries', data.value)
+
+    embroideries.value = data.value.result
+
+    embroideries.value.forEach((embroidery) => {
+      if (embroidery.status === 'Prepublished') {
+        prepublishedEmbroideriesIds.value.push(embroidery.id)
+      }
+    })
+
+    console.log('getUserEmbroideries', prepublishedEmbroideriesIds.value)
   }
   
   const getUserSummary = async () => {
@@ -335,6 +348,9 @@ const { removeNullProps } = useRemoveNull()
     userAuthorizationData,
     userDataBeforeDelete,
     isLogged,
+    embroideries,
+    prepublishedEmbroideriesIds,
+    isUsersEmbroidery,
     login,
     updateUser,
     deleteUser,
@@ -343,7 +359,7 @@ const { removeNullProps } = useRemoveNull()
     getUserAuthorizationData,
     getUserData,
     getOldUserData,
-    getUserActivities,
+    getUserEmbroideries,
     getUserSummary,
     setHeaders,
     subscribe,

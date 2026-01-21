@@ -51,11 +51,11 @@ const updateNativeLanguage = (lang) => {
       </div>
     </div>
     <div class="content step5PageWrapper">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="5"
       />
       <section class="limitedTextWidthLg">
-        <RegistrationHeroBio />
+        <EmbroideryHeroBio />
         <div class="sectionWrapper">
           <h2 class="title">
             {{ $t('embroidery.step5Page.section1.title') }}

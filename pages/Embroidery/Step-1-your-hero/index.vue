@@ -48,7 +48,7 @@ const handleCreateStitchingActivity = async() => {
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="1"
       />
       <section class="FoundHero" hidden>

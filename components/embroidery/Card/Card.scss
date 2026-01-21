@@ -109,7 +109,7 @@
 
 .embroideryCardName {
   font-weight: 600;
-  margin: 9px auto 0;
+  margin: 11px auto 0;
   line-height: 20px;
 
   .svgQuestionCircle {
@@ -127,9 +127,8 @@
 }
 
 .embroideryCardStatus {
-  font-family: 'Roboto';
   margin-top: 6px;
-  padding: 4px 6px;
+  padding: 0 6px;
   border-radius: 12px;
   color: $white;
   white-space: nowrap;
@@ -149,6 +148,10 @@
 
 .embroideryCardStatus-sent {
   background-color: $embroideryCardStasusSent;
+}
+
+.embroideryCardStatus-prepublished {
+  background-color: $embroideryCardStasusPublished;
 }
 
 .embroideryCardStatus-published {

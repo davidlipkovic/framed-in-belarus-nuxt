@@ -38,7 +38,7 @@ const images = import.meta.glob('@/assets/media/img/schemaExample/*.jpg', { eage
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="2"
       />
       <section class="Step2">
@@ -49,7 +49,7 @@ const images = import.meta.glob('@/assets/media/img/schemaExample/*.jpg', { eage
           :iconImageUrl="images['/assets/media/img/schemaExample/schema.jpg'].default"
           :showIcons="true"
         />
-        <RegistrationHeroBio />
+        <EmbroideryHeroBio />
         <article class="manual">
           <div class="manual-part">
             <h2 class="title">

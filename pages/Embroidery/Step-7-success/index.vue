@@ -29,7 +29,7 @@ definePageMeta({
         </div>
       </div>
       <div class="content">
-        <RegistrationNavSteps
+        <EmbroideryNavSteps
           :currentStep="7"
         />
         <section class="thankYou Done limitedTextWidthLg">

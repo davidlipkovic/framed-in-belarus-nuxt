@@ -12,6 +12,7 @@ definePageMeta({
   layout: "embroidery",
   middleware: [
     'auth-registration',
+    'user-embroideries',
   ],
 })
 
@@ -59,13 +60,22 @@ const reasonTruncated = computed(() => {
   return userStore.user.reason.length > 220 ? userStore.user.reason.reason.slice(0, 220) + '...' : userStore.user.reason.reason
 })
 
+const embroideriesCards = computed(() => {
+  return userStore.embroideries.map((embroidery) => {
+    return {
+      link: '/Gallery/Embroidery/' + embroidery.id,
+      // imageUrl: embroidery.imageData.small,
+      status: embroidery.status.toLowerCase(),
+      name_eng: embroidery.prisoner.name_eng,
+      name_rus: embroidery.prisoner.name_rus,
+      name_bel: embroidery.prisoner.name_bel,
+    }
+  })
+})
+
 const updateLanguage = (lang) => {
   language.value = lang.name
 }
-
-onMounted(() => {
-  userStore.getUserActivities()
-})
 
 const handleIfValueIsUpdated = (key, value) => {
   if (userStore.user[key] === value) {
@@ -237,15 +247,15 @@ const deleteUser = async () => {
           :linkMessage="'Proceed'"
         />
         <div class="embroideryCards">
-          <RegistrationEmbroideryCard
-            :disableNewEmbroidery="allowNewEmbroidery"
-            :newEmbroidery="true"
+          <EmbroideryCard
+            :disable="allowNewEmbroidery"
+            :isNew="true"
           />
-          <RegistrationEmbroideryCard
-            v-for="(card, i) in userStore.user.cards"
+          <EmbroideryCard
+            v-for="(embroidery, i) in embroideriesCards"
             :key="i"
-            :newEmbroidery="false"
-            :card="card"
+            :isNew="false"
+            :embroidery="embroidery"
           />
         </div>
       </section>

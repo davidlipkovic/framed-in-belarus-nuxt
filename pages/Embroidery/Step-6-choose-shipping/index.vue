@@ -33,7 +33,7 @@ const route = ref(null)
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="6"
       />
       <section>

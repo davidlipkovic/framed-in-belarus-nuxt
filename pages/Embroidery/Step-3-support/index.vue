@@ -29,11 +29,11 @@ definePageMeta({
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="3"
       />
       <section class="limitedTextWidthLg">
-        <RegistrationHeroBio class="heroBioWrapper"/>
+        <EmbroideryHeroBio class="heroBioWrapper"/>
         <article>
           <blockquote class="blockquote">
             <p class="blockquote-content">

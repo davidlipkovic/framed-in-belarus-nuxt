@@ -210,7 +210,7 @@ watch(route, () => {
       </div>
     </div>
     <div class="content step1ChooseHeroContent">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="1"
       />
       <section class="searchWrapper flexColumnnStart">

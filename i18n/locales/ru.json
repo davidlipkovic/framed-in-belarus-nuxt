@@ -326,12 +326,13 @@
             },
            "notification5": "К сожалению, невозможно начать новую вышивку, пока текущая незавершенная работа не достигнет шага 6 - отправка."
         },
-        "cardStatus": {
+        "embroideryStatus": {
             "inProgress": "В процессе",
             "patternIsReady": "Схема готова",
             "stitched": "Вышито",
             "sent": "Отправлено",
             "published": "Опубликовано",
+            "prepublished": "Prepublished",
             "delivered": "Доставлено",
             "requested": "Запрошено",
             "lostInPost": "Утеряно почтой"

@@ -326,12 +326,13 @@
             },
            "notification5": "Нажаль, немагчыма пачаць новую вышыўку, пакуль бягучая незавершаная праца не дасягне кроку 6 - адпраўка."
         },
-        "cardStatus": {
+        "embroideryStatus": {
             "inProgress": "У працэсе",
             "patternIsReady": "Схема гатова",
             "stitched": "Вышыта",
             "sent": "Адпраўлена",
             "published": "Апублікавана",
+            "prepublished": "Prepublished",
             "delivered": "Дастаўлена",
             "requested": "Запытана",
             "lostinpost": "Згублена поштай"

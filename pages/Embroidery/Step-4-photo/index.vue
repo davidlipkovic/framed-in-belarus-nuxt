@@ -33,11 +33,11 @@ definePageMeta({
       </div>
     </div>
     <div class="content">
-      <RegistrationNavSteps
+      <EmbroideryNavSteps
         :currentStep="4"
       />
       <section class="limitedTextWidthLg">
-        <RegistrationHeroBio />
+        <EmbroideryHeroBio />
         <h2 class="title">
           {{ $t('embroidery.step4Page.section1.title') }}
         </h2>
@@ -84,9 +84,9 @@ definePageMeta({
           />
         </div>
         <div class="photos">
-          <RegistrationImagePreview/>
-          <RegistrationImagePreview/>
-          <RegistrationImagePreview/>
+          <EmbroideryImagePreview/>
+          <EmbroideryImagePreview/>
+          <EmbroideryImagePreview/>
         </div> -->
         <div class="buttons">
           <nuxt-link 

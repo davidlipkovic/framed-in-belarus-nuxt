@@ -1,12 +1,20 @@
 import useGalleryStore from "@/stores/gallery"
+import useUserStore from "@/stores/user"
+
 const galleryStore = useGalleryStore()
+const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (!galleryStore.articles) {
-    galleryStore.loading = true
-    await galleryStore.getEmbroidery(to.params.id)
-    galleryStore.loading = false
-  } else {
-    galleryStore.loading = false
-  }
+  galleryStore.loading = true
+
+  userStore.isUsersEmbroidery = false
+  
+  userStore.prepublishedEmbroideriesIds.forEach(embroideryId => {
+    if (embroideryId === to.params.id) {
+      userStore.isUsersEmbroidery = true
+    }
+  })
+
+  await galleryStore.getEmbroidery(to.params.id)
+  galleryStore.loading = false
 })
