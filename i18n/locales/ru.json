@@ -26,7 +26,8 @@
         "submit": "Подать",
         "cancelRegistration": "Отменить регистрацию",
         "gotIt": "Принять",
-        "resetFilters": "Reset filters"
+        "resetFilters": "Reset filters",
+        "correctionsNeeded": "Необходимы исправления"
     },
     "placeholders": {
         "email": "Емейл",
@@ -831,6 +832,7 @@
     },
     "casePage": {
         "title": "Галерея",
+        "notification": "Пожалуйста, проверьте страницу. Если вы хотите внести правки, нажмите кнопку «Необходимы исправления». Если все в порядке, нажмите кнопку «Опубликовать».",
         "swiper": {
             "stitching": "Вышивка",
             "author": "Автор*ка",

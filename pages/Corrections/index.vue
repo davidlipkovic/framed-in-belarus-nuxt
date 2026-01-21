@@ -5,7 +5,10 @@ import useUserStore from "@/stores/user"
 const userStore = useUserStore()
 
 definePageMeta({
-  layout: "form"
+  layout: "form",
+  middleware: [
+    'auth-registration',
+  ],
 })
 
 const success = ref(false)

@@ -26,7 +26,8 @@
         "submit": "Submit",
         "cancelRegistration": "Cancel registration",
         "gotIt": "Got it",
-        "resetFilters": "Reset filters"
+        "resetFilters": "Reset filters",
+        "correctionsNeeded": "Corrections needed"
     },
     "placeholders": {
         "email": "Email",
@@ -831,6 +832,7 @@
     },
     "casePage": {
         "title": "Gallery",
+        "notification": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",

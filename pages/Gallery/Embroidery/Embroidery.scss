@@ -1,9 +1,54 @@
 @import "../../../assets/style/globalPartials/variables";
 
 .galleryCaseWrapper {
+  .notificationWrapper {
+    background-color: $notification;
+    padding: 6px 24px;
+    margin-top: 46px;
+
+    .contentWrapper {
+      width: 100%;
+      max-width: 1620px;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .svgQuestionCircle {
+      fill: $question;
+      min-width: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 14px;
+    }
+
+    .btnsWrapper {
+      gap: 6px;
+
+      button {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (min-width: $br-point-md) {
+      margin-top: 0;
+
+      .btnsWrapper {
+        flex-direction: row;
+      }
+    }
+  }
+
   .Title {
     .subtitle {
       margin-bottom: 0.4rem;
+    }
+  }
+
+  &:has(.notificationWrapper) {
+    .Title {
+      margin-top: 0;
     }
   }
 

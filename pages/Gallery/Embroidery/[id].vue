@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
+import useUserStore from "@/stores/user"
 import { useCheckImage } from "@/composables/CheckImage"
 import { useConvertDate } from "@/composables/ConvertDate"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
@@ -11,6 +12,7 @@ import { useRemoveNull } from "@/composables/RemoveNull"
 const { t } = useI18n()
 const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
+const userStore = useUserStore()
 const { checkImage } = useCheckImage()
 const { convertDateToReadable, convertToEventDate } = useConvertDate()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
@@ -149,6 +151,24 @@ watch(width, (newWidth) => {
 
 <template>
   <main class="Content galleryCaseWrapper">
+    <div class="notificationWrapper flexRowCenter">
+      <div class="contentWrapper flexRowCenter">
+        <div class="flexRowCenter">
+          <SvgQuestionCircle/>
+          <p>
+            {{ $t('casePage.notification') }}
+          </p>
+        </div>
+        <div class="btnsWrapper flexColumnCenter">
+          <button class="button">
+            {{ $t('buttons.correctionsNeeded') }}
+          </button>
+          <button class="button bg_black">
+            {{ $t('buttons.publish') }}
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="Title">
       <div class="content">
         <h1>
