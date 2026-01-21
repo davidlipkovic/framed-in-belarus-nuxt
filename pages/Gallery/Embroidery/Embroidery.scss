@@ -5,6 +5,9 @@
     background-color: $notification;
     padding: 6px 24px;
     margin-top: 46px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
     .contentWrapper {
       width: 100%;

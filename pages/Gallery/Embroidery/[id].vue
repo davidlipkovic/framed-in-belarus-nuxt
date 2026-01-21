@@ -151,7 +151,10 @@ watch(width, (newWidth) => {
 
 <template>
   <main class="Content galleryCaseWrapper">
-    <div class="notificationWrapper flexRowCenter">
+    <div 
+      v-if="userStore.isUsersEmbroidery"
+      class="notificationWrapper flexRowCenter"
+    >
       <div class="contentWrapper flexRowCenter">
         <div class="flexRowCenter">
           <SvgQuestionCircle/>
