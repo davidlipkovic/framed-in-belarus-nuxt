@@ -64,7 +64,7 @@ const updateLanguage = (lang) => {
 }
 
 onMounted(() => {
-  // userStore.getUserActivities()
+  userStore.getUserActivities()
 })
 
 const handleIfValueIsUpdated = (key, value) => {

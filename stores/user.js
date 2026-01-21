@@ -265,7 +265,7 @@ const { removeNullProps } = useRemoveNull()
       return
     }
 
-    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/user/' + userAuthorizationData.value.userId, {
+    const { data, error } = await useFetch(endpointUrl + '/api/user/gallery', {
       method: 'get',
       headers,
     })
