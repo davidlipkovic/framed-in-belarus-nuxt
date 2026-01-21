@@ -133,7 +133,7 @@ onClickOutside(emailInput, () => {
 const showBelarusModal = ref(false)
 
 const updateCountryOfResidence = (country) => {
-  if (country.name === 'Belarus') {
+  if (!userStore.oldUser && country.name === 'Belarus') {
     showBelarusModal.value = true
   }
   
@@ -224,6 +224,8 @@ const cancelRegistration = () => {
                   class="emailInput"
                   :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
                   ref="emailInput"
+                  :readonly="!!userStore.oldUser"
+                  :disabled="!!userStore.oldUser"
                 />
                 <span 
                   v-if="!validEmailData && emailTypingStarted"
@@ -536,8 +538,8 @@ const cancelRegistration = () => {
             {{ $t('signUpPage.modalBelarusWarning.title') }}
           </h2>
           <button
-            @click="displayEditProfileModal = false"
             class="closeButton"
+            @click="showBelarusModal = false"
           >
             <SvgClose/>
           </button>
