@@ -1,4 +1,8 @@
 @import "../../../assets/style/globalPartials/variables";
+@import "../../../assets/style/mixins/general";
+@import "../../../assets/style/mixins/modal";
+
+@include radioWrapper;
 
 .galleryCaseWrapper {
   .notificationWrapper {
@@ -250,6 +254,63 @@
 
     ul {
       margin-top: 18px;
+    }
+  }
+
+  .correctionsModal {
+    .inputModalContentWrapper {
+      @include inputModalContentWrapper;
+      max-width: 900px;
+    }
+
+    .inputModalHeader {
+      padding: 22px 36px 18px;
+    }
+
+    .inputModalRow {
+      padding: 0 28px;
+    }
+
+    .inputModalFooter {
+      border-top: 1px solid $greyLight;
+      padding: 16px 36px 18px;
+    }
+
+    .description {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .radioWrapper {
+      margin-bottom: 8px;
+
+      label {
+        width: fit-content;
+
+        svg {
+          margin-left: 8px;
+        }
+      }
+
+      label:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .radioWrapper .HelpCircleThick {
+      fill: $greyDark;
+    }
+
+    .correctionsContent.correctionsSuccessContent {
+      h1 {
+        font-size: 22px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+      }
+    }
+
+    @media screen and (min-width: $br-point-lg) {
+      font-size: 0.875rem;
     }
   }
 

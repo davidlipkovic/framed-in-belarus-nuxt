@@ -339,6 +339,30 @@ const { removeNullProps } = useRemoveNull()
     console.log('createShipping', data.value)
   }
 
+  const publishEmbroidery = async (embroideryId) => {
+    const headers = setHeaders()
+
+    if (!headers) {
+      return
+    }
+
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/gallery/publish/' + embroideryId, {
+      method: 'put',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+
+    console.log('publishEmbroidery', data.value)
+
+    return true
+  }
+
   return {
     loading,
     createShipping,
@@ -363,5 +387,6 @@ const { removeNullProps } = useRemoveNull()
     getUserSummary,
     setHeaders,
     subscribe,
+    publishEmbroidery,
   }
 })

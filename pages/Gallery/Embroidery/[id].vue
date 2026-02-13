@@ -31,6 +31,15 @@ const showPrisonerImage = ref(false)
 const caseHeaderWrapper = ref(null)
 const toggleTextScrollToTop = ref(null)
 
+// Corections
+const displayCorrectionsModal = ref(false)
+const success = ref(false)
+const successPublish = ref(false)
+const publishStudioPhotosSignature = ref(null)
+const publishComments = ref(null)
+const publishProcessPhotosPersonalData = ref(null)
+const exhibitSignature = ref(null)
+
 const handleFullScreenSwiper = (i) => {
   showFullScreenSwiper.value = true
   currentFullScreenSlide.value = i
@@ -118,6 +127,13 @@ const slides = computed(() => {
   ])
 })
 
+const validCorrectionsData = computed(() => 
+  publishStudioPhotosSignature.value !== null && 
+  publishComments.value !== null && 
+  publishProcessPhotosPersonalData.value !== null && 
+  exhibitSignature.value !== null 
+)
+
 onMounted(() => {
   if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
     return
@@ -147,6 +163,10 @@ watch(width, (newWidth) => {
 
   toggleTextScrollToTop.value = caseHeaderWrapper.value.offsetTop - paddingTop
 })
+
+const publish = () => {
+  userStore.publishEmbroidery(galleryStore.currentEmbroidery.id)
+}
 </script>
 
 <template>
@@ -163,10 +183,16 @@ watch(width, (newWidth) => {
           </p>
         </div>
         <div class="btnsWrapper flexColumnCenter">
-          <button class="button">
+          <button 
+            class="button"
+            @click="displayCorrectionsModal = true"
+          >
             {{ $t('buttons.correctionsNeeded') }}
           </button>
-          <button class="button bg_black">
+          <button 
+            class="button bg_black"
+            @click="publish()"
+          >
             {{ $t('buttons.publish') }}
           </button>
         </div>
@@ -410,6 +436,221 @@ watch(width, (newWidth) => {
         />
       </article>
     </div>
+    <GeneralInputModal
+      class="correctionsModal"
+      @closeModal="displayCorrectionsModal = false"
+      :displayModal="displayCorrectionsModal"
+    >
+      <div class="inputModalContentWrapper">
+        <div class="inputModalHeader flexRowStart">
+          <h2>
+            {{ $t('correctionsPage.title') }}
+          </h2>
+          <button
+            @click="displayCorrectionsModal = false"
+            class="closeButton"
+          >
+            <SvgClose/>
+          </button>
+        </div>
+        <div class="inputModalBody flexColumnStart">
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <p class="description">
+                {{ $t('correctionsPage.description') }}
+              </p>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <div class="radioWrapper">
+                <p class="b1">
+                  {{ $t('correctionsPage.inputStudioPhotos.title') }}
+                </p>
+                <label 
+                  for="publishStudioPhotosSignature"
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishStudioPhotosSignature"
+                    id="publishStudioPhotosSignature"
+                    :value="true"
+                    v-model="publishStudioPhotosSignature"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputStudioPhotos.option1') }}
+                </label>
+                <label 
+                  for="publishStudioPhotosHiddenSignature" 
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishStudioPhotosHiddenSignature"
+                    id="publishStudioPhotosHiddenSignature"
+                    :value="false"
+                    v-model="publishStudioPhotosSignature"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputStudioPhotos.option2') }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <div class="radioWrapper">
+                <p class="b1">
+                  {{ $t('correctionsPage.inputComments.title') }}
+                </p>
+                <label 
+                  for="publishCommentsPersonalData"
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishCommentsPersonalData"
+                    id="publishCommentsPersonalData"
+                    :value="'personalData'"
+                    v-model="publishComments"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputComments.option1') }}
+                </label>
+                <label 
+                  for="publishCommentsNoPersonalData" 
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishCommentsNoPersonalData"
+                    id="publishCommentsNoPersonalData"
+                    :value="'noPersonalData'"
+                    v-model="publishComments"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputComments.option2') }}
+                </label>
+                <label 
+                  for="noPublishComments" 
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="noPublishComments"
+                    id="noPublishComments"
+                    :value="false"
+                    v-model="publishComments"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputComments.option3') }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <div class="radioWrapper">
+                <p class="b1">
+                  {{ $t('correctionsPage.inputProcessPhotos.title') }}
+                </p>
+                <label 
+                  for="publishProcessPhotosPersonalData"
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishProcessPhotosPersonalData"
+                    id="publishProcessPhotosPersonalData"
+                    :value="true"
+                    v-model="publishProcessPhotosPersonalData"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputProcessPhotos.option1') }}
+                </label>
+                <label 
+                  for="publishProcessPhotosNoPersonalData" 
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="publishProcessPhotosNoPersonalData"
+                    id="publishProcessPhotosNoPersonalData"
+                    :value="false"
+                    v-model="publishProcessPhotosPersonalData"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputProcessPhotos.option2') }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <div class="radioWrapper">
+                <p class="b1">
+                  {{ $t('correctionsPage.inputOriginalEmbroidery.title') }}
+                </p>
+                <label 
+                  for="exhibitSignature"
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="exhibitSignature"
+                    id="exhibitSignature"
+                    :value="true"
+                    v-model="exhibitSignature"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputOriginalEmbroidery.option1') }}
+                </label>
+                <label 
+                  for="exhibitNoSignature" 
+                  class="flexRowStart"
+                >
+                  <input
+                    type="radio"
+                    name="exhibitNoSignature"
+                    id="exhibitNoSignature"
+                    :value="false"
+                    v-model="exhibitSignature"
+                    required
+                  />
+                  {{ $t('correctionsPage.inputOriginalEmbroidery.option2') }}
+                  <SvgHelpCircleThick
+                    v-tooltip="$t('correctionsPage.inputOriginalEmbroidery.option2Tooltip')"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="inputModalRow flexRowStart">
+            <div class="inputModalItem inputModalItemFullWidth flexColumnStart">
+              <p class="additionalInfo">
+                {{ $t('correctionsPage.additionalInfo.content1') }}<a href="mailto:framedinbelarus@gmail.com">{{ $t('correctionsPage.additionalInfo.highlight') }}</a>{{ $t('correctionsPage.additionalInfo.content2') }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="inputModalFooter buttons">
+          <button 
+            class="button" 
+            @click="displayCorrectionsModal = false"
+          >
+            {{ $t('buttons.cancel') }}
+          </button>
+          <button 
+            class="button"
+            :class="validCorrectionsData ? 'bg_black' : 'button_disabled'"
+            @click="submitCorrections()"
+          >
+            {{ $t('buttons.submit') }}
+          </button>
+        </div>
+      </div>
+    </GeneralInputModal>
   </main>
 </template>
 
