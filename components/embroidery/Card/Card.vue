@@ -45,15 +45,15 @@ const error = computed(() => {
     v-tooltip.bottom="embroidery.tooltip"
   >
     <img 
-      v-if="!embroidery.imageUrl || embroidery.imageUrl === '' || embroidery.imageUrl === 'FALSE'"
+      v-if="!embroidery.photo || embroidery.photo === '' || embroidery.photo === 'FALSE'"
       src="../../../assets/media/img/placeholderHero.png"
       :alt="'Photo of' + embroidery.name"
       class="embroideryCardImg"
     >
     <img 
       v-else
-      :src="embroidery.imageUrl" 
-      :alt="'Photo of' + embroidery.prisoner.name"
+      :src="embroidery.photo" 
+      :alt="'Photo of' + getCurrentLocaleStringValue(embroidery, 'name_')"
       class="embroideryCardImg"
     >
     <span

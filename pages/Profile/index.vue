@@ -64,7 +64,7 @@ const embroideriesCards = computed(() => {
   return userStore.embroideries.map((embroidery) => {
     return {
       link: '/Gallery/Embroidery/' + embroidery.id,
-      // imageUrl: embroidery.imageData.small,
+      photo: embroidery.prisoner.photo,
       status: embroidery.status.toLowerCase(),
       name_eng: embroidery.prisoner.name_eng,
       name_rus: embroidery.prisoner.name_rus,
