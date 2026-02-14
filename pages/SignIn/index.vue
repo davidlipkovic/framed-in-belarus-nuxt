@@ -27,7 +27,7 @@ const signIn = async () => {
     data = window.localStorage.getItem('fibUser')
     data = JSON.parse(data)
 
-    if (data && data.email === registrationStore.email) {
+    if (data && data.email === registrationStore.email && data.token && data.userId) {
       data.remember = registrationStore.remember
       window.localStorage.setItem('fibUser', JSON.stringify(data))
 
@@ -45,14 +45,11 @@ const signIn = async () => {
       }
     } else {
       userStore.loading = true
+      // WIP, need to check for not signed up users
       const userSignedUp = await userStore.login({email: registrationStore.email})
       userStore.loading = false
 
       if (userSignedUp) {
-        data = {}
-        data.remember = remember.value
-        window.localStorage.setItem('fibUser', JSON.stringify(data))
-
         router.push(localePath('/VerifyEmail'))
       } else {
         invalidEmail.value = true

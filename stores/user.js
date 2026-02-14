@@ -125,7 +125,7 @@ const { removeNullProps } = useRemoveNull()
     userDataBeforeDelete.value = true
   }
 
-  const deleteUserData = () => {
+  const signOut = () => {
     if (window.localStorage) {
       window.localStorage.removeItem('fibUser')
     }
@@ -136,6 +136,7 @@ const { removeNullProps } = useRemoveNull()
 
     user.value = null
     userAuthorizationData.value = null
+    isLogged.value = false
 
     userDataBeforeDelete.value = false
   }
@@ -378,7 +379,7 @@ const { removeNullProps } = useRemoveNull()
     login,
     updateUser,
     deleteUser,
-    deleteUserData,
+    signOut,
     validatePin,
     getUserAuthorizationData,
     getUserData,

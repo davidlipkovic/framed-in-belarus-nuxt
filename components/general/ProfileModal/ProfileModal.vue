@@ -11,20 +11,9 @@ const emit = defineEmits([
 
 const router = useRouter()
 
-const signOut = async () => {
-  if (window.localStorage) {
-    let data = window.localStorage.getItem('fibUser')
-    data = JSON.parse(data)
-
-    if (data) {
-      data.remember = false
-      window.localStorage.setItem('fibUser', JSON.stringify(data))
-    }
-  }
-  
+const signOut = async () => {  
   emit('closeModal')
-  userStore.user = null
-  userStore.userAuthorizationData = null
+  userStore.signOut()
   router.go(0)
 }
 
