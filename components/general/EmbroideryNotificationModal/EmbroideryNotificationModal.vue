@@ -1,22 +1,8 @@
 <script setup>
-import { watchEffect } from 'vue'
-
 const props = defineProps({
-  icon: {
-    type: String,
-    default: ''
-  },
-  message: {
-    type: String,
-    default: ''
-  },
-  link: {
-    type: String,
-    default: ''
-  },
-  linkMessage: {
-    type: String,
-    default: ''
+  notification: {
+    type: Object,
+    default: null
   }
 })
 </script>
@@ -25,23 +11,23 @@ const props = defineProps({
   <div 
     class="embroideryNotificationModal flexRowStart"
     :class="{
-      'embroideryNotificationModalQuestion': icon === 'question',
-      'embroideryNotificationModalWarning': icon === 'warning',
+      'embroideryNotificationModalQuestion': notification.icon === 'question',
+      'embroideryNotificationModalWarning': notification.icon === 'warning',
     }"
   >
     <SvgQuestionCircle
-      v-if="icon === 'question'"
+      v-if="notification.icon === 'question'"
     />
     <SvgTriangleWarning
-      v-if="icon === 'warning'"
+      v-else-if="notification.icon === 'warning'"
     />
     <span>
-      {{ message }}
+      {{ notification.message }}
       <nuxt-link
-        v-if="link"
+        v-if="notification.link"
         :to="$localePath('/' + page)"
       >
-        {{ linkMessage }}
+        {{ notification.linkMessage }}
       </nuxt-link>
     </span>
   </div>

@@ -172,7 +172,7 @@ const publish = () => {
 <template>
   <main class="Content galleryCaseWrapper">
     <div 
-      v-if="userStore.isUsersEmbroidery"
+      v-if="userStore.isUsersPrepublishedEmbroidery"
       class="notificationWrapper flexRowCenter"
     >
       <div class="contentWrapper flexRowCenter">

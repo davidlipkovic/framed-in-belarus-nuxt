@@ -112,6 +112,10 @@
   margin: 11px auto 0;
   line-height: 20px;
 
+  svg {
+    stroke: none;
+  }
+
   .svgQuestionCircle {
     fill: $question;
     width: 24px;

@@ -13,7 +13,7 @@ const { removeNullProps } = useRemoveNull()
   const userDataBeforeDelete = ref(false)
   const embroideries = ref(null)
   const prepublishedEmbroideriesIds = ref([])
-  const isUsersEmbroidery = ref(false)
+  const isUsersPrepublishedEmbroidery = ref(false)
 
   const isLogged = ref(false)
 
@@ -375,7 +375,7 @@ const { removeNullProps } = useRemoveNull()
     isLogged,
     embroideries,
     prepublishedEmbroideriesIds,
-    isUsersEmbroidery,
+    isUsersPrepublishedEmbroidery,
     login,
     updateUser,
     deleteUser,

@@ -5,7 +5,7 @@ import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
-const { locales } = useI18n()
+const { locales, t } = useI18n()
 const userStore = useUserStore()
 
 definePageMeta({
@@ -45,15 +45,26 @@ const displayDeleteProfileModal = ref(false)
 const deleteCheckbox = ref(false)
 
 const allowNewEmbroidery = computed(() => {
-  return false
+  if (userStore.embroideries.length > 0) {
+    return true
+  }
+
+  return true
 })
 
-const notification = computed(() => {
-  return false
-})
+const notifications = computed(() => {
+  const acc = []
 
-const warning = computed(() => {
-  return false
+  userStore.embroideries.forEach((embroidery) => {
+    if (embroidery.status.toLowerCase() === 'prepublished') {
+      acc.push({
+        icon: 'question',
+        message: t('profilePage.notifications.notification4.content')
+      })
+    }
+  })
+
+  return acc
 })
 
 const reasonTruncated = computed(() => {
@@ -62,7 +73,7 @@ const reasonTruncated = computed(() => {
 
 const embroideriesCards = computed(() => {
   return userStore.embroideries.map((embroidery) => {
-    return {
+    const embroideryCard = {
       link: '/Gallery/Embroidery/' + embroidery.id,
       photo: embroidery.prisoner.photo,
       status: embroidery.status.toLowerCase(),
@@ -70,6 +81,15 @@ const embroideriesCards = computed(() => {
       name_rus: embroidery.prisoner.name_rus,
       name_bel: embroidery.prisoner.name_bel,
     }
+
+    if (embroidery.status.toLowerCase() === 'prepublished') {
+      embroideryCard.notification = {
+        icon: 'question',
+        message: t('profilePage.notifications.notification4.content')
+      }
+    }
+
+    return embroideryCard
   })
 })
 
@@ -235,16 +255,8 @@ const deleteUser = async () => {
       </section>
       <section class="embroideryCardsWrapper flexColumnCenter">
         <GeneralEmbroideryNotificationModal
-          v-if="notification"
-          :icon="'question'"
-          :message="$t('profilePage.notifications.notification2' + ' [1/30/2024]')"
-        />
-        <GeneralEmbroideryNotificationModal
-          v-if="warning"
-          :icon="'warning'"
-          :message="$t('profilePage.notifications.notification1')"
-          :link="'#'"
-          :linkMessage="'Proceed'"
+          v-for="(notification, i) in notifications"
+          :notification="notification"
         />
         <div class="embroideryCards">
           <EmbroideryCard
