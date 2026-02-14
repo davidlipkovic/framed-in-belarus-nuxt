@@ -44,7 +44,7 @@ const displayDeleteProfileModal = ref(false)
 
 const deleteCheckbox = ref(false)
 
-const allowNewEmbroidery = computed(() => {
+const disableNewEmbroidery = computed(() => {
   if (userStore.embroideries.length > 0) {
     return true
   }
@@ -260,7 +260,7 @@ const deleteUser = async () => {
         />
         <div class="embroideryCards">
           <EmbroideryCard
-            :disable="allowNewEmbroidery"
+            :disable="disableNewEmbroidery"
             :isNew="true"
           />
           <EmbroideryCard
