@@ -23,10 +23,8 @@ const pin = ref(null)
 const pinInput = ref(null)
 const pinTypingStarted = ref(false)
 
-const remember = ref(false)
-
 const validatePin = async () => {
-  await userStore.validatePin(registrationStore.email, pin.value, remember.value)
+  await userStore.validatePin(registrationStore.email, pin.value, registrationStore.remember)
   router.push(localePath('/Profile'))
 }
 
@@ -98,7 +96,7 @@ onClickOutside(pinInput, () => {
           id="remember" 
           name="remember"
           :value="true"
-          v-model="remember"
+          v-model="registrationStore.remember"
         />
         {{ $t("signInPage.remember") }}
       </label>

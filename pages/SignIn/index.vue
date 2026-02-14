@@ -19,7 +19,6 @@ const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
 const invalidEmail = ref(false)
-const remember = ref(false)
 
 const signIn = async () => {
   let data
@@ -29,7 +28,7 @@ const signIn = async () => {
     data = JSON.parse(data)
 
     if (data && data.email === registrationStore.email) {
-      data.remember = remember.value
+      data.remember = registrationStore.remember
       window.localStorage.setItem('fibUser', JSON.stringify(data))
 
       userStore.loading = true
@@ -121,7 +120,7 @@ onClickOutside(emailInput, () => {
           id="remember" 
           name="remember"
           :value="true"
-          v-model="remember"
+          v-model="registrationStore.remember"
         />
         {{ $t("signInPage.remember") }}
       </label>
