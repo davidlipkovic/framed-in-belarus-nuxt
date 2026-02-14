@@ -98,7 +98,11 @@ const { removeNullProps } = useRemoveNull()
       })
     }
 
-    console.log('updateUser', data.value)
+    Object.entries(parsedBody).forEach(([key, value]) => {
+      user.value[key] = value
+    })
+
+    console.log('updateUser', data.value, user.value)
   }
 
   const deleteUser = async () => {

@@ -68,7 +68,7 @@ const notifications = computed(() => {
 })
 
 const reasonTruncated = computed(() => {
-  return userStore.user.reason.length > 220 ? userStore.user.reason.reason.slice(0, 220) + '...' : userStore.user.reason.reason
+  return userStore.user.reason.length > 220 ? userStore.user.reason.slice(0, 220) + '...' : userStore.user.reason
 })
 
 const embroideriesCards = computed(() => {
@@ -109,7 +109,8 @@ const updateUser = async () => {
   userStore.loading = true
 
   const body = {
-    email: handleIfValueIsUpdated('email', email.value),
+    // disabled
+    // email: handleIfValueIsUpdated('email', email.value),
     username: handleIfValueIsUpdated('username', username.value),
     countryOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
     language: handleIfValueIsUpdated('language', language.value),
@@ -122,7 +123,6 @@ const updateUser = async () => {
   }
 
   await userStore.updateUser(body)
-  await userStore.getUserData()
   userStore.loading = false
   displayEditProfileModal.value = false
 }
