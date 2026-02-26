@@ -1,7 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import useUserStore from "@/stores/user"
 
+const route = useRoute()
 const userStore = useUserStore()
 
 definePageMeta({
@@ -12,19 +14,26 @@ definePageMeta({
 })
 
 const success = ref(false)
-const publishStudioPhotosSignature = ref(null)
-const publishComments = ref(null)
-const publishProcessPhotosPersonalData = ref(null)
-const exhibitSignature = ref(null)
+const studioPhoto = ref(null)
+const comment = ref(null)
+const processPhoto = ref(null)
+const embroidery = ref(null)
 
 const validData = computed(() => 
-  publishStudioPhotosSignature.value !== null && 
-  publishComments.value !== null && 
-  publishProcessPhotosPersonalData.value !== null && 
-  exhibitSignature.value !== null 
+  studioPhoto.value && 
+  comment.value && 
+  processPhoto.value && 
+  embroidery.value 
 )
 
-const submitForm = async () => {
+const postEmbroideryCorrections = async () => {
+  userStore.postEmbroideryCorrections(route.query.id, {
+    studioPhoto: studioPhoto.value,
+    comment: comment.value,
+    processPhoto: processPhoto.value, 
+    embroidery: embroidery.value,
+  })
+
   success.value = true
 }
 </script>
@@ -54,29 +63,29 @@ const submitForm = async () => {
             {{ $t('correctionsPage.inputStudioPhotos.title') }}
           </p>
           <label 
-            for="publishStudioPhotosSignature"
+            for="studioPhotoExposed"
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishStudioPhotosSignature"
-              id="acceptSubscribeNews"
-              :value="true"
-              v-model="publishStudioPhotosSignature"
+              name="studioPhotoExposed"
+              id="studioPhotoExposed"
+              value="Publish with exposed signature"
+              v-model="studioPhoto"
               required
             />
             {{ $t('correctionsPage.inputStudioPhotos.option1') }}
           </label>
           <label 
-            for="publishStudioPhotosHiddenSignature" 
+            for="studioPhotoHidden" 
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishStudioPhotosHiddenSignature"
-              id="publishStudioPhotosHiddenSignature"
-              :value="false"
-              v-model="publishStudioPhotosSignature"
+              name="studioPhotoHidden"
+              id="studioPhotoHidden"
+              value="Publish with hidden signature'"
+              v-model="studioPhoto"
               required
             />
             {{ $t('correctionsPage.inputStudioPhotos.option2') }}
@@ -87,43 +96,43 @@ const submitForm = async () => {
             {{ $t('correctionsPage.inputComments.title') }}
           </p>
           <label 
-            for="publishCommentsPersonalData"
+            for="commentExposed"
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishCommentsPersonalData"
-              id="publishCommentsPersonalData"
-              :value="'personalData'"
-              v-model="publishComments"
+              name="commentExposed"
+              id="commentExposed"
+              value="Publish with exposed personal data"
+              v-model="comment"
               required
             />
             {{ $t('correctionsPage.inputComments.option1') }}
           </label>
           <label 
-            for="publishCommentsNoPersonalData" 
+            for="commentHidden" 
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishCommentsNoPersonalData"
-              id="publishCommentsNoPersonalData"
-              :value="'noPersonalData'"
-              v-model="publishComments"
+              name="commentHidden"
+              id="commentHidden"
+              value="Publish with hidden personal data"
+              v-model="comment"
               required
             />
             {{ $t('correctionsPage.inputComments.option2') }}
           </label>
           <label 
-            for="noPublishComments" 
+            for="commentNotPublished" 
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="noPublishComments"
-              id="noPublishComments"
-              :value="false"
-              v-model="publishComments"
+              name="commentNotPublished"
+              id="commentNotPublished"
+              value="Do not publish"
+              v-model="comment"
               required
             />
             {{ $t('correctionsPage.inputComments.option3') }}
@@ -134,29 +143,29 @@ const submitForm = async () => {
             {{ $t('correctionsPage.inputProcessPhotos.title') }}
           </p>
           <label 
-            for="publishProcessPhotosPersonalData"
+            for="processPhotoExposed"
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishProcessPhotosPersonalData"
-              id="publishProcessPhotosPersonalData"
-              :value="true"
-              v-model="publishProcessPhotosPersonalData"
+              name="processPhotoExposed"
+              id="processPhotoExposed"
+              value="Publish with exposed personal data"
+              v-model="processPhoto"
               required
             />
             {{ $t('correctionsPage.inputProcessPhotos.option1') }}
           </label>
           <label 
-            for="publishProcessPhotosNoPersonalData" 
+            for="processPhotoHidden" 
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="publishProcessPhotosNoPersonalData"
-              id="publishProcessPhotosNoPersonalData"
-              :value="false"
-              v-model="publishProcessPhotosPersonalData"
+              name="processPhotoHidden"
+              id="processPhotoHidden"
+              value="Publish with hidden personal data"
+              v-model="processPhoto"
               required
             />
             {{ $t('correctionsPage.inputProcessPhotos.option2') }}
@@ -167,29 +176,29 @@ const submitForm = async () => {
             {{ $t('correctionsPage.inputOriginalEmbroidery.title') }}
           </p>
           <label 
-            for="exhibitSignature"
+            for="embroideryExposed"
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="exhibitSignature"
-              id="exhibitSignature"
-              :value="true"
-              v-model="exhibitSignature"
+              name="embroideryExposed"
+              id="embroideryExposed"
+              value="Exhibit with exposed signature"
+              v-model="embroidery"
               required
             />
             {{ $t('correctionsPage.inputOriginalEmbroidery.option1') }}
           </label>
           <label 
-            for="exhibitNoSignature" 
+            for="embroideryHidden" 
             class="flexRowStart"
           >
             <input
               type="radio"
-              name="exhibitNoSignature"
-              id="exhibitNoSignature"
-              :value="false"
-              v-model="exhibitSignature"
+              name="embroideryHidden"
+              id="embroideryHidden"
+              value="Exhibit with hidden signature"
+              v-model="embroidery"
               required
             />
             {{ $t('correctionsPage.inputOriginalEmbroidery.option2') }}
@@ -206,7 +215,7 @@ const submitForm = async () => {
         <button 
           class="button" 
           :class="validData ? 'bg_black' : 'button_disabled'"
-          @click="submitForm()"
+          @click="postEmbroideryCorrections()"
         >
           {{ $t('buttons.submit') }}
         </button>

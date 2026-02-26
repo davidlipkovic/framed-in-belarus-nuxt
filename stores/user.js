@@ -368,6 +368,29 @@ const { removeNullProps } = useRemoveNull()
     return true
   }
 
+  const postEmbroideryCorrections = async (embroideryId, body) => {
+    const headers = setHeaders()
+
+    if (!headers) {
+      return
+    }
+
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/corrections/' + embroideryId, {
+      method: 'post',
+      headers,
+      body: removeNullProps(body)
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+
+    console.log('postEmbroideryCorrections', data.value)
+  }
+
   return {
     loading,
     createShipping,
@@ -393,5 +416,6 @@ const { removeNullProps } = useRemoveNull()
     setHeaders,
     subscribe,
     publishEmbroidery,
+    postEmbroideryCorrections,
   }
 })
