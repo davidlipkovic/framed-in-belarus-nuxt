@@ -20,15 +20,11 @@ const { removeNullProps } = useRemoveNull()
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getUserAuthorizationData = () => {
-    if (window.localStorage || window.sessionStorage) {
+    if (window.localStorage) {
       let data = window.localStorage.getItem('fibUser')
       data = JSON.parse(data)
 
       if (data) {
-        userAuthorizationData.value = data
-      } else {
-        data = window.sessionStorage.getItem('fibUser')
-        data = JSON.parse(data)
         userAuthorizationData.value = data
       }
     }
@@ -173,20 +169,13 @@ const { removeNullProps } = useRemoveNull()
       userId: data.value.result.userId,
     }
 
-    if (remember && window.localStorage) {
+    if (window.localStorage) {
       userAuthorizationData.value = {
         ...userAuthorizationData.value,
         remember,
       }
 
       window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
-    } else if (window.sessionStorage) {
-      userAuthorizationData.value = {
-        ...userAuthorizationData.value,
-        remember: true,
-      }
-
-      window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
     }
   }
 
