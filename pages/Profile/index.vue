@@ -59,7 +59,7 @@ const notifications = computed(() => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       acc.push({
         icon: 'question',
-        message: t('profilePage.notifications.notification4.content')
+        message: t('profilePage.notifications.notification4') + ' 30.1.2024.'
       })
     }
   })
@@ -85,7 +85,7 @@ const embroideriesCards = computed(() => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       embroideryCard.notification = {
         icon: 'question',
-        message: t('profilePage.notifications.notification4.content')
+        message: t('profilePage.notifications.notification4') + ' 30.1.2024.'
       }
     }
 

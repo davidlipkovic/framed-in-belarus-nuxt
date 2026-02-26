@@ -321,10 +321,7 @@
                 "highlight": "Awaiting confirmation",
                 "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
             },
-            "notification4": {
-                "highlight": "Corrections needed / Publish",
-                "content": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button."
-            },
+            "notification4": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by",
             "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
         },
         "embroideryStatus": {
