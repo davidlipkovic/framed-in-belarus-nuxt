@@ -14,10 +14,10 @@ definePageMeta({
 })
 
 const numberOfHeroes = computed(() => {
-  if (!heroesStore.loading) {
+  if (!heroesStore.loading && heroesStore.originalHeroes) {
     return heroesStore.originalHeroes.length;
   }
-  return 0
+  return 3000
 })
 </script>
 
