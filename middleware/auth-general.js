@@ -3,7 +3,7 @@ const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
   if (userStore.userDataBeforeDelete) {
-    userStore.deleteUserData()
+    userStore.signOut()
   }
 
   if (userStore.user) {

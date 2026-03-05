@@ -26,7 +26,8 @@
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
         "gotIt": "Прыняць",
-        "resetFilters": "Reset filters"
+        "resetFilters": "Reset filters",
+        "correctionsNeeded": "Неабходны выпраўленні"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -300,7 +301,8 @@
         "forgot": "Забылі пароль?",
         "remember": "Памятаць мяне",
         "signInButton" : "Увайсці",
-        "signInGoogleButton" : "Увайсці з дапамогай Google"
+        "signInGoogleButton" : "Увайсці з дапамогай Google",
+        "warning": "User with this email is not signed up"
     },
     "verifyEmailPage": {
         "title": "Пацвердзіце адрас сваёй электроннай пошты",
@@ -326,12 +328,13 @@
             },
            "notification5": "Нажаль, немагчыма пачаць новую вышыўку, пакуль бягучая незавершаная праца не дасягне кроку 6 - адпраўка."
         },
-        "cardStatus": {
+        "embroideryStatus": {
             "inProgress": "У працэсе",
             "patternIsReady": "Схема гатова",
             "stitched": "Вышыта",
             "sent": "Адпраўлена",
             "published": "Апублікавана",
+            "prepublished": "Prepublished",
             "delivered": "Дастаўлена",
             "requested": "Запытана",
             "lostinpost": "Згублена поштай"
@@ -830,6 +833,7 @@
     },
     "casePage": {
         "title": "Галерэя",
+        "notification": "Калі ласка, праверце старонку. Калі вы хочаце ўнесці праўкі, націсніце кнопку «Патрэбны выпраўленні». Калі ўсё ў парадку, націсніце кнопку «Апублікаваць».",
         "swiper": {
             "stitching": "Вышыўка",
             "author": "Аўтар*ка",

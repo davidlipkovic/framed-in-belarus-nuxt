@@ -2,14 +2,17 @@
 // wip
 import { computed, onMounted, ref, watch } from 'vue'
 import useNewsStore from "@/stores/news"
+import { useRoute, useRouter } from 'vue-router'
 
 definePageMeta({
   middleware: [
-    // 'auth-general',
     'news',
+    // 'auth-general',
   ],
 })
 
+const route = useRoute()
+const router = useRouter()
 const newsStore = useNewsStore()
 
 const currentTag = ref(null)
@@ -20,9 +23,51 @@ const filteredArticles = computed(() => {
   return mergedArticles.filter((article) => article.category.toLowerCase() === currentTag.value)
 })
 
-const updateCurrentTag = (val) => {
-  currentTag.value = val
+const tags = computed(() => {
+  const tagsAcc = new Map()
+
+  tagsAcc.set('allItems', {
+    value: undefined,
+    translationKey: 'allItems',
+  })
+
+  newsStore.articlesPublication.forEach(article => {
+    const value = {}
+
+    if (article.category === 'Workshop') {
+      value.value = 'workshop'
+      value.translationKey = 'workshops'
+    } else if (article.category === 'Exhibition') {
+      value.value = 'exhibition'
+      value.translationKey = 'exhibitions'
+    } else {
+      value.value = 'other'
+      value.translationKey = 'other'
+    }
+
+    tagsAcc.set(article.category, value)
+  })
+
+  return tagsAcc
+})
+
+const updateCurrentTag = (tag) => {
+  if (!tag) {
+    router.replace({ })
+  } else {
+    router.replace({ 
+      query: { 
+        't': tag
+      }
+    })
+  }
 }
+
+watch(() => route.query, (newQuery) => {
+    currentTag.value = newQuery.t
+  }, 
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -38,32 +83,13 @@ const updateCurrentTag = (val) => {
     </div>
     <div class="filterMenuWrapper content">
       <button 
+        v-for="[key, value] in tags"
+        :key="key"
         class="button"
-        :class="{'bg_black' : currentTag === null}"
-        @click="updateCurrentTag(null)"
+        :class="{'bg_black' : currentTag === value.value}"
+        @click="updateCurrentTag(value.value)"
       >
-        {{ $t('newsPage.filters.allItems') }}
-      </button>
-      <button 
-        class="button"
-        :class="{'bg_black' : currentTag === 'workshop'}"
-        @click="updateCurrentTag('workshop')"
-      >
-        {{ $t('newsPage.filters.workshops') }}
-      </button>
-      <button 
-        class="button"
-        :class="{'bg_black' : currentTag === 'exhibition'}"
-        @click="updateCurrentTag('exhibition')"
-      >
-        {{ $t('newsPage.filters.exhibitions') }}
-      </button>
-      <button 
-        class="button"
-        :class="{'bg_black' : currentTag === 'other'}"
-        @click="updateCurrentTag('other')"
-      >
-        {{ $t('newsPage.filters.other') }}
+        {{ $t('newsPage.filters.' + value.translationKey) }}
       </button>
     </div>
     <div class="articlesWrapper content">

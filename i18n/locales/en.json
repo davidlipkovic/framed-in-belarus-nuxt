@@ -26,7 +26,8 @@
         "submit": "Submit",
         "cancelRegistration": "Cancel registration",
         "gotIt": "Got it",
-        "resetFilters": "Reset filters"
+        "resetFilters": "Reset filters",
+        "correctionsNeeded": "Corrections needed"
     },
     "placeholders": {
         "email": "Email",
@@ -300,7 +301,8 @@
         "forgot": "Forgot the password?",
         "remember": "Remember me",
         "signInButton" : "Sign in",
-        "signInGoogleButton" : "Sign in with Google"
+        "signInGoogleButton" : "Sign in with Google",
+        "warning": "User with this email is not signed up"
     },
     "verifyEmailPage": {
         "title": "Verify your email address",
@@ -320,17 +322,15 @@
                 "highlight": "Awaiting confirmation",
                 "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
             },
-            "notification4": {
-                "highlight": "Corrections needed / Publish",
-                "content": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button."
-            },
+            "notification4": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by",
             "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
         },
-        "cardStatus": {
+        "embroideryStatus": {
             "inProgress": "In Progress",
             "patternIsReady": "Pattern is ready",
             "stitched": "Stitched",
             "sent": "Sent",
+            "prepublished": "Prepublished",
             "published": "Published",
             "delivered": "Delivered",
             "requested": "Requested",
@@ -830,6 +830,7 @@
     },
     "casePage": {
         "title": "Gallery",
+        "notification": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",

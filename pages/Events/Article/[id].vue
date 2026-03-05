@@ -9,6 +9,7 @@ import { useConvertDate } from "@/composables/ConvertDate"
 definePageMeta({
   middleware: [
     'news',
+    'auth-general',
   ],
 })
 

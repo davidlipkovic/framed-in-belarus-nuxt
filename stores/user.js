@@ -11,21 +11,20 @@ const { removeNullProps } = useRemoveNull()
   const userSummary = ref(null)
   const userAuthorizationData = ref(null)
   const userDataBeforeDelete = ref(false)
+  const embroideries = ref(null)
+  const prepublishedEmbroideriesIds = ref([])
+  const isUsersPrepublishedEmbroidery = ref(false)
 
   const isLogged = ref(false)
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getUserAuthorizationData = () => {
-    if (window.localStorage || window.sessionStorage) {
+    if (window.localStorage) {
       let data = window.localStorage.getItem('fibUser')
       data = JSON.parse(data)
 
       if (data) {
-        userAuthorizationData.value = data
-      } else {
-        data = window.sessionStorage.getItem('fibUser')
-        data = JSON.parse(data)
         userAuthorizationData.value = data
       }
     }
@@ -38,8 +37,26 @@ const { removeNullProps } = useRemoveNull()
     return null
   }
   
-  const login = async (body) => {
+  const loginUser = async (email) => {
     const { data, error } = await useFetch(endpointUrl + '/api/auth/email/login', {
+      method: 'post',
+      body: {email}
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+    
+    console.log('loginUser', data.value)
+
+    return data.value.result
+  }
+  
+  const createUser = async (body) => {
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/email/create', {
       method: 'post',
       body: removeNullProps(body)
     })
@@ -51,7 +68,7 @@ const { removeNullProps } = useRemoveNull()
       })
     }
     
-    console.log('login', data.value)
+    console.log('createUser', data.value)
 
     return data.value.result
   }
@@ -95,7 +112,11 @@ const { removeNullProps } = useRemoveNull()
       })
     }
 
-    console.log('updateUser', data.value)
+    Object.entries(parsedBody).forEach(([key, value]) => {
+      user.value[key] = value
+    })
+
+    console.log('updateUser', data.value, user.value)
   }
 
   const deleteUser = async () => {
@@ -122,7 +143,7 @@ const { removeNullProps } = useRemoveNull()
     userDataBeforeDelete.value = true
   }
 
-  const deleteUserData = () => {
+  const signOut = () => {
     if (window.localStorage) {
       window.localStorage.removeItem('fibUser')
     }
@@ -133,6 +154,7 @@ const { removeNullProps } = useRemoveNull()
 
     user.value = null
     userAuthorizationData.value = null
+    isLogged.value = false
 
     userDataBeforeDelete.value = false
   }
@@ -165,20 +187,13 @@ const { removeNullProps } = useRemoveNull()
       userId: data.value.result.userId,
     }
 
-    if (remember && window.localStorage) {
+    if (window.localStorage) {
       userAuthorizationData.value = {
         ...userAuthorizationData.value,
         remember,
       }
 
       window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
-    } else if (window.sessionStorage) {
-      userAuthorizationData.value = {
-        ...userAuthorizationData.value,
-        remember: true,
-      }
-
-      window.sessionStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
     }
   }
 
@@ -258,14 +273,14 @@ const { removeNullProps } = useRemoveNull()
     }
   }
   
-  const getUserActivities = async () => {
+  const getUserEmbroideries = async () => {
     const headers = setHeaders()
 
     if (!headers) {
       return
     }
 
-    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/user/' + userAuthorizationData.value.userId, {
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/gallery', {
       method: 'get',
       headers,
     })
@@ -277,7 +292,17 @@ const { removeNullProps } = useRemoveNull()
       })
     }
 
-    console.log('getUserActivities', data.value)
+    console.log('getUserEmbroideries', data.value)
+
+    embroideries.value = data.value.result
+
+    embroideries.value.forEach((embroidery) => {
+      if (embroidery.status === 'Prepublished') {
+        prepublishedEmbroideriesIds.value.push(embroidery.id)
+      }
+    })
+
+    console.log('getUserEmbroideries', prepublishedEmbroideriesIds.value)
   }
   
   const getUserSummary = async () => {
@@ -326,6 +351,53 @@ const { removeNullProps } = useRemoveNull()
     console.log('createShipping', data.value)
   }
 
+  const publishEmbroidery = async (embroideryId) => {
+    const headers = setHeaders()
+
+    if (!headers) {
+      return
+    }
+
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/gallery/publish/' + embroideryId, {
+      method: 'put',
+      headers,
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+
+    console.log('publishEmbroidery', data.value)
+
+    return true
+  }
+
+  const postEmbroideryCorrections = async (embroideryId, body) => {
+    const headers = setHeaders()
+
+    if (!headers) {
+      return
+    }
+
+    const { data, error } = await useFetch(endpointUrl + '/api/prisoners/corrections/' + embroideryId, {
+      method: 'post',
+      headers,
+      body: removeNullProps(body)
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+
+    console.log('postEmbroideryCorrections', data.value)
+  }
+
   return {
     loading,
     createShipping,
@@ -335,17 +407,23 @@ const { removeNullProps } = useRemoveNull()
     userAuthorizationData,
     userDataBeforeDelete,
     isLogged,
-    login,
+    embroideries,
+    prepublishedEmbroideriesIds,
+    isUsersPrepublishedEmbroidery,
+    loginUser,
+    createUser,
     updateUser,
     deleteUser,
-    deleteUserData,
+    signOut,
     validatePin,
     getUserAuthorizationData,
     getUserData,
     getOldUserData,
-    getUserActivities,
+    getUserEmbroideries,
     getUserSummary,
     setHeaders,
     subscribe,
+    publishEmbroidery,
+    postEmbroideryCorrections,
   }
 })

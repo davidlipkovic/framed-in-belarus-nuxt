@@ -69,6 +69,7 @@ input[type=radio] {
   height: 20px;
   border: 0.15rem solid $greyButtonHover;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 input[type=radio]:checked {
