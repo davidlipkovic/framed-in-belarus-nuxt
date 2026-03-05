@@ -11,7 +11,7 @@
   }
 
   .formWrapper {
-    margin-top: 8px;
+    margin-top: 23px;
   }
 
   .emailInput {
@@ -33,9 +33,5 @@
 
   @media screen and (min-width: $br-point-lg) {
     padding-left: 545px;
-
-    .formWrapper {
-      margin-top: 23px;
-    }
   }
 }

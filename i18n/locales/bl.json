@@ -301,7 +301,8 @@
         "forgot": "Забылі пароль?",
         "remember": "Памятаць мяне",
         "signInButton" : "Увайсці",
-        "signInGoogleButton" : "Увайсці з дапамогай Google"
+        "signInGoogleButton" : "Увайсці з дапамогай Google",
+        "warning": "User with this email is not signed up"
     },
     "verifyEmailPage": {
         "title": "Пацвердзіце адрас сваёй электроннай пошты",

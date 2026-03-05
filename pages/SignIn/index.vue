@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
@@ -45,8 +45,7 @@ const signIn = async () => {
       }
     } else {
       userStore.loading = true
-      // WIP, need to check for not signed up users
-      const userSignedUp = await userStore.login({email: registrationStore.email})
+      const userSignedUp = await userStore.loginUser(registrationStore.email)
       userStore.loading = false
 
       if (userSignedUp) {
@@ -66,6 +65,10 @@ onClickOutside(emailInput, () => {
   if (registrationStore.email) {
     emailTypingStarted.value = true
   }
+})
+
+watch(() => registrationStore.email, () => {
+  invalidEmail.value = false
 })
 </script>
 
@@ -102,10 +105,10 @@ onClickOutside(emailInput, () => {
           {{ $t('invalidInputs.enterEmailAdress') }}
         </span>
         <span 
-          v-if="invalidEmail"
+          v-else-if="invalidEmail"
           class="warningNotification note red"
         >
-          User with this email is not signed up
+          {{ $t("signInPage.warning") }}
         </span>
       </div>
       <label
@@ -124,7 +127,7 @@ onClickOutside(emailInput, () => {
       <button 
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 
-        @click.once="signIn()"
+        @click="signIn()"
       >
         {{ $t("signInPage.signInButton") }}
       </button>

@@ -37,8 +37,26 @@ const { removeNullProps } = useRemoveNull()
     return null
   }
   
-  const login = async (body) => {
+  const loginUser = async (email) => {
     const { data, error } = await useFetch(endpointUrl + '/api/auth/email/login', {
+      method: 'post',
+      body: {email}
+    })
+
+    if (error.value) {
+      throw createError({ 
+        statusCode: error.value.statusCode,
+        statusMessage: error.value.statusMessage,
+      })
+    }
+    
+    console.log('loginUser', data.value)
+
+    return data.value.result
+  }
+  
+  const createUser = async (body) => {
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/email/create', {
       method: 'post',
       body: removeNullProps(body)
     })
@@ -50,7 +68,7 @@ const { removeNullProps } = useRemoveNull()
       })
     }
     
-    console.log('login', data.value)
+    console.log('createUser', data.value)
 
     return data.value.result
   }
@@ -392,7 +410,8 @@ const { removeNullProps } = useRemoveNull()
     embroideries,
     prepublishedEmbroideriesIds,
     isUsersPrepublishedEmbroidery,
-    login,
+    loginUser,
+    createUser,
     updateUser,
     deleteUser,
     signOut,

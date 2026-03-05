@@ -301,7 +301,8 @@
         "forgot": "Forgot the password?",
         "remember": "Remember me",
         "signInButton" : "Sign in",
-        "signInGoogleButton" : "Sign in with Google"
+        "signInGoogleButton" : "Sign in with Google",
+        "warning": "User with this email is not signed up"
     },
     "verifyEmailPage": {
         "title": "Verify your email address",

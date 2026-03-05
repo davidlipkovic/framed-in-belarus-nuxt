@@ -301,7 +301,8 @@
         "forgot": "Забыли пароль?",
         "remember": "Запомнить меня",
         "signInButton" : "Войти",
-        "signInGoogleButton" : "Войти через Google"
+        "signInGoogleButton" : "Войти через Google",
+        "warning": "User with this email is not signed up"
     },
     "verifyEmailPage": {
         "title": "Подтвердите адрес своей электронной почты",

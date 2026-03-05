@@ -50,7 +50,7 @@ const signUp = async () => {
   }
 
   userStore.loading = true
-  await userStore.login(body)
+  await userStore.createUser(body)
   userStore.loading = false
   router.push($localePath('/VerifyEmail'))
 }
