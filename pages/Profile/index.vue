@@ -58,12 +58,12 @@ const notifications = computed(() => {
   userStore.embroideries.forEach((embroidery) => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       acc.push({
-        icon: 'question',
+        icon: resolveComponent('SvgTriangleWarning'),
         message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
       })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       acc.push({
-        icon: 'question',
+        icon: resolveComponent('SvgQuestionCircle'),
         message: t('profilePage.notifications.editing')
       })
     }
@@ -91,7 +91,6 @@ const embroideriesCards = computed(() => {
       embroideryCard.notification = {
         icon: 'question',
         tooltip: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
-
       }
     } else if (embroidery.status.toLowerCase() === 'editing') {
       embroideryCard.notification = {

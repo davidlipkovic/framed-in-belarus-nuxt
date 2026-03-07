@@ -139,7 +139,7 @@ const notification = computed(() => {
   }
 
   if (galleryStore.currentEmbroidery.status === 'Prepublished') {
-    notification.icon = resolveComponent('SvgQuestionWarning')
+    notification.icon = resolveComponent('SvgTriangleWarning')
     notification.message = t('casePage.notification.prepublished')
   } else if (galleryStore.currentEmbroidery.status === 'Editing') {
     notification.icon = resolveComponent('SvgQuestionCircle')
