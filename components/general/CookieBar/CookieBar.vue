@@ -6,7 +6,7 @@ const consentKey = 'cookieConsent'
 const consentSet = ref(true)
 const showPreferences = ref(false)
 const cookieFunctional = ref(true)
-const cookieAnalytics = ref(false)
+const cookieAnalytics = ref(true)
 
 function getCookie(key, length = 60 * 60 * 24 * 365) {
   var now = new Date()
@@ -127,9 +127,6 @@ onMounted(() => {
         </button>
       </div>
       <div class="inputModalBody cookiePreferencesModalBody">
-        <p class="inputModalItem cookieDetailsLinkWrapper">
-          {{ $t('cookies.modal.cookieDetailsLink.content') }} <a href="" target="_blank">{{ $t('cookies.modal.cookieDetailsLink.highlight') }}</a>
-        </p>
         <GeneralCookiePreferencesModalItem 
           class="inputModalItem"
           v-model="cookieFunctional"
@@ -139,7 +136,7 @@ onMounted(() => {
             {{ $t('cookies.modal.essentialCookies.label') }}
           </template>
           <template #description>
-            {{ $t('cookies.modal.essentialCookies.description.content1') }}
+            {{ $t('cookies.modal.essentialCookies.description') }}
           </template>
         </GeneralCookiePreferencesModalItem>
         <GeneralCookiePreferencesModalItem 
@@ -150,9 +147,15 @@ onMounted(() => {
             {{ $t('cookies.modal.performanceCookies.label') }}
           </template>
           <template #description>
-            {{ $t('cookies.modal.performanceCookies.description.content1') }}
+            {{ $t('cookies.modal.performanceCookies.description') }}
           </template>
         </GeneralCookiePreferencesModalItem>
+        <p class="inputModalItem cookieDetailsLinkWrapper">
+          {{ $t('cookies.modal.cookieDetailsLink.content') }} 
+          <a href="#" target="_blank">
+            {{ $t('cookies.modal.cookieDetailsLink.highlight') }}
+          </a>
+        </p>
       </div>
       <div class="inputModalFooter buttons">
         <button 
