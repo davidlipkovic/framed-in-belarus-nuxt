@@ -7,7 +7,7 @@
         "decline": "не прымаць",
         "delete": "Выдаліць",
         "confirm": "Пацвердзіць",
-        "manage": "змяніць наладкі",
+        "manage": "наладзіць",
         "cancel": "Адмяніць",
         "publish": "Апублікаваць",
         "save": "Захаваць",
@@ -26,7 +26,7 @@
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
         "gotIt": "Прыняць",
-        "resetFilters": "Reset filters",
+       "resetFilters": "Скінуць фільтры",
         "correctionsNeeded": "Неабходны выпраўленні"
     },
     "placeholders": {
