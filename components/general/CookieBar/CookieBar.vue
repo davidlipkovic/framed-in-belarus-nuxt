@@ -45,6 +45,8 @@ const handlePreferences = () => {
 }
 
 function injectGTMAndTrack() {
+  // for dev
+  return
   if (document.getElementById('gtm-script')) return
 
   // Set up dataLayer
