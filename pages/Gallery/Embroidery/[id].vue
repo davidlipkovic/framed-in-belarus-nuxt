@@ -134,22 +134,22 @@ const notification = computed(() => {
     return
   }
 
-  const notification = {
+  const notificationContent = {
     status: galleryStore.currentEmbroidery.status
   }
 
   if (galleryStore.currentEmbroidery.status === 'Prepublished') {
-    notification.icon = resolveComponent('SvgTriangleWarning')
-    notification.message = t('casePage.notification.prepublished')
+    notificationContent.icon = resolveComponent('SvgTriangleWarning')
+    notificationContent.message = t('casePage.notification.prepublished')
   } else if (galleryStore.currentEmbroidery.status === 'Editing') {
-    notification.icon = resolveComponent('SvgQuestionCircle')
-    notification.message = t('casePage.notification.editing')
+    notificationContent.icon = resolveComponent('SvgQuestionCircle')
+    notificationContent.message = t('casePage.notification.editing')
   } else if (galleryStore.currentEmbroidery.status === 'Published') {
-    notification.icon = resolveComponent('SvgQuestionCircle')
-    notification.message = t('casePage.notification.published')
+    notificationContent.icon = resolveComponent('SvgQuestionCircle')
+    notificationContent.message = t('casePage.notification.published')
   }
 
-  return notification
+  return notificationContent
 })
 
 onMounted(() => {

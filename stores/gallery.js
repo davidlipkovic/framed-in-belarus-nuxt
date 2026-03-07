@@ -109,7 +109,7 @@ export default defineStore("gallery", () => {
   }
 
   const updateCurrentEmbroideryStatus = (status) => {
-    currentEmbroidery.value?.status = status
+    currentEmbroidery.value.status = status
   }
 
   return {
