@@ -45,8 +45,6 @@ const handlePreferences = () => {
 }
 
 function injectGTMAndTrack() {
-  // for dev
-  return
   if (document.getElementById('gtm-script')) return
 
   // Set up dataLayer
@@ -76,7 +74,8 @@ onMounted(() => {
     consentSet.value = false
   } else if (cookie.value === 'accepted') {
     cookieAnalytics.value = true
-    injectGTMAndTrack()
+    // FOR DEV
+    // injectGTMAndTrack()
   }
 })
 </script>
