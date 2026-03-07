@@ -354,14 +354,11 @@ const { removeNullProps } = useRemoveNull()
       headers,
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
-
     console.log('publishEmbroidery', data.value)
+
+    if (error.value || data.value.result !== 'success') {
+      return
+    }
 
     return true
   }
@@ -379,14 +376,13 @@ const { removeNullProps } = useRemoveNull()
       body: removeNullProps(body)
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
+    console.log('postEmbroideryCorrections', data.value)
+
+    if (error.value || data.value.result !== 'success') {
+      return
     }
 
-    console.log('postEmbroideryCorrections', data.value)
+    return true
   }
 
   return {

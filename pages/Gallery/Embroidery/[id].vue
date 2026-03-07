@@ -183,7 +183,13 @@ watch(width, (newWidth) => {
 })
 
 const publish = () => {
-  userStore.publishEmbroidery(galleryStore.currentEmbroidery.id)
+  const isPublished = userStore.publishEmbroidery(galleryStore.currentEmbroidery.id)
+
+  if (!isPublished) {
+    return
+  }
+
+  galleryStore.updateCurrentEmbroideryStatus('Published')
 }
 </script>
 

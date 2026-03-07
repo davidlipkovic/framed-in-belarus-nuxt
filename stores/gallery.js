@@ -108,6 +108,10 @@ export default defineStore("gallery", () => {
     embroideriesAlphabeticallyReversed.value = [...embroideriesAlphabetically.value].reverse()
   }
 
+  const updateCurrentEmbroideryStatus = (status) => {
+    currentEmbroidery.value?.status = status
+  }
+
   return {
     originalEmbroideries,
     embroideriesAlphabetically,
@@ -123,5 +127,6 @@ export default defineStore("gallery", () => {
     updateTagsGroupCasesOrder,
     groupCasesMap,
     tags,
+    updateCurrentEmbroideryStatus,
   }
 })

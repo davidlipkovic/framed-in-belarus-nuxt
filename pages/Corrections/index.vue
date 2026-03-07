@@ -13,7 +13,7 @@ definePageMeta({
   ],
 })
 
-const success = ref(false)
+const success = ref(null)
 const studioPhoto = ref(null)
 const comment = ref(null)
 const processPhoto = ref(null)
@@ -27,12 +27,17 @@ const validData = computed(() =>
 )
 
 const postEmbroideryCorrections = async () => {
-  userStore.postEmbroideryCorrections(route.query.id, {
+  const correctionsSent = userStore.postEmbroideryCorrections(route.query.id, {
     studioPhoto: studioPhoto.value,
     comment: comment.value,
     processPhoto: processPhoto.value, 
     embroidery: embroidery.value,
   })
+
+  if (!correctionsSent) {
+    success.value = false
+    return
+  }
 
   success.value = true
 }
