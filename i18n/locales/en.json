@@ -318,23 +318,24 @@
         "notifications": {
             "notification1": "You are taking too much time for one step, please proceed with your work.",
             "notification2": "The deadline for this embroidery has been extended to",
-            "notification3": {
-                "highlight": "Awaiting confirmation",
-                "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
+            "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
+            "prepublished": {
+                "content1": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by ",
+                "content2": ". After the deadline, we will publish the page as is or adjust the information at our discretion."
             },
-            "notification4": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by",
-            "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
+            "editing": "The page of this embroidery is being edited. We will notify you when the work is completed."
         },
         "embroideryStatus": {
             "inProgress": "In Progress",
             "patternIsReady": "Pattern is ready",
             "stitched": "Stitched",
             "sent": "Sent",
-            "prepublished": "Prepublished",
             "published": "Published",
             "delivered": "Delivered",
             "requested": "Requested",
-            "lostInPost": "Lost in post"
+            "lostInPost": "Lost in post",
+            "prepublished": "For Approval",
+            "editing": "Editing"
         },
         "deleteModal": {
             "title": "Are you sure you want to delete your account?",
@@ -830,7 +831,11 @@
     },
     "casePage": {
         "title": "Gallery",
-        "notification": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
+        "notification": {
+            "prepublished": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
+            "editing": "The page of this embroidery is being edited. We will notify you when the work is completed.",
+            "published": "If you wish to make changes, click the “Corrections needed” button."
+        },
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",

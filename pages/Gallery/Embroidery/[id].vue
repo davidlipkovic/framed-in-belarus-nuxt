@@ -126,6 +126,32 @@ const slides = computed(() => {
   ])
 })
 
+const notification = computed(() => {
+  if (
+    !userStore.isUsersEmbroidery ||
+    !['Prepublished', 'Editing', 'Published'].includes(galleryStore.currentEmbroidery.status)
+  ) {
+    return
+  }
+
+  const notification = {
+    status: galleryStore.currentEmbroidery.status
+  }
+
+  if (galleryStore.currentEmbroidery.status === 'Prepublished') {
+    notification.icon = resolveComponent('SvgQuestionWarning')
+    notification.message = t('casePage.notification.prepublished')
+  } else if (galleryStore.currentEmbroidery.status === 'Editing') {
+    notification.icon = resolveComponent('SvgQuestionCircle')
+    notification.message = t('casePage.notification.editing')
+  } else if (galleryStore.currentEmbroidery.status === 'Published') {
+    notification.icon = resolveComponent('SvgQuestionCircle')
+    notification.message = t('casePage.notification.published')
+  }
+
+  return notification
+})
+
 onMounted(() => {
   if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
     return
@@ -164,14 +190,14 @@ const publish = () => {
 <template>
   <main class="Content galleryCaseWrapper">
     <div 
-      v-if="userStore.isUsersPrepublishedEmbroidery"
+      v-if="notification"
       class="notificationWrapper flexRowCenter"
     >
       <div class="contentWrapper flexRowCenter">
         <div class="flexRowCenter">
-          <SvgQuestionCircle/>
+          <component :is="notification.icon"/>
           <p>
-            {{ $t('casePage.notification') }}
+            {{ notification.message }}
           </p>
         </div>
         <div class="btnsWrapper flexColumnCenter">
@@ -183,6 +209,7 @@ const publish = () => {
             {{ $t('buttons.correctionsNeeded') }}
           </nuxt-link >
           <button 
+            v-if="notification.status === 'Prepublished'"
             class="button bg_black"
             @click="publish()"
           >

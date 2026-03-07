@@ -59,7 +59,12 @@ const notifications = computed(() => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       acc.push({
         icon: 'question',
-        message: t('profilePage.notifications.notification4') + ' 30.1.2024.'
+        message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+      })
+    } else if (embroidery.status.toLowerCase() === 'editing') {
+      acc.push({
+        icon: 'question',
+        message: t('profilePage.notifications.editing')
       })
     }
   })
@@ -85,7 +90,13 @@ const embroideriesCards = computed(() => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       embroideryCard.notification = {
         icon: 'question',
-        message: t('profilePage.notifications.notification4') + ' 30.1.2024.'
+        tooltip: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+
+      }
+    } else if (embroidery.status.toLowerCase() === 'editing') {
+      embroideryCard.notification = {
+        icon: 'question',
+        tooltip: t('profilePage.notifications.editing')
       }
     }
 
