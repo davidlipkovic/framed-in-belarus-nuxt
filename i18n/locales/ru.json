@@ -297,7 +297,7 @@
         "remember": "Запомнить меня",
         "signInButton" : "Войти",
         "signInGoogleButton" : "Войти через Google",
-        "warning": "User with this email is not signed up"
+        "warning": "Пользователь с этим адресом электронной почты не зарегистрирован."
     },
     "verifyEmailPage": {
         "title": "Подтвердите адрес своей электронной почты",
@@ -315,8 +315,8 @@
             "notification2": "Срок работы над этой вышивкой продлен до",
             "notification5": "К сожалению, невозможно начать новую вышивку, пока текущая незавершенная работа не достигнет шага 6 - отправка.",
             "prepublished": {
-                "content1": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by ",
-                "content2": ". After the deadline, we will publish the page as is or adjust the information at our discretion."
+                "content1": "Эта вышивка готова к публикации в нашей веб-галерее. Пожалуйста, нажмите на иконку, чтобы просмотреть подробности и либо подтвердить публикацию, либо отправить запрос на редактирование до ",
+                "content2": ". По истечении срока мы опубликуем страницу в текущем виде или скорректируем информацию по своему усмотрению."
             },
             "editing": "Страница этой вышивки находится в редактировании. Мы уведомим вас, когда работа будет завершена."
         },
