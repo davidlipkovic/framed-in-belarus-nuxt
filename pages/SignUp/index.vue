@@ -7,7 +7,7 @@ import useUserStore from "@/stores/user"
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
 import { useValidateInputs } from "@/composables/ValidateInputs";
 import { useI18n } from 'vue-i18n'
-const { locales, t } = useI18n()
+const { locale, locales, t } = useI18n()
 import countries from '../../assets/json/countries.json'
 
 const router = useRouter()
@@ -467,13 +467,13 @@ const cancelRegistration = () => {
           </div>
           <p class="termsLink">
             {{ $t('signUpPage.slide3.warning.content1') }}
-            <span class='red'>
+            <a :href="'/' + locale + '/Terms_and_Conditions_framedinbelarus.net.pdf'" target="_blank" class='red'>
               {{ $t('signUpPage.slide3.warning.highlight1') }}
-            </span>
+            </a>
             {{ $t('signUpPage.slide3.warning.content2') }}
-            <span class='red'>
+            <a :href="'/' + locale + '/Privacy_Policy_framedinbelarus.net.pdf'" target="_blank" class='red'>
               {{ $t('signUpPage.slide3.warning.highlight2') }}
-            </span>
+            </a>
           </p>
           <label
             for="terms" 

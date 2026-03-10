@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const GTM_ID = 'GTM-W6H2NPZK'
 const consentKey = 'cookieConsent'
@@ -7,6 +8,7 @@ const consentSet = ref(true)
 const showPreferences = ref(false)
 const cookieFunctional = ref(true)
 const cookieAnalytics = ref(true)
+const { locale } = useI18n()
 
 function getCookie(key, length = 60 * 60 * 24 * 365) {
   var now = new Date()
@@ -152,7 +154,7 @@ onMounted(() => {
         </GeneralCookiePreferencesModalItem>
         <p class="inputModalItem cookieDetailsLinkWrapper">
           {{ $t('cookies.modal.cookieDetailsLink.content') }} 
-          <a href="#" target="_blank">
+          <a :href="'/' + locale + '/Cookie_Policy_framedinbelarus.net.pdf'" target="_blank">
             {{ $t('cookies.modal.cookieDetailsLink.highlight') }}
           </a>
         </p>
