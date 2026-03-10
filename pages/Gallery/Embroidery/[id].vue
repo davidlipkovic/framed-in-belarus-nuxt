@@ -206,7 +206,10 @@ const publish = () => {
             {{ notification.message }}
           </p>
         </div>
-        <div class="btnsWrapper flexColumnCenter">
+        <div 
+          v-if="notification.status === 'Prepublished' || notification.status === 'Published'"
+          class="btnsWrapper flexColumnCenter"
+        >
           <nuxt-link 
             :to="$localePath('/Corrections?id=' + galleryStore.currentEmbroidery.id)"
             class="button"
