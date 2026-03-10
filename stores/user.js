@@ -12,8 +12,7 @@ const { removeNullProps } = useRemoveNull()
   const userAuthorizationData = ref(null)
   const userDataBeforeDelete = ref(false)
   const embroideries = ref(null)
-  const prepublishedEmbroideriesIds = ref([])
-  const isUsersPrepublishedEmbroidery = ref(false)
+  const isUsersEmbroidery = ref(false)
 
   const isLogged = ref(false)
 
@@ -295,14 +294,6 @@ const { removeNullProps } = useRemoveNull()
     console.log('getUserEmbroideries', data.value)
 
     embroideries.value = data.value.result
-
-    embroideries.value.forEach((embroidery) => {
-      if (embroidery.status === 'Prepublished') {
-        prepublishedEmbroideriesIds.value.push(embroidery.id)
-      }
-    })
-
-    console.log('getUserEmbroideries', prepublishedEmbroideriesIds.value)
   }
   
   const getUserSummary = async () => {
@@ -363,14 +354,11 @@ const { removeNullProps } = useRemoveNull()
       headers,
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
-
     console.log('publishEmbroidery', data.value)
+
+    if (error.value || data.value.result !== 'success') {
+      return
+    }
 
     return true
   }
@@ -388,14 +376,13 @@ const { removeNullProps } = useRemoveNull()
       body: removeNullProps(body)
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
+    console.log('postEmbroideryCorrections', data.value)
+
+    if (error.value || data.value.result !== 'success') {
+      return
     }
 
-    console.log('postEmbroideryCorrections', data.value)
+    return true
   }
 
   return {
@@ -408,8 +395,7 @@ const { removeNullProps } = useRemoveNull()
     userDataBeforeDelete,
     isLogged,
     embroideries,
-    prepublishedEmbroideriesIds,
-    isUsersPrepublishedEmbroidery,
+    isUsersEmbroidery,
     loginUser,
     createUser,
     updateUser,

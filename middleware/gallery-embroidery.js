@@ -6,14 +6,14 @@ const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
   galleryStore.loading = true
-  userStore.isUsersPrepublishedEmbroidery = false
+  userStore.isUsersEmbroidery = false
 
   if (userStore.isLogged === true) {
     await userStore.getUserEmbroideries()
 
-    userStore.prepublishedEmbroideriesIds.forEach(embroideryId => {
-      if (embroideryId === to.params.id) {
-        userStore.isUsersPrepublishedEmbroidery = true
+    userStore.embroideries.forEach(embroidery => {
+      if (embroidery.id === to.params.id) {
+        userStore.isUsersEmbroidery = true
       }
     })
   }

@@ -15,11 +15,9 @@ const props = defineProps({
       'embroideryNotificationModalWarning': notification.icon === 'warning',
     }"
   >
-    <SvgQuestionCircle
-      v-if="notification.icon === 'question'"
-    />
-    <SvgTriangleWarning
-      v-else-if="notification.icon === 'warning'"
+    <component 
+      v-if="notification.icon"
+      :is="notification.icon"
     />
     <span>
       {{ notification.message }}

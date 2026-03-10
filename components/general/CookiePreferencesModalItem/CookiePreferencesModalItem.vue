@@ -22,7 +22,10 @@ const toggleDesription = ref(false)
         <SvgPlus v-if="!toggleDesription"/>
         <SvgMinus v-else/>
       </button>
-      <label for="cookiesInput">
+      <label 
+        for="cookiesInput"
+        @click="toggleDesription = !toggleDesription"
+      >
         <slot name="label"/>
       </label>
       <input 

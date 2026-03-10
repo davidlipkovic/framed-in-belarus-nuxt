@@ -42,7 +42,7 @@ const error = computed(() => {
     v-if="!isNew"
     :to="$localePath(embroidery.link)"
     class="embroideryCard flexColumnCenter"
-    v-tooltip="embroidery.notification.message"
+    v-tooltip="embroidery.notification?.tooltip"
   >
     <img 
       v-if="!embroidery.photo || embroidery.photo === '' || embroidery.photo === 'FALSE'"

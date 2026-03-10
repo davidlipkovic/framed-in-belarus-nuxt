@@ -1,86 +1,89 @@
 <script setup>
-// WIP
-import { onMounted, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import useCookiesStore from "@/stores/cookies"
+import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const router = useRouter()
-const cookiesStore = useCookiesStore()
+const GTM_ID = 'GTM-W6H2NPZK'
+const consentKey = 'cookieConsent'
+const consentSet = ref(true)
+const showPreferences = ref(false)
+const cookieFunctional = ref(true)
+const cookieAnalytics = ref(true)
+const { locale } = useI18n()
 
-const showCookieConsent = ref(false);
-const showPreferences = ref(false);
-const preferences = ref({
-  functional: true,
-  analytics: false,
-});
+function getCookie(key, length = 60 * 60 * 24 * 365) {
+  var now = new Date()
+  var time = now.getTime()
+  var expireTime = time + 1000 * 365
+  now.setTime(expireTime)
 
-const hasAcceptedCookies = () => localStorage.getItem('cookiesAccepted') === 'true';
-const getCookiePreferences = () => JSON.parse(localStorage.getItem('cookiePreferences') || '{}');
+  return useCookie(key, {
+    maxAge: length,
+  })
+}
 
-const loadGoogleAnalytics = () => {
-  return
-  if (preferences.value.analytics && typeof gtag === 'undefined') {
-    const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=G-FMW33NJ4WM`
-    script.async = true;
-    document.head.appendChild(script);
+function acceptCookies() {
+  const cookie = getCookie(consentKey)
+  cookie.value = 'accepted'
+  cookieAnalytics.value = true
+  consentSet.value = true
+  injectGTMAndTrack()
+}
 
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
+function declineCookies() {
+  const cookie = getCookie(consentKey)
+  cookie.value = 'declined'
+  cookieAnalytics.value = false
+  consentSet.value = true
+}
 
-    gtag('js', new Date());
-    gtag('config', 'G-FMW33NJ4WM', {
-      page_path: router.currentRoute.value.fullPath,
-    });
-  }
-
-  // Track page views on route change
-  router.afterEach((to) => {
-    if (typeof gtag !== 'undefined') {
-      gtag('config', 'G-FMW33NJ4WM', {
-        page_path: to.fullPath,
-      });
-    }
-  });
-};
-
-const acceptCookies = (all) => {
-  return
-  if (all) {
-    preferences.value.analytics = true;
-    savePreferences();
+const handlePreferences = () => {
+  if (cookieAnalytics.value) {
+    acceptCookies()
   } else {
-    showPreferences.value = true;
+    declineCookies()
   }
-};
 
-const savePreferences = () => {
-  return
-  localStorage.setItem('cookiesAccepted', 'true');
-  localStorage.setItem('cookiePreferences', JSON.stringify(preferences.value));
-  showCookieConsent.value = false;
-  if (preferences.value.analytics) {
-    loadGoogleAnalytics();
-  }
-};
+  showPreferences.value = false
+}
+
+function injectGTMAndTrack() {
+  if (document.getElementById('gtm-script')) return
+
+  // Set up dataLayer
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push({
+    event: 'websiteVisited',
+  })
+
+  // Inject GTM script
+  const script = document.createElement('script')
+  script.id = 'gtm-script'
+  script.innerHTML = `
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${GTM_ID}');
+  `.trim()
+  document.head.appendChild(script)
+
+  // Optional: <noscript> fallback for users without JS (doesn’t matter if you don’t care)
+}
 
 onMounted(() => {
-  return
-  const accepted = hasAcceptedCookies();
-  const prefs = getCookiePreferences();
-  if (accepted && prefs.analytics) {
-    preferences.value = prefs;
-    loadGoogleAnalytics();
-  } else {
-    showCookieConsent.value = true;
+  const cookie = useCookie(consentKey)
+  if (!cookie.value) {
+    consentSet.value = false
+  } else if (cookie.value === 'accepted') {
+    cookieAnalytics.value = true
+    injectGTMAndTrack()
   }
-});
+})
 </script>
 
 <template>
   <div 
-    v-if="showCookieConsent"
+    v-if="!consentSet"
     class="cookieBarWrapper content flexColumnStart"
   >
     <p>
@@ -89,19 +92,19 @@ onMounted(() => {
     <div class="flexColumnStart">
       <button 
         class="button"
-        @click="cookiesStore.isChecked = true, acceptCookies(true)"
+        @click="acceptCookies()"
       >
         {{ $t('buttons.accept') }}
       </button>
       <button 
         class="button"
-        @click="cookiesStore.isChecked = true, acceptCookies(false)"
+        @click="declineCookies()"
       >
         {{ $t('buttons.decline') }}
       </button>
       <button 
         class="button"
-        @click="cookiesStore.isChecked = true, acceptCookies(false)"
+        @click="showPreferences = true"
       >
         {{ $t('buttons.manage') }}
       </button>
@@ -125,43 +128,46 @@ onMounted(() => {
         </button>
       </div>
       <div class="inputModalBody cookiePreferencesModalBody">
-        <p class="inputModalItem cookieDetailsLinkWrapper">
-          {{ $t('cookies.modal.cookieDetailsLink.content') }} <a href="" target="_blank">{{ $t('cookies.modal.cookieDetailsLink.highlight') }}</a>
-        </p>
         <GeneralCookiePreferencesModalItem 
           class="inputModalItem"
-          v-model="preferences.functional"
+          v-model="cookieFunctional"
           :disabled="true"
         >
           <template #label>
             {{ $t('cookies.modal.essentialCookies.label') }}
           </template>
           <template #description>
-            {{ $t('cookies.modal.essentialCookies.description.content1') }}
+            {{ $t('cookies.modal.essentialCookies.description') }}
           </template>
         </GeneralCookiePreferencesModalItem>
         <GeneralCookiePreferencesModalItem 
           class="inputModalItem"
-          v-model="preferences.analytics"
+          v-model="cookieAnalytics"
         >
           <template #label>
             {{ $t('cookies.modal.performanceCookies.label') }}
           </template>
           <template #description>
-            {{ $t('cookies.modal.performanceCookies.description.content1') }}
+            {{ $t('cookies.modal.performanceCookies.description') }}
           </template>
         </GeneralCookiePreferencesModalItem>
+        <p class="inputModalItem cookieDetailsLinkWrapper">
+          {{ $t('cookies.modal.cookieDetailsLink.content') }} 
+          <a :href="'/' + locale + '/Cookie_Policy_framedinbelarus.net.pdf'" target="_blank">
+            {{ $t('cookies.modal.cookieDetailsLink.highlight') }}
+          </a>
+        </p>
       </div>
       <div class="inputModalFooter buttons">
         <button 
           class="button"
-          @click="cookiesStore.isChecked = true, acceptCookies(true)"
+          @click="showPreferences = false"
         >
           {{ $t('buttons.cancel') }}
         </button>
         <button 
           class="button bg_black"
-          @click="cookiesStore.isChecked = true, acceptCookies(false)"
+          @click="handlePreferences()"
         >
           {{ $t('buttons.save') }}
         </button>

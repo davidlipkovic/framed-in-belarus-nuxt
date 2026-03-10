@@ -142,21 +142,16 @@
         "modal": {
             "title": "Manage cookies",
             "cookieDetailsLink": {
-                "content": "More details you can learn",
+                "content": "You can learn more about our Cookie Policy",
                 "highlight": "here"
             },
             "essentialCookies": {
                 "label": "Essential Cookies",
-                "description": {
-                    "content1": "These cookies are essential for the operation of our website. They enable you to navigate the site and use its features, such as accessing secure areas. Without these cookies, certain services you have asked for cannot be provided."
-                }
+                "description": "These cookies enable the core functionality and security of the site and cannot be disabled."
             },
             "performanceCookies": {
-                "label": "Performance Cookies",
-                "description": {
-                    "content1": "These cookies allow us to count visits and traffic sources to our website so that we can measure and improve its performance. They help us to identify which parts of our website are the most or least popular, and also allow us to track how visitors move around the site. Any information collected by these cookies is aggregated and therefore anonymous. If you do not allow these cookies, we will not have information about the use of our site.",
-                    "content2": "We use Google Analytics to gain a deeper insight into how our users use our website. The information gathered is sent and stored in the USA on Google’s servers. Google uses cookies to evaluate how you use our website, create reports about your activity and to offer other services/products that you may be interested in. Google Analytics places both persistent cookies and session cookies."
-                }
+                "label": "Analytics Cookies",
+                "description": "These cookies help us understand how the site is used so we can improve its performance, and all collected information remains aggregated and anonymous."
             }
         }
     },
@@ -318,23 +313,24 @@
         "notifications": {
             "notification1": "You are taking too much time for one step, please proceed with your work.",
             "notification2": "The deadline for this embroidery has been extended to",
-            "notification3": {
-                "highlight": "Awaiting confirmation",
-                "content": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by"
+            "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
+            "prepublished": {
+                "content1": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by ",
+                "content2": ". After the deadline, we will publish the page as is or adjust the information at our discretion."
             },
-            "notification4": "This embroidery is ready to be presented in our web gallery, please view the details and confirm the publication by",
-            "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping."
+            "editing": "The page of this embroidery is being edited. We will notify you when the work is completed."
         },
         "embroideryStatus": {
             "inProgress": "In Progress",
             "patternIsReady": "Pattern is ready",
             "stitched": "Stitched",
             "sent": "Sent",
-            "prepublished": "Prepublished",
             "published": "Published",
             "delivered": "Delivered",
             "requested": "Requested",
-            "lostInPost": "Lost in post"
+            "lostInPost": "Lost in post",
+            "prepublished": "For Approval",
+            "editing": "Editing"
         },
         "deleteModal": {
             "title": "Are you sure you want to delete your account?",
@@ -830,7 +826,11 @@
     },
     "casePage": {
         "title": "Gallery",
-        "notification": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
+        "notification": {
+            "prepublished": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
+            "editing": "The page of this embroidery is being edited. We will notify you when the work is completed.",
+            "published": "If you wish to make changes, click the “Corrections needed” button."
+        },
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",

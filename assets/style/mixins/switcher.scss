@@ -31,11 +31,19 @@
   }
 
   .switcher:checked {    
-    background: $greyBg;
+    background: $successLight;
   }
 
   .switcher:checked:after {
-    background: $greyDisabledBg;
+    background: $success;
     left: 41.18%;
+  }
+
+  .switcher:checked:disabled {    
+    background: $greyBg;
+  }
+
+  .switcher:checked:disabled:after {
+    background: $greyDisabledBg;
   }
 }

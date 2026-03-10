@@ -62,10 +62,18 @@
   .cookieDetailsLinkWrapper {
     font-size: 20px;
     padding: 0;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+
+    a {
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: $red;
+    }
   }
 
-  .cookiePreferencesModalItem:nth-child(2) {
+  .cookiePreferencesModalItem {
     margin-bottom: 16px;
   }
 
