@@ -224,7 +224,7 @@ watch(() => galleryStore.currentEmbroidery.status, (newStatus, oldStatus) => {
         'notificationWarning': notification.type === 'warning',
       }"
     >
-      <div class="contentWrapper flexRowCenter">
+      <div class="contentWrapper flexColumnCenter">
         <div class="flexRowCenter">
           <component :is="notification.icon"/>
           <p>
