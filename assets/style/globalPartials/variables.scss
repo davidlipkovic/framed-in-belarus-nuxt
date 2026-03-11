@@ -27,6 +27,8 @@ $embroideryCardStasusSent: #009F9F;
 $embroideryCardStasusPublished: #219653;
 $embroideryCardStasusDelivered: #B812BB;
 $embroideryCardStasusRequested: #9B51E0;
+$embroideryCardStasusPrepublished: $red;
+$embroideryCardStasusEditing: #D2B900;
 
 $defaultShadow: 0 8px 10px rgba(141, 125, 125, 0.2);
 $orange: #EC801F;
@@ -43,6 +45,9 @@ $font-size-2: 16px;
 $line-height-1: 32px;
 $line-height-2: 24px;
 
-$question: #F09F02;
-$notification: #fef7ec;
+// NOTIFICATIONS
+$information: #F09F02;
+$informationLight: lighten($information, 48%);
+
 $warning: $red;
+$warningLight: lighten($warning, 54%);

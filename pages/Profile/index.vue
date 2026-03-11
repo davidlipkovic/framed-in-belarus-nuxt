@@ -58,11 +58,13 @@ const notifications = computed(() => {
   userStore.embroideries.forEach((embroidery) => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
       acc.push({
+        type: 'warning',
         icon: resolveComponent('SvgTriangleWarning'),
         message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
       })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       acc.push({
+        type: 'information',
         icon: resolveComponent('SvgQuestionCircle'),
         message: t('profilePage.notifications.editing')
       })
@@ -88,15 +90,11 @@ const embroideriesCards = computed(() => {
     }
 
     if (embroidery.status.toLowerCase() === 'prepublished') {
-      embroideryCard.notification = {
-        icon: 'question',
-        tooltip: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
-      }
+      embroideryCard.icon = resolveComponent('SvgTriangleWarning')
+      embroideryCard.tooltip = t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
     } else if (embroidery.status.toLowerCase() === 'editing') {
-      embroideryCard.notification = {
-        icon: 'question',
-        tooltip: t('profilePage.notifications.editing')
-      }
+      embroideryCard.icon = resolveComponent('SvgQuestionCircle')
+      embroideryCard.tooltip = t('profilePage.notifications.editing')
     }
 
     return embroideryCard

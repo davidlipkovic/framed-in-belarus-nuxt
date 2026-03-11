@@ -139,12 +139,15 @@ const notification = computed(() => {
   }
 
   if (galleryStore.currentEmbroidery.status === 'Prepublished') {
+    notificationContent.type = 'warning'
     notificationContent.icon = resolveComponent('SvgTriangleWarning')
     notificationContent.message = t('casePage.notification.prepublished')
   } else if (galleryStore.currentEmbroidery.status === 'Editing') {
+    notificationContent.type = 'information'
     notificationContent.icon = resolveComponent('SvgQuestionCircle')
     notificationContent.message = t('casePage.notification.editing')
   } else if (galleryStore.currentEmbroidery.status === 'Published') {
+    notificationContent.type = 'information'
     notificationContent.icon = resolveComponent('SvgQuestionCircle')
     notificationContent.message = t('casePage.notification.published')
   }
@@ -191,6 +194,24 @@ const publish = () => {
 
   galleryStore.updateCurrentEmbroideryStatus('Published')
 }
+
+let updateEmbroideryInterval = null
+
+const handleCorrections = () => {
+  console.log('handleCorrections')
+
+  setTimeout(() => {
+    updateEmbroideryInterval = setInterval(() => {
+      galleryStore.getEmbroidery(galleryStore.currentEmbroidery.id)
+    }, 1000)
+  }, 3000)
+}
+
+watch(() => galleryStore.currentEmbroidery.status, (newStatus, oldStatus) => {
+  if (newStatus !== oldStatus) {
+    clearInterval(updateEmbroideryInterval)
+  }
+})
 </script>
 
 <template>
@@ -198,6 +219,10 @@ const publish = () => {
     <div 
       v-if="notification"
       class="notificationWrapper flexRowCenter"
+      :class="{
+        'notificationInformation': notification.type === 'information',
+        'notificationWarning': notification.type === 'warning',
+      }"
     >
       <div class="contentWrapper flexRowCenter">
         <div class="flexRowCenter">
@@ -214,6 +239,7 @@ const publish = () => {
             :to="$localePath('/Corrections?id=' + galleryStore.currentEmbroidery.id)"
             class="button"
             target="_blank"
+            @click="handleCorrections()"
           >
             {{ $t('buttons.correctionsNeeded') }}
           </nuxt-link >
