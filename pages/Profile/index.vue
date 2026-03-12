@@ -262,7 +262,7 @@ const deleteUser = async () => {
         </div>
       </section>
       <section class="embroideryCardsWrapper flexColumnCenter">
-        <GeneralEmbroideryNotificationModal
+        <EmbroideryNotificationModal
           v-for="(notification, i) in notifications"
           :notification="notification"
         />

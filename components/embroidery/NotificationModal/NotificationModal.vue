@@ -31,4 +31,4 @@ const props = defineProps({
   </div>
 </template>
 
-<style src="./EmbroideryNotificationModal.scss" lang="scss"></style>
+<style src="./NotificationModal.scss" lang="scss"></style>
