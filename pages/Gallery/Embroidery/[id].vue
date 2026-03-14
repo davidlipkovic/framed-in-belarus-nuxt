@@ -134,6 +134,7 @@ const notification = computed(() => {
   if (technicalIssue.value) {
     notificationContent.type = 'warning'
     notificationContent.icon = resolveComponent('SvgTriangleWarning')
+    // WIP
     notificationContent.message = 'Sorry we had technical difficulties, please try again later.'
   } else if (galleryStore.currentEmbroidery.status === 'Prepublished') {
     notificationContent.type = 'warning'
