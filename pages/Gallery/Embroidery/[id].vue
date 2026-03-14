@@ -153,6 +153,34 @@ const notification = computed(() => {
   return notificationContent
 })
 
+const publish = () => {
+  const isPublished = userStore.publishEmbroidery(galleryStore.currentEmbroidery.id)
+
+  if (!isPublished) {
+    return
+  }
+
+  galleryStore.updateCurrentEmbroideryStatus('Published')
+}
+
+const handleCorrections = () => {
+  console.log('handleCorrections')
+
+  const channel = new BroadcastChannel("corrections-channel")
+
+  channel.addEventListener("message", (event) => {
+    setTimeout(() => {
+      if (event.data === "correctionsPosted") {
+        galleryStore.updateCurrentEmbroideryStatus('Editing')
+      } else if (event.data === "correctionsNotPosted") {
+        technicalIssue.value = true
+      }
+
+      channel.close()
+    }, 1000)
+  })
+}
+
 onMounted(() => {
   if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
     return
@@ -182,34 +210,6 @@ watch(width, (newWidth) => {
 
   toggleTextScrollToTop.value = caseHeaderWrapper.value.offsetTop - paddingTop
 })
-
-const publish = () => {
-  const isPublished = userStore.publishEmbroidery(galleryStore.currentEmbroidery.id)
-
-  if (!isPublished) {
-    return
-  }
-
-  galleryStore.updateCurrentEmbroideryStatus('Published')
-}
-
-const handleCorrections = () => {
-  console.log('handleCorrections')
-
-  const channel = new BroadcastChannel("corrections-channel")
-
-  channel.addEventListener("message", (event) => {
-    setTimeout(() => {
-      if (event.data === "correctionsPosted") {
-        galleryStore.updateCurrentEmbroideryStatus('Editing')
-      } else if (event.data === "correctionsNotPosted") {
-        technicalIssue.value = true
-      }
-
-      channel.close()
-    }, 1000)
-  })
-}
 </script>
 
 <template>
