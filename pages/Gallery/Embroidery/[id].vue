@@ -205,6 +205,8 @@ const handleCorrections = () => {
       } else if (event.data === "correctionsNotPosted") {
         technicalIssue.value = true
       }
+
+      channel.close()
     }, 1000)
   })
 }

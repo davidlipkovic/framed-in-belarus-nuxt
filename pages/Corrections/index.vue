@@ -39,11 +39,13 @@ const postEmbroideryCorrections = async () => {
   if (!correctionsSent) {
     success.value = false
     channel.postMessage('correctionsNotPosted')
+    channel.close()
     return
   }
 
   success.value = true
   channel.postMessage('correctionsPosted')
+  channel.close()
 }
 </script>
 
