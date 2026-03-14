@@ -30,14 +30,7 @@ const showFullScreenSwiper = ref(false)
 const showPrisonerImage = ref(false)
 const caseHeaderWrapper = ref(null)
 const toggleTextScrollToTop = ref(null)
-
-// Corections
-const success = ref(false)
-const successPublish = ref(false)
-const publishStudioPhotosSignature = ref(null)
-const publishComments = ref(null)
-const publishProcessPhotosPersonalData = ref(null)
-const exhibitSignature = ref(null)
+const technicalIssue = ref(false)
 
 const handleFullScreenSwiper = (i) => {
   showFullScreenSwiper.value = true
@@ -138,7 +131,11 @@ const notification = computed(() => {
     status: galleryStore.currentEmbroidery.status
   }
 
-  if (galleryStore.currentEmbroidery.status === 'Prepublished') {
+  if (technicalIssue.value) {
+    notificationContent.type = 'warning'
+    notificationContent.icon = resolveComponent('SvgTriangleWarning')
+    notificationContent.message = 'Sorry we had technical difficulties, please try again later.'
+  } else if (galleryStore.currentEmbroidery.status === 'Prepublished') {
     notificationContent.type = 'warning'
     notificationContent.icon = resolveComponent('SvgTriangleWarning')
     notificationContent.message = t('casePage.notification.prepublished')
@@ -195,23 +192,21 @@ const publish = () => {
   galleryStore.updateCurrentEmbroideryStatus('Published')
 }
 
-let updateEmbroideryInterval = null
-
 const handleCorrections = () => {
   console.log('handleCorrections')
 
-  setTimeout(() => {
-    updateEmbroideryInterval = setInterval(() => {
-      galleryStore.getEmbroidery(galleryStore.currentEmbroidery.id)
-    }, 1000)
-  }, 3000)
-}
+  const channel = new BroadcastChannel("corrections-channel")
 
-watch(() => galleryStore.currentEmbroidery.status, (newStatus, oldStatus) => {
-  if (newStatus !== oldStatus) {
-    clearInterval(updateEmbroideryInterval)
-  }
-})
+  channel.addEventListener("message", (event) => {
+    setTimeout(() => {
+      if (event.data === "correctionsPosted") {
+        galleryStore.getEmbroidery(galleryStore.currentEmbroidery.id)
+      } else if (event.data === "correctionsNotPosted") {
+        technicalIssue.value = true
+      }
+    }, 1000)
+  })
+}
 </script>
 
 <template>
@@ -232,7 +227,7 @@ watch(() => galleryStore.currentEmbroidery.status, (newStatus, oldStatus) => {
           </p>
         </div>
         <div 
-          v-if="notification.status === 'Prepublished' || notification.status === 'Published'"
+          v-if="technicalIssue || notification.status === 'Prepublished' || notification.status === 'Published'"
           class="btnsWrapper flexColumnCenter"
         >
           <nuxt-link 

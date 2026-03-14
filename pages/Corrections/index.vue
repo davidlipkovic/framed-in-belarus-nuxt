@@ -27,19 +27,23 @@ const validData = computed(() =>
 )
 
 const postEmbroideryCorrections = async () => {
-  const correctionsSent = userStore.postEmbroideryCorrections(route.query.id, {
+  const correctionsSent = await userStore.postEmbroideryCorrections(route.query.id, {
     studioPhoto: studioPhoto.value,
     comment: comment.value,
     processPhoto: processPhoto.value, 
     embroidery: embroidery.value,
   })
 
+  const channel = new BroadcastChannel("corrections-channel")
+
   if (!correctionsSent) {
     success.value = false
+    channel.postMessage('correctionsNotPosted')
     return
   }
 
   success.value = true
+  channel.postMessage('correctionsPosted')
 }
 </script>
 
