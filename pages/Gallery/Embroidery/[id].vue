@@ -230,7 +230,7 @@ watch(width, (newWidth) => {
           </p>
         </div>
         <div 
-          v-if="technicalIssue || notification.status === 'Prepublished' || notification.status === 'Published'"
+          v-if="!technicalIssue || notification.status === 'Prepublished' || notification.status === 'Published'"
           class="btnsWrapper flexColumnCenter"
         >
           <nuxt-link 
