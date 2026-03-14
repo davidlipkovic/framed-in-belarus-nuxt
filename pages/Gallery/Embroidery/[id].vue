@@ -230,7 +230,7 @@ watch(width, (newWidth) => {
           </p>
         </div>
         <div 
-          v-if="!technicalIssue || notification.status === 'Prepublished' || notification.status === 'Published'"
+          v-if="!technicalIssue && (notification.status === 'Prepublished' || notification.status === 'Published')"
           class="btnsWrapper flexColumnCenter"
         >
           <nuxt-link 
@@ -315,12 +315,6 @@ watch(width, (newWidth) => {
           ref="caseHeaderWrapper"
           class="caseHeaderWrapper flexColumnCenter"
         >
-          <!-- <img 
-            v-if="!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE'"
-            src="../../../assets/media/img/profileSymbolFramed.svg"
-            :alt="'Photo of' + galleryStore.currentEmbroidery.prisoner.name"
-            class="Description-item Hero-photo"
-          > -->
           <GeneralImageModal
             v-if="!(!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE')"
             alt=""
@@ -471,12 +465,6 @@ watch(width, (newWidth) => {
               >
                 <SvgLocation class="ExhibitionListItem-descript-icon descriptIcon"/>
                 {{ event.place }}
-                <!-- <span>
-                  Weserburg Museum für Moderne Kunst.
-                </span>
-                <span class="museumCountry">
-                  Bremen, <b class="b2">Germany</b>
-                </span> -->
               </p>
             </li>
           </ul>
