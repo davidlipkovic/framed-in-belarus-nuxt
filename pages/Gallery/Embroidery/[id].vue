@@ -201,7 +201,7 @@ const handleCorrections = () => {
   channel.addEventListener("message", (event) => {
     setTimeout(() => {
       if (event.data === "correctionsPosted") {
-        galleryStore.getEmbroidery(galleryStore.currentEmbroidery.id)
+        galleryStore.updateCurrentEmbroideryStatus('Editing')
       } else if (event.data === "correctionsNotPosted") {
         technicalIssue.value = true
       }
