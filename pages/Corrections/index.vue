@@ -27,18 +27,41 @@ const validData = computed(() =>
 )
 
 const postEmbroideryCorrections = async () => {
-  const correctionsSent = await userStore.postEmbroideryCorrections(route.query.id, {
+  const data = {
     studioPhoto: studioPhoto.value,
     comment: comment.value,
     processPhoto: processPhoto.value, 
     embroidery: embroidery.value,
-  })
+  }
 
   const channel = new BroadcastChannel("corrections-channel")
 
+  if (
+    data.studioPhoto === 'Publish with exposed signature' &&
+    data.comment === 'Publish with exposed personal data' &&
+    data.processPhoto === 'Publish with exposed personal data' &&
+    data.embroidery === 'Exhibit with exposed signature'
+  ) {
+    const isPublished = await userStore.publishEmbroidery(route.query.id)
+
+    if (!isPublished) {
+      success.value = false
+      channel.postMessage('technicalIssue')
+      channel.close()
+      return
+    }
+
+    success.value = true
+    channel.postMessage('published')
+    channel.close()
+    return
+  }
+
+  const correctionsSent = await userStore.postEmbroideryCorrections(route.query.id, data)
+
   if (!correctionsSent) {
     success.value = false
-    channel.postMessage('correctionsNotPosted')
+    channel.postMessage('technicalIssue')
     channel.close()
     return
   }

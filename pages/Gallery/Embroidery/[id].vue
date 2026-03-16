@@ -172,7 +172,9 @@ const handleCorrections = () => {
     setTimeout(() => {
       if (event.data === "correctionsPosted") {
         galleryStore.updateCurrentEmbroideryStatus('Editing')
-      } else if (event.data === "correctionsNotPosted") {
+      } else if (event.data === "published") {
+        galleryStore.updateCurrentEmbroideryStatus('Published')
+      } else if (event.data === "technicalIssue") {
         technicalIssue.value = true
       }
 
