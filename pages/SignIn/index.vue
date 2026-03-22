@@ -21,38 +21,38 @@ const emailTypingStarted = ref(false)
 const invalidEmail = ref(false)
 
 const signIn = async () => {
-  let data
+  if (!window.localStorage) {
+    return
+  }
 
-  if (window.localStorage) {
-    data = window.localStorage.getItem('fibUser')
-    data = JSON.parse(data)
+  let data = window.localStorage.getItem('fibUser')
+  data = JSON.parse(data)
 
-    if (data && data.email === registrationStore.email && data.token && data.userId) {
-      data.remember = registrationStore.remember
-      window.localStorage.setItem('fibUser', JSON.stringify(data))
+  if (data && data.email === registrationStore.email && data.token && data.userId) {
+    data.remember = registrationStore.remember
+    window.localStorage.setItem('fibUser', JSON.stringify(data))
 
-      userStore.loading = true
-      userStore.getUserAuthorizationData()
-      const userExists = await userStore.getUserData()
-      userStore.loading = false
+    userStore.loading = true
+    userStore.getUserAuthorizationData()
+    const userExists = await userStore.getUserData()
+    userStore.loading = false
 
-      if (userExists) {
-        userStore.isLogged = true
-        router.push(localePath('/Profile'))
-      } else {
-        userStore.isLogged = false
-        invalidEmail.value = true
-      }
+    if (userExists) {
+      userStore.isLogged = true
+      router.push(localePath('/Profile'))
     } else {
-      userStore.loading = true
-      const userSignedUp = await userStore.loginUser(registrationStore.email)
-      userStore.loading = false
+      userStore.isLogged = false
+      invalidEmail.value = true
+    }
+  } else {
+    userStore.loading = true
+    const userSignedUp = await userStore.loginUser(registrationStore.email)
+    userStore.loading = false
 
-      if (userSignedUp) {
-        router.push(localePath('/VerifyEmail'))
-      } else {
-        invalidEmail.value = true
-      }
+    if (userSignedUp) {
+      router.push(localePath('/VerifyEmail'))
+    } else {
+      invalidEmail.value = true
     }
   }
 }
