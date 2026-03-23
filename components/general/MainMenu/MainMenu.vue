@@ -1,17 +1,23 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import useUserStore from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useWindowSize } from '@vueuse/core'
 
+const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 
 const route = useRoute()
 
+const toggleProfileModal = ref(false)
+const toggleQuestionModal = ref(false)
 const toggleMenu = ref(false)
 const { width } = useWindowSize()
 
 watch(route, n => {
+  toggleProfileModal.value = false
+  toggleQuestionModal.value = false
   toggleMenu.value = false
 })
 
@@ -79,29 +85,76 @@ watch(width, n => {
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link> -->
+            <nuxt-link
+              v-if="userStore.isLogged && userStore.user"
+              :to="$localePath('/')"
+              @click.prevent="signOut()"
+              class="signOutMobile"
+            >
+              {{ $t('links.signOut') }}
+            </nuxt-link>
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <a
+              v-if="!userStore.isLogged"
               href="https://donorbox.org/framedinbelarus"
               class="supportButton button"
             >
               {{ $t('links.supportUs') }}
             </a>
             <a
+              v-if="!userStore.isLogged"
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </a>
+            <button
+              v-if="userStore.isLogged && userStore.user"
+              class="profileButton profileButtonDesktop flexRowCenter"
+              :class="{'pointer-events-none': toggleProfileModal}"
+              @click="toggleProfileModal = !toggleProfileModal"
+              v-tooltip="$t('toolTips.profile')"
+            >
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.user.username }}
+              </span>
+            </button>
+            <nuxt-link
+              v-if="userStore.isLogged && userStore.user"
+              class="profileButton profileButtonMobile flexRowCenter"
+              :to="$localePath('/Profile')"
+            >
+              <div class="flexRowCenter">
+                <img
+                  src="../../../assets/media/img/profileSymbolFramed.svg"
+                >
+              </div>
+              <span>
+                {{ userStore.user.username }}
+              </span>
+            </nuxt-link>
+            <GeneralProfileModal
+              v-if="toggleProfileModal"
+              class="profileModalHeader"
+              @closeModal="toggleProfileModal = !toggleProfileModal"
+            />
           </div>
           <GeneralLangMenu/>
           <a
+            v-if="!userStore.isLogged"
             href="https://donorbox.org/framedinbelarus"
             class="supportButton supportButtonMobile button"
           >
             {{ $t('links.supportUs') }}
           </a>
           <a
+            v-if="!userStore.isLogged"
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             class="participateButton participateButtonMobile button bg_red"
           >

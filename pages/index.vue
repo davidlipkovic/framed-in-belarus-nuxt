@@ -1,7 +1,10 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import useHeroesStore from "@/stores/heroes"
+import useUserStore from "@/stores/user"
+
 const heroesStore = useHeroesStore()
+const userStore = useUserStore()
 
 definePageMeta({
   layout: "nopointer",
@@ -44,6 +47,7 @@ const numberOfHeroes = computed(() => {
         </p>
         <div class="flexRowStart">
           <a
+            v-if="!userStore.isLogged"
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             target="_blank"
             class="button bg_red"
