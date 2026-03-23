@@ -10,6 +10,7 @@ definePageMeta({
   layout: "form",
   middleware: [
     'auth-registration',
+    'corrections'
   ],
 })
 
