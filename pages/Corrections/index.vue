@@ -118,7 +118,7 @@ const postEmbroideryCorrections = async () => {
               type="radio"
               name="studioPhotoHidden"
               id="studioPhotoHidden"
-              value="Publish with hidden signature'"
+              value="Publish with hidden signature"
               v-model="studioPhoto"
               required
             />
