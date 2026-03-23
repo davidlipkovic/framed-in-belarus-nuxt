@@ -25,6 +25,10 @@ definePageMeta({
       if (to.query.userId && to.query.userToken) {
         const userStore = useUserStore()
         await userStore.getOldUserData(to.query.userId, to.query.userToken)
+
+      // wip
+      } else {
+        return navigateTo('/')
       }
     },
   ],
