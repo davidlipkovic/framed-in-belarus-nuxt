@@ -1,9 +1,7 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import useHeroesStore from "@/stores/heroes"
-import useUserStore from "@/stores/user"
 const heroesStore = useHeroesStore()
-const userStore = useUserStore()
 
 definePageMeta({
   layout: "nopointer",
@@ -45,12 +43,13 @@ const numberOfHeroes = computed(() => {
           {{ $t('description') }}
         </p>
         <div class="flexRowStart">
-          <nuxt-link
-            :to="userStore.isLogged ? $localePath('/Profile') : $localePath('/SignUp')"
+          <a
+            href="https://forms.gle/SKCcvWGzRkQxx2fH9"
+            target="_blank"
             class="button bg_red"
           >
             {{ $t('links.participate') }}
-          </nuxt-link>
+          </a>
           <a
             href="https://donorbox.org/framedinbelarus"
             class="supportButton button button_border"

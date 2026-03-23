@@ -132,8 +132,15 @@
     }
   }
 
-  .participateButtonMobile {
+  .supportButtonMobile {
     order: 4;
+    margin: 14px auto 0;
+    width: calc(100% - 45px);
+    border: 2px solid $white;
+  }
+
+  .participateButtonMobile {
+    order: 5;
     margin: 14px auto 0;
     width: calc(100% - 45px);
   }
@@ -245,7 +252,7 @@
 
 .mainMenuWrapper .helpButtonDesktop,
 .mainMenuWrapperClosed .menuContentWrapper,
-.mainMenuWrapperOpened.mainMenuWrapperNotLogged .menuUserLinksWrapper,
+.mainMenuWrapperOpened .menuUserLinksWrapper,
 .profileButtonDesktop {
   display: none;
 }
@@ -262,6 +269,7 @@
     .menuContentBackground, 
     .signInMobile, 
     .helpButtonMobile, 
+    .supportButtonMobile,
     .participateButtonMobile,
     .profileButton span,
     .signOutMobile,
@@ -335,8 +343,17 @@
         text-wrap: nowrap;
       }
 
-      .participateButton {
+      .supportButton, .participateButton {
         padding: 8px 13px;
+      }
+
+      .supportButton {
+        border: 2px solid $white;
+      }
+
+      .supportButton:hover {
+        background-color: rgba($color: $white, $alpha: 0.5);
+        color: $white;
       }
     }
 
