@@ -152,6 +152,7 @@ const deleteUser = async () => {
     <Head>
       <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
       <Meta name="description" content="User cabinet — My embroideries description"/>
+      <Meta name="robots" content="noindex" />
     </Head>
     <div class="Title">
       <h1 class="content">

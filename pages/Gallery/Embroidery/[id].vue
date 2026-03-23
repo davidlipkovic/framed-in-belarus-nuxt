@@ -216,6 +216,9 @@ watch(width, (newWidth) => {
 
 <template>
   <main class="Content galleryCaseWrapper">
+    <Head>
+      <Meta name="robots" content="noindex" />
+    </Head>
     <div 
       v-if="notification"
       class="notificationWrapper flexRowCenter"

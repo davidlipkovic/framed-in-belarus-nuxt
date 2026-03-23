@@ -81,6 +81,7 @@ const postEmbroideryCorrections = async () => {
     <Head>
       <Title>#Framed in Belarus</Title>
       <Meta name="description" content="User cabinet — My embroideries description"/>
+      <Meta name="robots" content="noindex" />
     </Head>
     <div 
       v-if="!success"

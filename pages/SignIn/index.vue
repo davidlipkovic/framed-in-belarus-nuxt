@@ -74,6 +74,9 @@ watch(() => registrationStore.email, () => {
 
 <template>
   <div class="content signInWrapper">
+    <Head>
+      <Meta name="robots" content="noindex" />
+    </Head>
     <h1 class="title">
       {{ $t("signInPage.title") }}
     </h1>

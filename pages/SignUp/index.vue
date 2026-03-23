@@ -151,6 +151,9 @@ const cancelRegistration = () => {
 
 <template>
   <div class="content signUpWrapper">
+    <Head>
+      <Meta name="robots" content="noindex" />
+    </Head>
     <h1 class="title">
       {{ $t("signUpPage.title") }}
     </h1>
