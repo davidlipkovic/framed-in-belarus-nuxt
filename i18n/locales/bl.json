@@ -131,6 +131,9 @@
         "belarussian": "Беларуская",
         "russian": "Руская"
     },
+    "warnings": {
+        "technical": "There was a technical issue. Please try again later."
+    },
     "mainMenu": {
         "question": {
             "label": "Задаць пытанне",
@@ -285,6 +288,10 @@
                 "content1": "З клопатам пра вашу бяспеку, ",
                 "content2": "каманда #FramedibBelarus"
             }
+        },
+        "success": {
+            "title": "Sign up was successfull!",
+            "link": "Return to home page"
         }
     },
     "signInPage": {
