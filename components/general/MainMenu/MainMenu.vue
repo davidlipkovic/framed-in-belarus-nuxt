@@ -110,6 +110,14 @@ watch(width, n => {
               {{ $t('links.participate') }}
             </a>
             <button
+              v-if="userStore.isLogged"
+              class="helpButtonDesktop flexRowCenter"
+              @click="toggleQuestionModal = !toggleQuestionModal"
+              v-tooltip="$t('mainMenu.question.label')"
+            >
+              <SvgHelpCircle/>
+            </button>
+            <button
               v-if="userStore.isLogged && userStore.user"
               class="profileButton profileButtonDesktop flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
@@ -164,6 +172,10 @@ watch(width, n => {
       </div>
     </div>
   </header>
+  <GeneralQuestionModal
+    :displayModal="toggleQuestionModal"
+    @closeModal="toggleQuestionModal = !toggleQuestionModal"
+  />
 </template>
 
 <style src="./MainMenu.scss" lang="scss"></style>

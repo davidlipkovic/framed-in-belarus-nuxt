@@ -18,7 +18,7 @@ const numberOfHeroes = computed(() => {
   if (!heroesStore.loading && heroesStore.originalHeroes) {
     return heroesStore.originalHeroes.length;
   }
-  return 3000
+  return 4100
 })
 </script>
 
