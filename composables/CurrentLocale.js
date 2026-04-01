@@ -1,10 +1,16 @@
 import { useI18n } from "vue-i18n"
 
 export function useCurrentLocale() {
-  const { localeProperties } = useI18n()
+  const { localeProperties, locales } = useI18n()
 
   const currentLocaleName = computed(() => {
     return localeProperties.value.name
+  })
+
+  const localesNames = computed(() => {
+    return locales.value.map(locale => {
+      return locale.name
+    })
   })
 
   const getCurrentLocaleStringValue = (data, key) => {
@@ -18,5 +24,6 @@ export function useCurrentLocale() {
   return {
     currentLocaleName,
     getCurrentLocaleStringValue,
+    localesNames,
   }
 }

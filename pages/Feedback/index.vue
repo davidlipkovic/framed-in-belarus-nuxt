@@ -31,38 +31,14 @@ const submitForm = async () => {
 }
 
 const leaveReasonOptions = [
-  {
-    "id": "option1",
-    "name": t("feedbackPage.dropdownReason.option1")
-  },
-  {
-    "id": "option2",
-    "name": t("feedbackPage.dropdownReason.option2")
-  },
-  {
-    "id": "option3",
-    "name": t("feedbackPage.dropdownReason.option3")
-  },
-  {
-    "id": "option4",
-    "name": t("feedbackPage.dropdownReason.option4")
-  },
-  {
-    "id": "option5",
-    "name": t("feedbackPage.dropdownReason.option5")
-  },
-  {
-    "id": "option6",
-    "name": t("feedbackPage.dropdownReason.option6")
-  },
-  {
-    "id": "option7",
-    "name": t("feedbackPage.dropdownReason.option7")
-  },
-  {
-    "id": "other",
-    "name": t("feedbackPage.dropdownReason.optionOther")
-  },
+  t("feedbackPage.dropdownReason.option1"),
+  t("feedbackPage.dropdownReason.option2"),
+  t("feedbackPage.dropdownReason.option3"),
+  t("feedbackPage.dropdownReason.option4"),
+  t("feedbackPage.dropdownReason.option5"),
+  t("feedbackPage.dropdownReason.option6"),
+  t("feedbackPage.dropdownReason.option7"),
+  t("feedbackPage.dropdownReason.optionOther"),
 ]
 
 const leaveReason = ref(null)
@@ -72,10 +48,6 @@ const leaveReasonOtherTypingStarted = ref(false)
 
 const subscribeNews = ref(null)
 const subscribeCommercial = ref(null)
-
-const updateLeaveReason = (reason) => {
-  leaveReason.value = reason
-}
 
 onClickOutside(leaveReasonOtherInput, () => {
   if (leaveReasonOther.value) {
@@ -125,11 +97,10 @@ const validData = computed(() => {
           <GeneralInputLongDropdown
             id="leaveReasonDropdown"
             class="contentInput leaveReasonDropdown"
-            :chosenOption="leaveReason?.name"
             :options="leaveReasonOptions"
             :placeholder="$t('feedbackPage.dropdownReason.placeholder')" 
             :isRegistration="true"
-            @chooseOption="updateLeaveReason"
+            v-model="leaveReason"
           />
           <div 
             v-if="leaveReason?.id === 'other'"

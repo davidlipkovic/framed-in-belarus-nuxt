@@ -1,15 +1,7 @@
 <script setup>
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
-const emit = defineEmits([
-  'chooseOption',
-])
-
 const props = defineProps({
-  chosenOption: {
-    type: String,
-    default: null
-  },
   options: {
     type: Array,
     default: null
@@ -28,6 +20,8 @@ const props = defineProps({
   },
 })
 
+const model = defineModel()
+
 const dropdown = ref(null)
 const dropdownWrapper = ref(null)
 const toggleDropdown = ref(false)
@@ -37,7 +31,7 @@ onClickOutside(dropdown, () => {
 })
 
 const handleChooseOption = (option) => {
-  emit('chooseOption', option)
+  model.value = option
   toggleDropdown.value = false
 }
 
@@ -47,9 +41,9 @@ const scrollToOption = (event) => {
     return
   }
 
-  const match = props.options.find(option => option.name.toLowerCase().startsWith(event.key.toLowerCase()))
+  const match = props.options.find(option => option.toLowerCase().startsWith(event.key.toLowerCase()))
   if (match) {
-    const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match.name))
+    const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match))
     if (firstMatch) {
       firstMatch.scrollIntoView()
     }
@@ -62,14 +56,14 @@ const simplifiedName = (name) => {
 }
 
 watch(toggleDropdown, (n) => {
-  if (!n || !props.chosenOption || !props.enableScroll) {
+  if (!n || !model.value || !props.enableScroll) {
     return
   }
 
-  const match = props.options.find(option => option.name.startsWith(props.chosenOption))
+  const match = props.options.find(option => option.startsWith(model.value))
   if (match) {
     nextTick(() => {
-      const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match.name))
+      const firstMatch = dropdownWrapper.value.querySelector('.optionLink--' + simplifiedName(match))
       if (firstMatch) {
         firstMatch.scrollIntoView()
       }
@@ -101,10 +95,10 @@ onUnmounted(() => {
   >
     <span 
       class="dropdownButton flexRowCenter"
-      :class="{'dropdownButtonPlaceholder' : !chosenOption}"
+      :class="{'dropdownButtonPlaceholder' : !model}"
       @click="toggleDropdown = !toggleDropdown"
     >
-      {{ chosenOption ? chosenOption : placeholder }}
+      {{ model ? model : placeholder }}
       <SvgArrowDown/>
     </span>
     <ul 
@@ -115,10 +109,10 @@ onUnmounted(() => {
       <li
         v-for="(option, i) in options"
         :key="i"
-        :class="enableScroll ? 'optionLink--' + simplifiedName(option.name) : ''"
+        :class="enableScroll ? 'optionLink--' + simplifiedName(option) : ''"
       >
         <button @click="handleChooseOption(option)">
-          {{ option.name }}
+          {{ option }}
         </button>
       </li>
     </ul>

@@ -19,16 +19,16 @@ const sendComment = ref(null)
 const writeComment = ref(null)
 
 const languages = computed(() => {
-  return languagesJSON.filter(language => language.code !== "en")
+  const mappedLanguages = languagesJSON.map(language => {
+    return language.name
+  })
+
+  return mappedLanguages.filter(language => language.code !== "en")
 })
 
 const validData = computed(() => {
   return publishComment.value !== null && (sendComment.value || (writeComment.value && (englishComment.value || (nativeLanguage.value && nativeComment.value))))
 })
-
-const updateNativeLanguage = (lang) => {
-  nativeLanguage.value = lang.name
-}
 </script>
 
 <template>
@@ -140,11 +140,10 @@ const updateNativeLanguage = (lang) => {
                 </label>
                 <GeneralInputLongDropdown
                   class="nativeLanguageDropdown"
-                  :chosenOption="nativeLanguage"
                   :enableScroll="true"
                   :options="languages"
                   :placeholder="$t('placeholders.select')" 
-                  @chooseOption="updateNativeLanguage"
+                  v-model="nativeLanguage"
                 />
               </div>
               <textarea

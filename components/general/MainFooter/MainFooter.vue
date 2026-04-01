@@ -5,8 +5,9 @@ import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
-const { locales } = useI18n()
+const { localesNames } = useCurrentLocale()
 const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const { validateEmail } = useValidateInputs()
@@ -27,10 +28,6 @@ const emailTypingStarted = ref(false)
 const validEmailData = computed(() => {
   return validateEmail(email.value)
 })
-
-const updateLanguage = (lang) => {
-  language.value = lang.name
-}
 
 const subscribe = async () => {
   toggleSubscribeClicked.value = true
@@ -122,11 +119,10 @@ onClickOutside(emailInput, () => {
                 <div class="inputWrapper inputWrapperWarningBottom">
                   <GeneralInputShortDropdown
                     class="contentInput languageDropdown"
-                    :chosenOption="language"
-                    :options="locales"
+                    :options="localesNames"
                     :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'"
                     position="Top" 
-                    @chooseOption="updateLanguage"
+                    v-model="language"
                   />
                   <span 
                     v-if="!language && toggleSubscribeClicked"
