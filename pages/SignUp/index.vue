@@ -54,6 +54,7 @@ const formData = reactive({
   subscription: false,
 })
 
+const success = ref(false)
 const technicalIssue = ref(false)
 const currentSlide = ref(1)
 const showBelarusModal = ref(false)
@@ -121,8 +122,9 @@ const signUp = async () => {
   userStore.loading = false
 
   if (registrationResult) {
+    success.value = true
     sessionStorage.removeItem('FIB_REGISTRATION_FORM')
-    router.push($localePath('/VerifyEmail'))
+    // router.push($localePath('/VerifyEmail'))
   } else {
     technicalIssue.value = true
   }
@@ -201,10 +203,10 @@ watch(formData, (newformData, oldFormData) => {
     <Head>
       <Meta name="robots" content="noindex" />
     </Head>
-    <h1 class="title">
+    <h1 class="title" v-if="!success && !technicalIssue">
       {{ $t("signUpPage.title") }}
     </h1>
-    <p class="signUpDescription">
+    <!-- <p class="signUpDescription">
       {{ $t("signUpPage.signInQuestion") }}
       <nuxt-link 
         :to="$localePath('/SignIn')"
@@ -212,8 +214,8 @@ watch(formData, (newformData, oldFormData) => {
       >
         {{ $t("links.signIn") }}
       </nuxt-link>
-    </p>
-    <template v-if="!technicalIssue">
+    </p> -->
+    <template v-if="!success && !technicalIssue">
       <form class="formWrapper">
         <div
           v-show="currentSlide === 1" 
@@ -640,6 +642,20 @@ watch(formData, (newformData, oldFormData) => {
         </div>
       </GeneralInputModal>
     </template>
+    <div 
+      v-else-if="success"
+      class="flexColumnCenter"
+    >
+      <SvgCheckMark/>
+      <h1 class="title">
+        {{ $t('signUpPage.success.title') }}
+      </h1>
+      <nuxt-link 
+        :to="$localePath('/')"
+      >
+        {{ $t('signUpPage.success.link') }}
+      </nuxt-link>
+    </div>
     <div 
       v-else-if="technicalIssue"
       class="flexColumnCenter"
