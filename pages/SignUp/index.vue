@@ -29,9 +29,9 @@ definePageMeta({
         const userStore = useUserStore()
         await userStore.getOldUserData(to.query.userId, to.query.userToken)
 
-      // wip
-      } else {
-        return navigateTo('/')
+      // // wip
+      // } else {
+      //   return navigateTo('/')
       }
     },
   ],
