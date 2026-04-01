@@ -60,6 +60,7 @@ const handleGallerySwiper = (i) => {
       <Title>
         #Framed in Belarus - {{ title }}
       </Title>
+      <Meta name="robots" content="noindex" />
     </Head>
     <div>
       <div class="Title">

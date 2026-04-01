@@ -117,7 +117,7 @@
   }
 
   .svgQuestionCircle {
-    fill: $question;
+    fill: $information;
     width: 24px;
   }
 
@@ -155,7 +155,7 @@
 }
 
 .embroideryCardStatus-prepublished {
-  background-color: $embroideryCardStasusPublished;
+  background-color: $embroideryCardStasusPrepublished;
 }
 
 .embroideryCardStatus-published {
@@ -168,6 +168,10 @@
 
 .embroideryCardStatus-requested {
   background-color: $embroideryCardStasusRequested;
+}
+
+.embroideryCardStatus-editing {
+  background-color: $embroideryCardStasusEditing;
 }
 
 @media screen and (min-width: $br-point-md){

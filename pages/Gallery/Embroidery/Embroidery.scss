@@ -1,0 +1,333 @@
+@import "../../../assets/style/globalPartials/variables";
+
+.galleryCaseWrapper {
+  .notificationWrapper {
+    padding: 12px 24px;
+    margin-top: 46px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    min-height: 74px;
+
+    .contentWrapper {
+      width: 100%;
+      max-width: 1620px;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-left: 14px;
+      line-height: 18px;
+    }
+
+    .btnsWrapper {
+      gap: 6px;
+      width: 100%;
+
+      button, .button {
+        margin: 0;
+        width: 100%;
+        text-wrap: nowrap;
+      }
+    }
+
+    @media screen and (min-width: $br-point-md) {
+      margin-top: 0;
+      padding: 6px 24px;
+
+      .contentWrapper {
+        flex-direction: row;
+
+        .btnsWrapper {
+          width: fit-content;
+          flex-direction: row;
+        }
+      }
+    }
+  }
+
+  .notificationInformation {
+    background-color: $informationLight;
+
+    svg {
+      fill: $information;
+      min-width: 30px;
+      max-width: 30px;
+    }
+  }
+
+  .notificationWarning {
+    background-color: $warningLight;
+
+    svg {
+      fill: $warning;
+      min-width: 20px;
+      max-width: 20px;
+    }
+  }
+
+  .Title {
+    .subtitle {
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  &:has(.notificationWrapper) {
+    .Title {
+      margin-top: 0;
+    }
+  }
+
+  .item-margin_bottom {
+    margin-bottom: 1.125rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .item-margin_bottom_mini {
+    margin-bottom: 0.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .Description-item {
+    @extend .item-margin_bottom;
+    margin-bottom: 10px;
+
+    .title {
+      margin-bottom: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    p {
+      white-space: pre-line;
+    }
+  }
+
+  .Description-item_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 27px 0 14px;
+  }
+
+  .Hero-photo {
+    width: 10rem;
+    min-width: 10rem;
+    height: 10rem;
+    border-radius: 0.75rem;
+    object-fit: cover;
+  }
+
+  .Hero-photoModal {
+    margin: 0 1rem 1rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+  }
+
+  .toggleTextWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .ExhibitionList {
+    @extend .item-margin_bottom;
+  }
+
+  .ExhibitionList-item {
+    @extend .item-margin_bottom;
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .ExhibitionListItem-title {
+    @extend .item-margin_bottom_mini;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .ExhibitionListItem-descript {
+    flex-wrap: wrap;
+    align-items: center;
+    @extend .item-margin_bottom_mini;
+
+    svg {
+      width: 20px;
+      height: 24px;
+    }
+  }
+
+  .swiperDescription,
+  .swiperDescriptionInfo {
+    display: none;
+    line-height: 30px;
+    font-size: 14px;
+  }
+
+  .swiperDescription {
+    margin-top: 18px;
+  }
+
+  .swiperDescriptionInfo {
+    width: 100%;
+
+    span {
+      display: inline-flex;
+    }
+  }
+
+  h3 {
+    line-height: 24px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .galleryCaseSwiperWrapper {
+    margin-bottom: 18px;
+  }
+
+  .galleryCaseSwiper {
+    width: 538px;
+    height: 575px;
+
+    .swiper-slide {
+      max-height: 538px;
+    }
+
+    img {
+      border-radius: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .galleryWrapper {
+    display: grid;
+    max-width: 100%;
+    gap: 14px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
+
+    div {
+      display: flex;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        min-width: 100%;
+        min-width: 100%;
+        height: auto;
+        height: auto;
+      }
+    }
+  }
+
+  .caseHeaderWrapper {
+    margin-bottom: 16px;
+
+    img {
+      margin-right: 19px;
+    }
+  }
+
+  .caseBioWrapper {
+    margin-right: auto;
+
+    * {
+      line-height: 24px;
+    }
+
+    div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .additionalInfo {
+    svg {
+      margin: 5px 0 -5px 7px;
+    }
+  }
+
+  .exhibitionsWrapper {
+    h2 { 
+      margin-top: 29px;
+    }
+
+    ul {
+      margin-top: 18px;
+    }
+  }
+
+  @media screen and (min-width: $br-point-md) {
+    overflow: unset;
+
+    .content.galleryCaseContent {
+      display: grid;
+      gap: 1.875rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .galleryCaseSwiperWrapper {
+      position: sticky;
+      top: 1.875rem;
+      height: max-content;
+    }
+
+    .galleryCaseSwiper {
+      width: 538px;
+      height: 575px;
+  
+      img {
+        border-radius: 12px;
+      }
+    }
+
+    .swiperDescription,
+    .swiperDescriptionInfo {
+      display: block;
+    }
+
+    .galleryWrapper {
+      gap: 18px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .caseHeaderWrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .Hero-photoModal {
+      margin: 0 1rem 3px 0;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .caseBioWrapper .Description-item {
+      span {
+        display: block;
+      }
+    }
+  }
+}

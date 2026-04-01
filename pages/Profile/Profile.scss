@@ -1,0 +1,225 @@
+@import "../../assets/style/globalPartials/variables";
+@import "../../assets/style/mixins/general";
+@import "../../assets/style/mixins/modal";
+
+.profileContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin-top: -30px;
+}
+
+.userProfile {
+  padding: 34px 0 24px;
+  background-color: $white;
+  width: 100%;
+  margin: 0 auto 28px;
+  border: 1px solid $grey;
+}
+
+.userProfile-header {  
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid $greyLight;
+}
+
+.userProfile-avatar {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  background-color: $greyBg;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.userProfile-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.userProfile-body {  
+  padding: 0 18px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+
+  * {
+    line-height: 18px;
+  }
+
+  .userInfoWrapper {
+    width: 100%;
+
+    p {
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 1rem;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.userProfile-buttons {
+  * {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .button {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  .deleteButton {
+    margin-top: 22px;
+  }
+}
+
+.editProfileModal {
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+    max-width: 900px;
+  }
+
+  .inputModalHeader {
+    padding: 22px 36px 18px;
+  }
+
+  .inputModalRow {
+    padding: 0 28px;
+  }
+
+  .inputModalFooter {
+    border-top: 1px solid $greyLight;
+    padding: 16px 36px 18px;
+  }
+}
+
+.deleteProfileModal {
+  .inputModalContentWrapper {
+  	@include inputModalContentWrapper;
+    max-width: 850px;
+  }
+
+  .inputModalItemDelete {
+    padding: 8px 36px;
+  
+    * {
+      text-align: center;
+    }
+  
+    .trashIconWrapper {
+      width: 80px;
+      height: 80px;
+      border-radius: 9999px;
+      background-color: $redLight;
+    }
+  
+    h2 {
+      font-family: 'Roboto';
+      font-size: 24px;
+      margin-top: 26px;
+    }
+  
+    p {
+      font-size: 14px;
+      margin-top: 16px;
+      text-align: left;
+      margin-right: auto;
+    }
+
+    .checkBoxWrapper {
+      margin-right: auto;
+    }
+  }
+}
+
+.embroideryCardsWrapper {
+  max-width: 100%;
+}
+
+.embroideryCards {
+  display: grid;
+  max-width: 215px;
+  margin: 0 0 3.75rem;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+@media screen and (min-width: $br-point-sm){
+  .embroideryCards {
+    max-width: calc(215px * 2 + 22px);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $br-point-md){
+  .profileContent {
+    margin-top: 0;
+  }
+
+  .userProfile {
+    width: calc(11.688rem * 3 + 22px * 2);
+    margin: 0 auto 2.5rem;
+    border-radius: 6px;
+    padding: 30px 0 34px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .userProfile-header {  
+    padding-bottom: 14px;
+  }
+
+  .userProfile-avatar {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 2px;
+    background-color: unset;
+    border-radius: unset;
+    padding: 0;
+  }
+
+  .userProfile-body {
+    p {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .embroideryCardsWrapper,
+  .embroideryCards {
+    max-width: calc(190px * 3 + 24px * 2);
+  }
+
+  .embroideryCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: $br-point-lg){
+  .Content > .content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .profileContent {
+    width: 69.375rem;
+  }
+
+  .userProfile {
+    width: 20.8rem;
+    margin: -161px 44px 2.5rem 0;
+    position: relative;
+  }
+}

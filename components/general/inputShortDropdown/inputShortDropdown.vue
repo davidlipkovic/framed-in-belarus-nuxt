@@ -1,15 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 
-const emit = defineEmits([
-  'chooseOption',
-])
-
 const props = defineProps({
-  chosenOption: {
-    type: String,
-    default: null
-  },
   options: {
     type: Array,
     default: null
@@ -28,6 +20,8 @@ const props = defineProps({
   },
 })
 
+const model = defineModel()
+
 const dropdown = ref(null)
 const toggleDropdown = ref(false)
 
@@ -35,8 +29,8 @@ onClickOutside(dropdown, () => {
   toggleDropdown.value = false
 })
 
-const handleChooseOption = (lang) => {
-  emit('chooseOption', lang)
+const handleChooseOption = (option) => {
+  model.value = option
   toggleDropdown.value = false
 }
 </script>
@@ -52,10 +46,10 @@ const handleChooseOption = (lang) => {
   >
     <span 
       class="dropdownButton flexRowCenter"
-      :class="{'dropdownButtonPlaceholder' : !chosenOption}"
+      :class="{'dropdownButtonPlaceholder' : !model}"
       @click="toggleDropdown = !toggleDropdown"
     >
-      {{ chosenOption ? chosenOption : placeholder }}
+      {{ model ? model : placeholder }}
       <SvgArrowDown/>
     </span>
     <ul 
@@ -68,7 +62,7 @@ const handleChooseOption = (lang) => {
         :key="i"
       >
         <button @click="handleChooseOption(option)">
-          {{ option.name }}
+          {{ option }}
         </button>
       </li>
     </ul>

@@ -7,7 +7,7 @@ import { useRoute, useRouter } from 'vue-router'
 definePageMeta({
   middleware: [
     'news',
-    // 'auth-general',
+    'auth-general',
   ],
 })
 
@@ -75,6 +75,7 @@ watch(() => route.query, (newQuery) => {
     <Head>
       <Title>#Framed in Belarus — Events</Title>
       <Meta name="description" content="Events"/>
+      <Meta name="robots" content="noindex" />
     </Head>
     <div class="Title">
       <h1 class="content">

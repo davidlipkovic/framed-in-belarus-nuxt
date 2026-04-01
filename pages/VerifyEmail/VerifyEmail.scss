@@ -1,0 +1,41 @@
+@import "../../assets/style/globalPartials/variables.scss";
+@import "../../assets/style/extends/checkBox";
+@import "../../assets/style/mixins/sign";
+
+.verifyEmailWrapper {
+  @include signTitle;
+
+  .signUpLink {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .formWrapper {
+    margin-top: 8px;
+  }
+
+  .emailInput {
+    margin-bottom: 1.5rem;
+  }
+
+  .checkBoxWrapper {
+    @extend .checkBoxWrapper;
+    margin-bottom: 28px;
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.625rem;
+  }
+
+  @media screen and (min-width: $br-point-lg) {
+    padding-left: 545px;
+
+    .formWrapper {
+      margin-top: 23px;
+    }
+  }
+}

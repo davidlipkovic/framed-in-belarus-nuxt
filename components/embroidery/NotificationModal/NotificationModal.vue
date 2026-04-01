@@ -11,8 +11,8 @@ const props = defineProps({
   <div 
     class="embroideryNotificationModal flexRowStart"
     :class="{
-      'embroideryNotificationModalQuestion': notification.icon === 'question',
-      'embroideryNotificationModalWarning': notification.icon === 'warning',
+      'embroideryNotificationModalInformation': notification.type === 'information',
+      'embroideryNotificationModalWarning': notification.type === 'warning',
     }"
   >
     <component 
@@ -31,4 +31,4 @@ const props = defineProps({
   </div>
 </template>
 
-<style src="./EmbroideryNotificationModal.scss" lang="scss"></style>
+<style src="./NotificationModal.scss" lang="scss"></style>

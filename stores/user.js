@@ -356,7 +356,7 @@ const { removeNullProps } = useRemoveNull()
 
     console.log('publishEmbroidery', data.value)
 
-    if (error.value || data.value.result !== 'success') {
+    if (error.value || data.value.statusText !== 'success') {
       return
     }
 
@@ -378,7 +378,7 @@ const { removeNullProps } = useRemoveNull()
 
     console.log('postEmbroideryCorrections', data.value)
 
-    if (error.value || data.value.result !== 'success') {
+    if (error.value || data.value.statusText !== 'success') {
       return
     }
 

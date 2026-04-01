@@ -1,3 +1,9 @@
 node_modules
+*.log*
 .nuxt
-TODO.md
+.nitro
+.cache
+.output
+.env
+dist
+/package-lock.json

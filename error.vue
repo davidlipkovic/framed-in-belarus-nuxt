@@ -66,6 +66,9 @@ onMounted(() => {
 
 <template>
   <main class="Content flexColumnCenter">
+    <Head>
+      <Meta name="robots" content="noindex" />
+    </Head>
     <div class="content NotFound flexColumnCenter">
       <span class="notFoundIcon">
         404
