@@ -1,20 +1,23 @@
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue'
-import { onBeforeRouteLeave, useRouter } from 'vue-router'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
+import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
 // import { useCheckBeforeRouteLeave } from "@/composables/CheckBeforeRouteLeave";
 // const { checkbox, handleWarning, showWarning } = useCheckBeforeRouteLeave();
-import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useValidateInputs } from "@/composables/ValidateInputs"
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 import { useI18n } from 'vue-i18n'
-const { locale, locales, t } = useI18n()
 import countries from '../../assets/json/countries.json'
 
-const router = useRouter()
 const $localePath = useLocalePath()
+const route = useRoute()
+const router = useRouter()
+const { locale, t } = useI18n()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
 const { validateEmail, validateText } = useValidateInputs()
+const { localesNames } = useCurrentLocale()
 
 definePageMeta({
   layout: "registrationlg",
@@ -30,64 +33,41 @@ definePageMeta({
   ],
 })
 
-const currentSlide = ref(0)
+const formData = reactive({
+  username: null,
+  publishUsername: true,
+  email: registrationStore.email,
+  countryOfResidence: null,
+  publishCountryOfResidence: false,
+  language: null,
+  instagram: null,
+  mentionInstagram: true,
+  publishInstagram: true,
+  source: null,
+  reason: null,
+  publishReason: true,
+  terms: false,
+  subscription: false,
+})
 
-const signUp = async () => {
-  const body = {
-    email: registrationStore.email,
-    username: username.value,
-    countryOfResidence: countryOfResidence.value,
-    language: language.value,
-    instagram: instagram.value,
-    source: source.value,
-    reason: reason.value,
-    terms: terms.value,
-    subscription: subscription.value,
-    publishReason: publishReason.value,
-    publishCountryOfResidence: publishCountryOfResidence.value,
-    publishInstagram: publishInstagram.value,
-    publishUsername: publishUsername.value,
-  }
+const currentSlide = ref(1)
+const showBelarusModal = ref(false)
 
-  userStore.loading = true
-  await userStore.createUser(body)
-  userStore.loading = false
-  router.push($localePath('/VerifyEmail'))
-}
-
-const username = ref(null)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
-const publishUsername = ref(false)
 
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
-const countryOfResidence = ref(null)
-const publishCountryOfResidence = ref(false)
-
-const language = ref(null)
-
-const instagram = ref(null)
-const mentionInstagram = ref(false)
-const publishInstagram = ref(false)
-
-const source = ref(null)
 const sourceOptions = computed(() => [
-  {name: t("signUpPage.slide2.findOutOptions.instagram")},
-  {name: t("signUpPage.slide2.findOutOptions.fromFriend")},
-  {name: t("signUpPage.slide2.findOutOptions.atExhibition")},
-  {name: t("signUpPage.slide2.findOutOptions.atWorkshop")},
-  {name: t("signUpPage.slide2.findOutOptions.atPresentation")},
-  {name: t("signUpPage.slide2.findOutOptions.throughMedia")},
-  {name: t("signUpPage.slide2.findOutOptions.another")},
+  t("signUpPage.slide2.findOutOptions.instagram"),
+  t("signUpPage.slide2.findOutOptions.fromFriend"),
+  t("signUpPage.slide2.findOutOptions.atExhibition"),
+  t("signUpPage.slide2.findOutOptions.atWorkshop"),
+  t("signUpPage.slide2.findOutOptions.atPresentation"),
+  t("signUpPage.slide2.findOutOptions.throughMedia"),
+  t("signUpPage.slide2.findOutOptions.another"),
 ])
-
-const reason = ref(null)
-const publishReason = ref(false)
-
-const terms = ref(false)
-const subscription = ref(false)
 
 console.log('signup page', userStore.oldUser)
 
@@ -105,44 +85,106 @@ if (userStore.oldUser) {
   reason.value = userStore.oldUser.reason
 }
 
-const updateLanguage = (lang) => {
-  language.value = lang.name
-}
+const validUsernameData = computed(() => validateText(formData.username))
+const validEmailData = computed(() => validateEmail(formData.email))
 
-const updateSource = (option) => {
-  source.value = option.name
-}
-
-const validUsernameData = computed(() => validateText(username.value))
-const validEmailData = computed(() => validateEmail(registrationStore.email))
-
-const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && language.value)
+const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && formData.language)
 
 onClickOutside(usernameInput, () => {
-  if (username.value) {
+  if (formData.username) {
     usernameTypingStarted.value = true
   }
 })
 
 onClickOutside(emailInput, () => {
-  if (registrationStore.email) {
+  if (formData.email) {
     emailTypingStarted.value = true
   }
 })
 
-const showBelarusModal = ref(false)
+const signUp = async () => {
+  const body = {}
 
-const updateCountryOfResidence = (country) => {
-  if (!userStore.oldUser && country.name === 'Belarus') {
-    showBelarusModal.value = true
-  }
-  
-  countryOfResidence.value = country.name
+  Object.keys(formData).forEach(key => {
+    body[key] = formData[key]
+  })
+
+  registrationStore.email = formData.email
+
+  userStore.loading = true
+  await userStore.createUser(body)
+  userStore.loading = false
+
+  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
+  router.push($localePath('/VerifyEmail'))
 }
 
 const cancelRegistration = () => {
+  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
   router.push('/')
 }
+
+const updateCurrentSlide = (slide) => {
+  if (slide === 1) {
+    const query = {...route.query}
+    delete query['s']
+
+    router.replace({ query })
+  } else {
+    router.replace({ 
+      query: { 
+        ...route.query, 
+        's': slide
+      }
+    })
+  }
+}
+
+const handleKeyPress = (event) => {
+  if (event.key === 'Enter' || event.keyCode === 13 || event.charCode === 13) {
+    if (showBelarusModal.value) {
+      showBelarusModal.value = false
+      return
+    }
+
+    if (currentSlide.value < 3) {
+      updateCurrentSlide(currentSlide.value + 1)
+    } else {
+      signUp()
+    }
+  }
+}
+
+onMounted(() => {
+  const savedFormData = sessionStorage.getItem('FIB_REGISTRATION_FORM')
+  
+  if (savedFormData) {
+    Object.assign(formData, JSON.parse(savedFormData))
+  }
+
+  addEventListener("keypress", handleKeyPress)
+})
+
+onUnmounted(() => {
+  removeEventListener("keypress", handleKeyPress)
+})
+
+watch(() => route.query, (newQuery) => {
+    if (!newQuery.s) {
+      currentSlide.value = 1
+    } else {
+      currentSlide.value = parseInt(newQuery.s)
+    }
+  }, 
+  { immediate: true }
+)
+
+watch(formData, (newformData) => {
+  sessionStorage.setItem('FIB_REGISTRATION_FORM', JSON.stringify(newformData))
+  if (newformData.countryOfResidence === 'Belarus') {
+    showBelarusModal.value = true
+  }
+}, { deep: true })
 </script>
 
 <template>
@@ -159,9 +201,9 @@ const cancelRegistration = () => {
         {{ $t("links.signIn") }}
       </nuxt-link>
     </p>
-    <div class="formWrapper">
+    <form class="formWrapper">
       <div
-        v-show="currentSlide === 0" 
+        v-show="currentSlide === 1" 
         class="slide"
       >
         <div class="slideWrapper slideWrapper1 flexColumnStart">
@@ -173,7 +215,7 @@ const cancelRegistration = () => {
                   type="text" 
                   name="username" 
                   id="username" 
-                  v-model="username"
+                  v-model="formData.username"
                   :placeholder="$t('placeholders.username') + '*'" 
                   class="usernameInput"
                   :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
@@ -195,8 +237,8 @@ const cancelRegistration = () => {
                   name="publishUsername" 
                   id="publishUsername" 
                   :value="true"
-                  v-model="publishUsername"
-                  :disabled="!username"
+                  v-model="formData.publishUsername"
+                  :disabled="!formData.username"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -219,7 +261,7 @@ const cancelRegistration = () => {
                   type="email" 
                   name="email" 
                   id="email" 
-                  v-model="registrationStore.email"
+                  v-model="formData.email"
                   :placeholder="$t('placeholders.emailLogin') + '*'" 
                   class="emailInput"
                   :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
@@ -243,12 +285,11 @@ const cancelRegistration = () => {
             <div class="inputContentWrapper flexColumnStart">
               <GeneralInputLongDropdown
                 class="contentInput countryOfResidenceDropdown"
-                :chosenOption="countryOfResidence"
                 :enableScroll="true"
                 :options="countries"
                 :placeholder="$t('placeholders.country') + '*'" 
                 :isRegistration="true"
-                @chooseOption="updateCountryOfResidence"
+                v-model="formData.countryOfResidence"
               />
               <label 
                 for="publishCountryOfResidence"
@@ -259,7 +300,8 @@ const cancelRegistration = () => {
                   name="publishCountryOfResidence" 
                   id="publishCountryOfResidence" 
                   :value="true"
-                  v-model="publishCountryOfResidence"
+                  v-model="formData.publishCountryOfResidence"
+                  :disabled="!formData.countryOfResidence"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -272,11 +314,10 @@ const cancelRegistration = () => {
             <div class="inputContentWrapper flexColumnStart">
               <GeneralInputShortDropdown
                 class="contentInput languageDropdown"
-                :chosenOption="language"
-                :options="locales"
+                :options="localesNames"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage') + '*'" 
                 :isRegistration="true"
-                @chooseOption="updateLanguage"
+                v-model="formData.language"
               />
             </div>
             <p>
@@ -288,14 +329,14 @@ const cancelRegistration = () => {
           <span
             class="button"
             :class="validDataSlide1 ? 'bg_black' : 'button_disabled'"
-            @click="currentSlide = 1"
+            @click="updateCurrentSlide(2)"
           >
             {{ $t('buttons.next') }}
           </span>
         </div>
       </div>
       <div
-        v-show="currentSlide === 1" 
+        v-show="currentSlide === 2" 
         class="slide"
       >
         <div class="slideWrapper slideWrapper2 flexColumnStart">
@@ -308,7 +349,8 @@ const cancelRegistration = () => {
                 id="instagram" 
                 :placeholder="$t('placeholders.instagram')" 
                 class="instagramInput"
-                v-model="instagram"
+                v-model="formData.instagram"
+                maxlength="31"
               />
               <label
                 for="mentionInstagram"
@@ -319,8 +361,8 @@ const cancelRegistration = () => {
                   name="mentionInstagram" 
                   id="mentionInstagram" 
                   :value="true"
-                  v-model="mentionInstagram"
-                  :disabled="!instagram"
+                  v-model="formData.mentionInstagram"
+                  :disabled="!formData.instagram"
                 />
                 {{ $t('inputs.mentionInstagram') }}
               </label>
@@ -333,8 +375,8 @@ const cancelRegistration = () => {
                   name="publishInstagram" 
                   id="publishInstagram"
                   :value="true"
-                  v-model="publishInstagram"
-                  :disabled="!instagram"
+                  v-model="formData.publishInstagram"
+                  :disabled="!formData.instagram"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -347,11 +389,10 @@ const cancelRegistration = () => {
             <div class="inputContentWrapper flexColumnStart">
               <GeneralInputShortDropdown
                 class="contentInput sourceDropdown"
-                :chosenOption="source"
                 :placeholder="$t('placeholders.findOut')" 
                 :options="sourceOptions"
                 :isRegistration="true"
-                @chooseOption="updateSource"
+                v-model="formData.source"
               />
             </div>
           </div>
@@ -362,7 +403,7 @@ const cancelRegistration = () => {
                 id="reason" 
                 class="reasonTextarea"
                 :placeholder="$t('signUpPage.slide2.textarea')" 
-                v-model="reason"
+                v-model="formData.reason"
               />
               <label
                 for="publishReason"
@@ -373,8 +414,8 @@ const cancelRegistration = () => {
                   name="publishReason" 
                   id="publishReason" 
                   :value="true"
-                  v-model="publishReason"
-                  :disabled="!reason"
+                  v-model="formData.publishReason"
+                  :disabled="!formData.reason"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -387,20 +428,20 @@ const cancelRegistration = () => {
         <div class="buttonsWrapper buttonsWrapper2 flexColumnStart">
           <span
             class="button"
-            @click="currentSlide = 0"
+            @click="updateCurrentSlide(1)"
           >
             {{ $t('buttons.back') }}
           </span>
           <span
             class="button bg_black"
-            @click="currentSlide = 2"
+            @click="updateCurrentSlide(3)"
           >
             {{ $t('buttons.next') }}
           </span>
         </div>
       </div>
       <div
-        v-show="currentSlide === 2" 
+        v-show="currentSlide === 3" 
         class="slide"
       >
         <div class="slideWrapper3">
@@ -484,7 +525,7 @@ const cancelRegistration = () => {
               name="terms" 
               id="terms" 
               :value="true"
-              v-model="terms"
+              v-model="formData.terms"
             />
             {{ $t('signUpPage.slide3.consent') }}
           </label>
@@ -497,20 +538,20 @@ const cancelRegistration = () => {
               name="subscription" 
               id="subscription" 
               :value="true"
-              v-model="subscription"
+              v-model="formData.subscription"
             />
             {{ $t('signUpPage.slide3.subscribe') }}
           </label>
           <div class="buttonsWrapper buttonsWrapper3 flexColumnStart">
             <span
               class="button"
-              @click="currentSlide = 1"
+              @click="updateCurrentSlide(2)"
             >
               {{ $t('buttons.back') }}
             </span>
             <span
               class="button"
-              :class="terms ? 'bg_black' : 'button_disabled'"
+              :class="formData.terms ? 'bg_black' : 'button_disabled'"
               @click="signUp()"
             >
               {{ $t('buttons.createAccount') }}
@@ -518,13 +559,13 @@ const cancelRegistration = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <div class="paginationWrapper flexRowCenter">
       <span
         v-for="(slide, index) in 3"
         :key="slide"
         class="swiper-pagination-bullet"
-        :class="{'swiper-pagination-bullet-active' : index === currentSlide}"
+        :class="{'swiper-pagination-bullet-active' : index === currentSlide - 1}"
       />
     </div>
     <GeneralInputModal
