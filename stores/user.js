@@ -60,16 +60,20 @@ const { removeNullProps } = useRemoveNull()
       body: removeNullProps(body)
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
+    // if (error.value) {
+    //   throw createError({ 
+    //     statusCode: error.value.statusCode,
+    //     statusMessage: error.value.statusMessage,
+    //   })
+    // }
     
-    console.log('createUser', data.value)
+    console.log('createUser', data.value)    
+    
+    if (error.value || data.value.statusText !== 'success') {
+      return
+    }
 
-    return data.value.result
+    return true
   }
   
   const subscribe = async (body) => {
