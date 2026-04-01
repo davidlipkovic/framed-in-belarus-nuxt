@@ -73,17 +73,9 @@ const sourceOptions = computed(() => [
 console.log('signup page', userStore.oldUser)
 
 if (userStore.oldUser) {
-  registrationStore.email = userStore.oldUser.email
-  username.value = userStore.oldUser.username
-  publishUsername.value = userStore.oldUser.publishUsername
-  countryOfResidence.value = userStore.oldUser.countryOfResidence
-  publishCountryOfResidence.value = userStore.oldUser.publishCountryOfResidence
-  language.value = userStore.oldUser.language
-  instagram.value = userStore.oldUser.instagram
-  mentionInstagram.value = userStore.oldUser.mentionInstagram
-  publishInstagram.value = userStore.oldUser.publishInstagram
-  source.value = userStore.oldUser.source
-  reason.value = userStore.oldUser.reason
+  Object.keys(formData).forEach(key => {
+    formData[key] = userStore.oldUser[key]
+  })
 }
 
 const validUsernameData = computed(() => validateText(formData.username))
