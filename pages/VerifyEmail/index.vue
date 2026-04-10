@@ -4,7 +4,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
-import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useValidateInputs } from "@/composables/ValidateInputs"
 
 const router = useRouter()
 const localePath = useLocalePath()
@@ -22,10 +22,20 @@ const emailTypingStarted = ref(false)
 const pin = ref(null)
 const pinInput = ref(null)
 const pinTypingStarted = ref(false)
+const invalidPin = ref(false)
 
 const validatePin = async () => {
-  await userStore.validatePin(registrationStore.email, pin.value, registrationStore.remember)
-  router.push(localePath('/Profile'))
+  const validatePinResult = await userStore.validatePin(registrationStore.email, pin.value)
+  
+  if (validatePinResult) {
+    router.push(localePath('/Profile'))
+  } else {
+    invalidPin.value = true
+  }
+}
+
+const resendPin = async () => {
+  await userStore.loginUser(registrationStore.email)
 }
 
 const validEmailData = computed(() => validateEmail(registrationStore.email))
@@ -86,26 +96,25 @@ onClickOutside(pinInput, () => {
         >
           {{ $t('invalidInputs.enterPinCode') }}
         </span>
+        <span 
+          v-else-if="invalidPin"
+          class="warningNotification note red"
+        >
+          Invalid pin code
+        </span>
       </div>
-      <label
-        for="remember"
-        class="checkBoxWrapper"
-      >
-        <input 
-          type="checkbox" 
-          id="remember" 
-          name="remember"
-          :value="true"
-          v-model="registrationStore.remember"
-        />
-        {{ $t("signInPage.remember") }}
-      </label>
       <button
         class="button"
         :class="validData ? 'bg_black' : 'button_disabled'"
         @click="validatePin()"
       >
         {{ $t('buttons.send') }}
+      </button>
+      <button
+        class="button bg_black"
+        @click="resendPin()"
+      >
+        Resend Pin
       </button>
     </div>
   </div>

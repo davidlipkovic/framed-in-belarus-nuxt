@@ -2,8 +2,11 @@ import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 import { useRemoveNull } from "@/composables/RemoveNull"
 
+const SESSION_DURATION = 60 * 60 * 1000 // 1 hour
+let expiryTimer = null
+
 export default defineStore("user", () => {
-const { removeNullProps } = useRemoveNull()
+  const { removeNullProps } = useRemoveNull()
 
   const loading = ref(false)
   const user = ref(null)
@@ -18,16 +21,7 @@ const { removeNullProps } = useRemoveNull()
 
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
-  const getUserAuthorizationData = () => {
-    if (window.localStorage) {
-      let data = window.localStorage.getItem('fibUser')
-      data = JSON.parse(data)
-
-      if (data) {
-        userAuthorizationData.value = data
-      }
-    }
-  }
+  // helper functions
   
   const setHeaders = () => {
     if (userAuthorizationData.value) {
@@ -35,6 +29,51 @@ const { removeNullProps } = useRemoveNull()
     }
     return null
   }
+
+  const scheduleExpiry = () => {
+    clearTimeout(expiryTimer) // clear any existing timer first
+    expiryTimer = setTimeout(() => removeUserSession(), SESSION_DURATION)
+  }
+
+
+  // Session functions
+
+  const setUserSession = (userData) => {
+    const session = {
+      ...userData,
+      expiresAt: Date.now() + SESSION_DURATION
+    }
+
+    localStorage.setItem('FIB_USER', JSON.stringify(session))
+    scheduleExpiry()
+  }
+
+  const removeUserSession = () => {
+    localStorage.removeItem('FIB_USER')
+    clearTimeout(expiryTimer)
+  }
+
+  const checkUserSession = () => {
+    const raw = localStorage.getItem('FIB_USER')
+    if (!raw) return
+
+    const session = JSON.parse(raw)
+    const remainingMs = session.expiresAt - Date.now()
+
+    if (remainingMs <= 0) {
+      removeUserSession()
+      return
+    }
+
+    scheduleExpiry(remainingMs)
+    
+    delete session.expiresAt
+    userAuthorizationData.value = session
+    return userAuthorizationData.value
+  }
+
+
+  // API functions
   
   const loginUser = async (email) => {
     const { data, error } = await useFetch(endpointUrl + '/api/auth/email/login', {
@@ -144,25 +183,27 @@ const { removeNullProps } = useRemoveNull()
     console.log('deleteUser', data.value)
 
     userDataBeforeDelete.value = true
+
+    removeUserSession()
+
+    const channel = new BroadcastChannel("user-session-channel")
+    channel.postMessage('signOut')
+    channel.close()
   }
 
   const signOut = () => {
-    if (window.localStorage) {
-      window.localStorage.removeItem('fibUser')
-    }
-
-    if (window.sessionStorage) {
-      window.sessionStorage.removeItem('fibUser')
-    }
-
     user.value = null
     userAuthorizationData.value = null
     isLogged.value = false
-
     userDataBeforeDelete.value = false
+    removeUserSession()
+
+    const channel = new BroadcastChannel("user-session-channel")
+    channel.postMessage('signOut')
+    channel.close()
   }
 
-  const validatePin = async (email, pin, remember) => {
+  const validatePin = async (email, pin) => {
     const { data, error } = await useFetch(endpointUrl + '/api/auth/email/validate', {
       method: 'post',
       body: { 
@@ -171,18 +212,11 @@ const { removeNullProps } = useRemoveNull()
       }
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
+    console.log('validatePin', data.value)
 
-    if (data.value.statusText !== 'success') {
-      throw new TypeError('Error validating pin: Not succesful')
+    if (error.value || data.value.statusText !== 'success') {
+      return
     }
-
-    console.log('validatePin', data.value.result)
 
     userAuthorizationData.value = {
       email: data.value.result.email,
@@ -190,14 +224,9 @@ const { removeNullProps } = useRemoveNull()
       userId: data.value.result.userId,
     }
 
-    if (window.localStorage) {
-      userAuthorizationData.value = {
-        ...userAuthorizationData.value,
-        remember,
-      }
+    setUserSession(userAuthorizationData.value)
 
-      window.localStorage.setItem('fibUser', JSON.stringify(userAuthorizationData.value))
-    }
+    return true
   }
 
   const getUserData = async () => {
@@ -330,6 +359,7 @@ const { removeNullProps } = useRemoveNull()
     if (!headers) {
       return
     }
+
     const { data, error } = await useFetch(endpointUrl + '/api/prisoners/shipping/' + userSummary.value[0].stitchingId, {
       method: 'post',
       headers,
@@ -406,7 +436,6 @@ const { removeNullProps } = useRemoveNull()
     deleteUser,
     signOut,
     validatePin,
-    getUserAuthorizationData,
     getUserData,
     getOldUserData,
     getUserEmbroideries,
@@ -415,5 +444,7 @@ const { removeNullProps } = useRemoveNull()
     subscribe,
     publishEmbroidery,
     postEmbroideryCorrections,
+    setUserSession,
+    checkUserSession,
   }
 })

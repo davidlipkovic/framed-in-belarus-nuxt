@@ -21,23 +21,15 @@ const emailTypingStarted = ref(false)
 const invalidEmail = ref(false)
 
 const signIn = async () => {
-  if (!window.localStorage) {
-    return
-  }
+  const userSessionData = userStore.checkUserSession()
 
-  let data = window.localStorage.getItem('fibUser')
-  data = JSON.parse(data)
-
-  if (data && data.email === registrationStore.email && data.token && data.userId) {
-    data.remember = registrationStore.remember
-    window.localStorage.setItem('fibUser', JSON.stringify(data))
-
+  if (userSessionData && userSessionData.email === registrationStore.email && userSessionData.token && userSessionData.userId) {
     userStore.loading = true
-    userStore.getUserAuthorizationData()
     const userExists = await userStore.getUserData()
     userStore.loading = false
 
     if (userExists) {
+      userStore.setUserSession(userSessionData)
       userStore.isLogged = true
       router.push(localePath('/Profile'))
     } else {
@@ -111,19 +103,6 @@ watch(() => registrationStore.email, () => {
           {{ $t("signInPage.warning") }}
         </span>
       </div>
-      <label
-        for="remember"
-        class="checkBoxWrapper"
-      >
-        <input 
-          type="checkbox" 
-          id="remember" 
-          name="remember"
-          :value="true"
-          v-model="registrationStore.remember"
-        />
-        {{ $t("signInPage.remember") }}
-      </label>
       <button 
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 

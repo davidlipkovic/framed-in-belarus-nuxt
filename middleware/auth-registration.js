@@ -6,9 +6,9 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     return
   }
 
-  userStore.getUserAuthorizationData()
+  const userSessionData = userStore.checkUserSession()
 
-  if (userStore.userAuthorizationData && userStore.userAuthorizationData.token && (userStore.userAuthorizationData.remember || from.fullPath.includes('VerifyEmail') || to.fullPath.includes('Corrections'))) {
+  if (userSessionData && userSessionData.token) {
     if (!userStore.user) {
       userStore.loading = true
       await userStore.getUserData()
