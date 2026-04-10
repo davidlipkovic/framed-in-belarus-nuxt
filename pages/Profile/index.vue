@@ -343,7 +343,7 @@ const deleteUser = async () => {
                 v-model="email"
                 disabled
               />
-              <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence flexRowStart">
+              <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence">
                 {{ $t('profilePage.changeMail') }}&nbsp;<strong class="red bold">{{ $t('email') }}</strong>
               </span>
             </div>
