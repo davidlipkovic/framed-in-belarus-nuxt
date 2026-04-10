@@ -109,7 +109,6 @@ const signUp = async () => {
   userStore.loading = false
 
   if (registrationResult) {
-    sessionStorage.removeItem('FIB_REGISTRATION_FORM')
     router.push($localePath('/VerifyEmail'))
   } else {
     technicalIssue.value = true
@@ -117,7 +116,6 @@ const signUp = async () => {
 }
 
 const cancelRegistration = () => {
-  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
   router.push('/')
 }
 
@@ -164,6 +162,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   removeEventListener("keypress", handleKeyPress)
+  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
 })
 
 watch(() => route.query, (newQuery) => {
@@ -176,11 +175,18 @@ watch(() => route.query, (newQuery) => {
   { immediate: true }
 )
 
-watch(formData, (newformData, oldFormData) => {
+let oldCountryOfResidence = formData.countryOfResidence
+
+watch(formData, (newformData) => {
   sessionStorage.setItem('FIB_REGISTRATION_FORM', JSON.stringify(newformData))
-  if (newformData.countryOfResidence === 'Belarus' && oldFormData.countryOfResidence !== 'Belarus') {
+
+  const newCountryOfResidence = newformData.countryOfResidence
+
+  if (newCountryOfResidence === 'Belarus' && oldCountryOfResidence !== 'Belarus') {
     showBelarusModal.value = true
   }
+
+  oldCountryOfResidence = newCountryOfResidence
 }, { deep: true })
 </script>
 
