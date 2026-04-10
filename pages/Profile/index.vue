@@ -3,10 +3,12 @@ import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const router = useRouter()
-const { locales, t } = useI18n()
+const { t } = useI18n()
 const userStore = useUserStore()
+const { localesNames } = useCurrentLocale()
 
 definePageMeta({
   layout: "embroidery",
@@ -53,17 +55,17 @@ const disableNewEmbroidery = computed(() => {
 })
 
 const notifications = computed(() => {
-  const acc = []
+  const acc = new Map()
 
   userStore.embroideries.forEach((embroidery) => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
-      acc.push({
+      acc.set('warning', {
         type: 'warning',
         icon: resolveComponent('SvgTriangleWarning'),
         message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
       })
     } else if (embroidery.status.toLowerCase() === 'editing') {
-      acc.push({
+      acc.set('information', {
         type: 'information',
         icon: resolveComponent('SvgQuestionCircle'),
         message: t('profilePage.notifications.editing')
@@ -100,10 +102,6 @@ const embroideriesCards = computed(() => {
     return embroideryCard
   })
 })
-
-const updateLanguage = (lang) => {
-  language.value = lang.name
-}
 
 const handleIfValueIsUpdated = (key, value) => {
   if (userStore.user[key] === value) {
@@ -263,8 +261,9 @@ const deleteUser = async () => {
       </section>
       <section class="embroideryCardsWrapper flexColumnCenter">
         <EmbroideryNotificationModal
-          v-for="(notification, i) in notifications"
-          :notification="notification"
+          v-for="[key, value] in notifications"
+          :key="key"
+          :notification="value"
         />
         <div class="embroideryCards">
           <EmbroideryCard
@@ -433,10 +432,9 @@ const deleteUser = async () => {
               <GeneralInputShortDropdown
                 id="language"
                 class="contentInput languageInput"
-                :chosenOption="language"
-                :options="locales"
+                :options="localesNames"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
-                @chooseOption="updateLanguage"
+                v-model="language"
               />
             </div>
           </div>
