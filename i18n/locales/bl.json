@@ -95,7 +95,8 @@
         "pleaseAskYourQuestion": "Калі ласка, напішыце сваё пытанне",
         "pleaseEnterNameAndSurnameOfPrisoner": "Калі ласка, увядзіце імя і прозвішча палітзняволенаго*ай",
         "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні",
-        "invalidPinCode": "Invalid pin code"
+        "invalidPinCode": "Invalid pin code",
+        "enterReason": "Enter your reason for joining"
     },
     "links": {
         "home": "Галоўная",

@@ -95,7 +95,8 @@
         "pleaseAskYourQuestion": "Please ask your question",
         "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
         "pleaseEnterHerosStory": "Please enter Hero*ine’s story",
-        "invalidPinCode": "Invalid pin code"
+        "invalidPinCode": "Invalid pin code",
+        "enterReason": "Enter your reason for joining"
     },
     "links": {
         "home": "Home",
