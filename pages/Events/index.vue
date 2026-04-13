@@ -53,9 +53,9 @@ const tags = computed(() => {
 
 const updateCurrentTag = (tag) => {
   if (!tag) {
-    router.replace({ })
+    router.push({ })
   } else {
-    router.replace({ 
+    router.push({ 
       query: { 
         't': tag
       }

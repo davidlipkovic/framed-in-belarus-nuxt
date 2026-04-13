@@ -1,5 +1,4 @@
 @import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/extends/checkBox";
 @import "../../assets/style/mixins/sign";
 
 .verifyEmailWrapper {
@@ -18,11 +17,8 @@
     margin-bottom: 1.5rem;
   }
 
-  .checkBoxWrapper {
-    @extend .checkBoxWrapper;
+  .pinInput {
     margin-bottom: 28px;
-    margin-left: 4px;
-    font-weight: 600;
   }
 
   .button {

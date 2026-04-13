@@ -15,7 +15,7 @@ definePageMeta({
 
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading && heroesStore.originalHeroes) {
-    return heroesStore.originalHeroes.length;
+    return heroesStore.originalHeroes.length
   }
   return 3000
 })
@@ -46,7 +46,7 @@ const numberOfHeroes = computed(() => {
         </p>
         <div class="flexRowStart">
           <nuxt-link
-            :to="userStore.isLogged ? $localePath('/Profile') : $localePath('/SignUp')"
+            :to="userStore.user ? $localePath('/Profile') : $localePath('/SignUp')"
             class="button bg_red"
           >
             {{ $t('links.participate') }}

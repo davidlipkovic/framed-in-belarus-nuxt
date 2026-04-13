@@ -141,7 +141,7 @@ const deleteUser = async () => {
   userStore.loading = true
   await userStore.deleteUser()
   userStore.loading = false
-  router.push('/')
+  router.replace('/')
 }
 </script>
 

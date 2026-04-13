@@ -27,7 +27,8 @@
         "cancelRegistration": "Cancel registration",
         "gotIt": "Got it",
         "resetFilters": "Reset filters",
-        "correctionsNeeded": "Corrections needed"
+        "correctionsNeeded": "Corrections needed",
+        "resendPin": "Resend pin"
     },
     "placeholders": {
         "email": "Email",
@@ -93,7 +94,8 @@
         "pleaseEnterYourOffer": "Please enter your offer",
         "pleaseAskYourQuestion": "Please ask your question",
         "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
-        "pleaseEnterHerosStory": "Please enter Hero*ine’s story"
+        "pleaseEnterHerosStory": "Please enter Hero*ine’s story",
+        "invalidPinCode": "Invalid pin code"
     },
     "links": {
         "home": "Home",
@@ -321,6 +323,10 @@
             "notification1": "You are taking too much time for one step, please proceed with your work.",
             "notification2": "The deadline for this embroidery has been extended to",
             "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
+            "prepublished": "Obecny text pre vsetky vysivky",
+            "editing": "Obecny text pre vsetky vysivky"
+        },
+        "embroideryCardNotifications": {
             "prepublished": {
                 "content1": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by ",
                 "content2": ". After the deadline, we will publish the page as is or adjust the information at our discretion."

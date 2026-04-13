@@ -21,33 +21,16 @@ const emailTypingStarted = ref(false)
 const invalidEmail = ref(false)
 
 const signIn = async () => {
-  if (!window.localStorage) {
-    return
-  }
+  userStore.loading = true
 
-  let data = window.localStorage.getItem('fibUser')
-  data = JSON.parse(data)
-
-  if (data && data.email === registrationStore.email && data.token && data.userId) {
-    data.remember = registrationStore.remember
-    window.localStorage.setItem('fibUser', JSON.stringify(data))
-
-    userStore.loading = true
-    userStore.getUserAuthorizationData()
-    const userExists = await userStore.getUserData()
-    userStore.loading = false
-
-    if (userExists) {
-      userStore.isLogged = true
-      router.push(localePath('/Profile'))
-    } else {
-      userStore.isLogged = false
-      invalidEmail.value = true
-    }
+  if (userStore.user && userStore.user.email === registrationStore.email) {
+    router.push(localePath('/Profile'))
   } else {
-    userStore.loading = true
+    if (userStore.user && userStore.user.email !== registrationStore.email) {
+      userStore.signOut()
+    }
+
     const userSignedUp = await userStore.loginUser(registrationStore.email)
-    userStore.loading = false
 
     if (userSignedUp) {
       router.push(localePath('/VerifyEmail'))
@@ -55,6 +38,8 @@ const signIn = async () => {
       invalidEmail.value = true
     }
   }
+
+  userStore.loading = false
 }
 
 const validEmailData = computed(() => {
@@ -111,19 +96,6 @@ watch(() => registrationStore.email, () => {
           {{ $t("signInPage.warning") }}
         </span>
       </div>
-      <label
-        for="remember"
-        class="checkBoxWrapper"
-      >
-        <input 
-          type="checkbox" 
-          id="remember" 
-          name="remember"
-          :value="true"
-          v-model="registrationStore.remember"
-        />
-        {{ $t("signInPage.remember") }}
-      </label>
       <button 
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 
