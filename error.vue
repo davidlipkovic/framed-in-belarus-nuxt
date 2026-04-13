@@ -42,7 +42,7 @@ const goBack = () => {
   if (document.referrer.includes(window.location.origin)) {
     router.go(-1)
   } else {
-    router.push('/')
+    router.replace('/')
   }
 }
 

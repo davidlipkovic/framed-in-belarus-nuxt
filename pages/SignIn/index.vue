@@ -21,25 +21,16 @@ const emailTypingStarted = ref(false)
 const invalidEmail = ref(false)
 
 const signIn = async () => {
-  const userSessionData = userStore.checkUserSession()
+  userStore.loading = true
 
-  if (userSessionData && userSessionData.email === registrationStore.email && userSessionData.token && userSessionData.userId) {
-    userStore.loading = true
-    const userExists = await userStore.getUserData()
-    userStore.loading = false
-
-    if (userExists) {
-      userStore.setUserSession(userSessionData)
-      userStore.isLogged = true
-      router.push(localePath('/Profile'))
-    } else {
-      userStore.isLogged = false
-      invalidEmail.value = true
-    }
+  if (userStore.user && userStore.user.email === registrationStore.email) {
+    router.push(localePath('/Profile'))
   } else {
-    userStore.loading = true
+    if (userStore.user && userStore.user.email !== registrationStore.email) {
+      userStore.signOut()
+    }
+
     const userSignedUp = await userStore.loginUser(registrationStore.email)
-    userStore.loading = false
 
     if (userSignedUp) {
       router.push(localePath('/VerifyEmail'))
@@ -47,6 +38,8 @@ const signIn = async () => {
       invalidEmail.value = true
     }
   }
+
+  userStore.loading = false
 }
 
 const validEmailData = computed(() => {

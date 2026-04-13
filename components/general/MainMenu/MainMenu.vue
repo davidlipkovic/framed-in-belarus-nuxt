@@ -15,6 +15,11 @@ const toggleQuestionModal = ref(false)
 const toggleMenu = ref(false)
 const { width } = useWindowSize()
 
+const signOut = async () => {
+  toggleMenu.value = false
+  userStore.signOut()
+}
+
 watch(route, n => {
   toggleProfileModal.value = false
   toggleQuestionModal.value = false
@@ -34,8 +39,8 @@ watch(width, n => {
     :class="{
       'mainMenuWrapperOpened' : toggleMenu,
       'mainMenuWrapperClosed' : !toggleMenu,
-      'mainMenuWrapperLogged' : userStore.isLogged,
-      'mainMenuWrapperNotLogged' : !userStore.isLogged
+      'mainMenuWrapperLogged' : userStore.user,
+      'mainMenuWrapperNotLogged' : !userStore.user
     }"
   >
     <div class="content flexRowStart">
@@ -94,45 +99,44 @@ watch(width, n => {
               {{ $t('links.aboutUs') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               :to="$localePath('/SignIn')"
               class="signInMobile"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="helpButtonMobile flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
             >
               {{ $t('mainMenu.question.label') }}
             </button>
-            <nuxt-link
-              v-if="userStore.isLogged"
-              :to="$localePath('/')"
-              @click.prevent="signOut()"
+            <button
+              v-if="userStore.user"
+              @click="signOut()"
               class="signOutMobile"
             >
               {{ $t('links.signOut') }}
-            </nuxt-link>
+            </button>
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <nuxt-link
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               :to="$localePath('/SignIn')"
               class="Login"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               :to="$localePath('/SignUp')"
               class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="helpButtonDesktop flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
@@ -140,7 +144,7 @@ watch(width, n => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged && userStore.user"
+              v-if="userStore.user"
               class="profileButton profileButtonDesktop flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"
@@ -156,7 +160,7 @@ watch(width, n => {
               </span>
             </button>
             <nuxt-link
-              v-if="userStore.isLogged && userStore.user"
+              v-if="userStore.user"
               class="profileButton profileButtonMobile flexRowCenter"
               :to="$localePath('/Profile')"
             >

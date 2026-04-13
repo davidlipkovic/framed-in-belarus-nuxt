@@ -2,7 +2,7 @@ import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
 import { useRemoveNull } from "@/composables/RemoveNull"
 
-const SESSION_DURATION = 60 * 60 * 1000 // 1 hour
+const LOCAL_DATA_DURATION = 60 * 60 * 1000 // 1 hour
 let expiryTimer = null
 
 export default defineStore("user", () => {
@@ -17,8 +17,6 @@ export default defineStore("user", () => {
   const embroideries = ref(null)
   const isUsersEmbroidery = ref(false)
 
-  const isLogged = ref(false)
-
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   // helper functions
@@ -32,43 +30,45 @@ export default defineStore("user", () => {
 
   const scheduleExpiry = () => {
     clearTimeout(expiryTimer) // clear any existing timer first
-    expiryTimer = setTimeout(() => removeUserSession(), SESSION_DURATION)
+    expiryTimer = setTimeout(() => removeUserLocalData(), LOCAL_DATA_DURATION)
   }
 
 
-  // Session functions
+  // local storage functions
 
-  const setUserSession = (userData) => {
-    const session = {
+  const setUserLocalData = (userData) => {
+    userAuthorizationData.value = userData
+
+    const data = {
       ...userData,
-      expiresAt: Date.now() + SESSION_DURATION
+      expiresAt: Date.now() + LOCAL_DATA_DURATION
     }
 
-    localStorage.setItem('FIB_USER', JSON.stringify(session))
+    localStorage.setItem('FIB_USER', JSON.stringify(data))
     scheduleExpiry()
   }
 
-  const removeUserSession = () => {
+  const removeUserLocalData = () => {
     localStorage.removeItem('FIB_USER')
     clearTimeout(expiryTimer)
   }
 
-  const checkUserSession = () => {
+  const checkUserLocalData = () => {
     const raw = localStorage.getItem('FIB_USER')
     if (!raw) return
 
-    const session = JSON.parse(raw)
-    const remainingMs = session.expiresAt - Date.now()
+    const userData = JSON.parse(raw)
+    const remainingMs = userData.expiresAt - Date.now()
 
     if (remainingMs <= 0) {
-      removeUserSession()
+      removeUserLocalData()
       return
     }
 
     scheduleExpiry(remainingMs)
     
-    delete session.expiresAt
-    userAuthorizationData.value = session
+    delete userData.expiresAt
+    userAuthorizationData.value = userData
     return userAuthorizationData.value
   }
 
@@ -184,9 +184,10 @@ export default defineStore("user", () => {
 
     userDataBeforeDelete.value = true
 
-    removeUserSession()
+    // wip
+    removeUserLocalData()
 
-    const channel = new BroadcastChannel("user-session-channel")
+    const channel = new BroadcastChannel("user-local-channel")
     channel.postMessage('signOut')
     channel.close()
   }
@@ -194,13 +195,14 @@ export default defineStore("user", () => {
   const signOut = () => {
     user.value = null
     userAuthorizationData.value = null
-    isLogged.value = false
     userDataBeforeDelete.value = false
-    removeUserSession()
+    removeUserLocalData()
 
-    const channel = new BroadcastChannel("user-session-channel")
+    const channel = new BroadcastChannel("user-local-channel")
     channel.postMessage('signOut')
     channel.close()
+
+    reloadNuxtApp()
   }
 
   const validatePin = async (email, pin) => {
@@ -224,7 +226,7 @@ export default defineStore("user", () => {
       userId: data.value.result.userId,
     }
 
-    setUserSession(userAuthorizationData.value)
+    setUserLocalData(userAuthorizationData.value)
 
     return true
   }
@@ -427,7 +429,6 @@ export default defineStore("user", () => {
     userSummary,
     userAuthorizationData,
     userDataBeforeDelete,
-    isLogged,
     embroideries,
     isUsersEmbroidery,
     loginUser,
@@ -444,7 +445,7 @@ export default defineStore("user", () => {
     subscribe,
     publishEmbroidery,
     postEmbroideryCorrections,
-    setUserSession,
-    checkUserSession,
+    setUserLocalData,
+    checkUserLocalData,
   }
 })

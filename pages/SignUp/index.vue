@@ -124,9 +124,9 @@ const updateCurrentSlide = (slide) => {
     const query = {...route.query}
     delete query['s']
 
-    router.replace({ query })
+    router.push({ query })
   } else {
-    router.replace({ 
+    router.push({ 
       query: { 
         ...route.query, 
         's': slide

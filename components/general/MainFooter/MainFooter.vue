@@ -172,24 +172,24 @@ onClickOutside(emailInput, () => {
           </div>
           <div
             class="Info-menu-group flexRowCenter"
-            :class="userStore.isLogged ? 'Info-menu-group-profileWrapper' : ''"
+            :class="userStore.user ? 'Info-menu-group-profileWrapper' : ''"
           >
             <nuxt-link
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               :to="$localePath('/SignIn')"
               class="Info-menu-item"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               :to="$localePath('/SignUp')"
               class="Info-menu-item button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="Info-menu-item helpButton flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
@@ -197,7 +197,7 @@ onClickOutside(emailInput, () => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="profileButton flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"

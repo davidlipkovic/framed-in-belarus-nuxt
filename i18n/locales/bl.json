@@ -26,8 +26,9 @@
         "submit": "Падаць",
         "cancelRegistration": "Адмяніць рэгістрацыю",
         "gotIt": "Прыняць",
-       "resetFilters": "Скінуць фільтры",
-        "correctionsNeeded": "Неабходны выпраўленні"
+        "resetFilters": "Скінуць фільтры",
+        "correctionsNeeded": "Неабходны выпраўленні",
+        "resendPin": "Resend pin"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -93,7 +94,8 @@
         "pleaseEnterYourOffer": "Калі ласка, напішыце сваю прапанову",
         "pleaseAskYourQuestion": "Калі ласка, напішыце сваё пытанне",
         "pleaseEnterNameAndSurnameOfPrisoner": "Калі ласка, увядзіце імя і прозвішча палітзняволенаго*ай",
-        "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні"
+        "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні",
+        "invalidPinCode": "Invalid pin code"
     },
     "links": {
         "home": "Галоўная",

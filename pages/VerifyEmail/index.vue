@@ -71,6 +71,8 @@ onClickOutside(pinInput, () => {
           class="emailInput"
           :class="{'invalidInput': !validEmailData && emailTypingStarted}" 
           ref="emailInput"
+          readonly
+          disabled
         />
         <span 
           v-if="!validEmailData && emailTypingStarted"
@@ -100,7 +102,7 @@ onClickOutside(pinInput, () => {
           v-else-if="invalidPin"
           class="warningNotification note red"
         >
-          Invalid pin code
+          {{ $t('invalidInputs.invalidPinCode') }}
         </span>
       </div>
       <button
@@ -114,7 +116,7 @@ onClickOutside(pinInput, () => {
         class="button bg_black"
         @click="resendPin()"
       >
-        Resend Pin
+        {{ $t('buttons.resendPin') }}
       </button>
     </div>
   </div>

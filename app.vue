@@ -7,11 +7,10 @@ const { $dayjs } = useNuxtApp()
 const { locale } = useI18n()
 const userStore = useUserStore()
 
-const channel = new BroadcastChannel("user-session-channel")
+const channel = new BroadcastChannel("user-local-channel")
 channel.addEventListener("message", (event) => {
   if (event.data === "signOut" && userStore.user) {
     userStore.signOut()
-    reloadNuxtApp()
   }
 
   channel.close()

@@ -6,25 +6,21 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     return
   }
 
-  const userSessionData = userStore.checkUserSession()
+  userStore.loading = true
 
-  if (userSessionData && userSessionData.token) {
+  const userLocalData = userStore.checkUserLocalData()
+
+  if (userLocalData && userLocalData.token) {
+    await userStore.getUserData()
+
     if (!userStore.user) {
-      userStore.loading = true
-      await userStore.getUserData()
-
-      if (!userStore.user) {
-        userStore.loading = false
-        userStore.isLogged = false
-        return navigateTo('/')
-      }
+      userStore.loading = false
+      return navigateTo('/')
     }
-
-    userStore.loading = false
-    userStore.isLogged = true
   } else {
     userStore.loading = false
-    userStore.isLogged = false
     return navigateTo('/')
   }
+
+  userStore.loading = false
 })
