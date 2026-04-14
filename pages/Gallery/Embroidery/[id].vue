@@ -183,6 +183,17 @@ const handleCorrections = () => {
   })
 }
 
+useHead({
+  title: caseName.value + ' - ' + prisonerName.value,
+  meta: [
+    { name: 'description', content: t('casePage.meta.description', { prisonerName: prisonerName.value }) },
+    { name: 'keywords', content: t('casePage.meta.keywords', { prisonerName: prisonerName.value }) },
+    { property: 'og:title', content: caseName.value + ' - ' + prisonerName.value },
+    { property: 'og:description', content: t('casePage.meta.ogDescription', { prisonerName: prisonerName.value }) },
+    { property: 'og:image', content: galleryStore.currentEmbroidery.imageData.small },
+  ],
+})
+
 onMounted(() => {
   if (!galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE') {
     return

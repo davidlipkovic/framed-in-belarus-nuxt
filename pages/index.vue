@@ -42,7 +42,7 @@ const numberOfHeroes = computed(() => {
           </span>
         </h1>
         <p class="subtitle">
-          {{ $t('description') }}
+          {{ $t('homePage.description') }}
         </p>
         <div class="flexRowStart">
           <nuxt-link

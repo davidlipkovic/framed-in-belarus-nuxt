@@ -7,6 +7,11 @@ import useGalleryStore from "@/stores/gallery"
 import { useSearch } from "@/composables/Search"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
+const route = useRoute()
+const { locale, t, localeProperties } = useI18n()
+const { width } = useWindowSize()
+const galleryStore = useGalleryStore()
+
 definePageMeta({
   middleware: [
     'auth-general',
@@ -15,16 +20,14 @@ definePageMeta({
 })
 
 useHead({
-  title: '#Framed in Belarus / Gallery',
+  title: t('galleryPage.title'),
   meta: [
-    { name: 'description', content: 'User cabinet — My embroideries description' }
-  ]
+    { name: 'description', content: t('galleryPage.meta.description') },
+    { name: 'keywords', content: t('galleryPage.meta.keywords') },
+    { property: 'og:title', content: t('galleryPage.title'), },
+    { property: 'og:description', content: t('galleryPage.meta.description') },
+  ],
 })
-
-const route = useRoute()
-const { locale, localeProperties } = useI18n()
-const { width } = useWindowSize()
-const galleryStore = useGalleryStore()
 
 const {
   currentOrder,

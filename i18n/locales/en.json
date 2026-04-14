@@ -1,7 +1,11 @@
 {
     "title": "Framed in Belarus",
-    "description": "A social art project dedicated to political prisoners in Belarus",
     "email": "framedinbelarus{'@'}gmail.com",
+    "meta": {
+        "description": "Framed in Belarus is a participatory art project by Rufina Bazlova that brings together people around the world to create embroidered stories of Belarusian political prisoners and build an archive of solidarity.",
+        "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, participatory art project, embroidery art, political embroidery, Belarusian political prisoners, textile activism, socially engaged art, contemporary Belarusian art, craftivism, solidarity network, human rights, cultural memory, social impact",
+        "ogDescription": "#FramedinBelarus is a participatory art project by Rufina Bazlova, creating embroidered stories of Belarusian political prisoners and a growing archive of solidarity."
+    },
     "buttons": {
         "accept": "Accept",
         "decline": "Decline",
@@ -162,28 +166,29 @@
         }
     },
     "homePage": {
+        "description": "A socially engaged art project dedicated to political prisoners in Belarus",
         "paragraph1": {
             "content1": "The number of officially recognized political prisoners in Belarus currently reaches more than",
             "content2": "persons."
         },
         "paragraph2": {
             "highlight": "The aim of the #FramedinBelarus project",
-            "content": "is to tell about each illegally convicted citizen of Belarus and create their portraits using the traditional Belarussian technique of embroidery with red thread on a white background, and thus to record an important era of Belarusian history with a folk code ornament."
+            "content": "is to tell about each illegally convicted citizen of Belarus and create their portraits using the traditional Belarusian technique of embroidery with red thread on a white background, and thus to record an important era of Belarusian history with a folk code ornament."
         },
          "paragraph3":{
             "highlight": "Participation in the project",
-            "content": " is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the (or “by the dictatorship”) and share their stories through the non-traditional tool of political protest - cross-stitching."
+            "content": " is a gesture of creative solidarity, allowing individuals to symbolically support those affected by the dictatorship and share their stories through the non-traditional tool of political protest - cross-stitching."
         },
         "paragraph4": "The embroidery process is a long and meditative experience that allows participants to concentrate on their thoughts and feelings for a particular prisoner. By creating a portrait of a political prisoner, participants sacrifice a little time as an act of solidarity.",
         "paragraph5": {
             "content1": "Already, more than 700 people around the world have become \"ambassadors\" of the project, stitching portraits of political prisoners individually or in groups.",
             "highlight": "The final form of the project",
-            "content2": " will be a collective canvas of all the embroidered portraits, symbolizing the intertwining of political events and human destinies."
+            "content2": " will be a collective textile mosaics of all the embroidered portraits, symbolizing the intertwining of political events and human destinies."
         },
         "paragraph6": {
             "content1": "The project is a continuation of the cycle",
             "highlight": "\"History of Belarusian Vyzhyvanka\"",
-            "content2": ", created by Rufina Bazlova in 2020-2021, and is managed by Stitchit Association. Through the collective creative process the #FramedinBelarus project, allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus."
+            "content2": ", created by Rufina Bazlova in 2020-2021, and is managed by the association Stitchit, z.s.. Through the collective creative process the #FramedinBelarus project, allows individuals to speak out against injustice and stand in solidarity with political prisoners in Belarus."
         }
     },
     "aboutUsPage": {
@@ -202,6 +207,11 @@
     },
     "signUpPage": {
         "title": "Sign up",
+        "meta": {
+            "description": "Sign up to participate in the Framed in Belarus project and create an embroidery piece based on the story of a Belarusian political prisoner.",
+            "keywords": "#FramedinBelarus, Framed in Belarus, sign up, participatory art project, join Framed in Belarus, create embroidery, collaborative art, embroidery activism, Belarusian political prisoners, solidarity project, international art project",
+            "ogDescription": "Join the international #FramedinBelarus project and create an embroidery piece telling the story of a Belarusian political prisoner."
+        },
         "signInQuestion": "Already a member?",
         "slide1": {
             "languageSelect": "Choose communication language",
@@ -299,6 +309,11 @@
     },
     "signInPage": {
         "title": "Sign in",
+        "meta": {
+            "description": "Sign in to your #FramedinBelarus account to continue participating in the project and manage your embroidery contributions.",
+            "keywords": "#FramedinBelarus, Framed in Belarus, sign in, log in, access account, participatory art project, manage embroidery, Belarusian political prisoners, collaborative art, embroidery activism, solidarity project, international art project",
+            "ogDescription": "Access your #FramedinBelarus account to continue participating in the project and managing your embroidery stories of Belarusian political prisoners."
+        },
         "signUpQuestion": {
             "content": "Not a member?",
             "highlight": "Sign up"
@@ -835,11 +850,21 @@
         }
     },
     "galleryPage": {
-        "title": "Gallery",
+        "title": "Embroidery Gallery",
+        "meta": {
+            "description": "Explore the archive of embroidered stories of Belarusian political prisoners from artist Rufina Bazlova's participatory project – Framed in Belarus.",
+            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, embroidery gallery, embroidery archive, Belarusian political prisoners, political embroidery, participatory art project, textile activism, solidarity archive, collaborative art, contemporary Belarusian art",
+            "ogDescription": "Explore the archive of embroidered stories of Belarusian political prisoners, created by participants of artist Rufina Bazlova's participatory project – #FramedinBelarus."
+        },
         "noResults": "Sorry, we don't have any matching embroidery in our database"
     },
     "casePage": {
         "title": "Gallery",
+        "meta": {
+            "description": "Embroidery of Belarusian political prisoner {prisonerName} by a Framed in Belarus participant, featuring documentation, description, and exhibition history.",
+            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, Belarusian political prisoners, participatory art project, embroidery process documentation, personal commentary, political embroidery, {prisonerName}, solidarity archive, contemporary Belarusian art",
+            "ogDescription": "Embroidery of Belarusian political prisoner {prisonerName} by a #FramedinBelarus participant, featuring documentation, description, and exhibition history."
+        },
         "notification": {
             "prepublished": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
             "editing": "The page of this embroidery is being edited. We will notify you when the work is completed.",
@@ -880,6 +905,10 @@
     },
     "newsPage": {
         "title": "Events",
+        "meta": {
+            "description": "Discover the archive of #FramedinBelarus public presentations, highlighting its social impact and solidarity with Belarusian political prisoners.",
+            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, workshops, events, exhibitions, participatory art project, political embroidery, Belarusian political prisoners, collaborative art, contemporary Belarusian art, social impact"
+        },
         "filters": {
             "allItems": "All Items",
             "workshops": "Workshops",
@@ -897,7 +926,9 @@
         }
     },
     "newsDetailPage": {
-        "title": "Events"
+        "meta": {
+            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, Belarusian political prisoners, political embroidery, participatory art project, {eventNameRus}, {place}, {city}, {category}, art event, social impact"
+        }
     },
     "correctionsPage": {
         "title": "Corrections",

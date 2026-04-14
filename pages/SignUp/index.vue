@@ -33,6 +33,16 @@ definePageMeta({
   ],
 })
 
+useHead({
+  title: t('signUpPage.title'),
+  meta: [
+    { name: 'description', content: t('signUpPage.meta.description') },
+    { name: 'keywords', content: t('signUpPage.meta.keywords') },
+    { property: 'og:title', content: t('signUpPage.title'), },
+    { property: 'og:description', content: t('signUpPage.meta.description') },
+  ],
+})
+
 const formData = reactive({
   username: null,
   publishUsername: true,

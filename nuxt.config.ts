@@ -11,8 +11,12 @@ export default defineNuxtConfig({
             viewport: 'width=device-width, initial-scale=1',
             title: 'Framed in Belarus',
             meta: [
+                { name: 'description', content: 'Framed in Belarus is a participatory art project by Rufina Bazlova that brings together people around the world to create embroidered stories of Belarusian political prisoners and build an archive of solidarity.' },
+                { name: 'keywords', content: '#FramedinBelarus, Framed in Belarus, Rufina Bazlova, participatory art project, embroidery art, political embroidery, Belarusian political prisoners, textile activism, socially engaged art, contemporary Belarusian art, craftivism, solidarity network, human rights, cultural memory, social impact' },
+                { property: 'og:description', content: '#FramedinBelarus is a participatory art project by Rufina Bazlova, creating embroidered stories of Belarusian political prisoners and a growing archive of solidarity.' },
+                { property: 'og:type', content: 'website' },
+                { property: 'og:site_name', content: 'Framed in Belarus' },
                 { property: 'og:image', content: '/main.jpg' },
-                { name: 'description', content: 'Framed in Belarus' },
                 { name: 'format-detection', content: 'telephone=no' },
                 { name: 'robots', content: 'noindex' }
             ],
@@ -45,21 +49,25 @@ export default defineNuxtConfig({
     ],
 
     i18n: {
+        baseUrl: 'https://framedinbelarus.net',
         locales: [
             {
                 code: 'en',
                 file: 'en.json',
-                name: 'ENG'
+                name: 'ENG',
+                language: 'en-UK'
             },
             {
                 code: 'ru',
                 file: 'ru.json',
-                name: 'RUS'
+                name: 'RUS',
+                language: 'ru-RU'
             },
             {
                 code: 'bl',
                 file: 'bl.json',
-                name: 'BEL'
+                name: 'BEL',
+                language: 'be-BY'
             }
         ],
         lazy: true,
