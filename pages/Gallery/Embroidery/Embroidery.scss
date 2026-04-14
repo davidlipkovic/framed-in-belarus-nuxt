@@ -169,9 +169,13 @@
     }
   }
 
+  .swiperDescriptionWrapper {
+    max-width: 538px;
+    margin: 0 auto;
+  }
+
   .swiperDescription,
   .swiperDescriptionInfo {
-    display: none;
     line-height: 30px;
     font-size: 14px;
   }
@@ -198,7 +202,7 @@
   }
 
   .galleryCaseSwiperWrapper {
-    margin-bottom: 18px;
+    margin-bottom: 28px;
   }
 
   .galleryCaseSwiper {

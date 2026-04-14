@@ -273,44 +273,46 @@ watch(width, (newWidth) => {
           :slides="embroiderySlides"
           @openFullscreen="handleFullScreenSwiper"
         />
-        <p class="swiperDescription flexRowStart">
-          {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | {{ $t('casePage.swiper.canvas') }}: {{ galleryStore.currentEmbroidery.canvasSize }} mm
-        </p>
-        <p class="swiperDescriptionInfo">
-          <span>
-            {{ $t('casePage.swiper.author') }}: 
-          </span>&nbsp;
-          <span class="b1">
-            <template v-if="galleryStore.currentEmbroidery.name">
-              {{ galleryStore.currentEmbroidery.name }}
-            </template>
-            <template v-else>
-              {{ $t('casePage.swiper.anonymous') }}
-            </template>
-          </span>
-        </p>
-        <p 
-          v-if="galleryStore.currentEmbroidery.countryOfResidence"
-          class="swiperDescriptionInfo"
-        >
-          <span>
-            {{ $t('placeholders.country') }}:
-          </span>&nbsp;
-          <span class="b1">
-            {{ galleryStore.currentEmbroidery.countryOfResidence }}
-          </span>
-        </p>
-        <p 
-          v-if="galleryStore.currentEmbroidery.instagram"
-          class="swiperDescriptionInfo"
-        >
-          <span>
-            {{ $t('placeholders.instagram') }}:
-          </span>&nbsp;
-          <span class="b1">
-            {{ galleryStore.currentEmbroidery.instagram }}
-          </span>
-        </p>
+        <div class="swiperDescriptionWrapper flexColumnStart">
+          <p class="swiperDescription flexRowStart">
+            {{ $t('casePage.swiper.stitching') }}: {{ galleryStore.currentEmbroidery.stitchingSize }} mm | {{ $t('casePage.swiper.canvas') }}: {{ galleryStore.currentEmbroidery.canvasSize }} mm
+          </p>
+          <p class="swiperDescriptionInfo">
+            <span>
+              {{ $t('casePage.swiper.author') }}: 
+            </span>&nbsp;
+            <span class="b1">
+              <template v-if="galleryStore.currentEmbroidery.name">
+                {{ galleryStore.currentEmbroidery.name }}
+              </template>
+              <template v-else>
+                {{ $t('casePage.swiper.anonymous') }}
+              </template>
+            </span>
+          </p>
+          <p 
+            v-if="galleryStore.currentEmbroidery.countryOfResidence"
+            class="swiperDescriptionInfo"
+          >
+            <span>
+              {{ $t('placeholders.country') }}:
+            </span>&nbsp;
+            <span class="b1">
+              {{ galleryStore.currentEmbroidery.countryOfResidence }}
+            </span>
+          </p>
+          <p 
+            v-if="galleryStore.currentEmbroidery.instagram"
+            class="swiperDescriptionInfo"
+          >
+            <span>
+              {{ $t('placeholders.instagram') }}:
+            </span>&nbsp;
+            <span class="b1">
+              {{ galleryStore.currentEmbroidery.instagram }}
+            </span>
+          </p>
+        </div>
       </article>
       <article>
         <div 
