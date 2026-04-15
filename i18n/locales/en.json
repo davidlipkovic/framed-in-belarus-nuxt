@@ -2,6 +2,7 @@
     "title": "Framed in Belarus",
     "email": "framedinbelarus{'@'}gmail.com",
     "meta": {
+        "metaTitle": "Framed in Belarus — an art project by Rufina Bazlova about Belarusian political prisoners",
         "description": "Framed in Belarus is a participatory art project by Rufina Bazlova that brings together people around the world to create embroidered stories of Belarusian political prisoners and build an archive of solidarity.",
         "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, participatory art project, embroidery art, political embroidery, Belarusian political prisoners, textile activism, socially engaged art, contemporary Belarusian art, craftivism, solidarity network, human rights, cultural memory, social impact",
         "ogDescription": "#FramedinBelarus is a participatory art project by Rufina Bazlova, creating embroidered stories of Belarusian political prisoners and a growing archive of solidarity."
@@ -118,10 +119,7 @@
         "supportUs": "Support us"
     },
     "descriptions": {
-        "photo": {
-            "part1": "Photo by ",
-            "part2": " for #FramedinBelarus project"
-        }
+        "photo": "Photo by {author} for #FramedinBelarus project"
     },
     "notifications": {
         "subscribeSuccess": "You have successfully subscribed!",
@@ -167,6 +165,18 @@
     },
     "homePage": {
         "description": "A socially engaged art project dedicated to political prisoners in Belarus",
+        "swiper": {
+            "slide0Alt": "Embroidery about the political imprisonment of Ala Lapatka in Belarus in the case of TUT.BY Journalists.",
+            "slide1Alt": "Embroidery about the political imprisonment of Siarhei Hatskevich in Belarus in the case of Brest Riots.",
+            "slide2Alt": "Embroidery about the political imprisonment of Tatsiana Kaneuskaya in Belarus in the case of Seizure of the executive committee.",
+            "slide3Alt": "Embroidery about the political imprisonment of Piatro Marchanka in Belarus in the case of Irdorath.",
+            "slide4Alt": "Embroidery about the political imprisonment of Uladzimir Zhurauka in Belarus in the case of Rabochy Ruh.",
+            "slide5Alt": "Embroidery about the political imprisonment of Maryna Kirylchyk in Belarus in the case of Zeltser.",
+            "slide6Alt": "Embroidery about the political imprisonment of Dzmitry Kubarau in Belarus in the case of Minsk after-election riots.",
+            "slide7Alt": "Embroidery about the political imprisonment of Dzmitry Dubkou in Belarus in the case of Hijacking a truck.",
+            "slide8Alt": "Embroidery about the political imprisonment of Viachaslau Rahashchuk in Belarus in the case of Pinsk Riots.",
+            "slide9Alt": "Embroidery about the political imprisonment of Ales Pushkin in Belarus in the case of A portrait of Yevgenij Zhykhar."
+        },
         "paragraph1": {
             "content1": "The number of officially recognized political prisoners in Belarus currently reaches more than",
             "content2": "persons."
@@ -208,6 +218,7 @@
     "signUpPage": {
         "title": "Sign up",
         "meta": {
+            "metaTitle": "Sign up — join #FramedinBelarus project",
             "description": "Sign up to participate in the Framed in Belarus project and create an embroidery piece based on the story of a Belarusian political prisoner.",
             "keywords": "#FramedinBelarus, Framed in Belarus, sign up, participatory art project, join Framed in Belarus, create embroidery, collaborative art, embroidery activism, Belarusian political prisoners, solidarity project, international art project",
             "ogDescription": "Join the international #FramedinBelarus project and create an embroidery piece telling the story of a Belarusian political prisoner."
@@ -310,6 +321,7 @@
     "signInPage": {
         "title": "Sign in",
         "meta": {
+            "metaTitle": "Sign in — access your #FramedinBelarus account",
             "description": "Sign in to your #FramedinBelarus account to continue participating in the project and manage your embroidery contributions.",
             "keywords": "#FramedinBelarus, Framed in Belarus, sign in, log in, access account, participatory art project, manage embroidery, Belarusian political prisoners, collaborative art, embroidery activism, solidarity project, international art project",
             "ogDescription": "Access your #FramedinBelarus account to continue participating in the project and managing your embroidery stories of Belarusian political prisoners."
@@ -339,14 +351,11 @@
             "notification1": "You are taking too much time for one step, please proceed with your work.",
             "notification2": "The deadline for this embroidery has been extended to",
             "notification5": "Sorry,  it's not possible to start a new embroidery until the current work-in-progress reaches the step 6 - shipping.",
-            "prepublished": "Obecny text pre vsetky vysivky",
-            "editing": "Obecny text pre vsetky vysivky"
+            "prepublished": "These embroideries are ready to be presented in our web gallery. Сlick the icon to review the details.",
+            "editing": "The pages of these embroideries are being edited. We will notify you when the work is completed."
         },
-        "embroideryCardNotifications": {
-            "prepublished": {
-                "content1": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by ",
-                "content2": ". After the deadline, we will publish the page as is or adjust the information at our discretion."
-            },
+        "embroideryCardTooltips": {
+            "prepublished": "This embroidery is ready to be presented in our web gallery. Please click the icon to review the details and either confirm the publication or submit a revision request by {deadline}. After the deadline, we will publish the page as is or adjust the information at our discretion.",
             "editing": "The page of this embroidery is being edited. We will notify you when the work is completed."
         },
         "embroideryStatus": {
@@ -852,6 +861,8 @@
     "galleryPage": {
         "title": "Embroidery Gallery",
         "meta": {
+            "alias": "embroidery-gallery",
+            "metaTitle": "Embroidery Gallery — #FramedinBelarus Archive",
             "description": "Explore the archive of embroidered stories of Belarusian political prisoners from artist Rufina Bazlova's participatory project – Framed in Belarus.",
             "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, embroidery gallery, embroidery archive, Belarusian political prisoners, political embroidery, participatory art project, textile activism, solidarity archive, collaborative art, contemporary Belarusian art",
             "ogDescription": "Explore the archive of embroidered stories of Belarusian political prisoners, created by participants of artist Rufina Bazlova's participatory project – #FramedinBelarus."
@@ -859,8 +870,9 @@
         "noResults": "Sorry, we don't have any matching embroidery in our database"
     },
     "casePage": {
-        "title": "Gallery",
         "meta": {
+            "alias": "embroidery-of-[name-surname]",
+            "metaTitle": "Embroidery of Belarusian political prisoner {prisonerName} — #FramedinBelarus",
             "description": "Embroidery of Belarusian political prisoner {prisonerName} by a Framed in Belarus participant, featuring documentation, description, and exhibition history.",
             "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, Belarusian political prisoners, participatory art project, embroidery process documentation, personal commentary, political embroidery, {prisonerName}, solidarity archive, contemporary Belarusian art",
             "ogDescription": "Embroidery of Belarusian political prisoner {prisonerName} by a #FramedinBelarus participant, featuring documentation, description, and exhibition history."
@@ -868,13 +880,15 @@
         "notification": {
             "prepublished": "Please review the page. If you wish to make changes, click the “Corrections needed” button. If you approve, click the “Publish” button.",
             "editing": "The page of this embroidery is being edited. We will notify you when the work is completed.",
-            "published": "If you wish to make changes, click the “Corrections needed” button."
+            "published": "This work has already been published in our web gallery. If you wish to make changes, click the “Corrections needed” button."
         },
         "swiper": {
             "stitching": "Stitching",
             "author": "Author",
             "anonymous": "anonymous",
-            "canvas": "Canvas"
+            "canvas": "Canvas",
+            "altFront": "Embroidery about the political imprisonment of {prisonerName} in Belarus in the case of {caseName}. Front side.",
+	        "altBack": "Embroidery about the political imprisonment of {prisonerName} in Belarus in the case of {caseName}. Back side."
         },
         "description": {
             "case": "Case",
@@ -891,7 +905,10 @@
                 "content": "See more",
                 "highlight": "here"
             },
-            "goToSource": "Go to the source of information"
+            "goToSource": "Go to the source of information",
+            "altPortrait": "Portrait of {prisonerName}",
+            "altProcess": "Process of a Framed in Belarus participant working on an embroidery about the political prisoner {prisonerName}.",
+            "altComment": "Comment by a Framed in Belarus participant about the embroidery on the political prisoner {prisonerName}"
         },
         "author": {
             "title" : "Author about the work process",
@@ -906,8 +923,11 @@
     "newsPage": {
         "title": "Events",
         "meta": {
+            "alias": "events",
+            "metaTitle": "Events and Exhibitions — #FramedinBelarus project",
             "description": "Discover the archive of #FramedinBelarus public presentations, highlighting its social impact and solidarity with Belarusian political prisoners.",
-            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, workshops, events, exhibitions, participatory art project, political embroidery, Belarusian political prisoners, collaborative art, contemporary Belarusian art, social impact"
+            "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, workshops, events, exhibitions, participatory art project, political embroidery, Belarusian political prisoners, collaborative art, contemporary Belarusian art, social impact",
+            "ogDescription": "Discover the archive of #FramedinBelarus public presentations, highlighting its social impact and solidarity with Belarusian political prisoners."
         },
         "filters": {
             "allItems": "All Items",
@@ -927,6 +947,8 @@
     },
     "newsDetailPage": {
         "meta": {
+            "alias": "event-{eventName}",
+            "metaTitle": "{eventName} - #FramedinBelarus",
             "keywords": "#FramedinBelarus, Framed in Belarus, Rufina Bazlova, Belarusian political prisoners, political embroidery, participatory art project, {eventNameRus}, {place}, {city}, {category}, art event, social impact"
         }
     },

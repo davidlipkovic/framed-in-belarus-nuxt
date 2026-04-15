@@ -59,28 +59,31 @@ const prisonerSentence = computed(() => {
 
 const embroiderySlides = computed(() => {
   return removeNullItems([
-    galleryStore.currentEmbroidery.imageData,
-    galleryStore.currentEmbroidery.imageBackedData,
-  ]).map((photo) => {
-    return {
-      small: photo.small,
-      large: photo.large,
-      full: photo.url,
-      alt: null,
+    {
+      small: galleryStore.currentEmbroidery.imageData.small,
+      large: galleryStore.currentEmbroidery.imageData.large,
+      full: galleryStore.currentEmbroidery.imageData.url,
+      alt: t('casePage.swiper.altFront', {prisonerName: prisonerName.value, caseName: caseName.value}),
+    },
+    {
+      small: galleryStore.currentEmbroidery.imageBackedData.small,
+      large: galleryStore.currentEmbroidery.imageBackedData.large,
+      full: galleryStore.currentEmbroidery.imageBackedData.url,
+      alt: t('casePage.swiper.altBack', {prisonerName: prisonerName.value, caseName: caseName.value}),
     }
-  })
+  ])
 })
 
 const processSlides = computed(() => {
   const author = galleryStore.currentEmbroidery.name ? galleryStore.currentEmbroidery.name : t('casePage.swiper.anonymous').toLowerCase()
-  const alt = t('descriptions.photo.part1') + author + t('descriptions.photo.part2')
 
   const authorSlides = removeNullItems(galleryStore.currentEmbroidery.imagesData ?? []).map((photo) => {
     return {
       small: photo.small,
       large: photo.large,
       full: photo.url,
-      alt
+      description: t('descriptions.photo', {author}),
+      alt: t('casePage.description.altProcess', {prisonerName: prisonerName.value}),
     }
   })
 
@@ -93,7 +96,7 @@ const processSlides = computed(() => {
       small: photo.small,
       large: photo.large,
       full: photo.url,
-      alt: null,
+      alt: t('casePage.description.altComment', {prisonerName: prisonerName.value}),
     }
   })
 
@@ -332,7 +335,7 @@ watch(width, (newWidth) => {
         >
           <GeneralImageModal
             v-if="!(!showPrisonerImage || !galleryStore.currentEmbroidery.prisoner.photo || galleryStore.currentEmbroidery.prisoner.photo === '' || galleryStore.currentEmbroidery.prisoner.photo === 'FALSE')"
-            alt=""
+            :alt="$t('casePage.description.altPortrait', {prisonerName})"
             :fullImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
             :iconImageUrl="galleryStore.currentEmbroidery.prisoner.photo"
             class="Description-item Hero-photo Hero-photoModal"

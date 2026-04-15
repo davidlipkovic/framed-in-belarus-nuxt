@@ -23,7 +23,7 @@ useHead({
     { name: 'description', content: t('newsPage.meta.description') },
     { name: 'keywords', content: t('newsPage.meta.keywords') },
     { property: 'og:title', content: t('newsPage.title'), },
-    { property: 'og:description', content: t('newsPage.meta.description') },
+    { property: 'og:description', content: t('newsPage.meta.ogDescription') },
   ],
 })
 
