@@ -15,6 +15,11 @@ const toggleQuestionModal = ref(false)
 const toggleMenu = ref(false)
 const { width } = useWindowSize()
 
+const signOut = async () => {
+  toggleMenu.value = false
+  userStore.signOut()
+}
+
 watch(route, n => {
   toggleProfileModal.value = false
   toggleQuestionModal.value = false
@@ -85,32 +90,32 @@ watch(width, n => {
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link> -->
-            <nuxt-link
-              v-if="userStore.isLogged && userStore.user"
+            <button
+              v-if="userStore.user"
               :to="$localePath('/')"
               @click.prevent="signOut()"
               class="signOutMobile"
             >
               {{ $t('links.signOut') }}
-            </nuxt-link>
+            </button>
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <a
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               href="https://donorbox.org/framedinbelarus"
               class="supportButton button"
             >
               {{ $t('links.supportUs') }}
             </a>
             <a
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </a>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="helpButtonDesktop flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
@@ -118,7 +123,7 @@ watch(width, n => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged && userStore.user"
+              v-if="userStore.user"
               class="profileButton profileButtonDesktop flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"
@@ -134,7 +139,7 @@ watch(width, n => {
               </span>
             </button>
             <nuxt-link
-              v-if="userStore.isLogged && userStore.user"
+              v-if="userStore.user"
               class="profileButton profileButtonMobile flexRowCenter"
               :to="$localePath('/Profile')"
             >
@@ -155,14 +160,14 @@ watch(width, n => {
           </div>
           <GeneralLangMenu/>
           <a
-            v-if="!userStore.isLogged"
+            v-if="!userStore.user"
             href="https://donorbox.org/framedinbelarus"
             class="supportButton supportButtonMobile button"
           >
             {{ $t('links.supportUs') }}
           </a>
           <a
-            v-if="!userStore.isLogged"
+            v-if="!userStore.user"
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             class="participateButton participateButtonMobile button bg_red"
           >

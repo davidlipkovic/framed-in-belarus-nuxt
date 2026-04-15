@@ -1,11 +1,8 @@
-API
-- corrections API
-- check for signed up user without token API
-    - ideally separate sign up and sign in APIs
-
-- all other messages
-- waiting for applying corrections
-- cookies
+call questions
+- SEO
+- questionModal and API
+- subscribe and API
+- seo meta tags, titles, desciptions, robots
 
 
 

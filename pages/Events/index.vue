@@ -1,8 +1,14 @@
 <script setup>
 // wip
 import { computed, onMounted, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import useNewsStore from "@/stores/news"
 import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+const { t } = useI18n()
+const newsStore = useNewsStore()
 
 definePageMeta({
   middleware: [
@@ -11,9 +17,15 @@ definePageMeta({
   ],
 })
 
-const route = useRoute()
-const router = useRouter()
-const newsStore = useNewsStore()
+useHead({
+  title: t('newsPage.title'),
+  meta: [
+    { name: 'description', content: t('newsPage.meta.description') },
+    { name: 'keywords', content: t('newsPage.meta.keywords') },
+    { property: 'og:title', content: t('newsPage.title'), },
+    { property: 'og:description', content: t('newsPage.meta.ogDescription') },
+  ],
+})
 
 const currentTag = ref(null)
 
@@ -53,9 +65,9 @@ const tags = computed(() => {
 
 const updateCurrentTag = (tag) => {
   if (!tag) {
-    router.replace({ })
+    router.push({ })
   } else {
-    router.replace({ 
+    router.push({ 
       query: { 
         't': tag
       }
@@ -72,11 +84,6 @@ watch(() => route.query, (newQuery) => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus — Events</Title>
-      <Meta name="description" content="Events"/>
-      <Meta name="robots" content="noindex" />
-    </Head>
     <div class="Title">
       <h1 class="content">
         {{ $t('newsPage.title') }}

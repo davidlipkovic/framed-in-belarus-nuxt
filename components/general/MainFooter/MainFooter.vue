@@ -163,10 +163,10 @@ onClickOutside(emailInput, () => {
           </div>
           <div
             class="Info-menu-group flexRowCenter"
-            :class="userStore.isLogged ? 'Info-menu-group-profileWrapper' : ''"
+            :class="userStore.user ? 'Info-menu-group-profileWrapper' : ''"
           >
             <a
-              v-if="!userStore.isLogged"
+              v-if="!userStore.user"
               class="Info-menu-item button bg_red"
               href="https://forms.gle/SKCcvWGzRkQxx2fH9"
               target="_blank"
@@ -174,7 +174,7 @@ onClickOutside(emailInput, () => {
               {{ $t('links.participate') }}
             </a>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="Info-menu-item helpButton flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
@@ -182,7 +182,7 @@ onClickOutside(emailInput, () => {
               <SvgHelpCircle/>
             </button>
             <button
-              v-if="userStore.isLogged"
+              v-if="userStore.user"
               class="profileButton flexRowCenter"
               :class="{'pointer-events-none': toggleProfileModal}"
               @click="toggleProfileModal = !toggleProfileModal"
