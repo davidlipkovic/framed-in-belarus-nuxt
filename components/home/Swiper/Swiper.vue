@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   fullscreen: {
@@ -14,6 +15,8 @@ const props = defineProps({
 const emit = defineEmits([
   'openFullscreen',
 ])
+
+const { t } = useI18n()
 
 const autoplay = {
   delay: 250000,
@@ -51,7 +54,7 @@ const globJpg2x = import.meta.glob('@/assets/media/img/swiper/*-2x.jpg', { eager
 const globWebp1x = import.meta.glob('@/assets/media/img/swiper/*-1x.webp', { eager: true })
 const globWebp2x = import.meta.glob('@/assets/media/img/swiper/*-2x.webp', { eager: true })
 
-const images = Object.entries(globJpg1x).map(([path, module]) => {
+const images = Object.entries(globJpg1x).map(([path, module], index) => {
   const jpg2xPath = path.replace('1x', '2x');
   const webp1xPath = path.replace(/\.jpg$/, '.webp')
   const webp2xPath = jpg2xPath.replace(/\.jpg$/, '.webp')
@@ -61,6 +64,7 @@ const images = Object.entries(globJpg1x).map(([path, module]) => {
     'jpg-2x': { path: jpg2xPath, module: globJpg2x[jpg2xPath] },
     'webp-1x': { path: webp1xPath, module: globWebp1x[webp1xPath] },
     'webp-2x': { path: webp2xPath, module: globWebp2x[webp2xPath] },
+    alt: t('homePage.swiper.slide' + index + 'Alt')
   }
 })
 </script>

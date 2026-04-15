@@ -1,11 +1,13 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
-import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useValidateInputs } from "@/composables/ValidateInputs"
 
 const router = useRouter()
+const { t } = useI18n()
 const localePath = useLocalePath()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
@@ -15,39 +17,32 @@ definePageMeta({
   layout: "registration"
 })
 
+useHead({
+  title: t('signInPage.title'),
+  meta: [
+    { name: 'description', content: t('signInPage.meta.description') },
+    { name: 'keywords', content: t('signInPage.meta.keywords') },
+    { property: 'og:title', content: t('signInPage.title'), },
+    { property: 'og:description', content: t('signInPage.meta.description') },
+  ],
+})
+
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
 const invalidEmail = ref(false)
 
 const signIn = async () => {
-  if (!window.localStorage) {
-    return
-  }
+  userStore.loading = true
 
-  let data = window.localStorage.getItem('fibUser')
-  data = JSON.parse(data)
-
-  if (data && data.email === registrationStore.email && data.token && data.userId) {
-    data.remember = registrationStore.remember
-    window.localStorage.setItem('fibUser', JSON.stringify(data))
-
-    userStore.loading = true
-    userStore.getUserAuthorizationData()
-    const userExists = await userStore.getUserData()
-    userStore.loading = false
-
-    if (userExists) {
-      userStore.isLogged = true
-      router.push(localePath('/Profile'))
-    } else {
-      userStore.isLogged = false
-      invalidEmail.value = true
-    }
+  if (userStore.user && userStore.user.email === registrationStore.email) {
+    router.push(localePath('/Profile'))
   } else {
-    userStore.loading = true
+    if (userStore.user && userStore.user.email !== registrationStore.email) {
+      userStore.signOut()
+    }
+
     const userSignedUp = await userStore.loginUser(registrationStore.email)
-    userStore.loading = false
 
     if (userSignedUp) {
       router.push(localePath('/VerifyEmail'))
@@ -55,6 +50,8 @@ const signIn = async () => {
       invalidEmail.value = true
     }
   }
+
+  userStore.loading = false
 }
 
 const validEmailData = computed(() => {
@@ -114,19 +111,6 @@ watch(() => registrationStore.email, () => {
           {{ $t("signInPage.warning") }}
         </span>
       </div>
-      <label
-        for="remember"
-        class="checkBoxWrapper"
-      >
-        <input 
-          type="checkbox" 
-          id="remember" 
-          name="remember"
-          :value="true"
-          v-model="registrationStore.remember"
-        />
-        {{ $t("signInPage.remember") }}
-      </label>
       <button 
         class="button signInBtn"
         :class="validEmailData ? 'bg_black' : 'button_disabled'" 

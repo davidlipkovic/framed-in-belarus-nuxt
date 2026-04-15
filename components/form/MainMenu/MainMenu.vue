@@ -1,12 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import useUserStore from "@/stores/user"
-import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useWindowSize } from '@vueuse/core'
-
-const userStore = useUserStore()
-const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 
 const route = useRoute()
 

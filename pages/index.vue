@@ -16,7 +16,7 @@ definePageMeta({
 
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading && heroesStore.originalHeroes) {
-    return heroesStore.originalHeroes.length;
+    return heroesStore.originalHeroes.length
   }
   return 4100
 })
@@ -43,11 +43,11 @@ const numberOfHeroes = computed(() => {
           </span>
         </h1>
         <p class="subtitle">
-          {{ $t('description') }}
+          {{ $t('homePage.description') }}
         </p>
         <div class="flexRowStart">
           <a
-            v-if="!userStore.isLogged"
+            v-if="!userStore.user"
             href="https://forms.gle/SKCcvWGzRkQxx2fH9"
             target="_blank"
             class="button bg_red"

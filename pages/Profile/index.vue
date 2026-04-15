@@ -3,16 +3,26 @@ import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
+import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 const router = useRouter()
-const { locales, t } = useI18n()
+const { t } = useI18n()
 const userStore = useUserStore()
+const { localesNames } = useCurrentLocale()
 
 definePageMeta({
   layout: "embroidery",
   middleware: [
     'auth-registration',
     'user-embroideries',
+  ],
+})
+
+useHead({
+  title: t('profilePage.title') + ' - ' + t('profilePage.subTitle'),
+  meta: [
+    { property: 'og:title', content: t('profilePage.title') + ' - ' + t('profilePage.subTitle'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 
@@ -53,17 +63,17 @@ const disableNewEmbroidery = computed(() => {
 })
 
 const notifications = computed(() => {
-  const acc = []
+  const acc = new Map()
 
   userStore.embroideries.forEach((embroidery) => {
     if (embroidery.status.toLowerCase() === 'prepublished') {
-      acc.push({
+      acc.set('warning', {
         type: 'warning',
         icon: resolveComponent('SvgTriangleWarning'),
-        message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+        message: t('profilePage.notifications.prepublished')
       })
     } else if (embroidery.status.toLowerCase() === 'editing') {
-      acc.push({
+      acc.set('information', {
         type: 'information',
         icon: resolveComponent('SvgQuestionCircle'),
         message: t('profilePage.notifications.editing')
@@ -91,19 +101,15 @@ const embroideriesCards = computed(() => {
 
     if (embroidery.status.toLowerCase() === 'prepublished') {
       embroideryCard.icon = resolveComponent('SvgTriangleWarning')
-      embroideryCard.tooltip = t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.prepublished', { deadline: '30.1.2024' })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       embroideryCard.icon = resolveComponent('SvgQuestionCircle')
-      embroideryCard.tooltip = t('profilePage.notifications.editing')
+      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.editing')
     }
 
     return embroideryCard
   })
 })
-
-const updateLanguage = (lang) => {
-  language.value = lang.name
-}
 
 const handleIfValueIsUpdated = (key, value) => {
   if (userStore.user[key] === value) {
@@ -143,17 +149,12 @@ const deleteUser = async () => {
   userStore.loading = true
   await userStore.deleteUser()
   userStore.loading = false
-  router.push('/')
+  router.replace('/')
 }
 </script>
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
-      <Meta name="robots" content="noindex" />
-    </Head>
     <div class="Title">
       <h1 class="content">
         <span class="subtitle">
@@ -264,8 +265,9 @@ const deleteUser = async () => {
       </section>
       <section class="embroideryCardsWrapper flexColumnCenter">
         <EmbroideryNotificationModal
-          v-for="(notification, i) in notifications"
-          :notification="notification"
+          v-for="[key, value] in notifications"
+          :key="key"
+          :notification="value"
         />
         <div class="embroideryCards">
           <EmbroideryCard
@@ -345,7 +347,7 @@ const deleteUser = async () => {
                 v-model="email"
                 disabled
               />
-              <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence flexRowStart">
+              <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence">
                 {{ $t('profilePage.changeMail') }}&nbsp;<strong class="red bold">{{ $t('email') }}</strong>
               </span>
             </div>
@@ -434,10 +436,9 @@ const deleteUser = async () => {
               <GeneralInputShortDropdown
                 id="language"
                 class="contentInput languageInput"
-                :chosenOption="language"
-                :options="locales"
+                :options="localesNames"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
-                @chooseOption="updateLanguage"
+                v-model="language"
               />
             </div>
           </div>

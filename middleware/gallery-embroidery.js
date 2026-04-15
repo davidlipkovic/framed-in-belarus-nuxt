@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   galleryStore.loading = true
   userStore.isUsersEmbroidery = false
 
-  if (userStore.isLogged === true) {
+  if (userStore.user) {
     await userStore.getUserEmbroideries()
 
     userStore.embroideries.forEach(embroidery => {

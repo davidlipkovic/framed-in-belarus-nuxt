@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import useUserStore from "@/stores/user"
 
 const userStore = useUserStore()
@@ -9,12 +8,9 @@ const emit = defineEmits([
   'closeModal',
 ])
 
-const router = useRouter()
-
-const signOut = async () => {  
+const signOut = async () => {
   emit('closeModal')
   userStore.signOut()
-  router.go(0)
 }
 
 const root = ref(null)
@@ -46,15 +42,14 @@ onClickOutside(root, () => {
         {{ $t('links.profile') }}
       </span>
     </nuxt-link>
-    <nuxt-link
-      :to="$localePath('/')"
+    <button
       class="profileModalWrapperSignOut flexRowStart"
-      @click.prevent="signOut()"
+      @click="signOut()"
     >
       <span>
         {{ $t('links.signOut') }}
       </span>
-    </nuxt-link>
+    </button>
   </div>
 </template>
 

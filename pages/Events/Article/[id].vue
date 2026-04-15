@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import VueMarkdown from 'vue-markdown-render'
 import useNewsStore from "@/stores/news"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
@@ -14,6 +15,7 @@ definePageMeta({
 })
 
 const route = useRoute()
+const { t } = useI18n()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 const { convertToEventDate } = useConvertDate()
@@ -34,6 +36,10 @@ const title = computed(() => {
   return getCurrentLocaleStringValue(article.value, 'title_')
 })
 
+const perex = computed(() => {
+  return getCurrentLocaleStringValue(article.value, 'perex_')
+})
+
 const slides = computed(() => {
   return article.value.photos.map((photo) => {
     return {
@@ -52,16 +58,21 @@ const handleGallerySwiper = (i) => {
   showGallerySwiper.value = true
   currentGallerySlide.value = i
 }
+
+useHead({
+  title,
+  meta: [
+    { name: 'description', content: perex },
+    { name: 'keywords', content: t('newsDetailPage.meta.keywords', { eventNameRus: article.value.title_rus, place: article.value.place, city: article.value.city, category: article.value.category }) },
+    { property: 'og:title', content: title.value },
+    { property: 'og:description', content: perex },
+    { property: 'og:image', content: article.value.photo },
+  ],
+})
 </script>
 
 <template>
   <main class="Content newsArticleContentWrapper">
-    <Head>
-      <Title>
-        #Framed in Belarus - {{ title }}
-      </Title>
-      <Meta name="robots" content="noindex" />
-    </Head>
     <div>
       <div class="Title">
         <div class="content">

@@ -37,6 +37,16 @@ definePageMeta({
   ],
 })
 
+useHead({
+  title: t('signUpPage.title'),
+  meta: [
+    { name: 'description', content: t('signUpPage.meta.description') },
+    { name: 'keywords', content: t('signUpPage.meta.keywords') },
+    { property: 'og:title', content: t('signUpPage.title'), },
+    { property: 'og:description', content: t('signUpPage.meta.description') },
+  ],
+})
+
 const formData = reactive({
   username: null,
   publishUsername: true,
@@ -64,6 +74,9 @@ const usernameTypingStarted = ref(null)
 const emailInput = ref(null)
 const emailTypingStarted = ref(false)
 
+const reasonInput = ref(null)
+const reasonTypingStarted = ref(null)
+
 const sourceOptions = computed(() => [
   t("signUpPage.slide2.findOutOptions.instagram"),
   t("signUpPage.slide2.findOutOptions.fromFriend"),
@@ -77,23 +90,19 @@ const sourceOptions = computed(() => [
 console.log('signup page', userStore.oldUser)
 
 if (userStore.oldUser) {
-  registrationStore.email = userStore.oldUser.email
-  username.value = userStore.oldUser.username
-  publishUsername.value = userStore.oldUser.publishUsername
-  countryOfResidence.value = userStore.oldUser.countryOfResidence
-  publishCountryOfResidence.value = userStore.oldUser.publishCountryOfResidence
-  language.value = userStore.oldUser.language
-  instagram.value = userStore.oldUser.instagram
-  mentionInstagram.value = userStore.oldUser.mentionInstagram
-  publishInstagram.value = userStore.oldUser.publishInstagram
-  source.value = userStore.oldUser.source
-  reason.value = userStore.oldUser.reason
+  Object.keys(formData).forEach(key => {
+    formData[key] = userStore.oldUser[key]
+  })
 }
 
 const validUsernameData = computed(() => validateText(formData.username))
 const validEmailData = computed(() => validateEmail(formData.email))
 
 const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && formData.language)
+
+const validReasonData = computed(() => validateText(formData.reason))
+
+const validDataSlide2 = computed(() => validReasonData.value)
 
 onClickOutside(usernameInput, () => {
   if (formData.username) {
@@ -107,8 +116,19 @@ onClickOutside(emailInput, () => {
   }
 })
 
+onClickOutside(reasonInput, () => {
+  if (formData.reason) {
+    reasonTypingStarted.value = true
+  }
+})
+
 const signUp = async () => {
   const body = {}
+
+  if (!formData.instagram) {
+    formData.mentionInstagram = false
+    formData.publishInstagram = false
+  }
 
   Object.keys(formData).forEach(key => {
     body[key] = formData[key]
@@ -121,7 +141,6 @@ const signUp = async () => {
   userStore.loading = false
 
   if (registrationResult) {
-    sessionStorage.removeItem('FIB_REGISTRATION_FORM')
     router.push($localePath('/VerifyEmail'))
   } else {
     technicalIssue.value = true
@@ -129,7 +148,6 @@ const signUp = async () => {
 }
 
 const cancelRegistration = () => {
-  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
   router.push('/')
 }
 
@@ -138,9 +156,9 @@ const updateCurrentSlide = (slide) => {
     const query = {...route.query}
     delete query['s']
 
-    router.replace({ query })
+    router.push({ query })
   } else {
-    router.replace({ 
+    router.push({ 
       query: { 
         ...route.query, 
         's': slide
@@ -171,11 +189,24 @@ onMounted(() => {
     Object.assign(formData, JSON.parse(savedFormData))
   }
 
+  if (
+    route.query.s && 
+    (!formData.username || !formData.email || !formData.countryOfResidence || !formData.language)
+  ) {
+    router.replace({})
+  } else if (
+    route.query.s === '3' && !formData.reason && 
+    formData.username && formData.email && formData.countryOfResidence && formData.language
+  ) {
+    router.replace({query: {'s': '2'}})
+  }
+
   addEventListener("keypress", handleKeyPress)
 })
 
 onUnmounted(() => {
   removeEventListener("keypress", handleKeyPress)
+  sessionStorage.removeItem('FIB_REGISTRATION_FORM')
 })
 
 watch(() => route.query, (newQuery) => {
@@ -188,11 +219,18 @@ watch(() => route.query, (newQuery) => {
   { immediate: true }
 )
 
-watch(formData, (newformData, oldFormData) => {
+let oldCountryOfResidence = formData.countryOfResidence
+
+watch(formData, (newformData) => {
   sessionStorage.setItem('FIB_REGISTRATION_FORM', JSON.stringify(newformData))
-  if (newformData.countryOfResidence === 'Belarus' && oldFormData.countryOfResidence !== 'Belarus') {
+
+  const newCountryOfResidence = newformData.countryOfResidence
+
+  if (newCountryOfResidence === 'Belarus' && oldCountryOfResidence !== 'Belarus') {
     showBelarusModal.value = true
   }
+
+  oldCountryOfResidence = newCountryOfResidence
 }, { deep: true })
 </script>
 
@@ -226,12 +264,12 @@ watch(formData, (newformData, oldFormData) => {
                 <div class="inputWrapper inputWrapperWarningTop">
                   <input 
                     type="text" 
-                    name="username" 
+                    name="username"
                     id="username" 
                     v-model="formData.username"
-                    :placeholder="$t('placeholders.username') + '*'" 
+                    :placeholder="$t('placeholders.username') + '*'"
                     class="usernameInput"
-                    :class="{'invalidInput': !validUsernameData && usernameTypingStarted}" 
+                    :class="{'invalidInput': !validUsernameData && usernameTypingStarted}"
                     ref="usernameInput"
                   />
                   <span 
@@ -411,13 +449,23 @@ watch(formData, (newformData, oldFormData) => {
             </div>
             <div class="inputRowWrapper flexColumnStart inputRowWrapperReason">
               <div class="inputContentWrapper flexColumnStart">
-                <textarea 
-                  name="reason" 
-                  id="reason" 
-                  class="reasonTextarea"
-                  :placeholder="$t('signUpPage.slide2.textarea')" 
-                  v-model="formData.reason"
-                />
+                <div class="inputWrapper inputWrapperWarningTop">
+                  <textarea 
+                    name="reason" 
+                    id="reason" 
+                    class="reasonTextarea"
+                    :class="{'invalidInput': !validReasonData && reasonTypingStarted}"
+                    :placeholder="$t('signUpPage.slide2.textarea') + '*'" 
+                    v-model="formData.reason"
+                    ref="reasonInput"
+                  />
+                  <span 
+                    v-if="!validReasonData && reasonTypingStarted"
+                    class="warningNotification note red"
+                  >
+                    {{ $t('invalidInputs.enterReason') }}
+                  </span>
+                </div>
                 <label
                   for="publishReason"
                   class="checkBoxWrapper flexRowStart"
@@ -446,7 +494,8 @@ watch(formData, (newformData, oldFormData) => {
               {{ $t('buttons.back') }}
             </span>
             <span
-              class="button bg_black"
+              class="button"
+              :class="validDataSlide2 ? 'bg_black' : 'button_disabled'"
               @click="updateCurrentSlide(3)"
             >
               {{ $t('buttons.next') }}

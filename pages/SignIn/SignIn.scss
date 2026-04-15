@@ -1,5 +1,4 @@
 @import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/extends/checkBox";
 @import "../../assets/style/mixins/sign";
 
 .signInWrapper {
@@ -15,14 +14,7 @@
   }
 
   .emailInput {
-    margin-bottom: 0;
-  }
-
-  .checkBoxWrapper {
-    @extend .checkBoxWrapper;
     margin-bottom: 28px;
-    margin-left: 4px;
-    font-weight: 600;
   }
 
   .button {

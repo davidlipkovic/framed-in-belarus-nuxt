@@ -32,7 +32,7 @@ export function useSearch() {
   const sliceDisplayed = (items) => items.slice(rangeIndex.value, rangeIndex.value + rangePerPage.value)
 
   const resetQuery = () => {
-    router.replace({ })
+    router.push({ })
   }
 
   const updateQuery = (type, value) => {
@@ -45,7 +45,7 @@ export function useSearch() {
       (type === 'search' && value.length > 2) || 
       (!['p', 'search'].includes(type) && value)
     ) {
-      router.replace({ 
+      router.push({ 
         query: { 
           ...route.query, 
           ...{ [type]: value },
@@ -55,7 +55,7 @@ export function useSearch() {
       const query = {...route.query}
       delete query[type]
 
-      router.replace({ query })
+      router.push({ query })
     }
   }
 
