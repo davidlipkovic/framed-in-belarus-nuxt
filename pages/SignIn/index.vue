@@ -1,11 +1,13 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
-import { useValidateInputs } from "@/composables/ValidateInputs";
+import { useValidateInputs } from "@/composables/ValidateInputs"
 
 const router = useRouter()
+const { t } = useI18n()
 const localePath = useLocalePath()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
@@ -13,6 +15,16 @@ const { validateEmail } = useValidateInputs()
 
 definePageMeta({
   layout: "registration"
+})
+
+useHead({
+  title: t('signInPage.title'),
+  meta: [
+    { name: 'description', content: t('signInPage.meta.description') },
+    { name: 'keywords', content: t('signInPage.meta.keywords') },
+    { property: 'og:title', content: t('signInPage.title'), },
+    { property: 'og:description', content: t('signInPage.meta.description') },
+  ],
 })
 
 const emailInput = ref(null)

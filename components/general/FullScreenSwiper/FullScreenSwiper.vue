@@ -61,9 +61,9 @@ const prevSlide = () => {
             :src="slide.full"
             :alt="slide.alt"
           >
-          <div v-if="slide.alt">
+          <div v-if="slide.description">
             <span>
-              {{ slide.alt }}
+              {{ slide.description }}
             </span>
           </div>
         </div>

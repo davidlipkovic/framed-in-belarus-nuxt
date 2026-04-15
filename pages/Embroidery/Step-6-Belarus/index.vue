@@ -1,8 +1,10 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
 
 const router = useRouter()
+const { t } = useI18n()
 const userStore = useUserStore()
 
 definePageMeta({
@@ -12,6 +14,14 @@ definePageMeta({
     'auth-registration',
     'stitching',
     'user-summary',
+  ],
+})
+
+useHead({
+  title: t('embroidery.step6Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step6Page.title'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 
@@ -30,10 +40,6 @@ const handleCreateShipping = async () => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / Step 6 — Shipping</Title>
-      <Meta name="description" content="First step" />
-    </Head>
     <div class="Title">
       <div class="content">
         <h1>

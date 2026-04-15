@@ -1,5 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
+
+const { t } = useI18n()
 const userStore = useUserStore()
 
 definePageMeta({
@@ -11,14 +14,18 @@ definePageMeta({
     'user-summary',
   ],
 })
+
+useHead({
+  title: t('embroidery.step4Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step4Page.title'), },
+    { name: 'robots', content: 'noindex' }
+  ],
+})
 </script>
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / Step 4 — Photo</Title>
-      <Meta name="description" content="First step" />
-    </Head>
     <div class="Title">
       <div class="content">
         <h1>

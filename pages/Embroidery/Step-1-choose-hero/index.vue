@@ -1,10 +1,12 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useHeroesStore from "@/stores/heroes"
-import { useSearch } from "@/composables/Search";
+import { useSearch } from "@/composables/Search"
 
 const route = useRoute()
+const { t } = useI18n()
 
 const heroesStore = useHeroesStore()
 const {
@@ -28,6 +30,14 @@ definePageMeta({
   middleware: [
     'heroes',
     'auth-registration',
+  ],
+})
+
+useHead({
+  title: t('embroidery.step1Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step1Page.title'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 

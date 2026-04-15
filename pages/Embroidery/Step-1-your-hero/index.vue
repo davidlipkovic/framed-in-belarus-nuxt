@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-
+import { useI18n } from 'vue-i18n'
 import useHeroesStore from "@/stores/heroes"
 import { useChosenHeroData } from "@/composables/ChosenHeroData"
 import { useConvertDate } from "@/composables/ConvertDate"
 
 const router = useRouter()
+const { t } = useI18n()
 const heroesStore = useHeroesStore()
 const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
 const { convertDateToReadable } = useConvertDate()
@@ -16,6 +17,14 @@ definePageMeta({
   middleware: [
     'prechosen-hero',
     'auth-registration',
+  ],
+})
+
+useHead({
+  title: t('embroidery.step1Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step1Page.title'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 
@@ -30,10 +39,6 @@ const handleCreateStitchingActivity = async() => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / Step 1 — Choose your Hero</Title>
-      <Meta name="description" content="First step" />
-    </Head>
     <div class="Title">
       <div class="content">
         <h1>

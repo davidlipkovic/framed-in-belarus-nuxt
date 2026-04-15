@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 definePageMeta({
   layout: "embroidery",
   middleware: [
@@ -7,14 +11,18 @@ definePageMeta({
     'stitching',
   ],
 })
+
+useHead({
+  title: t('embroidery.step7Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step7Page.title'), },
+    { name: 'robots', content: 'noindex' }
+  ],
+})
 </script>
 
 <template>
   <main class="Content">
-      <Head>
-        <Title>#Framed in Belarus / Step 7 — Publication</Title>
-        <Meta name="description" content="First step"/>
-      </Head>
       <div class="Title">
         <div class="content">
           <h1>

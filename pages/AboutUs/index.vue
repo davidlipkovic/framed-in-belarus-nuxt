@@ -1,4 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 definePageMeta({
   middleware: [
     'auth-general',
@@ -6,14 +10,11 @@ definePageMeta({
 })
 
 useHead({
-  title: `#Framed in Belarus — About us`,
+  title: t('aboutUsPage.title'),
   meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'Stitchit is an art group created in 2021 by visual artist Rufina Bazlova and curator Sofia Tocar. The group works on burning socio-political issues using the traditional technique of embroidery as a tool of resistance and dialogue. Stitchit involves different communities and individuals into the creation process and blurs the lines of authorship. Collective means all people, who take part in a project and activities organized by Stitchit.'
-    }
-  ]
+    { property: 'og:title', content: t('aboutUsPage.title'), },
+    // wip, needs additional tags
+  ],
 })
 </script>
 

@@ -1,8 +1,10 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import useUserStore from "@/stores/user"
 
+const { t } = useI18n()
 const route = useRoute()
 const userStore = useUserStore()
 
@@ -11,6 +13,14 @@ definePageMeta({
   middleware: [
     'auth-registration',
     'corrections'
+  ],
+})
+
+useHead({
+  title: t('correctionsPage.title'),
+  meta: [
+    { property: 'og:title', content: t('correctionsPage.title'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 
@@ -78,10 +88,6 @@ const postEmbroideryCorrections = async () => {
     class="Content"
     :class="{'flexColumnCenter' : success}"
   >
-    <Head>
-      <Title>#Framed in Belarus</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
-    </Head>
     <div 
       v-if="!success"
       class="content correctionsContent"

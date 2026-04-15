@@ -1,6 +1,9 @@
 <script setup>
 import { computed, onMounted, ref, watch } from "vue";
+import { useI18n } from 'vue-i18n'
 import languagesJSON from '../../../assets/json/languages.json'
+
+const { t } = useI18n()
 
 definePageMeta({
   layout: "embroidery",
@@ -8,6 +11,14 @@ definePageMeta({
     'heroes',
     'auth-registration',
     'stitching',
+  ],
+})
+
+useHead({
+  title: t('embroidery.step5Page.title'),
+  meta: [
+    { property: 'og:title', content: t('embroidery.step5Page.title'), },
+    { name: 'robots', content: 'noindex' }
   ],
 })
 
@@ -33,10 +44,6 @@ const validData = computed(() => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / Step 5 — Comment</Title>
-      <Meta name="description" content="Fifth step" />
-    </Head>
     <div class="Title">
       <div class="content">
         <h1>

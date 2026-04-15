@@ -18,6 +18,14 @@ definePageMeta({
   ],
 })
 
+useHead({
+  title: t('profilePage.title') + ' - ' + t('profilePage.subTitle'),
+  meta: [
+    { property: 'og:title', content: t('profilePage.title') + ' - ' + t('profilePage.subTitle'), },
+    { name: 'robots', content: 'noindex' }
+  ],
+})
+
 const username = ref(userStore.user.username)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
@@ -62,7 +70,7 @@ const notifications = computed(() => {
       acc.set('warning', {
         type: 'warning',
         icon: resolveComponent('SvgTriangleWarning'),
-        message: t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+        message: t('profilePage.notifications.prepublished')
       })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       acc.set('information', {
@@ -93,10 +101,10 @@ const embroideriesCards = computed(() => {
 
     if (embroidery.status.toLowerCase() === 'prepublished') {
       embroideryCard.icon = resolveComponent('SvgTriangleWarning')
-      embroideryCard.tooltip = t('profilePage.notifications.prepublished.content1') + ' 30.1.2024' + t('profilePage.notifications.prepublished.content2')
+      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.prepublished', { deadline: '30.1.2024' })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       embroideryCard.icon = resolveComponent('SvgQuestionCircle')
-      embroideryCard.tooltip = t('profilePage.notifications.editing')
+      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.editing')
     }
 
     return embroideryCard
@@ -147,10 +155,6 @@ const deleteUser = async () => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
-    </Head>
     <div class="Title">
       <h1 class="content">
         <span class="subtitle">
