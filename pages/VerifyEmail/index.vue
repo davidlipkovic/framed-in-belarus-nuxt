@@ -2,11 +2,13 @@
 // WIP
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import useRegistrationStore from "@/stores/registration"
 import useUserStore from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs"
 
 const router = useRouter()
+const { t } = useI18n()
 const localePath = useLocalePath()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
@@ -14,6 +16,14 @@ const { validateEmail, validatePinData } = useValidateInputs()
 
 definePageMeta({
   layout: "registration"
+})
+
+useHead({
+  title: t('verifyEmailPage.title'),
+  meta: [
+    { property: 'og:title', content: t('verifyEmailPage.title'), },
+    { name: 'robots', content: 'noindex' }
+  ],
 })
 
 const emailInput = ref(null)

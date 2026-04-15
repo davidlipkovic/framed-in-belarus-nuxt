@@ -1,6 +1,18 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 definePageMeta({
   layout: "nopointer"
+})
+
+useHead({
+  title: t('notReadyPage.title'),
+  meta: [
+    { property: 'og:title', content: t('notReadyPage.title'), },
+    { name: 'robots', content: 'noindex' }
+  ],
 })
 </script>
 

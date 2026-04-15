@@ -12,6 +12,14 @@ definePageMeta({
   layout: "form"
 })
 
+useHead({
+  title: t('feedbackPage.title'),
+  meta: [
+    { property: 'og:title', content: t('feedbackPage.title'), },
+    { name: 'robots', content: 'noindex' }
+  ],
+})
+
 const success = ref(false)
 
 const commentProfessionalPhotos = ref(null)
@@ -69,10 +77,6 @@ const validData = computed(() => {
     class="Content"
     :class="{'flexColumnCenter' : success}"
   >
-    <Head>
-      <Title>#Framed in Belarus</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
-    </Head>
     <div 
       v-if="!success"
       class="content feedbackContent"

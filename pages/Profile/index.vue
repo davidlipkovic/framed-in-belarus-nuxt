@@ -18,6 +18,14 @@ definePageMeta({
   ],
 })
 
+useHead({
+  title: t('profilePage.title') + ' - ' + t('profilePage.subTitle'),
+  meta: [
+    { property: 'og:title', content: t('profilePage.title') + ' - ' + t('profilePage.subTitle'), },
+    { name: 'robots', content: 'noindex' }
+  ],
+})
+
 const username = ref(userStore.user.username)
 const usernameInput = ref(null)
 const usernameTypingStarted = ref(null)
@@ -147,10 +155,6 @@ const deleteUser = async () => {
 
 <template>
   <main class="Content">
-    <Head>
-      <Title>#Framed in Belarus / User cabinet — My embroideries</Title>
-      <Meta name="description" content="User cabinet — My embroideries description"/>
-    </Head>
     <div class="Title">
       <h1 class="content">
         <span class="subtitle">
