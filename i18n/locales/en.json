@@ -101,7 +101,7 @@
         "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
         "pleaseEnterHerosStory": "Please enter Hero*ine’s story",
         "invalidPinCode": "Invalid pin code",
-        "enterReason": "Enter your reason for joining"
+        "enterReason": "Enter your reason for joining the project"
     },
     "links": {
         "home": "Home",

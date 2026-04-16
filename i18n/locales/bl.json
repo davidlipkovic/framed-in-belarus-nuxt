@@ -33,7 +33,7 @@
         "gotIt": "Прыняць",
         "resetFilters": "Скінуць фільтры",
         "correctionsNeeded": "Патрэбны выпраўленні",
-        "resendPin": "Resend pin"
+        "resendPin": "Даслаць PIN-код зноў"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -100,8 +100,8 @@
         "pleaseAskYourQuestion": "Калі ласка, напішыце сваё пытанне",
         "pleaseEnterNameAndSurnameOfPrisoner": "Калі ласка, увядзіце імя і прозвішча палітзняволенаго*ай",
         "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні",
-        "invalidPinCode": "Invalid pin code",
-        "enterReason": "Enter your reason for joining"
+        "invalidPinCode": "Памылковы PIN-код",
+        "enterReason": "Укажыце прычыну вашага далучэння да праекту"
     },
     "links": {
         "home": "Галоўная",
@@ -119,7 +119,7 @@
         "supportUs": "Падтрымаць нас"
     },
     "descriptions": {
-        "photo": "Photo by {author} for #FramedinBelarus project"
+        "photo": "Фота: {author} для праекта #FramedinBelarus"
     },
     "notifications": {
         "subscribeSuccess": "Вы паспяхова падпісаліся!",
@@ -137,7 +137,7 @@
         "russian": "Руская"
     },
     "warnings": {
-        "technical": "There was a technical issue. Please try again later."
+        "technical": "Адбылася тэхнічная памылка. Калі ласка, паспрабуйце пазней."
     },
     "mainMenu": {
         "question": {
