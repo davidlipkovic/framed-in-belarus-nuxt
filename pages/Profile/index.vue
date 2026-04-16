@@ -4,11 +4,14 @@ import { useRouter } from 'vue-router'
 import useUserStore from "@/stores/user"
 import { useI18n } from 'vue-i18n'
 import { useCurrentLocale } from "@/composables/CurrentLocale"
+import { useValidateInputs } from "@/composables/ValidateInputs"
+import countries from '../../assets/json/countries.json'
 
 const router = useRouter()
 const { t } = useI18n()
 const userStore = useUserStore()
 const { localesNames } = useCurrentLocale()
+const { validateText } = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery",
@@ -26,33 +29,33 @@ useHead({
   ],
 })
 
-const username = ref(userStore.user.username)
-const usernameInput = ref(null)
-const usernameTypingStarted = ref(null)
-const publishUsername = ref(userStore.user.publishUsername)
-
-const email = ref(userStore.user.email)
-const emailInput = ref(null)
-const emailTypingStarted = ref(false)
-
-const countryOfResidence = ref(userStore.user.countryOfResidence)
-const countryOfResidenceInput = ref(null)
-const countryOfResidenceTypingStarted = ref(false)
-const publishCountryOfResidence = ref(userStore.user.publishCountryOfResidence)
-
-const instagram = ref(userStore.user.instagram)
-const mentionInstagram = ref(userStore.user.mentionInstagram)
-const publishInstagram = ref(userStore.user.publishInstagram)
-
-const language = ref(userStore.user.language)
-
-const reason = ref(userStore.user.reason)
-const publishReason = ref(userStore.user.publishReason)
+const formData = reactive({
+  username: userStore.user.username,
+  publishUsername: userStore.user.publishUsername,
+  // disabled
+  // email: userStore.user.email,
+  countryOfResidence: userStore.user.countryOfResidence,
+  publishCountryOfResidence: userStore.user.publishCountryOfResidence,
+  language: userStore.user.language,
+  instagram: userStore.user.instagram,
+  mentionInstagram: userStore.user.mentionInstagram,
+  publishInstagram: userStore.user.publishInstagram,
+  reason: userStore.user.reason,
+  publishReason: userStore.user.publishReason,
+})
 
 const displayEditProfileModal = ref(false)
 const displayDeleteProfileModal = ref(false)
 
 const deleteCheckbox = ref(false)
+
+const validUsernameData = computed(() => validateText(formData.username))
+
+const validReasonData = computed(() => validateText(formData.reason))
+
+const validUserData = computed(() => {
+  return validUsernameData.value && validReasonData.value
+})
 
 const disableNewEmbroidery = computed(() => {
   if (userStore.embroideries.length > 0) {
@@ -111,30 +114,16 @@ const embroideriesCards = computed(() => {
   })
 })
 
-const handleIfValueIsUpdated = (key, value) => {
-  if (userStore.user[key] === value) {
-    return null
-  }
-
-  return value
-}
-
 const updateUser = async () => {
   userStore.loading = true
 
-  const body = {
-    // disabled
-    // email: handleIfValueIsUpdated('email', email.value),
-    username: handleIfValueIsUpdated('username', username.value),
-    countryOfResidence: handleIfValueIsUpdated('countryOfResidence', countryOfResidence.value),
-    language: handleIfValueIsUpdated('language', language.value),
-    instagram: handleIfValueIsUpdated('instagram', instagram.value),
-    reason: handleIfValueIsUpdated('reason', reason.value),
-    publishReason: handleIfValueIsUpdated('publishReason', publishReason.value),
-    publishCountryOfResidence: handleIfValueIsUpdated('publishCountryOfResidence', publishCountryOfResidence.value),
-    publishInstagram: handleIfValueIsUpdated('publishInstagram', publishInstagram.value),
-    publishUsername: handleIfValueIsUpdated('publishUsername', publishUsername.value),
-  }
+  const body = {}
+
+  Object.keys(formData).forEach(key => {
+    if (userStore.user[key] !== formData[key]) {
+      body[key] = formData[key]
+    }
+  })
 
   await userStore.updateUser(body)
   userStore.loading = false
@@ -313,10 +302,17 @@ const deleteUser = async () => {
                 type="text" 
                 name="username" 
                 id="username"
-                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.username')" 
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.username') + '*'" 
                 class="contentInput usernameInput"
-                v-model="username"
+                :class="{'invalidInput': !validUsernameData}"
+                v-model="formData.username"
               />
+              <span 
+                v-if="!validUsernameData"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.enterYourUsername') }}
+              </span>
               <label 
                 for="publishUsername"
                 class="checkBoxWrapper checkBoxWrapperUsername flexRowStart"
@@ -326,7 +322,7 @@ const deleteUser = async () => {
                   name="publishUsername" 
                   id="publishUsername" 
                   :value="true"
-                  v-model="publishUsername"
+                  v-model="formData.publishUsername"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -344,7 +340,7 @@ const deleteUser = async () => {
                 id="email"
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.email')" 
                 class="contentInput emailInput"
-                v-model="email"
+                v-model="userStore.user.email"
                 disabled
               />
               <span class="checkBoxWrapper checkBoxWrapperPublishcountryOfResidence">
@@ -360,13 +356,13 @@ const deleteUser = async () => {
               >
                 {{ $t('placeholders.country') }}
               </label>
-              <input 
-                type="text" 
-                name="countryOfResidence" 
+              <GeneralInputLongDropdown
+                class="input contentInput countryOfResidenceDropdown editProfileLongDropdown"
                 id="countryOfResidence"
+                :enableScroll="true"
+                :options="countries"
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.country')" 
-                class="contentInput countryOfResidenceInput"
-                v-model="countryOfResidence"
+                v-model="formData.countryOfResidence"
               />
               <label 
                 for="publishCountryOfResidence"
@@ -377,7 +373,7 @@ const deleteUser = async () => {
                   name="publishCountryOfResidence" 
                   id="publishCountryOfResidence" 
                   :value="true"
-                  v-model="publishCountryOfResidence"
+                  v-model="formData.publishCountryOfResidence"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -395,7 +391,7 @@ const deleteUser = async () => {
                 id="instagram"
                 :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.instagram')" 
                 class="contentInput instagramInput"
-                v-model="instagram"
+                v-model="formData.instagram"
               />
               <label 
                 for="publishInstagram"
@@ -406,7 +402,7 @@ const deleteUser = async () => {
                   name="publishInstagram" 
                   id="publishInstagram" 
                   :value="true"
-                  v-model="publishInstagram"
+                  v-model="formData.publishInstagram"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -419,7 +415,7 @@ const deleteUser = async () => {
                   name="mentionInstagram" 
                   id="mentionInstagram" 
                   :value="true"
-                  v-model="mentionInstagram"
+                  v-model="formData.mentionInstagram"
                 />
                 {{ $t('inputs.mentionInstagram') }}
               </label>
@@ -438,7 +434,7 @@ const deleteUser = async () => {
                 class="contentInput languageInput"
                 :options="localesNames"
                 :placeholder="$t('placeholders.chooseCommunicationLanguage')" 
-                v-model="language"
+                v-model="formData.language"
               />
             </div>
           </div>
@@ -452,18 +448,25 @@ const deleteUser = async () => {
                   {{ $t('profilePage.question') }}
                 </label>
                 <span>
-                  {{ reason ? reason.length : 0 }}/800
+                  {{ formData.reason ? formData.reason.length : 0 }}/800
                 </span>
               </div>
               <textarea 
                 type="text" 
                 name="reason" 
                 id="reason"
-                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.text')" 
+                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.text') + '*'" 
                 class="contentInput reasonInput"
-                v-model="reason"
+                :class="{'invalidInput': !validReasonData}"
+                v-model="formData.reason"
                 maxlength="800"
               />
+              <span 
+                v-if="!validReasonData"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.enterReason') }}
+              </span>
               <label 
                 for="publishReason"
                 class="checkBoxWrapper checkBoxWrapperReason flexRowStart"
@@ -473,7 +476,7 @@ const deleteUser = async () => {
                   name="publishReason" 
                   id="publishReason" 
                   :value="true"
-                  v-model="publishReason"
+                  v-model="formData.publishReason"
                 />
                 {{ $t('buttons.publish') }}
               </label>
@@ -488,7 +491,8 @@ const deleteUser = async () => {
             {{ $t('buttons.cancel') }}
           </button>
           <button 
-            class="button bg_black"
+            class="button"
+            :class="validUserData ? 'bg_black' : 'button_disabled'"
             @click="updateUser()"
           >
             {{ $t('buttons.save') }}
