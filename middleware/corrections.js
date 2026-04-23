@@ -11,7 +11,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   let allowToProceed = false
 
   userStore.embroideries.forEach(embroidery => {
-    if (embroidery.id === to.query.id && embroidery.status === 'Prepublished') {
+    if (embroidery.id === to.query.id && (embroidery.status === 'Prepublished' || embroidery.status === 'Published')) {
       allowToProceed = true
     }
   })
