@@ -3,6 +3,7 @@
 
 @import "form.scss";
 @import "tooltip.scss";
+@import "svg.scss";
 
 * {
   color: $black;
@@ -80,6 +81,7 @@ p, span, label {
 .formLayout .Content {
   min-height: 100vh;
   padding-top: 2.875rem;
+  padding-bottom: 0;
 }
 
 .cleanLayout .Content {

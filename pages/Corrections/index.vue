@@ -24,7 +24,8 @@ useHead({
   ],
 })
 
-const success = ref(null)
+const formState = ref('preSent')
+
 const studioPhoto = ref(null)
 const comment = ref(null)
 const processPhoto = ref(null)
@@ -53,16 +54,16 @@ const postEmbroideryCorrections = async () => {
     data.processPhoto === 'Publish with exposed personal data' &&
     data.embroidery === 'Exhibit with exposed signature'
   ) {
-    const isPublished = await userStore.publishEmbroidery(route.query.id)
+    const publishSent = await userStore.publishEmbroidery(route.query.id)
 
-    if (!isPublished) {
-      success.value = false
+    if (!publishSent) {
+      formState.value = 'technicalIssue'
       channel.postMessage('technicalIssue')
       channel.close()
       return
     }
 
-    success.value = true
+    formState.value = 'publishSent'
     channel.postMessage('published')
     channel.close()
     return
@@ -71,13 +72,13 @@ const postEmbroideryCorrections = async () => {
   const correctionsSent = await userStore.postEmbroideryCorrections(route.query.id, data)
 
   if (!correctionsSent) {
-    success.value = false
+    formState.value = 'technicalIssue'
     channel.postMessage('technicalIssue')
     channel.close()
     return
   }
 
-  success.value = true
+  formState.value = 'correctionsSent'
   channel.postMessage('correctionsPosted')
   channel.close()
 }
@@ -86,10 +87,10 @@ const postEmbroideryCorrections = async () => {
 <template>
   <main 
     class="Content"
-    :class="{'flexColumnCenter' : success}"
+    :class="{'flexColumnCenter' : formState !== 'preSent'}"
   >
     <div 
-      v-if="!success"
+      v-if="formState === 'preSent'"
       class="content correctionsContent"
     >
       <h1 class="title">
@@ -263,15 +264,36 @@ const postEmbroideryCorrections = async () => {
       </div>
     </div>
     <div 
-      v-else
+      v-else-if="formState === 'correctionsSent' || formState === 'publishSent'"
       class="content correctionsContent correctionsSuccessContent flexColumnCenter"
     >
       <SvgCheckMark/>
       <h1 class="title">
         {{ $t('correctionsPage.success.title') }}
       </h1>
+      <p 
+        v-if="formState === 'correctionsSent'"
+        class="description"
+      >
+        {{ $t('correctionsPage.success.correctionsSent') }}
+      </p>
+      <p 
+        v-else-if="formState === 'publishSent'"
+        class="description"
+      >
+        {{ $t('correctionsPage.success.publishSent') }}
+      </p>
+    </div>
+    <div 
+      v-else-if="formState === 'technicalIssue'"
+      class="content correctionsContent correctionsTechnicalIssueContent flexColumnCenter"
+    >
+      <SvgWarning class="technicalSvgWarning correctionsSvgWarning"/>
+      <h1 class="title">
+        {{ $t('warnings.error') }}
+      </h1>
       <p class="description">
-        {{ $t('correctionsPage.success.description') }}
+        {{ $t('warnings.technical') }}
       </p>
     </div>
   </main>
