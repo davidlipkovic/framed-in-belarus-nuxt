@@ -137,6 +137,7 @@
         "russian": "Русский"
     },
     "warnings": {
+        "error": "Error",
         "technical": "Произошла техническая ошибка. Пожалуйста, повторите попытку позже."
     },
     "mainMenu": {
@@ -984,7 +985,8 @@
         },
         "success": {
             "title": "Спасибо!",
-            "description": "Благодарим вас за заполнение формы. Мы свяжемся с вами в ближайшее время."
+            "correctionsSent": "Благодарим вас за заполнение формы. Мы свяжемся с вами в ближайшее время.",
+            "publishSent": "Thank you for completing the form, your embroidery was published."
         }
     },
     "feedbackPage": {
