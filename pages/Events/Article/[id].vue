@@ -46,7 +46,8 @@ const slides = computed(() => {
       small: photo.thumbnails.small.url,
       large: photo.thumbnails.large.url,
       full: photo.thumbnails.full.url,
-      alt: photo.filename
+      alt: photo.filename,
+      description: photo.filename,
     }
   })
 })
