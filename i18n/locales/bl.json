@@ -137,7 +137,7 @@
         "russian": "Руская"
     },
     "warnings": {
-        "error": "Error",
+        "error": "Памылка",
         "technical": "Адбылася тэхнічная памылка. Калі ласка, паспрабуйце пазней."
     },
     "mainMenu": {
@@ -986,7 +986,7 @@
         "success": {
             "title": "Дзякуй!",
             "correctionsSent": "Дзякуем вам за запаўненне формы. Мы звяжамся з вамі хуткім часам.",
-            "publishSent": "Thank you for completing the form, your embroidery was published."
+            "publishSent": "Дзякуй за запаўненне формы, ваша вышыўка апублікавана."
         }
     },
     "feedbackPage": {

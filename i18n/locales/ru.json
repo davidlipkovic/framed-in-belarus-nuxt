@@ -10,7 +10,7 @@
     "buttons": {
         "accept": "Принять",
         "decline": "не принимать",
-        "delete": "Delete",
+        "delete": "Удалить",
         "confirm": "Подтвердить",
         "manage": "настроить",
         "cancel": "Отмена",
@@ -137,7 +137,7 @@
         "russian": "Русский"
     },
     "warnings": {
-        "error": "Error",
+        "error": "Ошибка",
         "technical": "Произошла техническая ошибка. Пожалуйста, повторите попытку позже."
     },
     "mainMenu": {
@@ -986,7 +986,7 @@
         "success": {
             "title": "Спасибо!",
             "correctionsSent": "Благодарим вас за заполнение формы. Мы свяжемся с вами в ближайшее время.",
-            "publishSent": "Thank you for completing the form, your embroidery was published."
+            "publishSent": "Спасибо за заполнение формы, ваша вышивка опубликована."
         }
     },
     "feedbackPage": {
