@@ -130,6 +130,13 @@ const numberOfHeroes = computed(() => {
         </div>
         <div class="Partners-logo flexRowCenter">
           <img
+            src="../assets/media/img/logos/art_power_belarus.svg"
+            alt="ArtPower Belarus"
+            class="img"
+          />
+        </div>
+        <div class="Partners-logo flexRowCenter">
+          <img
             src="../assets/media/img/logos/logo-Forum-Civ.svg"
             alt="Forum Civ"
             class="img forumCiv"
