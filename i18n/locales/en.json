@@ -33,7 +33,8 @@
         "gotIt": "Got it",
         "resetFilters": "Reset filters",
         "correctionsNeeded": "Corrections needed",
-        "resendPin": "Resend pin"
+        "resendPin": "Resend pin",
+        "verifyEmail": "Verify email"
     },
     "placeholders": {
         "email": "Email",

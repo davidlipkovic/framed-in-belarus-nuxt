@@ -235,7 +235,10 @@ watch(formData, (newformData) => {
     <h1 class="title">
       {{ $t("signUpPage.title") }}
     </h1>
-    <p class="signUpDescription">
+    <p 
+      v-if="!userStore.oldUser"
+      class="signUpDescription"
+    >
       {{ $t("signUpPage.signInQuestion") }}
       <nuxt-link 
         :to="$localePath('/SignIn')"
@@ -391,7 +394,7 @@ watch(formData, (newformData) => {
                   type="text" 
                   name="instagram" 
                   id="instagram" 
-                  :placeholder="$t('placeholders.instagram')" 
+                  :placeholder="'@' + $t('placeholders.instagram')" 
                   class="instagramInput"
                   v-model="formData.instagram"
                   maxlength="31"

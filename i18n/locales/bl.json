@@ -33,7 +33,8 @@
         "gotIt": "Прыняць",
         "resetFilters": "Скінуць фільтры",
         "correctionsNeeded": "Патрэбны выпраўленні",
-        "resendPin": "Даслаць PIN-код зноў"
+        "resendPin": "Даслаць PIN-код зноў",
+        "verifyEmail": "Verify email"
     },
     "placeholders": {
         "email": "Емэйл",

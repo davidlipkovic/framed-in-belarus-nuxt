@@ -18,6 +18,7 @@ export default defineNuxtConfig({
                 { property: 'og:site_name', content: 'Framed in Belarus' },
                 { property: 'og:image', content: '/main.jpg' },
                 { name: 'format-detection', content: 'telephone=no' },
+                // WIP, FOR DEV
                 { name: 'robots', content: 'noindex' }
             ],
             link: [

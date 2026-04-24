@@ -120,10 +120,10 @@ onClickOutside(pinInput, () => {
         :class="validData ? 'bg_black' : 'button_disabled'"
         @click="validatePin()"
       >
-        {{ $t('buttons.send') }}
+        {{ $t('buttons.verifyEmail') }}
       </button>
       <button
-        class="button bg_black"
+        class="button"
         @click="resendPin()"
       >
         {{ $t('buttons.resendPin') }}

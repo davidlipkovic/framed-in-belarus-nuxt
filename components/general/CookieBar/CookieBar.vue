@@ -76,7 +76,7 @@ onMounted(() => {
     consentSet.value = false
   } else if (cookie.value === 'accepted') {
     cookieAnalytics.value = true
-    // FOR DEV
+    // WIP, FOR DEV
     // injectGTMAndTrack()
   }
 })

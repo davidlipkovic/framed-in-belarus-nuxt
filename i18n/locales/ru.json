@@ -33,7 +33,8 @@
         "gotIt": "Принять",
         "resetFilters": "Сбросить фильтры",
         "correctionsNeeded": "Необходимы исправления",
-        "resendPin": "Отправить PIN-код снова"
+        "resendPin": "Отправить PIN-код снова",
+        "verifyEmail": "Verify email"
     },
     "placeholders": {
         "email": "Емейл",
