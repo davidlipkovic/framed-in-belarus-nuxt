@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
 import { useValidateInputs } from "@/composables/ValidateInputs"
@@ -9,7 +10,20 @@ const userStore = useUserStore()
 const { validateLatinCharacters, validateText} = useValidateInputs()
 
 definePageMeta({
-  layout: "form"
+  layout: "form",
+  middleware: [
+    async function (to, from) {
+      const localePath = useLocalePath()
+
+      if (!from.fullPath.includes('rofile') && !from.fullPath.includes('eedback')) {
+        return navigateTo(localePath('/'))
+      }
+
+      const userStore = useUserStore()
+      userStore.startDeleteUser()
+    },
+    'auth-registration',
+  ],
 })
 
 useHead({
@@ -20,25 +34,9 @@ useHead({
   ],
 })
 
-const success = ref(false)
+const formState = ref('preSent')
 
-const commentProfessionalPhotos = ref(null)
-const commentProfessionalPhotosInput = ref(null)
-
-const commentComments = ref(null)
-const commentCommentsInput = ref(null)
-
-const commentProcessPhotos = ref(null)
-const commentProcessPhotosInput = ref(null)
-
-const commentOther = ref(null)
-const commentOtherInput = ref(null)
-
-const submitForm = async () => {
-  success.value = true
-}
-
-const leaveReasonOptions = [
+const feedbackOptions = [
   t("feedbackPage.dropdownReason.option1"),
   t("feedbackPage.dropdownReason.option2"),
   t("feedbackPage.dropdownReason.option3"),
@@ -49,36 +47,79 @@ const leaveReasonOptions = [
   t("feedbackPage.dropdownReason.optionOther"),
 ]
 
-const leaveReason = ref(null)
-const leaveReasonOther = ref(null)
-const leaveReasonOtherInput = ref(null)
-const leaveReasonOtherTypingStarted = ref(false)
+const feedback = ref(null)
+const feedbackOther = ref(null)
+const feedbackOtherInput = ref(null)
+const feedbackOtherTypingStarted = ref(false)
 
-const subscribeNews = ref(null)
-const subscribeCommercial = ref(null)
+const subscription = ref(null)
+const marketing = ref(null)
 
-onClickOutside(leaveReasonOtherInput, () => {
-  if (leaveReasonOther.value) {
-    leaveReasonOtherTypingStarted.value = true
+onClickOutside(feedbackOtherInput, () => {
+  if (feedbackOther.value) {
+    feedbackOtherTypingStarted.value = true
   }
 })
 
-const validLeaveReasonOtherData = computed(() => validateLatinCharacters(leaveReasonOther.value) && validateText(leaveReasonOther.value))
+const displayOtherFeedback = computed(() => {
+  return feedback.value === "Other" || feedback.value === "Другое" || feedback.value === "Іншае"
+})
+
+const validLeaveReasonOtherData = computed(() => validateLatinCharacters(feedbackOther.value) && validateText(feedbackOther.value))
 
 const validData = computed(() => {
-  return (leaveReason.value && leaveReason.value?.id !== "other" ||
-  leaveReason.value?.id === "other" && validLeaveReasonOtherData.value) &&
-  subscribeNews.value !== null && subscribeCommercial.value !== null
+  return (feedback.value && !displayOtherFeedback.value ||
+  displayOtherFeedback.value && validLeaveReasonOtherData.value) &&
+  subscription.value !== null && marketing.value !== null
+})
+
+const submitForm = async () => {
+  userStore.loading = true
+
+  const body = {
+    feedback: feedback.value, 
+    subscription: subscription.value, 
+    marketing: marketing.value, 
+  }
+
+  if (displayOtherFeedback.value) {
+    body.feedback = feedbackOther.value
+  }
+
+  const isUserDeleted = await userStore.deleteUser(body)
+
+  if (isUserDeleted) {
+    formState.value = 'userDeleted'
+  } else {
+    formState.value = 'technicalIssue'
+  }
+
+  userStore.loading = false
+}
+
+onBeforeRouteLeave(async (to) => {
+  if (to.fullPath.includes('eedback')) {
+    return
+  }
+
+  userStore.loading = true
+
+  if (userStore.isBeforeDelete) {
+    await userStore.deleteUser()
+  }
+
+  userStore.signOut()
+  userStore.loading = false
 })
 </script>
 
 <template>
   <main 
     class="Content"
-    :class="{'flexColumnCenter' : success}"
+    :class="{'flexColumnCenter' : formState !== 'preSent'}"
   >
     <div 
-      v-if="!success"
+      v-if="formState === 'preSent'"
       class="content feedbackContent"
     >
       <h1 class="title">
@@ -92,36 +133,35 @@ const validData = computed(() => {
       </p>
       <div class="formWrapper flexColumnStart">
         <label
-          for="leaveReasonDropdown" 
+          for="feedbackDropdown" 
           class="flexRowStart"
         >
           {{ $t('feedbackPage.dropdownReason.label') }}
         </label>
-        <div class="leaveReasonWrapper">
+        <div class="feedbackWrapper">
           <GeneralInputLongDropdown
-            id="leaveReasonDropdown"
-            class="contentInput leaveReasonDropdown"
-            :options="leaveReasonOptions"
+            id="feedbackDropdown"
+            class="contentInput feedbackDropdown"
+            :options="feedbackOptions"
             :placeholder="$t('feedbackPage.dropdownReason.placeholder')" 
-            :isRegistration="true"
-            v-model="leaveReason"
+            v-model="feedback"
           />
           <div 
-            v-if="leaveReason?.id === 'other'"
+            v-if="displayOtherFeedback"
             class="inputWrapper inputWrapperWarningBottom"
           >
             <textarea 
               type="text" 
-              name="leaveReasonOther" 
-              id="leaveReasonOther" 
-              v-model="leaveReasonOther"
+              name="feedbackOther" 
+              id="feedbackOther" 
+              v-model="feedbackOther"
               :placeholder="$t('feedbackPage.dropdownReason.otherPlaceholder')" 
-              class="leaveReasonOtherInput"
-              :class="{'invalidInput': !validLeaveReasonOtherData && leaveReasonOtherTypingStarted}" 
-              ref="leaveReasonOtherInput"
+              class="feedbackOtherInput"
+              :class="{'invalidInput': !validLeaveReasonOtherData && feedbackOtherTypingStarted}" 
+              ref="feedbackOtherInput"
             />
             <span 
-              v-if="!validLeaveReasonOtherData && leaveReasonOtherTypingStarted"
+              v-if="!validLeaveReasonOtherData && feedbackOtherTypingStarted"
               class="warningNotification note red"
             >
               {{ $t('invalidInputs.enterComment') }}
@@ -134,28 +174,28 @@ const validData = computed(() => {
           </p>
           <label 
             for="acceptSubscribeNews"
-            class="subscribeNews-item flexRowStart"
+            class="subscription-item flexRowStart"
           >
             <input
               type="radio"
               name="acceptSubscribeNews"
               id="acceptSubscribeNews"
               :value="true"
-              v-model="subscribeNews"
+              v-model="subscription"
               required
             />
             {{ $t('feedbackPage.optionsNews.option1') }}
           </label>
           <label 
             for="refuseSubscribeNews" 
-            class="subscribeNews-item flexRowStart"
+            class="subscription-item flexRowStart"
           >
             <input
               type="radio"
               name="refuseSubscribeNews"
               id="refuseSubscribeNews"
               :value="false"
-              v-model="subscribeNews"
+              v-model="subscription"
               required
             />
             {{ $t('feedbackPage.optionsNews.option2') }}
@@ -167,28 +207,28 @@ const validData = computed(() => {
           </p>
           <label 
             for="acceptSubscribeCommercial"
-            class="subscribeCommercial-item flexRowStart"
+            class="marketing-item flexRowStart"
           >
             <input
               type="radio"
               name="acceptSubscribeCommercial"
               id="acceptSubscribeCommercial"
               :value="true"
-              v-model="subscribeCommercial"
+              v-model="marketing"
               required
             />
             {{ $t('feedbackPage.optionsFinancial.option1') }}
           </label>
           <label 
             for="refuseSubscribeCommercial" 
-            class="subscribeCommercial-item flexRowStart"
+            class="marketing-item flexRowStart"
           >
             <input
               type="radio"
               name="refuseSubscribeCommercial"
               id="refuseSubscribeCommercial"
               :value="false"
-              v-model="subscribeCommercial"
+              v-model="marketing"
               required
             />
             {{ $t('feedbackPage.optionsFinancial.option2') }}
@@ -206,7 +246,7 @@ const validData = computed(() => {
       </div>
     </div>
     <div 
-      v-else
+      v-else-if="formState === 'userDeleted'"
       class="content feedbackContent feedbackSuccessContent flexColumnCenter"
     >
       <SvgCheckMark/>
@@ -215,6 +255,18 @@ const validData = computed(() => {
       </h1>
       <p class="description">
         {{ $t('feedbackPage.success.description') }}
+      </p>
+    </div>
+    <div 
+      v-else-if="formState === 'technicalIssue'"
+      class="content correctionsContent correctionsTechnicalIssueContent flexColumnCenter"
+    >
+      <SvgWarning class="technicalSvgWarning correctionsSvgWarning"/>
+      <h1 class="title">
+        {{ $t('warnings.error') }}
+      </h1>
+      <p class="description">
+        {{ $t('warnings.technical') }}
       </p>
     </div>
   </main>

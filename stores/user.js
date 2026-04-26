@@ -13,7 +13,7 @@ export default defineStore("user", () => {
   const oldUser = ref(null)
   const userSummary = ref(null)
   const userAuthorizationData = ref(null)
-  const userDataBeforeDelete = ref(false)
+  const isBeforeDelete = ref(false)
   const embroideries = ref(null)
   const isUsersEmbroidery = ref(false)
 
@@ -161,41 +161,42 @@ export default defineStore("user", () => {
     console.log('updateUser', data.value, user.value)
   }
 
-  const deleteUser = async () => {
+  const startDeleteUser = async () => {
+    isBeforeDelete.value = true
+  }
+
+  const deleteUser = async (body) => {
     const headers = setHeaders()
 
     if (!headers) {
       return
     }
 
-    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/', {
+    const dataToSend = {
       method: 'delete',
       headers,
-    })
-
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
     }
+
+    if (body) {
+      dataToSend.body = removeNullProps(body)
+    }
+
+    const { data, error } = await useFetch(endpointUrl + '/api/auth/user/', dataToSend)
 
     console.log('deleteUser', data.value)
 
-    userDataBeforeDelete.value = true
+    if (error.value || data.value.statusText !== 'success') {
+      return
+    }
 
-    // wip
-    removeUserLocalData()
+    isBeforeDelete.value = false
 
-    const channel = new BroadcastChannel("user-local-channel")
-    channel.postMessage('signOut')
-    channel.close()
+    return true
   }
 
   const signOut = () => {
     user.value = null
     userAuthorizationData.value = null
-    userDataBeforeDelete.value = false
     removeUserLocalData()
 
     const channel = new BroadcastChannel("user-local-channel")
@@ -428,12 +429,13 @@ export default defineStore("user", () => {
     oldUser,
     userSummary,
     userAuthorizationData,
-    userDataBeforeDelete,
+    isBeforeDelete,
     embroideries,
     isUsersEmbroidery,
     loginUser,
     createUser,
     updateUser,
+    startDeleteUser,
     deleteUser,
     signOut,
     validatePin,

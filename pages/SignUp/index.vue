@@ -156,7 +156,7 @@ const signUp = async () => {
 }
 
 const cancelRegistration = () => {
-  router.push('/')
+  router.push($localePath('/'))
 }
 
 const updateCurrentSlide = (slide) => {

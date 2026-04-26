@@ -103,6 +103,31 @@
     border-top: 1px solid $greyLight;
     padding: 16px 36px 18px;
   }
+
+  .instagramInputWrapper {
+    position: relative;
+
+    .additionalText {
+      position: absolute;
+      left: 27px;
+      z-index: 1;
+      font-size: 16px;
+      top: 50px;
+      pointer-events: none;
+    }
+
+    .instagramInput {
+      padding-left: 34px;
+    }
+  }
+
+  @media screen and (min-width: $br-point-lg){
+    .instagramInputWrapper {
+      .additionalText {
+        top: 60px;
+      }
+    }
+  }
 }
 
 .deleteProfileModal {

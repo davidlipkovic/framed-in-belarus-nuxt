@@ -11,7 +11,7 @@ const router = useRouter()
 const { t } = useI18n()
 const userStore = useUserStore()
 const { localesNames } = useCurrentLocale()
-const { validateText } = useValidateInputs()
+const { validateText, validateInstagram } = useValidateInputs()
 
 definePageMeta({
   layout: "embroidery",
@@ -37,7 +37,7 @@ const formData = reactive({
   countryOfResidence: userStore.user.countryOfResidence,
   publishCountryOfResidence: userStore.user.publishCountryOfResidence,
   language: userStore.user.language,
-  instagram: userStore.user.instagram,
+  instagram: userStore.user.instagram ? userStore.user.instagram.substring(1) : null,
   mentionInstagram: userStore.user.mentionInstagram,
   publishInstagram: userStore.user.publishInstagram,
   reason: userStore.user.reason,
@@ -51,10 +51,18 @@ const deleteCheckbox = ref(false)
 
 const validUsernameData = computed(() => validateText(formData.username))
 
+const validInstagram = computed(() => {
+  if (!formData.instagram || formData.instagram.length === 0) {
+    return true
+  }
+
+  return validateInstagram(formData.instagram)
+})
+
 const validReasonData = computed(() => validateText(formData.reason))
 
 const validUserData = computed(() => {
-  return validUsernameData.value && validReasonData.value
+  return validUsernameData.value && validInstagram.value && validReasonData.value
 })
 
 const disableNewEmbroidery = computed(() => {
@@ -119,9 +127,18 @@ const updateUser = async () => {
 
   const body = {}
 
+  if (!formData.instagram) {
+    formData.mentionInstagram = false
+    formData.publishInstagram = false
+  }
+
   Object.keys(formData).forEach(key => {
     if (userStore.user[key] !== formData[key]) {
       body[key] = formData[key]
+
+      if (key === 'instagram') {
+        body[key] = '@' + formData[key]
+      }
     }
   })
 
@@ -130,15 +147,12 @@ const updateUser = async () => {
   displayEditProfileModal.value = false
 }
 
-const deleteUser = async () => {
-  if (!deleteCheckbox.value) {
-    return
-  }
+const closeEditProfileModal = () => {
+  displayEditProfileModal.value = false
 
-  userStore.loading = true
-  await userStore.deleteUser()
-  userStore.loading = false
-  router.replace('/')
+  Object.keys(formData).forEach(key => {
+    formData[key] = userStore.user[key]
+  })
 }
 </script>
 
@@ -274,7 +288,7 @@ const deleteUser = async () => {
     </div>
     <GeneralInputModal
       class="editProfileModal"
-      @closeModal="displayEditProfileModal = false"
+      @closeModal="closeEditProfileModal()"
       :displayModal="displayEditProfileModal"
     >
       <div class="inputModalContentWrapper">
@@ -283,7 +297,7 @@ const deleteUser = async () => {
             {{ $t('profilePage.editProfile') }}
           </h2>
           <button
-            @click="displayEditProfileModal = false"
+            @click="closeEditProfileModal()"
             class="closeButton"
           >
             <SvgClose/>
@@ -378,21 +392,31 @@ const deleteUser = async () => {
                 {{ $t('buttons.publish') }}
               </label>
             </div>
-            <div class="inputModalItem flexColumnStart">
+            <div class="inputModalItem flexColumnStart instagramInputWrapper">
               <label 
                 for="instagram"
                 class="labelTitle"
               >
                 {{ $t('placeholders.instagram') }}
               </label>
+              <span class="additionalText">
+                @
+              </span>
               <input 
                 type="text" 
                 name="instagram" 
                 id="instagram"
-                :placeholder="$t('placeholders.enter') + ' ' + $t('placeholders.instagram')" 
+                :placeholder="$t('placeholders.instagram')" 
                 class="contentInput instagramInput"
+                :class="{'invalidInput': !validInstagram}"
                 v-model="formData.instagram"
               />
+              <span 
+                v-if="!validInstagram"
+                class="warningNotification note red"
+              >
+                {{ $t('invalidInputs.invalidInstagramHandleFormat') }}
+              </span>
               <label 
                 for="publishInstagram"
                 class="checkBoxWrapper checkBoxWrapperInstagram flexRowStart"
@@ -486,7 +510,7 @@ const deleteUser = async () => {
         <div class="inputModalFooter buttons">
           <button 
             class="button" 
-            @click="displayEditProfileModal = false"
+            @click="closeEditProfileModal()"
           >
             {{ $t('buttons.cancel') }}
           </button>
@@ -555,16 +579,19 @@ const deleteUser = async () => {
           </div>
         </div>
         <div class="inputModalFooter buttons">
-          <button class="button">
-            {{ $t('buttons.cancel') }}
-          </button>
           <button 
             class="button"
+            @click="displayDeleteProfileModal = false"
+          >
+            {{ $t('buttons.cancel') }}
+          </button>
+          <nuxt-link 
+            class="button"
             :class="deleteCheckbox ? 'bg_red' : 'button_disabled'"
-            @click="deleteUser()"
+            :to="$localePath('/Feedback')"
           >
             {{ $t('buttons.confirm') }}
-          </button>
+          </nuxt-link>
         </div>
       </div>
     </GeneralInputModal>

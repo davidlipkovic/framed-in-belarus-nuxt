@@ -127,6 +127,11 @@ const handleUpdateTag = (type, tag) => {
   updateQuery(type.charAt(0), tag)
 }
 
+const clearSearchQuery = () => {
+  updateQuery('search', '')
+  searchQuery.value = ''
+}
+
 watch(() => route.query, (newQuery, oldQuery) => {
     if (newQuery.p) {
       if (newQuery.p === oldQuery?.p) {
@@ -200,6 +205,13 @@ watch(() => locale, () => {
             v-model="searchQuery"
             @input="updateQuery('search', searchQuery)"
           />
+          <button
+            v-if="searchQuery?.length > 2"
+            class="clearSearchBtn"
+            @click="clearSearchQuery()"
+          >
+            <SvgClose />
+          </button>
         </div>
         <button 
           class="resetBtn"
