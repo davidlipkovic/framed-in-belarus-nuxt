@@ -944,9 +944,9 @@
             "Other": "Другое"
         },
         "statuses": {
-            "upcoming": "upcoming",
-            "ongoing": "ongoing",
-            "passed": "passed"
+            "upcoming": "предстоящее",
+            "ongoing": "текущее",
+            "passed": "прошедшее"
         },
         "types": {
             "announce": "анонс",
