@@ -943,6 +943,11 @@
             "Exhibition": "Exhibition",
             "Other": "Other"
         },
+        "statuses": {
+            "upcoming": "upcoming",
+            "ongoing": "ongoing",
+            "passed": "passed"
+        },
         "types": {
             "announce": "announce",
             "report": "report"
