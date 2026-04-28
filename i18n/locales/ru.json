@@ -943,6 +943,11 @@
             "Exhibition": "Выставка",
             "Other": "Другое"
         },
+        "statuses": {
+            "upcoming": "upcoming",
+            "ongoing": "ongoing",
+            "passed": "passed"
+        },
         "types": {
             "announce": "анонс",
             "report": "отчет"

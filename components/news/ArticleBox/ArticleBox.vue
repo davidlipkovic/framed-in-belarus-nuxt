@@ -19,20 +19,6 @@ const perex = computed(() => {
 const title = computed(() => {
   return getCurrentLocaleStringValue(props.article, 'title_')
 })
-
-const status = computed(() => {
-  const currentDate = new Date()
-  const startDate = new Date(props.article.startDate)
-  const endDate = new Date(props.article.endDate)
-
-  if (currentDate < startDate) {
-    return 'upcoming'
-  } else if (currentDate > endDate) {
-    return 'passed'
-  } else {
-    return 'ongoing'
-  }
-})
 </script>
 
 <template>
@@ -42,7 +28,7 @@ const status = computed(() => {
         {{ $t('newsPage.categories.' + article.category) }}
       </div>
       <div class="typeTag capitalize">
-        {{ status }}
+        {{ article.status }}
       </div>
     </div>
     <!-- <a

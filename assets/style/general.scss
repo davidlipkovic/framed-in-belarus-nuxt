@@ -183,6 +183,10 @@ svg {
     margin-top: 0;
   }
 
+  .Content {
+    padding-top: 60px;
+  }
+
   .containsPointerUp {
     .Content {
       margin-bottom: -118px;
@@ -212,7 +216,6 @@ svg {
 @media screen and (min-width: $br-point-lg) {
   .Content {
     min-height: calc(100vh - 10.876rem);
-    padding-top: 60px;
 
     .button {
       margin-right: 1.25rem;
