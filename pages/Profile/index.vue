@@ -112,7 +112,7 @@ const embroideriesCards = computed(() => {
 
     if (embroidery.status.toLowerCase() === 'prepublished') {
       embroideryCard.icon = resolveComponent('SvgTriangleWarning')
-      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.prepublished', { deadline: '30.1.2024' })
+      embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.prepublished', { deadline: embroidery.deadline ? embroidery.deadline : '10.5.2026' })
     } else if (embroidery.status.toLowerCase() === 'editing') {
       embroideryCard.icon = resolveComponent('SvgQuestionCircle')
       embroideryCard.tooltip = t('profilePage.embroideryCardTooltips.editing')

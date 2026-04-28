@@ -77,7 +77,8 @@ watch(() => registrationStore.email, () => {
     <h1 class="title">
       {{ $t("signInPage.title") }}
     </h1>
-    <p class="signUpLink">
+    <!-- WIP, hidden until registration for all not just old users -->
+    <!-- <p class="signUpLink">
       {{ $t("signInPage.signUpQuestion.content") }}
       <nuxt-link 
         :to="$localePath('/SignUp')"
@@ -85,7 +86,7 @@ watch(() => registrationStore.email, () => {
       >
         {{ $t("signInPage.signUpQuestion.highlight") }}
       </nuxt-link>
-    </p>
+    </p> -->
     <div class="formWrapper">
       <div class="inputWrapper inputWrapperWarningTop">
         <input 

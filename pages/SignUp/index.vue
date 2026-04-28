@@ -254,7 +254,8 @@ watch(formData, (newformData) => {
     <h1 class="title">
       {{ $t("signUpPage.title") }}
     </h1>
-    <p 
+    <!-- WIP, hidden until registration for all not just old users -->
+    <!-- <p 
       v-if="!userStore.oldUser"
       class="signUpDescription"
     >
@@ -265,7 +266,7 @@ watch(formData, (newformData) => {
       >
         {{ $t("links.signIn") }}
       </nuxt-link>
-    </p>
+    </p> -->
     <template v-if="!technicalIssue">
       <form class="formWrapper">
         <div

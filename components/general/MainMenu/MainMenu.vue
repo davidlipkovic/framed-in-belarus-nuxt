@@ -114,14 +114,14 @@ watch(width, n => {
             >
               {{ $t('links.participate') }}
             </a>
-            <button
+            <!-- <button
               v-if="userStore.user"
               class="helpButtonDesktop flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
               <SvgHelpCircle/>
-            </button>
+            </button> -->
             <button
               v-if="userStore.user"
               class="profileButton profileButtonDesktop flexRowCenter"
