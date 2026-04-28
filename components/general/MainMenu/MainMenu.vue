@@ -79,6 +79,12 @@ watch(width, n => {
               {{ $t('links.home') }}
             </nuxt-link>
             <nuxt-link
+              :to="$localePath('/Gallery')"
+              :class="{ 'redImportatnt' : checkCurrentRoute('Gallery') }"
+            >
+              {{ $t('links.gallery') }}
+            </nuxt-link>
+            <nuxt-link
               :to="$localePath('/Events')"
               :class="{ 'redImportatnt' : checkCurrentRoute('Events') }"
             >
@@ -90,6 +96,13 @@ watch(width, n => {
             >
               {{ $t('links.aboutUs') }}
             </nuxt-link> -->
+            <nuxt-link
+              v-if="!userStore.user"
+              :to="$localePath('/SignIn')"
+              class="signInMobile"
+            >
+              {{ $t('links.signIn') }}
+            </nuxt-link>
             <button
               v-if="userStore.user"
               :to="$localePath('/')"
@@ -100,6 +113,13 @@ watch(width, n => {
             </button>
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
+            <nuxt-link
+              v-if="!userStore.user"
+              :to="$localePath('/SignIn')"
+              class="Login"
+            >
+              {{ $t('links.signIn') }}
+            </nuxt-link>
             <a
               v-if="!userStore.user"
               href="https://donorbox.org/framedinbelarus"

@@ -1,0 +1,49 @@
+@import "../../assets/style/globalPartials/variables";
+
+.Content {
+  background-color: $redDark;
+}
+
+.Title {
+  color: $white;
+
+  .content {
+    color: $white;
+  }
+
+  &::before {
+    background-color: rgba(134,12,34,0.71);
+  }
+}
+
+.Footer {
+  margin-top: 0;
+}
+
+.galleryBox {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.galleryContent {
+  input.search:focus{
+    outline: none;
+  }
+
+  .noResultsWrapper {
+    max-width: 100%;
+    color: $white;
+    margin: 64px auto;
+
+    * {
+      color: $white;
+    }
+  }
+}
