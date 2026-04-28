@@ -16,7 +16,7 @@ const router = useRouter()
 const { locale, t } = useI18n()
 const registrationStore = useRegistrationStore()
 const userStore = useUserStore()
-const { validateEmail, validateText } = useValidateInputs()
+const { validateEmail, validateText, validateInstagram } = useValidateInputs()
 const { localesNames } = useCurrentLocale()
 
 definePageMeta({
@@ -25,13 +25,14 @@ definePageMeta({
   //WIP
   middleware: [
     async function (to, from) {
+      // const localePath = useLocalePath()
+
       if (to.query.userId && to.query.userToken) {
         const userStore = useUserStore()
         await userStore.getOldUserData(to.query.userId, to.query.userToken)
-
-      // // wip
+      // wip
       // } else {
-      //   return navigateTo('/')
+      //   return navigateTo(localePath('/'))
       }
     },
   ],
@@ -61,10 +62,9 @@ const formData = reactive({
   reason: null,
   publishReason: true,
   terms: false,
-  subscription: false,
+  subscription: true,
 })
 
-const success = ref(false)
 const technicalIssue = ref(false)
 const currentSlide = ref(1)
 const showBelarusModal = ref(false)
@@ -101,9 +101,17 @@ const validEmailData = computed(() => validateEmail(formData.email))
 
 const validDataSlide1 = computed(() => validUsernameData.value && validEmailData.value && formData.language)
 
+const validInstagram = computed(() => {
+  if (!formData.instagram || formData.instagram.length === 0) {
+    return true
+  }
+
+  return validateInstagram(formData.instagram)
+})
+
 const validReasonData = computed(() => validateText(formData.reason))
 
-const validDataSlide2 = computed(() => validReasonData.value)
+const validDataSlide2 = computed(() => validInstagram.value && formData.source && validReasonData.value)
 
 onClickOutside(usernameInput, () => {
   if (formData.username) {
@@ -131,6 +139,10 @@ const signUp = async () => {
     formData.publishInstagram = false
   }
 
+  if (formData.instagram) {
+    formData.instagram = '@' + formData.instagram
+  }
+
   Object.keys(formData).forEach(key => {
     body[key] = formData[key]
   })
@@ -149,7 +161,7 @@ const signUp = async () => {
 }
 
 const cancelRegistration = () => {
-  router.push('/')
+  router.push($localePath('/'))
 }
 
 const updateCurrentSlide = (slide) => {
@@ -240,10 +252,14 @@ watch(formData, (newformData) => {
     <Head>
       <Meta name="robots" content="noindex" />
     </Head>
-    <h1 class="title" v-if="!success && !technicalIssue">
+    <h1 class="title">
       {{ $t("signUpPage.title") }}
     </h1>
-    <!-- <p class="signUpDescription">
+    <!-- WIP, hidden until registration for all not just old users -->
+    <!-- <p 
+      v-if="!userStore.oldUser"
+      class="signUpDescription"
+    >
       {{ $t("signUpPage.signInQuestion") }}
       <nuxt-link 
         :to="$localePath('/SignIn')"
@@ -252,7 +268,7 @@ watch(formData, (newformData) => {
         {{ $t("links.signIn") }}
       </nuxt-link>
     </p> -->
-    <template v-if="!success && !technicalIssue">
+    <template v-if="!technicalIssue">
       <form class="formWrapper">
         <div
           v-show="currentSlide === 1" 
@@ -395,15 +411,28 @@ watch(formData, (newformData) => {
             <div class="slideBorder"/>
             <div class="inputRowWrapper flexColumnStart inputRowWrapperInstagram">
               <div class="inputContentWrapper flexColumnStart">
-                <input 
-                  type="text" 
-                  name="instagram" 
-                  id="instagram" 
-                  :placeholder="$t('placeholders.instagram')" 
-                  class="instagramInput"
-                  v-model="formData.instagram"
-                  maxlength="31"
-                />
+                <div class="inputWrapper inputWrapperWarningTop instagramInputWrapper">
+                  <span class="additionalText">
+                    @
+                  </span>
+                  <input 
+                    type="text" 
+                    name="instagram" 
+                    id="instagram" 
+                    v-model="formData.instagram"
+                    :placeholder="$t('placeholders.instagram')" 
+                    class="instagramInput"
+                    :class="{'invalidInput': !validInstagram}"
+                    ref="instagramInput"
+                    maxlength="30"
+                  />
+                  <span 
+                    v-if="!validInstagram"
+                    class="warningNotification note red"
+                  >
+                    {{ $t('invalidInputs.invalidInstagramHandleFormat') }}
+                  </span>
+                </div>
                 <label
                   for="mentionInstagram"
                   class="checkBoxWrapper checkBoxWrapperMentionInstagram flexRowStart"
@@ -690,20 +719,6 @@ watch(formData, (newformData) => {
         </div>
       </GeneralInputModal>
     </template>
-    <div 
-      v-else-if="success"
-      class="flexColumnCenter"
-    >
-      <SvgCheckMark/>
-      <h1 class="title">
-        {{ $t('signUpPage.success.title') }}
-      </h1>
-      <nuxt-link 
-        :to="$localePath('/')"
-      >
-        {{ $t('signUpPage.success.link') }}
-      </nuxt-link>
-    </div>
     <div 
       v-else-if="technicalIssue"
       class="flexColumnCenter"

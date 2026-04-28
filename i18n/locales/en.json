@@ -33,7 +33,8 @@
         "gotIt": "Got it",
         "resetFilters": "Reset filters",
         "correctionsNeeded": "Corrections needed",
-        "resendPin": "Resend pin"
+        "resendPin": "Resend pin",
+        "verifyEmail": "Verify email"
     },
     "placeholders": {
         "email": "Email",
@@ -101,7 +102,8 @@
         "pleaseEnterNameAndSurnameOfPrisoner": "Please enter name and surname of prisoner",
         "pleaseEnterHerosStory": "Please enter Hero*ine’s story",
         "invalidPinCode": "Invalid pin code",
-        "enterReason": "Enter your reason for joining the project"
+        "enterReason": "Enter your reason for joining the project",
+        "invalidInstagramHandleFormat": "Invalid instagram handle format"
     },
     "links": {
         "home": "Home",

@@ -173,14 +173,14 @@ onClickOutside(emailInput, () => {
             >
               {{ $t('links.participate') }}
             </a>
-            <button
+            <!-- <button
               v-if="userStore.user"
               class="Info-menu-item helpButton flexRowCenter"
               @click="toggleQuestionModal = !toggleQuestionModal"
               v-tooltip="$t('mainMenu.question.label')"
             >
               <SvgHelpCircle/>
-            </button>
+            </button> -->
             <button
               v-if="userStore.user"
               class="profileButton flexRowCenter"

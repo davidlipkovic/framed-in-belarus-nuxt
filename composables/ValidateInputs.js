@@ -28,6 +28,11 @@ export function useValidateInputs() {
     return integerRegex.test(number)
   }
 
+  const validateInstagram = (username) => {
+    const instagramRegex = /^(?!@)[a-zA-Z0-9._]{1,30}$/
+    return instagramRegex.test(username)
+  }
+
   return {
     validateAddressWithZipAndCountry,
     validateEmail,
@@ -35,5 +40,6 @@ export function useValidateInputs() {
     validateNameAndSurname,
     validateText,
     validatePinData,
+    validateInstagram,
   }
 }

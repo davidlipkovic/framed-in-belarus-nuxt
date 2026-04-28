@@ -3,8 +3,10 @@ import useUserStore from "@/stores/user"
 const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
+  const localePath = useLocalePath()
+
   if (!userStore.user) {
-    return navigateTo('/')
+    return navigateTo(localePath('/'))
   }
 
   await userStore.getUserEmbroideries()
@@ -17,6 +19,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   })
 
   if (!allowToProceed) {
-    return navigateTo('/')
+    return navigateTo(localePath('/'))
   }
 })
