@@ -34,7 +34,7 @@
         "resetFilters": "Скінуць фільтры",
         "correctionsNeeded": "Патрэбны выпраўленні",
         "resendPin": "Даслаць PIN-код зноў",
-        "verifyEmail": "Verify email"
+        "verifyEmail": "Пацвердзіце емэйл"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -103,7 +103,7 @@
         "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні",
         "invalidPinCode": "Памылковы PIN-код",
         "enterReason": "Укажыце прычыну вашага далучэння да праекту",
-        "invalidInstagramHandleFormat": "Invalid instagram handle format"
+        "invalidInstagramHandleFormat": "Няправільны фармат імя карыстальніка Instagram"
     },
     "links": {
         "home": "Галоўная",
