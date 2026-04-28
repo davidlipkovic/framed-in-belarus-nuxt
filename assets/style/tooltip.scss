@@ -1,5 +1,9 @@
 @import "./globalPartials/variables.scss";
 
+.v-popper__popper {
+  max-width: 215px;
+}
+
 .v-popper__inner {
   background-color: $greyDark;
 
@@ -10,4 +14,9 @@
 
 .v-popper__arrow-container {
   display: none !important;
+}
+
+.v-popper__popper.v-popper--theme-card-tooltip {
+  margin-top: 50px;
+  max-width: 240px;
 }

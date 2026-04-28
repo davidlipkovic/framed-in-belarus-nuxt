@@ -33,7 +33,8 @@
         "gotIt": "Прыняць",
         "resetFilters": "Скінуць фільтры",
         "correctionsNeeded": "Патрэбны выпраўленні",
-        "resendPin": "Даслаць PIN-код зноў"
+        "resendPin": "Даслаць PIN-код зноў",
+        "verifyEmail": "Verify email"
     },
     "placeholders": {
         "email": "Емэйл",
@@ -101,7 +102,8 @@
         "pleaseEnterNameAndSurnameOfPrisoner": "Калі ласка, увядзіце імя і прозвішча палітзняволенаго*ай",
         "pleaseEnterHerosStory": "Калі ласка, напішыце гісторыю Героя*іні",
         "invalidPinCode": "Памылковы PIN-код",
-        "enterReason": "Укажыце прычыну вашага далучэння да праекту"
+        "enterReason": "Укажыце прычыну вашага далучэння да праекту",
+        "invalidInstagramHandleFormat": "Invalid instagram handle format"
     },
     "links": {
         "home": "Галоўная",

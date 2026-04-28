@@ -102,6 +102,23 @@
     }
   }
 
+  .instagramInputWrapper {
+    position: relative;
+
+    .additionalText {
+      position: absolute;
+      left: 15px;
+      z-index: 1;
+      font-size: 16px;
+      top: 8px;
+      pointer-events: none;
+    }
+
+    .instagramInput {
+      padding-left: 30px;
+    }
+  }
+
   .buttonsWrapper {
     justify-content: center;
 

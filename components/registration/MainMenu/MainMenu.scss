@@ -4,6 +4,10 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 7px;
+  position: sticky;
+  background-color: $white;
+  top: 0;
+  z-index: 1;
 
   * {
     color: $greyDark;
@@ -39,14 +43,10 @@
 }
 
 @media screen and (min-width: $br-point-lg) {
-  .registrationlg .mainMenuWrapperRegistration .content {
-    max-width: 778px;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: $br-point-lg) {
   .mainMenuWrapperRegistration {
+    position: static;
+    background-color: unset;
+
     .content {
       padding-left: 545px;
     }
@@ -54,6 +54,8 @@
 
   .registrationlg .mainMenuWrapperRegistration .content {
     padding-left: unset;
+    max-width: 778px;
+    width: 100%;
   }
 
   .langMenuWrapperRegistration {

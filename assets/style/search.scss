@@ -39,6 +39,17 @@
   pointer-events: none;
 }
 
+.clearSearchBtn {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+
+  svg {
+    width: 18px;
+    fill: $black;
+  }
+}
+
 .resetBtn {
   width: 100%;
   display: flex;

@@ -148,7 +148,7 @@ const notification = computed(() => {
     notificationContent.icon = resolveComponent('SvgQuestionCircle')
     notificationContent.message = t('casePage.notification.editing')
   } else if (galleryStore.currentEmbroidery.status === 'Published') {
-    notificationContent.type = 'information'
+    notificationContent.type = 'success'
     notificationContent.icon = resolveComponent('SvgQuestionCircle')
     notificationContent.message = t('casePage.notification.published')
   }
@@ -237,11 +237,12 @@ watch(width, (newWidth) => {
       v-if="notification"
       class="notificationWrapper flexRowCenter"
       :class="{
-        'notificationInformation': notification.type === 'information',
         'notificationWarning': notification.type === 'warning',
+        'notificationInformation': notification.type === 'information',
+        'notificationSuccess': notification.type === 'success',
       }"
     >
-      <div class="contentWrapper flexColumnCenter">
+      <div class="content contentWrapper flexColumnCenter">
         <div class="flexRowCenter">
           <component :is="notification.icon"/>
           <p>

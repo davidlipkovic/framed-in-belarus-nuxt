@@ -6,6 +6,8 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     return
   }
 
+  const localePath = useLocalePath()
+
   userStore.loading = true
 
   const userLocalData = userStore.checkUserLocalData()
@@ -15,11 +17,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (!userStore.user) {
       userStore.loading = false
-      return navigateTo('/')
+      return navigateTo(localePath('/'))
     }
   } else {
     userStore.loading = false
-    return navigateTo('/')
+    return navigateTo(localePath('/'))
   }
 
   userStore.loading = false

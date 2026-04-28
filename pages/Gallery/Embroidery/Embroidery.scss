@@ -10,8 +10,6 @@
     min-height: 74px;
 
     .contentWrapper {
-      width: 100%;
-      max-width: 1620px;
       justify-content: space-between;
       gap: 16px;
     }
@@ -66,6 +64,16 @@
       fill: $warning;
       min-width: 20px;
       max-width: 20px;
+    }
+  }
+
+  .notificationSuccess {
+    background-color: $white;
+
+    svg {
+      fill: $success;
+      min-width: 30px;
+      max-width: 30px;
     }
   }
 
