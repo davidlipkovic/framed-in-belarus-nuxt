@@ -67,9 +67,6 @@ onClickOutside(pinInput, () => {
 
 <template>
   <div class="content verifyEmailWrapper">
-    <Head>
-      <Meta name="robots" content="noindex" />
-    </Head>
     <h1 class="title">
       {{ $t('verifyEmailPage.title') }}
     </h1>
