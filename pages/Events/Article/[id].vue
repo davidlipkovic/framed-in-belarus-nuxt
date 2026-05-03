@@ -20,6 +20,8 @@ const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 const { convertToEventDate } = useConvertDate()
 
+const newsDetailWrapper = ref(null)
+
 const article = computed(() => {
   return newsStore.articles.find(article => article.id === route.params.id)
 })
@@ -70,6 +72,14 @@ useHead({
     { property: 'og:image', content: article.value.photo },
   ],
 })
+
+onMounted(() => {
+  const anchors = newsDetailWrapper.value.querySelectorAll('a')
+
+  for (var i=0; i<anchors.length; i++){
+    anchors[i].setAttribute('target', '_blank')
+  }
+})
 </script>
 
 <template>
@@ -99,10 +109,12 @@ useHead({
             {{ article.place }}, {{ article.city }}, {{ article.country }}
           </b>
         </p>
-        <vue-markdown 
-          class="newsDetailWrapper"
-          :source="description" 
-        />
+        <div ref="newsDetailWrapper">
+          <vue-markdown 
+            class="newsDetailWrapper"
+            :source="description" 
+          />
+        </div>
         <div class="galleryWrapper">
           <img
             v-for="(photo, i) in slides"
