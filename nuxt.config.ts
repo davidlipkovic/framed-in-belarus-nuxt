@@ -44,6 +44,7 @@ export default defineNuxtConfig({
         '@nuxt/content',
         '@nuxt/image',
         '@nuxtjs/i18n',
+        '@nuxtjs/sitemap',
         '@pinia/nuxt',
         '@vueuse/nuxt',
         'floating-vue/nuxt',
@@ -73,6 +74,28 @@ export default defineNuxtConfig({
         ],
         lazy: true,
         defaultLocale: 'en'
+    },
+
+    site: { 
+        url: 'https://framedinbelarus.net', 
+        name: 'Framed in Belarus' 
+    }, 
+
+    sitemap: {
+        sources: ['/api/__sitemap__/urls'],
+        exclude: [
+            '/AboutUs',
+            '/Corrections',
+            '/Embroidery/**',
+            '/Feedback',
+            '/NotReady',
+            '/Profile',
+            '/SignIn',
+            '/SignUp',
+            '/VerifyEmail',
+        ],
+        cacheMaxAgeSeconds: 3600, // rebuild at most once per hour
+        i18n: true,  // auto-adds hreflang for your 3 locales
     },
 
     ssr: false
