@@ -1,3 +1,3 @@
-node version: v22.8.0
+node version: v24.11.0
 package manager: npm
-NUXT.js version: 3.17
+NUXT.js version: 4.4.5
