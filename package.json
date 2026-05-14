@@ -12,26 +12,23 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/image": "^1.10.0",
-    "@nuxtjs/i18n": "^9.5.4",
-    "@nuxtjs/sitemap": "^8.0.15",
-    "nuxt": "^3.17.2",
-    "sass": "^1.87.0",
-    "sass-loader": "^14.2.1",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.1"
-  },
   "dependencies": {
-    "@nuxt/content": "^2.13.4",
-    "@pinia/nuxt": "^0.5.5",
-    "@vueuse/nuxt": "^13.1.0",
-    "dayjs": "^1.11.13",
+    "@nuxtjs/i18n": "^10.3.0",
+    "@nuxtjs/sitemap": "^8.0.15",
+    "@pinia/nuxt": "^0.11.3",
+    "@vueuse/nuxt": "^14.3.0",
+    "dayjs": "^1.11.20",
     "floating-vue": "^5.2.2",
-    "pinia": "^2.3.1",
-    "ss-search": "^1.12.2",
-    "swiper": "^11.2.6",
-    "vue-markdown-render": "^2.2.1"
+    "nuxt": "^4.4.5",
+    "pinia": "^3.0.4",
+    "ss-search": "^1.13.0",
+    "swiper": "^12.1.4",
+    "vue": "^3.5.34",
+    "vue-markdown-render": "^2.3.0",
+    "vue-router": "^5.0.6"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
   },
   "browserslist": [
     ">0.3%",

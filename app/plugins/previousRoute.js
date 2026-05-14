@@ -1,7 +1,7 @@
 export default defineNuxtPlugin((nuxtApp) => {
   let lastRoute = null
 
-  nuxtApp.$router.beforeEach((to, from, next) => {    
+  nuxtApp.$router.beforeEach((to, from, next) => {
     if (from.fullPath) {
       let fromFullPath = from.fullPath
 
