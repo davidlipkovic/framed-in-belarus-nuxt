@@ -1,7 +1,7 @@
 export default defineNuxtPlugin((nuxtApp) => {
   let lastRoute = null
 
-  nuxtApp.$router.beforeEach((to, from, next) => {
+  nuxtApp.$router.beforeEach((to, from) => {
     if (from.fullPath) {
       let fromFullPath = from.fullPath
 
@@ -19,8 +19,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         lastRoute = fromFullPath
       }
     }
-
-    next()
   })
 
   nuxtApp.provide('getPreviousRoute', () => lastRoute)
