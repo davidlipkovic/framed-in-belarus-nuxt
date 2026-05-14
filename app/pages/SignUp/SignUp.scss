@@ -1,8 +1,8 @@
-@import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/extends/checkBox";
-@import "../../assets/style/mixins/sign";
-@import "../../assets/style/mixins/swiper";
-@import "../../assets/style/mixins/modal";
+@use "../../assets/style/globalPartials/variables.scss" as *;
+@use "../../assets/style/extends/checkBox" as *;
+@use "../../assets/style/mixins/sign" as *;
+@use "../../assets/style/mixins/swiper" as *;
+@use "../../assets/style/mixins/modal" as *;
 
 .registrationlgLayout {
   .Content {

@@ -1,4 +1,4 @@
-@import "./globalPartials/variables.scss";
+@use "./globalPartials/variables.scss" as *;
 
 .v-popper__popper {
   max-width: 215px;

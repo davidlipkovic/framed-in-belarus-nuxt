@@ -1,4 +1,4 @@
-@import "./globalPartials/variables.scss";
+@use "./globalPartials/variables.scss" as *;
 
 .searchWrapper {
   .buttons {

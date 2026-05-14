@@ -1,4 +1,4 @@
-@import "../globalPartials/variables";
+@use "../globalPartials/variables.scss" as *;
 
 @mixin inputBorderLight {
   border: 1px solid $greyLight;

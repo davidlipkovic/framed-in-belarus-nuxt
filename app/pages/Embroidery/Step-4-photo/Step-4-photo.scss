@@ -1,6 +1,6 @@
-@import "../../../assets/style/globalPartials/variables";
-@import "../../../assets/style/mixins/general";
-@import "../../../assets/style/mixins/steps";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/mixins/general" as *;
+@use "../../../assets/style/mixins/steps" as *;
 
 @include buttons;
 @include limitedTextWidthLg;

@@ -1,5 +1,5 @@
-@import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/extends/dropdown";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/extends/dropdown" as *;
 
 .longDropdown {
   position: relative;

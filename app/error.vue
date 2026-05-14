@@ -89,7 +89,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "./assets/style/globalPartials/variables.scss";
+@use "./assets/style/globalPartials/variables.scss" as *;
 
 .NotFound {
   * {

@@ -1,9 +1,9 @@
-@import "globalPartials/variables.scss";
-@import "globalPartials/generalClasses.scss";
+@use "globalPartials/variables.scss" as *;
+@use "globalPartials/generalClasses.scss" as *;
 
-@import "form.scss";
-@import "tooltip.scss";
-@import "svg.scss";
+@use "form.scss" as *;
+@use "tooltip.scss" as *;
+@use "svg.scss" as *;
 
 * {
   color: $black;

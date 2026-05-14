@@ -1,4 +1,4 @@
-@import "../../../assets/style/globalPartials/variables";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
 
 .toggleTextWrapper {
   h3 {

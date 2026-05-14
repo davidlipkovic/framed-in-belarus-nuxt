@@ -1,6 +1,6 @@
-@import "../../../assets/style/globalPartials/variables";
-@import "../../../assets/style/mixins/modal";
-@import "../../../assets/style/extends/dropdown";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/mixins/modal" as *;
+@use "../../../assets/style/extends/dropdown" as *;
 
 .step1ChooseHeroContent {
 	h2.subTitle {

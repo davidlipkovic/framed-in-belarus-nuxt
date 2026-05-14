@@ -1,5 +1,5 @@
-@import "../../../assets/style/globalPartials/variables";
-@import "../../../assets/style/extends/modal";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/extends/modal" as *;
 
 .pattern{
   margin: 0 auto 18px;

@@ -1,4 +1,4 @@
-@import "../globalPartials/variables";
+@use "../globalPartials/variables.scss" as *;
 
 .checkBoxWrapper {
   margin: 6px 3px 0;

@@ -1,5 +1,5 @@
-@import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/mixins/sign";
+@use "../../assets/style/globalPartials/variables.scss" as *;
+@use "../../assets/style/mixins/sign" as *;
 
 .signInWrapper {
   @include signTitle;

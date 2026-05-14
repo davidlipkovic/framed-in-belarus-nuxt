@@ -1,5 +1,5 @@
-@import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/mixins/swiper";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/mixins/swiper" as *;
 
 .basicSwiperWrapper {
   width: 448px;

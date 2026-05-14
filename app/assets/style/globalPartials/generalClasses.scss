@@ -1,4 +1,5 @@
-@import "../mixins/general";
+@use "./variables.scss" as *;
+@use "../mixins/general" as *;
 
 .visually-hidden {
   position: absolute;

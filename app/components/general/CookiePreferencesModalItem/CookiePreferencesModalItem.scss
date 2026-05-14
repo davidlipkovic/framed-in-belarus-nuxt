@@ -1,5 +1,5 @@
-@import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/mixins/switcher";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/mixins/switcher" as *;
 
 .cookiePreferencesModalItem {
   @include switcher;

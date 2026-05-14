@@ -1,5 +1,5 @@
-@import "../../assets/style/globalPartials/variables.scss";
-@import "../../assets/style/mixins/general";
+@use "../../assets/style/globalPartials/variables.scss" as *;
+@use "../../assets/style/mixins/general" as *;
 
 @include buttons;
 

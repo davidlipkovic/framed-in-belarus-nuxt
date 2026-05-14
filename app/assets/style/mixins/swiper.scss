@@ -1,4 +1,4 @@
-@import "../globalPartials/variables";
+@use "../globalPartials/variables.scss" as *;
 
 @mixin swiper-pagination-bullet {
   .swiper-pagination-bullet {

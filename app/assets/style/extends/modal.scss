@@ -1,4 +1,4 @@
-@import "../globalPartials/variables";
+@use "../globalPartials/variables.scss" as *;
 
 .modalWrapper {
   position: fixed;

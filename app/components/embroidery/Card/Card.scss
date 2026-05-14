@@ -1,4 +1,4 @@
-@import "../../../assets/style/globalPartials/variables";
+@use "../../../assets/style/globalPartials/variables" as *;
 
 .embroideryCard {
   max-width: 215px;

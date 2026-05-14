@@ -1,7 +1,7 @@
-@import "../../../assets/style/globalPartials/variables.scss";
-@import "../../../assets/style/mixins/general";
-@import "../../../assets/style/extends/modal";
-@import "../../../assets/style/extends/checkBox";
+@use "../../../assets/style/globalPartials/variables.scss" as *;
+@use "../../../assets/style/mixins/general" as *;
+@use "../../../assets/style/extends/modal" as *;
+@use "../../../assets/style/extends/checkBox" as *;
 
 @include buttons;
 
