@@ -31,23 +31,16 @@ export default defineStore("gallery", () => {
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getEmbroideries = async () => {
-    const { data, error } = await useFetch(
+    const data = await $fetch(
       endpointUrl + '/api/prisoners/gallery', 
       {
         method: 'get',
       }
     )
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
+    console.log('getEmbroideries', data.result)
 
-    console.log('getEmbroideries', data.value.result)
-
-    originalEmbroideries.value = data.value.result
+    originalEmbroideries.value = data.result
   }
 
   const populateGroupCases = () => {
@@ -75,27 +68,20 @@ export default defineStore("gallery", () => {
   }
 
   const updateTagsGroupCasesOrder = (lang) => {
-    tags.value.case.group = tags.value.case.group.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
+    tags.value.case.group = tags.value.case.group?.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
   }
 
   const getEmbroidery = async (id) => {
-    const { data, error } = await useFetch(
+    const data = await $fetch(
       endpointUrl + '/api/prisoners/gallery/' + id, 
       {
         method: 'get',
       }
     )
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
-
-    console.log('getEmbroidery', data.value.result)
+    console.log('getEmbroidery', data.result)
     
-    currentEmbroidery.value = data.value.result
+    currentEmbroidery.value = data.result
   }
 
   const sortEmbroideries = () => {

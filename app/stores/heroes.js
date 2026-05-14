@@ -33,20 +33,13 @@ export default defineStore("heroes", () => {
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getPrisonersList = async () => {
-    const { data, error } = await useFetch(endpointUrl + '/api/prisoners', {
+    const data = await $fetch(endpointUrl + '/api/prisoners', {
       method: 'get',
     })
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
+    console.log('getPrisonersList', data.result)
 
-    console.log('getPrisonersList', data.value.result)
-
-    originalHeroes.value = data.value.result
+    originalHeroes.value = data.result
   }
   
   const createStitchingActivity = async (kitId) => {

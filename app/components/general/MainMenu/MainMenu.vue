@@ -9,16 +9,21 @@ const userStore = useUserStore()
 const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 
 const route = useRoute()
+const { width } = useWindowSize()
 
 const toggleProfileModal = ref(false)
 const toggleQuestionModal = ref(false)
 const toggleMenu = ref(false)
-const { width } = useWindowSize()
+const isMounted = ref(false)
 
 const signOut = async () => {
   toggleMenu.value = false
   userStore.signOut()
 }
+
+onMounted(() => {
+  isMounted.value = true
+})
 
 watch(route, n => {
   toggleProfileModal.value = false
@@ -39,8 +44,8 @@ watch(width, n => {
     :class="{
       'mainMenuWrapperOpened' : toggleMenu,
       'mainMenuWrapperClosed' : !toggleMenu,
-      'mainMenuWrapperLogged' : userStore.user,
-      'mainMenuWrapperNotLogged' : !userStore.user
+      'mainMenuWrapperLogged' : userStore.user && isMounted,
+      'mainMenuWrapperNotLogged' : !userStore.user || !isMounted,
     }"
   >
     <div class="content flexRowStart">
@@ -99,80 +104,84 @@ watch(width, n => {
               {{ $t('links.aboutUs') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.user"
+              v-if="!userStore.user || !isMounted"
               :to="$localePath('/SignIn')"
               class="signInMobile"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
-            <button
-              v-if="userStore.user"
-              class="helpButtonMobile flexRowCenter"
-              @click="toggleQuestionModal = !toggleQuestionModal"
-            >
-              {{ $t('mainMenu.question.label') }}
-            </button>
-            <button
-              v-if="userStore.user"
-              @click="signOut()"
-              class="signOutMobile"
-            >
-              {{ $t('links.signOut') }}
-            </button>
+            <ClientOnly>
+              <button
+                v-if="userStore.user"
+                class="helpButtonMobile flexRowCenter"
+                @click="toggleQuestionModal = !toggleQuestionModal"
+              >
+                {{ $t('mainMenu.question.label') }}
+              </button>
+              <button
+                v-if="userStore.user"
+                @click="signOut()"
+                class="signOutMobile"
+              >
+                {{ $t('links.signOut') }}
+              </button>
+            </ClientOnly>
           </div>
           <div class="menuUserLinksWrapper flexRowStart">
             <nuxt-link
-              v-if="!userStore.user"
+              v-if="!userStore.user || !isMounted"
               :to="$localePath('/SignIn')"
               class="Login"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.user"
+              v-if="!userStore.user || !isMounted"
               :to="$localePath('/SignUp')"
               class="participateButton button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
-            <button
-              v-if="userStore.user"
-              class="helpButtonDesktop flexRowCenter"
-              @click="toggleQuestionModal = !toggleQuestionModal"
-              v-tooltip="$t('mainMenu.question.label')"
-            >
-              <SvgHelpCircle/>
-            </button>
-            <button
-              v-if="userStore.user"
-              class="profileButton profileButtonDesktop flexRowCenter"
-              :class="{'pointer-events-none': toggleProfileModal}"
-              @click="toggleProfileModal = !toggleProfileModal"
-              v-tooltip="$t('toolTips.profile')"
-            >
-              <div class="flexRowCenter">
-                <img
-                  src="../../../assets/media/img/profileSymbolFramed.svg"
-                >
-              </div>
-              <span>
-                {{ userStore.user.username }}
-              </span>
-            </button>
-            <nuxt-link
-              v-if="userStore.user"
-              class="profileButton profileButtonMobile flexRowCenter"
-              :to="$localePath('/Profile')"
-            >
-              <div class="flexRowCenter">
-                <img
-                  src="../../../assets/media/img/profileSymbolFramed.svg"
-                >
-              </div>
-              <span>
-                {{ userStore.user.username }}
-              </span>
-            </nuxt-link>
+            <ClientOnly>
+              <button
+                v-if="userStore.user"
+                class="helpButtonDesktop flexRowCenter"
+                @click="toggleQuestionModal = !toggleQuestionModal"
+                v-tooltip="$t('mainMenu.question.label')"
+              >
+                <SvgHelpCircle/>
+              </button>
+              <button
+                v-if="userStore.user"
+                class="profileButton profileButtonDesktop flexRowCenter"
+                :class="{'pointer-events-none': toggleProfileModal}"
+                @click="toggleProfileModal = !toggleProfileModal"
+                v-tooltip="$t('toolTips.profile')"
+              >
+                <div class="flexRowCenter">
+                  <img
+                    src="../../../assets/media/img/profileSymbolFramed.svg"
+                  >
+                </div>
+                <span>
+                  {{ userStore.user.username }}
+                </span>
+              </button>
+              <nuxt-link
+                v-if="userStore.user"
+                class="profileButton profileButtonMobile flexRowCenter"
+                :to="$localePath('/Profile')"
+              >
+                <div class="flexRowCenter">
+                  <img
+                    src="../../../assets/media/img/profileSymbolFramed.svg"
+                  >
+                </div>
+                <span>
+                  {{ userStore.user.username }}
+                </span>
+              </nuxt-link>
+            </ClientOnly>
             <GeneralProfileModal
               v-if="toggleProfileModal"
               class="profileModalHeader"

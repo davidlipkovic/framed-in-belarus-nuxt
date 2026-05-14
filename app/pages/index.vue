@@ -13,11 +13,17 @@ definePageMeta({
   ],
 })
 
+const isMounted = ref(false)
+
 const numberOfHeroes = computed(() => {
   if (!heroesStore.loading && heroesStore.originalHeroes) {
     return heroesStore.originalHeroes.length
   }
   return 3000
+})
+
+onMounted(() => {
+  isMounted.value = true
 })
 </script>
 
@@ -46,7 +52,7 @@ const numberOfHeroes = computed(() => {
         </p>
         <div class="flexRowStart">
           <nuxt-link
-            :to="userStore.user ? $localePath('/Profile') : $localePath('/SignUp')"
+            :to="userStore.user && isMounted ? $localePath('/Profile') : $localePath('/SignUp')"
             class="button bg_red"
           >
             {{ $t('links.participate') }}
@@ -69,7 +75,7 @@ const numberOfHeroes = computed(() => {
         <div class="section">
           <p class="">
             {{ $t('homePage.paragraph1.content1') }}
-            <span class='bigger1'>
+            <span class='bigger1' data-allow-mismatch>
               {{ numberOfHeroes }}
             </span>
             {{ $t('homePage.paragraph1.content2') }}

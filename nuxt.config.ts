@@ -67,6 +67,14 @@ export default defineNuxtConfig({
     // lazy: true,
     defaultLocale: 'en'
   },
+  routeRules: {
+    '/Corrections/**': { ssr: false },
+    '/Embroidery/**': { ssr: false },
+    '/Feedback/**': { ssr: false },
+    '/NotReady/**': { ssr: false },
+    '/Profile/**': { ssr: false },
+    '/VerifyEmail/**': { ssr: false },
+  },
   site: { 
     url: 'https://framedinbelarus.net', 
     name: 'Framed in Belarus' 
@@ -85,9 +93,5 @@ export default defineNuxtConfig({
       '/VerifyEmail',
     ],
     cacheMaxAgeSeconds: 3600, // rebuild at most once per hour
-  },
-  ssr: false,
-  experimental: {
-    viteEnvironmentApi: true,
   },
 })

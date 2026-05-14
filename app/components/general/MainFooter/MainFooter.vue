@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import useUserStore from "@/stores/user"
 import { useCheckCurrentRoute } from "@/composables/CheckCurrentRoute";
 import { useValidateInputs } from "@/composables/ValidateInputs";
@@ -13,6 +12,7 @@ const { checkCurrentRoute, checkHomeRoute } = useCheckCurrentRoute()
 const { validateEmail } = useValidateInputs()
 
 const route = useRoute()
+const isMounted = ref(false)
 
 const language = ref(null)
 
@@ -51,6 +51,10 @@ const subscribe = async () => {
 
   toggleSubscribeModal.value = true
 }
+
+onMounted(() => {
+  isMounted.value = true
+})
 
 watch(route, n => {
   toggleProfileModal.value = false
@@ -172,43 +176,45 @@ onClickOutside(emailInput, () => {
           </div>
           <div
             class="Info-menu-group flexRowCenter"
-            :class="userStore.user ? 'Info-menu-group-profileWrapper' : ''"
+            :class="{'Info-menu-group-profileWrapper': userStore.user && isMounted}"
           >
             <nuxt-link
-              v-if="!userStore.user"
+              v-if="!userStore.user || !isMounted"
               :to="$localePath('/SignIn')"
               class="Info-menu-item"
             >
               {{ $t('links.signIn') }}
             </nuxt-link>
             <nuxt-link
-              v-if="!userStore.user"
+              v-if="!userStore.user || !isMounted"
               :to="$localePath('/SignUp')"
               class="Info-menu-item button bg_red"
             >
               {{ $t('links.participate') }}
             </nuxt-link>
-            <button
-              v-if="userStore.user"
-              class="Info-menu-item helpButton flexRowCenter"
-              @click="toggleQuestionModal = !toggleQuestionModal"
-              v-tooltip="$t('mainMenu.question.label')"
-            >
-              <SvgHelpCircle/>
-            </button>
-            <button
-              v-if="userStore.user"
-              class="profileButton flexRowCenter"
-              :class="{'pointer-events-none': toggleProfileModal}"
-              @click="toggleProfileModal = !toggleProfileModal"
-              v-tooltip="$t('toolTips.profile')"
-            >
-              <div class="flexRowCenter">
-                <img
-                  src="../../../assets/media/img/profileSymbolFramed.svg"
-                >
-              </div>
-            </button>
+            <ClientOnly>
+              <button
+                v-if="userStore.user"
+                class="Info-menu-item helpButton flexRowCenter"
+                @click="toggleQuestionModal = !toggleQuestionModal"
+                v-tooltip="$t('mainMenu.question.label')"
+              >
+                <SvgHelpCircle/>
+              </button>
+              <button
+                v-if="userStore.user"
+                class="profileButton flexRowCenter"
+                :class="{'pointer-events-none': toggleProfileModal}"
+                @click="toggleProfileModal = !toggleProfileModal"
+                v-tooltip="$t('toolTips.profile')"
+              >
+                <div class="flexRowCenter">
+                  <img
+                    src="../../../assets/media/img/profileSymbolFramed.svg"
+                  >
+                </div>
+              </button>
+            </ClientOnly>
             <GeneralProfileModal
               v-if="toggleProfileModal"
               class="profileModalFooter"

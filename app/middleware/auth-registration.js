@@ -2,7 +2,7 @@ import useUserStore from "@/stores/user"
 const userStore = useUserStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (userStore.user) {
+  if (import.meta.server || userStore.user) {
     return
   }
 

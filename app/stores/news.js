@@ -39,23 +39,16 @@ export default defineStore("news", () => {
   const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
 
   const getArticles = async () => {
-    const { data, error } = await useFetch(
+    const data = await $fetch(
       endpointUrl + '/api/news', 
       {
         method: 'get',
       }
     )
 
-    if (error.value) {
-      throw createError({ 
-        statusCode: error.value.statusCode,
-        statusMessage: error.value.statusMessage,
-      })
-    }
+    console.log('getArticles', data.result)
 
-    console.log('getArticles', data.value.result)
-
-    articles.value = data.value.result.sort((a, b) => b.startDate.localeCompare(a.startDate))
+    articles.value = data.result.sort((a, b) => b.startDate.localeCompare(a.startDate))
   }
 
   return {

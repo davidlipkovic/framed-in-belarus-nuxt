@@ -9,6 +9,10 @@ const props = defineProps({
 })
 
 watchEffect(() => {
+  if (import.meta.server) {
+    return
+  }
+
   props.displayModal ? document.documentElement.classList.add('overflowHidden') : document.documentElement.classList.remove('overflowHidden')
 })
 </script>
