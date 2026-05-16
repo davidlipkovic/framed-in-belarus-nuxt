@@ -1,4 +1,4 @@
-import { ref, shallowRef } from "vue"
+import { reactive, ref, shallowRef } from "vue"
 import { defineStore } from "pinia"
 import { useApi } from "@/composables/Api"
 
@@ -9,13 +9,14 @@ export default defineStore("gallery", () => {
   const originalEmbroideries = shallowRef(null)
   const embroideriesAlphabetically = shallowRef(null)
   const embroideriesAlphabeticallyReversed = shallowRef(null)
+  // disabled for now
   // const embroideriesChronologically = shallowRef(null)
   // const embroideriesChronologicallyReversed = shallowRef(null)
 
   const currentEmbroidery = ref(null)
   const groupCasesMap = new Map()
 
-  const tags = ref({
+  const tags = reactive({
     case: {
       current: null,
       options: [null, "individual", "group"],
@@ -68,11 +69,11 @@ export default defineStore("gallery", () => {
       }
     })
 
-    tags.value.case.group = groupCasesAccumulator.sort((a, b) => a.caseName_eng.localeCompare(b.caseName_eng))
+    tags.case.group = groupCasesAccumulator.sort((a, b) => a.caseName_eng.localeCompare(b.caseName_eng))
   }
 
   const updateTagsGroupCasesOrder = (lang) => {
-    tags.value.case.group = tags.value.case.group?.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
+    tags.case.group = tags.case.group?.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
   }
 
   const getEmbroidery = async (id) => {
