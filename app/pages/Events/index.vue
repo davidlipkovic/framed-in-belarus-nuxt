@@ -1,18 +1,19 @@
 <script setup>
 // wip
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import useNewsStore from "@/stores/news"
 import { useRoute, useRouter } from 'vue-router'
+import { useApi } from "@/composables/Api"
 
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const newsStore = useNewsStore()
+const { createAsyncDataOptions } = useApi()
 
 definePageMeta({
   middleware: [
-    'news',
     'auth-general',
   ],
 })
@@ -27,15 +28,31 @@ useHead({
   ],
 })
 
+const asyncDataOptions = createAsyncDataOptions(newsStore.articles)
+
+const { data } = await useAsyncData(
+  'articles',
+  () => newsStore.getArticles(),
+  asyncDataOptions,
+)
+
+newsStore.setArticles(data.value)
+
 const currentTag = ref(null)
 
 const filteredArticles = computed(() => {
-  const mergedArticles = newsStore.articlesPublication
-  if (!currentTag.value) return mergedArticles
-  return mergedArticles.filter((article) => article.category.toLowerCase() === currentTag.value)
+  if (!currentTag.value) {
+    return newsStore.articlesByDate
+  }
+
+  return newsStore.articlesByDate.filter((article) => article.category.toLowerCase() === currentTag.value)
 })
 
 const tags = computed(() => {
+  if (!newsStore.articlesByDate) {
+    return
+  }
+
   const tagsAcc = new Map()
 
   tagsAcc.set('allItems', {
@@ -43,7 +60,7 @@ const tags = computed(() => {
     translationKey: 'allItems',
   })
 
-  newsStore.articlesPublication.forEach(article => {
+  newsStore.articlesByDate.forEach(article => {
     const value = {}
 
     if (article.category === 'Workshop') {

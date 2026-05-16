@@ -3,11 +3,11 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
-import useHeroesStore from "@/stores/heroes"
+import usePrisonersStore from "@/stores/prisoners"
 import { useChosenHeroData } from "@/composables/ChosenHeroData"
 import { useConvertDate } from "@/composables/ConvertDate"
 
-const heroesStore = useHeroesStore()
+const prisonersStore = usePrisonersStore()
 const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
 const { convertDateToReadable } = useConvertDate()
 
@@ -41,14 +41,14 @@ const showMore = ref(false)
     <div class="Hero-header">
       <div class="Hero-header-photo">
         <img 
-          v-if="!heroesStore.chosenHero.photo || heroesStore.chosenHero.photo === '' || heroesStore.chosenHero.photo === 'FALSE'"
+          v-if="!prisonersStore.chosenHero.photo || prisonersStore.chosenHero.photo === '' || prisonersStore.chosenHero.photo === 'FALSE'"
           src="../../../assets/media/img/profileSymbolFramed.svg"
-          :alt="'Photo of' + heroesStore.chosenHero.name"
+          :alt="'Photo of' + prisonersStore.chosenHero.name"
         >
         <img 
           v-else
-          :src="heroesStore.chosenHero.photo" 
-          :alt="'Photo of' + heroesStore.chosenHero.name"
+          :src="prisonersStore.chosenHero.photo" 
+          :alt="'Photo of' + prisonersStore.chosenHero.name"
         >
       </div>
       <div class="Hero-header-title">
@@ -59,7 +59,7 @@ const showMore = ref(false)
           {{ $t('embroidery.steps.description.case') }}: {{ prisonerCaseName }}
         </p>
         <h2 class="Hero-header-name">
-          {{ heroesStore.chosenHero.name }}
+          {{ prisonersStore.chosenHero.name }}
         </h2>
       </div>
     </div>
@@ -69,25 +69,25 @@ const showMore = ref(false)
     >
       <div class="Hero-Bio-Wrapper flexColumnStart">
         <div 
-          v-if="heroesStore.chosenHero.dateOfBirth"
+          v-if="prisonersStore.chosenHero.dateOfBirth"
           class="Hero-Bio-info"
         >
           <h3 class="title">
             {{ $t('embroidery.steps.description.birth') }}:
           </h3>
           <p>
-            {{ convertDateToReadable(heroesStore.chosenHero.dateOfBirth) }}
+            {{ convertDateToReadable(prisonersStore.chosenHero.dateOfBirth) }}
           </p>
         </div>
         <div 
-          v-if="heroesStore.chosenHero.dateOfDetention" 
+          v-if="prisonersStore.chosenHero.dateOfDetention" 
           class="Hero-Bio-info"
         >
           <h3 class="title">
             {{ $t('embroidery.steps.description.detention') }}:
           </h3>
           <p>
-            {{ convertDateToReadable(heroesStore.chosenHero.dateOfDetention) }}
+            {{ convertDateToReadable(prisonersStore.chosenHero.dateOfDetention) }}
           </p>
         </div>
         <div 
@@ -103,14 +103,14 @@ const showMore = ref(false)
         </div>
       </div>
       <div 
-        v-if="heroesStore.chosenHero.description"
+        v-if="prisonersStore.chosenHero.description"
         class="Hero-Description-data"
       >
         <h3 class="title">
           {{ $t('embroidery.steps.description.descriptionPrisoner') }}:
         </h3>
         <p>
-          {{ heroesStore.chosenHero.description }}
+          {{ prisonersStore.chosenHero.description }}
         </p>
       </div>
       <div 
@@ -125,14 +125,14 @@ const showMore = ref(false)
         </p>
       </div>
       <div 
-        v-if="heroesStore.chosenHero.prisonAddress"
+        v-if="prisonersStore.chosenHero.prisonAddress"
         class="Hero-Description-data"
       >
         <h3 class="title">
           {{ $t('embroidery.steps.description.address') }}:
         </h3>
         <p>
-          {{ heroesStore.chosenHero.prisonAddress }}
+          {{ prisonersStore.chosenHero.prisonAddress }}
         </p>
       </div>
     </div>

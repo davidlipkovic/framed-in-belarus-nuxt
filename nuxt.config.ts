@@ -75,6 +75,11 @@ export default defineNuxtConfig({
     '/Profile/**': { ssr: false },
     '/VerifyEmail/**': { ssr: false },
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: 'https://d2wpukog48e17c.cloudfront.net'
+    }
+  },
   site: { 
     url: 'https://framedinbelarus.net', 
     name: 'Framed in Belarus' 

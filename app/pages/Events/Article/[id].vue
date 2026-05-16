@@ -6,44 +6,52 @@ import VueMarkdown from 'vue-markdown-render'
 import useNewsStore from "@/stores/news"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 import { useConvertDate } from "@/composables/ConvertDate"
-
-definePageMeta({
-  middleware: [
-    'news',
-    'auth-general',
-  ],
-})
+import { useApi } from "@/composables/Api"
 
 const route = useRoute()
 const { t } = useI18n()
 const newsStore = useNewsStore()
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 const { convertToEventDate } = useConvertDate()
+const { createAsyncDataOptions } = useApi()
+
+definePageMeta({
+  middleware: [
+    'auth-general',
+  ],
+})
+
+const asyncDataOptions = createAsyncDataOptions(newsStore.articles)
+
+const { data } = await useAsyncData(
+  'articles',
+  () => newsStore.getArticles(),
+  asyncDataOptions,
+)
+
+newsStore.setArticles(data.value)
+newsStore.setCurentArticle(route.params.id)
 
 const newsDetailWrapper = ref(null)
 
-const article = computed(() => {
-  return newsStore.articles.find(article => article.id === route.params.id)
-})
-
 const date = computed(() => {
-  return convertToEventDate(article.value.startDate, article.value.endDate)
+  return convertToEventDate(newsStore.currentArticle.startDate, newsStore.currentArticle.endDate)
 })
 
 const description = computed(() => {
-  return getCurrentLocaleStringValue(article.value, 'description_')
+  return getCurrentLocaleStringValue(newsStore.currentArticle, 'description_')
 })
 
 const title = computed(() => {
-  return getCurrentLocaleStringValue(article.value, 'title_')
+  return getCurrentLocaleStringValue(newsStore.currentArticle, 'title_')
 })
 
 const perex = computed(() => {
-  return getCurrentLocaleStringValue(article.value, 'perex_')
+  return getCurrentLocaleStringValue(newsStore.currentArticle, 'perex_')
 })
 
 const slides = computed(() => {
-  return article.value.photos.map((photo) => {
+  return newsStore.currentArticle.photos.map((photo) => {
     return {
       small: photo.thumbnails.small.url,
       large: photo.thumbnails.large.url,
@@ -66,10 +74,10 @@ useHead({
   title,
   meta: [
     { name: 'description', content: perex },
-    { name: 'keywords', content: t('newsDetailPage.meta.keywords', { eventNameRus: article.value.title_rus, place: article.value.place, city: article.value.city, category: article.value.category }) },
+    { name: 'keywords', content: t('newsDetailPage.meta.keywords', { eventNameRus: newsStore.currentArticle.title_rus, place: newsStore.currentArticle.place, city: newsStore.currentArticle.city, category: newsStore.currentArticle.category }) },
     { property: 'og:title', content: title.value },
     { property: 'og:description', content: perex },
-    { property: 'og:image', content: article.value.photo },
+    { property: 'og:image', content: newsStore.currentArticle.photo },
   ],
 })
 
@@ -106,7 +114,7 @@ onMounted(() => {
         <p class="infoWrapper infoWrapperPlace flexRowStart">
           <SvgLocation class="ExhibitionListItem-descript-icon descriptIcon"/>
           <b class="b2">
-            {{ article.place }}, {{ article.city }}, {{ article.country }}
+            {{ newsStore.currentArticle.place }}, {{ newsStore.currentArticle.city }}, {{ newsStore.currentArticle.country }}
           </b>
         </p>
         <div ref="newsDetailWrapper">

@@ -1,23 +1,35 @@
 <script setup>
-import { computed, onMounted, reactive, ref, watch } from "vue"
-import useHeroesStore from "@/stores/heroes"
+import { computed, onMounted, ref } from "vue"
+import usePrisonersStore from "@/stores/prisoners"
 import useUserStore from "@/stores/user"
-const heroesStore = useHeroesStore()
+import { useApi } from "@/composables/Api"
+
+const prisonersStore = usePrisonersStore()
 const userStore = useUserStore()
+const { createAsyncDataOptions } = useApi()
 
 definePageMeta({
   layout: "nopointer",
   middleware: [
     'auth-general',
-    'heroes',
   ],
 })
 
+const asyncDataOptions = createAsyncDataOptions(prisonersStore.originalPrisoners)
+
+const { data } = await useAsyncData(
+  'prisoners',
+  () => prisonersStore.getPrisoners(),
+  asyncDataOptions,
+)
+
+prisonersStore.setPrisoners(data.value)
+
 const isMounted = ref(false)
 
-const numberOfHeroes = computed(() => {
-  if (!heroesStore.loading && heroesStore.originalHeroes) {
-    return heroesStore.originalHeroes.length
+const numberOfPrisoners = computed(() => {
+  if (!prisonersStore.loading && prisonersStore.originalPrisoners) {
+    return prisonersStore.originalPrisoners.length
   }
   return 3000
 })
@@ -75,8 +87,8 @@ onMounted(() => {
         <div class="section">
           <p class="">
             {{ $t('homePage.paragraph1.content1') }}
-            <span class='bigger1' data-allow-mismatch>
-              {{ numberOfHeroes }}
+            <span class='bigger1'>
+              {{ numberOfPrisoners }}
             </span>
             {{ $t('homePage.paragraph1.content2') }}
           </p>

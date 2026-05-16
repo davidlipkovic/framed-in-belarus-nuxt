@@ -6,16 +6,17 @@ import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
 import { useSearch } from "@/composables/Search"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
+import { useApi } from "@/composables/Api"
 
 const route = useRoute()
 const { locale, t, localeProperties } = useI18n()
 const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
+const { createAsyncDataOptions } = useApi()
 
 definePageMeta({
   middleware: [
     'auth-general',
-    'gallery',
   ],
 })
 
@@ -43,6 +44,16 @@ const {
 } = useSearch()
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
+
+const asyncDataOptions = createAsyncDataOptions(galleryStore.originalEmbroideries)
+
+const { data } = await useAsyncData(
+  'embroideries',
+  () => galleryStore.getEmbroideries(),
+  asyncDataOptions,
+)
+
+galleryStore.setEmbroideries(data.value)
 
 const sortedEmbroideries = computed(() => {
   if (!galleryStore.embroideriesAlphabetically) {

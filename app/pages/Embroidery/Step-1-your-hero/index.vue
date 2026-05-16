@@ -2,13 +2,13 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import useHeroesStore from "@/stores/heroes"
+import usePrisonersStore from "@/stores/prisoners"
 import { useChosenHeroData } from "@/composables/ChosenHeroData"
 import { useConvertDate } from "@/composables/ConvertDate"
 
 const router = useRouter()
 const { t } = useI18n()
-const heroesStore = useHeroesStore()
+const prisonersStore = usePrisonersStore()
 const { penalty, prisonerCaseDescription, prisonerCaseName } = useChosenHeroData()
 const { convertDateToReadable } = useConvertDate()
 
@@ -29,11 +29,11 @@ useHead({
 })
 
 const handleCreateStitchingActivity = async() => {
-  heroesStore.loading = true
-  await heroesStore.createStitchingActivity(heroesStore.chosenHero.kit[0].id)
-  heroesStore.loading = false
+  prisonersStore.loading = true
+  await prisonersStore.createStitchingActivity(prisonersStore.chosenHero.kit[0].id)
+  prisonersStore.loading = false
   router.push('/Embroidery/Step-2-preparation')
-  heroesStore.chosenHero = null
+  prisonersStore.chosenHero = null
 }
 </script>
 
@@ -59,14 +59,14 @@ const handleCreateStitchingActivity = async() => {
       <section class="FoundHero" hidden>
         <div class="Hero-Photo">
           <img 
-            v-if="!heroesStore.chosenHero.photo || heroesStore.chosenHero.photo === '' || heroesStore.chosenHero.photo === 'FALSE'"
+            v-if="!prisonersStore.chosenHero.photo || prisonersStore.chosenHero.photo === '' || prisonersStore.chosenHero.photo === 'FALSE'"
             src="../../../assets/media/img/profileSymbolFramed.svg"
-            :alt="'Photo of' + heroesStore.chosenHero.name"
+            :alt="'Photo of' + prisonersStore.chosenHero.name"
           >
           <img 
             v-else
-            :src="heroesStore.chosenHero.photo" 
-            :alt="'Photo of' + heroesStore.chosenHero.name"
+            :src="prisonersStore.chosenHero.photo" 
+            :alt="'Photo of' + prisonersStore.chosenHero.name"
           >
         </div>
         <div class="Hero-Description">
@@ -77,29 +77,29 @@ const handleCreateStitchingActivity = async() => {
             {{ $t('embroidery.steps.description.case') }}: {{ prisonerCaseName }}
           </p>
           <h2 class="Hero-Description-name">
-            {{ heroesStore.chosenHero.name }}
+            {{ prisonersStore.chosenHero.name }}
           </h2>
           <div class="Hero-content-titleWrapper flexRowStart">
             <div
-              v-if="heroesStore.chosenHero.dateOfBirth"
+              v-if="prisonersStore.chosenHero.dateOfBirth"
               class="Hero-Bio-info"
             >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.birth') }}:
               </h3>
               <p>
-                {{ convertDateToReadable(heroesStore.chosenHero.dateOfBirth) }}
+                {{ convertDateToReadable(prisonersStore.chosenHero.dateOfBirth) }}
               </p>
             </div>
             <div 
-              v-if="heroesStore.chosenHero.dateOfDetention" 
+              v-if="prisonersStore.chosenHero.dateOfDetention" 
               class="Hero-Bio-info"
             >
               <h3 class="title">
                 {{ $t('embroidery.steps.description.detention') }}:
               </h3>
               <p>
-                {{ convertDateToReadable(heroesStore.chosenHero.dateOfDetention) }}
+                {{ convertDateToReadable(prisonersStore.chosenHero.dateOfDetention) }}
               </p>
             </div>
             <div 
@@ -122,25 +122,25 @@ const handleCreateStitchingActivity = async() => {
             :limit="500"
           />
           <GeneralToggleText 
-            v-if="heroesStore.chosenHero.description"
+            v-if="prisonersStore.chosenHero.description"
             class="Hero-Description-data"
-            :message="heroesStore.chosenHero.description"
+            :message="prisonersStore.chosenHero.description"
             :title="$t('embroidery.steps.description.descriptionPrisoner') + ':'"
             :limit="500"
           />
           <div 
-            v-if="heroesStore.chosenHero.prisonAddress"
+            v-if="prisonersStore.chosenHero.prisonAddress"
             class="Hero-Description-data Hero-Description-prison-address"
           >
             <h3 class="title">
               {{ $t('embroidery.steps.description.address') }}:
             </h3>
             <p>
-              {{ heroesStore.chosenHero.prisonAddress }}
+              {{ prisonersStore.chosenHero.prisonAddress }}
             </p>
           </div>
           <a
-            :href="heroesStore.chosenHero.viasnaUrl" 
+            :href="prisonersStore.chosenHero.viasnaUrl" 
             target="_blank"
             class="linkToSource flexRowStart red"
           >

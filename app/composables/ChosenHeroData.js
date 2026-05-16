@@ -1,25 +1,25 @@
 import { computed } from "vue"
-import useHeroesStore from "@/stores/heroes"
+import usePrisonersStore from "@/stores/prisoners"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 
 export function useChosenHeroData() {
-  const heroesStore = useHeroesStore()
+  const prisonersStore = usePrisonersStore()
   const { currentLocaleName } = useCurrentLocale()
 
   const penalty = computed(() => {
-    return heroesStore.chosenHero['decision_' + currentLocaleName.value.toLowerCase()]
+    return prisonersStore.chosenHero['decision_' + currentLocaleName.value.toLowerCase()]
   })
   
   const prisonerDescription = computed(() => {
-    return heroesStore.chosenHero['description_' + currentLocaleName.value.toLowerCase()]
+    return prisonersStore.chosenHero['description_' + currentLocaleName.value.toLowerCase()]
   })
 
   const prisonerCaseDescription = computed(() => {
-    return heroesStore.chosenHero.prisonerCase[0]['description_' + currentLocaleName.value.toLowerCase()]
+    return prisonersStore.chosenHero.prisonerCase[0]['description_' + currentLocaleName.value.toLowerCase()]
   })
   
   const prisonerCaseName = computed(() => {
-    return heroesStore.chosenHero.prisonerCase[0]['caseName_' + currentLocaleName.value.toLowerCase()]
+    return prisonersStore.chosenHero.prisonerCase[0]['caseName_' + currentLocaleName.value.toLowerCase()]
   })
 
   return {

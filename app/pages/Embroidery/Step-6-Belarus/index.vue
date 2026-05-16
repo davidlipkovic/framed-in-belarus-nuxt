@@ -10,7 +10,6 @@ const userStore = useUserStore()
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'heroes',
     'auth-registration',
     'stitching',
     'user-summary',

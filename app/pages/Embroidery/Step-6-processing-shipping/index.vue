@@ -6,7 +6,6 @@ const { t } = useI18n()
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'heroes',
     'auth-registration',
     'stitching',
     'user-summary',

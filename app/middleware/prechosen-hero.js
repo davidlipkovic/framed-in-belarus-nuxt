@@ -1,17 +1,17 @@
-import useHeroesStore from "@/stores/heroes"
-const heroesStore = useHeroesStore()
+import usePrisonersStore from "@/stores/prisoners"
+const prisonersStore = usePrisonersStore()
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (!heroesStore.chosenHero) {
-    heroesStore.loading = true
+  if (!prisonersStore.chosenHero) {
+    prisonersStore.loading = true
     let data = window.sessionStorage.getItem('fibPrechosenHero')
     data = JSON.parse(data)
     if (!data) {
       return navigateTo('/Embroidery/Step-1-choose-hero')
     }
-    heroesStore.chosenHero = data
-    heroesStore.loading = false
+    prisonersStore.chosenHero = data
+    prisonersStore.loading = false
   } else {
-    heroesStore.loading = false
+    prisonersStore.loading = false
   }
 })

@@ -1,6 +1,6 @@
 <script setup>
-import useHeroesStore from "@/stores/heroes"
-const heroesStore = useHeroesStore()
+import usePrisonersStore from "@/stores/prisoners"
+const prisonersStore = usePrisonersStore()
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -8,7 +8,6 @@ const { t } = useI18n()
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'heroes',
     'auth-registration',
     'stitching',
   ],

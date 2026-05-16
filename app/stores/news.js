@@ -1,15 +1,25 @@
 import { ref } from "vue"
 import { defineStore } from "pinia"
 import { useI18n } from 'vue-i18n'
+import { useApi } from "@/composables/Api"
 
 export default defineStore("news", () => {
-  const loading = ref(false)
-  const articles = ref(null)
+  const { apiFetch } = useApi()
 
-  const articlesPublication = computed(() => {
+  const loading = ref(false)
+  const error = ref(null)
+  const articles = ref(null)
+  const currentArticle = ref(null)
+
+  const articlesByDate = computed(() => {
+    if (!articles.value) {
+      return
+    }
+
     const { t } = useI18n()
 
-    const acc = articles.value.sort((a, b) => a.publicationDate - b.publicationDate)
+    let acc = articles.value.sort((a, b) => b.startDate.localeCompare(a.startDate))
+    acc = articles.value.sort((a, b) => a.publicationDate - b.publicationDate)
     const currentArticlesAcc = []
     const passedArticlesAcc = []
 
@@ -36,25 +46,33 @@ export default defineStore("news", () => {
     ]
   })
 
-  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-
   const getArticles = async () => {
-    const data = await $fetch(
-      endpointUrl + '/api/news', 
-      {
-        method: 'get',
-      }
-    )
+    const response = await apiFetch('/api/news', {
+      method: 'GET',
+    })
 
-    console.log('getArticles', data.result)
+    console.log('getArticles', response)
 
-    articles.value = data.result.sort((a, b) => b.startDate.localeCompare(a.startDate))
+    return response.result
+  }
+
+  const setArticles = (data) => {
+    articles.value = data
+  }
+
+  const setCurentArticle = (id) => {
+    const article = articles.value.find(article => article.id === id)
+    currentArticle.value = article
   }
 
   return {
     articles,
-    articlesPublication,
+    articlesByDate,
+    currentArticle,
     loading,
+    error,
     getArticles,
+    setArticles,
+    setCurentArticle,
   }
 })

@@ -13,7 +13,6 @@ const { validateLatinCharacters, validateNameAndSurname, validateText} = useVali
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'heroes',
     'auth-registration',
     'stitching',
     'user-summary',

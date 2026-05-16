@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useWindowSize } from '@vueuse/core'
 import useGalleryStore from "@/stores/gallery"
@@ -9,6 +10,7 @@ import { useConvertDate } from "@/composables/ConvertDate"
 import { useCurrentLocale } from "@/composables/CurrentLocale"
 import { useRemoveNull } from "@/composables/RemoveNull"
 
+const route = useRoute()
 const { t } = useI18n()
 const { width } = useWindowSize()
 const galleryStore = useGalleryStore()
@@ -24,6 +26,13 @@ definePageMeta({
     'gallery-embroidery',
   ],
 })
+
+const { data } = await useAsyncData(
+  'embroidery',
+  () => galleryStore.getEmbroidery(route.params.id),
+)
+
+galleryStore.setEmbroidery(data.value)
 
 const currentFullScreenSlide = ref(0)
 const showFullScreenSwiper = ref(false)

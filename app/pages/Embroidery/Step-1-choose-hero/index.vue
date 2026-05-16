@@ -2,13 +2,13 @@
 import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import useHeroesStore from "@/stores/heroes"
+import usePrisonersStore from "@/stores/prisoners"
 import { useSearch } from "@/composables/Search"
 
 const route = useRoute()
 const { t } = useI18n()
 
-const heroesStore = useHeroesStore()
+const prisonersStore = usePrisonersStore()
 const {
   updatePageIndex,
   currentOrder,
@@ -28,7 +28,6 @@ const {
 definePageMeta({
   layout: "embroidery",
   middleware: [
-    'heroes',
     'auth-registration',
   ],
 })
@@ -41,17 +40,17 @@ useHead({
   ],
 })
 
-const localTags = computed(() => heroesStore.tags.value)
-const parsedHeroes = computed(() => parseData(heroesStore, 'heroes'))
+const localTags = computed(() => prisonersStore.tags.value)
+const parsedPrisoners = computed(() => parseData(prisonersStore, 'prisoners'))
 
 onMounted(() => {
-  console.log('Step-1-choose-hero', heroesStore.heroesAlphabetically);
+  console.log('Step-1-choose-hero', prisonersStore.prisonersAlphabetically);
 
-  numberOfPages.value = Number((heroesStore.heroesAlphabetically.length / rangePerPage.value + 0.5).toFixed())
+  numberOfPages.value = Number((prisonersStore.prisonersAlphabetically.length / rangePerPage.value + 0.5).toFixed())
 })
 
 const alreadyChosen = computed(() => {
-  return parsedHeroes.value.some(hero => hero.chosen) || (searchQuery.value === 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value !== 'notInDatabase')
+  return parsedPrisoners.value.some(hero => hero.chosen) || (searchQuery.value === 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value !== 'notInDatabase')
 })
 
 const linkToAlreadyChosen = computed(() => {
@@ -59,11 +58,11 @@ const linkToAlreadyChosen = computed(() => {
 })
 
 const noPattern = computed(() => {
-  return parsedHeroes.value.some(hero => hero.hasPattern) || (searchQuery.value !== 'alreadyChosen' && searchQuery.value === 'noPattern' && searchQuery.value !== 'notInDatabase')
+  return parsedPrisoners.value.some(hero => hero.hasPattern) || (searchQuery.value !== 'alreadyChosen' && searchQuery.value === 'noPattern' && searchQuery.value !== 'notInDatabase')
 })
 
 const notInDatabase = computed(() => {
-  return !parsedHeroes.value.length || (searchQuery.value !== 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value === 'notInDatabase')
+  return !parsedPrisoners.value.length || (searchQuery.value !== 'alreadyChosen' && searchQuery.value !== 'noPattern' && searchQuery.value === 'notInDatabase')
 })
 
 const noAccess = computed(() => {
@@ -287,11 +286,11 @@ watch(route, () => {
         <template v-if="!alreadyChosen && !noPattern && !notInDatabase">
           <div class="searchResultsWrapper">
             <GeneralResultBox
-              v-for="hero in parsedHeroes" 
+              v-for="hero in parsedPrisoners" 
               :key="hero.id"
               :result="hero"
               :isEmbroidery="true"
-              @click="heroesStore.setPrechosenHero(hero.id)"
+              @click="prisonersStore.setPrechosenHero(hero.id)"
             />
           </div>
           <GeneralPagination

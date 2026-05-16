@@ -29,7 +29,7 @@ export default defineStore("user", () => {
   }
 
   const scheduleExpiry = () => {
-    clearTimeout(expiryTimer) // clear any existing timer first
+    clearTimeout(expiryTimer)
     expiryTimer = setTimeout(() => removeUserLocalData(), LOCAL_DATA_DURATION)
   }
 

@@ -1,7 +1,10 @@
 import { ref, shallowRef } from "vue"
 import { defineStore } from "pinia"
+import { useApi } from "@/composables/Api"
 
 export default defineStore("gallery", () => {
+  const { apiFetch } = useApi()
+
   const loading = ref(false)
   const originalEmbroideries = shallowRef(null)
   const embroideriesAlphabetically = shallowRef(null)
@@ -28,19 +31,20 @@ export default defineStore("gallery", () => {
     }
   })
 
-  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-
   const getEmbroideries = async () => {
-    const data = await $fetch(
-      endpointUrl + '/api/prisoners/gallery', 
-      {
-        method: 'get',
-      }
-    )
+    const response = await apiFetch('/api/prisoners/gallery', {
+      method: 'GET',
+    })
 
-    console.log('getEmbroideries', data.result)
+    console.log('getEmbroideries', response)
 
-    originalEmbroideries.value = data.result
+    return response.result
+  }
+
+  const setEmbroideries = (data) => {
+    originalEmbroideries.value = data
+    populateGroupCases()
+    sortEmbroideries()
   }
 
   const populateGroupCases = () => {
@@ -72,16 +76,17 @@ export default defineStore("gallery", () => {
   }
 
   const getEmbroidery = async (id) => {
-    const data = await $fetch(
-      endpointUrl + '/api/prisoners/gallery/' + id, 
-      {
-        method: 'get',
-      }
-    )
+    const response = await apiFetch('/api/prisoners/gallery/' + id, {
+      method: 'GET',
+    })
 
-    console.log('getEmbroidery', data.result)
-    
-    currentEmbroidery.value = data.result
+    console.log('getEmbroidery', response)
+
+    return response.result
+  }
+
+  const setEmbroidery = async (data) => {
+    currentEmbroidery.value = data
   }
 
   const sortEmbroideries = () => {
@@ -101,7 +106,9 @@ export default defineStore("gallery", () => {
     // embroideriesChronologicallyReversed,
     loading,
     getEmbroideries,
+    setEmbroideries,
     getEmbroidery,
+    setEmbroidery,
     sortEmbroideries,
     currentEmbroidery,
     populateGroupCases,

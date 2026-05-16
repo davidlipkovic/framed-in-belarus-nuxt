@@ -1,28 +1,29 @@
 import { computed, reactive, ref } from "vue"
 import { defineStore } from "pinia"
-// import tagsJSON from '../assets/json/tags.json'
 import useUserStore from './user'
+import { useApi } from "@/composables/Api"
 
-export default defineStore("heroes", () => {
+export default defineStore("prisoners", () => {
   const userStore = useUserStore()
+  const { apiFetch } = useApi()
 
   const loading = ref(false)
-  const originalHeroes = ref(null)
-  const availableHeroes = computed(() => originalHeroes.value.filter((hero) => hero.kit && hero.kit[0].status === 'Shared'))
-  const heroesAlphabetically = computed(() => availableHeroes.value.sort((a, b) => a.name.localeCompare(b.name)))
-  const heroesAlphabeticallyReversed = computed(() => heroesAlphabetically.value.reverse())
-  const heroesChronologically = computed(() => availableHeroes.value.sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic))
-  const heroesChronologicallyReversed = computed(() => heroesChronologically.value.reverse())
+  const originalPrisoners = ref(null)
+  const availablePrisoners = computed(() => originalPrisoners.value.filter((hero) => hero.kit && hero.kit[0].status === 'Shared'))
+  const prisonersAlphabetically = computed(() => availablePrisoners.value.sort((a, b) => a.name.localeCompare(b.name)))
+  const prisonersAlphabeticallyReversed = computed(() => prisonersAlphabetically.value.reverse())
+  const prisonersChronologically = computed(() => availablePrisoners.value.sort((a, b) => a.arrestedProgrammatic - b.arrestedProgrammatic))
+  const prisonersChronologicallyReversed = computed(() => prisonersChronologically.value.reverse())
   const tags = reactive([])
 
   const chosenHero = ref(null)
 
   const setChosenHero = (kitId) => {
-    chosenHero.value = originalHeroes.value.find((hero) => hero.kit[0].id === kitId)
+    chosenHero.value = originalPrisoners.value.find((hero) => hero.kit[0].id === kitId)
   }
 
   const setPrechosenHero = (id) => {
-    chosenHero.value = originalHeroes.value.find(hero => hero.id === id)
+    chosenHero.value = originalPrisoners.value.find(hero => hero.id === id)
 
     // WIP
     // if (window.sessionStorage) {
@@ -30,18 +31,23 @@ export default defineStore("heroes", () => {
     // }
   }
 
-  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
-
-  const getPrisonersList = async () => {
-    const data = await $fetch(endpointUrl + '/api/prisoners', {
-      method: 'get',
+  const getPrisoners = async () => {
+    const response = await apiFetch('/api/prisoners', {
+      method: 'GET',
     })
 
-    console.log('getPrisonersList', data.result)
+    console.log('getPrisoners', response)
 
-    originalHeroes.value = data.result
+    return response.result
   }
-  
+
+  const setPrisoners = (data) => {
+    originalPrisoners.value = data
+  }
+
+  // WIP
+  const endpointUrl = 'https://d2wpukog48e17c.cloudfront.net'
+
   const createStitchingActivity = async (kitId) => {
     const headers = userStore.setHeaders()
 
@@ -86,21 +92,20 @@ export default defineStore("heroes", () => {
     console.log('getStitchingActivities', data.value)
   }
 
-  // tags.value = tagsJSON
-
   return {
     chosenHero,
     setChosenHero,
     setPrechosenHero,
-    originalHeroes,
+    originalPrisoners,
     loading,
-    getPrisonersList,
+    getPrisoners,
+    setPrisoners,
     createStitchingActivity,
     getStitchingActivities,
-    heroesAlphabetically,
-    heroesAlphabeticallyReversed,
-    heroesChronologically,
-    heroesChronologicallyReversed,
+    prisonersAlphabetically,
+    prisonersAlphabeticallyReversed,
+    prisonersChronologically,
+    prisonersChronologicallyReversed,
     tags,
   }
 })
