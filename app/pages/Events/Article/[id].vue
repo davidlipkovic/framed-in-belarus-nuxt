@@ -21,15 +21,15 @@ definePageMeta({
   ],
 })
 
-const asyncDataOptions = createAsyncDataOptions(newsStore.articles)
+const cachedData = toRef(newsStore.articles)
+const asyncDataOptions = createAsyncDataOptions(cachedData)
 
-const { data } = await useAsyncData(
+await useAsyncData(
   'articles',
   () => newsStore.getArticles(),
   asyncDataOptions,
 )
 
-newsStore.setArticles(data.value)
 newsStore.setCurentArticle(route.params.id)
 
 const newsDetailWrapper = ref(null)

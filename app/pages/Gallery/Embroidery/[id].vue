@@ -28,11 +28,13 @@ definePageMeta({
 })
 
 const { data } = await useAsyncData(
-  'embroidery',
+  'embroidery:' + route.params.id,
   () => galleryStore.getEmbroidery(route.params.id),
 )
 
 galleryStore.setEmbroidery(data.value)
+galleryStore.sortEmbroideries()
+galleryStore.populateGroupCases()
 
 const currentFullScreenSlide = ref(0)
 const showFullScreenSwiper = ref(false)

@@ -15,7 +15,7 @@ definePageMeta({
   ],
 })
 
-const asyncDataOptions = createAsyncDataOptions(prisonersStore.originalPrisoners)
+const asyncDataOptions = createAsyncDataOptions(() => prisonersStore.originalPrisoners)
 
 const { data } = await useAsyncData(
   'prisoners',

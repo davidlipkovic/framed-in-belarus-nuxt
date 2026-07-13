@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { NuxtError } from '#app'
+const { $getPreviousRoute } = useNuxtApp()
 import { onMounted, ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -38,11 +40,28 @@ const urls = new Map([
   ['/Events/Article/recKwuPVejgbM7sL4', '/Events/Article/18th-textile-triennial-in-odz-2025-2026'],
 ])
 
+const props = defineProps({
+  error: Object as () => NuxtError,
+})
+
+console.log('error page')
+
+
+// const handleError = () => clearError({ redirect: '/' })
+
 const goBack = () => {
+  const previousRoute = $getPreviousRoute()
+
+  console.log('goBack', previousRoute)
+  
+
+  clearError()
+
   if (document.referrer.includes(window.location.origin)) {
-    router.go(-1)
+
+    clearError({ redirect: previousRoute })
   } else {
-    router.replace('/')
+    clearError({ redirect: '/' })
   }
 }
 
@@ -70,6 +89,7 @@ onMounted(() => {
       <span class="notFoundIcon">
         404
       </span>
+      {{ error }}
       <h1 class="title">
         {{ $t('notFoundPage.title') }}
       </h1>

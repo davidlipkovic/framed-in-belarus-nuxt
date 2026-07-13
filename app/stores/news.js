@@ -7,7 +7,6 @@ export default defineStore("news", () => {
   const { apiFetch } = useApi()
 
   const loading = ref(false)
-  const error = ref(null)
   const articles = ref(null)
   const currentArticle = ref(null)
 
@@ -47,17 +46,24 @@ export default defineStore("news", () => {
   })
 
   const getArticles = async () => {
-    const response = await apiFetch('/api/news', {
-      method: 'GET',
-    })
+    // try {
+      const response = await apiFetch('/api/nes', {
+        method: 'GET',
+      })
 
-    console.log('getArticles', response)
+      console.log('getArticles', response)
 
-    return response.result
-  }
-
-  const setArticles = (data) => {
-    articles.value = data
+      articles.value = response.result
+      return response.result
+    // } catch (err) {
+    //   articles.value = null
+    //   throw createError({
+    //     statusCode: err.status ?? 500,
+    //     message: err.data?.message ?? err.message ?? 'API request failed',
+    //     data: err.data,
+    //     fatal: false,
+    //   })
+    // }
   }
 
   const setCurentArticle = (id) => {
@@ -70,9 +76,7 @@ export default defineStore("news", () => {
     articlesByDate,
     currentArticle,
     loading,
-    error,
     getArticles,
-    setArticles,
     setCurentArticle,
   }
 })

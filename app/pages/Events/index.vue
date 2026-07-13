@@ -28,15 +28,18 @@ useHead({
   ],
 })
 
-const asyncDataOptions = createAsyncDataOptions(newsStore.articles)
+const cachedData = toRef(newsStore.articles)
+const asyncDataOptions = createAsyncDataOptions(cachedData)
 
-const { data } = await useAsyncData(
+const { error, refresh } = await useAsyncData(
   'articles',
   () => newsStore.getArticles(),
   asyncDataOptions,
 )
 
-newsStore.setArticles(data.value)
+if (error.value) {
+  throw createError({ statusCode: 500, message: 'Failed to load events', fatal: false})
+}
 
 const currentTag = ref(null)
 

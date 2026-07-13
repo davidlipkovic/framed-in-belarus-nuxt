@@ -45,7 +45,7 @@ const {
 
 const { getCurrentLocaleStringValue } = useCurrentLocale()
 
-const asyncDataOptions = createAsyncDataOptions(galleryStore.originalEmbroideries)
+const asyncDataOptions = createAsyncDataOptions(() => galleryStore.originalEmbroideries)
 
 const { data } = await useAsyncData(
   'embroideries',

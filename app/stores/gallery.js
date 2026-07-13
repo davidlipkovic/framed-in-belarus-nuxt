@@ -32,6 +32,8 @@ export default defineStore("gallery", () => {
     }
   })
 
+  // API functions
+
   const getEmbroideries = async () => {
     const response = await apiFetch('/api/prisoners/gallery', {
       method: 'GET',
@@ -44,9 +46,23 @@ export default defineStore("gallery", () => {
 
   const setEmbroideries = (data) => {
     originalEmbroideries.value = data
-    populateGroupCases()
-    sortEmbroideries()
   }
+
+  const getEmbroidery = async (id) => {
+    const response = await apiFetch('/api/prisoners/gallery/' + id, {
+      method: 'GET',
+    })
+
+    console.log('getEmbroidery', response)
+
+    return response.result
+  }
+
+  const setEmbroidery = async (data) => {
+    currentEmbroidery.value = data
+  }
+
+  // sorting functions
 
   const populateGroupCases = () => {
     const groupCasesAccumulator = []
@@ -76,23 +92,9 @@ export default defineStore("gallery", () => {
     tags.case.group = tags.case.group?.sort((a, b) => a['caseName_' + lang].localeCompare(b['caseName_' + lang]))
   }
 
-  const getEmbroidery = async (id) => {
-    const response = await apiFetch('/api/prisoners/gallery/' + id, {
-      method: 'GET',
-    })
-
-    console.log('getEmbroidery', response)
-
-    return response.result
-  }
-
-  const setEmbroidery = async (data) => {
-    currentEmbroidery.value = data
-  }
-
   const sortEmbroideries = () => {
-    embroideriesAlphabetically.value = [...originalEmbroideries.value].sort((a, b) => a.name.localeCompare(b.name))
-    embroideriesAlphabeticallyReversed.value = [...embroideriesAlphabetically.value].reverse()
+    embroideriesAlphabetically.value = originalEmbroideries.value.sort((a, b) => a.name.localeCompare(b.name))
+    embroideriesAlphabeticallyReversed.value = embroideriesAlphabetically.value.reverse()
   }
 
   const updateCurrentEmbroideryStatus = (status) => {
